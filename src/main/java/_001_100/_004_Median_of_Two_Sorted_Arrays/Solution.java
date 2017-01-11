@@ -23,7 +23,7 @@ public class Solution {
       while (iMin <= iMax) {
         int i = (iMin + iMax) / 2;
         int j = (m + n) / 2 - i;
-        if (nums1[i - 1] <= nums2[j] && nums1[j - 1] <= nums2[i]) {
+        if (nums1[i - 1] <= nums2[j] && nums2[j - 1] <= nums1[i]) {
           // find the target.
           int leftMax = Math.max(nums1[i - 1], nums2[j - 1]);
           int rightMin = Math.min(nums1[i], nums2[j]);
@@ -35,7 +35,7 @@ public class Solution {
           }
         } else if (nums1[i - 1] > nums2[j]) { // i is too big, move left
           iMax = i - 1;
-        } else if (nums1[j - 1] > nums2[i]) {
+        } else if (nums2[j - 1] > nums1[i]) {
           iMin = i;
         } else {
           throw new IllegalStateException("nums1[i - 1] <= nums2[j] && nums1[j - 1] <= nums2[i]: " +
