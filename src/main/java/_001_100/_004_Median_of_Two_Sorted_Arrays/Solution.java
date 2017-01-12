@@ -19,27 +19,27 @@ public class Solution {
         nums2 = tmp;
       }
       int m = nums1.length, n = nums2.length;
-      int iMin = 0, iMax = m - 1;
+      int iMin = 0, iMax = m;
       while (iMin <= iMax) {
         int i = (iMin + iMax) / 2;
-        int j = (m + n) / 2 - i;
-        if (nums1[i - 1] <= nums2[j] && nums2[j - 1] <= nums1[i]) {
-          // find the target.
-          int leftMax = Math.max(nums1[i - 1], nums2[j - 1]);
-          int rightMin = Math.min(nums1[i], nums2[j]);
+        int j = (m + n + 1) / 2 - i;
 
-          if ((m + n) % 2 == 1) {
-            return leftMax;
-          } else {
-            return (leftMax + rightMin) / 2d;
-          }
-        } else if (nums1[i - 1] > nums2[j]) { // i is too big, move left
+        if (i > 0 && nums1[i - 1] > nums2[j]) {
+          // i is too big, move left
           iMax = i - 1;
-        } else if (nums2[j - 1] > nums1[i]) {
-          iMin = i;
+        } else if (i < m && nums2[j - 1] > nums1[i]) {
+          iMin = i + 1;
         } else {
-          throw new IllegalStateException("nums1[i - 1] <= nums2[j] && nums1[j - 1] <= nums2[i]: " +
-              "i = " + i + " j = " + j + " ");
+          // find the target.
+          int leftMax = i == 0 ? nums2[j - 1] :
+              j == 0 ? nums1[i - 1] : Math.max(nums1[i - 1], nums2[j - 1]);
+          if ((m + n) % 2 == 1) { // move up to here to avoid indexOutOfBoundaryException.
+            return leftMax;
+          }
+          int rightMin = i == m ? nums2[j] :
+              j == n ? nums1[i] : Math.min(nums1[i], nums2[j]);
+          // only even length
+          return (leftMax + rightMin) / 2d;
         }
       }
       throw new IllegalStateException("Don't understand.");
