@@ -24,15 +24,21 @@ public class Solution {
 
   private int myAtoiHelper(int sign, String substring) {
     int base = 0;
-    boolean isAssignedSign = false;
-    for (int i = 0; i < substring.length(); i++) {
-      base = base * 10 + (int) substring.charAt(i) - (int) '0';
-      if (!isAssignedSign && base != 0) {
-        base *= sign;
-        isAssignedSign = true;
+    int i = 0;
+    while (i < substring.length()) {
+      char chr = substring.charAt(i);
+      if (chr >= '0' && chr <= '9') {
+        if (base > Integer.MAX_VALUE / 10 || (base == Integer.MAX_VALUE / 10 && chr >= '8')) {
+          return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        }
+        base = base * 10 + (int) chr - (int) '0';
+      } else {
+        return sign * base;
       }
+      i++;
     }
-    return base;
+
+    return sign * base;
   }
 
 }
