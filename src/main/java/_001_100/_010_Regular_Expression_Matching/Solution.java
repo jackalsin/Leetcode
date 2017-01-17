@@ -1,6 +1,8 @@
 package _001_100._010_Regular_Expression_Matching;
 
 /**
+ * Key to think is the way we treat "a*".
+ *
  * @author jacka
  * @version 1.0 on 2017/1/15.
  */
