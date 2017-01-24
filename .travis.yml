@@ -8,7 +8,7 @@ addons:
 
 ## do everything in HermiT directory
 ## this installs dependencies. Ant needs no installation because they are already there.
-install: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V;
+install: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V;
 
 ## do the tests
 # script: ant test-hard && cd HermiT && mvn test
