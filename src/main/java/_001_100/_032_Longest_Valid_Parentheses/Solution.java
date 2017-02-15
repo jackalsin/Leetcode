@@ -10,21 +10,32 @@ import java.util.Deque;
 public class Solution {
   public int longestValidParentheses(String s) {
     if (s == null || s.isEmpty()) return 0;
-    int maxLen = 0, curLen = 0;
-    Deque<Character> stack = new ArrayDeque<>();
+    Deque<Integer> indexCannotBeMatched = new ArrayDeque<>();
     for (int i = 0; i < s.length(); i++) {
       if (s.charAt(i) == '(') {
-        stack.addLast('(');
+        indexCannotBeMatched.addLast(i);
       } else {
-        if (!s.isEmpty() && stack.peekLast() == '(') {
-          curLen++;
-          stack.removeLast();
+        if (!indexCannotBeMatched.isEmpty()) {
+          if (s.charAt(indexCannotBeMatched.peekLast()) == '(') {
+            indexCannotBeMatched.removeLast();
+          } else {
+            indexCannotBeMatched.addLast(i);
+          }
         } else {
-          maxLen = Math.max(maxLen, curLen);
-          curLen = 0;
+          indexCannotBeMatched.addLast(i);
         }
       }
     }
-    return maxLen;
+    if (indexCannotBeMatched.isEmpty()) {
+      return s.length();
+    } else {
+      int longestLen = 0, end = s.length();
+      while (!indexCannotBeMatched.isEmpty()) {
+        int curLen = end - indexCannotBeMatched.peekLast() - 1;
+        longestLen = Math.max(longestLen, curLen);
+        end = indexCannotBeMatched.removeLast();
+      }
+      return Math.max(longestLen, end);
+    }
   }
 }
