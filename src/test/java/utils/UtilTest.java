@@ -3,6 +3,7 @@ package utils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
@@ -19,6 +20,12 @@ public class UtilTest {
     ListNode expect3 = new ListNode(3);
     expect2.next = expect3;
     assertEquals(expect, actual);
+  }
+  // 2d array equals with char
+  @Test
+  public void test2dArrayEqualsCharTypeEmptyElement() throws Exception {
+    final char[][] input = new char[][]{};
+    assertTrue(Util.TwoDimensionArrayEquals(input, input));
   }
 
 }
