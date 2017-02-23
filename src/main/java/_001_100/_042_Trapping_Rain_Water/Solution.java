@@ -33,7 +33,6 @@ public class Solution {
         }
         right--;
       }
-
     }
     return result;
   }
