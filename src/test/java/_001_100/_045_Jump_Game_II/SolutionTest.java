@@ -7,10 +7,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/23/2017.
+ * @version 1.0 on 2/24/2017.
  */
 public class SolutionTest {
-
   private Solution solution;
   @Before
   public void setUp() throws Exception {
@@ -19,11 +18,25 @@ public class SolutionTest {
 
   @Test
   public void testWithOnlineCase() throws Exception {
-    assertEquals(2, solution.jump(new int[]{2,3,1,1,4}));
+    final int[] input = new int[] {2,3,1,1,4};
+    assertEquals(2, solution.jump(input));
   }
 
   @Test
   public void testWithSingleElement() throws Exception {
-    assertEquals(0, solution.jump(new int[]{0}));
+    final int[] input = new int[] {1};
+    assertEquals(0, solution.jump(input));
+  }
+
+  @Test
+  public void testWith123() throws Exception {
+    final int[] input = new int[] {1, 2, 3};
+    assertEquals(2, solution.jump(input));
+  }
+
+  @Test
+  public void testWith12() throws Exception {
+    final int[] input = new int[] {1, 2};
+    assertEquals(1, solution.jump(input));
   }
 }
