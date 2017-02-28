@@ -4,12 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import utils.SudokuUtils;
-import utils.Util;
 
 import static _001_100._037_Sudoku_Solver.Solution.isValidInCol;
 import static _001_100._037_Sudoku_Solver.Solution.isValidInSquare;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static utils.TwoDimensionArray.TwoDimensionArrayEquals;
+import static utils.TwoDimensionArray.display2DimensionArray;
 
 /**
  * @author jacka
@@ -34,8 +35,8 @@ public class SolutionTest {
         "198524367","975863124","832491756","641275983"
     });
     solution.solveSudoku(board);
-    Util.display2DimensionArray(board);
-    assertTrue(Util.TwoDimensionArrayEquals(expected, board));
+    display2DimensionArray(board);
+    assertTrue(TwoDimensionArrayEquals(expected, board));
   }
 
 

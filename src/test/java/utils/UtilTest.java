@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static utils.TwoDimensionArray.TwoDimensionArrayEquals;
 
 /**
  * @author jacka
@@ -25,7 +26,7 @@ public class UtilTest {
   @Test
   public void test2dArrayEqualsCharTypeEmptyElement() throws Exception {
     final char[][] input = new char[][]{};
-    assertTrue(Util.TwoDimensionArrayEquals(input, input));
+    assertTrue(TwoDimensionArrayEquals(input, input));
   }
 
 }
