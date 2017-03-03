@@ -35,4 +35,11 @@ public class SolutionTest {
   public void testWithBaseNegativeIndexPositive() throws Exception {
     assertEquals(Math.pow(-3, 5), solution.myPow(-3, 5), 1e-8);
   }
+
+  @Test
+  public void testWithBaseSmallIndexLarge() throws Exception {
+    double base = 0.00001;
+    int index = 2147483647;
+    assertEquals(Math.pow(base, index), solution.myPow(base, index), 1e-8);
+  }
 }

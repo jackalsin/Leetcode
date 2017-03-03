@@ -24,7 +24,6 @@ public class Solution {
 
   double myPowPositiveNPositiveX(double x, int n) {
     if (n == 1) return x;
-    return myPowPositiveNPositiveX(x, n / 2) * myPowPositiveNPositiveX(x, n / 2)
-        * (n % 2 == 0 ? 1: x);
+    return myPowPositiveNPositiveX(x*x, n / 2) * (n % 2 == 0 ? 1: x);
   }
 }
