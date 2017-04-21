@@ -11,17 +11,12 @@ public class Solution {
     if (nums == null || nums.length == 0) {
       return true;
     }
-
-    boolean[] ableToJumpHere = new boolean[nums.length];
-    ableToJumpHere[0] = true;
+    int maxReach = 0;
     for (int i = 0; i < nums.length; i++) {
-      if (ableToJumpHere[i]) {
-        if (i + nums[i] >= nums.length - 1) {
-          return true;
-        }
-        Arrays.fill(ableToJumpHere, i, i + nums[i] + 1, true);
-      }
+      if (maxReach < i) return false;
+      maxReach = Math.max(maxReach, i + nums[i]);
+      if (maxReach >= nums.length - 1) return true;
     }
-    return ableToJumpHere[nums.length - 1];
+    return true;
   }
 }
