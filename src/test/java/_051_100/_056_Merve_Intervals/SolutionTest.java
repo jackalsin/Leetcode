@@ -3,12 +3,12 @@ package _051_100._056_Merve_Intervals;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import utils.Interval;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static utils.Util.getIntervals;
 
 /**
  * @author Zhiwei.Xin
@@ -28,11 +28,5 @@ public class SolutionTest {
     assertEquals(getIntervals(new int[][]{{1,6}, {8, 10}, {15, 18}}), actual);
   }
 
-  private List<Interval> getIntervals(int[][] array) {
-    List<Interval> result = new ArrayList<>();
-    for (int[] child: array) {
-      result.add(new Interval(child[0], child[1]));
-    }
-    return result;
-  }
+
 }
