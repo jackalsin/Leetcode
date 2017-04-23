@@ -52,7 +52,8 @@
                     <format>xml</format>
                     <maxmem>256m</maxmem>
                     <!-- aggregated reports for multi-module projects -->
-                    <aggregate>true</aggregate>
+                 as   <aggregate>true</aggregate>
+                    <check/>
                 </configuration>
             </plugin>
         </plugins>
