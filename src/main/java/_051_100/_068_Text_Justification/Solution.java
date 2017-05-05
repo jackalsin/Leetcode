@@ -18,30 +18,20 @@ public class Solution {
     List<String> curLine = new ArrayList<>();
     for (int wordIndex = 0; wordIndex < words.length; wordIndex++) {
       String word = words[wordIndex];
-      curLen += word.length();
-      if (curLen >= maxWidth) {
-        if (curLen == maxWidth) {
-          curLine.add(word);
-        } else {
-          curLen = curLen - word.length();
-        }
+      if (curLen + word.length() > maxWidth) {
         result.add(paddingToWidth(maxWidth, curLine));
-        //reset
         curLine.clear();
-        if (curLen != maxWidth) {
-          curLen = word.length();
-          curLine.add(word);
-        } else {
-          curLen = 0;
-        }
-      } else {
-        if (!curLine.isEmpty()) {
-          curLen += 1;
-        }
-        curLine.add(word);
+        curLen = 0;
       }
+      curLine.add(word);
+      curLen += 1 + word.length();
       if (wordIndex == words.length - 1 && !curLine.isEmpty()) {
-        result.add(paddingToWidth(maxWidth, curLine));
+        StringBuilder sb = new StringBuilder();
+        for(String child: curLine) {
+          sb.append(" ").append(child);
+        }
+        addSpace(sb, maxWidth - curLen + 1);
+        result.add(sb.substring(1));
       }
     }
     return result;

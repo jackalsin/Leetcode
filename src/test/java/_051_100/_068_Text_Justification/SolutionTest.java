@@ -21,19 +21,36 @@ public class SolutionTest {
   public void setUp() throws Exception {
     solution = new Solution();
   }
-//
-//  @Test
-//  public void testWithMissed() throws Exception {
-//    String[] words = new String[] {"a","b","c","d","e"};
-//    List<String> output = new ArrayList<>();
-//    output.add("a b");
-//    output.add("c d");
-//    output.add("e  ");
-//    assertEquals(output, solution.fullJustify(words, 3));
-//  }
+
+  @Test
+  public void testWithMissed() throws Exception {
+    String[] words = new String[] {"a","b","c","d","e"};
+    List<String> output = new ArrayList<>();
+    output.add("a b");
+    output.add("c d");
+    output.add("e  ");
+    assertEquals(output, solution.fullJustify(words, 3));
+  }
 
   @Test
   public void testWithMissed2() throws Exception {
+    String[] words = new String[] {"What","must","be","shall","be."};
+    List<String> output = new ArrayList<>();
+    output.add("What must be");
+    output.add("shall be.   ");
+    assertEquals(output, solution.fullJustify(words, 12));
+  }
+
+  @Test
+  public void testWithMissed4() throws Exception {
+    String[] words = new String[] {""};
+    List<String> output = new ArrayList<>();
+    output.add("  ");
+    assertEquals(output, solution.fullJustify(words, 2));
+  }
+
+  @Test
+  public void testWithMissed3() throws Exception {
     String[] words = new String[] {"a","b","c","d","e"};
     List<String> output = new ArrayList<>();
     output.add("a");
@@ -41,7 +58,6 @@ public class SolutionTest {
     output.add("c");
     output.add("d");
     output.add("e");
-    assertEquals(output, solution.fullJustify(words, 1));
   }
 
   @Test
