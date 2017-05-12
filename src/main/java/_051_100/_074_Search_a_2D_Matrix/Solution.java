@@ -24,7 +24,7 @@ public class Solution {
       } else {
         endRow = midRow;
       }
-      if (endRow - startRow == 1) { // hit
+      if (endRow - startRow <= 1) { // hit
         break;
       }
     }
