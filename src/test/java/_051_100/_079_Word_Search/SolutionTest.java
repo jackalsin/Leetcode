@@ -32,10 +32,6 @@ public class SolutionTest {
   public void testWithOnlineCase2() throws Exception {
     assertTrue(solution.exist(BOARD, "ABC"));
   }
-  @Test
-  public void testWithOnlineCase3() throws Exception {
-    assertTrue(solution.exist(BOARD, "FE"));
-  }
 
   @Test
   public void testWithDupVisited() throws Exception {
