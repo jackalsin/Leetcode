@@ -27,17 +27,17 @@ public class Solution {
       }
       for (int col = 0; col < cols; col++) {
         if (matrix[row][col] == '1') {
-          left[col] = Math.max(curLeft, left[col - 1]);
+          left[col] = Math.max(curLeft, left[col]);
         } else {
-          left[col] = 0; curLeft++;
+          left[col] = 0; curLeft = col + 1;
         }
       }
 
-      for (int col = 0; col < cols; col++) {
+      for (int col = cols - 1; col>= 0; col--) {
         if (matrix[row][col] == '1') {
           right[col] = Math.min(right[col], curRight);
         } else {
-          right[col] = cols; curRight--;
+          right[col] = cols; curRight = col;
         }
       }
 
