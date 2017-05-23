@@ -11,7 +11,7 @@ public class Solution {
     if (matrix == null || matrix.length == 0) return 0;
     int rows = matrix.length;
     int cols = matrix[0].length;
-    int[] left = new int[cols];
+    int[] left = new int[cols]; //以现在的高度，左边界
     int[] right = new int[cols];
     int[] height = new int[cols];
     int maxArea = 0;
