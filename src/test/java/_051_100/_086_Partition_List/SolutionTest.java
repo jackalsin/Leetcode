@@ -25,4 +25,23 @@ public class SolutionTest {
     ListNode expected = Util.getListOfNodes(new int[] {1, 2, 2, 4, 3, 5});
     assertEquals(expected, solution.partition(input, 3));
   }
+
+  @Test
+  public void testNull() throws Exception  {
+    assertEquals(null, solution.partition(null, 0));
+  }
+
+  @Test
+  public void testOneElement() throws Exception {
+    ListNode input = Util.getListOfNodes(new int[] {1});
+    ListNode expected = Util.getListOfNodes(new int[] {1});
+    assertEquals(expected, solution.partition(input, 2));
+  }
+
+  @Test
+  public void test3And1() throws Exception {
+    ListNode input = Util.getListOfNodes(new int[] {3, 1});
+    ListNode expected = Util.getListOfNodes(new int[] {1, 3});
+    assertEquals(expected, solution.partition(input, 2));
+  }
 }
