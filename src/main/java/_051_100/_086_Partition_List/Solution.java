@@ -9,34 +9,25 @@ import utils.ListNode;
 public class Solution {
 
   public ListNode partition(ListNode head, int x) {
-    if (head == null) return null;
-    ListNode dummy = new ListNode(-1);
-    dummy.next = head;
-    ListNode cur = dummy;
-    // now cur points to x
-    ListNode prev = cur;
-    cur = cur.next;
-    while (cur != null) {
-      if (cur.val < x) {
-        // link head
-        ListNode headPrev = dummy;
-        while (headPrev.next != cur && headPrev.next.val < cur.val) {
-          headPrev = headPrev.next;
-        }
-        if (headPrev.next != cur) { // no one is smaller before itself
-          // detach tail
-          prev.next = cur.next;
-          // link head
-          cur.next = headPrev.next;
-          headPrev.next = cur;
-        } else {
-          prev = prev.next;
-        }
+    ListNode lessDummy = new ListNode(0);
+    ListNode greatOrEqualDummy = new ListNode(0);
+    ListNode lessCur = lessDummy;
+    ListNode greatOrEqualCur = greatOrEqualDummy;
+    ListNode curNode = head;
+    while (curNode != null) {
+      if(curNode.val < x) {
+        lessCur.next = curNode;
+        curNode = curNode.next;
+        lessCur = lessCur.next;
+        lessCur.next = null;
       } else {
-        prev = prev.next;
+        greatOrEqualCur.next = curNode;
+        curNode = curNode.next;
+        greatOrEqualCur = greatOrEqualCur.next;
+        greatOrEqualCur.next = null;
       }
-      cur = prev.next;
     }
-    return dummy.next;
+    lessCur.next = greatOrEqualDummy.next;
+    return lessDummy.next;
   }
 }

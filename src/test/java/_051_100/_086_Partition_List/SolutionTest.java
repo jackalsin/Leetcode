@@ -44,4 +44,11 @@ public class SolutionTest {
     ListNode expected = Util.getListOfNodes(new int[] {1, 3});
     assertEquals(expected, solution.partition(input, 2));
   }
+
+  @Test
+  public void test2And1() throws Exception {
+    ListNode input = Util.getListOfNodes(new int[] {2, 1});
+    ListNode expected = Util.getListOfNodes(new int[] {2, 1});
+    assertEquals(expected, solution.partition(input, 3));
+  }
 }
