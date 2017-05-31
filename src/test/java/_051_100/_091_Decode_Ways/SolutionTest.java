@@ -21,5 +21,18 @@ public class SolutionTest {
     assertEquals(0, solution.numDecodings(""));
   }
 
+  @Test
+  public void testOneElement() throws Exception {
+    assertEquals(1, solution.numDecodings("1"));
+  }
 
+  @Test
+  public void test01() throws Exception {
+    assertEquals(0, solution.numDecodings("01"));
+  }
+
+  @Test
+  public void test10() throws Exception {
+    assertEquals(1, solution.numDecodings("10"));
+  }
 }
