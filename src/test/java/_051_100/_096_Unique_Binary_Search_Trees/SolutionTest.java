@@ -36,4 +36,8 @@ public class SolutionTest {
     assertEquals(14, solution.numTrees(4));
   }
 
+  @Test
+  public void test19() throws Exception {
+    assertEquals( 1767263190, solution.numTrees(19));
+  }
 }
