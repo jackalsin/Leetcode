@@ -71,7 +71,6 @@ public final class TwoDimensionArray {
     return true;
   }
 
-
   public static void display2DimensionArray(char[][] array) {
     if (array == null) {
       throw new NullPointerException("array cannot be null");
@@ -89,6 +88,17 @@ public final class TwoDimensionArray {
     }
     System.out.println("[");
     for (int[] child : array) {
+      System.out.println("\t" + Arrays.toString(child));
+    }
+    System.out.println("]");
+  }
+
+  public static void display2DimensionArray(boolean[][] array) {
+    if (array == null) {
+      throw new NullPointerException("array cannot be null");
+    }
+    System.out.println("[");
+    for (boolean[] child : array) {
       System.out.println("\t" + Arrays.toString(child));
     }
     System.out.println("]");
