@@ -6,31 +6,27 @@ import java.util.Deque;
 import utils.TreeNode;
 
 /**
- * @author Zhiwei.Xin
+ * @author jacka
  * @version 1.0 on 6/6/2017.
  */
 public class Solution {
   public boolean isValidBST(TreeNode root) {
-    if (root == null) return true;
     Deque<TreeNode> parentNodes = new ArrayDeque<>();
     Integer prev = null;
     while (!parentNodes.isEmpty() || root != null) {
-       if (root != null) {
-         parentNodes.addLast(root);
-         root = root.left;
-       } else {
-         // get node
-         root = parentNodes.removeLast();
-         // do mid
-         if (prev == null) {
-           prev = root.val;
-         } else if (prev >= root.val) {
-           return false;
-         }
-         System.out.println(root.val);
-         // do right
-         root = root.right;
-       }
+      if (root != null) {
+        parentNodes.addLast(root);
+        root = root.left;
+      } else {
+        TreeNode curNode = parentNodes.removeLast();
+        if (prev == null) {
+          prev = curNode.val;
+        } else if (prev >= curNode.val) {
+          return false;
+        }
+        prev = curNode.val;
+        root = curNode.right;
+      }
     }
     return true;
   }
