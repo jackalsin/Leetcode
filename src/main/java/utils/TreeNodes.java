@@ -1,6 +1,8 @@
 package utils;
 
+import java.util.ArrayDeque;
 import java.util.HashSet;
+import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -19,8 +21,39 @@ public final class TreeNodes {
   private TreeNodes() {
   }
 
-  public static TreeNode getTreePreorder(int[] vals) throws Exception {
-    return null;
+  public static TreeNode getTreeBFS(final int[] vals) {
+    int count = 0;
+    TreeNode root = new TreeNode(vals[0]);
+    TreeNode cur = null;
+    Queue<TreeNode> queue = new ArrayDeque<>();
+    queue.offer(root);
+    for(int i = 1; i < vals.length; i++) {
+      TreeNode node = new TreeNode(vals[i]);
+      if (count == 0) {
+        cur = queue.poll();
+      }
+      if (count == 0) {
+        count++;
+        cur.left = node;
+      } else {
+        count = 0;
+        cur.right = node;
+      }
+      queue.offer(node);
+    }
+    return root;
+  }
+  private static Index index = new Index();
+
+  /**
+   * Generate a binary tree from an preordered values.
+   * @param vals
+   * @return
+   */
+  public static TreeNode getTreePreorder(int[] vals) {
+    index = new Index();
+    return getTreePreorder(vals, index, vals[index.index], Integer.MIN_VALUE, Integer.MAX_VALUE,
+        vals.length);
   }
 
   private static TreeNode getTreeInorder(int[] vals) {
@@ -44,67 +77,34 @@ public final class TreeNodes {
     }
   }
 
-  class Index {
+  static class Index {
     int index = 0;
   }
 
-  class BinaryTree {
-    Index index = new Index();
-
-    // A recursive function to construct BST from pre[]. preIndex is used to keep track of index
-    // in pre[].
-    TreeNode constructTreeUtil(int pre[], Index preIndex, int key,
-                               int min, int max, int size) {
-
-      // Base case
-      if (preIndex.index >= size) {
-        return null;
-      }
-
-      TreeNode root = null;
-
-      // If current element of pre[] is in range, then
-      // only it is part of current subtree
-      if (key > min && key < max) {
-
-        // Allocate memory for root of this subtree and increment *preIndex
-        root = new TreeNode(key);
-        preIndex.index = preIndex.index + 1;
-
-        if (preIndex.index < size) {
-
-          // Contruct the subtree under root
-          // All nodes which are in range {min .. key} will go in left
-          // subtree, and first such node will be root of left subtree.
-          root.left = constructTreeUtil(pre, preIndex, pre[preIndex.index],
-              min, key, size);
-
-          // All nodes which are in range {key..max} will go in right
-          // subtree, and first such node will be root of right subtree.
-          root.right = constructTreeUtil(pre, preIndex, pre[preIndex.index],
-              key, max, size);
-        }
-      }
-      return root;
+  private static TreeNode getTreePreorder(int[] vals, Index preIndex, int key, int min, int max, int
+                                                                                               size) {
+    // Base case
+    if (preIndex.index >= size) {
+      return null;
     }
+    TreeNode root = null;
+    // If current element of pre[] is in range, then only it is part of current subtree
+    if (key > min && key < max) {
+      // Allocate memory for root of this subtree and increment *preIndex
+      root = new TreeNode(key);
+      preIndex.index = preIndex.index + 1;
+      if (preIndex.index < size) {
+        // Contruct the subtree under root
+        // All nodes which are in range {min .. key} will go in left
+        // subtree, and first such node will be root of left subtree.
+        root.left = getTreePreorder(vals, preIndex, vals[preIndex.index], min, key, size);
 
-    // The main function to construct BST from given preorder traversal.
-    // This function mainly uses constructTreeUtil()
-    TreeNode constructTree(int pre[], int size) {
-      int preIndex = 0;
-      return constructTreeUtil(pre, index, pre[0], Integer.MIN_VALUE, Integer.MAX_VALUE, size);
-    }
-
-    // A utility function to print inorder traversal of a Binary Tree
-    void printInorder(TreeNode node) {
-      if (node == null) {
-        return;
+        // All nodes which are in range {key..max} will go in right
+        // subtree, and first such node will be root of right subtree.
+        root.right = getTreePreorder(vals, preIndex, vals[preIndex.index],key, max, size);
       }
-      printInorder(node.left);
-      System.out.print(node.val + " ");
-      printInorder(node.right);
-
     }
+    return root;
   }
 
 }
