@@ -1,7 +1,5 @@
 package _051_100._099_Recover_Binary_Search_Tree;
 
-import sun.reflect.generics.tree.Tree;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -28,6 +26,8 @@ public class Solution {
   private void inorderTraversal(TreeNode root) {
     Deque<TreeNode> parentNodes = new ArrayDeque<>();
     TreeNode prev = null;
+    TreeNode firstElement = null;
+    TreeNode secondElement = null;
     while (root != null || !parentNodes.isEmpty()) {
       if (root != null) {
         parentNodes.addLast(root);
@@ -36,13 +36,18 @@ public class Solution {
         TreeNode cur = parentNodes.removeLast();
         if (prev == null) {
          prev = cur;
-        } else if (prev.val > cur.val){
-          int tmp = prev.val;
-          prev.val = cur.val;
-          cur.val = tmp;
+        } else if (firstElement == null && prev.val > cur.val){
+          firstElement = prev;
+        } else if (firstElement != null && prev.val > cur.val) {
+          secondElement = prev;
+          int tmp = firstElement.val;
+          firstElement.val = secondElement.val;
+          secondElement.val = tmp;
         }
         root = cur.right;
       }
     }
   }
+
+
 }
