@@ -4,8 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import utils.TreeNode;
+import utils.TreeNodes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -30,14 +31,9 @@ public class SolutionTest {
   }
 
   @Test
-  public void test5Elements() throws Exception {
-    final TreeNode input = new TreeNode(0);
-    input.left = new TreeNode(1);
-    solution.recoverTree(input);
-
-    final TreeNode expected = new TreeNode(1);
-    expected.left = new TreeNode(0);
-
+  public void test3Elements() throws Exception {
+    final TreeNode input = TreeNodes.getTreeBFS(new int[] {2, 3, 1});
+    final TreeNode expected = TreeNodes.getTreeBFS(new int[] {2, 1, 3});
     assertEquals(expected, input);
   }
 }

@@ -25,29 +25,27 @@ public class Solution {
 
   private void inorderTraversal(TreeNode root) {
     Deque<TreeNode> parentNodes = new ArrayDeque<>();
-    TreeNode prev = null;
-    TreeNode firstElement = null;
-    TreeNode secondElement = null;
+    TreeNode prevNode = new TreeNode(Integer.MIN_VALUE);
+    TreeNode firstNode = null;
+    TreeNode secondNode = null;
     while (root != null || !parentNodes.isEmpty()) {
       if (root != null) {
         parentNodes.addLast(root);
         root = root.left;
       } else {
         TreeNode cur = parentNodes.removeLast();
-        if (prev == null) {
-         prev = cur;
-        } else if (firstElement == null && prev.val > cur.val){
-          firstElement = prev;
-        } else if (firstElement != null && prev.val > cur.val) {
-          secondElement = prev;
-          int tmp = firstElement.val;
-          firstElement.val = secondElement.val;
-          secondElement.val = tmp;
+        if (firstNode == null && prevNode.val > cur.val){
+          firstNode = prevNode;
         }
+        if (firstNode != null && prevNode.val > cur.val) {
+          secondNode = cur;
+          int tmp = firstNode.val;
+          firstNode.val = secondNode.val;
+          secondNode.val = tmp;
+        }
+        prevNode = cur;
         root = cur.right;
       }
     }
   }
-
-
 }
