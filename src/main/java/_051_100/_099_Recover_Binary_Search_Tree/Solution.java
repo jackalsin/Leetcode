@@ -34,18 +34,25 @@ public class Solution {
         root = root.left;
       } else {
         TreeNode cur = parentNodes.removeLast();
+        /*
+        * Consider {0, 1} and {2, 3, 1}, you need separate the if statements.
+        * */
         if (firstNode == null && prevNode.val > cur.val){
           firstNode = prevNode;
         }
         if (firstNode != null && prevNode.val > cur.val) {
           secondNode = cur;
-          int tmp = firstNode.val;
-          firstNode.val = secondNode.val;
-          secondNode.val = tmp;
         }
         prevNode = cur;
         root = cur.right;
       }
     }
+    swap(firstNode, secondNode);
+  }
+
+  private static void swap(TreeNode firstNode, TreeNode secondNode) {
+    int tmp = firstNode.val;
+    firstNode.val = secondNode.val;
+    secondNode.val = tmp;
   }
 }

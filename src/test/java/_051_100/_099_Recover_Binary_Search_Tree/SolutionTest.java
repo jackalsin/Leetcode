@@ -34,6 +34,7 @@ public class SolutionTest {
   public void test3Elements() throws Exception {
     final TreeNode input = TreeNodes.getTreeBFS(new int[] {2, 3, 1});
     final TreeNode expected = TreeNodes.getTreeBFS(new int[] {2, 1, 3});
+    solution.recoverTree(input);
     assertEquals(expected, input);
   }
 }
