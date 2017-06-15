@@ -54,11 +54,7 @@ public class SolutionTest {
 
   @Test
   public void testEmpty() throws Exception {
-<<<<<<< HEAD
-    TreeNode root = TreeNodes.getTreeBFS(new int[]{});
-=======
     TreeNode root = TreeNodes.getTreeLevelOrder(new int[]{});
->>>>>>> 1804f41... Fix Refactor
     List<List<Integer>> expected = new ArrayList<>();
     assertEquals(expected, solution.levelOrder(root));
   }
