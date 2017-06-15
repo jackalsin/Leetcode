@@ -29,6 +29,7 @@ public final class TreeNodes {
 
   public static TreeNode getTreeLevelOrder(Integer ... vals) {
     int count = 0;
+    if (vals== null || vals.length == 0) return null;
     TreeNode root = new TreeNode(vals[0]);
     TreeNode cur = null;
     Queue<TreeNode> queue = new ArrayDeque<>();

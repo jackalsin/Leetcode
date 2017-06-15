@@ -28,7 +28,7 @@ public class SolutionTest {
 
   @Test
   public void test3Levels() throws Exception {
-    TreeNode root = TreeNodes.getTreeBFS(new int[]{4, 2, 6, 1, 3, 5, 7});
+    TreeNode root = TreeNodes.getTreeLevelOrder(new int[]{4, 2, 6, 1, 3, 5, 7});
     List<List<Integer>> expected = new ArrayList<>();
     expected.add(Collections.singletonList(4));
     expected.add(Arrays.asList(2, 6));
@@ -38,7 +38,7 @@ public class SolutionTest {
 
   @Test
   public void test2Levels() throws Exception {
-    TreeNode root = TreeNodes.getTreeBFS(new int[]{4, 2, 6});
+    TreeNode root = TreeNodes.getTreeLevelOrder(new int[]{4, 2, 6});
     List<List<Integer>> expected = new ArrayList<>();
     expected.add(Collections.singletonList(4));
     expected.add(Arrays.asList(2, 6));
@@ -46,7 +46,7 @@ public class SolutionTest {
   }
   @Test
   public void test1Level() throws Exception {
-    TreeNode root = TreeNodes.getTreeBFS(new int[]{4});
+    TreeNode root = TreeNodes.getTreeLevelOrder(new int[]{4});
     List<List<Integer>> expected = new ArrayList<>();
     expected.add(Collections.singletonList(4));
     assertEquals(expected, solution.levelOrder(root));
@@ -54,7 +54,11 @@ public class SolutionTest {
 
   @Test
   public void testEmpty() throws Exception {
+<<<<<<< HEAD
     TreeNode root = TreeNodes.getTreeBFS(new int[]{});
+=======
+    TreeNode root = TreeNodes.getTreeLevelOrder(new int[]{});
+>>>>>>> 1804f41... Fix Refactor
     List<List<Integer>> expected = new ArrayList<>();
     assertEquals(expected, solution.levelOrder(root));
   }
