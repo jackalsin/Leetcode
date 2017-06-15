@@ -19,8 +19,12 @@ public class Solution {
    * @param root
    */
   public void recoverTree(TreeNode root) {
-    inorderTraversal(root);
-//    morrisTraversal(root);
+//    inorderTraversal(root);
+    morrisTraversal(root);
+  }
+
+  private void morrisTraversal(TreeNode root) {
+
   }
 
   private void inorderTraversal(TreeNode root) {

@@ -3,6 +3,9 @@ package utils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -12,6 +15,19 @@ import static org.junit.Assert.assertEquals;
 public class TreeNodesTest {
   @Before
   public void setUp() throws Exception {
+  }
+
+  @Test
+  public void testMorrisTraversalInorder() throws Exception {
+    TreeNode root = new TreeNode(4);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(6);
+    root.left.left = new TreeNode(1);
+    root.left.right = new TreeNode(3);
+    root.right.left = new TreeNode(5);
+    root.right.right = new TreeNode(7);
+    final List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+    assertEquals(expected, TreeNodes.morrisTraversalInorder(root));
   }
 
   @Test
