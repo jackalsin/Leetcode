@@ -8,11 +8,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import utils.ListNode;
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
