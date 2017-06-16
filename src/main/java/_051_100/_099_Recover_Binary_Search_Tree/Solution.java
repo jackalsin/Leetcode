@@ -19,8 +19,54 @@ public class Solution {
    * @param root
    */
   public void recoverTree(TreeNode root) {
-    inorderTraversal(root);
-//    morrisTraversal(root);
+//    inorderTraversal(root);
+    morrisTraversal(root);
+  }
+  private TreeNode firstNode;
+  private TreeNode secondNode;
+
+  public Solution() {
+    firstNode = null;
+    secondNode = null;
+  }
+
+  private void morrisTraversal(TreeNode root) {
+    if (root != null) {
+      TreeNode curNode = root, prev = null;
+      while (curNode != null) {
+        if (curNode.left == null) {
+          updateFirstAndSecondNode(curNode, prev);
+          prev = curNode; // update prev ALWAYS
+          curNode = curNode.right;
+        } else {
+          TreeNode precessor = curNode.left;
+          while (precessor.right != null && precessor.right != curNode) {
+            precessor = precessor.right;
+          }
+          if (precessor.right == null) { // this is not traversing, no need to set prev
+            precessor.right = curNode;
+            curNode = curNode.left;
+          } else {
+            precessor.right = null;
+            updateFirstAndSecondNode(curNode, prev);
+            prev = curNode; // update prev ALWAYS
+            curNode = curNode.right;
+          }
+        }
+      }
+      swap(firstNode, secondNode);
+    }
+  }
+
+  private void updateFirstAndSecondNode(TreeNode curNode, TreeNode prev) {
+    if (prev != null) {
+      if (firstNode == null && prev.val > curNode.val) {
+        firstNode = prev;
+      }
+      if (firstNode != null && prev.val > curNode.val) {
+        secondNode = curNode;
+      }
+    }
   }
 
   private void inorderTraversal(TreeNode root) {

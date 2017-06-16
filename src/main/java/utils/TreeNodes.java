@@ -2,7 +2,9 @@ package utils;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
@@ -20,6 +22,48 @@ public final class TreeNodes {
   }
 
   private TreeNodes() {
+  }
+  /*
+    * http://www.cnblogs.com/AnnieKim/archive/2013/06/15/MorrisTraversal.html#3699291
+    * 1. 如果当前节点的左孩子为空，则输出当前节点并将其右孩子作为当前节点。
+    *
+    * 2. 如果当前节点的左孩子不为空，在"当前节点的左子树"中找到当前节点在中序遍历下的前驱节点。
+    *
+    *    a) 如果前驱节点的右孩子为空，将它的右孩子设置为当前节点。当前节点更新为当前节点的左孩子。
+    *
+    *    b) 如果前驱节点的右孩子为当前节点，将它的右孩子重新设为空（恢复树的形状）。输出当前节点。当前节点更新为当前节点的右孩子。
+    *
+    * 3. 重复以上1、2直到当前节点为空。
+   */
+
+  public static List<Integer> morrisTraversalInorder(TreeNode root) {
+    List<Integer> result = new ArrayList<>();
+    if (root == null) {
+      return result;
+    }
+    TreeNode curNode = root;
+    TreeNode prevNode = null;
+    while (curNode != null) {
+      if (curNode.left == null) {
+        result.add(curNode.val);
+        curNode = curNode.right;
+      } else {
+        prevNode = curNode.left;
+        while (prevNode.right != null && prevNode.right != curNode) {
+          prevNode = prevNode.right;
+        }
+        if (prevNode.right == null) { // 2a: creating tail for right most node
+          prevNode.right = curNode;
+          curNode = curNode.left;
+        } else { //  2b
+          prevNode.right = null;
+          result.add(curNode.val);
+          curNode = curNode.right;
+        }
+      }
+
+    }
+    return result;
   }
 
   public static TreeNode getTreeLevelOrder(final int[] vals) {
