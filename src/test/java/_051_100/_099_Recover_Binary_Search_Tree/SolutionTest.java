@@ -37,4 +37,35 @@ public class SolutionTest {
     solution.recoverTree(input);
     assertEquals(expected, input);
   }
+
+
+  @Test
+  public void test3ChildrenElements() throws Exception {
+    final TreeNode input = TreeNodes.getTreeBFS(new int[] {3, 1, 2});
+    final TreeNode expected = TreeNodes.getTreeBFS(new int[] {2, 1, 3});
+    solution.recoverTree(input);
+    assertEquals(expected, input);
+  }
+
+  @Test
+  public void test3ChildrenOneLineElements() throws Exception {
+    final TreeNode input = new TreeNode(2);
+      input.right = new TreeNode(3);
+        input.right.left = new TreeNode(1);
+    final TreeNode expected = new TreeNode(1);
+      expected.right = new TreeNode(3);
+        expected.right.left = new TreeNode(2);
+    solution.recoverTree(input);
+    assertEquals(expected, input);
+  }
+
+  @Test
+  public void testNullLeft() throws Exception {
+    TreeNode input = new TreeNode(2);
+      input.right = new TreeNode(1);
+    TreeNode expected = new TreeNode(1);
+      expected.right = new TreeNode(2);
+    solution.recoverTree(input);
+    assertEquals(expected, input);
+  }
 }
