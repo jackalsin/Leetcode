@@ -24,16 +24,21 @@ public final class TreeNodes {
   private TreeNodes() {
   }
   /*
-    * http://www.cnblogs.com/AnnieKim/archive/2013/06/15/MorrisTraversal.html#3699291
-    * 1. 如果当前节点的左孩子为空，则输出当前节点并将其右孩子作为当前节点。
-    *
-    * 2. 如果当前节点的左孩子不为空，在"当前节点的左子树"中找到当前节点在中序遍历下的前驱节点。
-    *
-    *    a) 如果前驱节点的右孩子为空，将它的右孩子设置为当前节点。当前节点更新为当前节点的左孩子。
-    *
-    *    b) 如果前驱节点的右孩子为当前节点，将它的右孩子重新设为空（恢复树的形状）。输出当前节点。当前节点更新为当前节点的右孩子。
-    *
-    * 3. 重复以上1、2直到当前节点为空。
+   * http://www.cnblogs.com/AnnieKim/archive/2013/06/15/MorrisTraversal.html#3699291
+   * 1. 如果当前节点的左孩子为空，则输出当前节点并将其右孩子作为当前节点。
+   *
+   * 2. 如果当前节点的左孩子不为空，在"当前节点的左子树"中找到当前节点在中序遍历下的前驱节点。
+   *
+   *    a) 如果前驱节点的右孩子为空，将它的右孩子设置为当前节点。当前节点更新为当前节点的左孩子。
+   *
+   *    b) 如果前驱节点的右孩子为当前节点，将它的右孩子重新设为空（恢复树的形状）。输出当前节点。当前节点更新为当前节点的右孩子。
+   *
+   * 3. 重复以上1、2直到当前节点为空。
+   *
+   * Time Complexti is O(n):
+   *   the algorithm that looks for the predecessor for a specific node seems taking O(logN),
+   *   but for all, taking O(n); a binary tree that contains n nodes have at most n sides. One
+   *   side will at most be visited twice.
    */
 
   public static List<Integer> morrisTraversalInorder(TreeNode root) {

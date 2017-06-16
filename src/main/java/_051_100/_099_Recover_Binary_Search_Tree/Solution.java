@@ -39,15 +39,15 @@ public class Solution {
           prev = curNode; // update prev ALWAYS
           curNode = curNode.right;
         } else {
-          TreeNode precessor = curNode.left;
-          while (precessor.right != null && precessor.right != curNode) {
-            precessor = precessor.right;
+          TreeNode predecessor = curNode.left;
+          while (predecessor.right != null && predecessor.right != curNode) {
+            predecessor = predecessor.right;
           }
-          if (precessor.right == null) { // this is not traversing, no need to set prev
-            precessor.right = curNode;
+          if (predecessor.right == null) { // this is not traversing, no need to set prev
+            predecessor.right = curNode;
             curNode = curNode.left;
           } else {
-            precessor.right = null;
+            predecessor.right = null;
             updateFirstAndSecondNode(curNode, prev);
             prev = curNode; // update prev ALWAYS
             curNode = curNode.right;
