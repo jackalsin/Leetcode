@@ -11,7 +11,7 @@ import java.util.List;
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -49,5 +49,10 @@ public class SolutionTest {
     expected.add(Arrays.asList(3, 2));
     expected.add(Arrays.asList(4, 5, 6, 7));
     assertEquals(expected, solution.zigzagLevelOrder(input));
+  }
+
+  @Test
+  public void testNullPointer() throws Exception {
+    assertEquals(null, solution.zigzagLevelOrder(null));
   }
 }
