@@ -7,7 +7,13 @@ import utils.TreeNode;
  * @version 1.0 on 6/16/2017.
  */
 public class Solution {
+  int preIndex = 0;
   public TreeNode buildTree(int[] inorder, int[] postorder) {
+
+    return null;
+  }
+
+  private TreeNode getTree(int[] inorder, int[] postorder, int inStart, int inEnd) {
     return null;
   }
 }
