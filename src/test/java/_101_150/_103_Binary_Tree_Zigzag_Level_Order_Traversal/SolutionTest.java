@@ -53,6 +53,6 @@ public class SolutionTest {
 
   @Test
   public void testNullPointer() throws Exception {
-    assertEquals(null, solution.zigzagLevelOrder(null));
+    assertEquals(new ArrayList<>(), solution.zigzagLevelOrder(null));
   }
 }
