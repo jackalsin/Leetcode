@@ -11,12 +11,14 @@ public class Solution {
     return hasPathSum(root, sum, 0);
   }
 
-  private boolean hasPathSum(TreeNode root, final int targetSum, int curSum) {
-    if (root == null) {
-      return targetSum == curSum;
-    } else {
-      return hasPathSum(root.left, targetSum, curSum + root.val) || hasPathSum(root.right,
-          targetSum, curSum + root.val);
+  private boolean hasPathSum(TreeNode root, final int targetSum, int preSum) {
+    if (root.left == null && root.right == null) {
+      return targetSum == preSum + root.val;
+    } else{
+      boolean isPathSumLeft = root.left != null && hasPathSum(root.left, targetSum, preSum + root.val);
+      boolean isPathSumRight = root.right != null && hasPathSum(root.right, targetSum, preSum
+                                                                                           + root.val);
+      return isPathSumLeft || isPathSumRight;
     }
   }
 }
