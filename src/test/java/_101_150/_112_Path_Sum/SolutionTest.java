@@ -32,12 +32,9 @@ public class SolutionTest {
     root.left = new TreeNode(2);
     assertFalse(solution.hasPathSum(root, 1));
   }
-<<<<<<< HEAD
 
   @Test
   public void testNull() throws Exception {
     assertFalse(solution.hasPathSum(null, 1));
   }
-=======
->>>>>>> 799a9f9aed001a0b11139ba2977d4f1156b7c53b
 }
