@@ -8,7 +8,10 @@ import utils.TreeNode;
  */
 public class Solution {
   public boolean hasPathSum(TreeNode root, int sum) {
+<<<<<<< HEAD
     if (root == null) return false;
+=======
+>>>>>>> 799a9f9aed001a0b11139ba2977d4f1156b7c53b
     return hasPathSum(root, sum, 0);
   }
 
