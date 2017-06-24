@@ -1,7 +1,6 @@
 package _101_150._119_Pascals_Triangle_II;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
