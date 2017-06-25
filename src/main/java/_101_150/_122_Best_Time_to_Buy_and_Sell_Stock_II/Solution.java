@@ -12,7 +12,7 @@ public class Solution {
     for (int i = 1; i < prices.length; i++) {
       int bias = prices[i] - prev;
       prev = prices[i];
-      if (bias > 0) profit += prev;
+      if (bias > 0) profit += bias;
     }
     return profit;
   }
