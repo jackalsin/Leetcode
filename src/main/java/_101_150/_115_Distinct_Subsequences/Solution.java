@@ -19,7 +19,7 @@ public class Solution {
     }
     for (int i = 0; i < t.length(); i++) {
       for (int j = 0; j < s.length(); j++) {
-        if (s.charAt(i) == t.charAt(j)) {
+        if (t.charAt(i) == s.charAt(j)) {
           // triangle means no remove, while the same row means remove the current one
           dp[i + 1][j + 1] = dp[i][j] + dp[i+1][j];
         } else {
