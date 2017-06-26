@@ -8,29 +8,19 @@ import utils.TreeLinkNode;
  */
 public class Solution {
   public void connect(TreeLinkNode root) {
-    TreeLinkNode parent = root;
-    if (root == null) return;
-    TreeLinkNode curNode = root.left;
-    TreeLinkNode curLevelHead = parent;
-    while (true) {
-      if (curNode != null && parent != null) {
-        curNode.next = parent.right;
+    TreeLinkNode levelHead = root;
+    while (levelHead != null) {
+      TreeLinkNode curNode = levelHead;
+      while (curNode != null) {
+        if (curNode.left != null) {
+          curNode.left.next = curNode.right;
+        }
+        if (curNode.right != null && curNode.next != null) {
+          curNode.right.next = curNode.next.left;
+        }
         curNode = curNode.next;
-        parent = parent.next;
-        if (parent != null) {
-          curNode.next = parent.left;
-          curNode = curNode.next;
-        }
-      } else if(curLevelHead != null){
-        parent = curLevelHead.left;
-        curLevelHead = parent;
-        if (curLevelHead == null) {
-          return;
-        }
-        curNode = curLevelHead.left;
-      } else { //last level
-        return;
       }
+      levelHead = levelHead.left;
     }
   }
 }
