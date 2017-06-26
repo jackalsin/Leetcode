@@ -8,32 +8,26 @@ import java.util.PriorityQueue;
  */
 public class Solution {
   public int maxProfit(int[] prices) {
-    if (prices.length == 0) return 0;
-    PriorityQueue<Integer> pq = new PriorityQueue<>();
-    int curBuyPrice = prices[0];
-    int prevPrice = prices[0];
-    for(int i = 1; i < prices.length + 1; i++) {
-      int curPrice = i == prices.length ? curBuyPrice :prices[i];
-      if (prevPrice >= curPrice) {
-        // sell
-        int curBias = prevPrice - curBuyPrice;
-        curBuyPrice = curPrice;
-        if (curBias < 0) continue;
-        if (pq.size() < 2) {
-          pq.offer(curBias);
-        } else {
-          if (curBias > pq.peek()) {
-            pq.poll();
-            pq.offer(curBias);
-          }
+    return dpSolution(prices);
+//    return dpSolution();
+  }
+
+  private int dpSolution(int[] prices) {
+    if (prices.length <= 1) {
+      return 0;
+    } else {
+      final int K = 2;
+      int maxProf = 0;
+      int[][] dp = new int[K + 1][prices.length];
+      for (int kk = 1; kk <= K; kk++) {
+        int tmpMax = dp[kk-1][0] - prices[0];
+        for (int ii = 1; ii < prices.length; ii++) {
+          dp[kk][ii] = Math.max(dp[kk][ii-1], prices[ii] + tmpMax);
+          tmpMax = Math.max(tmpMax, dp[kk-1][ii] - prices[ii]);
+          maxProf = Math.max(dp[kk][ii], maxProf);
         }
       }
-      prevPrice = curPrice;
+      return maxProf;
     }
-    int sum = 0;
-    while (!pq.isEmpty()) {
-      sum += pq.poll();
-    }
-    return sum;
   }
 }
