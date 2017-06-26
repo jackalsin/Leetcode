@@ -41,8 +41,14 @@ public class SolutionTest {
   }
 
   @Test
-  public void testMultiTransMaxContinuous() throws Exception {
+  public void testMultiTransMaxContinous() throws Exception {
     final int[] input = new int[] {1,2,4,2,5,7,2,4,9,0};
     assertEquals(13, solution.maxProfit(input));
+  }
+
+  @Test
+  public void test3TransMax() throws Exception {
+    final int[] input = new int[] {3,3,5,0,0,3,1,4};
+    assertEquals(6, solution.maxProfit(input));
   }
 }
