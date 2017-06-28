@@ -28,7 +28,7 @@ public class Solution {
     List<List<String>> result = new ArrayList<>();
     List<String> curPath = new ArrayList<>();
     curPath.add(beginWord);
-    findLadders(result, curPath, wordList, beginWord, endWord);
+    findLadders(result, curPath, validPairs.get(beginWord), beginWord, endWord);
     return result;
   }
 
@@ -54,10 +54,10 @@ public class Solution {
 
   private void findLadders(List<List<String>> result, List<String> curPath, Collection<String> candidates,
                            String beginWord, String endWord) {
-//    System.out.println("Result = " + result);
-//    System.out.println("curPath = " + curPath);
-//    System.out.println("candidates = " + candidates);
-//    System.out.println("beginWord = " + beginWord);
+    System.out.println("Result = " + result);
+    System.out.println("curPath = " + curPath);
+    System.out.println("candidates = " + candidates);
+    System.out.println("beginWord = " + beginWord);
     if (!curPath.isEmpty() && curPath.get(curPath.size() - 1).equals(endWord)) {
       if (!result.isEmpty()) {
         int minSizeForCurPath = result.get(0).size();
@@ -72,14 +72,18 @@ public class Solution {
       }
     } else {
       if (!result.isEmpty() && result.get(0).size() <= curPath.size()) return;
-      Set<String> candidatesForChild = new HashSet<>(candidates);
+//      Set<String> candidatesForChild = new HashSet<>(candidates);
       for (String child : candidates) {
+        if (!validPairs.containsKey(child)) {// child 在validPair里remove掉了
+          continue;
+        }
         if (isValidCached(beginWord, child)) {
-          candidatesForChild.remove(child);
+          Set<String> beginWordCandidates = validPairs.get(beginWord);
+          validPairs.remove(beginWord);
           curPath.add(child);
-          findLadders(result, curPath, candidatesForChild, child, endWord);
+          findLadders(result, curPath, validPairs.get(child), child, endWord);
           curPath.remove(curPath.size() - 1);
-          candidatesForChild.add(child);
+          validPairs.put(beginWord, beginWordCandidates);
         }
       }
     }
@@ -103,7 +107,7 @@ public class Solution {
         return false;
       }
     }
-    return true;
+    return count != 0;
   }
 
 
