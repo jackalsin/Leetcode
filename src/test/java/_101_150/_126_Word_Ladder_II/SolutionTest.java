@@ -134,8 +134,15 @@ public class SolutionTest {
     List<List<String>> actual = solution.findLadders(beginWord, endWord, wordList);
     long end = System.nanoTime();
     System.out.println("TLE case 3 = " + (end - start) /  1E6 + " ms");
-  //    Find neighbors 1801.136859 ms
-  //    Find neighbors 25.737132 ms
-  //    TLE case 2 = 1884.926993 ms
+    /*
+      Find neighbors 1801.136859 ms
+      Find neighbors 25.737132 ms
+      TLE case 3 = 1884.926993 ms
+      
+      Using iterate characters:
+      Find neighbors 72.593749 ms
+      Generate Distances 14.563155 ms
+      TLE case 3 = 159.9229 ms
+    */
   }
 }

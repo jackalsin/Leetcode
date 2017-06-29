@@ -20,7 +20,8 @@ public class SolutionPass implements Solution {
   @Override
   public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
     long start1 = System.nanoTime();
-    generateValidPairs(beginWord, wordList);
+//    generateValidPairs(beginWord, wordList);
+    generateNeighbors(beginWord, wordList);
     long start2 = System.nanoTime();
     System.out.println("Find neighbors " + (start2 - start1) /  1E6 + " ms");
     bfsGenerateDistances(beginWord);
@@ -82,6 +83,35 @@ public class SolutionPass implements Solution {
     }
   }
 
+  private void generateNeighbors(String beginWord, List<String> wordList) {
+    validPairs = new HashMap<>();
+    Set<String> wordSet = new HashSet<>(wordList);
+    wordSet.add(beginWord);
+    for (String word: wordSet) {
+      Set<String> curWordSet = validPairs.getOrDefault(word, new HashSet<>());
+      char[] chs = word.toCharArray();
+      for (int i = 0; i < chs.length; i++) {
+        char oldChar = chs[i];
+        for (char candidateChar = 'a'; candidateChar <= 'z'; candidateChar++) {
+          chs[i] = candidateChar;
+          String newWord = String.valueOf(chs);
+          if (wordSet.contains(newWord)) {
+            curWordSet.add(newWord);
+          }
+        }
+        chs[i] = oldChar;
+      }
+      validPairs.put(word, curWordSet);
+    }
+  }
+
+  /**
+   * This method is too slow under such a situation where there are many words but short word
+   * length, which like test case testTLE3
+   *
+   * @param beginWord
+   * @param wordList
+   */
   private void generateValidPairs(String beginWord, List<String> wordList) {
     validPairs = new HashMap<>();
     List<String> words = new ArrayList<>(wordList);
