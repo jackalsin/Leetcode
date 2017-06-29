@@ -14,11 +14,11 @@ import static org.junit.Assert.assertEquals;
  * @author Zhiwei.Xin
  * @version 1.0 on 6/27/2017.
  */
-public class SolutionTest {
-  private TLESolution solution;
+public class SampleSolutionTest {
+  private Solution solution;
   @Before
   public void setUp() throws Exception {
-    solution = new TLESolution();
+    solution = new SampleSolution();
   }
 
   @Test
