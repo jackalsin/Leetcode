@@ -138,7 +138,7 @@ public class SolutionTest {
       Find neighbors 1801.136859 ms
       Find neighbors 25.737132 ms
       TLE case 3 = 1884.926993 ms
-      
+
       Using iterate characters:
       Find neighbors 72.593749 ms
       Generate Distances 14.563155 ms
