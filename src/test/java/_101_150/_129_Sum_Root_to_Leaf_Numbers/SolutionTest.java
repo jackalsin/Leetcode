@@ -1,14 +1,12 @@
 package _101_150._129_Sum_Root_to_Leaf_Numbers;
 
-import com.sun.org.apache.xpath.internal.CachedXPathAPI;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
