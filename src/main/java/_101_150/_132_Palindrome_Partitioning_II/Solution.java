@@ -1,7 +1,6 @@
 package _101_150._132_Palindrome_Partitioning_II;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * @author jacka
@@ -9,35 +8,23 @@ import java.util.List;
  */
 public class Solution {
   public int minCut(String s) {
-    return dfs(s, 0, new ArrayList<>());
-  }
-
-  private static int dfs(String s, final int start, List<String> curPath) {
-    if (s.length() == 0 ) {
-      return 0;
-    } else if (start == s.length()) {
-      return curPath.size() - 1;
-    } else {
-      int size = Integer.MAX_VALUE;
-      for (int i = start + 1; i <= s.length(); i++) {
-        String candidate = s.substring(start, i);
-        if (isPalindrome(candidate)) {
-          curPath.add(candidate);
-          size = Math.min(size, dfs(s, i, curPath));
-          curPath.remove(curPath.size() - 1);
+    int n = s.length();
+    if (n == 0) return 0;
+    final int[] minCut = new int[n]; // minCut[i] stands for minCut starting from
+    Arrays.fill(minCut, n - 1);
+    final boolean[][] isPal = new boolean[n][n]; // start, end, inclusive
+    for (int start = n - 1; start >= 0; start--) {
+      for (int end = n - 1; end >= start; end--) {
+        if (s.charAt(start) == s.charAt(end) && (end - start < 2 || isPal[start + 1][end - 1])) {
+          isPal[start][end] = true;
+          if (end == n - 1) {
+            minCut[start] = 0;
+          } else {
+            minCut[start] = Math.min(minCut[start], minCut[end + 1] + 1);
+          }
         }
       }
-      return size;
     }
-  }
-
-  private static boolean isPalindrome(String candidate) {
-    int start = 0, end = candidate.length() - 1;
-    while (start < end) {
-      if (candidate.charAt(start++) != candidate.charAt(end--)) {
-        return false;
-      }
-    }
-    return true;
+    return minCut[0];
   }
 }
