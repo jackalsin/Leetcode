@@ -13,12 +13,19 @@ public class SolutionTest {
   private Solution solution;
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+//    solution = new DPSolution();
+    solution = new BitchingSolution();
   }
 
   @Test
   public void testaab() throws Exception {
     final String s = "aab";
+    assertEquals(1, solution.minCut(s));
+  }
+
+  @Test
+  public void testcdd() throws Exception {
+    final String s = "cdd";
     assertEquals(1, solution.minCut(s));
   }
 
