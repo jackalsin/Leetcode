@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import utils.ListNode;
+import utils.ListNodes;
 import utils.Util;
 
 import static org.junit.Assert.*;
@@ -21,22 +22,22 @@ public class SolutionTest {
 
   @Test
   public void testEmptyBias() throws Exception {
-    final ListNode input = Util.getListOfNodes(new int[]{1, 2, 3, 4, 5});
+    final ListNode input = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     assertEquals(input, solution.reverseBetween(input, 3, 3));
   }
 
 
   @Test
   public void testFull() throws Exception {
-    final ListNode input = Util.getListOfNodes(new int[]{1, 2, 3, 4, 5});
-    final ListNode expected = Util.getListOfNodes(new int[]{5, 4, 3, 2, 1});
+    final ListNode input = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
+    final ListNode expected = ListNodes.getListOfNodes(new int[]{5, 4, 3, 2, 1});
     assertEquals(expected, solution.reverseBetween(input, 1, 5));
   }
 
   @Test
   public void testOnline() throws Exception {
-    final ListNode input = Util.getListOfNodes(new int[]{1, 2, 3, 4, 5});
-    final ListNode expected = Util.getListOfNodes(new int[]{1, 4, 3, 2, 5});
+    final ListNode input = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
+    final ListNode expected = ListNodes.getListOfNodes(new int[]{1, 4, 3, 2, 5});
     assertEquals(expected, solution.reverseBetween(input, 2, 4));
   }
 

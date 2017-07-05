@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import utils.ListNode;
+import utils.ListNodes;
 import utils.Util;
 
 import static org.junit.Assert.assertFalse;
@@ -27,13 +28,13 @@ public class SolutionTest {
 
   @Test
   public void testNoCycle1() throws Exception {
-    ListNode head = Util.getListOfNodes(new int[]{1});
+    ListNode head = ListNodes.getListOfNodes(new int[]{1});
     assertFalse(solution.hasCycle(head));
   }
 
   @Test
   public void testNoCycle2() throws Exception {
-    ListNode head = Util.getListOfNodes(new int[]{1, 2});
+    ListNode head = ListNodes.getListOfNodes(new int[]{1, 2});
     assertFalse(solution.hasCycle(head));
   }
 

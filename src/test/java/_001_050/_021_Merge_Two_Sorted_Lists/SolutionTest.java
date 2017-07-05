@@ -6,7 +6,7 @@ import org.junit.Test;
 import utils.ListNode;
 
 import static org.junit.Assert.assertEquals;
-import static utils.Util.getListOfNodes;
+import static utils.ListNodes.getListOfNodes;
 
 /**
  * @author jacka

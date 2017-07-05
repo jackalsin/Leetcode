@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import utils.ListNode;
+import utils.ListNodes;
 import utils.Util;
 
 import static org.junit.Assert.assertEquals;
@@ -21,15 +22,15 @@ public class SolutionTest {
 
   @Test
   public void testNoCycle() throws Exception {
-    ListNode head = Util.getListOfNodes(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+    ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
     assertEquals(null,solution.detectCycle(head));
   }
   @Test
   public void testSelfCycle() throws Exception {
-    ListNode head = Util.getListOfNodes(new int[]{1, 2, 3, 4, 5});
+    ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     head.next.next.next.next.next = head.next.next;
 
-    ListNode begin = Util.getListOfNodes(new int[]{3, 4, 5});
+    ListNode begin = ListNodes.getListOfNodes(new int[]{3, 4, 5});
     assertEquals(begin.val, solution.detectCycle(head).val);
   }
 

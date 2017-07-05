@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import utils.ListNode;
+import utils.ListNodes;
 import utils.Util;
 
 import static org.junit.Assert.assertEquals;
@@ -24,14 +25,14 @@ public class SolutionTest {
 
   @Test
   public void testWithK1() throws Exception {
-    final ListNode rtnHead = Util.getListOfNodes(ARRAY);
-    assertEquals(Util.getListOfNodes(ARRAY), solution.reverseKGroup(rtnHead, 1));
+    final ListNode rtnHead = ListNodes.getListOfNodes(ARRAY);
+    assertEquals(ListNodes.getListOfNodes(ARRAY), solution.reverseKGroup(rtnHead, 1));
   }
 
   @Test
   public void testWithK3() throws Exception {
-    final ListNode stdHead = Util.getListOfNodes(new int[] {3, 2, 1, 6, 5, 4, 9, 8, 7});
-    final ListNode rtnHead = Util.getListOfNodes(ARRAY);
+    final ListNode stdHead = ListNodes.getListOfNodes(new int[] {3, 2, 1, 6, 5, 4, 9, 8, 7});
+    final ListNode rtnHead = ListNodes.getListOfNodes(ARRAY);
     assertEquals(stdHead, solution.reverseKGroup(rtnHead, 3));
   }
 }

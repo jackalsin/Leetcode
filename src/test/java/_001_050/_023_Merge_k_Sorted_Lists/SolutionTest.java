@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import utils.ListNode;
+import utils.ListNodes;
 import utils.Util;
 
 import static org.junit.Assert.assertEquals;
@@ -28,11 +29,11 @@ public class SolutionTest {
 
   @Test
   public void testWithEqualLength() throws Exception {
-    final ListNode node1 = Util.getListOfNodes(new int[] {1, 5, 7});
-    final ListNode node2 = Util.getListOfNodes(new int[] {2, 4, 6});
-    final ListNode node3 = Util.getListOfNodes(new int[] {3, 6, 8});
+    final ListNode node1 = ListNodes.getListOfNodes(new int[] {1, 5, 7});
+    final ListNode node2 = ListNodes.getListOfNodes(new int[] {2, 4, 6});
+    final ListNode node3 = ListNodes.getListOfNodes(new int[] {3, 6, 8});
     final ListNode[] input = new ListNode[] {node1, node2, node3};
-    final ListNode result = Util.getListOfNodes(new int[] {1, 2, 3, 4, 5, 6, 6, 7, 8});
+    final ListNode result = ListNodes.getListOfNodes(new int[] {1, 2, 3, 4, 5, 6, 6, 7, 8});
     assertEquals(result, solution.mergeKLists(input));
   }
 }

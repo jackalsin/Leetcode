@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import utils.ListNode;
+import utils.ListNodes;
 import utils.Util;
 
 import static org.junit.Assert.assertEquals;
@@ -21,15 +22,15 @@ public class SolutionTest {
 
   @Test
   public void testWith5And2() throws Exception {
-    ListNode head = Util.getListOfNodes(new int[]{1, 2, 3, 4, 5});
-    ListNode expected = Util.getListOfNodes(new int[]{4, 5, 1, 2, 3});
+    ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
+    ListNode expected = ListNodes.getListOfNodes(new int[]{4, 5, 1, 2, 3});
     assertEquals(expected, solution.rotateRight(head, 2));
   }
 
   @Test
   public void testWith5And7() throws Exception {
-    ListNode head = Util.getListOfNodes(new int[]{1, 2, 3, 4, 5});
-    ListNode expected = Util.getListOfNodes(new int[]{4, 5, 1, 2, 3});
+    ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
+    ListNode expected = ListNodes.getListOfNodes(new int[]{4, 5, 1, 2, 3});
     assertEquals(expected, solution.rotateRight(head, 7));
   }
   @Test
@@ -41,8 +42,8 @@ public class SolutionTest {
 
   @Test
   public void testWith1And1() throws Exception {
-    ListNode head = Util.getListOfNodes(new int[]{1});
-    ListNode expected = Util.getListOfNodes(new int[]{1});
+    ListNode head = ListNodes.getListOfNodes(new int[]{1});
+    ListNode expected = ListNodes.getListOfNodes(new int[]{1});
     assertEquals(expected, solution.rotateRight(head, 1));
 
 

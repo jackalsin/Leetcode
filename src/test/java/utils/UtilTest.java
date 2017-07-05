@@ -14,7 +14,7 @@ public class UtilTest {
 
   @Test
   public void getListOfNodes() throws Exception {
-    ListNode actual = Util.getListOfNodes(new int[] {1, 2, 3});
+    ListNode actual = ListNodes.getListOfNodes(new int[] {1, 2, 3});
     ListNode expect = new ListNode(1);
     ListNode expect2 = new ListNode(2);
     expect.next = expect2;
