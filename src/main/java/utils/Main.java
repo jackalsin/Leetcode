@@ -7,5 +7,9 @@ package utils;
 public class Main {
   public static void main(String[] args) {
     System.out.println(3/ 2);
+
+      System.out.println(Integer.MAX_VALUE + " * 8 bits");
+      System.out.println(Integer.MAX_VALUE/1024/1024 * 8 + " MB");
+
   }
 }
