@@ -1,6 +1,9 @@
 package _101_150._145_Binary_Tree_Postorder_Traversal;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 import utils.TreeNode;
@@ -11,6 +14,18 @@ import utils.TreeNode;
  */
 public class Solution {
   public List<Integer> postorderTraversal(TreeNode root) {
-    return new ArrayList<>();
+    LinkedList<Integer> result = new LinkedList<>();
+    Deque<TreeNode> stack = new ArrayDeque<>();
+    while (!stack.isEmpty() || root != null) {
+      if (root != null) {
+        stack.push(root);
+        result.addFirst(root.val);
+        root = root.right;
+      } else {
+        root = stack.pop();
+        root = root.left;
+      }
+    }
+    return result;
   }
 }
