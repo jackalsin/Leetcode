@@ -25,7 +25,7 @@ public class LFUCacheTest {
     assertEquals(-1, cache.get(2));       // returns -1 (not found)
     assertEquals(3, cache.get(3));       // returns -1 (not found)
     cache.put(4, 4);    // evicts key 1
-    assertEquals(1, cache.get(1));       // returns -1 (not found)
+    assertEquals(-1, cache.get(1));       // returns -1 (not found)
     assertEquals(3, cache.get(3));       // returns 3
     assertEquals(4, cache.get(4));       // returns 4
   }
