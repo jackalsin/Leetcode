@@ -10,12 +10,12 @@ import java.util.Map;
  */
 public class LFUCache {
   private Node head, tail;
-  private int cap = 0;
-  private Map<Integer, Integer> valueHash = new HashMap<>();
-  private Map<Integer, Node> nodeHash = new HashMap<>();
+  private int capacity = 0;
+  private Map<Integer, Integer> keyToValues = new HashMap<>();
+  private Map<Integer, Node> keyToCountNodes = new HashMap<>();
 
   public LFUCache(int capacity) {
-    cap = capacity;
+    this.capacity = capacity;
     head = new Node(0);
     tail = new Node(Integer.MAX_VALUE);
     head.next = tail;
@@ -23,23 +23,24 @@ public class LFUCache {
   }
 
   public int get(int key) {
-    if (valueHash.containsKey(key)) {
+    if (keyToValues.containsKey(key)) {
       increaseCount(key);
-      return valueHash.get(key);
+      return keyToValues.get(key);
     } else {
       return -1;
     }
   }
 
   public void put(int key, int value) {
-    if (valueHash.containsKey(key)) {
-      valueHash.put(key, value);
+    if (capacity == 0) return;
+    if (keyToValues.containsKey(key)) {
+      keyToValues.put(key, value);
     } else {
-      if (valueHash.size() < cap) {
-        valueHash.put(key, value);
+      if (keyToValues.size() < capacity) {
+        keyToValues.put(key, value);
       } else {
         removeOldest();
-        valueHash.put(key, value);
+        keyToValues.put(key, value);
       }
       addToHead(key);
     }
@@ -48,11 +49,18 @@ public class LFUCache {
 
   private void removeOldest() {
     Node toRemove = head.next;
-    head.next = toRemove.next;
-    head.next.prev = head;
 
-    toRemove.prev = null;
-    toRemove.next = null;
+    int oldestKey = 0;
+    for (int key : toRemove.keys) {
+      oldestKey = key;
+      break;
+    }
+    toRemove.keys.remove(oldestKey);
+    if(toRemove.keys.size() == 0) {
+      remove(toRemove);
+    }
+    keyToCountNodes.remove(oldestKey);
+    keyToValues.remove(oldestKey);
   }
 
   private void addToHead(int key) {
@@ -69,11 +77,11 @@ public class LFUCache {
       next.prev = toAdd;
       toAdd.next = next;
     }
-    nodeHash.put(key, head.next);
+    keyToCountNodes.put(key, head.next);
   }
 
   private void increaseCount(int key) {
-    final Node node = nodeHash.get(key);
+    final Node node = keyToCountNodes.get(key);
     node.keys.remove(key);
 
     if (node.next.count == node.count + 1) {
@@ -89,7 +97,7 @@ public class LFUCache {
       toInsert.next = after;
       after.prev = toInsert;
     }
-    nodeHash.put(key, node.next);
+    keyToCountNodes.put(key, node.next);
     if (node.keys.size() == 0) {
       remove(node);
     }
@@ -118,6 +126,15 @@ public class LFUCache {
       this.count = count;
       keys = new LinkedHashSet<>();
       prev = next = null;
+    }
+
+    @Override
+    public String toString() {
+      return "Node{" +
+          "count=" + count +
+          ", keys=" + keys +
+          ", next=" + next +
+          '}';
     }
   }
 

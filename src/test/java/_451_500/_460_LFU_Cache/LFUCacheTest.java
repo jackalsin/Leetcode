@@ -30,4 +30,25 @@ public class LFUCacheTest {
     assertEquals(4, cache.get(4));       // returns 4
   }
 
+  @Test
+  public void testEmpty() throws Exception {
+    cache = new LFUCache(0);
+    cache.put(0, 0);
+    cache.get(0);
+  }
+
+  @Test
+  public void testFailedCase1() throws Exception {
+    cache.put(1, 1);
+    cache.put(2, 2);
+    assertEquals(1, cache.get(1));
+    cache.put(3, 3);
+    assertEquals(-1, cache.get(2));
+    assertEquals(3, cache.get(3));
+    cache.put(4, 4);
+    assertEquals(-1, cache.get(1));
+    assertEquals(3, cache.get(3));
+    assertEquals(4, cache.get(4));
+
+  }
 }
