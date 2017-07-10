@@ -8,6 +8,23 @@ import utils.ListNode;
  */
 public class Solution {
   public ListNode insertionSortList(ListNode head) {
-    return null;
+    ListNode dummy = new ListNode(-1);
+    dummy.next = head;
+    ListNode insert = dummy.next;
+    ListNode tail = dummy;
+    while (insert != null) {
+      ListNode preNode = dummy;
+      while (preNode.next != insert && insert.val > preNode.next.val) {
+        preNode = preNode.next;
+      }
+      tail.next = insert.next;
+      insert.next = preNode.next;
+      preNode.next = insert;
+      if (tail.next == insert) {
+        tail = tail.next;
+      }
+      insert = tail.next;
+    }
+    return dummy.next;
   }
 }
