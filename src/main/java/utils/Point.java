@@ -14,4 +14,12 @@ public final class Point {
     x = a;
     y = b;
   }
+
+  @Override
+  public String toString() {
+    return "Point{" +
+        "x=" + x +
+        ", y=" + y +
+        '}';
+  }
 }
