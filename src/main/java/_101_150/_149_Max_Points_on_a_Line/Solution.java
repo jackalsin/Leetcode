@@ -16,7 +16,7 @@ public class Solution {
     if (points == null || points.length == 0) return 0;
     int max = 1;
     for (int start = 0; start < points.length - 1; start++) {
-      Map<Double, Integer> ratioToCounts = new HashMap<>();
+      Map<Long, Integer> ratioToCounts = new HashMap<>();
       int invalidRatioCounts = 0;
       int self = 1;
       for (int end = start + 1; end < points.length; end++) {
@@ -25,9 +25,7 @@ public class Solution {
         if(startPoint.x == endPoint.x) {
           if (startPoint.y == endPoint.y) {
             self++;
-            Map<Double, Integer> copy = new HashMap<>(ratioToCounts);
-            for(Map.Entry<Double, Integer> entry : copy.entrySet()) {
-//              ratioToCounts.put(entry.getKey(), entry.getValue() + self);
+            for(Map.Entry<Long, Integer> entry : ratioToCounts.entrySet()) {
               max = Math.max(entry.getValue() + self, max);
             }
           } else {
@@ -35,12 +33,13 @@ public class Solution {
           }
           max = Math.max(invalidRatioCounts + self, max);
         } else {
-          double ratio = ((double) startPoint.y - (double) endPoint.y) / ((double) startPoint.x -
-              (double) endPoint.x);
-          ratio = ratio == 0d ? 0d : ratio;
-          int curCount = ratioToCounts.getOrDefault(ratio, 0) + 1;
+          int deltaY = startPoint.y - endPoint.y;
+          int deltaX = startPoint.x - endPoint.x;
+          int gcd = gcd(deltaY, deltaX);
+          long slope = ((long)(deltaY/gcd) << 32) | (deltaX / gcd);
+          int curCount = ratioToCounts.getOrDefault(slope, 0) + 1;
           max = Math.max(curCount + self, max);
-          ratioToCounts.put(ratio, curCount);
+          ratioToCounts.put(slope, curCount);
         }
       }
     }
@@ -48,5 +47,8 @@ public class Solution {
   }
 
 
-
+  private static int gcd(int a, int b) {
+    if (b == 0) return a;
+    else  return gcd(b, a % b);
+  }
 }
