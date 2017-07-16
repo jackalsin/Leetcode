@@ -11,5 +11,6 @@ public class Main {
       System.out.println(Integer.MAX_VALUE + " * 8 bits");
       System.out.println(Integer.MAX_VALUE/1024/1024 * 8 + " MB");
       System.out.println(0.0 == -0.0);
+      System.out.println(Integer.MAX_VALUE);
   }
 }
