@@ -1,0 +1,25 @@
+package _151_200._157_Read_N_Characters_Given_Read4;
+
+/**
+ * @author Zhiwei.Xin
+ * @version 1.0 on 7/19/2017.
+ */
+public class Reader4 {
+  private int point = 0;
+  private boolean eof = false;
+  int read4(char[] buf) {
+    if (buf.length > point + 4) {
+      point += 4;
+      return 4;
+    } else {
+      if (eof) {
+        return 0;
+      } else {
+        eof = true;
+        int res = buf.length - point;
+        point = buf.length - 1;
+        return res;
+      }
+    }
+  }
+}
