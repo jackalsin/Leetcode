@@ -5,6 +5,12 @@ package _151_200._157_Read_N_Characters_Given_Read4;
  * @version 1.0 on 7/19/2017.
  */
 public class Reader4 {
+  private final String s;
+
+  public Reader4(String s) {
+    this.s = s;
+  }
+
   private int point = 0;
   private boolean eof = false;
   int read4(char[] buf) {

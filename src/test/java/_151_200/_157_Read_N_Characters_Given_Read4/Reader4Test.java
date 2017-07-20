@@ -14,7 +14,7 @@ public class Reader4Test {
 
   @Before
   public void setUp() throws Exception {
-    reader4 = new Reader4();
+    reader4 = new Reader4("ss");
   }
 
   @Test
