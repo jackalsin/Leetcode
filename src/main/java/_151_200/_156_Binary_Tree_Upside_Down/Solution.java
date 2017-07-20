@@ -11,6 +11,30 @@ public class Solution {
      * @return
      */
     public TreeNode upsideDownBinaryTree(TreeNode root) {
+        return iterative(root);
+    }
+
+    private TreeNode iterative(TreeNode root) {
+        if (root == null || root.left == null) {
+            return root;
+        }
+
+        TreeNode cur = root;
+        TreeNode prev = null;
+        TreeNode temp = null;
+        while (cur != null) {
+            TreeNode next = cur.left;
+            cur.left = temp;
+            temp = cur.right;
+            cur.right = prev;
+
+            prev = cur;
+            cur = next;
+        }
+        return prev;
+    }
+
+    private TreeNode recursion(TreeNode root) {
         if (root == null || root.left == null) return root;
         TreeNode newRoot = upsideDownBinaryTree(root.left);
         root.left.left = root.right;

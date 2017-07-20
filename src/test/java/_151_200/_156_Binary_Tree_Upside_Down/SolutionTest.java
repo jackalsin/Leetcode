@@ -5,7 +5,7 @@ import org.junit.Test;
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class SolutionTest {
     private Solution solution;
@@ -30,9 +30,16 @@ public class SolutionTest {
     }
 
     @Test
-    public void testTreeLevels() throws Exception {
-        TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, null);
-        TreeNode expected = TreeNodes.getTreeLevelOrder(2, null, 1);
+    public void testTwoLevelsFull() throws Exception {
+        TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3);
+        TreeNode expected = TreeNodes.getTreeLevelOrder(2, 3, 1);
+        assertEquals(expected, solution.upsideDownBinaryTree(input));
+    }
+
+    @Test
+    public void testThreeLevels() throws Exception {
+        TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, null, null);
+        TreeNode expected = TreeNodes.getTreeLevelOrder(4, 5, 2, null, null, 3, 1);
         assertEquals(expected, solution.upsideDownBinaryTree(input));
     }
 }
