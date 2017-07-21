@@ -9,12 +9,12 @@ public class Solution {
     int start = 0, end = nums.length - 1;
     while (start < end) {
       int mid = (end - start) / 2 + start;
-      if(nums[start] < nums[mid]) {
+      if(nums[end] < nums[mid]) {
         start = mid + 1;
-      } else if (nums[start] > nums[mid]) {
-        start = mid;
+      } else if (nums[end] > nums[mid]) {
+        end = mid;
       } else {
-        start++;
+        end--;
       }
     }
     return nums[start];
