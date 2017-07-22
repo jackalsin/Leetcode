@@ -1,4 +1,4 @@
-package _151_200._186_Reverse_Words_in_a_String_II._186_Reverse_Words_in_a_String_II;
+package _151_200._186_Reverse_Words_in_a_String_II;
 
 /**
  * @author jacka
