@@ -1,8 +1,8 @@
 package _151_200._169_Majority_Element;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+        import java.util.Arrays;
+        import java.util.HashMap;
+        import java.util.Map;
 
 public class Solution {
     /**
@@ -12,15 +12,20 @@ public class Solution {
      * @return
      */
     public int majorityElement(int[] nums) {
-        Map<Integer, Integer> counts = new HashMap<>();
-        for(int child : nums) {
-            int prevCount = counts.getOrDefault(child, 0);
-            if (prevCount + 1 > nums.length / 2) {
-                return child;
+        int major = nums[0];
+        int count = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (major == nums[i]) {
+                count++;
+            } else if (count == 0) {
+                major = nums[i];
+                count = 1;
+            } else {
+                count--;
             }
-            counts.put(child, prevCount + 1);
         }
-        throw new IllegalStateException("No majority element in nums = " + Arrays.toString(nums));
+        return major;
     }
 }
 
