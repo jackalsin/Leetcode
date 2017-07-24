@@ -13,7 +13,7 @@ public class Reader4 {
 
   private int point = 0;
   private boolean eof = false;
-  int read4(char[] buf) {
+  public int read4(char[] buf) {
     if (buf.length > point + 4) {
       point += 4;
       return 4;
