@@ -21,7 +21,7 @@ public class SolutionTest {
     final int[][] input = new int[][] {
       {-2, -3, 3}, {-5, -10, 1}, {10, 30, -5}
     };
-//    assertEquals(7, solution.calculateMinimumHP(input));
+    assertEquals(7, solution.calculateMinimumHP(input));
   }
 
 }
