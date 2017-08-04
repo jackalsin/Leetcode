@@ -11,5 +11,4 @@ insert into Orders (Id, CustomerId) values ('1', '3');
 insert into Orders (Id, CustomerId) values ('2', '1');
 
 -- solution
-SELECT Name AS Customers FROM Customers c WHERE NOT EXISTS (SELECT * FROM Customers RIGHT JOIN Orders ON Customers.Id = Orders.CustomerId);
-SELECT Name AS Customers FROM Customers WHERE NOT EXISTS (SELECT Name FROM Customers c WHERE Not EXISTS (SELECT CustomerId FROM Orders o WHERE o.CustomerId = c.Id));
+SELECT A.Name FROM Customers A WHERE NOT EXISTS (SELECT * FROM Orders B WHERE A.Id = B.CustomerId);
