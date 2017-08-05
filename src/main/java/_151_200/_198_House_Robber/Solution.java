@@ -15,7 +15,8 @@ public class Solution {
       int preMax = Math.max(nums[0], nums[1]);
 
       for (int i = 2; i < nums.length; i++) {
-        int curMax = Math.max(prePreMax + nums[i], preMax - nums[i - 1] + nums[i]);
+        int stealMax = Math.max(prePreMax + nums[i], preMax - nums[i - 1] + nums[i]);
+        int curMax = Math.max(stealMax, preMax); // compare to the situation not steal
         prePreMax = preMax;
         preMax = curMax;
       }

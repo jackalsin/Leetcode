@@ -41,4 +41,10 @@ public class SolutionTest {
     final int[] input = new int[] {1, 2, 3};
     assertEquals(4, solution.rob(input));
   }
+
+  @Test
+  public void test131() throws Exception {
+    final int[] input = new int[] {1, 3, 1};
+    assertEquals(3, solution.rob(input));
+  }
 }
