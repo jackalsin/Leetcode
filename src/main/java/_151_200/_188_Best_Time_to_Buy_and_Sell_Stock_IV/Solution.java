@@ -5,25 +5,20 @@ package _151_200._188_Best_Time_to_Buy_and_Sell_Stock_IV;
  * @version 1.0 on 7/15/2017.
  */
 public class Solution {
-  /**
-   * Rotate an array of n elements to the right by k steps.
-   * @param nums
-   * @param k
-   */
-  public void rotate(int[] nums, int k) {
-    k %= nums.length;
-    reverse(nums, 0, nums.length - 1);
-    reverse(nums, 0, k - 1);
-    reverse(nums, k, nums.length - 1);
+  public int maxProfit(final int k, int[] prices) {
+    if (prices.length == 0) return 0;
+    final int[] maxProfits = new int[prices.length];
+    for(int i = 1; i <= k; ++i) {
+      int tempMax = maxProfits[0] - prices[0];
+      for(int j = 1; j < prices.length; ++j) {
+        int preTempMax = maxProfits[j] - prices[j];
+        int dontDoTransaction = maxProfits[j - 1];
+        int doTransaction = prices[j] + tempMax;
+        maxProfits[j] = Math.max(dontDoTransaction, doTransaction);
+        tempMax = Math.max(tempMax, preTempMax);
+      }
+    }
+    return maxProfits[prices.length - 1];
   }
 
-  private static void reverse(int[] nums, int start, int end) {
-    while (start < end) {
-      int tmp = nums[start];
-      nums[start] = nums[end];
-      nums[end] = tmp;
-      start++;
-      end--;
-    }
-  }
 }
