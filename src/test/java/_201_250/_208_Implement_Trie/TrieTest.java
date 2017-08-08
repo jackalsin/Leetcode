@@ -1,11 +1,10 @@
 package _201_250._208_Implement_Trie;
 
-import com.sun.xml.internal.ws.encoding.soap.SOAP12Constants;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
