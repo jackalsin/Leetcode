@@ -6,37 +6,31 @@ package _201_250._213_House_Robber_II;
  */
 public class Solution {
   public int rob(int[] nums) {
-    if (nums == null || nums.length == 0) {
-      return 0;
+    if (nums == null) {
+      throw new NullPointerException();
+    } else if (nums.length == 1) {
+      return nums[0];
+    } else {
+      return Math.max(rob(nums, 0, nums.length - 2), rob(nums, 1, nums.length - 1));
     }
-    int max = 0, len = nums.length;
-    for(int start = 0; start < nums.length; ++start) {
-      int prevMax = nums[start], prevPrevMax = 0;
-      for(int i = start == len - 1 ? 0 : start + 1; i != start; ++i) {
-        int preIndex = i == 0 ? nums.length - 1 : i - 1;
-        // if is a neighbor with prev prev, cannot steal
-        int steal = isNeighborWithPrevPrev(i, len) ? prevPrevMax : Math.max(prevPrevMax + nums[i],
-            prevMax - nums[preIndex] + nums[i]);
-        int curMax = Math.max(steal, prevMax);
-        prevPrevMax = prevMax;
-        prevMax = curMax;
-        if (i == nums.length - 1) {
-          i = -1;
-        }
-      }
-      max = Math.max(max, prevMax);
+  }
+
+  /**
+   *
+   * @param nums
+   * @param start inclusive
+   * @param end   inclusive
+   * @return
+   */
+  private int rob(int[] nums, int start, int end) {
+    int prevSteal = 0, prevNoSteal = 0;
+    for(int i = start; i <= end; ++i) {
+      int curSteal = prevNoSteal + nums[i];
+      int curNoSteal = Math.max(prevSteal, prevNoSteal);
+      prevSteal = curSteal;
+      prevNoSteal = curNoSteal;
     }
-    return max;
-  }
 
-  private static int getPrevNeighbor(int index, final int len) {
-    return index == 0 ? len - 1 : index - 1;
+    return Math.max(prevSteal, prevNoSteal);
   }
-  private static boolean isNeighborWithPrevPrev(int index, final int len) {
-    int prev = getPrevNeighbor(index, len);
-    int prevPrev = getPrevNeighbor(prev, len);
-    return index == getPrevNeighbor(prevPrev, len);
-  }
-
-
 }
