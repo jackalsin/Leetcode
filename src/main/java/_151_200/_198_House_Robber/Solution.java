@@ -6,6 +6,23 @@ package _151_200._198_House_Robber;
  */
 public class Solution {
   public int rob(int[] nums) {
+//    return robEvil(nums);
+    return robNormal(nums);
+  }
+
+  private static int robNormal(int[] nums) {
+    int prevSteal = 0, prevNoSteal = 0;
+    for (int curVal : nums) {
+      int curSteal = prevNoSteal + curVal;
+      int curNoSteal = Math.max(prevNoSteal, prevSteal);
+
+      prevNoSteal = curNoSteal;
+      prevSteal = curSteal;
+    }
+    return Math.max(prevNoSteal, prevSteal);
+  }
+
+  private static int robEvil(int[] nums) {
     if (nums == null || nums.length == 0) {
       return 0;
     } else if (nums.length == 1) {
