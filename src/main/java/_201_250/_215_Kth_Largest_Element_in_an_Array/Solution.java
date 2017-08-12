@@ -1,5 +1,6 @@
 package _201_250._215_Kth_Largest_Element_in_an_Array;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /**
@@ -18,7 +19,50 @@ public class Solution {
    * @return    the kth largest
    */
   public int findKthLargest(int[] nums, final int k) {
-    return pqSolution(nums, k);
+//    return pqSolution(nums, k);
+    return quickSelectSolution(nums, k);
+  }
+
+  private int quickSelectSolution(int[] nums, int k) {
+    if(nums == null || nums.length == 0) {
+      return -1;
+    } else {
+      return quickSelectSolution(nums, k, 0, nums.length - 1);
+    }
+  }
+
+  private int quickSelectSolution(int[] nums, int k, int start, int end) {
+    if (start >= end) {
+      return nums[start];
+    }
+    int left = start, right = end, pivotVal = nums[start + (end - start)/2];
+    while (left <= right) {
+      while (left <= right && nums[left] < pivotVal) {
+        left++;
+      }
+      while (left <= right && nums[right] > pivotVal) {
+        right--;
+      }
+
+      if (left <= right) {
+        swap(nums, left++, right--);
+      }
+    }
+    /* If not satisfied, recursion */
+    if (end - left >= k - 1) {
+      return quickSelectSolution(nums, k, left, end);
+    }
+
+    if (end - right <= k - 1) {
+      return quickSelectSolution(nums, k - (end - right), start, right);
+    }
+    return nums[left - 1];
+  }
+
+  private static void swap(int[] nums, int i, int j) {
+    int tmp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = tmp;
   }
 
   /**
