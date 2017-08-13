@@ -23,6 +23,12 @@ public class Solution {
     return quickSelectSolution(nums, k);
   }
 
+  /**
+   * O(N) best case / O(N^2) worst case running time + O(1) memory
+   * @param nums
+   * @param k
+   * @return
+   */
   private int quickSelectSolution(int[] nums, int k) {
     if(nums == null || nums.length == 0) {
       return -1;
