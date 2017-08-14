@@ -49,4 +49,12 @@ public class SolutionTest {
     final String expected = "aa";
     assertEquals(expected, solution.shortestPalindrome(input));
   }
+
+  // test genTable
+  @Test
+  public void testGenTable()throws Exception {
+    final String pattern = "ABCDABD";
+    final int[] expected = new int[] {0, 0, 0, 0, 1, 2, 0};
+    assertArrayEquals(expected, solution.genTable(pattern));
+  }
 }

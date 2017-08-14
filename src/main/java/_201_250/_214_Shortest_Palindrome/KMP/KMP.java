@@ -12,6 +12,7 @@ public class KMP {
   private final int[] next;
   private final String pattern;
   private final int pLen;
+
   public KMP(String pattern) {
     this.pattern = pattern;
     pLen = pattern.length();
