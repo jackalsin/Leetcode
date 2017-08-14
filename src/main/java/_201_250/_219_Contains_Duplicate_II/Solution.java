@@ -12,7 +12,29 @@ import java.util.Set;
 public class Solution {
   public boolean containsNearbyDuplicate(int[] nums, int k) {
 //    return hashMapSolution(nums, k);
-    return hashSetSolution(nums, k);
+//    return hashSetSolution(nums, k);
+    return twoPointersSolution(nums, k);
+  }
+
+  private boolean twoPointersSolution(int[] nums, int k) {
+    if(k == 0) return false;
+    int l = 0;
+    int r = 1;
+    while(r < nums.length) {
+      if(l != r && nums[l] == nums[r]) return true;
+      if(r - l < k) {
+        r++;
+      } else if(r - l == k) {
+        l++;
+      }
+    }
+    r--;
+    while(l < r) {
+      if(nums[l++] == nums[r]) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private boolean hashSetSolution(int[] nums, int k) {
