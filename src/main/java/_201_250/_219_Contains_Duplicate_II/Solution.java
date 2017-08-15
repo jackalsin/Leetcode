@@ -12,10 +12,16 @@ import java.util.Set;
 public class Solution {
   public boolean containsNearbyDuplicate(int[] nums, int k) {
 //    return hashMapSolution(nums, k);
-//    return hashSetSolution(nums, k);
-    return twoPointersSolution(nums, k);
+    return hashSetSolution(nums, k);
+//    return twoPointersSolution(nums, k);
   }
 
+  /**
+   * TODO: Seems wrong
+   * @param nums
+   * @param k
+   * @return
+   */
   private boolean twoPointersSolution(int[] nums, int k) {
     if(k == 0) return false;
     int l = 0;
