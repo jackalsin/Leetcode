@@ -60,4 +60,16 @@ public class SolutionTest {
     final int[] input = new int[] {0, a};
     assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, a));
   }
+
+  @Test
+  public void testT0() throws Exception {
+    final int[] input = new int[] {-1, -1};
+    assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, 0));
+  }
+
+  @Test
+  public void testFailed() throws Exception {
+    final int[] input = new int[]{2, 1};
+    assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, 1));
+  }
 }
