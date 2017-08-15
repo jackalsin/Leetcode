@@ -21,22 +21,25 @@ public class Solution {
    * @return
    */
   public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-    if (k <= 0 || nums == null || nums.length < 2) {
+    return treeSetSolution(nums, k , t);
+  }
+
+  private boolean treeSetSolution(int[] nums, int k, int t) {
+    if (k <= 0 || t < 0 || nums.length < 2) {
       return false;
     }
     TreeSet<Integer> valsInK = new TreeSet<>();
-    valsInK.add(nums[0]);
-    for (int i = 1; i < nums.length; ++i) {
+    for (int i = 0; i < nums.length; i++) {
+      Integer max = valsInK.floor(nums[i] + t);
+      Integer min = valsInK.ceiling(nums[i] - t);
+      if ((max != null && max >= (long)nums[i] - t) || (min != null && min <= (long)nums[i] + t)) {
+        return true;
+      }
+      if (i >= k) {
+        valsInK.remove(nums[i - k]);
+      }
       valsInK.add(nums[i]);
-      if (i > k) {
-        valsInK.remove(nums[i - k - 1]);
-      }
-      int min = valsInK.first();
-      int max = valsInK.last();
-      if (max - min > t) {
-        return false;
-      }
     }
-    return true;
+    return false;
   }
 }

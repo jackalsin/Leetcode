@@ -27,12 +27,12 @@ public class SolutionTest {
   @Test
   public void testNegativeT() throws Exception {
     final int[] input = new int[] {1, 5, 1, 66, 5, 3};
-    assertFalse(solution.containsNearbyAlmostDuplicate(input, 1, 65));
+    assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, 65));
   }
 
   @Test
   public void testNegativeK() throws Exception {
-    final int[] input = new int[] {1, 10000, 66, 5, 3};
+    final int[] input = new int[] {1, 10000, 66};
     assertFalse(solution.containsNearbyAlmostDuplicate(input, 1, 65));
   }
 
@@ -46,5 +46,18 @@ public class SolutionTest {
   public void test1And3And1() throws Exception {
     final int[] input = new int[] {1, 3, 1};
     assertTrue(solution.containsNearbyAlmostDuplicate(input, 2, 1));
+  }
+
+  @Test
+  public void testK0() throws Exception {
+    final int[] input = new int[] {1, 2};
+    assertFalse(solution.containsNearbyAlmostDuplicate(input, 0, 1));
+  }
+
+  @Test
+  public void testOverflow() throws Exception {
+    final int a = 2147483647;
+    final int[] input = new int[] {0, a};
+    assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, a));
   }
 }
