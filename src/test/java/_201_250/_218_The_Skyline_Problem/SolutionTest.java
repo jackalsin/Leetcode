@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import utils.TwoDimensionArray;
+
 import static org.junit.Assert.*;
 
 /**
@@ -27,4 +29,17 @@ public class SolutionTest {
      new int[]{12,0}, new int[]{15,10}, new int[]{20,8}, new int[]{24, 0});
     solution.getSkyline(input);
   }
+
+  @Test
+  public void testFailedTestCase() throws Exception {
+    final int[][] input = new int[][] {{0, 3, 3},{1, 5, 3},{2, 4, 3},{3, 7, 3}};
+    final List<int[]> expected = Arrays.asList(
+        new int[]{0, 3}, new int[]{7, 0});
+    final List<int[]> actual = solution.getSkyline(input);
+    for (int [] child: actual) {
+      System.out.println(Arrays.toString(child));
+    }
+
+  }
+
 }

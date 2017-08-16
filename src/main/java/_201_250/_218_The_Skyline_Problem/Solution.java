@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * @author jacka
@@ -14,6 +15,9 @@ import java.util.TreeMap;
 public class Solution {
   /**
    * https://briangordon.github.io/2014/08/the-skyline-problem.html
+   *
+   * Critical Points are those points whose height changes and then draw right
+   * They only appear on the on the left or right edge of the rectangle.
    *
    * The key is to
    *  for each critical point c
@@ -30,8 +34,15 @@ public class Solution {
       criticalPoints.get(building[0]).add(building);
       criticalPoints.get(building[1]).add(building);
     }
-
-    PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+    TreeSet<int[]> pq = new TreeSet<>(new Comparator<int[]>() {
+      /**
+       * If using this comparator, in add, it's using comparator to add, when the last element
+       * are the same, it will not add this int[].
+       *
+       * @param o1
+       * @param o2
+       * @return
+       */
       @Override
       public int compare(int[] o1, int[] o2) {
         return Integer.compare(o2[2], o1[2]);
@@ -44,7 +55,8 @@ public class Solution {
       List<int[]> edgesContainsCriticalPoints = entry.getValue();
       for (int[] child : edgesContainsCriticalPoints) {
         if (cpLeft == child[0]) { // left edge
-          pq.offer(child);
+//          System.out.println(cpLeft + " " + pq.add(child));
+          pq.add(child);
         } else {
           pq.remove(child);
         }
@@ -53,7 +65,7 @@ public class Solution {
       if(pq.isEmpty()) {
         result.add(new int[] {cpLeft, 0});
       } else {
-        int h = pq.peek()[2];
+        int h = pq.first()[2];
         if (result.size() == 0 || h != result.get(result.size() - 1)[1]) {
           result.add(new int[] {cpLeft, h});
         }
@@ -61,6 +73,15 @@ public class Solution {
     }
 
     return result;
+  }
+
+  public static void main(String[] args) {
+    TreeSet<int[]> treeSet = new TreeSet<>(new Comparator<int[]>() {
+      @Override
+      public int compare(int[] o1, int[] o2) {
+        return Integer.compare(o1[0], o2[0]);
+      }
+    });
   }
 
 }
