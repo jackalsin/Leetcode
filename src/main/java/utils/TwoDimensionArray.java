@@ -103,4 +103,30 @@ public final class TwoDimensionArray {
     }
     System.out.println("]");
   }
+
+  /**
+   * Get a char board from <tt>strs</tt>.
+   * @param strs  an non-empty string arrays whose elements have the same length
+   * @return
+   */
+  public static char[][] getCharBoard(String[] strs) {
+    if (strs == null) {
+      throw new NullPointerException("strs cannot be null");
+    }
+    final int rows = strs.length;
+    if (rows == 0) {
+      throw new IllegalArgumentException("strs cannot be zero length");
+    }
+    final int cols = strs[0].length();
+    char[][] board = new char[rows][cols];
+    for (int row = 0; row < rows; ++row) {
+      if (cols != strs[row].length()) {
+        throw new IllegalArgumentException("Each row should have the same length with the first " +
+            "one = " + cols);
+      }
+      System.arraycopy(strs[row].toCharArray(), 0, board[row], 0, cols);
+    }
+
+    return board;
+  }
 }
