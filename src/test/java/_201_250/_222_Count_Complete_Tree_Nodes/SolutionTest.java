@@ -30,4 +30,10 @@ public class SolutionTest {
     assertEquals(13, solution.countNodes(root));
   }
 
+  @Test
+  public void testHeight() throws Exception {
+    TreeNode root4 = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    assertEquals(4, Solution.height(root4));
+  }
+
 }

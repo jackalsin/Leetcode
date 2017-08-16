@@ -1,8 +1,5 @@
 package _201_250._222_Count_Complete_Tree_Nodes;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 import utils.TreeNode;
 
 /**
@@ -10,26 +7,20 @@ import utils.TreeNode;
  * @version 1.0 on 8/15/2017.
  */
 public class Solution {
+
   public int countNodes(TreeNode root) {
-    if (root == null) {
+    int height = height(root);
+    if (height == 0) {
       return 0;
     }
-    Queue<TreeNode> queue = new ArrayDeque<>();
-    int count = 0;
-    queue.offer(root);
-    while (!queue.isEmpty()) {
-      int size = queue.size();
-      count += size;
-      for (int i = 0; i < size; ++i) {
-        TreeNode cur = queue.poll();
-        if (cur.left != null) {
-          queue.offer(cur.left);
-        }
-        if (cur.right != null) {
-          queue.offer(cur.right);
-        }
-      }
+    if (height(root.right) == height - 1) { // the last level node dies in the right
+      return (1 << (height - 1)) + countNodes(root.right);
+    } else {
+      return (1 << (height - 2)) + countNodes(root.left);
     }
-    return count;
+  }
+
+  static int height(TreeNode root) {
+    return root == null ? 0 : 1 + height(root.left);
   }
 }
