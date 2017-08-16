@@ -26,6 +26,6 @@ public class SolutionTest {
   @Test
   public void testUnorderedArray() throws Exception {
     final int[] input = new int[] {1, 5, -3, 5, 2, 11, 7};
-    assertFalse(solution.containsNearbyDuplicate(input, 4));
+    assertTrue(solution.containsNearbyDuplicate(input, 4));
   }
 }
