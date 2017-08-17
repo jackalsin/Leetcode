@@ -63,7 +63,6 @@ public class Solution {
       List<int[]> edgesContainsCriticalPoints = entry.getValue();
       for (int[] child : edgesContainsCriticalPoints) {
         if (cpLeft == child[0]) { // left edge
-//          System.out.println(cpLeft + " " + pq.add(child));
           pq.add(child);
         } else {
           pq.remove(child);
