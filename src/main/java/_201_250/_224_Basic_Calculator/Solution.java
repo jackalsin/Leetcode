@@ -31,9 +31,8 @@ public class Solution {
         sum = 0;
         sign = 1;
       } else if (child == ')') {
-        sign = stack.pop();
-        sum = stack.pop();
         sum += sign * num;
+        sum = stack.pop() * sum + stack.pop();
         sign = 1;
         num = 0;
       }
