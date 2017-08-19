@@ -1,6 +1,9 @@
 package _201_250._221_Maximal_Square;
 
 import org.junit.Before;
+import org.junit.Test;
+
+import utils.TwoDimensionArray;
 
 import static org.junit.Assert.*;
 
@@ -16,5 +19,12 @@ public class SolutionTest {
     solution = new Solution();
   }
 
+  @Test
+  public void testOnlineCase() throws Exception {
+    final char[][] board = TwoDimensionArray.getCharBoard(new String[] {
+      "10100", "10111", "11111", "10010"
+    });
 
+    assertEquals(4, solution.maximalSquare(board));
+  }
 }
