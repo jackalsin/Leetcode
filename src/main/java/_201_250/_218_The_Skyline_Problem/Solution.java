@@ -45,7 +45,15 @@ public class Solution {
        */
       @Override
       public int compare(int[] o1, int[] o2) {
-        return Integer.compare(o2[2], o1[2]);
+        int cmp2 = Integer.compare(o2[2], o1[2]);
+        if (cmp2 == 0) {
+          int cmp1 = Integer.compare(o2[1], o1[1]);
+          if (cmp1 == 0) {
+            return Integer.compare(o2[0], o1[0]);
+          }
+          return cmp1;
+        }
+        return cmp2;
       }
     });
 
@@ -55,7 +63,6 @@ public class Solution {
       List<int[]> edgesContainsCriticalPoints = entry.getValue();
       for (int[] child : edgesContainsCriticalPoints) {
         if (cpLeft == child[0]) { // left edge
-//          System.out.println(cpLeft + " " + pq.add(child));
           pq.add(child);
         } else {
           pq.remove(child);
