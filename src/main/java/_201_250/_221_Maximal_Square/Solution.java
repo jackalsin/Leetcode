@@ -12,8 +12,8 @@ public class Solution {
    * @return
    */
   public int maximalSquare(char[][] matrix) {
-    return twoDArraySolution(matrix);
-//    return oneArraySolution(matrix);
+//    return twoDArraySolution(matrix);
+    return oneArraySolution(matrix);
   }
 
   private int oneArraySolution(char[][] matrix) {
@@ -28,9 +28,33 @@ public class Solution {
     if (cols == 0) {
       return 0;
     }
-    //Todo:
 
-    return 0;
+    final int[] dp = new int[cols];
+    int maxArea = 0;
+    // first row
+    for (int col = 0; col < cols; ++col) {
+      dp[col] = matrix[0][col] - '0';
+      maxArea = Math.max(maxArea, dp[col] * dp[col]);
+    }
+    // start second row
+    for (int row = 1; row < rows; ++row) {
+      int triangle = dp[0];
+      dp[0] = matrix[row][0] - '0';
+      maxArea = Math.max(maxArea, dp[0] * dp[0]);
+      for (int col = 1; col < cols; ++col) {
+        int tmp = dp[col];
+        if (matrix[row][col] == '0') {
+          dp[col] = 0;
+          maxArea = Math.max(maxArea, dp[col] * dp[col]);
+        } else { // == '1'
+          int min = Math.min(Math.min(dp[col - 1], dp[col]), triangle);
+          dp[col] = min + 1;
+          maxArea = Math.max(maxArea, dp[col] * dp[col]);
+        }
+        triangle = tmp;
+      }
+    }
+    return maxArea;
   }
 
   private int twoDArraySolution(char[][] matrix) {

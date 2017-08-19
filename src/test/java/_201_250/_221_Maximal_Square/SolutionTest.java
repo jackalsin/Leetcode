@@ -27,4 +27,23 @@ public class SolutionTest {
 
     assertEquals(4, solution.maximalSquare(board));
   }
+
+  @Test
+  public void testOnlineCaseOFailed() throws Exception {
+    final char[][] board = TwoDimensionArray.getCharBoard(new String[] {
+      "1010", "1011", "1011", "1111"
+    });
+
+    assertEquals(4, solution.maximalSquare(board));
+  }
+
+  @Test
+  public void testFailed() throws Exception {
+    final char[][] board = TwoDimensionArray.getCharBoard(new String[] {
+        "10","01","01","01","11","00","01"
+    });
+
+    assertEquals(1, solution.maximalSquare(board));
+
+  }
 }
