@@ -11,48 +11,11 @@ import utils.TreeNode;
  */
 public class Solution {
   public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    Deque<TreeNode> stack = new ArrayDeque<>();
-    Deque<TreeNode> stackFirst = null;
-    while (root != null || !stack.isEmpty()) {
-      if (root != null) {
-        stack.push(root);
-        root = root.left;
-      } else {
-        root = stack.pop();
-        if (root == p || root == q) {
-          if (stackFirst == null) {
-            stackFirst = new ArrayDeque<>(stack);
-            stackFirst.push(root);
-          } else {
-            stack.push(root);
-            break;
-          }
-        }
-        root = root.right;
-      }
+    if (root.val > p.val && root.val > q.val) {
+      return lowestCommonAncestor(root.left, p, q);
+    } else if (root.val < p.val && root.val < q.val) {
+      return lowestCommonAncestor(root.right, p, q);
     }
-
-    TreeNode result = null;
-    for (int i = 0; i < Math.min(stack.size(), stackFirst.size()); ++i) {
-//      if (stack.isEmpty()) {
-//        return result;
-//      } else if (stackFirst.isEmpty()) {
-//        return result;
-//      } else {
-//        TreeNode node1 = stack.removeFirst();
-//        if (node1 == stackFirst.removeFirst()) {
-//          result = node1;
-//        } else {
-//          break;
-//        }
-//      }
-      TreeNode node1 = stack.removeLast();
-      if (node1 == stackFirst.removeLast()) {
-        result = node1;
-      } else {
-        break;
-      }
-    }
-    return result;
+    return root;
   }
 }
