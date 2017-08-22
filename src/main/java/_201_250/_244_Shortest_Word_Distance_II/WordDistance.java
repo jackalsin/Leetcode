@@ -16,33 +16,54 @@ public class WordDistance {
     for (int i = 0; i < words.length; ++i) {
       List<Integer> prev = index.getOrDefault(words[i], new ArrayList<>());
       prev.add(i);
+      index.put(words[i], prev);
     }
   }
 
   public int shortest(String word1, String word2) {
-    int result = Integer.MIN_VALUE;
-    List<Integer> index1 = index.get(word1);
-    List<Integer> index2 = index.get(word2);
-    int indexP1 = index1.get(0), indexP2 = index2.get(0);
-    while (indexP1 < index1.size() || indexP2 < index2.size()) {
+    int result = Integer.MAX_VALUE;
+    List<Integer> index1s = index.get(word1);
+    List<Integer> index2s = index.get(word2);
+    for(int i = 0, j = 0; i < index1s.size() && j < index2s.size();) {
+      final int index1 = index1s.get(i), index2 = index2s.get(j);
+      result = Math.min(result, Math.abs(index1 - index2));
+      if (index1 < index2) {
+        i++;
+      } else if (index1 > index2) {
+        j++;
+      } else {
+        throw new IllegalStateException("p1 == p2, " + i);
+      }
+    }
+    return result;
+  }
 
-      if (indexP1 == index1.size() && indexP2 < index2.size()) {
-        indexP2++;
-      } else if(indexP1 < index1.size() && indexP2 == index2.size()) {
-        indexP1++;
-      } else if (indexP1 < index1.size() && indexP2 < index2.size()) {
-        if (indexP1 < indexP2) {
-          result = Math.min(result, Math.abs(indexP1 - indexP2));
-          indexP1++;
-        } else if (indexP1 > indexP2) {
-          result = Math.min(result, Math.abs(indexP1 - indexP2));
-          indexP2++;
+  public int shortestNotOptimal(String word1, String word2) {
+    int result = Integer.MAX_VALUE;
+    List<Integer> index1s = index.get(word1);
+    List<Integer> index2s = index.get(word2);
+    for(int i = 0, j = 0; i < index1s.size() || j < index2s.size();) {
+      final int index1 = index1s.get(i), index2 = index2s.get(j);
+      if (i == index1s.size() - 1 && j < index2s.size()) {
+        result = Math.min(result, Math.abs(index1 - index2));
+        j++;
+      } else if(i < index1s.size() && j == index2s.size() - 1) {
+        result = Math.min(result, Math.abs(index1 - index2));
+        i++;
+      } else if (i < index1s.size() && j < index2s.size()) {
+        if (index1 < index2) {
+          result = Math.min(result, Math.abs(index1 - index2));
+          i++;
+        } else if (index1 > index2) {
+          result = Math.min(result, Math.abs(index1 - index2));
+          j++;
         } else {
-          throw new IllegalStateException("p1 == p2, " + indexP1);
+          throw new IllegalStateException("p1 == p2, " + i);
         }
       }
 
     }
+
     return result;
   }
 }
