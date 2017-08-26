@@ -12,7 +12,35 @@ import utils.Interval;
  */
 public class Solution {
   public int minMeetingRooms(Interval[] intervals) {
-    return priorityQueueSolution(intervals);
+//    return priorityQueueSolution(intervals);
+    return twoArraysSolution(intervals);
+  }
+
+  private int twoArraysSolution(Interval[] intervals) {
+    if (intervals == null || intervals.length == 0) {
+      return 0;
+    }
+    int[] starts = new int[intervals.length];
+    int[] ends = new int[intervals.length];
+    for(int i = 0; i < intervals.length; ++i) {
+      starts[i] = intervals[i].start;
+      ends[i] = intervals[i].end;
+    }
+    Arrays.sort(starts);
+    Arrays.sort(ends);
+    int endIndex = 0, rooms = 0, maxRooms = 0;
+
+    for (int startIndex = 0; startIndex < intervals.length; ++startIndex) {
+      if (starts[startIndex] < ends[endIndex]) {
+        rooms++;
+        maxRooms = Math.max(maxRooms, rooms);
+      } else {
+        rooms--;
+        endIndex++;
+        startIndex--;
+      }
+    }
+    return maxRooms;
   }
 
 
