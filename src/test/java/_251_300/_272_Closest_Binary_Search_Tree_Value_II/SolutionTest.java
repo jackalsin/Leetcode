@@ -39,14 +39,14 @@ public class SolutionTest {
   @Test
   public void testFailedCase1() throws Exception {
     final TreeNode root = TreeNodes.getTreeLevelOrder(3, 1, 4, null, 2);
-    final List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5);
+    final List<Integer> expected = Arrays.asList(2);
     assertEquals(expected, solution.closestKValues(root, 2.00000, 1));
   }
 
   @Test
   public void testFailedCase2() throws Exception {
     final TreeNode root = TreeNodes.getTreeLevelOrder(5, 3, 6, 2, 4, null, null, 1);
-    final List<Integer> expected = Arrays.asList(2);
+    final List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5);
     assertEquals(expected, solution.closestKValues(root, 0.857143, 5));
   }
 
