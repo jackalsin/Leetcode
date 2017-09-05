@@ -10,10 +10,10 @@ public class Solution {
   /**
    * Explanation: https://discuss.leetcode.com/topic/5284/concise-o-n-solution-by-using-c-with-detailed-alogrithm-description
    *
-   *  the total distance of the slow pointer traveled when encounter is L1 + L2
+   * the total distance of the slow pointer traveled when encounter is L1 + L2
    * the total distance of the fast pointer traveled when encounter is L1 + L2 + n * C
    * Because the total distance the fast pointer traveled is twice as the slow pointer, Thus:
-   * 2 * (L1+L2) = L1 + L2 + n * C => L1 + L2 = n * C => L1 = (n - 1) C + (C - L2)*
+   * 2 * (L1+L2) = L1 + L2 + n * C => L1 + L2 = n * C => L1 = (n - 1) C + (C - L2)
    * It can be concluded that the distance between the head location and entry location is equal to
    * the distance between the meeting location and the entry location along the direction of
    * forward movement.

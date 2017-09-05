@@ -18,8 +18,9 @@ public class Solution {
    * @return
    */
   public int findDuplicate(int[] nums) {
-    return binarySearchLike(nums);
-//    return hasCycleLike(nums);
+//    return binarySearchLike(nums);
+    return hasCycleLike(nums);
+//    return hasCycleLikeHeith(nums);
   }
 
   private int binarySearchLike(int[] nums) {
@@ -37,6 +38,39 @@ public class Solution {
   }
 
   private int hasCycleLike(int[] nums) {
-    throw new IllegalStateException("No dup is found");
+    int slow = nums[0];
+    int fast = nums[nums[0]];
+
+    while (slow != fast) {
+      slow = nums[slow];
+      fast = nums[nums[fast]];
+    }
+    int find = 0;
+    while (find != slow) {
+      slow = nums[slow];
+      find = nums[find];
+    }
+    return find;
+  }
+
+  /**
+   * This will fail, because the possible answer is 1 ~ n. Using this solution will rule out
+   * @param nums
+   * @return
+   */
+  private int hasCycleLikeHeith(int[] nums) {
+    int slow = nums.length - 1;
+    int fast = nums.length - 1;
+
+    while (slow != fast) {
+      slow = nums[slow];
+      fast = nums[nums[fast]];
+    }
+    int find = nums.length - 1;
+    while (find != slow) {
+      slow = nums[slow];
+      find = nums[find];
+    }
+    return find;
   }
 }

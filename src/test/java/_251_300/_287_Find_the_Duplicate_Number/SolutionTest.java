@@ -3,7 +3,7 @@ package _251_300._287_Find_the_Duplicate_Number;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
@@ -37,6 +37,12 @@ public class SolutionTest {
   @Test
   public void testFailedCase1() throws Exception {
     final int[] input = {1,3,4,2,1};
+    assertEquals(1, solution.findDuplicate(input));
+  }
+
+  @Test
+  public void testFailedCase2() throws Exception {
+    final int[] input = {1,3,4,1,2};
     assertEquals(1, solution.findDuplicate(input));
   }
 }
