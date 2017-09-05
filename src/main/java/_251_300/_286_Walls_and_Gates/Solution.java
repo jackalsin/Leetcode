@@ -43,8 +43,8 @@ public class Solution {
         rooms[row][col] = Math.min(rooms[row][col], depth);
         visited[row][col] = true;
         for (int[] dir : DIRS) {
-          if (isValidToVisit(rooms, visited, rows, cols, startRow + dir[0], startCol + dir[1])) {
-            deque.add(new int[]{startRow + dir[0], startCol + dir[1]});
+          if (isValidToVisit(rooms, visited, rows, cols, row + dir[0], col + dir[1])) {
+            deque.add(new int[]{row + dir[0], col + dir[1]});
           }
         }
       } // end of for loop of size
