@@ -10,13 +10,22 @@ import java.util.Set;
  * @version 1.0 on 9/5/2017.
  */
 public class ValidWordAbbr {
-  private final Map<String, Set<String>> beginToEndToCount;
+  /**
+   * If value is null -> never appear
+   * If value is "" -> a dup
+   * if value is a non-empty -> unique
+   */
+  private final Map<String, String> keyToWord;
   public ValidWordAbbr(String[] dictionary) {
-    beginToEndToCount = new HashMap<>();
+    keyToWord = new HashMap<>();
     for (String child: dictionary) {
       String key = getKey(child);
-      beginToEndToCount.putIfAbsent(key, new HashSet<>());
-      beginToEndToCount.get(key).add(child);
+      String val = keyToWord.get(key);
+      if (val != null && !val.equals(child)) {
+        keyToWord.put(key, "");
+      } else {
+        keyToWord.put(key, child);
+      }
     }
   }
 
@@ -27,7 +36,7 @@ public class ValidWordAbbr {
   }
 
   public boolean isUnique(String word) {
-    Set<String> candidates = beginToEndToCount.getOrDefault(getKey(word), new HashSet<>());
-    return (candidates.size() == 1 && candidates.contains(word)) || (candidates.size() == 0);
+    String possibleValue = keyToWord.get(getKey(word));
+    return possibleValue == null || possibleValue.equals(word);
   }
 }
