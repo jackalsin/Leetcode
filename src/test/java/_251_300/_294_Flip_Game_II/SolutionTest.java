@@ -14,7 +14,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+//    solution = new DpSolution();
+    solution = new BacktrackingSolution();
   }
 
   @Test
@@ -24,22 +25,14 @@ public class SolutionTest {
   }
 
   @Test
+  public void test5Plus() throws Exception {
+    final String input = "+++++";
+    assertFalse(solution.canWin(input));
+  }
+
+  @Test
   public void testEmpty() throws Exception {
     assertFalse(solution.canWin(""));
   }
 
-  // test for getDp()
-  @Test
-  public void testDp5() throws Exception {
-    final int[] actual = Solution.getDp(5);
-    final int[] expected = {0, 0, 1, 1, 1, 0};
-    assertArrayEquals(expected, actual);
-  }
-
-  @Test
-  public void testDp9() throws Exception {
-    final int[] actual = Solution.getDp(9);
-    final int[] expected = {0, 0, 1, 1, 1, 0, 1, 1, 1, 0 };
-    assertArrayEquals(expected, actual);
-  }
 }
