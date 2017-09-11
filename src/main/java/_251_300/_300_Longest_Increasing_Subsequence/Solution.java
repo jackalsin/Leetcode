@@ -11,7 +11,33 @@ public class Solution {
    * @return
    */
   public int lengthOfLIS(int[] nums) {
-    return oNSquareSolution(nums);
+//    return oNSquareSolution(nums);
+    return oNLogNSolution(nums);
+  }
+
+  /**
+   * https://discuss.leetcode.com/topic/28738/java-python-binary-search-o-nlogn-time-with-explanation
+   *
+   * @param nums
+   * @return
+   */
+  private static int oNLogNSolution(int[] nums) {
+    final int[] tails = new int[nums.length];
+    int max = 0;
+    for (int i : nums) {
+      int start = 0, end = max;
+      while (start < end) {
+        int mid = (end - start) / 2 + start;
+        if (tails[mid] >= i) {
+          end = mid;
+        } else {
+          start = mid + 1;
+        }
+      }
+      tails[start] = i;
+      if (start == max) max++;
+    }
+    return max;
   }
 
   private static int oNSquareSolution(int[] nums) {
