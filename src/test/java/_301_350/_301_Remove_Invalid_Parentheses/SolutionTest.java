@@ -17,7 +17,8 @@ public class SolutionTest {
   private Solution solution;
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+//    solution = new BfsSolution();
+    solution = new DfsSolution();
   }
 
   @Test
@@ -52,4 +53,13 @@ public class SolutionTest {
     assertEquals(expected, new HashSet<>(actual));
   }
 
+  @Test
+  public void testLRR() throws Exception {
+    final String input = "())";
+    final Set<String> expected = new HashSet<String>() {{
+      add("()");
+    }};
+    final List<String> actual = solution.removeInvalidParentheses(input);
+    assertEquals(expected, new HashSet<>(actual));
+  }
 }
