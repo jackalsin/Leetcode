@@ -13,9 +13,8 @@ public final class NumMatrix {
     int cols = rows > 0 ? matrix[0].length : 0;
     sum = new int[rows][cols];
     for (int row = 0; row < rows; ++row) {
-      sum[row][0] = matrix[row][0];
-      for (int col = 1; col < cols; ++col) {
-        sum[row][col] = sum[row][col - 1] + matrix[row][col];
+      for (int col = 0; col < cols; ++col) {
+        sum[row][col] = matrix[row][col] + (col == 0 ? 0:sum[row][col - 1]);
       }
     }
   }
