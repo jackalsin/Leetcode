@@ -11,19 +11,17 @@ public final class NumMatrix {
   public NumMatrix(int[][] matrix) {
     int rows = matrix.length;
     int cols = rows > 0 ? matrix[0].length : 0;
-    sum = new int[rows][cols];
+    sum = new int[rows + 1][cols + 1];
     for (int row = 0; row < rows; ++row) {
       for (int col = 0; col < cols; ++col) {
-        sum[row][col] = matrix[row][col] + (col == 0 ? 0:sum[row][col - 1]);
+        sum[row + 1][col + 1] = sum[row][col + 1] + sum[row + 1][col] - sum[row][col] +
+            matrix[row][col];
       }
     }
   }
 
   public int sumRegion(int row1, int col1, int row2, int col2) {
-    int result = 0;
-    for (int row = row1; row <= row2; ++row) {
-      result += sum[row][col2] - (col1 == 0 ? 0 : sum[row][col1 - 1]);
-    }
-    return result;
+    return sum[row2 + 1][col2 + 1] + sum[row1][col1] - sum[row2 + 1][col1] -
+        sum[row1][col2 + 1];
   }
 }
