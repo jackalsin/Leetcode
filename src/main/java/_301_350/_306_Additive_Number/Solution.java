@@ -10,35 +10,20 @@ public class Solution {
   public boolean isAdditiveNumber(String num) {
 
     for (int firstEnd = 1; firstEnd <= num.length()/2; ++firstEnd) {
+      if (num.charAt(0) == '0' && firstEnd > 1) break;
       long firstNum = Long.valueOf(num.substring(0, firstEnd));
-      if (num.charAt(firstEnd) == '0') { // the second string starts with zero
-        long secondNum = Long.valueOf(num.substring(firstEnd, firstEnd + 1)); // 0
-        long sumNum = firstNum + secondNum; // firstNum
-        String sumString = String.valueOf(sumNum);
+      for (int secondEnd = firstEnd + 1; secondEnd < num.length(); ++secondEnd) {
+        if (num.charAt(firstEnd) == '0' && secondEnd > firstEnd + 1) break;
+        long secondNum = Long.valueOf(num.substring(firstEnd, secondEnd));
 
-        if (num.startsWith(sumString, firstEnd + 1) && isAdditiveNumber(num, firstEnd + 1 +
-            sumString.length(), 0, firstNum)) {
-          return true;
-        }
-
-      } else {
-        for (int secondEnd = firstEnd + 1; secondEnd < num.length(); ++secondEnd) {
-          long secondNum = Long.valueOf(num.substring(firstEnd, secondEnd));
-          if (num.charAt(secondEnd) == '0') { // sum start with zero
-            if (num.startsWith(String.valueOf(firstNum), secondEnd)) {
-              return isAdditiveNumber(num, secondEnd + 1, secondNum, 0);
-            }
-          } else {
-            long sumNum = firstNum + secondNum;
-            String sum = String.valueOf(sumNum);
-            if (num.startsWith(sum, secondEnd)) {
-              if (isAdditiveNumber(num, secondEnd + sum.length(), secondNum, sumNum)) {
-                return true;
-              }
-            }
+        long sumNum = firstNum + secondNum;
+        String sum = String.valueOf(sumNum);
+        if (num.startsWith(sum, secondEnd)) {
+          if (isAdditiveNumber(num, secondEnd + sum.length(), secondNum, sumNum)) {
+            return true;
           }
         }
-        if (firstNum == 0) break;
+
       }
     }
     return false;
