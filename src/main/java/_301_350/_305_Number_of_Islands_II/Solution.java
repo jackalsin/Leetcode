@@ -16,11 +16,13 @@ public class Solution {
     for(int[] position : positions) {
       final int row = position[0], col = position[1];
       uf.add(row, col);
+      final int p = uf.getIndex(row, col);
       for(int[] dir: DIRS) {
-        final int newRow = position[0] + dir[0], newCol = position[1] + dir[1];
-        if (uf.isInRange(newRow, newCol) &&
-            uf.find(uf.getIndex(newRow, newCol), uf.getIndex(row, col))) {
-          uf.union(uf.getIndex(row, col), uf.getIndex(newRow, newCol));
+        final int newRow = position[0] + dir[0], newCol = position[1] + dir[1],
+            q = uf.getIndex(newRow, newCol);
+        if (uf.isInRange(newRow, newCol) && uf.roots[q] != -1 &&
+            !uf.find(p, q)) {
+          uf.union(p, q);
         }
       }
       result.add(uf.realRootCount);
@@ -46,9 +48,13 @@ public class Solution {
       if (size[rootP] >= size[rootQ]) {
         roots[rootP] = rootQ;
         size[rootQ] += size[rootP];
+      } else {
+        roots[rootQ] = rootP;
+        size[rootP] += size[rootQ];
       }
       realRootCount--;
     }
+
     void add(int row, int col) {
       int index = getIndex(row, col);
       roots[index] = index;
@@ -57,11 +63,10 @@ public class Solution {
     }
 
     int root(int p) {
-      int root = roots[p];
-        while (root != -1) {
-          root = roots[root];
-        }
-        return root;
+      while (roots[p] != p) {
+        p = roots[p];
+      }
+      return p;
     }
 
     private int getIndex(int row, int col) {
@@ -72,9 +77,8 @@ public class Solution {
       return 0 <= row && row < rows && 0 <= col && col < cols;
     }
 
-    public boolean find(int newRow, int newCol) {
-
-      return false;
+    public boolean find(int p, int q) {
+      return root(p) == root(q);
     }
   }
 
