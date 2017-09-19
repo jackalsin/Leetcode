@@ -11,6 +11,8 @@ public class Solution {
     final int[] balloons = new int[n + 2];
     System.arraycopy(nums, 0, balloons, 1, n);
     balloons[0] = balloons[n + 1] = 1;
+    /* dp stands for the max coin you can get by bursting all balloons between start(exclusive)
+    and end(exclusive) */
     final int[][] dp = new int[n + 2][n + 2];
     for (int len = 2; len < balloons.length; ++len) {
       for (int start = 0; start < balloons.length - len; ++start) {
