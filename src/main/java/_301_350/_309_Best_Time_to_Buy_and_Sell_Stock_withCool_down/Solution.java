@@ -1,12 +1,18 @@
 package _301_350._309_Best_Time_to_Buy_and_Sell_Stock_withCool_down;
 
-import java.util.Arrays;
-
 /**
  * @author Zhiwei.Xin
  * @version 1.0 on 9/18/2017.
  */
 public class Solution {
+  /**
+   * The explanation is here
+   * https://discuss.leetcode.com/topic/30680/share-my-dp-solution-by-state-machine-thinking
+   *
+   * The interesting thing is dp and DFA actually is the same thing.
+   * @param prices
+   * @return
+   */
   public int maxProfit(int[] prices) {
     final int len = prices.length;
     if (len == 0) return 0;
