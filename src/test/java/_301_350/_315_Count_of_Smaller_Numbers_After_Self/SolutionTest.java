@@ -3,7 +3,6 @@ package _301_350._315_Count_of_Smaller_Numbers_After_Self;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.net.Socket;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class SolutionTest {
   private Solution solution;
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new BSTSolution();
   }
 
   @Test

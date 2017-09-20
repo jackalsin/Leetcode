@@ -6,8 +6,10 @@ import java.util.List;
  * @author Zhiwei.Xin
  * @version 1.0 on 9/19/2017.
  */
-public interface Solution {
+public class BITSolution implements Solution {
 
-  List<Integer> countSmaller(int[] nums);
-
+  @Override
+  public List<Integer> countSmaller(int[] nums) {
+    return null;
+  }
 }
