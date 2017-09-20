@@ -36,7 +36,7 @@ public class SolutionTest {
 
   @Test
   public void testOnlineCase2() throws Exception {
-    final int[] input = {3,2, 2, 6, 1};
+    final int[] input = {3, 2, 2, 6, 1};
     final List<Integer> expected = Arrays.asList(3, 1, 1, 1, 0);
     assertEquals(expected, solution.countSmaller(input));
   }

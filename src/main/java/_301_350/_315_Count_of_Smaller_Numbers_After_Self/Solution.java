@@ -17,27 +17,28 @@ public class Solution {
     result.add(0);
     for (int i = nums.length - 2; i >= 0; --i) {
       TreeNode cur = new TreeNode(nums[i]);
-      buildTree(result, root, cur);
+      buildTree(result, root, cur, 0);
     }
     Collections.reverse(result);
     return result;
   }
 
-  private TreeNode buildTree(List<Integer> result, TreeNode root, TreeNode cur) {
+  private TreeNode buildTree(List<Integer> result, TreeNode root,
+                             TreeNode cur, int preLeftChildCountSum) {
     if (root == null) {
-      result.add(cur.leftChildCount);
+      result.add(preLeftChildCountSum);
       return cur;
     } else if (cur.val == root.val) {
       root.dup++;
-      result.add(root.leftChildCount);
+      result.add(preLeftChildCountSum + root.leftChildCount);
       return root;
     } else if (cur.val < root.val) { // go left
       root.leftChildCount++;
-      root.left = buildTree(result, root.left, cur);
+      root.left = buildTree(result, root.left, cur, preLeftChildCountSum);
       return root;
     } else {
-      cur.leftChildCount = root.leftChildCount + root.dup;
-      root.right = buildTree(result, root.right, cur);
+      root.right = buildTree(result, root.right, cur,
+          preLeftChildCountSum + root.dup + root.leftChildCount);
       return root;
     }
   }
