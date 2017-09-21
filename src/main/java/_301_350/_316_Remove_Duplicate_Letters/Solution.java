@@ -9,8 +9,8 @@ import java.util.Map;
  */
 public class Solution {
   public String removeDuplicateLetters(String s) {
-//    return removeDuplicateLettersHelper(s);
-    return exampleSolution(s);
+    return removeDuplicateLettersHelper(s);
+//    return exampleSolution(s);
   }
 
   private static final int N = 26;
@@ -23,11 +23,18 @@ public class Solution {
   private String exampleSolution(String s) {
     final int[] counts = new int[N];
     for (int i = 0; i < s.length(); ++i) {
-      counts[s.charAt(i)]++;
+      counts[s.charAt(i) - 'a']++;
     }
-
-    for ()
-    return null;
+    int minCharPos = 0;
+    for (int i = 0; i < s.length(); ++i) {
+      if (s.charAt(i) < s.charAt(minCharPos)) minCharPos = i;
+      if (--counts[s.charAt(i) - 'a'] == 0) {
+        break;
+      }
+    }
+    return s.length() == 0 ? "" :
+        s.charAt(minCharPos) + exampleSolution(s.substring(minCharPos + 1).replaceAll(String.valueOf(s
+            .charAt(minCharPos)), ""));
   }
 
   private String removeDuplicateLettersHelper(String s) {
