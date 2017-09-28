@@ -1,9 +1,9 @@
 package _301_350._327_Count_of_Range_Sum;
 
-    import org.junit.Before;
-    import org.junit.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-    import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
@@ -14,7 +14,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new MergeSortSolution();
+//    solution = new MergeSortSolution();
+    solution = new SegmentTreeSolution();
   }
 
   @Test
