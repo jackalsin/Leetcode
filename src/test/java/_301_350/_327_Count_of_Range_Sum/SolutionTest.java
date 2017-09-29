@@ -31,6 +31,30 @@ public class SolutionTest {
   }
 
   @Test
+  public void testExplicitCase() throws Exception {
+    final int[] input = {1, 2, 3, 4, 5, 6};
+    assertEquals(16, solution.countRangeSum(input, 3, 16));
+  }
+
+  @Test
+  public void testFailedCase() throws Exception {
+    final int[] input = {-1, 1};
+    assertEquals(1, solution.countRangeSum(input, 0, 0));
+  }
+
+  @Test
+  public void testZero() throws Exception {
+    final int[] input = {0};
+    assertEquals(1, solution.countRangeSum(input, 0, 0));
+  }
+
+  @Test
+  public void testFailedDuplicatedSumCase() throws Exception {
+    final int[] input = {1, -1, -1, 2, 1};
+    assertEquals(13, solution.countRangeSum(input, -1, 2));
+  }
+
+  @Test
   public void testTLECase() throws Exception {
     final int[] input = {28,26,22,7,12,-26,25,11,-14,0,0,6,20,4,17,-7,4,-14,-19,-16,8,-21,-26,24,
         -29,-18,-13,2,-16,-14,-26,-14,-7,-14,-30,-3,9,-16,28,3,-26,-5,4,-28,-3,11,26,14,20,15,-4,
