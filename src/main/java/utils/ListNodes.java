@@ -12,13 +12,10 @@ public final class ListNodes {
    * @param values an array of integer values to be assigned to the list.
    * @return the head of the integer list of ListNode
    * @throws NullPointerException     if values is null
-   * @throws IllegalArgumentException if values is empty.
    */
   public static ListNode getListOfNodes(int[] values) {
     if (values == null) {
       throw new NullPointerException();
-    } else if (values.length == 0) {
-      throw new IllegalArgumentException("the array length cannot be zero.");
     } else {
       ListNode dummy = new ListNode(Integer.MIN_VALUE);
       ListNode cur = dummy;
