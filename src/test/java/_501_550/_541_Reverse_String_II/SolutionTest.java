@@ -3,9 +3,7 @@ package _501_550._541_Reverse_String_II;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.jws.soap.SOAPBinding;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka

@@ -1,7 +1,5 @@
 package _201_250._243_Shortest_Word_Distance;
 
-import org.omg.CORBA.INTERNAL;
-
 /**
  * @author Zhiwei.Xin
  * @version 1.0 on 8/21/2017.

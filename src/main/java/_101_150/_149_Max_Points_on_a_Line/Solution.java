@@ -1,7 +1,5 @@
 package _101_150._149_Max_Points_on_a_Line;
 
-import org.omg.CORBA.INTERNAL;
-
 import java.util.HashMap;
 import java.util.Map;
 

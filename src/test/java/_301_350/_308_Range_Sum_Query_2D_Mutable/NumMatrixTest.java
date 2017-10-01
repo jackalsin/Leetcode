@@ -3,9 +3,7 @@ package _301_350._308_Range_Sum_Query_2D_Mutable;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.jws.soap.SOAPBinding;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
