@@ -2,6 +2,8 @@ package _301_350._339_Nested_List_Weight_Sum;
 
 import java.util.List;
 
+import utils.nestedInteger.NestedInteger;
+
 /**
  * @author jacka
  * @version 1.0 on 10/5/2017.
