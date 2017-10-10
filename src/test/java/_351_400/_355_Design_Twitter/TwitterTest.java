@@ -1,11 +1,10 @@
 package _351_400._355_Design_Twitter;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
