@@ -50,7 +50,9 @@ public final class Twitter {
 
     Set<Integer> followingIds = following.getOrDefault(userId, new HashSet<>());
     for (int followingId : followingIds) {
-      updateFeedsWithUserId(allTweets, followingId);
+      if (followingId != userId) {
+        updateFeedsWithUserId(allTweets, followingId);
+      }
     }
 
     LinkedList<Integer> result = new LinkedList<>();
@@ -67,9 +69,11 @@ public final class Twitter {
       if (allTweets.size() == MAX_FEEDS) {
         if (tweet.time > allTweets.peek().time) {
           allTweets.poll();
+          allTweets.add(tweet);
         }
+      } else {
+        allTweets.add(tweet);
       }
-      allTweets.add(tweet);
     }
   }
 
