@@ -56,7 +56,7 @@ public class Solution {
       if (!visited[i]) {
         visited[i] = true;
         if (canPartitionKSubsets(nums, visited, sum, k, groupCount, totalUsed + 1,
-            curSum + nums[i], startIndex + 1)) {
+            curSum + nums[i], i + 1)) {
           return true;
         }
         visited[i] = false;
