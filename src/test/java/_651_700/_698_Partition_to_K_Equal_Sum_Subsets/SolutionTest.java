@@ -43,4 +43,12 @@ public class SolutionTest {
     final int[] input = {1, 1, 2, 4};
     assertFalse(solution.canPartitionKSubsets(input, 4));
   }
+
+  @Test
+  public void testFailedCase4() throws Exception {
+    final int[] input = {5, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3};
+    System.out.println(input.length);
+
+    assertTrue(solution.canPartitionKSubsets(input, 15));
+  }
 }
