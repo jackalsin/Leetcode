@@ -13,31 +13,31 @@ public class Solution {
     if (left > right) {
       return -1;
     }
-    final int mid = (right - left) / 2 + right;
+    final int mid = (right - left) / 2 + left;
     if (target == nums[mid]) {
       return mid;
     }
-    if (target < nums[mid]) {
-      if (target <= nums[left]) {
-        return binarySearch(nums, target, left, mid - 1);
+    if (nums[mid] > nums[right]) { // mid is in sorted array
+      if (nums[mid] >= target && target >= nums[left]) {
+        return binarySearch(nums, target, left, mid);
       } else {
         return search(nums, target, mid + 1, right);
       }
     } else {
-      if (target <= nums[left]) {
-        return search(nums, target, mid + 1, right);
+      if (nums[mid] <= target && target <= nums[right]) {
+        return binarySearch(nums, target, mid, right);
       } else {
-        return binarySearch(nums, target, left, mid - 1);
+        return search(nums, target, left, mid - 1);
       }
     }
   }
 
   private int binarySearch(final int[] nums, final int target, int left, int right) {
     while (left <= right) {
-      final int mid = (right - left) / 2 + right;
-      if (target == mid) {
+      final int mid = (right - left) / 2 + left;
+      if (target == nums[mid]) {
         return mid;
-      } else if (target < mid) {
+      } else if (target < nums[mid]) {
         right = mid - 1;
       } else {
         left = mid + 1;
