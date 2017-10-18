@@ -1,7 +1,5 @@
 package _151_200._158_Read_N_Characters_Given_Read4_II_Call_multiple_times;
 
-import org.eclipse.jgit.transport.BaseReceivePack;
-
 import _151_200._157_Read_N_Characters_Given_Read4.Reader4;
 
 /**

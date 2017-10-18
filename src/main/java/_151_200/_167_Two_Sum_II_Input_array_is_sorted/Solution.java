@@ -1,10 +1,5 @@
 package _151_200._167_Two_Sum_II_Input_array_is_sorted;
 
-import com.jcraft.jsch.HASH;
-
-import java.util.HashSet;
-import java.util.Set;
-
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         if (numbers == null || numbers.length < 2) {
