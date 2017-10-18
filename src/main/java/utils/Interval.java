@@ -5,8 +5,8 @@ package utils;
  * @version 1.0 on 4/20/2017.
  */
 public class Interval {
-  public int end;
   public int start;
+  public int end;
 
   public Interval() {
     start = 0;
@@ -42,8 +42,8 @@ public class Interval {
   @Override
   public String toString() {
     return "Interval{" +
-        "end=" + end +
-        ", start=" + start +
+        "start=" + start +
+        ", end=" + end +
         '}';
   }
 }
