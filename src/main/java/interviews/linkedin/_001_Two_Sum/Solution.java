@@ -1,4 +1,4 @@
-package interviews.linkedin._1_Two_Sum;
+package interviews.linkedin._001_Two_Sum;
 
 import java.util.HashMap;
 import java.util.Map;

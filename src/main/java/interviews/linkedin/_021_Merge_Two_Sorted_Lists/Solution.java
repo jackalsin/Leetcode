@@ -1,4 +1,4 @@
-package interviews.linkedin._21_Merge_Two_Sorted_Lists;
+package interviews.linkedin._021_Merge_Two_Sorted_Lists;
 
 import utils.ListNode;
 
