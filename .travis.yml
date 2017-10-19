@@ -1,10 +1,10 @@
 language: java
 
 sudo: false
-addons:
-  apt:
-    packages:
-      - oracle-java9-installer
+#addons:
+#  apt:
+#    packages:
+#      - oracle-java9-installer
 
 ## do everything in HermiT directory
 ## this installs dependencies. Ant needs no installation because they are already there.
