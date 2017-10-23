@@ -6,7 +6,7 @@ package _251_300._277_Find_the_Celebrity;
  */
 public class Relation {
 
-  boolean knows(int a, int b){
+  protected boolean knows(int a, int b) {
     throw new UnsupportedOperationException();
   }
 }
