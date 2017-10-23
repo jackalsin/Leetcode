@@ -29,6 +29,6 @@ public class SolutionTest {
   @Test
   public void test16Solution() throws Exception {
     final int num = 16;
-    assertTrue(solution.isPerfectSquare(16));
+    assertTrue(solution.isPerfectSquare(num));
   }
 }
