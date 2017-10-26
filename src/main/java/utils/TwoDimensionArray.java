@@ -129,4 +129,20 @@ public final class TwoDimensionArray {
 
     return board;
   }
+
+  /**
+   * Get a char board from <tt>strs</tt>.
+   *
+   * @param strs an non-empty string arrays whose elements have the same length
+   */
+  public static int[][] getIntBoard(String[] strs) {
+    final char[][] charBoard = getCharBoard(strs);
+    final int[][] intBoard = new int[charBoard.length][charBoard[0].length];
+    for (int row = 0; row < charBoard.length; row++) {
+      for (int col = 0; col < charBoard[0].length; col++) {
+        intBoard[row][col] = charBoard[row][col] - '0';
+      }
+    }
+    return intBoard;
+  }
 }
