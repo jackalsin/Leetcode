@@ -15,12 +15,13 @@ import java.util.Set;
  * as another if they have the same shape, or have the same shape after rotation (90, 180, or 270
  * degrees only) or reflection (left/right direction or up/down direction).
  *
+ * 127 ms
  * @author jacka
  * @version 1.0 on 10/25/2017.
  */
 public class Solution {
   private static final int[][] DIRS = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}};
-
+  private static final int VISITED = -1;
   public int numDistinctIslands2(int[][] grid) {
     if (grid == null || grid.length == 0) {
       return 0;
@@ -30,15 +31,15 @@ public class Solution {
       return 0;
     }
     final int cols = grid[0].length;
-    final boolean[][] visited = new boolean[rows][cols];
+//    final boolean[][] visited = new boolean[rows][cols];
     final Set<List<Point>> islands = new HashSet<>();
     for (int row = 0; row < rows; ++row) {
       for (int col = 0; col < cols; ++col) {
-        if (grid[row][col] == 1 && !visited[row][col]) {
+        if (grid[row][col] == 1) {
           final List<Point> island = new ArrayList<>();
           island.add(new Point(row, col));
-          visited[row][col] = true;
-          dfs(grid, visited, row, col, island);
+          grid[row][col] = VISITED;
+          dfs(grid, row, col, island);
           islands.add(norm(island));
         }
       }
@@ -91,16 +92,15 @@ public class Solution {
     return allShapes.get(0);
   }
 
-  private void dfs(final int[][] grid, final boolean[][] visited,
-                   final int row, final int col, final List<Point> island) {
-    final int rows = visited.length, cols = visited[0].length;
+  private void dfs(final int[][] grid, final int row, final int col, final List<Point> island) {
+    final int rows = grid.length, cols = grid[0].length;
     for (int[] dir : DIRS) {
       final int nextRow = row + dir[0], nextCol = col + dir[1];
       if (nextCol >= 0 && nextCol < cols && nextRow >= 0 && nextRow < rows &&
-          !visited[nextRow][nextCol] && grid[nextRow][nextCol] == 1) {
-        visited[nextRow][nextCol] = true;
+          grid[nextRow][nextCol] == 1) {
         island.add(new Point(nextRow, nextCol));
-        dfs(grid, visited, nextRow, nextCol, island);
+        grid[nextRow][nextCol] = VISITED;
+        dfs(grid, nextRow, nextCol, island);
       }
     }
   }
