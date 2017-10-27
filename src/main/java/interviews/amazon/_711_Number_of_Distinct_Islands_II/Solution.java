@@ -1,9 +1,11 @@
 package interviews.amazon._711_Number_of_Distinct_Islands_II;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Set;
 
 /**
@@ -29,130 +31,81 @@ public class Solution {
     }
     final int cols = grid[0].length;
     final boolean[][] visited = new boolean[rows][cols];
-    final Set<Island> islands = new HashSet<>();
-    int count = 0;
+    final Set<List<Point>> islands = new HashSet<>();
     for (int row = 0; row < rows; ++row) {
       for (int col = 0; col < cols; ++col) {
         if (grid[row][col] == 1 && !visited[row][col]) {
-          final Point leftTop = new Point(row, col);
-          final Island island = new Island();
-          island.points.add(new Point(0, 0));
+          final List<Point> island = new ArrayList<>();
+          island.add(new Point(row, col));
           visited[row][col] = true;
-          dfs(grid, visited, leftTop, row, col, island);
-          if (!islands.contains(island)) {
-            count++;
-            final IslandGroupBuilder builder = new IslandGroupBuilder(island);
-            islands.addAll(builder.build());
-          }
+          dfs(grid, visited, row, col, island);
+          islands.add(norm(island));
         }
       }
     }
-    return count;
+    return islands.size();
   }
 
-  private void dfs(final int[][] grid, final boolean[][] visited, final Point base,
-                   final int row, final int col, final Island island) {
+  private List<Point> norm(List<Point> island) {
+    List<List<Point>> allShapes = new ArrayList<>();
+    for (int i = 0; i < 8; i++) {
+      allShapes.add(new ArrayList<>());
+    }
+    for (Point p : island) {
+      allShapes.get(0).add(new Point(p.x, p.y));
+      allShapes.get(1).add(new Point(p.x, -p.y));
+      allShapes.get(2).add(new Point(-p.x, p.y));
+      allShapes.get(3).add(new Point(-p.x, -p.y));
+      allShapes.get(4).add(new Point(p.y, p.x));
+      allShapes.get(5).add(new Point(-p.y, p.x));
+      allShapes.get(6).add(new Point(p.y, -p.x));
+      allShapes.get(7).add(new Point(-p.y, -p.x));
+    }
+    for (List<Point> i : allShapes) {
+      Collections.sort(i);
+      Point base = i.get(0);
+      for (int k = 1; k < i.size(); k++) {
+        Point cur = i.get(k);
+        i.set(k, new Point(cur.x - base.x, cur.y - base.y));
+      }
+      i.set(0, new Point(0, 0));
+    }
+    allShapes.sort(new Comparator<List<Point>>() {
+      @Override
+      public int compare(List<Point> o1, List<Point> o2) {
+        if (o1.size() == o2.size()) {
+          ListIterator<Point> itr1 = o1.listIterator();
+          ListIterator<Point> itr2 = o2.listIterator();
+          while (itr1.hasNext()) {
+            final Point p1 = itr1.next();
+            final Point p2 = itr2.next();
+            if (!p1.equals(p2)) {
+              return p1.compareTo(p2);
+            }
+          }
+        }
+        return Integer.compare(o1.size(), o2.size());
+      }
+    });
+
+    return allShapes.get(0);
+  }
+
+  private void dfs(final int[][] grid, final boolean[][] visited,
+                   final int row, final int col, final List<Point> island) {
     final int rows = visited.length, cols = visited[0].length;
     for (int[] dir : DIRS) {
       final int nextRow = row + dir[0], nextCol = col + dir[1];
       if (nextCol >= 0 && nextCol < cols && nextRow >= 0 && nextRow < rows &&
           !visited[nextRow][nextCol] && grid[nextRow][nextCol] == 1) {
         visited[nextRow][nextCol] = true;
-        island.points.add(new Point(nextRow - base.x, nextCol - base.y));
-        dfs(grid, visited, base, nextRow, nextCol, island);
+        island.add(new Point(nextRow, nextCol));
+        dfs(grid, visited, nextRow, nextCol, island);
       }
     }
   }
 
-  private static final class IslandGroupBuilder {
-    private final Set<Island> allShapes;
-    private final Island baseIsland;
-    private int left = Integer.MAX_VALUE, right = Integer.MIN_VALUE, top = Integer.MAX_VALUE,
-        bottom = Integer.MIN_VALUE;
-
-    public IslandGroupBuilder(final Island baseIsland) {
-      this.allShapes = new HashSet<>();
-      this.baseIsland = baseIsland;
-      updateBoundary();
-    }
-
-    private void updateBoundary() {
-      for (Point point : baseIsland.points) {
-        left = Math.min(point.x, left);
-        right = Math.max(point.x, right);
-        top = Math.min(top, point.y);
-        bottom = Math.max(point.y, bottom);
-      }
-    }
-
-    public Set<Island> build() {
-      final int xSum = left + right, ySum = top + bottom;
-      allShapes.add(baseIsland);
-      allShapes.addAll(xyReflection(xSum, ySum, baseIsland)); // + x reflect + y reflect;
-      allShapes.addAll(rotation(xSum, ySum, baseIsland)); // 90, 180, 270
-      return allShapes;
-    }
-
-    private Collection<Island> rotation(final int xSum, final int ySum, final Island baseIsland) {
-      final Island island2 = new Island();
-      final Island island3 = new Island();
-      final Island island4 = new Island();
-      final List<Island> islands = new ArrayList<>();
-      for (Point p : baseIsland.points) {
-        island2.points.add(
-            new Point((ySum + xSum - 2 * p.y) / 2, (ySum + xSum - 2 * p.x) / 2));
-        island3.points.add(new Point(xSum - p.x, ySum - p.y));
-        island4.points.add(new Point((-ySum + xSum + 2 * p.y) / 2, (ySum - xSum + 2 * p.x) / 2));
-      }
-      islands.add(island2);
-      islands.add(island3);
-      islands.add(island4);
-      return islands;
-    }
-
-    private Collection<Island> xyReflection(final int xSum, final int ySum, final Island
-        baseIsland) {
-      final Island xReflected = new Island();
-      final Island yReflected = new Island();
-      for (Point p : baseIsland.points) {
-        xReflected.points.add(new Point(xSum - p.x, p.y));
-        yReflected.points.add(new Point(p.x, ySum - p.y));
-      }
-      final List<Island> result = new ArrayList<>();
-      result.add(xReflected);
-      result.add(yReflected);
-      return result;
-    }
-  }
-
-  private static final class Island {
-    private final Set<Point> points;
-
-    private Island() {
-      points = new HashSet<>();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-      if (this == o) {
-        return true;
-      }
-      if (!(o instanceof Island)) {
-        return false;
-      }
-
-      Island island = (Island) o;
-
-      return points.equals(island.points);
-    }
-
-    @Override
-    public int hashCode() {
-      return points.hashCode();
-    }
-  }
-
-  private static final class Point {
+  private static final class Point implements Comparable<Point> {
     private final int x;
     private final int y;
 
@@ -188,6 +141,14 @@ public class Solution {
           "x=" + x +
           ", y=" + y +
           ')';
+    }
+
+    @Override
+    public int compareTo(Point o) {
+      if (x == o.x) {
+        return Integer.compare(y, o.y);
+      }
+      return Integer.compare(x, o.x);
     }
   }
 }
