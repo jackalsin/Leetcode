@@ -15,7 +15,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new BruteForce();
+//    solution = new BruteForce();
+    solution = new CompareOcurrenceSolution();
   }
 
   @Test
