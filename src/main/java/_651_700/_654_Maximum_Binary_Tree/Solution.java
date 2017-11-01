@@ -28,7 +28,7 @@ public class Solution {
       }
       stack.addLast(curNode);
     }
-    return stack.peekLast();
+    return stack.peekFirst();
   }
 
   private TreeNode buildTree(final int[] nums, int start, int end) {

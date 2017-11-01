@@ -21,7 +21,7 @@ public class SolutionTest {
   }
 
   /**
-   * For the ONSolution, when we deal 5, the thing is stack is [3, 2, 1, 6, 0]
+   * For the ONSolution, when we deal 5, the thing is stack is [6, 0]
    */
   @Test
   public void testOnlineCase() throws Exception {
