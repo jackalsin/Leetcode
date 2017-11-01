@@ -11,10 +11,9 @@ public class Solution {
     for (int i = 1; i <= N; i++) {
       maxA[i] = i;
       for (int j = 1; j <= i - 2; j++) {
-        maxA[i] = Math.max(maxA[i], (i - j) * maxA[j]);
+        maxA[i] = Math.max(maxA[i], (i - j - 1) * maxA[j]);
       }
     }
-
     return maxA[N];
   }
 }
