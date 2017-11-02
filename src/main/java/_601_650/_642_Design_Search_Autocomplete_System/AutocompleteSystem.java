@@ -1,6 +1,11 @@
 package _601_650._642_Design_Search_Autocomplete_System;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * Design a search autocomplete system for a search engine. Users may input a sentence (at least
@@ -67,15 +72,113 @@ import java.util.List;
  * input.
  * Please remember to RESET your class variables declared in class AutocompleteSystem, as
  * static/class variables are persisted across multiple test cases. Please see here for more details.
+ *
+ *
+ * Solution 43 / 43 test cases passed.
+ * Status: Accepted
+ * Runtime: 380 ms
+ *
  * @author jacka
  * @version 1.0 on 11/1/2017.
  */
 public class AutocompleteSystem {
-  public AutocompleteSystem(String[] sentences, int[] times) {
+  private static final int N = 27;
+  private static final int SPACE_INDEX = 26;
+  private static final int MAX_RESULT = 3;
 
+  private final Node root;
+
+  private Node prevNode;
+  private final StringBuilder curPath;
+
+  public AutocompleteSystem(String[] sentences, int[] times) {
+    curPath = new StringBuilder();
+    root = new Node('1');
+    for (int i = 0; i < sentences.length; i++) {
+      buildTrie(sentences[i], times[i]);
+    }
+    prevNode = root;
+  }
+
+  private void buildTrie(String sentence, int time) {
+    Node preNode = root;
+    for (char chr : sentence.toCharArray()) {
+      int idx = chr == ' ' ? SPACE_INDEX: chr - 'a';
+      if (preNode.nodes[idx] == null) {
+        preNode.nodes[idx] = new Node(chr);
+      }
+      preNode = preNode.nodes[idx];
+    }
+    preNode.counts = time;
+    preNode.str = sentence;
   }
 
   public List<String> input(char c) {
-    return null;
+    if (c == '#') { // record historical data
+      if (prevNode == null) {
+        buildTrie(curPath.toString(), 1);
+      } else {
+        prevNode.str = curPath.toString();
+        prevNode.counts++;
+      }
+        prevNode = root;
+        curPath.setLength(0);
+      return new ArrayList<>();
+    } else {
+      curPath.append(c);
+      LinkedList<String> result = new LinkedList<>();
+      if (prevNode != null) {
+        Queue<Node> pq = new PriorityQueue<>(new Comparator<Node>() {
+          @Override
+          public int compare(Node o1, Node o2) {
+            if (o1.counts == o2.counts) {
+              return o2.str.compareTo(o1.str) ;
+            }
+            return Integer.compare(o1.counts, o2.counts);
+          }
+        });
+        int idx = c == ' ' ? SPACE_INDEX : c - 'a';
+        getResult(pq, prevNode.nodes[idx]);
+        prevNode = prevNode.nodes[idx];
+        while (!pq.isEmpty()) {
+          result.addFirst(pq.poll().str);
+        }
+      }
+      return result;
+    }
+  }
+
+  private void getResult(Queue<Node> result, Node prevNode) {
+    if (prevNode == null) return;
+    if (prevNode.str != null) {
+      updateQueue(result, prevNode);
+    }
+    for (Node node : prevNode.nodes) {
+      if (node != null) {
+        getResult(result, node);
+      }
+    }
+  }
+
+  private void updateQueue(Queue<Node> result, Node prevNode) {
+    result.add(prevNode);
+    if(result.size() == MAX_RESULT + 1) {
+      result.poll();
+    }
+  }
+
+  private static final class Node {
+    private final char chr;
+    private String str;
+    private int counts;
+    private final Node[] nodes;
+
+    public Node(char chr) {
+      nodes = new Node[N];
+      this.chr = chr;
+      str = null;
+      counts = 0;
+    }
+
   }
 }
