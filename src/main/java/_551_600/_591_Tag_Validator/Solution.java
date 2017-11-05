@@ -1,74 +1,57 @@
 package _551_600._591_Tag_Validator;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * @author Zhiwei.Xin
  * @version 1.0 on 10/30/2017.
  */
 public class Solution {
+  private static final String CDATA_RIGHT_MATCH = "]]>";
   /**
    *
    * @param code
    * @return
    */
   public boolean isValid(String code) {
-    return false;
-  }
-
-  static int isValidTag(final char[] code, int leftStart, int rightEnd) {
-    int firstTagLen = 0;
-    for (int i = 0; i < 10; i++) {
-      firstTagLen++;
-      if (i == 9) {
-        return -1;
-      } else if (i == 0 && code[i] == '<') {
-        return -1;
-      } else if (code[i] == '>') {
-        break;
-      } else {
-        if ('A' > code[i] && code[i] > 'Z') {
-          return -1;
+    /* only store tag name */
+    Deque<String> stack = new ArrayDeque<>();
+    if (!code.startsWith("<")) return false;
+    for (int i = 0; i < code.length(); ) {
+      if(i > 0 && stack.isEmpty()) return false;
+      if (code.startsWith("</", i)) {
+        final int rightEndIndex = code.indexOf('>', i);
+        if (rightEndIndex == -1) return false;
+        if (stack.isEmpty() || !stack.peekLast().equals(code.substring(i + 2, rightEndIndex))) {
+          return false;
+        } else {
+          stack.removeLast();
         }
-      }
-    }
-    if (code.length - firstTagLen - 1 < 0) {
-      return -1;
-    }
-    for (int i = code.length - 1; i >= code.length - firstTagLen - 1; i--) {
-      if (i == code.length - 1) {
-        if (code[i] != '>') {
-          return -1;
-        }
-      } else if (i == code.length - firstTagLen - 1) {
-        if (code[i] != '<') {
-          return -1;
-        }
-      } else if (i == code.length - firstTagLen - 2) {
-        if (code[i] != '\\') {
-          return -1;
-        }
-      }
-    }
-
-    if (!subArrayEquals(code, 1, firstTagLen - 1, code.length - firstTagLen - 3, code.length
-        - 2)) {
-      return -1;
-    }
-    return firstTagLen;
-  }
-
-  private static boolean subArrayEquals(final char[] chars, final int leftStart, final int leftEnd,
-                                        final int rightStart, final int rightEnd) {
-    assert leftEnd >= leftStart;
-    assert rightEnd >= rightStart;
-    if (leftEnd - leftStart != rightEnd - rightStart) {
-      return false;
-    } else {
-      for (int i = 0; i <= leftEnd; i++) {
-        if (chars[leftStart + i] != chars[rightStart + i]) {
+        i = rightEndIndex + 1;
+      } else if (code.startsWith("<![CDATA[", i)) {
+        final int rightEndIndex = code.indexOf(CDATA_RIGHT_MATCH, i);
+        if (rightEndIndex == -1) return false;
+        i = rightEndIndex + 3;
+      } else if (code.startsWith("<", i)) {
+        final int rightEndIndex = code.indexOf('>', i);
+        if (rightEndIndex == -1) return false;
+        String tagName = code.substring(i + 1, rightEndIndex);
+        if (tagName.length() > 9 || tagName.length() == 0) {
           return false;
         }
+        for (char chr : tagName.toCharArray()) {
+          if (!Character.isUpperCase(chr)) {
+            return false;
+          }
+        }
+        stack.addLast(tagName);
+        i += 1 + tagName.length() + 1;
+      } else {
+        i++;
       }
-      return true;
     }
+    return stack.size() == 0;
   }
+
 }
