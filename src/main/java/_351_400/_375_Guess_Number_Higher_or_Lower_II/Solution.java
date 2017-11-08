@@ -17,9 +17,10 @@ public class Solution {
       for (int i = 0; jMinusI + i <= n; i++) {
         int j = jMinusI + i;
         dp[i][j] = Integer.MAX_VALUE;
-        for (int k = i + 1; k < j; k++) {
+        for (int k = i; k <= j; k++) {
                                       /* spend k, then you will know which way to go */
-          dp[i][j] = Math.min(dp[i][j], k + Math.max(dp[i][k - 1], dp[k + 1][j]));
+          dp[i][j] = Math.min(dp[i][j], k + Math.max(k - 1 >= i ? dp[i][k - 1] : 0,
+              k + 1 <= j ? dp[k + 1][j] : 0));
         }
       }
     }
