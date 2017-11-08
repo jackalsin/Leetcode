@@ -21,11 +21,11 @@ public class PeekingIteratorTest {
   @Test
   public void testOnline() throws Exception {
     peekingIterator = new PeekingIterator(Arrays.asList(1, 2, 3).iterator());
-    assertEquals(new Integer(1), peekingIterator.next());
-    assertEquals(new Integer(2), peekingIterator.peek());
-    assertEquals(new Integer(2), peekingIterator.peek());
-    assertEquals(new Integer(2), peekingIterator.next());
-    assertEquals(new Integer(3), peekingIterator.next());
+    assertEquals(Integer.valueOf(1), peekingIterator.next());
+    assertEquals(Integer.valueOf(2), peekingIterator.peek());
+    assertEquals(Integer.valueOf(2), peekingIterator.peek());
+    assertEquals(Integer.valueOf(2), peekingIterator.next());
+    assertEquals(Integer.valueOf(3), peekingIterator.next());
     assertFalse(peekingIterator.hasNext());
   }
 }
