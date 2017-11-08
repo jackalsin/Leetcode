@@ -6,6 +6,15 @@ public class Solution {
     return betterSolution(length, updates);
   }
 
+  /**
+   * Solution details: https://discuss.leetcode.com/topic/49691/java-o-k-n-time-complexity-solution
+   * <p>
+   * Time complexity: O(length + updates.length * 3)
+   *
+   * @param length
+   * @param updates
+   * @return
+   */
   private int[] betterSolution(int length, int[][] updates) {
     final int[] result = new int[length];
     for (final int[] update : updates) {
