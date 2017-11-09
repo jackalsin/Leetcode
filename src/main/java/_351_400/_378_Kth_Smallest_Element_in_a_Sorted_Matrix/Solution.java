@@ -6,6 +6,46 @@ import java.util.Queue;
 
 public class Solution {
   public int kthSmallest(int[][] matrix, int k) {
+//    return nLogNSolution(matrix, k);
+    return logNSolution(matrix, k);
+  }
+
+  /**
+   * This solution is O(N * log (Max - Min))
+   *
+   * @param matrix
+   * @param k
+   * @return
+   */
+  private int logNSolution(int[][] matrix, int k) {
+    if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+      return 0;
+    }
+    final int rows = matrix.length, cols = matrix[0].length;
+    int lo = matrix[0][0], hi = matrix[rows - 1][cols - 1];
+    while (lo <= hi) {
+      int mid = lo + (hi - lo) / 2;
+      int count = getLessThanOrEquals(matrix, mid);
+      if (count < k) { // if equals, low will increase, then mid + 1 will miss.
+        lo = mid + 1;
+      } else {
+        hi = mid - 1;
+      }
+    }
+    return lo;
+  }
+
+  private static int getLessThanOrEquals(final int[][] matrix, final int val) {
+    final int rows = matrix.length, cols = matrix[0].length;
+    int count = 0, j = cols - 1;
+    for (int i = 0; i < rows; i++) {
+      while (j >= 0 && matrix[i][j] > val) j--; // j stops at 0 or just smaller
+      count += (j + 1);
+    }
+    return count;
+  }
+
+  private int nLogNSolution(int[][] matrix, int k) {
     if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
       return 0;
     }
