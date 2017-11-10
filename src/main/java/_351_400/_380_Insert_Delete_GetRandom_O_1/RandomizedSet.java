@@ -1,10 +1,6 @@
 package _351_400._380_Insert_Delete_GetRandom_O_1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author jacka
@@ -26,7 +22,7 @@ public class RandomizedSet {
   /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
   public boolean insert(int val) {
     boolean contains = locations.containsKey(val);
-    if (!contains) return false;
+    if (contains) return false;
     nums.add(val);
     locations.put(val, nums.size() - 1);
     return true;
@@ -43,6 +39,7 @@ public class RandomizedSet {
       // swap to the last one
       final int lastOneVal = nums.get(nums.size() - 1);
       nums.set(location, lastOneVal);
+      locations.put(lastOneVal, location);
     }
     nums.remove(nums.size() - 1);
     locations.remove(val);
