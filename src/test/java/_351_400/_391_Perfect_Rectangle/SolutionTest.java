@@ -76,6 +76,12 @@ public class SolutionTest {
     assertFalse(solution.isRectangleCover(rectangles));
   }
 
+  /**
+   * Check the getPoint, the conversion from int to long will happen, so the negative value will
+   * be wrong. THe current way works, but <code>(long) left << 32 | top;</code> is not.
+   *
+   * @throws Exception
+   */
   @Test
   public void testFailedCase2() throws Exception {
     final int N = 2;
@@ -88,7 +94,6 @@ public class SolutionTest {
 
   @Test
   public void testGetPoint() throws Exception {
-    System.out.println(1L << 32);
     System.out.println(Solution.getPoint(1, 1));
   }
 }

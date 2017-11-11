@@ -34,8 +34,6 @@ public class Solution {
       bottom = Math.min(bottom, curBottom);
 
       sum += (curTop - curBottom) * (curRight - curLeft);
-      System.out.println(List.of(getPoint(curLeft, curTop), getPoint(curLeft, curBottom),
-          getPoint(curRight, curTop), getPoint(curRight, curBottom)));
       if (!usedPoints.add(getPoint(curLeft, curTop)))
         usedPoints.remove(getPoint(curLeft, curTop));
       if (!usedPoints.add(getPoint(curLeft, curBottom)))
