@@ -33,15 +33,20 @@ public class Solution {
       top = Math.max(top, curTop);
       bottom = Math.min(bottom, curBottom);
 
+      long leftTop = getPoint(curLeft, curTop);
+      long rightBottom= getPoint(curRight, curBottom);
+      long leftBottom = getPoint(curLeft, curBottom);
+      long rightTop = getPoint(curRight, curTop);
+
       sum += (curTop - curBottom) * (curRight - curLeft);
-      if (!usedPoints.add(getPoint(curLeft, curTop)))
-        usedPoints.remove(getPoint(curLeft, curTop));
-      if (!usedPoints.add(getPoint(curLeft, curBottom)))
-        usedPoints.remove(getPoint(curLeft, curBottom));
-      if (!usedPoints.add(getPoint(curRight, curTop)))
-        usedPoints.remove(getPoint(curRight, curTop));
-      if (!usedPoints.add(getPoint(curRight, curBottom)))
-        usedPoints.remove(getPoint(curRight, curBottom));
+      if (!usedPoints.add(leftTop))
+        usedPoints.remove(leftTop);
+      if (!usedPoints.add(leftBottom))
+        usedPoints.remove(leftBottom);
+      if (!usedPoints.add(rightTop))
+        usedPoints.remove(rightTop);
+      if (!usedPoints.add(rightBottom))
+        usedPoints.remove(rightBottom);
 
     }
 
