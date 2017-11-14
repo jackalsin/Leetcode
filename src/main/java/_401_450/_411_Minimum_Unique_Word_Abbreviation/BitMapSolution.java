@@ -21,9 +21,10 @@ public class BitMapSolution implements Solution {
       dicts.add(wordMask);
       candidate |= wordMask;
     }
+    System.out.println("candidate" + "\t" + Integer.toBinaryString(candidate));
     dicts.stream().map(Integer::toBinaryString).forEach(System.out::println);
     dfs(1, 0);
-    System.out.println(Integer.toBinaryString(minAbbr));
+    System.out.println("minAbbr" + "\t" + Integer.toBinaryString(minAbbr));
     String result = getWordFromMask(target, minAbbr);
 
     return result;
@@ -51,7 +52,7 @@ public class BitMapSolution implements Solution {
 
     boolean isValid = true;
     for (int curWordMask : dicts) {
-      if ((curWordMask & mask) != 0) {
+      if ((curWordMask & mask) == 0) {
         isValid = false;
         break;
       }
@@ -63,7 +64,7 @@ public class BitMapSolution implements Solution {
     } else {
       for (int i = startBit; i < bitNum; i<<=1) {
         if ((i & candidate) != 0) {
-          dfs(startBit, mask + i); // don't understand
+          dfs(startBit << 1, mask + i); // don't understand
         }
       }
     }

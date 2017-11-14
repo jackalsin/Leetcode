@@ -12,8 +12,8 @@ public class SolutionTest {
   private Solution solution;
   @Before
   public void setUp() throws Exception {
-//    solution = new BitMapSolution();
-    solution = new BruteForceSolution();
+    solution = new BitMapSolution();
+//    solution = new BruteForceSolution();
   }
 
   @Test
