@@ -3,3 +3,5 @@
 target
 *.tmp
 .settings
+leetcode-411/*.pyc
+.vscode
