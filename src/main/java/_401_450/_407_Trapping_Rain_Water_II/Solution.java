@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
- *
+ * Time complexity O(mnLog(m + n))
  */
 public class Solution {
   private static final int[][] DIRS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
@@ -28,7 +28,7 @@ public class Solution {
       queue.add(new Cell(row, 0, heightMap[row][0]));
       queue.add(new Cell(row, cols - 1, heightMap[row][cols - 1]));
     }
-    for (int col = 0; col < cols; col++) {
+    for (int col = 1; col < cols - 1; col++) {
       visited[0][col] = visited[rows - 1][col] = true;
       queue.add(new Cell(0, col, heightMap[0][col]));
       queue.add(new Cell(rows - 1, col, heightMap[rows - 1][col]));
