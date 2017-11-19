@@ -2,6 +2,14 @@ package _401_450._418_Sentence_Screen_Fitting;
 
 public class Solution {
 
+  /**
+   * https://discuss.leetcode.com/topic/62455/21ms-18-lines-java-solution
+   *
+   * @param sentence
+   * @param rows
+   * @param cols
+   * @return
+   */
   public int wordsTyping(String[] sentence, int rows, int cols) {
     final String whole = String.join(" ", sentence) + " ";
     final int l = whole.length();
