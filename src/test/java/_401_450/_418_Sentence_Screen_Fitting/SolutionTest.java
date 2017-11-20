@@ -33,14 +33,14 @@ public class SolutionTest {
 
   @Test
   public void testFailedCase1() throws Exception {
-    final String[] senetence = {"try", "to", "be", "better"};
-    assertEquals(5293333, solution.wordsTyping(senetence, 10000, 9001));
+    final String[] sentence = {"try", "to", "be", "better"};
+    assertEquals(5293333, solution.wordsTyping(sentence, 10000, 9001));
   }
 
   @Test
   public void testFailedCase2() throws Exception {
-    final String[] senetence = {"hello"};
-    assertEquals(0, solution.wordsTyping(senetence, 10000, 1));
+    final String[] sentence = {"hello"};
+    assertEquals(0, solution.wordsTyping(sentence, 10000, 1));
   }
 
 }
