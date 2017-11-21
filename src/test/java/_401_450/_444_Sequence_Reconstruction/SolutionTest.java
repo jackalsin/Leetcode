@@ -13,7 +13,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new TopologicalSortSolution();
+//    solution = new ArraySolution();
   }
 
   @Test
@@ -88,5 +89,27 @@ public class SolutionTest {
     );
 
     assertFalse(solution.sequenceReconstruction(org, seqs));
+  }
+
+  @Test
+  public void testFailedOnEmpty() throws Exception {
+    final int[] org = {1};
+    final List<List<Integer>> seqs = List.of(
+        List.of(),
+        List.of()
+    );
+
+    assertFalse(solution.sequenceReconstruction(org, seqs));
+  }
+
+  @Test
+  public void testFailedOnEmpty2() throws Exception {
+    final int[] org = {1};
+    final List<List<Integer>> seqs = List.of(
+        List.of(1),
+        List.of()
+    );
+
+    assertTrue(solution.sequenceReconstruction(org, seqs));
   }
 }
