@@ -13,6 +13,44 @@ public class Solution {
    * (p1[0]-p0[0])(p2[1]-p0[1])-(p2[0]-p0[0])(p1[1]-p0[1])
    */
   public boolean isConvex(List<List<Integer>> points) {
+//    return isConvexWithoutCache(points);
+    return isConvexFast(points);
+  }
+
+  /**
+   */
+  private boolean isConvexFast(List<List<Integer>> points) {
+    if (points.size() <= 2) {
+      return false;
+    }
+    final int len = points.size();
+//    long last = 0; // must be long to avoid overflow on the det calculation
+    int negativeCounter = 0, positiveCounter = 0;
+    for (int i = 0; i < points.size(); i++) {
+      List<Integer> point1 = points.get(i % len), point2 = points.get((i + 1) % len), point3 =
+          points.get((i + 2) % len);
+      long cur = (point2.get(0) - point1.get(0)) * (point3.get(1) - point2.get(1)) - (point2.get
+          (1) - point1.get(1)) * (point3.get(0) - point2.get(0));
+      if (cur == 0) {
+        continue;
+      }
+      if (cur > 0) {
+        positiveCounter++;
+      } else {
+        negativeCounter++;
+      }
+      if (negativeCounter * positiveCounter != 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * This solution use long multiplication. 54 / 54 test cases passed. Status: Accepted Runtime: 41
+   * ms
+   */
+  private boolean isConvexSlowe(List<List<Integer>> points) {
     if (points.size() <= 2) {
       return false;
     }
@@ -32,7 +70,6 @@ public class Solution {
     }
     return true;
   }
-
 
   // Return the cross product AB x BC.
   // The cross product is a vector perpendicular to AB and BC having length |AB| * |BC| * Sin
