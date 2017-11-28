@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -18,6 +19,7 @@ public class SolutionTest {
   @Before
   public void setUp() throws Exception {
     solution = new NaiveOptimalSolution();
+//    solution = new ONCubicSolution();
   }
 
   @Test
@@ -54,4 +56,8 @@ public class SolutionTest {
     assertEquals(expected, actual);
   }
 
+  @Test
+  public void testAbcaabcdWithAbca() throws Exception {
+    assertFalse(new NaiveOptimalSolution().isRepeatString("abcaabcd", "abca"));
+  }
 }

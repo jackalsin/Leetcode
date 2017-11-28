@@ -26,9 +26,10 @@ public final class NaiveOptimalSolution implements Solution {
         } else {
           dp[start][end] = subString;
           for (int k = start; k < end; k++) {
-            String target = dp[start][k] + dp[k + 1][end];
-            if (dp[start][end].length() > (target.length())) {
-              dp[start][end] = target;
+//          String target = dp[start][k] + dp[k + 1][end];
+//          Optimal Solution:  if (dp[start][end].length() > (target.length())) {
+            if (dp[start][end].length() > dp[start][k].length() + dp[k + 1][end].length()) {
+              dp[start][end] = dp[start][k] + dp[k + 1][end];
             }
           } // end of k loop
 
@@ -36,7 +37,8 @@ public final class NaiveOptimalSolution implements Solution {
             final String repeatString = subString.substring(0, repeatEnd + 1);
             if ((subString.length() % repeatString.length() == 0)
                 // check if it's a repeated string
-                && (subString.replaceAll(repeatString, "").length() == 0)
+//                && (subString.replaceAll(repeatString, "").length() == 0)
+                && (isRepeatString(subString, repeatString))
                 ) {
               final String candidate = (subString.length() / repeatString.length()) + "["
 //                  + repeatString
@@ -54,4 +56,15 @@ public final class NaiveOptimalSolution implements Solution {
     return dp[0][N - 1];
   }
 
+  boolean isRepeatString(final String src, final String pattern) {
+    if (pattern.length() == 0) {
+      return true;
+    }
+    for (int start = 0; start < src.length(); start += pattern.length()) {
+      if (!src.substring(start, start + pattern.length()).equals(pattern)) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
