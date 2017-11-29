@@ -52,7 +52,7 @@ public final class NaiveOptimalSolution implements Solution {
         }
       }
     }
-//    display(dp); // display dp
+//    display2DimensionArray(dp); // display2DimensionArray dp
     return dp[0][N - 1];
   }
 

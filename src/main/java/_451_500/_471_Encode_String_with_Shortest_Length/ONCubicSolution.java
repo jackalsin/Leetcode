@@ -1,5 +1,7 @@
 package _451_500._471_Encode_String_with_Shortest_Length;
 
+import utils.TwoDimensionArray;
+
 /**
  * @author jacka
  * @version 1.0 on 11/27/2017.
@@ -29,7 +31,7 @@ public class ONCubicSolution implements Solution {
           }
         }
       }
-      display(dp);
+      TwoDimensionArray.display2DimensionArray(dp);
     }
     return dp[0][n - 1];
   }
