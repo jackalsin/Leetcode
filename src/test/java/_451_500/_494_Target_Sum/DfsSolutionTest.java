@@ -10,7 +10,7 @@ public class DfsSolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new DfsSolution();
+    solution = new DfsWrongSolution();
   }
 
   @Test

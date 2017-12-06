@@ -3,7 +3,7 @@ package _451_500._494_Target_Sum;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DfsSolution implements Solution {
+public class DfsWrongSolution implements Solution {
   @Override
   public int findTargetSumWays(int[] nums, int S) {
     final Map<Integer, Integer> cache = new HashMap<>();
