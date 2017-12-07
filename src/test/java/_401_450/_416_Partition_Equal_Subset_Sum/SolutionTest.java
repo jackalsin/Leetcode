@@ -11,7 +11,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new SpaceONSquareDpSolution();
+//    solution = new SpaceONSquareDpSolution();
+    solution = new SpaceLinearDpSolution();
   }
 
   @Test
@@ -30,5 +31,11 @@ public class SolutionTest {
   public void testFailedCase1() throws Exception {
     final int[] nums = {1, 2, 5};
     assertFalse(solution.canPartition(nums));
+  }
+
+  @Test
+  public void testFailedCase2() throws Exception {
+    final int[] nums = {3, 3, 3, 4, 5};
+    assertTrue(solution.canPartition(nums));
   }
 }
