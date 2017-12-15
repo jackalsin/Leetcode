@@ -3,7 +3,7 @@ package _501_550._505_The_Maze_II;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
@@ -13,7 +13,8 @@ public class SolutionTest {
   private Solution solution;
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+//    solution = new DfsWrongSolution();
+    solution = new BfsSolution();
   }
 
   @Test
