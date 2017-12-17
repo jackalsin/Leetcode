@@ -2,18 +2,18 @@ package _501_550._542_01_Matrix;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TwoDimensionArray;
 
 import java.util.Arrays;
 
 import static org.junit.Assert.assertTrue;
 
-public class BfsSolutionTest {
+public class SolutionTest {
   private Solution solution;
 
   @Before
   public void setUp() throws Exception {
-    solution = new BfsSolution();
+//    solution = new BfsSolution();
+    solution = new TwoSweepSolution();
   }
 
   @Test
@@ -27,7 +27,6 @@ public class BfsSolutionTest {
         {0, 1, 0},
         {0, 0, 0}};
     final int[][] actual = solution.updateMatrix(board);
-//    TwoDimensionArray.display2DimensionArray(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
   }
 
@@ -42,7 +41,6 @@ public class BfsSolutionTest {
         {0, 1, 0},
         {1, 2, 1}};
     final int[][] actual = solution.updateMatrix(board);
-    TwoDimensionArray.display2DimensionArray(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
   }
 
@@ -73,5 +71,39 @@ public class BfsSolutionTest {
         {3, 2, 2, 1, 0, 1, 0, 0, 1, 1}};
     final int[][] actual = solution.updateMatrix(input);
     assertTrue(Arrays.deepEquals(expected, actual));
+  }
+
+  @Test
+  public void testFailedCase2() {
+
+    final int[][] input = {
+        {1, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 0, 0, 0, 1, 1, 0},
+        {1, 1, 1, 1, 1, 1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 1, 1, 0, 1, 0, 1},
+        {0, 0, 1, 0, 0, 1, 1, 0, 0, 1},
+        {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+        {0, 0, 1, 1, 1, 1, 0, 1, 1, 1},
+        {1, 1, 0, 0, 1, 0, 1, 0, 1, 1}};
+
+    final int[][] expected = {
+        {2, 1, 0, 1, 2, 2, 2, 3, 3, 2},
+        {2, 1, 0, 1, 1, 1, 1, 2, 2, 1},
+        {3, 2, 1, 1, 0, 0, 0, 1, 1, 0},
+        {2, 1, 1, 2, 1, 1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 1, 1, 0, 1, 0, 1},
+        {0, 0, 1, 0, 0, 1, 1, 0, 0, 1},
+        {0, 1, 0, 1, 1, 1, 1, 1, 1, 1},
+        {1, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+        {0, 0, 1, 1, 2, 1, 0, 1, 1, 1},
+        {1, 1, 0, 0, 1, 0, 1, 0, 1, 2}
+    };
+
+
+    final int[][] actual = solution.updateMatrix(input);
+    assertTrue(Arrays.deepEquals(expected, actual));
+
   }
 }

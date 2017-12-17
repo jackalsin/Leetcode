@@ -5,7 +5,6 @@ import java.util.Queue;
 
 public final class BfsSolution implements Solution {
   private static final int[][] DIRS = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
-  private static final int NOT_VISITED = -1;
 
   public int[][] updateMatrix(int[][] matrix) {
     if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
