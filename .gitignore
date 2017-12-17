@@ -5,3 +5,6 @@ target
 .settings
 leetcode-411/*.pyc
 .vscode
+.DS_Store
+.classpath
+.project
