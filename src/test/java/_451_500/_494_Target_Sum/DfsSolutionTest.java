@@ -13,7 +13,7 @@ public class DfsSolutionTest {
     solution = new DfsWrongSolution();
   }
 
-  @Test
+  @Test(expected = java.lang.AssertionError.class)
   public void testOnlineCase1() throws Exception {
     final int[] nums = {1, 1, 1, 1, 1};
     assertEquals(5, solution.findTargetSumWays(nums, 3));

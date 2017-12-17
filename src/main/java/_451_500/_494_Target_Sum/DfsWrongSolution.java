@@ -3,12 +3,15 @@ package _451_500._494_Target_Sum;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The key is not unique.
+ * See details on https://discuss.leetcode.com/topic/76245/java-simple-dfs-with-memorization
+ */
 public class DfsWrongSolution implements Solution {
   @Override
   public int findTargetSumWays(int[] nums, int S) {
     final Map<Integer, Integer> cache = new HashMap<>();
     int res = dfs(cache, S, nums, 0, 0, 0);
-    System.out.println(cache);
     return res;
   }
 
@@ -18,7 +21,6 @@ public class DfsWrongSolution implements Solution {
     }
     if (nums.length == index) {
       if (S == sum) {
-        System.out.println(Integer.toBinaryString(key));
         return 1;
       } else {
         return 0;
