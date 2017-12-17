@@ -10,7 +10,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new OMNSpaceSolution();
+//    solution = new OMNSpaceSolution();
+    solution = new O1SpaceSolution();
   }
 
   @Test
