@@ -82,6 +82,17 @@ public final class TwoDimensionArray {
     System.out.println("]");
   }
 
+  public static void display2DimensionArray(long[][] array) {
+    if (array == null) {
+      throw new NullPointerException("array cannot be null");
+    }
+    System.out.println("[");
+    for (long[] child : array) {
+      System.out.println("\t" + Arrays.toString(child));
+    }
+    System.out.println("]");
+  }
+
   public static void display2DimensionArray(final String[][] dp) {
   /*  final int maxLen = Arrays.stream(dp).max(new Comparator<String[]>() {
       @Override
