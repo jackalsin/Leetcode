@@ -15,7 +15,14 @@ public class SolutionTest {
 
   @Test
   public void testOnlineCase1() throws Exception {
-    final int[][] flights = {{0, 1, 1}, {1, 0, 1}, {1, 1, 0}}, days = {{1, 3, 1}, {6, 0, 3}, {3, 3, 3}};
+    final int[][] flights = {
+        {0, 1, 1},
+        {1, 0, 1},
+        {1, 1, 0}
+    }, days = {
+        {1, 3, 1},
+        {6, 0, 3},
+        {3, 3, 3}};
     assertEquals(12, solution.maxVacationDays(flights, days));
   }
 
