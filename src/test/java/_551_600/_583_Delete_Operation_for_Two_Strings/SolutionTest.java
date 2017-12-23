@@ -31,8 +31,14 @@ public class SolutionTest {
 
 
   @Test
-  public void testLaterIsLarger() throws Exception {
+  public void testLaterIsLarger() {
     final String word1 = "abdefccc", word2 = "accc";
     assertEquals(4, solution.minDistance(word1, word2));
+  }
+
+  @Test
+  public void testFailedCase2() throws Exception {
+    final String word1 = "food", word2 = "money";
+    assertEquals(7, solution.minDistance(word1, word2));
   }
 }
