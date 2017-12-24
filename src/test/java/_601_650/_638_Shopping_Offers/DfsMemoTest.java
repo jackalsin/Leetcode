@@ -43,7 +43,18 @@ public class DfsMemoTest {
         List.of(1, 1, 1)
     ));
     assertEquals(2, solution.shoppingOffers(price, special, needs));
+  }
 
+  @Test
+  public void testFailedCase3() {
+    Solution solution = new DfsMemoSolutionNotAddingToSpecial();
+    final List<Integer> price = List.of(2, 5);
+    final List<Integer> needs = List.of(3, 2);
+    final List<List<Integer>> special = new ArrayList<>(List.of(
+        List.of(3, 0, 5),
+        List.of(1, 2, 10)
+    ));
+    assertEquals(14, solution.shoppingOffers(price, special, needs));
   }
 
   /**
@@ -157,11 +168,30 @@ public class DfsMemoTest {
         List.of(0, 1, 3, 6, 3, 6, 18),
         List.of(3, 5, 4, 6, 5, 3, 6)
     ));
-    DfsMemo solution = new DfsMemo();
-    long startTime = System.nanoTime();
+    Solution solution = new DfsMemoSolutionNotAddingToSpecial();
     solution.shoppingOffers(price, special, needs);
-    long endTime = System.nanoTime();
-    System.out.println("Time = " + (endTime - startTime) / 1E6);
+
+    {
+      solution = new DfsMemoSolutionNotAddingToSpecial();
+      long startTime = System.nanoTime();
+      solution.shoppingOffers(price, special, needs);
+      long endTime = System.nanoTime();
+      System.out.println(solution.getClass().getName() + "Time = " + (endTime - startTime) / 1E6);
+    }
+
+    Solution dfsMemoSolution = new DfsMemo();
+    long solution2StartTime = System.nanoTime();
+    solution.shoppingOffers(price, special, needs);
+    long solution2EndTime = System.nanoTime();
+    System.out.println(dfsMemoSolution.getClass().getName() + "Time = " + (solution2EndTime - solution2StartTime) / 1E6);
+
+    {
+      solution = new DfsMemoSolutionNotAddingToSpecial();
+      long startTime = System.nanoTime();
+      solution.shoppingOffers(price, special, needs);
+      long endTime = System.nanoTime();
+      System.out.println(solution.getClass().getName() + "Time = " + (endTime - startTime) / 1E6);
+    }
   }
 
 }
