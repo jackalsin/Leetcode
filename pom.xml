@@ -33,6 +33,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
+                <!--if you don't want the test result-->
+                <!--<configuration>-->
+                <!--<printSummary>false</printSummary>-->
+                <!--</configuration>-->
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.maven.surefire</groupId>
