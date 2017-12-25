@@ -31,16 +31,12 @@ public class SolutionTest {
 
   @Test
   public void testFailedCase2() throws Exception {
+    // A[40] = 0;
     final int[] A = {21, 7, 96, 68, 73, 99, 19, 89, 0, 62, 86, 8, 6, 62, 49, 77, 47, 12, 86, 5,
         46, 29, 3, 41, 68, 50, 83, 41, 77, 29, 10, 91, 75, 23, 59, 36, 8, 26, 26, 88, -1, 41, 45,
         32, 3, 51, 83, 75, 12, 48, 99, 38, 21, 98, 83, 46, 42, 48, 64, 92, 70, 6, 96, 30, 65, 7,
         90, 95, 5, 97, 25, 7, 99, 2, 26, 42, 38, 95, 26, 11, 86, 24, 16, 87, 77, 58, 30, 31};
     final int B = 1;
-    for (int i = 0; i < A.length; i++) {
-      if (A[i] == -1) {
-        System.out.println(i);
-      }
-    }
     assertEquals(List.of(), solution.cheapestJump(A, B));
   }
 }
