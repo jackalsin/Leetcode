@@ -10,12 +10,12 @@ import static org.junit.Assert.assertTrue;
  * @author jacka
  * @version 1.0 on 12/28/2017.
  */
-public class SolutionTest {
+public class SpaceO1SolutionTest {
   private Solution solution;
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SpaceO1Solution();
   }
 
   @Test
@@ -32,7 +32,13 @@ public class SolutionTest {
 
   @Test
   public void testOnlineCase3() throws Exception {
-    final int[] nums = {1, 2, 3, 4, 4, 6};
+    final int[] nums = {1, 2, 3, 4, 4, 5};
     assertFalse(solution.isPossible(nums));
+  }
+
+  @Test
+  public void testFailedCase1() throws Exception {
+    final int[] nums = {1, 2, 3, 3, 4, 5};
+    assertTrue(solution.isPossible(nums));
   }
 }
