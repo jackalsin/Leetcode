@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 12/31/2017.
  */
 public class ONSolutionTest {
+
   private Solution solution;
 
   @Before
