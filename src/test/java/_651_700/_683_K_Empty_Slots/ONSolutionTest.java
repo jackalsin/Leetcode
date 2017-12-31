@@ -15,7 +15,8 @@ public class ONSolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new ONSolution();
+//    solution = new ONSolution();
+    solution = new MyONSolution();
   }
 
   @Test
