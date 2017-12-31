@@ -35,4 +35,10 @@ public class SolutionTest {
     long endTime = System.nanoTime();
     System.out.println("used time = " + (endTime - startTime) / 1e6 + " ms");
   }
+
+  @Test
+  public void testGetCount() throws Exception {
+    assertEquals(4, Solution.getCount(4, 1, 8));
+    assertEquals(6, Solution.getCount(4, 2, 8));
+  }
 }
