@@ -34,7 +34,6 @@ public class SolutionTest {
 
   @Test
   public void testFailedCase1() throws Exception {
-
 //    SampleSolution solution = new SampleSolution();
     Solution solution = new Solution();
     final int[][] edges = {{1, 4}, {3, 4}, {1, 3}, {1, 2}, {4, 5}};
@@ -45,7 +44,6 @@ public class SolutionTest {
 
   @Test
   public void testFailedCase2() throws Exception {
-
 //    SampleSolution solution = new SampleSolution();
     Solution solution = new Solution();
     final int[][] edges = {{1, 3}, {1, 4}, {3, 4}, {1, 2}};
