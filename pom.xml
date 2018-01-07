@@ -35,7 +35,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <!--if you don't want the test result-->
-                    <!--<printSummary>false</printSummary>-->
+                    <printSummary>false</printSummary>
                     <argLine>-Xss18m</argLine>
                 </configuration>
                 <dependencies>
