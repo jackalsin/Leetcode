@@ -45,6 +45,35 @@ public final class Transform {
     return sb.toString();
   }
 
+  /**
+   * The algorithm introduction
+   * https://www.coursera.org/learn/algorithms-on-strings/lecture/C0opC/inverting-burrows-wheeler
+   * -transform
+   */
+  public static String decode(final String input) {
+//    char[] inputArr = input.toCharArray();
+//    int[] translate = new int[inputArr.length];
+//    int[] sums = new int[IHuffConstants.ALPH_SIZE + 1];
+//    for(int k=0; k < inputArr.length; k++){
+//      sums[inputArr[k]+1]++;
+//    }
+//    for(int k=1; k < sums.length; k++){
+//      sums[k] += sums[k-1];
+//    }
+//    for(int k=0; k < inputArr.length; k++){
+//      int index = sums[inputArr[k]]++;
+//      translate[index] = k;
+//    }
+//    char[] reconstruct = new char[inputArr.length];
+//    for (int k = 0; k <inputArr.length; k++) {
+//      first = translate[first];
+//      reconstruct[k] = inputArr[first];
+//    }
+//    return reconstruct;
+    return null;
+  }
+
+
   private static final class Rotation {
     private final int index;
 
