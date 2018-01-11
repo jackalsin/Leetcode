@@ -16,6 +16,7 @@ public class Solution {
   /**
    * @param h The linked list's head.
    *          Note that the head is guaranteed to be not null, so it contains at least one node.
+   *          https://www.geeksforgeeks.org/reservoir-sampling/
    */
   public Solution(ListNode h) {
     this.head = h;
