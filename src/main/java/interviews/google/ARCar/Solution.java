@@ -8,4 +8,32 @@ package interviews.google.ARCar;
  * @version 1.0 on 1/10/2018.
  */
 public class Solution {
+  private static final char A = 'A', R = 'R';
+
+  public int getLocation(final String path) {
+    int location = 0, speed = 1;
+    for (char chr : path.toCharArray()) {
+      if (chr == A) {
+        if (speed < 0) {
+          speed = 1;
+        }
+        location += speed;
+        speed *= 2;
+      } else {
+        if (speed > 0) {
+          speed = -1;
+        }
+        location += speed;
+        speed *= 2;
+      }
+    }
+    return location;
+  }
+
+
+//  public String getPath(int location) {
+//
+//
+//    return null;
+//  }
 }

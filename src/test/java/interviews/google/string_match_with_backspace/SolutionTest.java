@@ -49,5 +49,11 @@ public class SolutionTest {
     assertTrue(solution.isMatch(str1, "ab"));
   }
 
+  @Test
+  public void testOnlineCase6() throws Exception {
+    final String str1 = "abc\b\b", str2 = "a";
+    assertTrue(solution.isMatch(str1, str2));
+  }
+
 
 }
