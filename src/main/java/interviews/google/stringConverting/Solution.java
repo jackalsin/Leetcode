@@ -10,5 +10,19 @@ package interviews.google.stringConverting;
  * @author jacka
  * @version 1.0 on 1/10/2018.
  */
-public class Solution {
+public final class Solution {
+
+  public String stringConvert(int num, String pattern) {
+    int mod = pattern.length();
+    StringBuilder sb = new StringBuilder();
+    if (num == 0) {
+      return "0";
+    }
+    while (num != 0) {
+      int digit = num % mod;
+      sb.append(pattern.charAt(digit));
+      num /= mod;
+    }
+    return sb.reverse().toString();
+  }
 }
