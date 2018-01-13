@@ -9,5 +9,35 @@ package interviews.google.randomPop;
  */
 public class Solution {
 
-
+  public int[] randomPop(final RandomPopArray randomPopArray) {
+    final int[] res = new int[randomPopArray.size()];
+    int leftPtr = 0, rightPtr = res.length - 1, prev = -1, count = 0;
+    if (randomPopArray.isEmpty()) {
+      return res;
+    }
+    prev = randomPopArray.pop();
+    count++;
+    while (!randomPopArray.isEmpty()) {
+      int cur = randomPopArray.pop();
+      if (prev < cur) {
+        while (count-- != 0) {
+          res[leftPtr++] = prev;
+        }
+        prev = cur;
+        count = 1;
+      } else if (prev == cur) {
+        count++;
+      } else {
+        while (count-- != 0) {
+          res[rightPtr--] = prev;
+        }
+        prev = cur;
+        count = 1;
+      }
+    }
+    while (count-- != 0) {
+      res[rightPtr--] = prev;
+    }
+    return res;
+  }
 }
