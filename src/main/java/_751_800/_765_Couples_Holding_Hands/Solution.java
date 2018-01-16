@@ -1,72 +1,79 @@
 package _751_800._765_Couples_Holding_Hands;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Solution {
-  private int minSwaps = Integer.MAX_VALUE;
 
   private final Map<List<Integer>, Integer> cache = new HashMap<>();
 
   public int minSwapsCouples(int[] row) {
     final int[] index = new int[row.length];
+    final List<Integer> rowList = new ArrayList<>();
     for (int i = 0; i < row.length; i++) {
       index[row[i]] = i;
+      rowList.add(row[i]);
     }
 
-    dfs(row, index, 0, 0);
-    return minSwaps;
+    int res = dfs(rowList, index, 0);
+    System.out.println(cache.size());
+    return res;
   }
 
-  private void dfs(int[] row, int[] index, int startIndex, int curCount) {
-    if (startIndex == row.length) {
-      minSwaps = Math.min(minSwaps, curCount);
-      return;
+  private int dfs(final List<Integer> row, int[] index, int startIndex) {
+    if (startIndex == row.size()) {
+      return 0;
+    }
+    final List<Integer> key = new ArrayList<>(row.subList(startIndex, row.size()));
+    if (cache.containsKey(key)) {
+      return cache.get(key);
     }
 
-    if (getCouple(row[startIndex]) == row[startIndex + 1]) {
-      dfs(row, index, startIndex + 2, curCount);
+    if (getCouple(row.get(startIndex)) == row.get(startIndex + 1)) {
+      int actual = dfs(row, index, startIndex + 2);
+      cache.put(key, actual);
+      return actual;
     } else {
-
+      int min = Integer.MAX_VALUE;
       // swap row[startIndex + 1] And row[coupleIndex]
-      int couple = getCouple(row[startIndex]), coupleIndex = index[couple], swapVal =
-          row[startIndex + 1];
+      int couple = getCouple(row.get(startIndex)), coupleIndex = index[couple], swapVal =
+          row.get(startIndex + 1);
       swap(row, startIndex + 1, coupleIndex);
       index[couple] = startIndex + 1;
       index[swapVal] = coupleIndex;
-      dfs(row, index, startIndex + 2, curCount + 1);
+      min = Math.min(min, dfs(row, index, startIndex + 2) + 1);
       swap(row, startIndex + 1, coupleIndex);
       index[couple] = coupleIndex;
       index[swapVal] = startIndex + 1;
 
 
-      couple = getCouple(row[startIndex + 1]);
+      couple = getCouple(row.get(startIndex + 1));
       coupleIndex = index[couple];
-      swapVal = row[startIndex];
+      swapVal = row.get(startIndex);
       swap(row, startIndex, coupleIndex);
       index[couple] = startIndex;
       index[swapVal] = coupleIndex;
 
-      dfs(row, index, startIndex + 2, curCount + 1);
+      min = Math.min(min, dfs(row, index, startIndex + 2) + 1);
+
       swap(row, startIndex, coupleIndex);
       index[couple] = coupleIndex;
       index[swapVal] = startIndex;
+      cache.put(key, min);
+      return min;
     }
   }
 
-  private void swap(final int[] row, int i, int j) {
-    int tmp = row[i];
-    row[i] = row[j];
-    row[j] = tmp;
+  private void swap(final List<Integer> row, int i, int j) {
+    int tmp = row.get(i);
+    row.set(i, row.get(j));
+    row.set(j, tmp);
   }
 
   private int getCouple(int a) {
-    if (a % 2 == 0) {
-      return a + 1;
-    } else {
-      return a - 1;
-    }
+    return a % 2 == 0 ? a + 1 : a - 1;
   }
 
 }
