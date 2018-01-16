@@ -5,12 +5,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class SolutionTest {
+public class GreedySolutionTest {
   private Solution solution;
 
   @Before
   public void setUp() throws Exception {
-    solution = new DfsCacheSolution();
+    solution = new GreedySolution();
   }
 
   @Test
