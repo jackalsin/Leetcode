@@ -1,12 +1,11 @@
 package _101_150._102_Binary_Tree_Level_Order_Traversal;
 
-import java.util.ArrayDeque;
+import utils.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
-import utils.TreeNode;
 
 /**
  * @author jacka
