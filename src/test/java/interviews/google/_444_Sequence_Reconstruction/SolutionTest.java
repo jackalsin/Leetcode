@@ -5,7 +5,8 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 public class SolutionTest {
@@ -111,5 +112,16 @@ public class SolutionTest {
     );
 
     assertTrue(solution.sequenceReconstruction(org, seqs));
+  }
+
+  @Test
+  public void testFailedOnCycleTest() throws Exception {
+    final int[] org = {1};
+    final List<List<Integer>> seqs = List.of(
+        List.of(1, -9),
+        List.of(-9, -8),
+        List.of(-8, -9)
+    );
+    assertFalse(solution.sequenceReconstruction(org, seqs));
   }
 }

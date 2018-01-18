@@ -1,16 +1,26 @@
 package interviews.google._444_Sequence_Reconstruction;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
 public final class TopologicalSortSolution implements Solution {
   private final Map<Integer, Set<Integer>> preToChildren = new HashMap<>();
   private final Map<Integer, Integer> incomingLinks = new HashMap<>();
   private int total = 0;
 
+  /**
+   * Time complexity: org length is N, seqs length A * B
+   * Generally, topological sort is O(Vertex) + O(Edge)
+   */
   @Override
   public boolean sequenceReconstruction(int[] org, List<List<Integer>> seqs) {
-    initGraph(seqs, org.length);
-    return solve(org);
+    initGraph(seqs, org.length); // O(N) + O(AB)
+    return solve(org); //
   }
 
   private boolean solve(int[] org) {
@@ -40,7 +50,7 @@ public final class TopologicalSortSolution implements Solution {
         }
       }
     }
-    return Arrays.equals(org, res);
+    return i == incomingLinks.size() && i == org.length;
   }
 
   private void initGraph(List<List<Integer>> seqs, int size) {
