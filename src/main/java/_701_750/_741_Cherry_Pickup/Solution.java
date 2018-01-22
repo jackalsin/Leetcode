@@ -23,7 +23,6 @@ public final class Solution {
       }
     }
     int res = Math.max(0, dp(0, 0, 0));
-    System.out.println(Arrays.deepToString(dp));
     return res;
   }
 
