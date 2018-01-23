@@ -1,5 +1,9 @@
 package _401_450._410_Split_Array_Largest_Sum;
 
+import java.util.Arrays;
+
+import utils.TwoDimensionArray;
+
 /**
  * @author jacka
  * @version 1.0 on 1/21/2018.
@@ -17,14 +21,20 @@ public class Solution {
 
     // dp[i][j] denotes
     final int[][] dp = new int[n + 1][m + 1];
+
+    for (final int[] d : dp) {
+      Arrays.fill(d, Integer.MAX_VALUE);
+    }
+    dp[0][0] = 0;
     for (int i = 1; i <= n; i++) {
       for (int j = 1; j <= m; j++) {
         for (int k = 0; k < i; k++) {
           // around k ~ n
-          dp[i][j] = Math.max(dp[k][j - 1], preSum[n] - preSum[k]); // TODO:????
+          dp[i][j] = Math.min(dp[i][j], Math.max(dp[k][j - 1], preSum[i] - preSum[k]));
         }
       }
     }
-    return dp[m][n];
+    TwoDimensionArray.display2DimensionArray(dp);
+    return dp[n][m];
   }
 }
