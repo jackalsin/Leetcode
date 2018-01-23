@@ -2,8 +2,6 @@ package _401_450._410_Split_Array_Largest_Sum;
 
 import java.util.Arrays;
 
-import utils.TwoDimensionArray;
-
 /**
  * @author jacka
  * @version 1.0 on 1/21/2018.
@@ -34,7 +32,7 @@ public class Solution {
         }
       }
     }
-    TwoDimensionArray.display2DimensionArray(dp);
+//    TwoDimensionArray.display2DimensionArray(dp);
     return dp[n][m];
   }
 }
