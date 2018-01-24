@@ -3,9 +3,7 @@ package _351_400._399_Evaluate_Division;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 /**
  * @author jacka
@@ -25,7 +23,6 @@ public class SolutionTest {
     final String[][] queries = {{"a", "c"}, {"b", "c"}, {"a", "e"}, {"a", "a"}, {"x", "x"}};
     final double[] expected = {6.00000,3.00000,-1.00000,1.00000,-1.00000};
     final double[] actual = solution.calcEquation(equations, values, queries);
-    System.out.println(Arrays.toString(actual));
     assertArrayEquals(expected, actual, 1E-5);
   }
 
