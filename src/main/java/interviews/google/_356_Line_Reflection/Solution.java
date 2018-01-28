@@ -1,8 +1,6 @@
 package interviews.google._356_Line_Reflection;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -11,18 +9,20 @@ import java.util.Set;
  */
 public class Solution {
   public boolean isReflected(int[][] points) {
-    final Map<Integer, Set<Integer>> unmatched = new HashMap<>();
+    int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+    final Set<String> occurred = new HashSet<>();
     for (final int[] point : points) {
-      final Set<Integer> allX = unmatched.getOrDefault(point[1], new HashSet<>());
-      if (allX.contains(-point[0])) {
-        allX.remove(-point[0]);
-      } else {
-        allX.remove(point[0]);
-      }
-      if (allX.size() == 0) {
-        unmatched.remove(point[1]);
+      max = Math.max(point[0], max);
+      min = Math.min(point[0], min);
+      occurred.add(point[0] + ":" + point[1]);
+    }
+    final long sum = (long) max + (long) min;
+    for (final int[] point : points) {
+      final String matchPoint = (sum - point[0]) + ":" + point[1];
+      if (!occurred.contains(matchPoint)) {
+        return false;
       }
     }
-    return unmatched.size() == 0;
+    return true;
   }
 }

@@ -1,10 +1,10 @@
 package interviews.google._356_Line_Reflection;
 
-import _351_400._356_Line_Reflection.Solution;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class SolutionTest {
     private Solution solution;
