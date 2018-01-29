@@ -15,7 +15,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new OMSquareNSolution();
+//    solution = new OMSquareNSolution();
+    solution = new OMNSolution();
   }
 
   @Test
@@ -65,6 +66,20 @@ public class SolutionTest {
         {false, false, true, false, true},
         {false, false, false, true, false},
         {true, false, true, false, true}
+    };
+    assertTrue(solution.existTrueRectangle(matrix));
+  }
+
+  @Test
+  public void testOnlineCase2() throws Exception {
+    final boolean[][] matrix = {
+        {true, false, false, false, false, false, true},
+        {true, true, false, false, false, false, false},
+        {true, false, true, false, false, false, false},
+        {true, false, false, true, false, false, false},
+        {true, false, false, false, true, false, false},
+        {true, false, false, false, false, true, false},
+        {true, false, false, false, false, false, true},
     };
     assertTrue(solution.existTrueRectangle(matrix));
   }

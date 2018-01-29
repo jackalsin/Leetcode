@@ -12,5 +12,5 @@ public interface Solution {
    * 的暴力解，在讲的过程中又想到一个O（nm2)的优化，又说了，然后后来又想到一个可能能再优化一些但是也还是到不了O(nm)
    * 的，想着说了总比不说强吧，但那阵已经没什么时间了，下一个面试官也到了，小哥就一直在pack up他的东西，也不知道听进去了多少，不过小哥临走前还一直在祝福我希望他是没有打算挂我吧。。
    */
-  public boolean existTrueRectangle(final boolean[][] matrix);
+  boolean existTrueRectangle(final boolean[][] matrix);
 }
