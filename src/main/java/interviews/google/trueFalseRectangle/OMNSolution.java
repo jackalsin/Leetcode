@@ -10,6 +10,10 @@ import java.util.Map;
  * @version 1.0 on 1/28/2018.
  */
 public final class OMNSolution implements Solution {
+  /**
+   * www.1point3acres.com/bbs/thread-314139-2-1.html 29 楼
+   * https://gist.github.com/anonymous/8189d3490ad1bc02ad0442f04df30b33
+   */
   @Override
   public boolean existTrueRectangle(boolean[][] matrix) {
     if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
