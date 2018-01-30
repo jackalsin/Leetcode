@@ -10,7 +10,7 @@ import java.util.List;
 public class WordFilterTwoDimensionSolution implements WordFilter {
   private static final int N = 26, INVALID = 0;
   private static final char A = 'a';
-  private final TrieNode root = new TrieNode((char) INVALID);
+  private final TrieNode root = new TrieNode();
 
   public WordFilterTwoDimensionSolution(String[] words) {
     for (int i = 0, wordsLength = words.length; i < wordsLength; i++) {
@@ -29,7 +29,7 @@ public class WordFilterTwoDimensionSolution implements WordFilter {
     final char preChar = word.charAt(startIndex),
         suffixChar = word.charAt(word.length() - 1 - startIndex);
     if (parent.next[preChar - A][suffixChar - A] == null) {
-      parent.next[preChar - A][suffixChar - A] = new TrieNode(preChar);
+      parent.next[preChar - A][suffixChar - A] = new TrieNode();
     }
     insert(parent.next[preChar - A][suffixChar - A], word, startIndex + 1, weight);
   }
@@ -81,12 +81,7 @@ public class WordFilterTwoDimensionSolution implements WordFilter {
   }
 
   private static final class TrieNode {
-    private final char chr;
     private final TrieNode[][] next = new TrieNode[N][N];
     private int weight = INVALID;
-
-    TrieNode(final char chr) {
-      this.chr = chr;
-    }
   }
 }
