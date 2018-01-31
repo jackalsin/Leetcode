@@ -14,7 +14,6 @@ public class Solution {
       {1, 0}, {-1, 0}, {0, -1}, {0, 1}
   };
 
-  //todo:
   public List<Integer> numIslands2(int m, int n, int[][] positions) {
     UnionFind uf = new UnionFind(m, n);
     final List<Integer> result = new ArrayList<>();
