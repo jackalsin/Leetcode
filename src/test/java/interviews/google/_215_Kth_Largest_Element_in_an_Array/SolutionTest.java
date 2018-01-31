@@ -3,6 +3,8 @@ package interviews.google._215_Kth_Largest_Element_in_an_Array;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -19,22 +21,36 @@ public class SolutionTest {
   }
 
   @Test
-  public void testOneElement() throws Exception {
-    final int[] input = new int[] {1};
+  public void testOneElement() {
+    final int[] input = new int[]{1};
     assertEquals(1, solution.findKthLargest(input, 1));
   }
 
   @Test
   public void testOnlineCase() throws Exception {
-    final int[] input = new int[] {3, 2, 1, 5, 6, 4};
+    final int[] input = new int[]{3, 2, 1, 5, 6, 4};
     assertEquals(5, solution.findKthLargest(input, 2));
   }
 
   @Test
-  public void testDuplicate() throws Exception {
-    final int[] input = new int[] {1, 2, 3, 4, 5, 5, 5, 6};
+  public void testDuplicate() {
+    final int[] input = new int[]{1, 2, 3, 4, 5, 5, 5, 6};
     assertEquals(5, solution.findKthLargest(input, 2));
     assertEquals(4, solution.findKthLargest(input, 5));
+  }
+
+  @Test
+  public void testDuplicateReflected() {
+    final int[] input = new int[]{1, 2, 2, 3, 3, 3, 4, 4, 5};
+    assertEquals(4, solution.findKthLargest(input, 2));
+  }
+
+  @Test
+  public void testPartition() {
+    final int[] input = new int[]{3, 2, 1, 5, 6, 4};
+    int pivotIndex = solution.partition(input, 0, input.length - 1);
+    System.out.println("pivotIndex = " + pivotIndex);
+    System.out.println(Arrays.toString(input));
   }
 
 }
