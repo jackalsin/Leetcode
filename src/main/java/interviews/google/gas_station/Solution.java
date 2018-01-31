@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @version 1.0 on 1/24/2018.
  */
 public class Solution {
-
+  //TODO: Validate in leetcode
   public double minimizeGasStation(final int[] gas, final int K) {
     assert gas.length >= 2;
     final double[] distances = new double[gas.length];
