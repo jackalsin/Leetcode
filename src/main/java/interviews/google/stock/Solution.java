@@ -11,4 +11,6 @@ public class Solution {
   // (day, price), get(day)。 我用了个stack + hashtable解了。有点像李口里面那个O(1)
   // 时间找stack的最小值的解法。stack里面是最大，最小，当前价钱，hashtable保存day->stack index. update就把后面的price都重算。remove
   // 重用 update的算法=update 成前一天的价钱。写code了
+
+
 }
