@@ -19,7 +19,7 @@ public class Solution {
         if (asteroid > 0) {
           stack.add(asteroid);
         } else if (asteroid < 0) {
-          /**/
+          /*Pop all positive rocks smaller than the current one*/
           while ((!stack.isEmpty()) && stack.peekLast() > 0 &&
               Math.abs(stack.peekLast()) < Math.abs(asteroid)) {
             stack.removeLast();
