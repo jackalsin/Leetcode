@@ -20,7 +20,8 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+//    solution = new NaiveSolution();
+    solution = new BetterSolution();
   }
 
   @Test
