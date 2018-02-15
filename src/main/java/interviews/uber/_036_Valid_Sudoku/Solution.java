@@ -17,7 +17,7 @@ public class Solution {
         final char chr = board[row][col];
         if (Character.isDigit(chr)) {
           if (visited[chr - '1']) {
-            System.out.println("Return false by row");
+            System.err.println("Return false by row = " + row);
             return false;
           } else {
             visited[chr - '1'] = true;
