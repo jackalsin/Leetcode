@@ -1,28 +1,25 @@
 package interviews.uber._091_Decode_Ways;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Solution {
 
   public int numDecodings(String s) {
     if (s.isEmpty()) {
       return 0;
     }
-    final List<String> result = new ArrayList<>();
-    dfs(result, s, "", 0);
-    return result.size();
+    final int[] dp = new int[s.length() + 1];
+    dp[s.length()] = 1;
+    dp[s.length() - 1] = s.charAt(s.length() - 1) == '0' ? 0 : 1;
+    for (int i = s.length() - 2; i >= 0; i--) {
+      final char singleChar = s.charAt(i);
+      if (singleChar != '0') {
+        dp[i] += dp[i + 1];
+      }
+      final int candidate = Integer.parseInt(s.substring(i, i + 2));
+      if (candidate <= 26 && candidate >= 10) {
+        dp[i] += dp[i + 2];
+      }
+    }
+    return dp[0];
   }
 
-  private void dfs(final List<String> result, final String s, final String curPath, int start) {
-    if (start >= s.length()) {
-      result.add(curPath);
-      return;
-    }
-    dfs(result, s, curPath + s.charAt(start), start + 1);
-
-    if (start < s.length() - 1 && Integer.parseInt(s.substring(start, start + 2)) <= 26) {
-      dfs(result, curPath, curPath + (char) (Integer.parseInt(s.substring(start, start + 2)) - 1 + 'A'), start + 2);
-    }
-  }
 }

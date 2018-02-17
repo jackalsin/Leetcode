@@ -34,4 +34,14 @@ class SolutionTest {
     assertEquals(2, solution.numDecodings("127383992"));
   }
 
+  @Test
+  void testOnlineCase4() {
+    assertEquals(0, solution.numDecodings("1273083992"));
+  }
+
+  @Test
+  void testInvalidCase1() {
+    assertEquals(0, solution.numDecodings("0127383992"));
+  }
+
 }
