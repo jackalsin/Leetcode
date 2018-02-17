@@ -9,29 +9,24 @@ import java.util.List;
  */
 public class Solution {
   /**
-   * Todo: check another solution
+   * @param nums
+   * @return
    */
   public List<List<Integer>> subsets(int[] nums) {
     final List<List<Integer>> result = new ArrayList<>();
-    result.add(new ArrayList<>());
-    if (nums == null || nums.length == 0) {
+    if (nums == null) {
       return result;
     }
-    for (int i = 0; i < nums.length; i++) {
-      final List<List<Integer>> resultCopy = getCopy(result);
-      for (final List<Integer> child : resultCopy) {
-        child.add(nums[i]);
-        result.add(child);
-      }
-    }
+    dfsHelper(result, nums, new ArrayList<>(), 0);
     return result;
   }
 
-  private List<List<Integer>> getCopy(List<List<Integer>> source) {
-    final List<List<Integer>> result = new ArrayList<>();
-    for (List<Integer> child : source) {
-      result.add(new ArrayList<>(child));
+  private void dfsHelper(final List<List<Integer>> result, final int[] nums, final List<Integer> curPath, int start) {
+    result.add(new ArrayList<>(curPath));
+    for (int i = start; i < nums.length; i++) {
+      curPath.add(nums[i]);
+      dfsHelper(result, nums, curPath, i + 1);
+      curPath.remove(curPath.size() - 1);
     }
-    return result;
   }
 }
