@@ -31,9 +31,9 @@ public class ONSolution implements Solution {
           ) {
         list.pollLast();
       }
-      System.out.println("j =" + j + " list = " + list);
+//      System.out.println("j =" + j + " list = " + list);
       list.add(j - k + 1);
-      System.out.println(" j = " + j + " list = " + list);
+//      System.out.println(" j = " + j + " list = " + list);
       // all points are OK. If the first two point satisfy the condition, we need to remove the
       // first point. we need to find the max point
       while (list.size() >= 2 &&
