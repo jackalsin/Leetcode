@@ -11,7 +11,9 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new NaiveSolution();
+//    solution = new NaiveSolution();
+//    solution = new AdvancedSolution();
+    solution = new GaojiSolution();
   }
 
   @Test
