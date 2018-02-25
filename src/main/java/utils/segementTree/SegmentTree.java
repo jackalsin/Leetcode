@@ -4,7 +4,7 @@ package utils.segementTree;
  * @author jacka
  * @version 1.0 on 9/14/2017.
  */
-public interface SegementTree {
+public interface SegmentTree {
 
   /**
    * Update the value to <tt>val</tt> on index <tt>i</tt>.
