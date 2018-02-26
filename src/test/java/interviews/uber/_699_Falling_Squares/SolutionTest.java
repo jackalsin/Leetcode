@@ -8,11 +8,12 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
-  private NaiveSolution solution;
+  private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new NaiveSolution();
+//    solution = new NaiveSolution();
+    solution = new TreeMapSolution();
   }
 
   @Test
