@@ -15,12 +15,12 @@ class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
+  void setUp() {
+    solution = new SegmentTreeSolution();
   }
 
   @Test
-  void testOnlineCase1() throws Exception {
+  void testOnlineCase1() {
     final int[][] input = {{1, 2}, {2, 3}, {6, 1}};
     final List<Integer> expected = List.of(2, 5, 5);
     final List<Integer> actual = solution.fallingSquares(input);
@@ -28,7 +28,7 @@ class SolutionTest {
   }
 
   @Test
-  void testFailedCase1() throws Exception {
+  void testFailedCase1() {
     final int[][] input = {{2, 1}, {2, 9}, {1, 8}};
     final List<Integer> expected = List.of(1, 10, 18);
     final List<Integer> actual = solution.fallingSquares(input);
