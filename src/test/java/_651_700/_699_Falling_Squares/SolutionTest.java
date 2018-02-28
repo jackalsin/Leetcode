@@ -16,7 +16,8 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new SegmentTreeSolution();
+//    solution = new SegmentTreeSolution();
+    solution = new SegmentTreeLazyPropagationSolution();
   }
 
   @Test
