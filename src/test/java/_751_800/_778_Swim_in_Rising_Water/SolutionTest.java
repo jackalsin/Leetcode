@@ -14,7 +14,8 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new BfsSolution();
+//    solution = new BfsSolution();
+    solution = new PriorityQueueSolution();
   }
 
   @Test
@@ -49,6 +50,17 @@ class SolutionTest {
     };
 
     assertEquals(3, solution.swimInWater(grid));
+  }
+
+  @Test
+  void testXiangBuTongCase() {
+    final int[][] grid = {
+        {0, 5, 6},
+        {1, 8, 7},
+        {2, 3, 4}
+    };
+
+    assertEquals(4, solution.swimInWater(grid));
   }
 
   @Test
