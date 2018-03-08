@@ -7,6 +7,12 @@ package _751_800._788_Rotated_Digits;
 public final class NSolution implements Solution {
   private static final int INVALID_ROTATE = 0, VALID_SAME = 1, VALID_DIFF = 2;
 
+  /**
+   * Time Complexity: O(N)
+   * 50 / 50 test cases passed.
+   * Status: Accepted
+   * Runtime: 9 ms
+   */
   @Override
   public int rotatedDigits(int N) {
     final int[] dp = new int[N + 1];
