@@ -38,4 +38,11 @@ class SolutionTest {
     final int[] target = {1, 0};
     assertFalse(solution.escapeGhosts(ghosts, target));
   }
+
+  @Test
+  void testNegativeCoordinate() {
+    final int[][] ghosts = {{1, 9}, {2, -5}, {3, 8}, {9, 8}, {-1, 3}};
+    final int[] target = {8, -10};
+    assertFalse(solution.escapeGhosts(ghosts, target));
+  }
 }
