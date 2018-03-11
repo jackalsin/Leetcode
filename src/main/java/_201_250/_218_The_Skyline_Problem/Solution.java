@@ -1,12 +1,6 @@
 package _201_250._218_The_Skyline_Problem;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @author jacka
@@ -80,15 +74,6 @@ public class Solution {
     }
 
     return result;
-  }
-
-  public static void main(String[] args) {
-    TreeSet<int[]> treeSet = new TreeSet<>(new Comparator<int[]>() {
-      @Override
-      public int compare(int[] o1, int[] o2) {
-        return Integer.compare(o1[0], o2[0]);
-      }
-    });
   }
 
 }
