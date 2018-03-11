@@ -1,11 +1,16 @@
 package interviews.google._692_Top_K_Frequent_Words;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
+ * 110 / 110 test cases passed.
+ * Status: Accepted
+ * Runtime: 22 ms
+ *
  * @author jacka
  * @version 1.0 on 3/11/2018.
  */
@@ -42,14 +47,16 @@ public final class TrieSolution implements Solution {
     }
 
     private List<String> searchTopK(final int k) {
-
-      final Queue<TrieNode> pq = new PriorityQueue<>((x, y) -> {
+      final Queue<TrieNode> pq = new PriorityQueue<>(new Comparator<TrieNode>() {
         // less frequency up, higher alphabetical up
-        int cmp = Integer.compare(x.count, y.count);
-        if (cmp == 0) {
-          return y.word.compareTo(x.word);
+        @Override
+        public int compare(TrieNode o1, TrieNode o2) {
+          int cmp = Integer.compare(o1.count, o2.count);
+          if (cmp == 0) {
+            return o2.word.compareTo(o1.word);
+          }
+          return cmp;
         }
-        return cmp;
       });
 
       search(root, k, pq);
