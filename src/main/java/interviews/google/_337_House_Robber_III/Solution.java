@@ -7,7 +7,6 @@ import utils.TreeNode;
  * @version 1.0 on 3/12/2018.
  */
 public class Solution {
-  // TOOD： 再来一道 Union Find
   public int rob(TreeNode root) {
     final int[] res = robHelper(root);
     return Math.max(res[0], res[1]);
