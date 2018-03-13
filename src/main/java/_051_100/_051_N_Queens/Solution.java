@@ -12,6 +12,9 @@ import java.util.Set;
  */
 public class Solution {
 
+  /**
+   * No longer AC
+   */
   public List<List<String>> solveNQueens(int n) {
     if (n <= 0) {
       return new ArrayList<>();

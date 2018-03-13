@@ -1,0 +1,8 @@
+package _051_100._052_N_Queens_II;
+
+/**
+ * @author jacka
+ * @version 1.0 on 3/13/2018.
+ */
+public class BetterSolution { // TODO: unimplemented.
+}
