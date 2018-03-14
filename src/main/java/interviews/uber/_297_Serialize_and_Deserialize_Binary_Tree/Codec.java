@@ -1,12 +1,12 @@
 package interviews.uber._297_Serialize_and_Deserialize_Binary_Tree;
 
-import utils.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
-public final class Codec {
+import utils.TreeNode;
+
+public final class Codec { // TODO : Let's check
   private static final String SPLIT = ",", NULL = "#";
 
   // Encodes a tree to a single string.
