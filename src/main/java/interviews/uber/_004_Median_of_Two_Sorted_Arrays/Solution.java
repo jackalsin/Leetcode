@@ -5,7 +5,6 @@ package interviews.uber._004_Median_of_Two_Sorted_Arrays;
  * @version 1.0 on 3/13/2018.
  */
 public class Solution {
-  // TODO:
 
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
     if (nums1.length > nums2.length) {
