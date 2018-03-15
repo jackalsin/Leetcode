@@ -28,4 +28,15 @@ class SolutionTest {
     assertArrayEquals(output, actual);
   }
 
+  @Test
+  void testFailedCase1() {
+    final int n = 3;
+    final List<String> logs = List.of(
+        "0:start:0", "0:end:0", "1:start:1", "1:end:1", "2:start:2", "2:end:2", "2:start:3", "2:end:3"
+    );
+
+    final int[] output = {1, 1, 2}, actual = solution.exclusiveTime(n, logs);
+    assertArrayEquals(output, actual);
+  }
+
 }

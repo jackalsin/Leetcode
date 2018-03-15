@@ -4,37 +4,34 @@ import java.util.List;
 import java.util.Stack;
 
 
-public class Solution { //TODO: 再搞搞
+public class Solution {
   private static final String START = "start", END = "end";
 
   /**
    * 这题目是这样的：
    * 如果end signal发出来后，那么之前被抢占的task会开始执行，
    * 例如， 0被1的start 中断了，然后收到了1的end，则0开始执行
-   *
-   * @param n
-   * @param logs
-   * @return
    */
   public int[] exclusiveTime(int n, List<String> logs) {
-    final int[] result = new int[n];
+    int preStart = 0;
+    final int[] t = new int[n];
     final Stack<Integer> stack = new Stack<>();
-    int prevStartTime = 0;
-    for (final String log : logs) {
-      final String[] logItems = log.split(":");
-      final int id = Integer.parseInt(logItems[0]), time = Integer.parseInt(logItems[2]);
-      if (logItems[1].equals(START)) {
+    for (int i = 0; i < logs.size(); i++) {
+      final String[] logArray = logs.get(i).split(":");
+      final int time = Integer.parseInt(logArray[2]), id = Integer.parseInt(logArray[0]);
+      if (logArray[1].equals(START)) {
         if (!stack.isEmpty()) {
-          result[stack.peek()] += time - prevStartTime;
+          t[stack.peek()] += time - preStart;
         }
         stack.push(id);
-        prevStartTime = time;
+        preStart = time;
       } else {
-        result[stack.pop()] += time - prevStartTime + 1;
-        prevStartTime = time + 1;
+        assert stack.peek() == id;
+        t[stack.pop()] += time - preStart + 1;
+        preStart = time + 1;
       }
     }
-    return result;
+    return t;
   }
 
 }
