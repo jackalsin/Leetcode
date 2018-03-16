@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Queue;
 
-public final class Codec { // TODO : Let's check
+public final class Codec {
   private static final String SPLIT = ",", NULL = "#";
 
 
