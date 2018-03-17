@@ -23,4 +23,22 @@ class SolutionTest {
     final int[] input = {10, 9, 2, 5, 3, 7, 101, 18};
     assertEquals(4, solution.lengthOfLIS(input));
   }
+
+  @Test
+  void testOnlineCase2() throws Exception {
+    final int[] input = {};
+    assertEquals(0, solution.lengthOfLIS(input));
+  }
+
+  @Test
+  void testOnlineCase3() throws Exception {
+    final int[] input = {0};
+    assertEquals(1, solution.lengthOfLIS(input));
+  }
+
+  @Test
+  void testOnlineCase4() throws Exception {
+    final int[] input = {2, 2};
+    assertEquals(1, solution.lengthOfLIS(input));
+  }
 }

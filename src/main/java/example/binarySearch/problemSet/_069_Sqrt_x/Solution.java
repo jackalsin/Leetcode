@@ -1,4 +1,4 @@
-package example.binarySearch.problemSet.squareX;
+package example.binarySearch.problemSet._069_Sqrt_x;
 
 public class Solution {
 

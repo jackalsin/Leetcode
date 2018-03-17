@@ -1,4 +1,4 @@
-package example.binarySearch.problemSet.squareX;
+package example.binarySearch.problemSet._069_Sqrt_x;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
