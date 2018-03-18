@@ -4,7 +4,7 @@ public class Solution {
 
   public int search(int[] nums, int target) {
     int left = 0, right = nums.length - 1;
-    while (left <= right) { // TODO: check if equals
+    while (left <= right) {
       final int mid = (right - left) / 2 + left;
       if (nums[mid] > nums[right]) {
         if (nums[left] <= target && target <= nums[mid]) {
