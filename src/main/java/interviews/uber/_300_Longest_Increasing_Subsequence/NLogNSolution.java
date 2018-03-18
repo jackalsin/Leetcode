@@ -1,12 +1,10 @@
 package interviews.uber._300_Longest_Increasing_Subsequence;
 
-import java.util.Arrays;
-
 /**
  * @author jacka
  * @version 1.0 on 3/16/2018.
  */
-public class NLogNSolution implements Solution { // TODO:
+public class NLogNSolution implements Solution {
   @Override
   public int lengthOfLIS(int[] nums) {
     //    return example(nums);
@@ -24,23 +22,26 @@ public class NLogNSolution implements Solution { // TODO:
     int right = 0;
     for (int k = 1; k < nums.length; k++) {
       int x = nums[k];
-      System.out.println(x);
+      // find the last smaller than
       int i = 0, j = right;
       while (i < j) {
         int m = (j - i + 1) / 2 + i;
-        if (nums[m] < x) {
+        if (tails[m] < x) {
           i = m;
         } else {
           j = m - 1;
         }
       }
+      // all elements are not smaller than x
+      if (tails[i] >= x) {
+        i = -1;
+      }
       // find the first not smaller than
-      tails[i + 1] = Math.max(x, tails[i + 1]);
+      tails[i + 1] = x;
       if (i == right) {
         right++;
       }
     }
-    System.out.println(Arrays.toString(tails));
     return right + 1;
   }
 
@@ -62,7 +63,6 @@ public class NLogNSolution implements Solution { // TODO:
         ++size;
       }
     }
-    System.out.println(Arrays.toString(tails));
     return size;
   }
 }
