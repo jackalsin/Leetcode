@@ -77,4 +77,20 @@ public class AdvancedSolutionTest {
     assertEquals(0, AdvancedSolution.binarySearchLastOccurrence(nums, x -> Integer.compare(x, 1) <= 0));
 
   }
+
+  @Test
+  public void testZero() {
+    final int[] nums = {};
+    assertEquals(-1, AdvancedSolution.binarySearchFirstOccurrence(nums, x -> x <= 0, x -> -1));
+    assertEquals(-1, AdvancedSolution.binarySearchLastOccurrence(nums, x -> x >= 0,  x -> -1));
+  }
+
+  @Test
+  public void testAllUnsatisfied() {
+    final int[] nums = {1, 2, 3};
+    assertEquals(-1, AdvancedSolution.binarySearchFirstOccurrence(nums, x -> x < 1, x -> -1));
+    assertEquals(3, AdvancedSolution.binarySearchFirstOccurrence(nums, x -> x > 3, x -> x));
+    assertEquals(3, AdvancedSolution.binarySearchLastOccurrence(nums, x -> x > 3, x -> x));
+    assertEquals(-1, AdvancedSolution.binarySearchLastOccurrence(nums, x -> x < 1, x -> -1));
+  }
 }

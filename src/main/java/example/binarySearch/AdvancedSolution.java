@@ -3,6 +3,7 @@ package example.binarySearch;
 import java.util.function.Function;
 
 public final class AdvancedSolution {
+  private static final String ERROR_MESSAGE = "All elements in the array don't satisfy the condition.";
 
   private AdvancedSolution() {
   }
@@ -69,11 +70,18 @@ public final class AdvancedSolution {
   }
 
   public static int binarySearchFirstOccurrence(final int[] nums, Function<Integer, Boolean> isSatisfied) {
+    return binarySearchFirstOccurrence(nums, isSatisfied, arrayLength -> {
+      throw new IllegalStateException(ERROR_MESSAGE);
+    });
+  }
+
+  public static int binarySearchFirstOccurrence(final int[] nums, Function<Integer, Boolean> isSatisfied,
+                                                Function<Integer, Integer> allFalseErrorHandling) {
     if (nums == null) {
       throw new NullPointerException();
     }
     if (nums.length == 0) {
-      throw new IllegalArgumentException("The length of nums cannot be zero.");
+      return allFalseErrorHandling.apply(nums.length);
     }
 
     int left = 0, right = nums.length - 1;
@@ -85,15 +93,28 @@ public final class AdvancedSolution {
         left = mid + 1;
       }
     }
+
+    // all element doesn't satisfy the condition
+    if (!isSatisfied.apply(nums[left])) {
+      return allFalseErrorHandling.apply(nums.length);
+    }
     return left;
   }
 
+
   public static int binarySearchLastOccurrence(final int[] nums, Function<Integer, Boolean> isSatisfied) {
+    return binarySearchLastOccurrence(nums, isSatisfied, arrayLength -> {
+      throw new IllegalStateException(ERROR_MESSAGE);
+    });
+  }
+
+  public static int binarySearchLastOccurrence(final int[] nums, Function<Integer, Boolean> isSatisfied,
+                                               Function<Integer, Integer> allFalseErrorHandling) {
     if (nums == null) {
       throw new NullPointerException();
     }
     if (nums.length == 0) {
-      throw new IllegalArgumentException("The length of nums cannot be zero.");
+      return allFalseErrorHandling.apply(nums.length);
     }
 
     int left = 0, right = nums.length - 1;
@@ -104,6 +125,11 @@ public final class AdvancedSolution {
       } else {
         right = mid - 1;
       }
+    }
+
+    // all element doesn't satisfy the condition
+    if (!isSatisfied.apply(nums[left])) {
+      return allFalseErrorHandling.apply(nums.length);
     }
     return left;
   }
