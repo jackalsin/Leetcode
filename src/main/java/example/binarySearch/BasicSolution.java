@@ -15,7 +15,7 @@ public final class BasicSolution {
       throw new IllegalArgumentException("The length of nums cannot be zero.");
     }
     int left = 0, right = nums.length - 1;
-    while (left < right) {
+    while (left <= right) {
       final int mid = (right - left) / 2 + left;
       if (nums[mid] == target) {
         return mid;

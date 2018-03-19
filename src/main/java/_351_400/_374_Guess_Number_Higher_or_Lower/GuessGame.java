@@ -7,14 +7,14 @@ package _351_400._374_Guess_Number_Higher_or_Lower;
 public abstract class GuessGame {
   private final int n;
 
-  GuessGame(int n) {
+  public GuessGame(int n) {
     this.n = n;
   }
 
   /**
    * -1 : My number is lower 1 : My number is higher 0 : Congrats! You got it!
    */
-  int guess(int guess) {
+  public int guess(int guess) {
     int cmp = Integer.compare(guess, n);
     if (cmp == 0) {
       return 0;
