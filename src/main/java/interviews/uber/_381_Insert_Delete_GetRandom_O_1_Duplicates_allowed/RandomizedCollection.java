@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-public class RandomizedCollection {
+public class RandomizedCollection { //TODO: 再来一遍
   private final Map<Integer, Set<Integer>> valueToIndex = new HashMap<>();
   private final List<Integer> values = new ArrayList<>();
   private final Random random = new Random();

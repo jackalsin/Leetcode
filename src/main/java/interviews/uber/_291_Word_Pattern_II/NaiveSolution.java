@@ -3,7 +3,7 @@ package interviews.uber._291_Word_Pattern_II;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NaiveSolution implements Solution {
+public class NaiveSolution implements Solution { // TODO: 搞起
   private final Map<Character, String> patternCharToWord = new HashMap<>();
   private final Map<String, Character> wordToPatternChar = new HashMap<>();
 
