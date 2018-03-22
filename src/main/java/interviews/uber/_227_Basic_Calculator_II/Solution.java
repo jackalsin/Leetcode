@@ -13,14 +13,13 @@ public class Solution {
     final Deque<Integer> stack = new ArrayDeque<>();
     int num = 0;
     char sign = '+';
-    for (final char chr : s.toCharArray()) {
+    char[] charArray = s.toCharArray();
+    for (int i = 0; i < charArray.length; i++) {
+      final char chr = charArray[i];
       if (Character.isDigit(chr)) {
         num = num * 10 + chr - '0';
       }
-      if (chr == ' ') {
-        continue;
-      }
-      if (!Character.isDigit(chr)) {
+      if (!Character.isDigit(chr) && chr != ' ' || i == charArray.length - 1) {
         switch (sign) {
           case '+':
             stack.push(num);
@@ -39,7 +38,6 @@ public class Solution {
         num = 0;
       }
     }
-
     int res = 0;
     while (!stack.isEmpty()) {
       res += stack.pop();
