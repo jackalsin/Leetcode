@@ -7,7 +7,7 @@ import java.util.Comparator;
  * @author jacka
  * @version 1.0 on 3/15/2018.
  */
-public class Solution { // TODO:
+public class Solution {
   /**
    * 85 / 85 test cases passed.
    * Status: Accepted
