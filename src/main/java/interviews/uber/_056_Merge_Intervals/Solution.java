@@ -1,10 +1,11 @@
 package interviews.uber._056_Merge_Intervals;
 
+import utils.Interval;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import utils.Interval;
 
 /**
  * @author jacka
@@ -12,35 +13,28 @@ import utils.Interval;
  */
 public class Solution { // TODO：
   public List<Interval> merge(List<Interval> intervals) {
-    intervals.sort(new Comparator<>() {
+    if (intervals == null || intervals.size() == 0) {
+      return new ArrayList<>();
+    }
 
-      /**
-       * Time Complexity: O (N^2)
-       * @param o1
-       * @param o2
-       * @return
-       */
+    final List<Interval> result = new ArrayList<>();
+    Collections.sort(intervals, new Comparator<Interval>() {
       @Override
-      public int compare(Interval o1, Interval o2) {
-        int cmp = Integer.compare(o1.start, o2.start);
+      public int compare(final Interval i1, final Interval i2) {
+        int cmp = Integer.compare(i1.start, i2.start);
         if (cmp == 0) {
-          return Integer.compare(o2.end, o1.end);
+          return Integer.compare(i1.end, i2.end);
         }
         return cmp;
       }
     });
-    final List<Interval> result = new ArrayList<>();
-    if (intervals.size() == 0) {
-      return result;
-    }
     result.add(intervals.get(0));
     for (int i = 1; i < intervals.size(); i++) {
-      if (intervals.get(i).start <= result.get(result.size() - 1).end) {
-        final int lastIndex = result.size() - 1;
-        int lastEnd = Math.max(intervals.get(i).end, result.get(lastIndex).end);
-        result.get(result.size() - 1).end = lastEnd;
+      final Interval curInterval = intervals.get(i), prevInterval = result.get(result.size() - 1);
+      if (curInterval.start <= prevInterval.end) {
+        prevInterval.end = Math.max(curInterval.end, prevInterval.end);
       } else {
-        result.add(intervals.get(i));
+        result.add(curInterval);
       }
     }
     return result;
