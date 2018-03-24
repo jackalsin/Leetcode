@@ -7,7 +7,7 @@ import java.util.List;
  * @author jacka
  * @version 1.0 on 2/12/2018.
  */
-public class Solution {
+public class Solution { // TODO：
   public List<String> generateParenthesis(int n) {
     final List<String> result = new ArrayList<>();
     generateParenthesis(n, result, "", 0, 0);

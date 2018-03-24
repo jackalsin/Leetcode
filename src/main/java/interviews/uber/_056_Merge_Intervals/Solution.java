@@ -10,7 +10,7 @@ import utils.Interval;
  * @author jacka
  * @version 1.0 on 3/13/2018.
  */
-public class Solution {
+public class Solution { // TODO：
   public List<Interval> merge(List<Interval> intervals) {
     intervals.sort(new Comparator<>() {
 
