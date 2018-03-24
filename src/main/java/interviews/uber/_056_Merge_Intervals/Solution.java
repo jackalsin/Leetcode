@@ -11,7 +11,7 @@ import java.util.List;
  * @author jacka
  * @version 1.0 on 3/13/2018.
  */
-public class Solution { // TODO：
+public class Solution {
   public List<Interval> merge(List<Interval> intervals) {
     if (intervals == null || intervals.size() == 0) {
       return new ArrayList<>();
