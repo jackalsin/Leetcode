@@ -3,7 +3,7 @@ package interviews.uber._254_Factor_Combinations;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution { // todo:
+public class Solution {
 
   /**
    * Time Complexity : O(N)
@@ -14,21 +14,21 @@ public class Solution { // todo:
    */
   public List<List<Integer>> getFactors(int n) {
     final List<List<Integer>> result = new ArrayList<>();
-    getFactors(result, new ArrayList<>(), n, 1);
+    dfs(result, n, new ArrayList<>(), 1);
     return result;
   }
 
-  private void getFactors(List<List<Integer>> result, final List<Integer> curPath, int n, int start) {
+  private static void dfs(final List<List<Integer>> result, final int n,
+                          final List<Integer> curPath, final int start) {
     if (start > 1) {
-      final List<Integer> toAdd = new ArrayList<>(curPath);
-      toAdd.add(n);
-      result.add(toAdd);
+      final List<Integer> newPath = new ArrayList<>(curPath);
+      newPath.add(n);
+      result.add(newPath);
     }
-
-    for (int i = Math.max(start, 2); i * i <= n; i++) {
+    for (int i = Math.max(2, start); i * i <= n; i++) {
       if (n % i == 0) {
         curPath.add(i);
-        getFactors(result, curPath, n / i, i);
+        dfs(result, n / i, curPath, i);
         curPath.remove(curPath.size() - 1);
       }
     }
