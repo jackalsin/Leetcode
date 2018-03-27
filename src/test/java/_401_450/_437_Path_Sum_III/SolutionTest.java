@@ -12,7 +12,8 @@ class SolutionTest {
 
   @BeforeEach
   void setup() {
-    solution = new Solution();
+//    solution = new SampleSolution();
+    solution = new MySolution();
   }
 
   @Test
