@@ -28,7 +28,7 @@ public class Solution {
         }
       }
     }
-
-    return dp[0][n - 1] * 2 > preSum[n];
+    // if it's a draw, play 1 wins
+    return dp[0][n - 1] * 2 >= preSum[n];
   }
 }
