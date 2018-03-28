@@ -5,7 +5,6 @@ package interviews.uber._486_Predict_the_Winner;
  * @version 1.0 on 3/23/2018.
  */
 public class Solution {
-  // TODO :
   public boolean PredictTheWinner(int[] nums) {
     if (nums == null || nums.length == 0) {
       return true;
