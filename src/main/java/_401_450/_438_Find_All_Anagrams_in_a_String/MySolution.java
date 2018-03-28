@@ -1,16 +1,12 @@
-package interviews.uber._438_Find_All_Anagrams_in_a_String;
+package _401_450._438_Find_All_Anagrams_in_a_String;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author jacka
- * @version 1.0 on 3/23/2018.
- */
-public class Solution {
-
+public class MySolution implements Solution {
+  @Override
   public List<Integer> findAnagrams(String s, String p) {
     final Map<Character, Integer> charCounts = new HashMap<>();
     for (char chr : p.toCharArray()) {
@@ -45,5 +41,4 @@ public class Solution {
     }
     return result;
   }
-
 }

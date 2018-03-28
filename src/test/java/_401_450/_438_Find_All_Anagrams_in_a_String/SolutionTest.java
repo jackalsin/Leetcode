@@ -1,4 +1,4 @@
-package interviews.uber._438_Find_All_Anagrams_in_a_String;
+package _401_450._438_Find_All_Anagrams_in_a_String;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,14 +12,14 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+//    solution = new SampleSolution();
+    solution = new MySolution();
   }
 
   @Test
   void testOnlineCase1() {
     final String s = "cbaebabacd", p = "abc";
     assertEquals(List.of(0, 6), solution.findAnagrams(s, p));
-
   }
 
   @Test
@@ -33,4 +33,5 @@ class SolutionTest {
     final String s = "cabaebabacdacba", p = "abca";
     assertEquals(List.of(0, 6, 11), solution.findAnagrams(s, p));
   }
+
 }
