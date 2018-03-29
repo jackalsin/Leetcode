@@ -27,7 +27,7 @@ public final class TreeMapSolution implements Solution {
       int curHeight = startInterval.height;
       Interval curInterval = treeSet.ceiling(new Interval(left, DUMMY_VALUE, DUMMY_VALUE));
       assert curInterval != null;
-      while (curInterval != null && curInterval.end <= right) { // todo: consider equal
+      while (curInterval != null && curInterval.end <= right) {
         treeSet.remove(curInterval);
         curHeight = Math.max(curHeight, curInterval.height);
         curInterval = treeSet.ceiling(new Interval(left, DUMMY_VALUE, DUMMY_VALUE));
