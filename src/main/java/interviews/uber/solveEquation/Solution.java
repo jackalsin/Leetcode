@@ -22,8 +22,48 @@ public class Solution { // todo: https://qiuzhihui.gitbooks.io/r-book/content/ji
    */
   private int[] processOneSide(String eq, final int globalSign) {
     int num = 0, numOfX = 0, numOfY = 0;
-    for (final char chr : eq.toCharArray()) {
-
+    int o1 = 1, curNum = 0;
+    char[] charArray = eq.toCharArray();
+    for (int i = 0; i < charArray.length; i++) {
+      final char chr = charArray[i];
+      if (Character.isDigit(chr)) {
+        curNum = chr - '0';
+        while (i + 1 < charArray.length && Character.isDigit(charArray[i + 1])) {
+          curNum = curNum * 10 + charArray[i + 1] - '0';
+        }
+      } else if (chr == 'x') {
+        numOfX += o1 * (curNum == 0 ? 1 : curNum);
+        curNum = 0;
+      } else if (chr == 'y') {
+        numOfY += o1 * (curNum == 0 ? 1 : curNum);
+        curNum = 0;
+      } else if (chr == '(') {
+        final int start = i;
+        int count = 1;
+        while (i + 1 < charArray.length && count > 0) {
+          if (charArray[i + 1] == '(') {
+            count++;
+          } else if (charArray[i + 1] == ')') {
+            count--;
+          }
+          i++;
+        }
+        assert charArray[i] == ')';
+//        int[] res = processOneSide(eq.substring(start + 1, i), 1);
+        int[] res = processOneSide(eq.substring(start + 1, i), o1);
+        numOfX += res[0];
+        numOfY += res[1];
+        num += res[2];
+        o1 = 1;
+      } else if (chr == '+') {
+        num += o1 * curNum;
+        o1 = 1;
+        curNum = 0;
+      } else if (chr == '-') {
+        num += o1 * curNum;
+        o1 = -1;
+        curNum = 0;
+      }
     }
     return new int[]{globalSign * numOfX, globalSign * numOfY, globalSign * num};
   }
