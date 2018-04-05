@@ -2,110 +2,85 @@ package interviews.uber._146_LRU_Cache;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
-public final class LRUCache { // TODO: implement this.
-  private static final int INVALID_GET = -1;
-  private final int capacity;
+/**
+ *
+ */
+public final class LRUCache {
+  private static final int INVALID = -1;
+  private final Node head = new Node(INVALID, INVALID), tail = new Node(INVALID, INVALID);
   private final Map<Integer, Node> keyToNode = new HashMap<>();
-  private final Node head = new Node(-1, -1), tail = new Node(-1, -1);
+  private final int capacity;
 
   public LRUCache(int capacity) {
-    this.capacity = capacity;
     head.next = tail;
     tail.prev = head;
+    this.capacity = capacity;
   }
 
+  /**
+   * get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
+   */
   public int get(int key) {
-    final Node resultNode = keyToNode.get(key);
-    if (capacity == 0 || resultNode == null) {
-      return INVALID_GET;
+    if (keyToNode.containsKey(key)) {
+      final Node node = keyToNode.get(key);
+      remove(node);
+      addToHead(node);
+      return node.val;
+    } else {
+      return -1;
     }
-
-    removeFromLinkedList(resultNode);
-    addToHead(resultNode);
-    return resultNode.value;
   }
 
+  private void addToHead(final Node node) {
+    final Node next = head.next;
+
+    // hook the tail
+    next.prev = node;
+    node.next = next;
+
+    // hook head
+    head.next = node;
+    node.prev = head;
+  }
+
+  private void remove(final Node node) {
+    final Node prev = node.prev, next = node.next;
+    prev.next = next;
+    next.prev = prev;
+  }
+
+  /**
+   * put(key, value) - Set or insert the value if the key is not already present. When the cache reached its
+   * capacity, it should invalidate the least recently used item before inserting a new item.
+   */
   public void put(int key, int value) {
     if (keyToNode.containsKey(key)) {
-      removeFromLinkedList(key);
       final Node node = keyToNode.get(key);
-      node.value = value;
+      node.val = value;
+
+      remove(node);
       addToHead(node);
-      return;
-    }
-
-    if (capacity == keyToNode.size()) {
-      final int toRemoveKey = tail.prev.key;
-      removeFromLinkedList(toRemoveKey);
-      keyToNode.remove(toRemoveKey);
-    }
-
-    final Node toAdd = new Node(key, value);
-    keyToNode.put(key, toAdd);
-    addToHead(toAdd);
-  }
-
-  private void addToHead(Node toAdd) {
-    insert(head, toAdd, head.next);
-  }
-
-  private void insert(final Node prev, final Node cur, final Node next) {
-    prev.next = cur;
-    cur.prev = prev;
-    next.prev = cur;
-    cur.next = next;
-  }
-
-  private void removeFromLinkedList(int key) {
-    removeFromLinkedList(keyToNode.get(key));
-  }
-
-  private void removeFromLinkedList(Node toAdd) {
-    if (toAdd.prev != null) {
-      assert toAdd.next != null;
-      final Node prev = toAdd.prev, next = toAdd.next;
-      toAdd.prev = null;
-      toAdd.next = null;
-
-      prev.next = next;
-      next.prev = prev;
+    } else {
+      final Node newNode = new Node(key, value);
+      if (keyToNode.size() == capacity) {
+        final Node toRemoveNode = tail.prev;
+        keyToNode.remove(toRemoveNode.key);
+        remove(toRemoveNode);
+      }
+      addToHead(newNode);
+      keyToNode.put(key, newNode);
     }
   }
 
   private static final class Node {
     private final int key;
-    private int value;
+    private int val;
     private Node prev, next;
 
-    private Node(int key, int value) {
+    private Node(final int key, final int val) {
       this.key = key;
-      this.value = value;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-      if (!(o instanceof Node)) {
-        return false;
-      }
-
-      Node other = (Node) o;
-      return key == other.key && value == other.value;
-    }
-
-    @Override
-    public int hashCode() {
-      return Objects.hashCode(this);
-    }
-
-    @Override
-    public String toString() {
-      return "Node{" +
-          "key=" + key +
-//          ", value=" + value +
-          ", next=" + next +
-          '}';
+      this.val = val;
     }
   }
 }
