@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class DfsSolution implements Solution {
-  // TODO: validate in leetcode
+  /**
+   * 26 / 26 test cases passed.
+   * Status: Accepted
+   * Runtime: 216 ms
+   *
+   * @param n
+   * @return
+   */
   @Override
   public List<Integer> lexicalOrder(int n) {
     final List<Integer> result = new ArrayList<>();
