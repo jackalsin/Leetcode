@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DfsSolutionTest {
   private Solution solution;
+
   @BeforeEach
   void setUp() {
     solution = new DfsSolution();
@@ -16,6 +17,6 @@ class DfsSolutionTest {
 
   @Test
   void testOnlineCase1() {
-    assertEquals(List.of(1,10,11,12,13,2,3,4,5,6,7,8,9), solution.lexicalOrder(13));
+    assertEquals(List.of(1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9), solution.lexicalOrder(13));
   }
 }
