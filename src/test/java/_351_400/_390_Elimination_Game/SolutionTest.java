@@ -9,7 +9,7 @@ class SolutionTest {
   private Solution solution;
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new CountSolution();
   }
 
   @Test
