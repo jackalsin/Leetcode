@@ -32,6 +32,7 @@ public final class SlowSolution implements Solution {
       final Set<Integer> steps = getCandidateSteps(lastJumpHereStep.get(i));
       final int curPos = stones[i];
       for (int step : steps) {
+        // with early termination, 264 ms -> 139 ms
         if (step + curPos == stones[stones.length - 1]) {
           return true;
         }

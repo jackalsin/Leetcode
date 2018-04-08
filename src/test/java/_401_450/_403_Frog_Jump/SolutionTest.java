@@ -11,7 +11,8 @@ class SolutionTest {
 
   @BeforeEach
   void setup() {
-    solution = new SlowSolution();
+//    solution = new SlowSolution();
+    solution = new DfsSolution();
   }
 
   @Test
