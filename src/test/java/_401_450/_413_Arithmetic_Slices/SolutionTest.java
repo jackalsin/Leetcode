@@ -10,7 +10,7 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new Dp2dSolution();
+//    solution = new Dp2dSolution();
     solution = new Dp1DSolution();
   }
 
