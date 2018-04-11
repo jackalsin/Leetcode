@@ -16,30 +16,17 @@ public class Solution {
    */
   public int strongPasswordChecker(String s) {
     final char[] sChars = s.toCharArray();
-    final List<List<Integer>> repetitionCount = getRepetitionCount(sChars);
-    final int l = s.length();
-    int toAdd = Math.max(6 - l, 0), toDelete = Math.max(l - 20, 0), actualAdd = 0, actualDelete = 0;
-    for (int i = 0; i < repetitionCount.size(); i++) {
-      final List<Integer> repetition = repetitionCount.get(i);
-      for (int j = 0; j < repetition.size(); j++) {
-        if (i < 2) {
-          if (actualAdd < toAdd) {
-            actualAdd++;
 
-          }
-
-          if (actualDelete < toDelete) {
-            actualDelete++;
-
-          }
-        }
-      }
+    final List<List<Integer>> repetitionCount = new ArrayList<>();
+    for (int i = 0; i < 3; i++) {
+      repetitionCount.add(new ArrayList<>());
     }
-    return 0;
-  }
 
-  private List<List<Integer>> getRepetitionCount(final char[] sChars) {
-    final List<List<Integer>> result = new ArrayList<>();
+    final int l = s.length();
+    int toAdd = Math.max(6 - l, 0), toDelete = Math.max(l - 20, 0), actualAdd = 0, actualDelete = 0, actualReplace = 0,
+        needUpper = 1, needLower = 1, needDigit = 1;
+
+    // step 1: Do repetition counts
     for (int start = 0; start < sChars.length; ) {
       int end = start;
       while (end < sChars.length && sChars[end] == sChars[start]) {
@@ -48,10 +35,49 @@ public class Solution {
       start = end;
       final int len = end - start;
       if (len >= 3) {
-        result.get(len % 3).add(len);
+        repetitionCount.get(len % 3).add(len);
+      }
+      if (Character.isDigit(sChars[start])) {
+        needDigit = 0;
+      } else if (Character.isLowerCase(sChars[start])) {
+        needLower = 0;
+      } else if (Character.isUpperCase(sChars[start])) {
+        needUpper = 0;
       }
     }
-    return result;
+
+    // debug only
+    System.out.println(repetitionCount);
+
+
+    for (int i = 0; i < repetitionCount.size(); i++) {
+      final List<Integer> repetition = repetitionCount.get(i);
+      for (int j = 0; j < repetition.size(); j++) {
+        int countOfJ = repetition.get(j);
+        if (i < 2) {
+          if (actualAdd < toAdd) {
+            actualAdd++;
+            countOfJ -= (i + 1);
+          }
+
+          if (actualDelete < toDelete) {
+            actualDelete += i + 1;
+            countOfJ -= (i + 1);
+          }
+        }
+        actualReplace += countOfJ / 3;
+      }
+    }
+
+    if (toDelete > actualDelete) {
+      actualReplace += Math.max(0, actualReplace - (toDelete - actualDelete) / 3);
+    } else {
+      // todo: add more example here
+      actualReplace += actualDelete - toDelete; // it can only add 1 or 2
+    }
+    // https://leetcode.com/problems/strong-password-checker/discuss/91004/Java-O(n)-Greedy-solution-with-super-clear-explanation
+    return 0;
   }
+
 
 }
