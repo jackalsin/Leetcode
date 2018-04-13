@@ -75,13 +75,11 @@ public class Solution {
       }
     }
 
-    System.out.println("actualReplace = " + actualReplace + " actualDelete = "
-        + actualDelete + " toDelete = " + toDelete);
+//    System.out.println("actualReplace = " + actualReplace + " actualDelete = " + actualDelete + " toDelete = " + toDelete);
 
     if (toDelete > actualDelete) {
       actualReplace = Math.max(0, actualReplace - (toDelete - actualDelete) / 3);
     } else {
-      // todo: add more example here
       // 20 continuous 'a':
       //    20 % 3 = 2: we don't need deletion.
       //    21 % 3 = 0: 1 deletion -
@@ -91,7 +89,7 @@ public class Solution {
 
     if (toDelete > 0) { // longer than 20,
       assert toAdd == 0;
-      System.out.println(toDelete + " " + actualReplace);
+//      System.out.println(toDelete + " " + actualReplace);
       return toDelete + Math.max(actualReplace, needUpper + needLower + needDigit);
     } else if (toAdd > 0) { // shorter than 6
       return Math.max(toAdd + actualReplace, needUpper + needLower + needDigit);
