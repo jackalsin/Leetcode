@@ -15,6 +15,8 @@ public class Solution {
    * @return
    */
   public int strongPasswordChecker(String s) {
+    // 在有限的repetition解决尽可能多的 deletion
+    // 先replace， 然后剩下的用deletion
     final char[] sChars = s.toCharArray();
 
     final List<List<Integer>> repetitionCount = new ArrayList<>();
@@ -27,16 +29,9 @@ public class Solution {
         needUpper = 1, needLower = 1, needDigit = 1;
 
     // step 1: Do repetition counts
+    // TODO: a bug here
     for (int start = 0; start < sChars.length; ) {
-      int end = start;
-      while (end < sChars.length && sChars[end] == sChars[start]) {
-        end++;
-      }
-      start = end;
-      final int len = end - start;
-      if (len >= 3) {
-        repetitionCount.get(len % 3).add(len);
-      }
+      // put it here to avoid out of boundary.
       if (Character.isDigit(sChars[start])) {
         needDigit = 0;
       } else if (Character.isLowerCase(sChars[start])) {
@@ -44,6 +39,17 @@ public class Solution {
       } else if (Character.isUpperCase(sChars[start])) {
         needUpper = 0;
       }
+
+      int end = start;
+      while (end < sChars.length && sChars[end] == sChars[start]) {
+        end++;
+      }
+      final int len = end - start;
+      start = end;
+      if (len >= 3) {
+        repetitionCount.get(len % 3).add(len);
+      }
+
     }
 
     // debug only
@@ -69,15 +75,30 @@ public class Solution {
       }
     }
 
+    System.out.println("actualReplace = " + actualReplace + " actualDelete = "
+        + actualDelete + " toDelete = " + toDelete);
+
     if (toDelete > actualDelete) {
-      actualReplace += Math.max(0, actualReplace - (toDelete - actualDelete) / 3);
+      actualReplace = Math.max(0, actualReplace - (toDelete - actualDelete) / 3);
     } else {
       // todo: add more example here
-      actualReplace += actualDelete - toDelete; // it can only add 1 or 2
+      // 20 continuous 'a':
+      //    20 % 3 = 2: we don't need deletion.
+      //    21 % 3 = 0: 1 deletion -
+      //    22 % 3 = 1: 2 deletions
+      actualReplace += actualDelete - toDelete; // it can only add 0 or 1
     }
-    // https://leetcode.com/problems/strong-password-checker/discuss/91004/Java-O(n)-Greedy-solution-with-super-clear-explanation
-    return 0;
-  }
 
+    if (toDelete > 0) { // longer than 20,
+      assert toAdd == 0;
+      System.out.println(toDelete + " " + actualReplace);
+      return toDelete + Math.max(actualReplace, needUpper + needLower + needDigit);
+    } else if (toAdd > 0) { // shorter than 6
+      return Math.max(toAdd + actualReplace, needUpper + needLower + needDigit);
+    } else {
+      assert toAdd == 0 && toDelete == 0;
+      return Math.max(actualReplace, needUpper + needLower + needDigit);
+    }
+  }
 
 }
