@@ -1,6 +1,17 @@
 package _401_450._424_Longest_Repeating_Character_Replacement;
 
 public class Solution {
+  /**
+   * 37 / 37 test cases passed.
+   * Status: Accepted
+   * Runtime: 12 ms
+   * <p>
+   * Time Complexity: O(N)
+   *
+   * @param s
+   * @param k
+   * @return
+   */
   // todo: submit to leetcode
   public int characterReplacement(String s, int k) {
     int maxLength = 0, maxContinuousCount = 0;
