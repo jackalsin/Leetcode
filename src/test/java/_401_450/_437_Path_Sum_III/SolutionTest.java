@@ -13,7 +13,8 @@ class SolutionTest {
   @BeforeEach
   void setup() {
 //    solution = new SampleSolution();
-    solution = new MySolution();
+//    solution = new MySolution();
+    solution = new SecondVisitSolution();
   }
 
   @Test
