@@ -12,7 +12,6 @@ public class Solution {
    * @param k
    * @return
    */
-  // todo: submit to leetcode
   public int characterReplacement(String s, int k) {
     int maxLength = 0, maxContinuousCount = 0;
     final int[] counts = new int[26];
