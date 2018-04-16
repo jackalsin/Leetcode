@@ -5,7 +5,7 @@ import utils.TreeNode;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class SampleSolution implements Solution { // todo
+public final class SampleSolution implements Solution {
 
   public int pathSum(TreeNode root, int sum) {
     Map<Integer, Integer> map = new HashMap<>();
