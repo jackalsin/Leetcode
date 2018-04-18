@@ -13,7 +13,8 @@ class SolutionTest {
   @BeforeEach
   void setUp() {
 //    solution = new SampleSolution();
-    solution = new MySolution();
+//    solution = new MySolution();
+    solution = new SecondTry();
   }
 
   @Test
