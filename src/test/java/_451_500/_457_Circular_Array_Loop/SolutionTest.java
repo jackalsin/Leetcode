@@ -12,6 +12,7 @@ class SolutionTest {
   @BeforeEach
   void setUp() {
     solution = new MapSolution();
+    solution = new SpaceO1Solution();
   }
 
   @Test
