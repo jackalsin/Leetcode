@@ -11,7 +11,8 @@ class SolutionTest {
   @BeforeEach
   void setUp() {
 //    solution = new WrongSolution();
-    solution = new RightSolution();
+//    solution = new RightSolution();
+    solution = new QuickSelectionSolution();
   }
 
   @Test
@@ -37,5 +38,12 @@ class SolutionTest {
   void testFailedCase1() {
     final int[] nums = {1, 0, 0, 8, 6};
     assertEquals(14, solution.minMoves2(nums));
+  }
+
+  @Test
+  void testFailedCase2() {
+    final int[] nums = {1};
+    assertEquals(0, solution.minMoves2(nums));
+
   }
 }
