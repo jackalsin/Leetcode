@@ -6,7 +6,12 @@ import java.util.List;
 import java.util.Set;
 
 public class Solution {
-  // TODO: Add explanation
+  /**
+   * Time Complexity: O(N * 2 ^N)
+   *
+   * @param nums
+   * @return
+   */
   public List<List<Integer>> findSubsequences(int[] nums) {
     final Set<List<Integer>> result = new HashSet<>();
     findSubsequences(result, new ArrayList<>(), nums, 0);
