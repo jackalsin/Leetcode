@@ -54,7 +54,7 @@ public final class QuickSelectionSolution implements Solution {
     }
     int pivotValue = nums[start];
     int i = start + 1, j = end;
-    for (; i <= j; ) { // todo: check condition
+    for (; i <= j; ) {
       while (i <= j && nums[i] < pivotValue) i++;
       while (i <= j && nums[j] >= pivotValue) j--;
 
