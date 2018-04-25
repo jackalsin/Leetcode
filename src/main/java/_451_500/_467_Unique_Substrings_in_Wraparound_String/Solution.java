@@ -9,6 +9,8 @@ public class Solution {
    * <p>
    * Time Complexity: O(N)
    * Space Complexity: O(1)
+   * <p>
+   * Reference https://leetcode.com/problems/unique-substrings-in-wraparound-string/discuss/95439/Concise-Java-solution-using-DP
    *
    * @param p
    * @return
