@@ -6,26 +6,27 @@ public class Solution {
   private static final int[] TENS = {1, 10, 100, 1_000, 10_000, 100_000, 1_000_000, 10_000_000, 100_000_000};
 
   public int largestPalindrome(int n) {
-    final int productDigits = n * 2;
-    long maxProduct = getMaxNDigits(productDigits), min = getMinNDigits(n),
-        max = getMaxNDigits(n);
-    for (long product = maxProduct; product > 0; product--) {
-      if (!isPalindrome(product)) continue;
-      for (long one = (long) Math.sqrt(product); one >= min; one--) {
-        if (product % one == 0) {
-          long other = (product / one);
-          if (other > max) {
-            break;
-          } else {
-            System.out.println(one + " " + other);
-//            return (int) (product % MOD);
-            return 0;
-          }
-        }
-      }
-    }
-
-    throw new IllegalStateException("Not found n = " + n);
+    return 0;
+//    final int productDigits = n * 2;
+//    long maxProduct = getMaxNDigits(productDigits), min = getMinNDigits(n),
+//        max = getMaxNDigits(n);
+//    for (long product = maxProduct; product > 0; product--) {
+//      if (!isPalindrome(product)) continue;
+//      for (long one = (long) Math.sqrt(product); one >= min; one--) {
+//        if (product % one == 0) {
+//          long other = (product / one);
+//          if (other > max) {
+//            break;
+//          } else {
+//            System.out.println(one + " " + other);
+////            return (int) (product % MOD);
+//            return 0;
+//          }
+//        }
+//      }
+//    }
+//
+//    throw new IllegalStateException("Not found n = " + n);
   }
 
   private boolean isPalindrome(long product) {
