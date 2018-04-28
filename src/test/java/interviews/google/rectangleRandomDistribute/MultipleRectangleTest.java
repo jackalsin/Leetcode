@@ -1,11 +1,10 @@
 package interviews.google.rectangleRandomDistribute;
 
 import org.junit.jupiter.api.Test;
+import utils.Point;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import utils.Point;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,6 +16,9 @@ class MultipleRectangleTest {
 
   private static final double BIAS = 0.05;
 
+  /**
+   *
+   */
   @Test
   void testCase1() {
     final int[][] rects = {
@@ -35,8 +37,8 @@ class MultipleRectangleTest {
 
     pointCount.entrySet().forEach(pointDoubleEntry -> pointDoubleEntry.setValue(pointDoubleEntry
         .getValue() / N));
-
-    final double expected1 = 4d / 9d, expected2 = 1d / 3, expected3 = 2d / 9;
+    // 作者：这答案别怀疑，这特么是整数点的抽发，浮点在后面，包括作者本人也经常在这个地方抽风。。。
+    final double expected1 = 9d / 23, expected2 = 8d / 23, expected3 = 6d / 23;
     double actual1 = 0, actual2 = 0, actual3 = 0;
     for (final Map.Entry<Point, Double> entry : pointCount.entrySet()) {
       final Point point = entry.getKey();
@@ -49,8 +51,8 @@ class MultipleRectangleTest {
         actual3 += p;
       }
     }
-    assertEquals(expected1, actual1);
-    assertEquals(expected2, actual2);
-    assertEquals(expected3, actual3);
+    assertEquals(expected1, actual1, BIAS);
+    assertEquals(expected2, actual2, BIAS);
+    assertEquals(expected3, actual3, BIAS);
   }
 }
