@@ -1,6 +1,7 @@
 package _451_500._466_Count_The_Repetitions;
 
-public class MemoSolution implements Solution {
+public final class MemoSolution implements Solution {
+  // TODO: figure it out
   @Override
   public int getMaxRepetitions(String s1, int n1, String s2, int n2) {
     final int[] repeatCount = new int[s2.length() + 1], nextIndex = new int[s2.length() + 1];
