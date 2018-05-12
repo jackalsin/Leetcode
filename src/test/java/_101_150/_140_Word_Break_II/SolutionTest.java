@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -14,13 +14,15 @@ import static org.junit.Assert.*;
  */
 public class SolutionTest {
   private Solution solution;
+
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new DpSolution();
+    solution = new MemorizedSolution();
   }
 
   @Test
-  public void testLeetCode() throws Exception {
+  public void testLeetCode() {
     List<String> candidates = Arrays.asList("leet", "code");
     final String input = "leetcode";
     assertEquals(Arrays.asList("leet code"), solution.wordBreak(input, candidates));
