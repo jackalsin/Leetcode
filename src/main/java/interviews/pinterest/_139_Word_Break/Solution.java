@@ -7,7 +7,6 @@ import java.util.Set;
 public class Solution {
 
   /**
-   * TODO: Write a gitbook
    *
    * @param s
    * @param wordDict
