@@ -11,7 +11,8 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+//    solution = new RecursionSolution();
+    solution = new StackSolution();
   }
 
   @Test
