@@ -1,15 +1,12 @@
-package _201_250._227_Basic_Calculator_II;
+package interviews.pinterest._227_Basic_Calculator_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 8/17/2017.
- */
-class SolutionTest {
+class RecursionSolutionTest {
+
   private Solution solution;
 
   @BeforeEach
@@ -33,5 +30,11 @@ class SolutionTest {
   void testOnline3() {
     final String input = " 3+5 / 2 ";
     assertEquals(5, solution.calculate(input));
+  }
+
+  @Test
+  void test42TLE() {
+    final String input = "42";
+    assertEquals(42, solution.calculate(input));
   }
 }
