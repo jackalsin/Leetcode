@@ -11,7 +11,7 @@ class RecursionSolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new GenericSolution();
+    solution = new GenericSolutionII();
   }
 
   @Test
