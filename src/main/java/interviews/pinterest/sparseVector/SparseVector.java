@@ -1,8 +1,6 @@
 package interviews.pinterest.sparseVector;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,9 +32,8 @@ public final class SparseVector {
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder();
-    List<Map.Entry<Integer, Double>> list = new ArrayList<>(keyToValue.entrySet());
     sb.append("[");
-    for (int i = 0, j = 0; j < capacity; j++) {
+    for (int j = 0; j < capacity; j++) {
       double val = keyToValue.getOrDefault(j, 0d);
       sb.append(String.format("%.1f", val)).append(", ");
     }
