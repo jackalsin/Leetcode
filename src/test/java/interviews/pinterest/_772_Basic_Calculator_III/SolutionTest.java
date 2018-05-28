@@ -11,7 +11,7 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new GenericStackSolution();
+    solution = new GenericStackSolutionII();
   }
 
   @Test

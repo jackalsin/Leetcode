@@ -12,7 +12,8 @@ class SolutionTest {
   @BeforeEach
   void setUp() {
 //    solution = new RecursionSolution();
-    solution = new StackSolution();
+//    solution = new StackSolution();
+    solution = new GenericSolution();
   }
 
   @Test

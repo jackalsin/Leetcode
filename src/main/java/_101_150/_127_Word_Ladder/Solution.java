@@ -1,12 +1,6 @@
 package _101_150._127_Word_Ladder;
 
-import java.util.ArrayDeque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Zhiwei.Xin
@@ -14,6 +8,16 @@ import java.util.Set;
  */
 public class Solution {
 
+  /**
+   * 39 / 39 test cases passed.
+   * Status: Accepted
+   * Runtime: 119 ms
+   *
+   * @param beginWord
+   * @param endWord
+   * @param wordList
+   * @return
+   */
   public int ladderLength(String beginWord, String endWord, List<String> wordList) {
     Queue<String> queue = new ArrayDeque<>();
     queue.offer(beginWord);
@@ -45,7 +49,7 @@ public class Solution {
   private Set<String> getNeighbors(String word, Set<String> candidates) {
     Set<String> result = new HashSet<>();
     char chs[] = word.toCharArray();
-    for(int i = 0; i < chs.length; i++) {
+    for (int i = 0; i < chs.length; i++) {
       char oldCh = chs[i];
       for (char ch = 'a'; ch <= 'z'; ch++) {
         chs[i] = ch;

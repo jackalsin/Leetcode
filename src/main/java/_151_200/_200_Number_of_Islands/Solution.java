@@ -5,6 +5,22 @@ package _151_200._200_Number_of_Islands;
  * @version 1.0 on 8/4/2017.
  */
 public class Solution {
+  /**
+   * Not using a visited board:
+   * <p>
+   * 47 / 47 test cases passed.
+   * Status: Accepted
+   * Runtime: 6 ms
+   * <p>
+   * Using a board
+   * <p>
+   * 47 / 47 test cases passed.
+   * Status: Accepted
+   * Runtime: 15 ms
+   *
+   * @param grid
+   * @return
+   */
   public int numIslands(char[][] grid) {
     int rows = grid.length;
     if (rows == 0) {
@@ -15,7 +31,7 @@ public class Solution {
       return 0;
     }
     int count = 0;
-    for(int row = 0; row < rows; row++) {
+    for (int row = 0; row < rows; row++) {
       for (int col = 0; col < cols; col++) {
         if (grid[row][col] == '1') {
           dfsUpdate(grid, row, col, rows, cols);
