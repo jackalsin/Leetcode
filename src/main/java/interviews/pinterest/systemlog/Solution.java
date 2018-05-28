@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Solution {
-  // TODO: http://www.1point3acres.com/bbs/thread-300818-1-1.html
+  // Ref: http://www.1point3acres.com/bbs/thread-300818-1-1.html
   public String archiveLog(final String[] logs) {
     final Map<Long, List<String>> uidToBehaviors = new HashMap<>();
 
