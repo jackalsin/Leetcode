@@ -10,6 +10,8 @@ import java.util.Set;
 public class Solution {
 
   /**
+   * Performance: 19ms - change to string from string builder -> 12 ms
+   * <p>
    * Time Complexity: O(max( unique char number, len(word) * word Len) )
    * Space Complexity: O(len(words) * len(word) )
    *
@@ -48,7 +50,8 @@ public class Solution {
     }
 
     final Queue<Character> queue = new ArrayDeque<>();
-    final StringBuilder sb = new StringBuilder();
+//    final StringBuilder sb = new StringBuilder();
+    String result = "";
     for (final Map.Entry<Character, Integer> entry : incomingDegrees.entrySet()) {
       final char chr = entry.getKey();
       if (entry.getValue() == 0) {
@@ -58,7 +61,7 @@ public class Solution {
 
     while (!queue.isEmpty()) {
       final char toRemove = queue.remove();
-      sb.append(toRemove);
+      result += toRemove;
       final Set<Character> children = parentToChild.getOrDefault(toRemove, new HashSet<>());
       for (char chr : children) {
         incomingDegrees.put(chr, incomingDegrees.get(chr) - 1);
@@ -69,7 +72,7 @@ public class Solution {
     }
 //    System.out.println(sb);
     // if not enough
-    if (sb.length() != incomingDegrees.size()) return "";
-    return sb.toString();
+    if (result.length() != incomingDegrees.size()) return "";
+    return result;
   }
 }
