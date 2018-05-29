@@ -7,38 +7,51 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class Solution { // TODO:
+public class Solution {
 
+  /**
+   * Time Complexity: O(max( unique char number, len(word) * word Len) )
+   * Space Complexity: O(len(words) * len(word) )
+   *
+   * @param words
+   * @return
+   */
   public String alienOrder(String[] words) {
 
     // 因为要从头到位输出，所以parentToChild，但是要根据incoming degree来决定顺序，最好两个map
     final Map<Character, Set<Character>> parentToChild = new HashMap<>();
+    final Map<Character, Integer> incomingDegrees = new HashMap<>();
 
     for (final String str : words) {
       for (char chr : str.toCharArray()) {
-        parentToChild.put(chr, new HashSet<>());
+        incomingDegrees.put(chr, 0);
       }
     }
-
-    final int expectedLength = parentToChild.size();
 
     for (int i = 0; i < words.length - 1; i++) {
       final String str1 = words[i], str2 = words[i + 1];
       for (int j = 0; j < Math.min(str1.length(), str2.length()); j++) {
-        if (str1.charAt(j) != str2.charAt(j)) {
-          parentToChild.get(str1.charAt(j)).add(str2.charAt(j));
+        final char c1 = str1.charAt(j), c2 = str2.charAt(j);
+        if (c1 != c2) {
+          final Set<Character> children = parentToChild.getOrDefault(c1, new HashSet<>());
+          parentToChild.put(c1, children);
+
+          // this way is incorrect
+//          incomingDegrees.put(c2, incomingDegrees.get(c2) + 1);
+          if (!children.contains(c2)) {
+            incomingDegrees.put(c2, incomingDegrees.get(c2) + 1);
+            children.add(c2);
+          }
           break;
         }
       }
     }
 
     final Queue<Character> queue = new ArrayDeque<>();
-    final boolean[] visited = new boolean[128];
     final StringBuilder sb = new StringBuilder();
-    for (final Map.Entry<Character, Set<Character>> entry : parentToChild.entrySet()) {
+    for (final Map.Entry<Character, Integer> entry : incomingDegrees.entrySet()) {
       final char chr = entry.getKey();
-      if (entry.getValue().isEmpty() && !visited[chr]) {
-        visited[chr] = true;
+      if (entry.getValue() == 0) {
         queue.add(chr);
       }
     }
@@ -46,18 +59,17 @@ public class Solution { // TODO:
     while (!queue.isEmpty()) {
       final char toRemove = queue.remove();
       sb.append(toRemove);
-      final Set<Character> children = parentToChild.get(toRemove);
+      final Set<Character> children = parentToChild.getOrDefault(toRemove, new HashSet<>());
       for (char chr : children) {
-        if (!visited[chr]) {
-          visited[chr] = true;
+        incomingDegrees.put(chr, incomingDegrees.get(chr) - 1);
+        if (incomingDegrees.get(chr) == 0) {
           queue.add(chr);
         }
       }
     }
-
-    System.out.println(sb);
+//    System.out.println(sb);
     // if not enough
-    if (sb.length() != expectedLength) return "";
+    if (sb.length() != incomingDegrees.size()) return "";
     return sb.toString();
   }
 }
