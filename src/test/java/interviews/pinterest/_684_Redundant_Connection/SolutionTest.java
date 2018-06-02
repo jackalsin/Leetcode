@@ -1,19 +1,20 @@
-package _651_700._684_Redundant_Connection;
+package interviews.pinterest._684_Redundant_Connection;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
 
-  @Before
-  public void setUp() throws Exception {
+  @BeforeEach
+  void setup() {
+    solution = new Solution();
   }
 
   @Test
-  public void testOnlineCase1() throws Exception {
+  void testOnlineCase1() {
     solution = new Solution();
     final int[][] edges = {{1, 2}, {1, 3}, {2, 3}};
     final int[] actual = solution.findRedundantConnection(edges);
@@ -22,7 +23,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testOnlineCase2() throws Exception {
+  void testOnlineCase2() {
     solution = new Solution();
     final int[][] edges = {{1, 2}, {2, 3}, {3, 4}, {1, 4}, {1, 5}};
     final int[] actual = solution.findRedundantConnection(edges);
@@ -31,7 +32,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testFailedCase1() throws Exception {
+  void testFailedCase1() {
 //    SampleSolution solution = new SampleSolution();
     Solution solution = new Solution();
     final int[][] edges = {{1, 4}, {3, 4}, {1, 3}, {1, 2}, {4, 5}};
@@ -41,7 +42,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testFailedCase2() throws Exception {
+  void testFailedCase2() {
 //    SampleSolution solution = new SampleSolution();
     Solution solution = new Solution();
     final int[][] edges = {{1, 3}, {1, 4}, {3, 4}, {1, 2}};
