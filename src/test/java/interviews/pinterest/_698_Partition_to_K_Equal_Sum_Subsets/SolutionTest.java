@@ -1,22 +1,17 @@
-package _651_700._698_Partition_to_K_Equal_Sum_Subsets;
+package interviews.pinterest._698_Partition_to_K_Equal_Sum_Subsets;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jacka
- * @version 1.0 on 10/16/2017.
- */
 class SolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new BruteForceSolution();
   }
 
   @Test
@@ -54,6 +49,7 @@ class SolutionTest {
   @Test
   void testFailedCase5() {
     final int[] input = {2, 2, 10, 5, 2, 7, 2, 2, 13};
-    Assertions.assertTrue(solution.canPartitionKSubsets(input, 3));
+    assertTrue(solution.canPartitionKSubsets(input, 3));
   }
+
 }

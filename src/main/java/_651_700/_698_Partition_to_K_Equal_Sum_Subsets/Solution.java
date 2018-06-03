@@ -20,8 +20,8 @@ public class Solution {
     int perSum = sum / k;
 
     final boolean[] visited = new boolean[nums.length];
-//    return canPartitionKSubsets(nums, visited, perSum, k, 0, 0, 0, 0);
-    return canPartitionKSubsetsImproved(nums, visited, perSum, k, 0, 0, 0, 0);
+    return canPartitionKSubsets(nums, visited, perSum, k, 0, 0, 0, 0);
+//    return canPartitionKSubsetsImproved(nums, visited, perSum, k, 0, 0, 0, 0);
   }
 
   private boolean canPartitionKSubsets(final int[] nums, final boolean[] visited, final int sum,
@@ -61,33 +61,5 @@ public class Solution {
     return false;
   }
 
-  private boolean canPartitionKSubsetsImproved(final int[] nums, final boolean[] visited, final int
-      sum, final int k, int groupCount, int totalUsed, int curSum, int startIndex) {
-    if (k == 1) {
-      return true;
-    }
-
-    // condition 1:
-    if (totalUsed == nums.length) {
-      return k == groupCount;
-    }
-
-    for (int i = startIndex; i < nums.length; ++i) {
-      if (!visited[i]) {
-        visited[i] = true;
-        if (curSum + nums[i] == sum) {
-          return canPartitionKSubsets(nums, visited, sum, k, groupCount + 1,
-              totalUsed + 1, 0, 0);
-        } else if (curSum + nums[i] < sum) {
-          if (canPartitionKSubsets(nums, visited, sum, k, groupCount, totalUsed + 1,
-              curSum + nums[i], i + 1)) {
-            return true;
-          }
-        }
-        visited[i] = false;
-      }
-    }
-    return false;
-  }
 }
 
