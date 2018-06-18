@@ -14,7 +14,7 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
@@ -27,5 +27,17 @@ public class SolutionTest {
   public void testFailedCase2() throws Exception {
     final int[] input = {1, 3};
     assertEquals(1, solution.search(input, 3));
+  }
+
+  @Test
+  public void testFailedCase3() throws Exception {
+    final int[] input = {3, 1};
+    assertEquals(1, solution.search(input, 1));
+  }
+
+  @Test
+  public void testFailedOnEmpty() throws Exception {
+    final int[] input = {};
+    assertEquals(-1, solution.search(input, 3));
   }
 }
