@@ -15,7 +15,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new SimpleSolution();
+//    solution = new SimpleSolution();
+    solution = new SolutionII();
   }
 
   @Test
@@ -36,7 +37,9 @@ public class SolutionTest {
   public void testFailedCase2() throws Exception {
     final double x = 34.00515;
     final int n = -3;
-    assertEquals(Math.pow(x, n), solution.myPow(x, n), DELTA);
+    final double actual = solution.myPow(x, n);
+    final double expected = Math.pow(x, n);
+    assertEquals(expected, actual, DELTA);
   }
 
   @Test
