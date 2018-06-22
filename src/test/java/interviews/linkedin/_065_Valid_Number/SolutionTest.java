@@ -3,9 +3,8 @@ package interviews.linkedin._065_Valid_Number;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.swing.plaf.PanelUI;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
@@ -16,7 +15,7 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
@@ -43,6 +42,11 @@ public class SolutionTest {
   @Test
   public void test03() throws Exception {
     assertTrue(solution.isNumber(".3"));
+  }
+
+  @Test
+  public void test03E81() throws Exception {
+    assertTrue(solution.isNumber(".3e81"));
   }
 
   @Test
