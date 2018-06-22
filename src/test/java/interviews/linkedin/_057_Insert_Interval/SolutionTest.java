@@ -2,11 +2,10 @@ package interviews.linkedin._057_Insert_Interval;
 
 import org.junit.Before;
 import org.junit.Test;
+import utils.Interval;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import utils.Interval;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,7 +18,7 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
