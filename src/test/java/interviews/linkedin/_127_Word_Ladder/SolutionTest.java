@@ -16,11 +16,11 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
-  public void testFailedOnNonExistence() throws Exception {
+  public void testFailedOnNonExistence() {
     final List<String> wordList = List.of("hot", "dot", "dog", "lot", "log");
     final String begin = "hit";
     final String end = "cog";
@@ -28,7 +28,8 @@ public class SolutionTest {
   }
 
   @Test
-  public void testFailedCount() throws Exception {
+  public void testFailedCount() {
+//    Explanation: As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog"
     final List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
     final String begin = "hit";
     final String end = "cog";
@@ -36,7 +37,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testBeginWordCount() throws Exception {
+  public void testBeginWordCount() {
     final List<String> wordList = List.of("a", "b", "c");
     final String begin = "a";
     final String end = "c";
