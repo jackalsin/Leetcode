@@ -9,7 +9,7 @@ import java.util.Map;
  * @author jacka
  * @version 1.0 on 10/20/2017.
  */
-public final class SolutionII implements Solution {
+public final class SolutionII implements Solution { // 再搞搞
   public int maxPoints(Point[] points) {
     if (points == null || points.length == 0) {
       return 0;
@@ -35,10 +35,8 @@ public final class SolutionII implements Solution {
           }
 
         } else {
-          System.out.println("Point j [" + points[j].x + ", " + points[j].y + "]");
           int gcd = gcd(deltaY, deltaX), gcdY = deltaY / gcd, gcdX = deltaX / gcd;
           long slope = ((long) gcdY) << 32 | gcdX;
-          System.out.println("slope = " + slope);
           int curCount = ratioToCount.getOrDefault(slope, 0) + 1;
           max = Math.max(max, curCount + self);
           ratioToCount.put(slope, curCount);
@@ -49,7 +47,6 @@ public final class SolutionII implements Solution {
   }
 
   private static int gcd(int a, int b) {
-    // todo: add thoughts
     if (Math.abs(b) > Math.abs(a)) {
       return gcd(b, a);
     }
