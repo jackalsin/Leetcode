@@ -6,16 +6,6 @@ import utils.TreeNode;
  * @author jacka
  * @version 1.0 on 10/21/2017.
  */
-public class Solution {
-  public TreeNode upsideDownBinaryTree(TreeNode root) {
-    if (root == null || root.left == null) {
-      return root;
-    }
-    TreeNode newRoot = upsideDownBinaryTree(root.left);
-    root.left.left = root.right;
-    root.left.right = root;
-    root.left = null;
-    root.right = null;
-    return newRoot;
-  }
+public interface Solution {
+  TreeNode upsideDownBinaryTree(TreeNode root);
 }
