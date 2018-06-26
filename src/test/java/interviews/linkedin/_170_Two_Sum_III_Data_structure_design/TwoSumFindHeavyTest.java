@@ -16,24 +16,24 @@ public class TwoSumFindHeavyTest {
 
   @Before
   public void setUp() throws Exception {
-    twoSum = new TwoSumFindHeavy();
+    twoSum = new TwoSumFindHeavyII();
   }
 
   @Test
-  public void test1Element() throws Exception {
+  public void test1Element() {
     twoSum.add(0);
     assertFalse(twoSum.find(0));
   }
 
   @Test
-  public void testDuplicatedElements() throws Exception {
+  public void testDuplicatedElements() {
     twoSum.add(0);
     twoSum.add(0);
     assertTrue(twoSum.find(0));
   }
 
   @Test
-  public void testTwoDistinctElements() throws Exception {
+  public void testTwoDistinctElements() {
     twoSum.add(0);
     twoSum.add(1);
     assertTrue(twoSum.find(1));
