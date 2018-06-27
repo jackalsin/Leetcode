@@ -16,14 +16,19 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
-  public void testAAAAAAAAAAA() throws Exception {
+  public void testAAAAAAAAAAA() {
     final String input = "AAAAAAAAAAA";
-    System.out.println(input.length());
     assertEquals(List.of("AAAAAAAAAA"), solution.findRepeatedDnaSequences(input));
+  }
+
+  @Test
+  public void testAAAAACCCCCAAAAACCCCCCAAAAAGGGTTT() {
+    final String input = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
+    assertEquals(List.of("AAAAACCCCC", "CCCCCAAAAA"), solution.findRepeatedDnaSequences(input));
   }
 
 }
