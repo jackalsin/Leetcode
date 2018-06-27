@@ -17,7 +17,7 @@ public class WordDistanceTest {
   @Test
   public void testOnlineCase() throws Exception {
     final String[] words = {"practice", "makes", "perfect", "coding", "makes"};
-    final WordDistance wordDistance = new WordDistance(words);
+    final WordDistance wordDistance = new WordDistanceII(words);
     assertEquals(3, wordDistance.shortest("coding", "practice"));
     assertEquals(1, wordDistance.shortest("coding", "makes"));
   }
