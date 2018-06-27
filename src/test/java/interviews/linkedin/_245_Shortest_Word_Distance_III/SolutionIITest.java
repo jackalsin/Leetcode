@@ -23,7 +23,7 @@ class SolutionIITest {
   @Test
   void testOnlineCase2() {
     final String[] words = {"practice", "makes", "perfect", "coding", "makes"};
-    assertEquals(1, solution.shortestWordDistance(words, "makes", "makes"));
+    assertEquals(3, solution.shortestWordDistance(words, "makes", "makes"));
   }
 
 }
