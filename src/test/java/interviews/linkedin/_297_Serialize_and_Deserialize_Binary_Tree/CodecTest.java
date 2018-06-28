@@ -2,7 +2,6 @@ package interviews.linkedin._297_Serialize_and_Deserialize_Binary_Tree;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import utils.TreeNode;
 import utils.TreeNodes;
 
@@ -17,7 +16,7 @@ public class CodecTest {
 
   @Before
   public void setUp() throws Exception {
-    codec = new Codec();
+    codec = new CodecII();
   }
 
   @Test
