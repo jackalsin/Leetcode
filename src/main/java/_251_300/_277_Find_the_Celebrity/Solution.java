@@ -27,9 +27,18 @@ public class Solution extends Relation {
       if (knows(candidate, i)) candidate = i;
     }
     // make sure it's a valid celebrity
-    for(int i = 0; i < n; ++i) {
-      if (i != candidate && (!knows(i, candidate) || knows(candidate, i))) return -1;
+    for (int i = candidate + 1; i < n; i++) {
+      if (!knows(i, candidate)) {
+        return -1;
+      }
     }
+
+    for (int i = 0; i < candidate; i++) {
+      if (knows(candidate, i)) {
+        return -1;
+      }
+    }
+
     return candidate;
   }
 }
