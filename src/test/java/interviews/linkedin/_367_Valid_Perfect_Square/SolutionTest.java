@@ -3,7 +3,6 @@ package interviews.linkedin._367_Valid_Perfect_Square;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -15,19 +14,12 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  // square N Solution
-  @Test
-  public void testMissed() throws Exception {
-    final int max = Integer.MAX_VALUE;
-    assertFalse(solution.squareSolution(max));
+    solution = new SolutionII();
   }
 
   //
   @Test
-  public void test16Solution() throws Exception {
+  public void test16Solution() {
     final int num = 16;
     assertTrue(solution.isPerfectSquare(num));
   }
