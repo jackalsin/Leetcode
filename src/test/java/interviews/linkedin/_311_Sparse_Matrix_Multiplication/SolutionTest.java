@@ -5,8 +5,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import _301_350._311_Sparse_Matrix_Multiplication.Solution;
-
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -14,11 +12,11 @@ import static org.junit.Assert.assertTrue;
  * @version 1.0 on 10/22/2017.
  */
 public class SolutionTest {
-  private _301_350._311_Sparse_Matrix_Multiplication.Solution solution;
+  private Solution solution;
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
