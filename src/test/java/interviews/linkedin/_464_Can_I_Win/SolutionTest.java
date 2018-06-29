@@ -15,7 +15,8 @@ public class SolutionTest {
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+//    solution = new SolutionI();
+    solution = new SolutionII();
   }
 
   @Test
@@ -24,12 +25,22 @@ public class SolutionTest {
   }
 
   @Test
-  public void testFailedOnDuplication() throws Exception {
+  public void testFailedOnDuplication() {
     assertTrue(solution.canIWin(10, 0));
   }
 
   @Test
-  public void testFailed20And210() throws Exception {
+  public void testFailed10And1() {
+    assertTrue(solution.canIWin(10, 1));
+  }
+
+  @Test
+  public void testFailed10And40() {
+    assertFalse(solution.canIWin(10, 40));
+  }
+
+  @Test
+  public void testFailed20And210() {
     final long start = System.nanoTime();
     assertFalse(solution.canIWin(20, 210));
     final long end = System.nanoTime();
@@ -37,7 +48,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testFailed5And50() throws Exception {
+  public void testFailed5And50() {
     final long start = System.nanoTime();
     assertFalse(solution.canIWin(5, 50));
     final long end = System.nanoTime();
