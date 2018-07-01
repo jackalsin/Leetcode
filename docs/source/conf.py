@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = u'jackalsin-leetcode'
-copyright = u'2018, jackalsin'
-author = u'jackalsin'
+copyright = u'2018, jacaklsin'
+author = u'jacaklsin'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'0.0.0'
+release = u''
 
 
 # -- General configuration ---------------------------------------------------
@@ -129,7 +129,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'jackalsin-leetcode.tex', u'jackalsin-leetcode Documentation',
-     u'jackalsin', 'manual'),
+     u'jacaklsin', 'manual'),
 ]
 
 

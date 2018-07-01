@@ -1,5 +1,5 @@
 .. jackalsin-leetcode documentation master file, created by
-   sphinx-quickstart on Sat Jun 30 22:17:45 2018.
+   sphinx-quickstart on Sat Jun 30 22:24:03 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
