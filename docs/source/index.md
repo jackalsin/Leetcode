@@ -10,6 +10,7 @@ Welcome to jackalsin-leetcode's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+leetcode/805
 
 
 Indices and tables
