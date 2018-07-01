@@ -7,12 +7,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class SolutionIITest {
   private Solution solution;
 
   @BeforeEach
   void setup() {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
@@ -29,6 +29,15 @@ class SolutionTest {
     final String[] source = new String[]{"a/*comment", "line", "more_comment*/b"};
     final List<String> actual = solution.removeComments(source);
     final List<String> expected = List.of("ab");
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void testOnlineCase3() {
+    final String[] source = new String[]{"main() {", "/* here is commments", "  // still comments */",
+        "   double s = 33;", "   cout << s;", "}"};
+    final List<String> actual = solution.removeComments(source);
+    final List<String> expected = List.of("main() {", "   double s = 33;", "   cout << s;", "}");
     assertEquals(expected, actual);
   }
 
