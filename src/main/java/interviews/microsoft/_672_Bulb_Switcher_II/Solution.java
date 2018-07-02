@@ -38,7 +38,7 @@ public class Solution {
       } else if (n == 3) {
         return 7;
       }
-    } else if (m == 3) {
+    } else {
       if (n == 1) {
         return 2;
       } else if (n == 2) {

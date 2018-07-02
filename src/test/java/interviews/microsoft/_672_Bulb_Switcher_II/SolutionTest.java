@@ -40,4 +40,9 @@ class SolutionTest {
   void test3And2() {
     assertEquals(7, solution.flipLights(3, 2));
   }
+
+  @Test
+  void test3And4() {
+    assertEquals(8, solution.flipLights(3, 4));
+  }
 }
