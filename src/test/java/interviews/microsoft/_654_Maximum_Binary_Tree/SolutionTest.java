@@ -1,23 +1,18 @@
-package _651_700._654_Maximum_Binary_Tree;
+package interviews.microsoft._654_Maximum_Binary_Tree;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 10/31/2017.
- */
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
-//    solution = new ONSquareSolution();
-    solution = new ONSolution();
+    solution = new SolutionI();
   }
 
   /**
@@ -36,5 +31,4 @@ public class SolutionTest {
   public void testNull() throws Exception {
     assertEquals(null, solution.constructMaximumBinaryTree(new int[]{}));
   }
-
 }
