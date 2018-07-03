@@ -19,16 +19,24 @@ public final class Excel { // TODO: add time complexity and Set Heavy
     vals = new int[H + 1][W - 'A' + 1];
   }
 
+  /**
+   * Time Complexity: O( (r * c) ^ 2 )
+   * Worst Case is every node is every node is dependent on others, except the initial one
+   *
+   * @param r
+   * @param c
+   * @param v
+   */
   public void set(int r, char c, int v) {
     final int row = r, col = c - 'A';
-    final Point curNodc = new Point(row, col);
-    if (sumToCell.containsKey(curNodc)) {
-      final Set<Point> children = sumToCell.remove(curNodc).keySet();
+    final Point curNode = new Point(row, col);
+    if (sumToCell.containsKey(curNode)) {
+      final Set<Point> children = sumToCell.remove(curNode).keySet();
       for (Point child : children) {
-        cellToSum.get(child).remove(curNodc);
+        cellToSum.get(child).remove(curNode);
       }
     }
-    updateSum(curNodc, v - vals[row][col]);
+    updateSum(curNode, v - vals[row][col]);
     vals[row][col] = v;
   }
 
@@ -43,10 +51,25 @@ public final class Excel { // TODO: add time complexity and Set Heavy
     }
   }
 
+  /**
+   * Time Complexity: O(1)
+   *
+   * @param r
+   * @param c
+   * @return
+   */
   public int get(int r, char c) {
     return vals[r][c - 'A'];
   }
 
+  /**
+   * Time Complexity: O(l * rows * cols)
+   *
+   * @param r
+   * @param c
+   * @param strs
+   * @return
+   */
   public int sum(int r, char c, String[] strs) {
     int sum = 0;
     final int row = r, col = c - 'A';
