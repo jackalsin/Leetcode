@@ -29,4 +29,10 @@ class SolutionTest {
   void testTwoElementTrailingPeak() {
     assertEquals(1, solution.findPeakElement(new int[]{0, 1}));
   }
+
+  @Test
+  void testMultipleElements() {
+    final int actual = solution.findPeakElement(new int[]{3, 4, 3, 2, 1});
+    assertEquals(1, actual);
+  }
 }
