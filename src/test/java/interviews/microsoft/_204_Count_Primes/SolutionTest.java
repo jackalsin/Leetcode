@@ -9,19 +9,19 @@ class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
+  void setUp() {
+    solution = new DpSolution();
   }
 
   @Test
-  void countPrimes() throws Exception {
+  void countPrimes() {
     assertEquals(0, solution.countPrimes(1));
     assertEquals(0, solution.countPrimes(2));
     assertEquals(1, solution.countPrimes(3));
     assertEquals(2, solution.countPrimes(4));
     assertEquals(2, solution.countPrimes(5));
     assertEquals(3, solution.countPrimes(6));
+    assertEquals(4, solution.countPrimes(10));
   }
-
 
 }
