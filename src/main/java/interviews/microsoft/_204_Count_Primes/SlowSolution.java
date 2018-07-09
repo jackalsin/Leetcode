@@ -2,7 +2,7 @@ package interviews.microsoft._204_Count_Primes;
 
 public final class SlowSolution implements Solution {
 
-  public int countPrimes(int n) { // TODO: change to dp.
+  public int countPrimes(int n) {
     int count = 0;
     for (int i = 2; i < n; i++) {
       if (isPrime(i))
