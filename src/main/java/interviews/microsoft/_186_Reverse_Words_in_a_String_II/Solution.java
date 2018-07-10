@@ -8,8 +8,11 @@ public class Solution {
 
     reverse(str, 0, str.length - 1);
 
-    for (int start = 0, end = 0; end < str.length; end++) {
-
+    for (int start = 0, end = 0; end <= str.length; end++) {
+      if (end == str.length || str[end] == ' ') {
+        reverse(str, start, end - 1);
+        start = end + 1;
+      }
     }
   }
 
