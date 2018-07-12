@@ -12,26 +12,26 @@ class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  public void setUp() throws Exception {
+  void setUp() {
     solution = new Solution();
   }
 
   @Test
-  public void testInCompletedTreeTrue() {
+  void testInCompletedTreeTrue() {
     final TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);
     assertTrue(solution.hasPathSum(root, 3));
   }
 
   @Test
-  public void testInCompletedTreeFalse() {
+  void testInCompletedTreeFalse() {
     final TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);
     assertFalse(solution.hasPathSum(root, 1));
   }
 
   @Test
-  public void ftestNull() {
+  void ftestNull() {
     assertFalse(solution.hasPathSum(null, 1));
   }
 }
