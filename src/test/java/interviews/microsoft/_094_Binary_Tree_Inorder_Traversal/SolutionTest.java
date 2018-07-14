@@ -13,7 +13,8 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+//    solution = new StackSolution();
+    solution = new MorrisTraversalSolution();
   }
 
   @Test
