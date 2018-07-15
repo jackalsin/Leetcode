@@ -5,10 +5,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import utils.TwoDimensionArray;
-import utils.Util;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -53,7 +50,6 @@ public class SolutionTest {
         result[row][col] = row * cols + col + 1;
       }
     }
-    TwoDimensionArray.display2DimensionArray(result);
     return result;
   }
 }
