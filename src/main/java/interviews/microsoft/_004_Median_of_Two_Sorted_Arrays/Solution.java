@@ -1,15 +1,22 @@
 package interviews.microsoft._004_Median_of_Two_Sorted_Arrays;
 
 public class Solution {
-  public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+  public double findMedianSortedArrays(int[] nums1, int[] nums2) { // TODO: redo
 
     final int m = nums1.length, n = nums2.length, leftLen = (m + n + 1) / 2;
     if (m > n) {
       return findMedianSortedArrays(nums2, nums1);
     }
-    int iLeft = 0, iRight = nums1.length - 1;
 
-    while (iLeft <= iRight) { // todo: should include equals Fix this
+//    Searching i in [0, m], to find an object `i` that:
+//    (j == 0 or i == m or B[j-1] <= A[i]) and
+//        (i == 0 or j == n or A[i-1] <= B[j])
+//    where j = (m + n + 1)/2 - i
+//    https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn))-solution-with-explanation
+
+    int iLeft = 0, iRight = nums1.length;
+
+    while (iLeft <= iRight) {
       final int i = (iRight - iLeft) / 2 + iLeft, j = leftLen - i;
       if (i < m && nums2[j - 1] > nums1[i]) {
         iLeft = i + 1;
