@@ -23,8 +23,7 @@ after_success:
   - mvn clean cobertura:cobertura coveralls:report
 
 notification:
- notifications:
-    slack: jackalsin-personal:qozHNsKCv2gavUKGDM5LOMcf
+  slack: jackalsin-personal:qozHNsKCv2gavUKGDM5LOMcf
   email:
     on_success: never
     on_failure: always
