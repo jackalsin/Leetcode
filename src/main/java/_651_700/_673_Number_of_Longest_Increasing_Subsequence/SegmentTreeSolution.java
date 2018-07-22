@@ -14,15 +14,15 @@ public final class SegmentTreeSolution implements Solution {
     final Node root = new Node(min, max);
 
     for (int num : nums) {
-      // find less than <code>num</code>
+      // find less than or equals to <code>num</code>
       final Value val = query(root, num - 1);
-      insert(root, num, new Value(val.length + 1, val.count));
+      update(root, num, new Value(val.length + 1, val.count));
     }
 
     return root.val.count;
   }
 
-  private static void insert(final Node root, final int num, final Value value) {
+  private static void update(final Node root, final int num, final Value value) {
     System.out.println("Insert " + root.min + " " + root.max);
 
     if (root.max == root.min) {
@@ -31,13 +31,20 @@ public final class SegmentTreeSolution implements Solution {
     }
 
     if (num <= root.getMid()) {
-      insert(root.getLeft(), num, value);
+      update(root.getLeft(), num, value);
     } else {
-      insert(root.getRight(), num, value);
+      update(root.getRight(), num, value);
     }
     root.val = merge(root.getLeft().val, root.getRight().val);
   }
 
+  /**
+   * Find the <code>value</code> less than or equals to <code>num</code>
+   *
+   * @param root
+   * @param num
+   * @return
+   */
   private static Value query(Node root, int num) {
     assert root != null;
     System.out.println("query " + root.min + " " + root.max);
@@ -52,6 +59,18 @@ public final class SegmentTreeSolution implements Solution {
     return merge(query(root.getLeft(), num), query(root.getRight(), num));
   }
 
+  /**
+   * Merge the value pair.
+   * <p>
+   * Apparently,
+   * if both val is empty, it should be empty
+   * if both equals, the parent node count should be the sum of the 2 child node count
+   * if not, the great should be the one presenting
+   *
+   * @param val1
+   * @param val2
+   * @return
+   */
   private static Value merge(Value val1, Value val2) {
     if (val1.length == val2.length) {
       if (val1.length == 0) {
