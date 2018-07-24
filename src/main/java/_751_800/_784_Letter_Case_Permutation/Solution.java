@@ -6,9 +6,6 @@ import java.util.List;
 public class Solution {
   public List<String> letterCasePermutation(String S) {
     List<String> res = new ArrayList<>();
-    if (S == null || S.length() == 0) {
-      return res;
-    }
     res.add("");
 
     for (int i = 0; i < S.length(); i++) {
