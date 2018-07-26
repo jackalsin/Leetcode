@@ -1,4 +1,4 @@
-package utils.segementTree;
+package example.segmentTree;
 
 /**
  * @author jacka
