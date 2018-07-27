@@ -2,15 +2,14 @@ package _001_050._037_Sudoku_Solver;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import utils.SudokuUtils;
+import utils.TwoDimensionArray;
 
 import static _001_050._037_Sudoku_Solver.Solution.isValidInCol;
 import static _001_050._037_Sudoku_Solver.Solution.isValidInSquare;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static utils.TwoDimensionArray.TwoDimensionArrayEquals;
-import static utils.TwoDimensionArray.display2DimensionArray;
 
 /**
  * @author jacka
@@ -24,7 +23,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testWithCase1() throws Exception {
+  public void testWithCase1() {
     final char[][] board = SudokuUtils.create2dSudokuArray(new String[] {
        "..9748...","7........",".2.1.9...","..7...24.",".64.1.59.",".98...3..",
         "...8.3.2.","........6","...2759.."
@@ -35,14 +34,14 @@ public class SolutionTest {
         "198524367","975863124","832491756","641275983"
     });
     solution.solveSudoku(board);
-    display2DimensionArray(board);
+    TwoDimensionArray.display(board);
     assertTrue(TwoDimensionArrayEquals(expected, board));
   }
 
 
   // test package-private method
   @Test
-  public void testWithIsValidInColWithDup() throws Exception {
+  public void testWithIsValidInColWithDup() {
     final char[][] board = SudokuUtils.create2dSudokuArray(new String[] {
         "..9748...","7........",".2.1.9...","..7...24.",".64.1.59.",".98...3..",
         "...8.3.2.","........6","...2759.."
@@ -52,7 +51,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testWithIsValidInSquareWithDup() throws Exception {
+  public void testWithIsValidInSquareWithDup() {
     final char[][] board = SudokuUtils.create2dSudokuArray(new String[] {
         "..9748...","7........",".2.1.9...","..7...24.",".64.1.59.",".98...3..",
         "...8.3.2.","........6","...2759.."
