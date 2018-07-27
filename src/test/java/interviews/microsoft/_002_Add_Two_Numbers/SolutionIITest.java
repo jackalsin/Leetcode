@@ -6,7 +6,7 @@ import utils.ListNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class SolutionIITest {
   private static final ListNode NUM_432 = ListNodes.getListOfNodes(new int[]{2, 3, 4});
 
   private static final ListNode NUM_768 = ListNodes.getListOfNodes(new int[]{8, 6, 7});
@@ -15,7 +15,7 @@ class SolutionTest {
 
   @Test
   void addTwoNumbers() {
-    Solution solution = new Solution();
+    Solution solution = new SolutionI();
     assertEquals(ListNodes.getListOfNodes(new int[]{0, 0, 2, 1}),
         solution.addTwoNumbers(NUM_432, NUM_768));
     assertEquals(ListNodes.getListOfNodes(new int[]{0, 7, 4}),
