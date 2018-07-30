@@ -1,7 +1,7 @@
 package _051_100._078_subset;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,15 +13,16 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 5/13/2017.
  */
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
-  @Before
-  public void setUp() throws Exception {
+
+  @BeforeEach
+  void setUp() {
     solution = new Solution();
   }
 
   @Test
-  public void testWith3() throws Exception {
+  void testWith3() {
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(new ArrayList<>());
     expected.add(Arrays.asList(1));
@@ -36,10 +37,10 @@ public class SolutionTest {
   }
 
   @Test
-  public void testWithEmpty() throws Exception {
+  void testWithEmpty() {
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(new ArrayList<>());
-    assertEquals(expected,  solution.subsets(new int[] {}));
+    assertEquals(expected, solution.subsets(new int[]{}));
   }
 
 }
