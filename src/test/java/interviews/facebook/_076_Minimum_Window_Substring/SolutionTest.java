@@ -1,14 +1,10 @@
-package _051_100._076_Minimum_Window_Substring;
+package interviews.facebook._076_Minimum_Window_Substring;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 2017/1/27.
- */
 class SolutionTest {
   private Solution solution;
 
@@ -21,5 +17,4 @@ class SolutionTest {
   void testWithOnlineCase() {
     assertEquals("BANC", solution.minWindow("ADOBECODEBANC", "ABC"));
   }
-
 }
