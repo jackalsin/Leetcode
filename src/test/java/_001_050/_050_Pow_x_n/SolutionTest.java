@@ -1,7 +1,7 @@
 package _001_050._050_Pow_x_n;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,35 +9,36 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 3/2/2017.
  */
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
-  @Before
-  public void setUp() throws Exception {
+
+  @BeforeEach
+  void setUp() {
     solution = new Solution();
   }
 
   @Test
-  public void testWithBasePositiveIndexPositive() throws Exception {
+  void testWithBasePositiveIndexPositive() {
     assertEquals(Math.pow(3, 5), solution.myPow(3, 5), 1e-8);
   }
 
   @Test
-  public void testWithBasePositiveIndexNegative() throws Exception {
+  void testWithBasePositiveIndexNegative() {
     assertEquals(Math.pow(3, -5), solution.myPow(3, -5), 1e-8);
   }
 
   @Test
-  public void testWithBaseNegativeIndexNegative() throws Exception {
+  void testWithBaseNegativeIndexNegative() {
     assertEquals(Math.pow(-3, -5), solution.myPow(-3, -5), 1e-8);
   }
 
   @Test
-  public void testWithBaseNegativeIndexPositive() throws Exception {
+  void testWithBaseNegativeIndexPositive() {
     assertEquals(Math.pow(-3, 5), solution.myPow(-3, 5), 1e-8);
   }
 
   @Test
-  public void testWithBaseSmallIndexLarge() throws Exception {
+  void testWithBaseSmallIndexLarge() {
     double base = 0.00001;
     int index = 2147483647;
     assertEquals(Math.pow(base, index), solution.myPow(base, index), 1e-8);
