@@ -1,14 +1,10 @@
-package _101_150._146_LRU_Cache;
+package interviews.facebook._146_LRU_Cache;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 7/6/2017.
- */
 class LRUCacheTest {
   private LRUCache cache;
 
@@ -29,5 +25,6 @@ class LRUCacheTest {
     assertEquals(3, cache.get(3));       // returns 3
     assertEquals(4, cache.get(4));       // returns 4
   }
+
 
 }
