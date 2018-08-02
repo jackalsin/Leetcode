@@ -1,14 +1,10 @@
-package _201_250._209_Minimum_Size_Subarray_Sum;
+package interviews.facebook._209_Minimum_Size_Subarray_Sum;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 8/6/2017.
- */
 class SolutionTest {
   private Solution solution;
 
