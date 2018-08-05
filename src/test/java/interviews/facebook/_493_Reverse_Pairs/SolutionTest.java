@@ -1,9 +1,9 @@
-package _451_500._493_Reverse_Pairs;
+package interviews.facebook._493_Reverse_Pairs;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
 
@@ -26,4 +26,6 @@ class SolutionTest {
     final int[] nums = {2, 4, 3, 5, 1};
     assertEquals(3, solution.reversePairs(nums));
   }
+
+
 }
