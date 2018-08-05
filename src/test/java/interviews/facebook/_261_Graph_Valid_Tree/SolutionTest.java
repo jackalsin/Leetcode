@@ -1,15 +1,11 @@
-package _251_300._261_Graph_Valid_Tree;
+package interviews.facebook._261_Graph_Valid_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jacka
- * @version 1.0 on 8/27/2017.
- */
 class SolutionTest {
   private Solution solution;
 
@@ -41,4 +37,5 @@ class SolutionTest {
     final int[][] edges = new int[][]{{0, 1}, {0, 2}, {2, 3}, {2, 4}};
     assertTrue(solution.validTree(5, edges));
   }
+
 }
