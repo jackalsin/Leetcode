@@ -1,15 +1,10 @@
-package _301_350._308_Range_Sum_Query_2D_Mutable;
-
+package interviews.facebook._308_Range_Sum_Query_2D_Mutable;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 9/16/2017.
- */
 class NumMatrixTest {
   private static final int[][] INPUT_1 = {
       {3, 0, 1, 4, 2},
