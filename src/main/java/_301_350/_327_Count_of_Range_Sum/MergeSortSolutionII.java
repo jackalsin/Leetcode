@@ -18,10 +18,8 @@ public final class MergeSortSolutionII implements Solution {
   }
 
   private int countRangeSum(final long[] sum, final int lower, final int upper, int start, int end) {
-    if (start >= end) {
+    if (start >= end) { // 单个sum不是sum，需要相互减一下才是
       return 0;
-    } else if (start == end) {
-      return (sum[start] >= lower && sum[start] <= upper) ? 1 : 0;
     }
     final long[] aux = new long[end - start + 1];
     final int mid = start + (end - start) / 2;
