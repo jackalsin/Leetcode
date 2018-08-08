@@ -1,15 +1,10 @@
-package _251_300._275_H_Index_II;
+package interviews.facebook._275_H_Index_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-/**
- * @author jacka
- * @version 1.0 on 9/2/2017.
- */
 class SolutionTest {
   private Solution solution;
 
@@ -20,7 +15,7 @@ class SolutionTest {
 
   @Test
   void testOnline() {
-    final int[] input = new int[]{3, 0, 6, 1, 5};
+    final int[] input = new int[]{0, 1, 3, 5, 6};
     assertEquals(3, solution.hIndex(input));
   }
 
@@ -31,10 +26,21 @@ class SolutionTest {
   }
 
   @Test
+  void testZeros() {
+    final int[] input = new int[]{0, 0};
+    assertEquals(0, solution.hIndex(input));
+  }
+
+  @Test
   void testOne() {
     final int[] input = new int[]{1};
     assertEquals(1, solution.hIndex(input));
   }
 
+  @Test
+  void testTwo() {
+    final int[] input = new int[]{0, 1};
+    assertEquals(1, solution.hIndex(input));
+  }
 
 }
