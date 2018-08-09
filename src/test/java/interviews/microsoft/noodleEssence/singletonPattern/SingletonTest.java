@@ -23,7 +23,7 @@ class SingletonTest {
     final int times = 20_000;
     for (int i = 0; i < times; i++) {
       result.add(executor.submit(() -> {
-        final Target solution = Singleton.getInstance();
+        final SingletonSynchronizedMethod solution = SingletonSynchronizedMethod.getInstance();
         return solution.getId();
       }));
     }
