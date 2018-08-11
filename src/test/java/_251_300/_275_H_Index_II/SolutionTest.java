@@ -1,7 +1,7 @@
 package _251_300._275_H_Index_II;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,28 +10,29 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 9/2/2017.
  */
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
-  @Before
-  public void setUp() throws Exception {
+
+  @BeforeEach
+  void setUp() {
     solution = new Solution();
   }
 
   @Test
-  public void testOnline() throws Exception {
-    final int[] input = new int[] {3, 0, 6, 1, 5};
+  void testOnline() {
+    final int[] input = new int[]{3, 0, 6, 1, 5};
     assertEquals(3, solution.hIndex(input));
   }
 
   @Test
-  public void testZero() throws Exception {
-    final int[] input = new int[] {0};
+  void testZero() {
+    final int[] input = new int[]{0};
     assertEquals(0, solution.hIndex(input));
   }
 
   @Test
-  public void testOne() throws Exception {
-    final int[] input = new int[] {1};
+  void testOne() {
+    final int[] input = new int[]{1};
     assertEquals(1, solution.hIndex(input));
   }
 
