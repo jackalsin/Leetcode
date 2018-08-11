@@ -37,5 +37,4 @@ class SolutionTest {
     assertEquals(3, solution.numRescueBoats(input, 6));
   }
 
-
 }
