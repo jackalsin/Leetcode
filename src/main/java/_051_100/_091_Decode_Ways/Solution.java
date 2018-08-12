@@ -1,7 +1,5 @@
 package _051_100._091_Decode_Ways;
 
-import java.util.Arrays;
-
 /**
  * @author jacka
  * @version 1.0 on 5/31/2017.
@@ -13,8 +11,8 @@ public class Solution {
     }
     int[] nums = new int[s.length() + 1];
     nums[0] = 1;
-    nums[1] = s.charAt(0) == '0' ? 0: 1;
-    for(int i = 1; i < s.length(); i++ ) {
+    nums[1] = s.charAt(0) == '0' ? 0 : 1;
+    for (int i = 1; i < s.length(); i++) {
       char curChar = s.charAt(i);
       if (curChar > '0' && curChar <= '9') {
         nums[i + 1] += nums[i];

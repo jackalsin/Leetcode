@@ -1,7 +1,7 @@
 package _051_100._091_Decode_Ways;
 
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,7 +11,8 @@ import static org.junit.Assert.assertEquals;
  */
 public class SolutionTest {
   private Solution solution;
-  @Before
+
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }
