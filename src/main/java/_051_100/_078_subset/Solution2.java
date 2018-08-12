@@ -7,7 +7,7 @@ import java.util.List;
  * @author jacka
  * @version 1.0 on 5/13/2017.
  */
-public class Solution2 {
+public final class Solution2 implements Solution {
   public List<List<Integer>> subsets(int[] nums) {
     int total = 1 << nums.length;
     List<List<Integer>> result = new ArrayList<>();
