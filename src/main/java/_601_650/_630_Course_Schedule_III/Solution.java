@@ -6,6 +6,12 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Solution {
+  /**
+   * https://leetcode.com/problems/course-schedule-iii/discuss/104845/Short-Java-code-using-PriorityQueue
+   *
+   * @param courses
+   * @return
+   */
   public int scheduleCourse(int[][] courses) {
     Arrays.sort(courses, new Comparator<int[]>() {
       @Override
