@@ -1,16 +1,16 @@
-package _351_400._378_Kth_Smallest_Element_in_a_Sorted_Matrix;
+package interviews.microsoft.noodleEssence._378_Kth_Smallest_Element_in_a_Sorted_Matrix;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class PriorityQueueSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new PriorityQueueSolution();
   }
 
   @Test
@@ -23,5 +23,4 @@ class SolutionTest {
 
     assertEquals(13, solution.kthSmallest(input, 8));
   }
-
 }
