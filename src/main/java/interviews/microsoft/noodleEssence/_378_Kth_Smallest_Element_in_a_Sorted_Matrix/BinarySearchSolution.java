@@ -1,7 +1,6 @@
 package interviews.microsoft.noodleEssence._378_Kth_Smallest_Element_in_a_Sorted_Matrix;
 
 public final class BinarySearchSolution implements Solution {
-
   @Override
   public int kthSmallest(int[][] matrix, int k) {
     final int n = matrix.length;
