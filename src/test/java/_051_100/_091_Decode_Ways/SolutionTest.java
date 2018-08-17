@@ -1,7 +1,7 @@
 package _051_100._091_Decode_Ways;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,31 +9,31 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 5/31/2017.
  */
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  public void setUp() throws Exception {
+  void setUp() {
     solution = new Solution();
   }
 
   @Test
-  public void testZeroElement() throws Exception {
+  void testZeroElement() {
     assertEquals(0, solution.numDecodings(""));
   }
 
   @Test
-  public void testOneElement() throws Exception {
+  void testOneElement() {
     assertEquals(1, solution.numDecodings("1"));
   }
 
   @Test
-  public void test01() throws Exception {
+  void test01() {
     assertEquals(0, solution.numDecodings("01"));
   }
 
   @Test
-  public void test10() throws Exception {
+  void test10() {
     assertEquals(1, solution.numDecodings("10"));
   }
 }
