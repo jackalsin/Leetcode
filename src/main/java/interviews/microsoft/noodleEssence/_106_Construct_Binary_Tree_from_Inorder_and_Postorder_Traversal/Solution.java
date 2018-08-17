@@ -8,8 +8,8 @@ import java.util.Map;
 public class Solution {
   public TreeNode buildTree(int[] inorder, int[] postorder) {
     final Map<Integer, Integer> valToIndex = new HashMap<>();
-    for (int i = 0; i < postorder.length; i++) {
-      valToIndex.put(postorder[i], i);
+    for (int i = 0; i < inorder.length; i++) {
+      valToIndex.put(inorder[i], i);
     }
     return buildTree(valToIndex, inorder, postorder, 0, postorder.length - 1, postorder.length - 1);
   }
