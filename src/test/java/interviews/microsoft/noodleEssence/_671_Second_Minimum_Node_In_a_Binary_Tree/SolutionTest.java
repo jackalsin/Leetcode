@@ -1,16 +1,12 @@
-package _651_700._671_Second_Minimum_Node_In_a_Binary_Tree;
+package interviews.microsoft.noodleEssence._671_Second_Minimum_Node_In_a_Binary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 10/15/2017.
- */
 class SolutionTest {
   private Solution solution;
 
@@ -49,4 +45,5 @@ class SolutionTest {
         8, 3, 3, 1, 6, 2, 1);
     assertEquals(2, solution.findSecondMinimumValue(root));
   }
+
 }
