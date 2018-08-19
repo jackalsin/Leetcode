@@ -1,4 +1,4 @@
-package _051_100._081_Search_in_Rotated_Sorted_Array_II;
+package interviews.microsoft.noodleEssence._081_Search_in_Rotated_Sorted_Array_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,8 +11,7 @@ class SolutionTest {
 
   @BeforeEach
   void setup() {
-//    solution = new SampleSolution();
-    solution = new MySolution();
+    solution = new Solution();
   }
 
   @Test
@@ -44,9 +43,10 @@ class SolutionTest {
     final int nums[] = {1, 2, 1}, target = 1;
     assertTrue(solution.search(nums, target));
   }
+
   @Test
   void testFailedCase4() {
-    final int nums[] = {1, 2, 1}, target = 1;
+    final int nums[] = {2, 5, 6, 0, 0, 1, 2}, target = 0;
     assertTrue(solution.search(nums, target));
   }
 }
