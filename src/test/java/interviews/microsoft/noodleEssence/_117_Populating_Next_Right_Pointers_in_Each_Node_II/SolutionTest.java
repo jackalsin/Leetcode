@@ -1,15 +1,11 @@
-package _101_150._117_Populating_Next_Right_Pointers_in_Each_Node_II;
+package interviews.microsoft.noodleEssence._117_Populating_Next_Right_Pointers_in_Each_Node_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.TreeLinkNode;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 6/25/2017.
- */
 class SolutionTest {
   private Solution solution;
 
