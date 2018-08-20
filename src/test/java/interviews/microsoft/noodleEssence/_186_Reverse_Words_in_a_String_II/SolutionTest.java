@@ -1,15 +1,10 @@
-package _151_200._186_Reverse_Words_in_a_String_II;
-
+package interviews.microsoft.noodleEssence._186_Reverse_Words_in_a_String_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 7/15/2017.
- */
 class SolutionTest {
   private Solution solution;
 
