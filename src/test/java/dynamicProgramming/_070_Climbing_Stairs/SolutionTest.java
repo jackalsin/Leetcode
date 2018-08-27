@@ -1,15 +1,10 @@
-package _051_100._070_Climbing_Stairs;
-
+package dynamicProgramming._070_Climbing_Stairs;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 4/28/2017.
- */
 class SolutionTest {
   private Solution solution;
 
