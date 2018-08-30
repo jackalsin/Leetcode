@@ -5,7 +5,6 @@ public class Solution {
     if (prices == null || prices.length == 0) {
       return 0;
     }
-
     final int K = 2;
     int maxProfit = 0;
     final int[][] dp = new int[K + 1][prices.length];
