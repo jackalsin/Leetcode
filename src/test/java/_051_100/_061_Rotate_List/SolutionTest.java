@@ -1,11 +1,10 @@
 package _051_100._061_Rotate_List;
 
-import org.junit.Before;
-import org.junit.Test;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import utils.ListNode;
 import utils.ListNodes;
-import utils.Util;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,40 +12,40 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 4/23/2017.
  */
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
-  @Before
-  public void setUp() throws Exception {
+
+  @BeforeEach
+  void setUp() {
     solution = new Solution();
   }
 
   @Test
-  public void testWith5And2() throws Exception {
+  void testWith5And2() {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     ListNode expected = ListNodes.getListOfNodes(new int[]{4, 5, 1, 2, 3});
     assertEquals(expected, solution.rotateRight(head, 2));
   }
 
   @Test
-  public void testWith5And7() throws Exception {
+  void testWith5And7() {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     ListNode expected = ListNodes.getListOfNodes(new int[]{4, 5, 1, 2, 3});
     assertEquals(expected, solution.rotateRight(head, 7));
   }
+
   @Test
-  public void testWith0And0() throws Exception {
+  void testWith0And0() {
     ListNode head = null;
     ListNode expected = null;
     assertEquals(expected, solution.rotateRight(head, 0));
   }
 
   @Test
-  public void testWith1And1() throws Exception {
+  void testWith1And1() {
     ListNode head = ListNodes.getListOfNodes(new int[]{1});
     ListNode expected = ListNodes.getListOfNodes(new int[]{1});
     assertEquals(expected, solution.rotateRight(head, 1));
-
-
   }
 
 }
