@@ -1,20 +1,16 @@
-package _151_200._152_Maximum_Product_Subarray;
+package interviews.linkedin.mianjing._152_Maximum_Product_Subarray;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 7/15/2017.
- */
-class SolutionTest {
+class SolutionITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
@@ -27,5 +23,11 @@ class SolutionTest {
   void testOnline2() {
     final int[] input = new int[]{-4, -3, -2};
     assertEquals(12, solution.maxProduct(input));
+  }
+
+  @Test
+  void testWith0() {
+    final int[] input = new int[]{-2, 0, -1};
+    assertEquals(0, solution.maxProduct(input));
   }
 }
