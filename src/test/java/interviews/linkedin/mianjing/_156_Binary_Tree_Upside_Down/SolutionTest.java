@@ -1,11 +1,11 @@
-package _151_200._156_Binary_Tree_Upside_Down;
+package interviews.linkedin.mianjing._156_Binary_Tree_Upside_Down;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
   private Solution solution;
@@ -42,4 +42,5 @@ class SolutionTest {
     TreeNode expected = TreeNodes.getTreeLevelOrder(4, 5, 2, null, null, 3, 1);
     assertEquals(expected, solution.upsideDownBinaryTree(input));
   }
+
 }
