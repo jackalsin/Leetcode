@@ -1,17 +1,12 @@
-package _101_150._110_Balanced_Binary_Tree;
-
+package interviews.linkedin.mianjing._110_Balanced_Binary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jacka
- * @version 1.0 on 6/20/2017.
- */
 class SolutionTest {
   private Solution solution;
 
@@ -66,4 +61,6 @@ class SolutionTest {
     root.right.right.right = new TreeNode(4);
     assertFalse(solution.isBalanced(root));
   }
+
+
 }
