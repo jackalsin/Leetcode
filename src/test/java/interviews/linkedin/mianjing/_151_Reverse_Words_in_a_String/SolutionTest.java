@@ -1,15 +1,10 @@
-package _151_200._151_Reverse_Words_in_a_String;
-
+package interviews.linkedin.mianjing._151_Reverse_Words_in_a_String;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 7/15/2017.
- */
 class SolutionTest {
   private Solution solution;
 
@@ -39,4 +34,10 @@ class SolutionTest {
     assertEquals(expected, solution.reverseWords(input));
   }
 
+  @Test
+  void testFailed2() {
+    String input = "1 ";
+    String expected = "1";
+    assertEquals(expected, solution.reverseWords(input));
+  }
 }
