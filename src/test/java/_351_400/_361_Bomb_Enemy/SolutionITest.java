@@ -2,7 +2,6 @@ package _351_400._361_Bomb_Enemy;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import utils.TwoDimensionArray;
 
 import static org.junit.Assert.assertEquals;
@@ -11,11 +10,11 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 11/5/2017.
  */
-public class SolutionTest {
+public class SolutionITest {
   private Solution solution;
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
