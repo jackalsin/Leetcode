@@ -1,22 +1,18 @@
-package _101_150._149_Max_Points_on_a_Line;
-
+package interviews.linkedin.mianjing._149_Max_Points_on_a_Line;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.Point;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 7/10/2017.
- */
-class SolutionTest {
+class SolutionITest {
+
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
@@ -89,6 +85,17 @@ class SolutionTest {
         new Point(0, 0), new Point(94911151, 94911150), new Point(94911152, 94911151)
     };
     assertEquals(2, solution.maxPoints(points));
+  }
+
+
+  @Test
+  void testGcd12And24() {
+    assertEquals(12, SolutionI.gcd(12, 24));
+  }
+
+  @Test
+  void testGcd84And96() {
+    assertEquals(12, SolutionI.gcd(12 * 7, 12 * 6));
   }
 
 }
