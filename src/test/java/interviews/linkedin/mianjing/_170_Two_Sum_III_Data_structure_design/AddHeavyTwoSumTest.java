@@ -1,19 +1,18 @@
-package _151_200._170_Two_Sum_III_Data_structure_design;
-
+package interviews.linkedin.mianjing._170_Two_Sum_III_Data_structure_design;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class TwoSumTest {
+class AddHeavyTwoSumTest {
 
   private TwoSum twoSum;
 
   @BeforeEach
   void setUp() throws Exception {
-    twoSum = new TwoSum();
+    twoSum = new AddHeavyTwoSum();
   }
 
   @Test
@@ -35,4 +34,5 @@ class TwoSumTest {
     twoSum.add(1);
     assertTrue(twoSum.find(1));
   }
+
 }
