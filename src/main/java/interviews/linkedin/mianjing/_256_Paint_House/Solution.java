@@ -1,6 +1,6 @@
 package interviews.linkedin.mianjing._256_Paint_House;
 
-public class Solution { // TODO: follow up 输出所有结果
+public class Solution {
   public int minCost(int[][] costs) {
     final int n = costs.length;
     final int[][] minCosts = new int[n + 1][3];
