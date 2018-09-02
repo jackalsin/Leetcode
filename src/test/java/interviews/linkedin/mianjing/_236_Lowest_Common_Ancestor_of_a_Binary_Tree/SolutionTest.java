@@ -1,16 +1,11 @@
-package _201_250._236_Lowest_Common_Ancestor_of_a_Binary_Tree;
-
+package interviews.linkedin.mianjing._236_Lowest_Common_Ancestor_of_a_Binary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/19/2017.
- */
 class SolutionTest {
   private Solution solution;
 
