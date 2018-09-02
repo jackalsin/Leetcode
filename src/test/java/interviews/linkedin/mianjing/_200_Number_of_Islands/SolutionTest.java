@@ -1,15 +1,10 @@
-package _151_200._200_Number_of_Islands;
-
+package interviews.linkedin.mianjing._200_Number_of_Islands;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 8/5/2017.
- */
 class SolutionTest {
   private Solution solution;
 
