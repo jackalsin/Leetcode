@@ -59,7 +59,9 @@ public class Solution {
       if (roots[p] == -1) {
         return -1;
       }
-      while (roots[p] != p) { // todo: path compression
+
+      while (roots[p] != p) {
+        roots[p] = roots[roots[p]];
         p = roots[p];
       }
       return p;
