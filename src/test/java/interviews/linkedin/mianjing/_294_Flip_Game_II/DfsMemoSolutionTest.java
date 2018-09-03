@@ -1,23 +1,17 @@
-package _251_300._294_Flip_Game_II;
-
+package interviews.linkedin.mianjing._294_Flip_Game_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/6/2017.
- */
-class SolutionTest {
+class DfsMemoSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-//    solution = new DpSolution();
-    solution = new BacktrackingSolution();
+    solution = new DfsMemoSolution();
   }
 
   @Test
