@@ -1,5 +1,4 @@
-package _301_350._347_Top_K_Frequent_Elements;
-
+package interviews.linkedin.mianjing._347_Top_K_Frequent_Elements;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,12 +7,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 10/7/2017.
- */
 class SolutionTest {
   private Solution solution;
 
