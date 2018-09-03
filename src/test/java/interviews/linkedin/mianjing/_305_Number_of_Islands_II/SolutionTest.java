@@ -1,5 +1,4 @@
-package _301_350._305_Number_of_Islands_II;
-
+package interviews.linkedin.mianjing._305_Number_of_Islands_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,12 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 9/13/2017.
- */
 class SolutionTest {
   private Solution solution;
 
