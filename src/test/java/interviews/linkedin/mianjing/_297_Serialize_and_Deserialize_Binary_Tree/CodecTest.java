@@ -1,5 +1,4 @@
-package _251_300._297_Serialize_and_Deserialize_Binary_Tree;
-
+package interviews.linkedin.mianjing._297_Serialize_and_Deserialize_Binary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,10 +6,6 @@ import utils.TreeNode;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 9/10/2017.
- */
 class CodecTest {
   private Codec solution;
 
