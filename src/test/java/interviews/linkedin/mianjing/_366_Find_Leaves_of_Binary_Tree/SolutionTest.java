@@ -1,5 +1,4 @@
-package _351_400._366_Find_Leaves_of_Binary_Tree;
-
+package interviews.linkedin.mianjing._366_Find_Leaves_of_Binary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,12 +10,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 10/13/2017.
- */
 class SolutionTest {
   private Solution solution;
 
