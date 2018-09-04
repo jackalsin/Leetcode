@@ -1,5 +1,4 @@
-package _651_700._692_Top_K_Frequent_Words;
-
+package interviews.linkedin.mianjing._692_Top_K_Frequent_Words;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,16 +7,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 2/3/2018.
- */
-class TrieSolutionTest {
+class SolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new TrieSolution();
+    solution = new Solution();
   }
 
   @Test
