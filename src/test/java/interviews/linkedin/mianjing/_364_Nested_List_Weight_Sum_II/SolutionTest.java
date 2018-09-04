@@ -1,5 +1,4 @@
-package _351_400._364_Nested_List_Weight_Sum_II;
-
+package interviews.linkedin.mianjing._364_Nested_List_Weight_Sum_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,12 +7,8 @@ import utils.nestedInteger.NestedIntegerImpl;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 10/13/2017.
- */
 class SolutionTest {
   private Solution solution;
 
