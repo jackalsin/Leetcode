@@ -7,11 +7,11 @@ import java.util.TreeMap;
  * @author zhiwei.xin
  * @version 1.0 on 9/4/18
  */
-public final class MaxStackPopMaxLogN implements MaxStack {
+public final class MaxStackPopMaxO1 implements MaxStack {
   private final Node head = new Node(0), tail = new Node(Integer.MAX_VALUE);
   private final TreeMap<Integer, LinkedList<Node>> map = new TreeMap<>();
 
-  public MaxStackPopMaxLogN() {
+  public MaxStackPopMaxO1() {
     head.next = tail;
     tail.prev = head;
   }

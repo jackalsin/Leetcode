@@ -7,7 +7,7 @@ import java.util.Deque;
  * @author zhiwei.xin
  * @version 1.0 on 9/4/18
  */
-public final class MaxStackPushLogN implements MaxStack {
+public final class MaxStackPushO1 implements MaxStack {
   private final Deque<Integer> stack = new ArrayDeque<>(), maxStack = new ArrayDeque<>();
 
   @Override

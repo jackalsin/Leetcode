@@ -12,7 +12,7 @@ class MaxStackPopMaxTest {
 
   @Test
   void testOnlineCase1() {
-    MaxStack stack = new MaxStackPopMaxLogN();
+    MaxStack stack = new MaxStackPopMaxO1();
     stack.push(5);
     stack.push(1);
     stack.push(5);

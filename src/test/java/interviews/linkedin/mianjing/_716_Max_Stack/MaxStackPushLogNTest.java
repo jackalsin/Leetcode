@@ -12,7 +12,7 @@ class MaxStackPushLogNTest {
 
   @Test
   void testOnlineCase1() {
-    MaxStack stack = new MaxStackPopMaxLogN();
+    MaxStack stack = new MaxStackPushO1();
     stack.push(5);
     stack.push(1);
     stack.push(5);
@@ -28,7 +28,7 @@ class MaxStackPushLogNTest {
   void testOnlineCase2() {
     //["MaxStack","push","push","popMax","peekMax"]
     //[[],[5],[1],[],[]]
-    MaxStack stack = new MaxStackPopMaxLogN();
+    MaxStack stack = new MaxStackPopMaxO1();
     stack.push(5);
     stack.push(1);
     assertEquals(5, stack.popMax());
