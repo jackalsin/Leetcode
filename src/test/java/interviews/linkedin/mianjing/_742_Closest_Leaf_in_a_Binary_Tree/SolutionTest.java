@@ -37,7 +37,6 @@ class SolutionTest {
   void testOnlineCase2() {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 3, 2);
     final int actual = solution.findClosestLeaf(root, 1);
-    System.out.println(actual);
     assertTrue(Set.of(2, 3).contains(actual));
   }
 
