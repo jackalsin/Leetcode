@@ -1,17 +1,16 @@
-package _201_250._210_Course_Schedule_II;
-
+package interviews.linkedin._210_Course_Schedule_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
- * @author jacka
- * @version 1.0 on 8/26/2017.
+ * @author zhiwei.xin
+ * @version 1.0 on 9/6/18
  */
 class SolutionTest {
   private Solution solution;
@@ -41,4 +40,5 @@ class SolutionTest {
       fail();
     }
   }
+
 }
