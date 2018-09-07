@@ -1,5 +1,4 @@
-package _251_300._282_Expression_Add_Operators;
-
+package interviews.linkedin._282_Expression_Add_Operators;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,11 +7,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author jacka
- * @version 1.0 on 9/4/2017.
+ * @author zhiwei.xin
+ * @version 1.0 on 9/6/18
  */
 class SolutionTest {
   private Solution solution;
