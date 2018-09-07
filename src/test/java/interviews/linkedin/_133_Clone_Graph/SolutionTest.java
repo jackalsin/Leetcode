@@ -1,32 +1,31 @@
-package _101_150._133_Clone_Graph;
+package interviews.linkedin._133_Clone_Graph;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.UndirectedGraphNode;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 7/4/2017.
+ * @author zhiwei.xin
+ * @version 1.0 on 9/6/18
  */
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  public void setUp() throws Exception {
-//    solution = new SlowSolution();
-    solution = new AwesomeSolution();
+  void setUp() {
+    solution = new Solution();
   }
 
   @Test
-  public void testEmpty() throws Exception {
+  void testEmpty() {
     assertNull(solution.cloneGraph(null));
   }
 
   @Test
-  public void testOnlineCase() throws Exception {
+  void testOnlineCase() {
     UndirectedGraphNode node0 = new UndirectedGraphNode(0);
     UndirectedGraphNode node1 = new UndirectedGraphNode(1);
     UndirectedGraphNode node2 = new UndirectedGraphNode(2);
