@@ -7,11 +7,21 @@ import java.util.*;
  * @version 1.0 on 9/6/18
  */
 public class Solution {
+
+  /**
+   * Assume, <tt>n</tt> courses and <tt>E</tt> prerequisites
+   * <p>
+   * Time Complexity: O (N + E)
+   *
+   * @param numCourses
+   * @param prerequisites
+   * @return
+   */
   public int[] findOrder(int numCourses, int[][] prerequisites) {
     // remaining precourse
     final Map<Integer, Integer> incomingLinks = new HashMap<>();
     final Map<Integer, List<Integer>> postCourses = new HashMap<>();
-    for (int[] pair : prerequisites) {
+    for (int[] pair : prerequisites) { // O(E)
       final int post = pair[0], pre = pair[1];
       incomingLinks.put(post, incomingLinks.getOrDefault(post, 0) + 1);
       postCourses.computeIfAbsent(pre, p -> new ArrayList<>()).add(post);
@@ -27,7 +37,7 @@ public class Solution {
         visited.add(i);
       }
     }
-    while (!q.isEmpty()) {
+    while (!q.isEmpty()) { // O (N + E)
       final int toRemove = q.remove();
       result[k++] = toRemove;
       final List<Integer> posts = postCourses.getOrDefault(toRemove, new ArrayList<>());
@@ -41,7 +51,7 @@ public class Solution {
         incomingLinks.put(post, incomingLink - 1);
       }
     }
-    return result;
+    return k == numCourses ? result : new int[0];
   }
 
 }
