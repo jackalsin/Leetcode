@@ -1,14 +1,19 @@
-package _351_400._373_Find_K_Pairs_with_Smallest_Sums;
-
+package interviews.linkedin.mianjing._373_Find_K_Pairs_with_Smallest_Sums;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+
+/**
+ * @author zhiwei.xin
+ * @version 1.0 on 9/6/18
+ */
 class SolutionTest {
+
   private Solution solution;
 
   @BeforeEach
@@ -79,4 +84,5 @@ class SolutionTest {
       assertArrayEquals(expected.get(i), actual.get(i));
     }
   }
+
 }
