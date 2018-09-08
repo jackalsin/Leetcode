@@ -43,5 +43,24 @@ class OptimalSolutionTest {
     assertEquals(expected, solution.rotateRight(head, 1));
   }
 
+  @Test
+  void testWith1And0() {
+    ListNode head = ListNodes.getListOfNodes(new int[]{1});
+    ListNode expected = ListNodes.getListOfNodes(new int[]{1});
+    assertEquals(expected, solution.rotateRight(head, 0));
+  }
 
+  @Test
+  void testWith2And0() {
+    ListNode head = ListNodes.getListOfNodes(new int[]{1, 2});
+    ListNode expected = ListNodes.getListOfNodes(new int[]{1, 2});
+    assertEquals(expected, solution.rotateRight(head, 0));
+  }
+
+  @Test
+  void testWith2And2() {
+    ListNode head = ListNodes.getListOfNodes(new int[]{1, 2});
+    ListNode expected = ListNodes.getListOfNodes(new int[]{1, 2});
+    assertEquals(expected, solution.rotateRight(head, 2));
+  }
 }
