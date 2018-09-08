@@ -1,7 +1,9 @@
 package _051_100._068_Text_Justification;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,18 +15,26 @@ import static org.junit.Assert.assertEquals;
  * @author Zhiwei.Xin
  * @version 1.0 on 5/3/2017.
  */
-public class SolutionTest {
+class SolutionTest {
 
   private Solution solution;
 
-  @Before
-  public void setUp() throws Exception {
+  @BeforeEach
+  void setUp() throws Exception {
     solution = new Solution();
   }
 
   @Test
-  public void testWithMissed() throws Exception {
-    String[] words = new String[] {"a","b","c","d","e"};
+  void testOnlineCase2() {
+    final List<String> expected = List.of("Science  is  what we", "understand      well", "enough to explain to", "a  computer.  Art is", "everything  else  we", "do                  ");
+    final String[] input = {"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"};
+    final List<String> actual = solution.fullJustify(input, 20);
+    Assertions.assertEquals(expected, actual);
+  }
+
+  @Test
+  void testWithMissed() throws Exception {
+    String[] words = new String[]{"a", "b", "c", "d", "e"};
     List<String> output = new ArrayList<>();
     output.add("a b");
     output.add("c d");
@@ -33,8 +43,8 @@ public class SolutionTest {
   }
 
   @Test
-  public void testWithMissed2() throws Exception {
-    String[] words = new String[] {"What","must","be","shall","be."};
+  void testWithMissed2() throws Exception {
+    String[] words = new String[]{"What", "must", "be", "shall", "be."};
     List<String> output = new ArrayList<>();
     output.add("What must be");
     output.add("shall be.   ");
@@ -42,16 +52,16 @@ public class SolutionTest {
   }
 
   @Test
-  public void testWithMissed4() throws Exception {
-    String[] words = new String[] {""};
+  void testWithMissed4() throws Exception {
+    String[] words = new String[]{""};
     List<String> output = new ArrayList<>();
     output.add("  ");
     assertEquals(output, solution.fullJustify(words, 2));
   }
 
   @Test
-  public void testWithMissed3() throws Exception {
-    String[] words = new String[] {"a","b","c","d","e"};
+  void testWithMissed3() throws Exception {
+    String[] words = new String[]{"a", "b", "c", "d", "e"};
     List<String> output = new ArrayList<>();
     output.add("a");
     output.add("b");
@@ -61,30 +71,30 @@ public class SolutionTest {
   }
 
   @Test
-  public void testWithEmptyStringAndZeroLength() throws Exception {
-    String[] words = new String[] {""};
+  void testWithEmptyStringAndZeroLength() throws Exception {
+    String[] words = new String[]{""};
     List<String> output = new ArrayList<>();
     output.add("");
     assertEquals(output, solution.fullJustify(words, 0));
   }
 
   @Test
-  public void testWithWordEqualMax() throws Exception {
-    String[] words = new String[] {"a"};
+  void testWithWordEqualMax() throws Exception {
+    String[] words = new String[]{"a"};
     List<String> expected = new ArrayList<>();
     expected.add("a");
     assertEquals(expected, solution.fullJustify(words, 1));
   }
 
   @Test
-  public void testWithOnlineCase() throws Exception {
+  void testWithOnlineCase() throws Exception {
     String[] words = new String[]{"This", "is", "an", "example", "of", "text", "justification."};
     List<String> output = Arrays.asList("This    is    an", "example  of text", "justification.  ");
     assertEquals(output, solution.fullJustify(words, 16));
   }
 
   @Test
-  public void testWithPaddingOneWord() throws Exception {
+  void testWithPaddingOneWord() throws Exception {
     final String input = "justification.";
     final List<String> curLine = new ArrayList<>();
     curLine.add("justification.");
@@ -93,7 +103,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testWithActualLenLine2() throws Exception {
+  void testWithActualLenLine2() throws Exception {
     final String expected = "example  of text";
     final String input = "example of text";
     final List<String> curLine = new ArrayList<>();
@@ -105,7 +115,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testWithActualLenLine1() throws Exception {
+  void testWithActualLenLine1() throws Exception {
     final String expected = "This    is    an";
     final String input = "This is an";
     final List<String> curLine = new ArrayList<>();
