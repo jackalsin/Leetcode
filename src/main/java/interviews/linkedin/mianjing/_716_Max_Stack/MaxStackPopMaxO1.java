@@ -1,56 +1,51 @@
 package interviews.linkedin.mianjing._716_Max_Stack;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.TreeMap;
 
-/**
- * @author zhiwei.xin
- * @version 1.0 on 9/4/18
- */
 public final class MaxStackPopMaxO1 implements MaxStack {
-  private final Node head = new Node(0), tail = new Node(Integer.MAX_VALUE);
-  private final TreeMap<Integer, LinkedList<Node>> map = new TreeMap<>();
+  private final Node head, tail;
+  private final TreeMap<Integer, Deque<Node>> valToStacks = new TreeMap<>();
 
   public MaxStackPopMaxO1() {
+    head = new Node(0);
+    tail = new Node(Integer.MAX_VALUE);
     head.next = tail;
     tail.prev = head;
   }
 
   @Override
   public void push(int x) {
-    final Node newNode = new Node(x);
-    insert(newNode);
-
-    map.computeIfAbsent(x, k -> new LinkedList<>()).add(newNode);
-
+    final Node toInsert = new Node(x);
+    valToStacks.computeIfAbsent(x, k -> new ArrayDeque<>()).push(toInsert);
+    insertToTail(toInsert);
   }
 
-  private void insert(Node newNode) {
+  private void insertToTail(Node toInsert) {
     final Node prev = tail.prev, next = tail;
-    prev.next = newNode;
-    newNode.prev = prev;
+    prev.next = toInsert;
+    toInsert.prev = prev;
 
-    next.prev = newNode;
-    newNode.next = next;
+    next.prev = toInsert;
+    toInsert.next = next;
   }
 
   @Override
-
   public int pop() {
-    final Node newNode = tail.prev;
-    delete(newNode);
-    final int key = newNode.val;
-
-    map.get(key).removeLast();
-    if (map.get(key).isEmpty()) {
-      map.remove(key);
+    final Node toRemove = tail.prev;
+    removeFromDoubleLinkedList(toRemove);
+    final int key = toRemove.val;
+    final Deque<Node> stack = valToStacks.get(key);
+    stack.pop();
+    if (stack.isEmpty()) {
+      valToStacks.remove(key);
     }
     return key;
   }
 
-  private void delete(Node node) {
-    final Node prev = node.prev, next = node.next;
-
+  private void removeFromDoubleLinkedList(Node toRemove) {
+    final Node prev = toRemove.prev, next = toRemove.next;
     prev.next = next;
     next.prev = prev;
   }
@@ -62,16 +57,17 @@ public final class MaxStackPopMaxO1 implements MaxStack {
 
   @Override
   public int peekMax() {
-    return map.lastEntry().getValue().getLast().val;
+    return valToStacks.lastEntry().getValue().peek().val;
   }
 
   @Override
   public int popMax() {
-    final Node toRemove = map.lastEntry().getValue().removeLast();
-    if (map.lastEntry().getValue().isEmpty()) {
-      map.remove(toRemove.val);
+    final Deque<Node> toRemoveStack = valToStacks.lastEntry().getValue();
+    final Node toRemove = toRemoveStack.pop();
+    if (toRemoveStack.isEmpty()) {
+      valToStacks.remove(toRemove.val);
     }
-    delete(toRemove);
+    removeFromDoubleLinkedList(toRemove);
     return toRemove.val;
   }
 
@@ -79,8 +75,9 @@ public final class MaxStackPopMaxO1 implements MaxStack {
     private final int val;
     private Node prev, next;
 
-    private Node(final int val) {
+    Node(final int val) {
       this.val = val;
     }
   }
+
 }

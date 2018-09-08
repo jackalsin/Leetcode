@@ -1,18 +1,13 @@
-package interviews.linkedin.mianjing._716_Max_Stack;
+package _701_750._716_Max_Stack;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author zhiwei.xin
- * @version 1.0 on 9/4/18
- */
-class MaxStackPopMaxTest {
-
+class MaxStackPushO1Test {
   @Test
   void testOnlineCase1() {
-    MaxStack stack = new MaxStackPopMaxO1();
+    MaxStack stack = new MaxStackPushO1();
     stack.push(5);
     stack.push(1);
     stack.push(5);
@@ -24,4 +19,14 @@ class MaxStackPopMaxTest {
     assertEquals(5, stack.top());
   }
 
+  @Test
+  void testOnlineCase2() {
+    //["MaxStack","push","push","popMax","peekMax"]
+    //[[],[5],[1],[],[]]
+    MaxStack stack = new MaxStackPopMaxO1();
+    stack.push(5);
+    stack.push(1);
+    assertEquals(5, stack.popMax());
+    assertEquals(1, stack.peekMax());
+  }
 }

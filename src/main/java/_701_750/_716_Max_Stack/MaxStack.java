@@ -1,6 +1,7 @@
-package interviews.linkedin.mianjing._716_Max_Stack;
+package _701_750._716_Max_Stack;
 
 public interface MaxStack {
+
   void push(int x);
 
   int pop();
@@ -11,3 +12,4 @@ public interface MaxStack {
 
   int popMax();
 }
+
