@@ -1,7 +1,8 @@
-package _501_550._529_Minesweeper;
+package interviews.linkedin._529_Minesweeper;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.TwoDimensionArray;
 
 import java.util.Arrays;
 
@@ -12,13 +13,14 @@ class SolutionTest {
 
   @BeforeEach
   void setup() {
-    solution = new BFSSolution();
-//    solution = new DfsSolution();
+//    solution = new BFSSolution();
+    solution = new BfsSolution();
   }
 
   @Test
   void testOnlineCase1() {
-    final char[][] input = {{'E', 'E', 'E', 'E', 'E'},
+    final char[][] input = {
+        {'E', 'E', 'E', 'E', 'E'},
         {'E', 'E', 'M', 'E', 'E'},
         {'E', 'E', 'E', 'E', 'E'},
         {'E', 'E', 'E', 'E', 'E'}};
@@ -32,7 +34,7 @@ class SolutionTest {
         {'B', 'B', 'B', 'B', 'B'}};
 
     final char[][] actual = solution.updateBoard(input, click);
-//    TwoDimensionArray.display2DimensionArray(actual);
+    TwoDimensionArray.display(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
   }
 
