@@ -10,12 +10,12 @@ import static org.junit.Assert.assertTrue;
  * @author jacka
  * @version 1.0 on 10/16/2017.
  */
-public class SolutionTest {
+public class SolutionIITest {
   private Solution solution;
 
   @Before
   public void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
