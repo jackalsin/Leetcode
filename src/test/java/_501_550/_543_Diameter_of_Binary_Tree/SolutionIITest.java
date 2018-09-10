@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class SolutionIITest {
   private Solution solution;
 
   @BeforeEach
