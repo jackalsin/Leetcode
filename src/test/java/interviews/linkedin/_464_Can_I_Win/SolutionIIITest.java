@@ -1,23 +1,18 @@
-package _451_500._464_Can_I_Win;
-
+package interviews.linkedin._464_Can_I_Win;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jacka
- * @version 1.0 on 10/14/2017.
- */
-class SolutionTest {
+class SolutionIIITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
 //    solution = new DPSolution();
-    solution = new MemoSolution();
+    solution = new SolutionIII();
   }
 
   @Test
@@ -59,4 +54,5 @@ class SolutionTest {
   void test1And10() throws Exception {
     assertTrue(solution.canIWin(10, 1));
   }
+
 }
