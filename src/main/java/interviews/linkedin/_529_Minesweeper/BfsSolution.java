@@ -1,10 +1,6 @@
 package interviews.linkedin._529_Minesweeper;
 
-import java.awt.*;
-import java.util.ArrayDeque;
-import java.util.HashSet;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 public final class BfsSolution implements Solution {
 
@@ -69,5 +65,28 @@ public final class BfsSolution implements Solution {
   private static boolean isValid(final char[][] board, final int row, final int col) {
     final int rows = board.length, cols = board[0].length;
     return 0 <= row && row < rows && 0 <= col && col < cols;
+  }
+
+  private static final class Point {
+    private final int x, y;
+
+    public Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      Point point = (Point) o;
+      return x == point.x &&
+          y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(x, y);
+    }
   }
 }
