@@ -1,21 +1,16 @@
-package _201_250._245_Shortest_Word_Distance_III;
-
+package interviews.linkedin._245_Shortest_Word_Distance_III;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/21/2017.
- */
-class SolutionTest {
+class SolutionIIITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionIII();
   }
 
   @Test
