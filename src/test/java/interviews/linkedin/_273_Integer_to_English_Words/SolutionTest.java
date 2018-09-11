@@ -1,21 +1,16 @@
-package _251_300._273_Integer_to_English_Words;
-
+package interviews.linkedin._273_Integer_to_English_Words;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 9/2/2017.
- */
 class SolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new IntuitiveSolution();
+    solution = new Solution();
   }
 
   @Test
@@ -58,4 +53,5 @@ class SolutionTest {
   void testMillion2Hundred() {
     assertEquals("One Million Two Hundred", solution.numberToWords(1_000_200));
   }
+
 }
