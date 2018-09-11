@@ -36,7 +36,7 @@ public class Solution {
       } else if (s.startsWith("D", i)) {
         sum += 500;
       } else if (s.startsWith("M", i)) {
-        sum += 500;
+        sum += 1000;
       } else {
         throw new IllegalArgumentException("Illegal char = " + s.charAt(i));
       }
