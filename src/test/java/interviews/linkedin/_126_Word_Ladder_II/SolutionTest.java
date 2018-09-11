@@ -1,4 +1,4 @@
-package _101_150._126_Word_Ladder_II;
+package interviews.linkedin._126_Word_Ladder_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,22 +8,18 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 6/27/2017.
- */
 class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
-    solution = new SolutionPass();
+  void setUp() {
+    solution = new Solution();
   }
 
   @Test
-  void testOnlineCase() throws Exception {
+  void testOnlineCase() {
     String beginWord = "hit";
     String endWord = "cog";
     final List<String> candidates = Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
@@ -37,7 +33,7 @@ class SolutionTest {
   }
 
   @Test
-  void testEndWordNotInCandidates() throws Exception {
+  void testEndWordNotInCandidates() {
     String beginWord = "hit";
     String endWord = "cog";
     final List<String> candidates = Arrays.asList("hot", "dot", "dog", "lot", "log");
@@ -49,7 +45,7 @@ class SolutionTest {
   }
 
   @Test
-  void testTLECase() throws Exception {
+  void testTLECase() {
     String beginWord = "qa";
     String endWord = "sq";
     final List<String> candidates =
@@ -69,7 +65,7 @@ class SolutionTest {
   }
 
   @Test
-  void testTLECase2() throws Exception {
+  void testTLECase2() {
     final List<String> candidates = Arrays.asList("kid", "tag", "pup", "ail", "tun", "woo", "erg",
         "luz", "brr", "gay", "sip", "kay", "per", "val", "mes", "ohs", "now", "boa", "cet", "pal", "bar",
         "die", "war", "hay", "eco", "pub", "lob", "rue", "fry", "lit", "rex", "jan", "cot", "bid", "ali",
@@ -123,7 +119,7 @@ class SolutionTest {
   }
 
   @Test
-  void testTLE3() throws Exception {
+  void testTLE3() {
     String beginWord = "nanny";
     String endWord = "aloud";
     List<String> wordList = Arrays.asList(
@@ -146,4 +142,5 @@ class SolutionTest {
       TLE case 3 = 159.9229 ms
     */
   }
+
 }
