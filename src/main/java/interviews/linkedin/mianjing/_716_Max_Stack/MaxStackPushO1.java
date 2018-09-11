@@ -5,10 +5,10 @@ import java.util.Deque;
 
 public final class MaxStackPushO1 implements MaxStack {
   private final Deque<Integer> stack = new ArrayDeque<>(), maxStack = new ArrayDeque<>();
-  private int max = Integer.MIN_VALUE;
 
   @Override
   public void push(int x) {
+    int max = maxStack.isEmpty() ? Integer.MIN_VALUE : maxStack.peek();
     max = Math.max(max, x);
     stack.push(x);
     maxStack.push(max);
@@ -16,7 +16,7 @@ public final class MaxStackPushO1 implements MaxStack {
 
   @Override
   public int pop() {
-    max = maxStack.pop();
+    maxStack.pop();
     return stack.pop();
   }
 
@@ -32,12 +32,14 @@ public final class MaxStackPushO1 implements MaxStack {
 
   @Override
   public int popMax() {
+    final int max = maxStack.peek();
     final Deque<Integer> temp = new ArrayDeque<>();
     while (stack.peek() != max) {
       temp.push(stack.pop());
       maxStack.pop();
     }
-
+    stack.pop();
+    maxStack.pop();
     while (!temp.isEmpty()) {
       push(temp.pop());
     }
