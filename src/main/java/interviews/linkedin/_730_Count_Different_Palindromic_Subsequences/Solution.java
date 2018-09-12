@@ -16,7 +16,11 @@ public class Solution {
             dp[k][i][j] = s.charAt(i) == chr ? 1 : 0;
           } else {
             // TODO: Correct it
-            if (s.charAt(i) == chr && s.charAt(j) == chr) {
+            if (s.charAt(i) != chr) {
+              dp[k][i][j] = dp[k][i + 1][j];
+            } else if (s.charAt(j) != chr) {
+              dp[k][i][j] = dp[k][i][j - 1];
+            } else {
               if (i + 1 == j) {
                 dp[k][i][j] = 2;
               } else {
@@ -25,10 +29,6 @@ public class Solution {
                     dp[2][i + 1][j - 1], dp[3][i + 1][j - 1]
                 );
               }
-            } else if (s.charAt(i) == chr) {
-              dp[k][i][j] = dp[k][i][j - 1];
-            } else if (s.charAt(j) == chr) {
-              dp[k][i][j] = dp[k][i + 1][j];
             }
           } // end of else of i == j;
         }
