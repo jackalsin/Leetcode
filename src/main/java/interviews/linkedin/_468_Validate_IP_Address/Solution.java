@@ -1,6 +1,6 @@
 package interviews.linkedin._468_Validate_IP_Address;
 
-public class Solution {
+public class Solution { // TODO: Revisit
   static final String IPV4 = "IPv4", IPV6 = "IPv6", NEITHER = "Neither";
 
   public String validIPAddress(String IP) {
