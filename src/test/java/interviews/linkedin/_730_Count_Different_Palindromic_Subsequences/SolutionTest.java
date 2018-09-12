@@ -1,21 +1,16 @@
-package _701_750._730_Count_Different_Palindromic_Subsequences;
-
+package interviews.linkedin._730_Count_Different_Palindromic_Subsequences;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 1/14/2018.
- */
-class ThreeDimensionDpTest {
+class SolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new ThreeDimensionDp();
+    solution = new Solution();
   }
 
   @Test
