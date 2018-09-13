@@ -1,15 +1,10 @@
-package _501_550._516_Longest_Palindromic_Subsequence;
-
+package interviews.linkedin._516_Longest_Palindromic_Subsequence;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 1/13/2018.
- */
 class SolutionTest {
   private Solution solution;
 
