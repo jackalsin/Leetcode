@@ -1,4 +1,6 @@
 package interviews.linkedin._796_Rotate_String;
 
-public class Solution {
+public interface Solution {
+  boolean rotateString(String A, String B);
+
 }

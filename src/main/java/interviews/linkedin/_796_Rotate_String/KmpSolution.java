@@ -1,6 +1,8 @@
-package _751_800._796_Rotate_String;
+package interviews.linkedin._796_Rotate_String;
 
 public final class KmpSolution implements Solution {
+
+  // todo: write an git book blog
   @Override
   public boolean rotateString(String A, String B) {
     if (A.length() != B.length()) {
