@@ -11,6 +11,8 @@ import java.util.Queue;
  * @version 1.0 on 9/14/18
  */
 public final class Codec {
+
+  // todo: 重新搞过，貌似有save space 的方法
   private static final String SEP = ",", NULL = "#";
 
   // Encodes a tree to a single string.
