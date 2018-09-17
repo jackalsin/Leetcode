@@ -1,27 +1,28 @@
 package _351_400._352_Data_Stream_as_Disjoint_Intervals;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import utils.Interval;
 
 import java.util.List;
 
-import utils.Interval;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
  * @version 1.0 on 10/8/2017.
  */
-public class SummaryRangesTest {
+class SummaryRangesTest {
   private SummaryRanges summaryRanges;
-  @Before
-  public void setUp() throws Exception {
+
+  @BeforeEach
+  void setUp() {
     summaryRanges = new SummaryRanges();
   }
 
   @Test
-  public void testOnlineCase() throws Exception {
+  void testOnlineCase() {
     summaryRanges.addNum(1);
     assertEquals(List.of(new Interval(1, 1)), summaryRanges.getIntervals());
     summaryRanges.addNum(3);

@@ -1,15 +1,10 @@
-package _251_300._300_Longest_Increasing_Subsequence;
-
+package interviews.linkedin._300_Longest_Increasing_Subsequence;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author jacka
- * @version 1.0 on 9/10/2017.
- */
 class SolutionTest {
   private Solution solution;
 
