@@ -1,16 +1,10 @@
-package _201_250._208_Implement_Trie;
-
+package interviews.linkedin._208_Implement_Trie_Prefix_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author jacka
- * @version 1.0 on 8/7/2017.
- */
 class TrieTest {
   private Trie trie;
 
