@@ -1,7 +1,5 @@
 package interviews.linkedin._300_Longest_Increasing_Subsequence;
 
-import java.util.Arrays;
-
 public class Solution {
   public int lengthOfLIS(int[] nums) {
     // tails[i] indicates the min last elements with length i + 1
