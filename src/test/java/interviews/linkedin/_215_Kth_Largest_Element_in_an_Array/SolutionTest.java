@@ -1,17 +1,11 @@
-package _201_250._215_Kth_Largest_Element_in_an_Array;
-
+package interviews.linkedin._215_Kth_Largest_Element_in_an_Array;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/11/2017.
- */
 class SolutionTest {
-
   private Solution solution;
 
   @BeforeEach
