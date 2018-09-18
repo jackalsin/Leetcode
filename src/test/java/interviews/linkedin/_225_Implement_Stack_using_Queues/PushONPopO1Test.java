@@ -1,21 +1,16 @@
-package _201_250._225_Implement_Stack_using_Queues;
-
+package interviews.linkedin._225_Implement_Stack_using_Queues;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 8/16/2017.
- */
-class MyStackTest {
+class PushONPopO1Test {
   private MyStack stack;
 
   @BeforeEach
   void setUp() throws Exception {
-    stack = new MyStack();
+    stack = new PushONPopO1();
   }
 
   @Test
