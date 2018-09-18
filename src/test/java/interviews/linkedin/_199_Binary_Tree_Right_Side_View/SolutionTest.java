@@ -1,5 +1,4 @@
-package _151_200._199_Binary_Tree_Right_Side_View;
-
+package interviews.linkedin._199_Binary_Tree_Right_Side_View;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,12 +7,8 @@ import utils.TreeNode;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 8/4/2017.
- */
 class SolutionTest {
   private Solution solution;
 
