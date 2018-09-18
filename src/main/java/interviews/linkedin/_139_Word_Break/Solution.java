@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Solution {
+  // TODO: 容易错
   public boolean wordBreak(String s, List<String> wordDict) {
     if (s == null || s.length() == 0) {
       return true;
