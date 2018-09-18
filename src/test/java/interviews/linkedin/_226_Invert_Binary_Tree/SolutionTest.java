@@ -1,17 +1,12 @@
-package _201_250._226_Invert_Binary_Tree;
-
+package interviews.linkedin._226_Invert_Binary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 import utils.TreeNodes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 8/16/2017.
- */
 class SolutionTest {
   private Solution solution;
 
