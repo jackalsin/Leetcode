@@ -1,7 +1,5 @@
 package interviews.linkedin._215_Kth_Largest_Element_in_an_Array;
 
-import java.util.Arrays;
-
 public class Solution {
   public int findKthLargest(int[] nums, int k) {
     assert 1 <= k && k <= nums.length;
