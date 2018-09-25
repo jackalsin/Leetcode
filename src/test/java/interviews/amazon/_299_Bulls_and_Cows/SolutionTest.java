@@ -1,15 +1,10 @@
-package _251_300._299_Bulls_and_Cows;
-
+package interviews.amazon._299_Bulls_and_Cows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 9/10/2017.
- */
 class SolutionTest {
   private Solution solution;
 
