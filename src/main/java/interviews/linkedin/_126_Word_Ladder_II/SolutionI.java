@@ -1,15 +1,8 @@
 package interviews.linkedin._126_Word_Ladder_II;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
-public class Solution {
+public final class SolutionI implements Solution {
   private final Map<String, Integer> distances = new HashMap<>();
   private final Map<String, List<String>> neighbors = new HashMap<>();
 
