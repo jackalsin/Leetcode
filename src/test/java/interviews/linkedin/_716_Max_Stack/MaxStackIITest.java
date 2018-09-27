@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MaxStackTest {
+class MaxStackIITest {
   private MaxStack maxStack;
 
   @BeforeEach
   void setUp() {
-    maxStack = new MaxStack();
+    maxStack = new MaxStackII();
   }
 
   @Test
