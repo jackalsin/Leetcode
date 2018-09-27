@@ -1,22 +1,17 @@
-package _601_650._605_Can_Place_Flowers;
-
+package interviews.linkedin._605_Can_Place_Flowers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jacka
- * @version 1.0 on 10/15/2017.
- */
-class SolutionTest {
+class SolutionIITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
