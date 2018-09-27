@@ -6,14 +6,13 @@ import utils.TwoDimensionArray;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-class SolutionTest {
+class BfsSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setup() {
-//    solution = new BFSSolution();
     solution = new BfsSolution();
   }
 
@@ -34,7 +33,7 @@ class SolutionTest {
         {'B', 'B', 'B', 'B', 'B'}};
 
     final char[][] actual = solution.updateBoard(input, click);
-    TwoDimensionArray.display(actual);
+//    TwoDimensionArray.display(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
   }
 
