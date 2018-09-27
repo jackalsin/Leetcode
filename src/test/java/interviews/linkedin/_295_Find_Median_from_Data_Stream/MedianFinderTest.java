@@ -1,15 +1,10 @@
-package _251_300._295_Find_Median_from_Data_Stream;
-
+package interviews.linkedin._295_Find_Median_from_Data_Stream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/5/2017.
- */
 class MedianFinderTest {
   private MedianFinder solution;
 
@@ -19,7 +14,7 @@ class MedianFinderTest {
   }
 
   @Test
-  void testOdd() {
+  void testOdd() throws Exception {
     solution.addNum(2);
     assertEquals(2d, solution.findMedian(), 1E-9);
     solution.addNum(3);
