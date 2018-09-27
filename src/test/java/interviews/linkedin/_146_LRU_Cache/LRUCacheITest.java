@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class LRUCacheTest {
+class LRUCacheITest {
   private LRUCache cache;
 
   @BeforeEach
   void setUp() {
-    cache = new LRUCache(2);
+    cache = new LRUCacheI(2);
   }
 
   @Test
