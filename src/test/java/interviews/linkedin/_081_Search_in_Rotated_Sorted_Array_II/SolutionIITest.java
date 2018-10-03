@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SolutionTest {
+class SolutionIITest {
   private Solution solution;
 
   @BeforeEach
   void setup() {
-    solution = new SolutionI();
+    solution = new SolutionII();
   }
 
   @Test
