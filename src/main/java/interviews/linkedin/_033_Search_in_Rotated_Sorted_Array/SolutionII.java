@@ -4,7 +4,7 @@ package interviews.linkedin._033_Search_in_Rotated_Sorted_Array;
  * @author jacka
  * @version 1.0 on 10/15/2017.
  */
-public class SolutionII implements Solution { // TODO
+public class SolutionII implements Solution {
   public int search(int[] nums, int target) {
     return search(nums, target, 0, nums.length - 1);
   }
