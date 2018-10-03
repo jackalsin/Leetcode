@@ -11,11 +11,14 @@ public class Solution {
       return true;
     }
     final Set<String> wordSet = new HashSet<>(wordDict);
-    final boolean[] dp = new boolean[s.length()];
-    for (int end = s.length() - 1; end >= 0; --end) {
-      if (end + 1 < s.length() && !dp[end + 1]) continue;
-      for (int start = end; start >= 0; --start) {
-        if (wordSet.contains(s.substring(start, end + 1))) {
+    final boolean[] dp = new boolean[s.length() + 1];
+    dp[s.length()] = true;
+    // exclusive end
+    for (int end = s.length(); end >= 0; --end) {
+      if (!dp[end]) continue;
+      for (int start = end - 1; start >= 0; --start) {
+        final String word = s.substring(start, end);
+        if (wordSet.contains(word)) {
           dp[start] = true;
         }
       }
