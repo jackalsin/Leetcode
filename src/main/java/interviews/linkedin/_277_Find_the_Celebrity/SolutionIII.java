@@ -8,6 +8,18 @@ import _251_300._277_Find_the_Celebrity.Relation;
  */
 public final class SolutionIII extends Relation implements Solution { // TODO:
   public int findCelebrity(int n) {
-    return 0;
+    int candidate = 0;
+    for (int i = 1; i < n; ++i) {
+      if (knows(candidate, i)) {
+        candidate = i;
+      }
+    }
+
+    for (int i = 0; i < n; ++i) {
+      if (i != candidate && (!knows(i, candidate) || knows(candidate, i))) {
+        return -1;
+      }
+    }
+    return candidate;
   }
 }
