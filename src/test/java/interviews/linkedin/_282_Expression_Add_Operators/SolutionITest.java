@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author zhiwei.xin
  * @version 1.0 on 9/6/18
  */
-class SolutionTest {
+class SolutionITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
