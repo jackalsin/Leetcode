@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author zhiwei.xin
  * @version 1.0 on 9/5/18
  */
-class NestedIteratorTest {
+class NestedIteratorIITest {
   @Test
   void testOnlineCase1() {
     // [[1,1],2,[1,1]]
@@ -21,7 +21,7 @@ class NestedIteratorTest {
         new NestedIntegerImpl(2),
         new NestedIntegerImpl(new NestedIntegerImpl(1), new NestedIntegerImpl(1))
     );
-    NestedIterator nestedIterator = new NestedIterator(input);
+    NestedIterator nestedIterator = new NestedIteratorII(input);
     assertTrue(nestedIterator.hasNext());
     assertEquals(Integer.valueOf(1), nestedIterator.next());
     assertTrue(nestedIterator.hasNext());
