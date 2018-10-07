@@ -7,7 +7,19 @@ package interviews.linkedin._611_Valid_Triangle_Number;
 public class Solution {
   // todo: revisit
   public int triangleNumber(int[] nums) {
-    return 0;
+    int count = 0;
+    for (int k = nums.length - 1; k >= 0; --k) {
+      int i = 0, j = k - 1;
+      while (i < j) {
+        if (nums[i] + nums[j] > nums[k]) {
+          count += j - i;
+          j--;
+        } else {
+          i++;
+        }
+      }
+    }
+    return count;
   }
 
 }
