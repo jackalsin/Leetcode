@@ -1,35 +1,38 @@
 package interviews.linkedin._468_Validate_IP_Address;
 
-public class Solution { // TODO: Revisit
+public class Solution {
   static final String IPV4 = "IPv4", IPV6 = "IPv6", NEITHER = "Neither";
 
   public String validIPAddress(String IP) {
     if (IP == null) {
       return NEITHER;
-    }
-
-    if (!IP.endsWith(".") && IP.contains(".")) {
-      return ipv4Validate(IP);
-    } else if (!IP.endsWith(":") && IP.contains(":")) {
-      return ipv6Validate(IP);
+    } else if (IP.contains(".")) {
+      if (IP.endsWith(".")) {
+        return NEITHER;
+      }
+      return isValidIPv4(IP);
+    } else if (IP.contains(":")) {
+      if (IP.endsWith(":")) {
+        return NEITHER;
+      }
+      return isValidIPv6(IP);
     } else {
       return NEITHER;
     }
   }
 
-  private static String ipv6Validate(String ip) {
-    final String[] items = ip.split(":");
-    if (items.length != 8) {
+  private static String isValidIPv6(String ip) {
+    final String[] ipArray = ip.split(":");
+    if (ipArray.length != 8) {
       return NEITHER;
     }
-    for (String item : items) {
-      if (item.length() > 4 || item.length() == 0) {
+    for (final String sec : ipArray) {
+      if (sec.length() == 0 || sec.length() > 4) {
         return NEITHER;
       }
-      for (char chr : item.toCharArray()) {
-        if (!Character.isDigit(chr) &&
-            !('a' <= Character.toLowerCase(chr) && Character.toLowerCase(chr) <= 'f')
-        ) {
+      for (char chr : sec.toCharArray()) {
+        chr = Character.toLowerCase(chr);
+        if (!Character.isDigit(chr) && !(chr <= 'f' && chr >= 'a')) {
           return NEITHER;
         }
       }
@@ -37,27 +40,28 @@ public class Solution { // TODO: Revisit
     return IPV6;
   }
 
-  private static String ipv4Validate(String ip) {
-    final String[] items = ip.split("\\.");
-    if (items.length != 4) {
+  private static String isValidIPv4(String ip) {
+    final String[] ipArray = ip.split("\\.");
+    if (ipArray.length != 4) {
       return NEITHER;
     }
-    for (String item : items) {
-      if (item.length() == 0 || item.length() > 3) {
+
+    for (final String sec : ipArray) {
+      if (sec.length() > 3 || sec.length() == 0) {
         return NEITHER;
       }
-      int i = 0;
-      for (char chr : item.toCharArray()) {
-        if (Character.isDigit(chr)) {
-          i = i * 10 + chr - '0';
-        } else {
+
+      if (sec.length() > 1 && sec.startsWith("0")) {
+        return NEITHER;
+      }
+      int sum = 0;
+      for (char chr : sec.toCharArray()) {
+        if (!Character.isDigit(chr)) {
           return NEITHER;
         }
-      } // end of loop char
-      if (i > 255) {
-        return NEITHER;
+        sum = sum * 10 + chr - '0';
       }
-      if (item.length() > 1 && item.charAt(0) == '0') {
+      if (sum >= 256) {
         return NEITHER;
       }
     }
