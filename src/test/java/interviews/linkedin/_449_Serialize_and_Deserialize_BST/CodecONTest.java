@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author zhiwei.xin
  * @version 1.0 on 9/14/18
  */
-class CodecITest {
+class CodecONTest {
   private CodecON solution;
 
   @BeforeEach
