@@ -1,6 +1,6 @@
 package interviews.linkedin.mianjing._034_Find_First_and_Last_Position_of_Element_in_Sorted_Array;
 
-public class Solution { // todo: revisit
+public class Solution {
 
   public int[] searchRange(int[] nums, int target) {
     if (nums == null || nums.length == 0) {
