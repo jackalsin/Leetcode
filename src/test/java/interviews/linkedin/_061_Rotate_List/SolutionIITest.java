@@ -7,12 +7,12 @@ import utils.ListNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class SolutionIITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
