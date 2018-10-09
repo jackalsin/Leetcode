@@ -3,7 +3,6 @@ package interviews.linkedin.mianjing._061_Rotate_List;
 import utils.ListNode;
 
 /**
- * TODO: revisit这题很骚，一定要重做！！
  */
 public class Solution {
 

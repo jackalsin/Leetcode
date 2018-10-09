@@ -3,10 +3,38 @@ package interviews.linkedin._061_Rotate_List;
 import utils.ListNode;
 
 public final class SolutionII implements Solution {
+  /**
+   * TODO:
+   *
+   * @param head
+   * @param k
+   * @return
+   */
   @Override
   public ListNode rotateRight(ListNode head, int k) {
-    return null;
+    if (head == null || k == 0) {
+      return head;
+    }
+    ListNode cur = head;
+    int len = 0;
+    while (cur != null) {
+      len++;
+      cur = cur.next;
+    }
+    k %= len;
+
+    ListNode fast = head, slow = head;
+    for (int i = 0; i < k; ++i) {
+      fast = fast.next;
+    }
+    for (; fast.next != null; ) {
+      fast = fast.next;
+      slow = slow.next;
+    }
+    fast.next = head;
+    final ListNode newHead = slow.next;
+    slow.next = null;
+    return newHead;
   }
 
-// TODO:
 }
