@@ -1,9 +1,5 @@
 package interviews.linkedin._730_Count_Different_Palindromic_Subsequences;
 
-import utils.TwoDimensionArray;
-
-import java.util.Arrays;
-
 public final class SolutionII implements Solution {
   private static final int BASE = (int) (1E9 + 7);
 
