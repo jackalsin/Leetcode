@@ -1,16 +1,16 @@
-package interviews.linkedin.mianjing._151_Reverse_Words_in_a_String;
+package interviews.linkedin._151_Reverse_Words_in_a_String;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class SolutionITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test

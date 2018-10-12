@@ -1,8 +1,7 @@
-package interviews.linkedin.mianjing._151_Reverse_Words_in_a_String;
+package interviews.linkedin._151_Reverse_Words_in_a_String;
 
-public class Solution {
+public final class SolutionI implements Solution {
 
-  // TODO: revisit
   public String reverseWords(String s) {
     final char[] chars = s.toCharArray();
     int len = 0;
