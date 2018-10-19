@@ -14,8 +14,6 @@ import java.util.List;
 public final class SolutionI implements Solution {
 
   /**
-   * TODO: Revisit
-   *
    * @param root
    * @param target
    * @param k
