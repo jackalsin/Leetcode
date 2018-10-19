@@ -11,12 +11,12 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 10/22/2017.
  */
-public class CodecTest {
+public class CodecIIITest {
   Codec codec;
 
   @Before
   public void setUp() throws Exception {
-    codec = new CodecII();
+    codec = new CodecIII();
   }
 
   @Test
