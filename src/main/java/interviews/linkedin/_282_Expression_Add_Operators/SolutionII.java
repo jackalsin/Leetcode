@@ -8,7 +8,6 @@ import java.util.List;
  * @version 1.0 on 9/6/18
  */
 public final class SolutionII implements Solution {
-  // TODO: Revisit
 
   public List<String> addOperators(String num, int target) {
     final List<String> result = new ArrayList<>();
