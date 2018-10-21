@@ -28,6 +28,6 @@ class SolutionITest {
   @Test
   void testFailed2() {
     final int[] input = {0, 1, 0};
-    assertEquals(7, solution.triangleNumber(input));
+    assertEquals(0, solution.triangleNumber(input));
   }
 }
