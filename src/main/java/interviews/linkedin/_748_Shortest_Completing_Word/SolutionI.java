@@ -13,7 +13,6 @@ public final class SolutionI implements Solution {
       }
     }
 
-    System.out.println(map);
 
     int minLen = Integer.MAX_VALUE;
     String minMatch = "";
