@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class SolutionITest {
 
   private Solution solution;
 
   @BeforeEach
   void setup() {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
