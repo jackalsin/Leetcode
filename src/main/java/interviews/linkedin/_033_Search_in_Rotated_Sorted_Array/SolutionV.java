@@ -7,7 +7,7 @@ public final class SolutionV implements Solution {
       return -1;
     }
     int left = 0, right = nums.length - 1;
-    while (left <= right) { // TODO: equals
+    while (left <= right) {
       final int mid = (right - left) / 2 + left;
       if (nums[mid] < nums[right]) {
         if (nums[mid] <= target && target <= nums[right]) {
