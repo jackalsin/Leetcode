@@ -6,10 +6,10 @@ public final class SolutionII implements Solution {
   public int countPalindromicSubsequences(String s) {
     final int n = s.length();
     final int[][][] dp = new int[4][s.length()][s.length()];
-      for (int i = n - 1; i >= 0; --i) {
-        for (int j = i; j < n; j++) {
-          for (int k = 0; k < 4; k++) {
-            final char chr = (char) ('a' + k);
+    for (int i = n - 1; i >= 0; --i) {
+      for (int j = i; j < n; j++) {
+        for (int k = 0; k < 4; k++) {
+          final char chr = (char) ('a' + k);
           if (i == j) {
             if (s.charAt(i) == 'a' + k) {
               dp[k][i][j] = 1;
