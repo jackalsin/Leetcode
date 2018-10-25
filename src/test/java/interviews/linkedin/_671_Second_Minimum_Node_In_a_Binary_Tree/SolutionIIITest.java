@@ -11,12 +11,12 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 10/24/2017.
  */
-class SolutionIITest {
+class SolutionIIITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new SolutionIII();
+    solution = new SolutionII();
   }
 
   @Test
