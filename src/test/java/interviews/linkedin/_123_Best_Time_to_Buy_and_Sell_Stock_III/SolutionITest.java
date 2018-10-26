@@ -1,55 +1,51 @@
-package _101_150._123_Best_Time_to_Buy_and_Sell_Stock_III;
-
+package interviews.linkedin._123_Best_Time_to_Buy_and_Sell_Stock_III;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jacka
- * @version 1.0 on 6/25/2017.
- */
-class SolutionTest {
+class SolutionITest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
+  void setUp() {
+    solution = new SolutionI();
   }
 
   @Test
-  void testEmpty() throws Exception {
+  void testEmpty() {
     assertEquals(0, solution.maxProfit(new int[]{}));
   }
 
   @Test
-  void test2TransMax() throws Exception {
+  void test2TransMax() {
     final int[] input = new int[]{1, 5, 0, 1, 5};
     assertEquals(9, solution.maxProfit(input));
   }
 
   @Test
-  void test1TransMax() throws Exception {
+  void test1TransMax() {
     final int[] input = new int[]{1, 2, 3, 4, 5};
     assertEquals(4, solution.maxProfit(input));
   }
 
   @Test
-  void testMultiMaxLater() throws Exception {
+  void testMultiMaxLater() {
     final int[] input = new int[]{3, 3, 5, 0, 0, 3, 1, 4};
     assertEquals(6, solution.maxProfit(input));
   }
 
   @Test
-  void testMultiTransMaxContinous() throws Exception {
+  void testMultiTransMaxContinous() {
     final int[] input = new int[]{1, 2, 4, 2, 5, 7, 2, 4, 9, 0};
     assertEquals(13, solution.maxProfit(input));
   }
 
   @Test
-  void test3TransMax() throws Exception {
+  void test3TransMax() {
     final int[] input = new int[]{3, 3, 5, 0, 0, 3, 1, 4};
     assertEquals(6, solution.maxProfit(input));
   }
+
 }
