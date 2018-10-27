@@ -2,9 +2,9 @@ package interviews.linkedin._528_Random_Pick_with_Weight;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class SolutionITest {
   private static final int MAX_COUNT = 10_000_000;
 
   private static final double BIAS = 1e-2;
@@ -13,7 +13,7 @@ class SolutionTest {
   void testOnlineCase1() {
     final int w1 = 10, w2 = 15;
     final int[] w = {w1, w2};
-    final Solution solution = new Solution(w);
+    final Solution solution = new SolutionI(w);
     final int[] count = new int[2];
     for (int i = 0; i < MAX_COUNT; ++i) {
       final int res = solution.pickIndex();
