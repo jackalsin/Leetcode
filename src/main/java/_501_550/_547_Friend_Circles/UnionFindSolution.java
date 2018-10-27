@@ -11,7 +11,7 @@ public final class UnionFindSolution implements Solution {
       for (int j = 0; j < n; j++) {
         if (M[i][j] == 1 && (uf.root(i) != uf.root(j))) {
           M[i][j] = 0;
-          M[i][i] = 0;
+          M[j][i] = 0;
           uf.union(i, j);
         }
       }

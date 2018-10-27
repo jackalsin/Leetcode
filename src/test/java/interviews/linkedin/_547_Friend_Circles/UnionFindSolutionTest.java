@@ -1,4 +1,4 @@
-package _501_550._547_Friend_Circles;
+package interviews.linkedin._547_Friend_Circles;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,8 @@ class UnionFindSolutionTest {
 
   @Test
   void testOnlineCase1() {
-    final int[][] Input = {{1, 1, 0},
+    final int[][] Input = {
+        {1, 1, 0},
         {1, 1, 0},
         {0, 0, 1}};
     assertEquals(2, solution.findCircleNum(Input));
@@ -29,6 +30,7 @@ class UnionFindSolutionTest {
         {0, 1, 1}};
     assertEquals(1, solution.findCircleNum(Input));
   }
+
 
   @Test
   void testOnlineCase3() {
@@ -51,4 +53,6 @@ class UnionFindSolutionTest {
     };
     assertEquals(1, solution.findCircleNum(Input));
   }
+
+
 }
