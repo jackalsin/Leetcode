@@ -10,14 +10,15 @@ public final class SolutionII implements Solution {
   public int triangleNumber(int[] nums) {
     Arrays.sort(nums);
     int count = 0;
-    for (int end = nums.length - 1; end >= 2; end--) {
-      int i = 0, j = end - 1;
-      while (i < j) {
-        if (nums[i] + nums[j] > nums[end]) {
-          count += j - i;
-          j--;
+    for (int i = nums.length - 1; i >= 0; --i) {
+      final int max = nums[i];
+      int left = 0, right = i - 1;
+      while (left < right) {
+        if (nums[left] + nums[right] > max) {
+          count += (right - left);
+          right--;
         } else {
-          i++;
+          left++;
         }
       }
     }
