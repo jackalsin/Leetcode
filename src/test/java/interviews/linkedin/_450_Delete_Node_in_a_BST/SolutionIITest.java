@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author zhiwei.xin
  * @version 1.0 on 9/14/18
  */
-class SolutionTest {
+class SolutionIITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
 //    solution = new NaiveSolution();
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
