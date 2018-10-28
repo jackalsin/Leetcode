@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author zhiwei.xin
  * @version 1.0 on 9/14/18
  */
-class LFUCacheTest {
+class LFUCacheIITest {
   private LFUCache cache;
 
   @BeforeEach
   void setUp() {
-    cache = new LFUCache(2);
+    cache = new LFUCacheII(2);
   }
 
   @Test
@@ -33,7 +33,7 @@ class LFUCacheTest {
 
   @Test
   void testEmpty() {
-    cache = new LFUCache(0);
+    cache = new LFUCacheII(0);
     cache.put(0, 0);
     cache.get(0);
   }
@@ -66,5 +66,21 @@ class LFUCacheTest {
     assertEquals(1, cache.get(2));
     assertEquals(-1, cache.get(3));
     assertEquals(3, cache.get(4));
+  }
+
+  @Test
+  void testFailedCase3() {
+    //["LFUCache","put","put","get","put","put","get"]
+    //[[2],[2,1],[2,2],[2],[1,1],[4,1],[2]]
+    //    Output:
+    //[null,null,null,2,null,null,-1]
+    //    Expected:
+    //[null,null,null,2,null,null,2]
+    cache.put(2, 1);
+    cache.put(2, 2);
+    assertEquals(2, cache.get(2));
+    cache.put(1, 1);
+    cache.put(4, 1);
+    assertEquals(2, cache.get(2));
   }
 }
