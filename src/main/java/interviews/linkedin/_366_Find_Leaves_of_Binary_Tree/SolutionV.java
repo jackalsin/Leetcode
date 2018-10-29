@@ -9,16 +9,15 @@ public class SolutionV implements Solution {
   @Override
   public List<List<Integer>> findLeaves(TreeNode root) {
     final List<List<Integer>> result = new ArrayList<>();
-    findLeaves(result, root);
+    dfs(result, root);
     return result;
   }
 
-  private static int findLeaves(final List<List<Integer>> result, TreeNode root) {
+  private static int dfs(final List<List<Integer>> result, TreeNode root) {
     if (root == null) {
       return -1;
     }
-    final int left = findLeaves(result, root.left), right = findLeaves(result, root.right), depth = Math.max(left,
-        right) + 1;
+    final int left = dfs(result, root.left), right = dfs(result, root.right), depth = Math.max(left, right) + 1;
     if (depth == result.size()) {
       result.add(new ArrayList<>());
     }
