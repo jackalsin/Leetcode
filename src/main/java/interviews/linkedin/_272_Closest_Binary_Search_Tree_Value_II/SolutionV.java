@@ -13,11 +13,11 @@ import java.util.List;
  */
 public final class SolutionV implements Solution {
 
-  @Override
   public List<Integer> closestKValues(TreeNode root, double target, int k) {
-    final Deque<TreeNode> preStack = initPreStack(root, target), postStack = initPostStack(root, target);
+    final Deque<TreeNode> preStack = initPreStack(root, target, k), postStack = initPostStack(root, target, k);
+
     final List<Integer> result = new ArrayList<>();
-    for (int i = 0; i < k; ++i) {
+    for (int i = 0; i < k; i++) {
       if (!preStack.isEmpty() && !postStack.isEmpty()) {
         if (target - preStack.peek().val < postStack.peek().val - target) {
           result.add(preStack.peek().val);
@@ -37,60 +37,47 @@ public final class SolutionV implements Solution {
     return result;
   }
 
-  /**
-   * @param root
-   * @param target
-   * @return
-   */
-  private Deque<TreeNode> initPostStack(TreeNode root, final double target) {
-    final Deque<TreeNode> stack = new ArrayDeque<>();
-    while (root != null) {
-      if (root.val > target) {
-        stack.push(root);
-        root = root.left;
-      } else {
-        root = root.right;
-      }
+  private static void nextPostStack(final Deque<TreeNode> stack) {
+    TreeNode cur = stack.pop();
+    cur = cur.right;
+    while (cur != null) {
+      stack.push(cur);
+      cur = cur.left;
     }
-    return stack;
-  }
-
-  /**
-   * small or equals
-   *
-   * @param root
-   * @param target
-   * @return
-   */
-  private Deque<TreeNode> initPreStack(TreeNode root, final double target) {
-    final Deque<TreeNode> stack = new ArrayDeque<>();
-    while (root != null) {
-      if (root.val > target) {
-        root = root.left;
-      } else {
-        stack.push(root);
-        root = root.right;
-      }
-    }
-    return stack;
   }
 
   private static void nextPreStack(final Deque<TreeNode> stack) {
-    TreeNode root = stack.pop();
-    root = root.left;
-    while (root != null) {
-      stack.push(root);
-      root = root.right;
+    TreeNode cur = stack.pop();
+    cur = cur.left;
+    while (cur != null) {
+      stack.push(cur);
+      cur = cur.right;
     }
-
   }
 
-  private static void nextPostStack(final Deque<TreeNode> stack) {
-    TreeNode root = stack.pop();
-    root = root.right;
+  private static Deque<TreeNode> initPreStack(TreeNode root, final double target, final int k) {
+    final Deque<TreeNode> stack = new ArrayDeque<>();
     while (root != null) {
-      stack.push(root);
-      root = root.left;
+      if (root.val < target) {
+        stack.push(root);
+        root = root.right;
+      } else {
+        root = root.left;
+      }
     }
+    return stack;
+  }
+
+  private static Deque<TreeNode> initPostStack(TreeNode root, double target, int k) {
+    final Deque<TreeNode> stack = new ArrayDeque<>();
+    while (root != null) {
+      if (root.val >= target) {
+        stack.push(root);
+        root = root.left;
+      } else {
+        root = root.right;
+      }
+    }
+    return stack;
   }
 }
