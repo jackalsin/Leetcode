@@ -2,12 +2,10 @@ package interviews.linkedin._716_Max_Stack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.TreeMap;
 
 public final class MaxStackV implements MaxStack {
-  private final TreeMap<Integer, List<Node>> map = new TreeMap<>();
-
+  private final TreeMap<Integer, List<Node>> valToNodes = new TreeMap<>();
   private final Node head = new Node(0), tail = new Node(0);
 
   {
@@ -17,13 +15,12 @@ public final class MaxStackV implements MaxStack {
 
   public void push(int x) {
     final Node newNode = new Node(x);
+    valToNodes.computeIfAbsent(x, key -> new ArrayList<>()).add(newNode);
     insertAfter(tail.prev, newNode);
-    map.computeIfAbsent(x, k -> new ArrayList<>()).add(newNode);
   }
 
-  private void insertAfter(final Node prev, final Node cur) {
+  private static void insertAfter(final Node prev, Node cur) {
     final Node next = prev.next;
-
     prev.next = cur;
     cur.prev = prev;
 
@@ -35,18 +32,18 @@ public final class MaxStackV implements MaxStack {
   public int pop() {
     final Node toRemove = tail.prev;
     removeFromDoubleLinkedList(toRemove);
-    final List<Node> curList = map.get(toRemove.key);
+    final int key = toRemove.key;
+    final List<Node> curList = valToNodes.get(key);
     if (curList.size() == 1) {
-      map.remove(toRemove.key);
+      valToNodes.remove(key);
     } else {
       curList.remove(curList.size() - 1);
     }
-    return toRemove.key;
+    return key;
   }
 
-  private static void removeFromDoubleLinkedList(final Node cur) {
+  private void removeFromDoubleLinkedList(final Node cur) {
     final Node prev = cur.prev, next = cur.next;
-
     prev.next = next;
     next.prev = prev;
   }
@@ -58,19 +55,19 @@ public final class MaxStackV implements MaxStack {
 
 
   public int peekMax() {
-    return map.lastEntry().getKey();
+    final List<Node> curList = valToNodes.lastEntry().getValue();
+
+    return curList.get(0).key;
   }
 
 
   public int popMax() {
-    final Map.Entry<Integer, List<Node>> entry = map.lastEntry();
-    final int key = entry.getKey();
-    final List<Node> curList = entry.getValue();
-    removeFromDoubleLinkedList(curList.get(curList.size() - 1));
-    if (curList.size() == 1) {
-      map.remove(key);
-    } else {
-      curList.remove(curList.size() - 1);
+    final List<Node> curList = valToNodes.lastEntry().getValue();
+    final int key = curList.get(0).key;
+    final Node toRemove = curList.remove(curList.size() - 1);
+    removeFromDoubleLinkedList(toRemove);
+    if (curList.isEmpty()) {
+      valToNodes.remove(key);
     }
     return key;
   }
