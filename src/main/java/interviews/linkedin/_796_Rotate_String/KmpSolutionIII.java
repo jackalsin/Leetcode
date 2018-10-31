@@ -7,6 +7,7 @@ public final class KmpSolutionIII implements Solution {
     if (A.length() != B.length()) {
       return false;
     }
+
     final String s = A + A, p = B;
     final int[] next = getNext(p);
     int i = 0, j = 0;
@@ -28,10 +29,10 @@ public final class KmpSolutionIII implements Solution {
       return next;
     }
     next[0] = -1;
-    for (int i = 0, k = -1; i < p.length() - 1; ) {
+    for (int i = 1, k = 0; i < p.length() - 1; i++) {
       if (k == -1 || p.charAt(i) == p.charAt(k)) {
-        k++;
         i++;
+        k++;
         next[i] = k;
       } else {
         k = next[k];
