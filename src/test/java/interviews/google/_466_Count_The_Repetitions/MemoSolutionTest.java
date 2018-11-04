@@ -1,16 +1,16 @@
-package _451_500._466_Count_The_Repetitions;
+package interviews.google._466_Count_The_Repetitions;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BruteForceSolutionTest {
+class MemoSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new BruteForceSolution();
+    solution = new OptimalSolution();
   }
 
   @Test
@@ -22,10 +22,11 @@ class BruteForceSolutionTest {
 
   @Test
   void testOnlineCase2() {
-    final String s1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", s2 = "a";
+    final String s1 =
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", s2 =
+        "a";
     final int n1 = 1000000, n2 = 1;
 
     assertEquals(100000000, solution.getMaxRepetitions(s1, n1, s2, n2));
   }
 }
-
