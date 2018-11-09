@@ -16,17 +16,17 @@ public class Codec {
       return "";
     }
     final StringBuilder sb = new StringBuilder();
+
     serialize(sb, root);
-    return sb.toString();
+    return sb.substring(1);
   }
 
   private static void serialize(final StringBuilder sb, final Node root) {
-    assert (root != null);
-    sb.append(root.val).append(SEP);
-    for (final Node child : root.children) {
-      serialize(sb, child);
+    sb.append(SEP).append(root.val);
+    for (Node c : root.children) {
+      serialize(sb, c);
     }
-    sb.append(END).append(SEP);
+    sb.append(SEP).append(END);
   }
 
   // Decodes your encoded data to tree.
@@ -34,26 +34,19 @@ public class Codec {
     if (data.length() == 0) {
       return null;
     }
-    final String[] dataArray = data.split(SEP);
-    final Queue<String> queue = new ArrayDeque<>(Arrays.asList(dataArray));
-    return deserialize(queue);
+
+    Queue<String> q = new ArrayDeque<>(Arrays.asList(data.split(SEP)));
+    return deserialize(q);
   }
 
-  private static Node deserialize(final Queue<String> queue) {
-    if (queue.isEmpty()) {
-      return null;
+  private static Node deserialize(final Queue<String> q) {
+    final String valStr = q.remove();
+    final Node root = new Node(Integer.parseInt(valStr), new ArrayList<>());
+    assert !q.isEmpty();
+    while (!q.peek().equals(END)) {
+      root.children.add(deserialize(q));
     }
-    final String toRemove = queue.remove();
-    if (END.equals(toRemove)) {
-      return null;
-    }
-    final Node root = new Node();
-    root.val = Integer.parseInt(toRemove);
-    root.children = new ArrayList<>();
-    Node next;
-    while ((next = deserialize(queue)) != null) {
-      root.children.add(next);
-    }
+    q.remove();
     return root;
   }
 }
