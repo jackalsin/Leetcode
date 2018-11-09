@@ -20,9 +20,13 @@ public final class MemoSolution implements Solution {
       nextIndex[k] = j;
       for (int start = 0; start < k; start++) {
         if (nextIndex[start] == j) { // used as a set.
+          // Detailed Explanation:
+          // https://jackalsin.gitbooks.io/algorithm/content/leetcode-solution/466.html#explanation-for-adding-up
           int beforePattern = repeatCount[start];
           int patternCount = (repeatCount[k] - repeatCount[start]) * ((n1 - start) / (k - start));
           int afterPattern = repeatCount[start + (n1 - start) % (k - start)] - repeatCount[start];
+//          System.out.println(Arrays.toString(nextIndex));
+//          System.out.println(Arrays.toString(repeatCount));
           return (beforePattern + patternCount + afterPattern) / n2;
         }
       }
