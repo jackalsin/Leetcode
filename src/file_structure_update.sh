@@ -1,5 +1,6 @@
 #!/bin/sh
 function update_directory_txt {
+    update_directory
     find main -type d > directory.txt
 }
 
