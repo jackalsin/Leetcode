@@ -47,7 +47,9 @@ public final class SegmentTreeSolution implements Solution {
         return root.val;
       }
 
-      return queryRange(root.left, qs, qe) && queryRange(root.right, qs, qe);
+      final boolean left = queryRange(root.left, qs, qe),
+          right = queryRange(root.right, qs, qe);
+      return left && right;
     }
 
     void updateRange(final int start, final int end, final boolean val) {
@@ -55,19 +57,22 @@ public final class SegmentTreeSolution implements Solution {
     }
 
     private void updateRange(final Node root, final int qs, final int qe, final boolean val) {
-      if (root == null || qs > root.end || qe < root.start) {
+      if (root == null) {
         return;
       }
       if (root.lazy != NULL) {
         root.val = root.lazy == TRUE;
         if (root.start != root.end) {
           initChildren(root);
-          root.left.lazy = TRUE;
-          root.right.lazy = TRUE;
+          root.left.lazy = root.lazy;
+          root.right.lazy = root.lazy;
         }
         root.lazy = NULL;
       }
 
+      if (qs > root.end || qe < root.start) {
+        return;
+      }
       if (qs <= root.start && root.end <= qe) {
         root.val = val;
 
