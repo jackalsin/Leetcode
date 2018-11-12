@@ -40,7 +40,7 @@ public final class SegmentTreeSolution implements Solution {
       }
 
       if (qs > root.end || qe < root.start) {
-        return true; // todo: Check
+        return true;
       }
 
       if (qs <= root.start && root.end <= qe) {
