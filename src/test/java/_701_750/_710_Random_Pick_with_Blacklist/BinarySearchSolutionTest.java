@@ -7,7 +7,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BinarySearchSolutionTest {
-  private static final int MAX_COUNT = 1_000_000;
+  private static final int MAX_COUNT = 10_000_000;
   private static final double BIAS = 1E-3;
 
   @Test
