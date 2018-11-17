@@ -11,114 +11,67 @@ public class Solution {
     return evaluate(expression, new HashMap<>());
   }
 
-  public int evaluate(String expression, final Map<String, Integer> vars) {
-    if (expression.startsWith("(")) {
-      expression = expression.substring(1, expression.length() - 1);
+  private int evaluate(String expression, final Map<String, Integer> vars) {
+
+    if (expression.charAt(0) == '-' || Character.isDigit(expression.charAt(0))) {
+      return Integer.parseInt(expression);
+    } else if (!expression.startsWith("(")) {
+      return vars.get(expression);
     }
-    String op = null;
-    for (int i = 0; i < expression.length(); i++) {
-      final char chr = expression.charAt(i);
-      if (chr == ' ') {
-        op = expression.substring(0, i);
+    assert expression.charAt(0) == '(' && expression.charAt(expression.length() - 1) == ')';
+    expression = expression.substring(1, expression.length() - 1);
+
+    if (expression.startsWith(LET)) {
+      int start = LET.length() + 1;
+      while (true) {
+        final String var = parse(expression, start);
+        start += var.length() + 1;
+        if (start >= expression.length()) { // is the last expression
+          return evaluate(var, new HashMap<>(vars));
+        }
+        final String value = parse(expression, start);
+        vars.put(var, evaluate(value, new HashMap<>(vars)));
+        start += value.length() + 1;
+      }
+
+    } else if (expression.startsWith(ADD)) {
+      final String op1 = parse(expression, ADD.length() + 1),
+          op2 = parse(expression, ADD.length() + 1 + op1.length() + 1);
+      System.out.println(op1);
+      System.out.println(op2);
+      return evaluate(op1, new HashMap<>(vars)) + evaluate(op2, new HashMap<>(vars));
+    } else if (expression.startsWith(MULT)) {
+      final String op1 = parse(expression, MULT.length() + 1), op2 = parse(expression,
+          MULT.length() + 1 + op1.length() + 1);
+      System.out.println(op1);
+      System.out.println(op2);
+      return evaluate(op1, new HashMap<>(vars)) * evaluate(op2, new HashMap<>(vars));
+    }
+    throw new IllegalArgumentException("expression = " + expression + " is not accessible.");
+  }
+
+  /**
+   * Parse to next expression, and return the expression
+   *
+   * @param expression
+   * @param start
+   * @return
+   */
+  private String parse(String expression, int start) {
+    int leftCount = 0;
+    int end = start; // inclusive
+    for (; end < expression.length(); end++) {
+      final char chr = expression.charAt(end);
+      if (chr == '(') {
+        leftCount++;
+      } else if (chr == ')') {
+        leftCount--;
+      }
+
+      if (leftCount == 0 && chr == ' ') {
         break;
       }
     }
-
-
-    // find last expression
-    String letExpression = null;
-    if (LET.equals(op)) {
-
-      {
-        int pCount = 0;
-        for (int i = expression.length() - 1; i >= 0; i--) {
-          final char chr = expression.charAt(i);
-          if (chr == ')') {
-            pCount++;
-          } else if (chr == '(') {
-            pCount--;
-          }
-
-          if (pCount == 0) {
-            if (expression.charAt(i) == ' ') {
-              letExpression = expression.substring(i + 1);
-              break;
-            }
-          }
-        }
-      }
-    }
-
-//    System.out.println(letExpression);
-
-    //op can be null
-    String prev = null;
-
-    int res = MULT.equals(op) ? 1 : 0;
-
-    for (int i = op == null ? 0 : op.length();
-         i < expression.length() - (letExpression == null ? 0 : letExpression.length());
-         i++) {
-      final char chr = expression.charAt(i);
-      if (chr == '(') {
-        final int start = i;
-        int pCount = 0;
-        for (; i < expression.length(); i++) {
-          if (expression.charAt(i) == '(') {
-            pCount++;
-          } else if (expression.charAt(i) == ')') {
-            pCount--;
-          }
-
-          if (pCount == 0) {
-            break;
-          }
-        } // end of for
-
-        final int num = evaluate(expression.substring(start, i + 1), new HashMap<>(vars));
-        if (LET.equals(op)) {
-          vars.put(prev, num);
-          res = num;
-        } else if (MULT.equals(op)) {
-          res *= num;
-        } else if (ADD.equals(op) || op == null) {
-          res += num;
-        }
-
-
-      } else if (chr == '-' || Character.isDigit(chr)) {
-
-        final int start = i;
-        while (i + 1 < expression.length() && Character.isDigit(expression.charAt(i + 1))) {
-          i++;
-        }
-        // i + 1 will be the )
-
-        final int num = Integer.parseInt(expression.substring(start, i + 1));
-        if (LET.equals(op)) {
-          vars.put(prev, num);
-          res = num; // todo:
-        } else if (MULT.equals(op)) {
-          res *= num;
-        } else if (ADD.equals(op) || op == null) {
-          res += num;
-        }
-        i++;
-      } else if (Character.isLetter(chr)) {
-        final int start = i;
-        while (i + 1 < expression.length() && expression.charAt(i + 1) != ' ') {
-          i++;
-        }
-        prev = expression.substring(start, i + 1);
-        //op
-        if (MULT.equals(op)) {
-          res *= vars.get(prev);
-        } else if (ADD.equals(op)) {
-          res += vars.get(prev);
-        }
-      }
-    }
-
-    return LET.equals(op) ? evaluate(letExpression, new HashMap<>(vars)) : res;
+    return expression.substring(start, end);
   }
 }
