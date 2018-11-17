@@ -37,14 +37,14 @@ public class Solution {
     } else if (expression.startsWith(ADD)) {
       final String op1 = parse(expression, ADD.length() + 1),
           op2 = parse(expression, ADD.length() + 1 + op1.length() + 1);
-      System.out.println(op1);
-      System.out.println(op2);
+//      System.out.println(op1);
+//      System.out.println(op2);
       return evaluate(op1, new HashMap<>(vars)) + evaluate(op2, new HashMap<>(vars));
     } else if (expression.startsWith(MULT)) {
       final String op1 = parse(expression, MULT.length() + 1), op2 = parse(expression,
           MULT.length() + 1 + op1.length() + 1);
-      System.out.println(op1);
-      System.out.println(op2);
+//      System.out.println(op1);
+//      System.out.println(op2);
       return evaluate(op1, new HashMap<>(vars)) * evaluate(op2, new HashMap<>(vars));
     }
     throw new IllegalArgumentException("expression = " + expression + " is not accessible.");
