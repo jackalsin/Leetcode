@@ -1,6 +1,6 @@
 package example.binarySearch.problemSet._374_Guess_Number_Higher_or_Lower;
 
-import _351_400._374_Guess_Number_Higher_or_Lower.GuessGame;
+import _0351_0400._374_Guess_Number_Higher_or_Lower.GuessGame;
 
 public class Solution extends GuessGame {
   Solution(int n) {
