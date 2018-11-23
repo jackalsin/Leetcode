@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class OptimalSolutionTest {
   private Solution solution;
 
   @BeforeEach
-  void setup() {
-    solution = new DiagonalSolution();
+  public void setup() {
+    solution = new OptimalSolution();
   }
 
   @Test
@@ -28,4 +28,5 @@ class SolutionTest {
     };
     assertEquals(2, solution.minAreaRect(input));
   }
+
 }
