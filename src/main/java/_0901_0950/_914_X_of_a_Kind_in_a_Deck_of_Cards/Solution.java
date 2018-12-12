@@ -1,9 +1,7 @@
 package _0901_0950._914_X_of_a_Kind_in_a_Deck_of_Cards;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class Solution {
   public boolean hasGroupsSizeX(int[] deck) {
@@ -11,23 +9,23 @@ public class Solution {
     for (int i : deck) {
       counts.put(i, counts.getOrDefault(i, 0) + 1);
     }
-    final Set<Integer> values = new HashSet<>(counts.values());
 
-    return hasCommon(values);
+    // 找最大公约数，检查其是否大于2
+    int res = 0;
+    for (int i : counts.values()) res = gcd(i, res);
+    return res >= 2;
   }
 
-  private static boolean hasCommon(final Set<Integer> values) {
-    iLoop:
-    for (int i = 2; ; i++) {
-      for (int c : values) {
-        if (c < i) {
-          return false;
-        }
-        if (c % i != 0) {
-          continue iLoop;
-        }
-      }
-      return true;
+  private static int gcd(int a, int b) {
+    if (a < b) {
+      return gcd(b, a);
     }
+    while (b > 0) {
+      int c = a % b;
+      a = b;
+      b = c;
+    }
+    return a;
   }
+
 }
