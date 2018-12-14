@@ -6,7 +6,6 @@ public class Solution {
   private static final int MOD = (int) 1E9 + 7;
 
   /**
-   * TODO: Debug on this
    *
    * @param N total song number
    * @param L total length
@@ -20,7 +19,7 @@ public class Solution {
     for (int i = 0; i < L; i++) {
       for (int j = 0; j < N; j++) {
         // i = 2, j = 1
-        dp[i + 1][j + 1] = dp[i][j] * (N - j) + dp[i][j + 1] * Math.max(0, j - 1 - K);
+        dp[i + 1][j + 1] = dp[i][j] * (N - j) + dp[i][j + 1] * Math.max(0, j + 1 - K);
         dp[i + 1][j + 1] %= MOD;
       }
     }
