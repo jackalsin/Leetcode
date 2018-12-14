@@ -1,7 +1,5 @@
 package _0901_0950._920_Number_of_Music_Playlists;
 
-import static utils.TwoDimensionArray.display;
-
 public class Solution {
   private static final int MOD = (int) 1E9 + 7;
 
@@ -23,7 +21,6 @@ public class Solution {
         dp[i + 1][j + 1] %= MOD;
       }
     }
-    display(dp);
     return (int) dp[L][N];
   }
 }
