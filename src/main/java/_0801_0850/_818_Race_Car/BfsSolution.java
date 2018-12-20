@@ -42,7 +42,7 @@ public final class BfsSolution implements Solution {
     return -1; // should never reachable
   }
 
-  private static String getKey(int pos, int speed) { // todo: add new document for this
+  private static String getKey(int pos, int speed) {
     return pos + " " + speed;
   }
 
