@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author jacka
  * @version 1.0 on 3/19/2018.
  */
-class SolutionTest {
+class SolutionITest {
   private Solution solution;
 
   private static final char[][] BOARD = new char[][] {
@@ -31,7 +31,7 @@ class SolutionTest {
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
