@@ -1,21 +1,17 @@
-package _0251_0300._253_Meeting_Rooms_II;
+package interviews.uber._253_Meeting_Rooms_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.Interval;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/25/2017.
- */
-class SolutionTest {
+class SolutionITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
@@ -32,14 +28,18 @@ class SolutionTest {
 
   @Test
   void testOnlineCase() throws Exception {
-    Interval[] intervals = new Interval[]{new Interval(0, 30), new Interval(5, 10), new
-        Interval(15, 20)};
+    Interval[] intervals = new Interval[]{
+        new Interval(0, 30),
+        new Interval(5, 10),
+        new Interval(15, 20)};
     assertEquals(2, solution.minMeetingRooms(intervals));
   }
 
   @Test
   void testOverlapEqual() throws Exception {
-    Interval[] intervals = new Interval[]{new Interval(13, 15), new Interval(1, 13)};
+    Interval[] intervals = new Interval[]{
+        new Interval(13, 15),
+        new Interval(1, 13)};
     assertEquals(1, solution.minMeetingRooms(intervals));
   }
 
@@ -47,5 +47,25 @@ class SolutionTest {
   void testOnline() throws Exception {
     Interval[] intervals = new Interval[]{new Interval(7, 10), new Interval(2, 4)};
     assertEquals(1, solution.minMeetingRooms(intervals));
+  }
+
+  @Test
+  void testOnline2() throws Exception {
+    Interval[] intervals = new Interval[]{
+        new Interval(1, 5),
+        new Interval(8, 9),
+        new Interval(8, 9)
+    };
+    assertEquals(2, solution.minMeetingRooms(intervals));
+  }
+
+  @Test
+  void testOnline3() throws Exception {
+    Interval[] intervals = new Interval[]{
+        new Interval(2, 11),
+        new Interval(6, 16),
+        new Interval(11, 16)
+    };
+    assertEquals(2, solution.minMeetingRooms(intervals));
   }
 }
