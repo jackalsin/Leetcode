@@ -1,27 +1,31 @@
 package interviews.uber._465_Optimal_Account_Balancing;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public final class Solution {
   public int minTransfers(int[][] transactions) {
-    final Map<Integer, Long> idToBalance = new HashMap<>();
+
+    int max = 0;
+    for (final int[] t : transactions) {
+      final int from = t[0], to = t[1];
+      max = Math.max(from, max);
+      max = Math.max(to, max);
+    }
+
+    final long[] idToBalance = new long[max + 1];
     for (final int[] t : transactions) {
       final int from = t[0], to = t[1], amount = t[2];
-      idToBalance.put(from, idToBalance.getOrDefault(from, 0L) - amount);
-      idToBalance.put(to, idToBalance.getOrDefault(to, 0L) + amount);
+      idToBalance[from] -= amount;
+      idToBalance[to] += amount;
     }
     final List<Long> balances = new ArrayList<>();
-    for (final Map.Entry<Integer, Long> e : idToBalance.entrySet()) {
-      final long bal = e.getValue();
+    for (final long bal : idToBalance) {
       if (bal != 0) {
         balances.add(bal);
       }
     }
 
-//    System.out.println(balances);
     return dfs(balances, 0);
   }
 
