@@ -7,80 +7,78 @@ import java.util.Map;
  *
  */
 public final class LRUCache {
-  private static final int INVALID = -1;
-  private final Node head = new Node(INVALID, INVALID), tail = new Node(INVALID, INVALID);
-  private final Map<Integer, Node> keyToNode = new HashMap<>();
   private final int capacity;
+  private final Node head = new Node(0), tail = new Node(0);
 
-  public LRUCache(int capacity) {
+  {
     head.next = tail;
     tail.prev = head;
+  }
+
+  private final Map<Integer, Node> keyToNode = new HashMap<>();
+  private final Map<Integer, Integer> keyToValue = new HashMap<>();
+
+  public LRUCache(int capacity) {
     this.capacity = capacity;
   }
 
-  /**
-   * get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
-   */
   public int get(int key) {
-    if (keyToNode.containsKey(key)) {
-      final Node node = keyToNode.get(key);
-      remove(node);
-      addToHead(node);
-      return node.val;
-    } else {
-      return -1;
+    if (!keyToValue.containsKey(key)) {
+      return -1; // not found
     }
+
+    final int res = keyToValue.get(key);
+    final Node toRemove = keyToNode.get(key);
+    removeFromDoubleLinkedList(toRemove);
+    insertAfter(head, toRemove);
+    return res;
   }
 
-  private void addToHead(final Node node) {
+  private void insertAfter(final Node head, final Node toRemove) {
     final Node next = head.next;
+    head.next = toRemove;
+    toRemove.prev = head;
 
-    // hook the tail
-    next.prev = node;
-    node.next = next;
-
-    // hook head
-    head.next = node;
-    node.prev = head;
+    toRemove.next = next;
+    next.prev = toRemove;
   }
 
-  private void remove(final Node node) {
-    final Node prev = node.prev, next = node.next;
+  private void removeFromDoubleLinkedList(final Node toRemove) {
+    final Node prev = toRemove.prev, next = toRemove.next;
     prev.next = next;
     next.prev = prev;
   }
 
-  /**
-   * put(key, value) - Set or insert the value if the key is not already present. When the cache reached its
-   * capacity, it should invalidate the least recently used item before inserting a new item.
-   */
   public void put(int key, int value) {
-    if (keyToNode.containsKey(key)) {
-      final Node node = keyToNode.get(key);
-      node.val = value;
-
-      remove(node);
-      addToHead(node);
+    if (capacity == 0) {
+      return;
+    }
+    if (keyToValue.containsKey(key)) {
+      keyToValue.put(key, value);
+      final Node toRemove = keyToNode.get(key);
+      removeFromDoubleLinkedList(toRemove);
+      insertAfter(head, toRemove);
     } else {
-      final Node newNode = new Node(key, value);
-      if (keyToNode.size() == capacity) {
-        final Node toRemoveNode = tail.prev;
-        keyToNode.remove(toRemoveNode.key);
-        remove(toRemoveNode);
+      if (keyToValue.size() == capacity) {
+        final Node toRemove = tail.prev;
+        keyToValue.remove(toRemove.key);
+        keyToNode.remove(toRemove.key);
+        removeFromDoubleLinkedList(toRemove);
       }
-      addToHead(newNode);
-      keyToNode.put(key, newNode);
+
+      final Node toInsert = new Node(key);
+      keyToValue.put(key, value);
+      keyToNode.put(key, toInsert);
+      insertAfter(head, toInsert);
     }
   }
 
   private static final class Node {
     private final int key;
-    private int val;
     private Node prev, next;
 
-    private Node(final int key, final int val) {
+    private Node(int key) {
       this.key = key;
-      this.val = val;
     }
   }
 }
