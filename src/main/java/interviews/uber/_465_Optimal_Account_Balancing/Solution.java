@@ -1,6 +1,7 @@
 package interviews.uber._465_Optimal_Account_Balancing;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public final class Solution {
@@ -26,7 +27,27 @@ public final class Solution {
       }
     }
 
-    return dfs(balances, 0);
+    return reduceExactMath(balances) + dfs(balances, 0);
+  }
+
+  private static int reduceExactMath(final List<Long> balances) {
+    Collections.sort(balances);
+    int res = 0;
+    for (int i = 0, j = balances.size() - 1; i < j; ) {
+      final long sum = balances.get(i) + balances.get(j);
+      if (sum == 0) {
+        balances.set(i, 0L);
+        balances.set(j, 0L);
+        i++;
+        j--;
+        res++;
+      } else if (sum < 0) {
+        i++;
+      } else {
+        j--;
+      }
+    }
+    return res;
   }
 
   private static int dfs(final List<Long> balances, int start) {
