@@ -1,22 +1,21 @@
 package interviews.uber._380_Insert_Delete_GetRandom_O_1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
+
+import static java.util.Collections.swap;
 
 public final class RandomizedSet {
-  private final Map<Integer, Integer> valueToIndex = new HashMap<>();
+  private final Map<Integer, Integer> valToId = new HashMap<>();
+  private final Random rand = new Random();
   private final List<Integer> values = new ArrayList<>();
-  private final Random random = new Random();
+
 
   /**
    * Inserts a value to the set. Returns true if the set did not already contain the specified element.
    */
   public boolean insert(int val) {
-    if (!valueToIndex.containsKey(val)) {
-      valueToIndex.put(val, values.size());
+    if (!valToId.containsKey(val)) {
+      valToId.put(val, values.size());
       values.add(val);
       return true;
     } else {
@@ -28,18 +27,16 @@ public final class RandomizedSet {
    * Removes a value from the set. Returns true if the set contained the specified element.
    */
   public boolean remove(int val) {
-    if (valueToIndex.containsKey(val)) {
-      final int valIndex = valueToIndex.get(val), toSwapIndex = values.size() - 1, toSwap = values.get(toSwapIndex);
-
-      values.remove(toSwapIndex);
-      valueToIndex.remove(val);
-      if (valIndex != toSwapIndex) {
-        valueToIndex.put(toSwap, valIndex);
-        values.set(valIndex, toSwap);
-      }
-      return true;
-    } else {
+    if (!valToId.containsKey(val)) {
       return false;
+    } else {
+      final int toRemoveIndex = valToId.get(val), lastValIndex = values.size() - 1, lastVal =
+          values.get(lastValIndex);
+      swap(values, toRemoveIndex, lastValIndex);
+      valToId.put(lastVal, toRemoveIndex);
+      valToId.remove(val);
+      values.remove(lastValIndex);
+      return true;
     }
   }
 
@@ -47,7 +44,7 @@ public final class RandomizedSet {
    * Get a random element from the set.
    */
   public int getRandom() {
-    final int randomIndex = random.nextInt(values.size());
-    return values.get(randomIndex);
+    final int i = rand.nextInt(values.size());
+    return values.get(i);
   }
 }
