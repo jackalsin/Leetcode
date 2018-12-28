@@ -27,8 +27,10 @@ class RandomizedSetTest {
    */
   @Test
   void testFailedCase2() {
-//    ["RandomizedSet","insert","insert","remove","insert","insert","insert","remove","remove","insert","remove","insert","insert","insert","insert","insert","getRandom","insert","remove","insert","insert"]
-//[[],                  [3],    [-2],     [2],      [1],      [-3],   [-2],     [-2],   [  3],    [-1],     [-3], [1],      [-2],     [-2],   [ -2],   [1],     [],         [-2],   [0],      [-3],[1]]
+//    ["RandomizedSet","insert","insert","remove","insert","insert","insert","remove","remove","insert","remove",
+//[[],                  [3],    [-2],     [2],      [1],      [-3],   [-2],     [-2],   [  3],    [-1],     [-3],
+// "insert","insert","insert","insert","insert","getRandom","insert","remove","insert","insert"]
+// [1],      [-2],     [-2],   [ -2],   [1],     [],         [-2],   [0],      [-3],[1]]
 
     final RandomizedSet randomizedSet = new RandomizedSet();
     assertTrue(randomizedSet.insert(3));
