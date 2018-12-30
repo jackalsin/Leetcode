@@ -1,16 +1,12 @@
-package _0001_0050._021_Merge_Two_Sorted_Lists;
+package interviews.uber._021_Merge_Two_Sorted_Lists;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.ListNode;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.ListNodes.getListOfNodes;
 
-/**
- * @author jacka
- * @version 1.0 on 1/23/2017.
- */
 class SolutionTest {
 
   private Solution solution;
@@ -35,5 +31,4 @@ class SolutionTest {
     final ListNode right = getListOfNodes(new int[]{0, 2, 4});
     assertEquals(sampleAns, solution.mergeTwoLists(left, right));
   }
-
 }

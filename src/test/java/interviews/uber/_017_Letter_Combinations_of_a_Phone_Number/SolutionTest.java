@@ -16,7 +16,7 @@ class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  public void setUp() throws Exception {
+  void setUp() throws Exception {
     solution = new Solution();
   }
 

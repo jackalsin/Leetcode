@@ -27,21 +27,21 @@ public class Solution {
   }
 
   public List<String> letterCombinations(String digits) {
+    final char[] chars = digits.toCharArray();
     List<String> result = new ArrayList<>();
-    if (digits.isEmpty()) {
+    if (digits.length() == 0) {
       return result;
     }
     result.add("");
-    for (final char chr : digits.toCharArray()) {
-      final List<String> resultCopy = new ArrayList<>(result);
-      result.clear();
-      final int chrVal = chr - '0';
-      final List<Character> candidateChars = MAP.get(chrVal);
-      for (final char toAppend : candidateChars) {
-        for (final String prevStr : resultCopy) {
-          result.add(prevStr + toAppend);
+    for (char chr : chars) {
+      List<String> copy = new ArrayList<>();
+      int i = chr - '0';
+      for (char next : MAP.get(i)) {
+        for (String prev : result) {
+          copy.add(prev + next);
         }
       }
+      result = copy;
     }
     return result;
   }

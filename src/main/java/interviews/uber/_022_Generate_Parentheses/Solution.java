@@ -9,34 +9,26 @@ import java.util.List;
  */
 public class Solution {
   public List<String> generateParenthesis(int n) {
-    final StringBuilder sb = new StringBuilder();
     final List<String> result = new ArrayList<>();
-    dfs(result, sb, 2 * n, n, n);
+    dfs(result, "", n, n);
     return result;
   }
 
-  /**
-   * @param result
-   * @param sb
-   * @param n      total number of left and right parenthesis.
-   * @param left
-   * @param right
-   */
-  private static void dfs(final List<String> result, final StringBuilder sb, final int n,
-                          final int left, final int right) {
-    if (sb.length() == n) {
-      result.add(sb.toString());
+  private static void dfs(final List<String> result, final String s, final int left, final int right) {
+    if (left < 0 || right < 0) {
+      return;
+    } else if (left == 0 && right == 0) {
+      result.add(s);
       return;
     }
+//    assert 0 <= left && left <= right;
+
     if (left > 0) {
-      sb.append('(');
-      dfs(result, sb, n, left - 1, right);
-      sb.setLength(sb.length() - 1);
+      dfs(result, s + "(", left - 1, right);
     }
-    if (right > left) {
-      sb.append(')');
-      dfs(result, sb, n, left, right - 1);
-      sb.setLength(sb.length() - 1);
+
+    if (left < right) {
+      dfs(result, s + ")", left, right - 1);
     }
   }
 }
