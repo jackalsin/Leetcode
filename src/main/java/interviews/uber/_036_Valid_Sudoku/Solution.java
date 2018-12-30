@@ -1,62 +1,50 @@
 package interviews.uber._036_Valid_Sudoku;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * @author jacka
  * @version 1.0 on 2/13/2018.
  */
 public class Solution {
   public boolean isValidSudoku(char[][] board) {
-    if (board == null || board.length == 0 || board[0].length == 0) {
-      return false;
-    }
     final int rows = board.length, cols = board[0].length;
-    // check row
+    assert rows == 9 && cols == 9;
+    final List<Set<Integer>> colSets = new ArrayList<>();
+    for (int i = 0; i < rows; i++) {
+      colSets.add(new HashSet<>());
+    }
     for (int row = 0; row < rows; row++) {
-      final boolean[] visited = new boolean[9];
+      final Set<Integer> rowSet = new HashSet<>();
       for (int col = 0; col < cols; col++) {
-        final char chr = board[row][col];
-        if (Character.isDigit(chr)) {
-          if (visited[chr - '1']) {
-            System.err.println("Return false by row = " + row);
-            return false;
-          } else {
-            visited[chr - '1'] = true;
-          }
+        final Set<Integer> colSet = colSets.get(col);
+        final char curChar = board[row][col];
+        if (curChar == '.') continue;
+        final int cur = curChar - '0';
+
+        if (cur < 0 || cur > 9 || rowSet.contains(cur) || colSet.contains(cur)) {
+          return false;
         }
+        rowSet.add(cur);
+        colSet.add(cur);
       }
     }
 
-    // check col
-    for (int col = 0; col < cols; col++) {
-      final boolean[] visited = new boolean[9];
-      for (int row = 0; row < rows; row++) {
-        final char chr = board[row][col];
-        if (Character.isDigit(chr)) {
-          if (visited[chr - '1']) {
-            System.out.println("Return false by Col");
-            return false;
-          } else {
-            visited[chr - '1'] = true;
-          }
-        }
-      }
-    }
-
-    // check 3 by 3
-    for (int startRow = 0; startRow < rows; startRow += 3) {
-      for (int startCol = 0; startCol < cols; startCol += 3) {
-        final boolean[] visited = new boolean[9];
-        for (int delRow = 0; delRow < 3; delRow++) {
-          for (int delCol = 0; delCol < 3; delCol++) {
-            final char chr = board[startRow + delRow][startCol + delCol];
-            if (Character.isDigit(chr)) {
-              if (visited[chr - '1']) {
-                System.out.println("Return false by 3 * 3");
-                return false;
-              } else {
-                visited[chr - '1'] = true;
-              }
+    for (int row = 0; row < rows; row += 3) {
+      for (int col = 0; col < cols; col += 3) {
+        final Set<Integer> visited = new HashSet<>();
+        for (int rowDiff = 0; rowDiff < 3; rowDiff++) {
+          for (int colDiff = 0; colDiff < 3; colDiff++) {
+            final char curChar = board[row + rowDiff][col + colDiff];
+            if (curChar == '.') continue;
+            final int cur = board[row + rowDiff][col + colDiff];
+            if (visited.contains(cur)) {
+              return false;
             }
+            visited.add(cur);
           }
         }
       }
