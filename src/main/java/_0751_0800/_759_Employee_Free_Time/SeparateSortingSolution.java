@@ -28,7 +28,7 @@ public final class SeparateSortingSolution implements Solution {
     Arrays.sort(starts);
     Arrays.sort(ends);
 
-    final List<Interval> result = new ArrayList<>(), jobs = new ArrayList<>();
+    final List<Interval> result = new ArrayList<>();
     for (int i = 1; i < starts.length; i++) {
       final int start = starts[i], preEnd = ends[i - 1];
       if (preEnd < start) {
