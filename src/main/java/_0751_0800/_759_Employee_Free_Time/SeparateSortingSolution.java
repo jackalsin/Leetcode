@@ -29,25 +29,11 @@ public final class SeparateSortingSolution implements Solution {
     Arrays.sort(ends);
 
     final List<Interval> result = new ArrayList<>(), jobs = new ArrayList<>();
-    if (size == 0) {
-      return result;
-    }
-    Interval curJob = new Interval(starts[0], ends[0]);
     for (int i = 1; i < starts.length; i++) {
-      final int start = starts[i], end = ends[i];
-      if (start <= curJob.end) {
-        curJob.end = Math.max(end, curJob.end);
-      } else {
-        jobs.add(curJob);
-        curJob = new Interval(start, end);
+      final int start = starts[i], preEnd = ends[i - 1];
+      if (preEnd < start) {
+        result.add(new Interval(preEnd, start));
       }
-    }
-    if (!jobs.isEmpty() && jobs.get(jobs.size() - 1).start != curJob.start) {
-      jobs.add(curJob);
-    }
-
-    for (int i = 1; i < jobs.size(); i++) {
-      result.add(new Interval(jobs.get(i - 1).end, jobs.get(i).start));
     }
     return result;
   }
