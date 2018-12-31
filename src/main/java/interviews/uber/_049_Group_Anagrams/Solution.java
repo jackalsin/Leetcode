@@ -11,24 +11,19 @@ import java.util.Map;
  */
 public class Solution {
   public List<List<String>> groupAnagrams(String[] strs) {
-    final Map<Map<Character, Integer>, List<String>> charCountToString = new HashMap<>();
+    final Map<Map<Character, Integer>, List<String>> charCountsToStrs = new HashMap<>();
     for (final String str : strs) {
-      final Map<Character, Integer> charCount = getCharCounts(str);
-      charCountToString.putIfAbsent(charCount, new ArrayList<>());
-      charCountToString.get(charCount).add(str);
+      final Map<Character, Integer> charCounts = getCharCounts(str);
+      charCountsToStrs.computeIfAbsent(charCounts, x -> new ArrayList<>()).add(str);
     }
-    final List<List<String>> result = new ArrayList<>();
-    for (final Map.Entry<Map<Character, Integer>, List<String>> entry : charCountToString.entrySet()) {
-      result.add(entry.getValue());
-    }
-    return result;
+    return new ArrayList<>(charCountsToStrs.values());
   }
 
-  private Map<Character, Integer> getCharCounts(String str) {
-    final Map<Character, Integer> res = new HashMap<>();
-    for (final char chr : str.toCharArray()) {
-      res.put(chr, res.getOrDefault(chr, 0) + 1);
+  private static Map<Character, Integer> getCharCounts(String str) {
+    final Map<Character, Integer> charCounts = new HashMap<>();
+    for (char chr : str.toCharArray()) {
+      charCounts.put(chr, charCounts.getOrDefault(chr, 0) + 1);
     }
-    return res;
+    return charCounts;
   }
 }
