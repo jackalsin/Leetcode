@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
   private Solution solution;
 
-  private static final int[] LEFT_SORT = new int[] {4, 5, 6, 8, 10, 0, 1, 2};
-  private static final int[] RIGHT_SORT = new int[] {6, 7, 9, 0, 1, 3, 4, 5};
+  private static final int[] LEFT_SORT = new int[]{4, 5, 6, 8, 10, 0, 1, 2};
+  private static final int[] RIGHT_SORT = new int[]{6, 7, 9, 0, 1, 3, 4, 5};
 
   @BeforeEach
   void setUp() throws Exception {
@@ -66,4 +66,9 @@ class SolutionTest {
     assertEquals(-1, solution.search(RIGHT_SORT, 8));
   }
 
+  @Test
+  void testFailedCase1() {
+    final int[] input = {4, 5, 6, 7, 0, 1, 2};
+    assertEquals(4, solution.search(input, 0));
+  }
 }
