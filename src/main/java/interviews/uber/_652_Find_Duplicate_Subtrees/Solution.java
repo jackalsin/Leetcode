@@ -5,30 +5,28 @@ import utils.TreeNode;
 import java.util.*;
 
 public final class Solution {
-  private static final String SEP = ",";
+  private static final String SEP = ",", NULL = "#";
+  private final Map<String, TreeNode> strToNodes = new HashMap<>();
   private final Set<TreeNode> result = new HashSet<>();
-  private final Map<String, TreeNode> visited = new HashMap<>();
 
   public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
-    serialize(root);
+    dfs(root);
     return new ArrayList<>(result);
   }
 
-  private String serialize(TreeNode root) {
+  private String dfs(TreeNode root) {
     if (root == null) {
-      return "null";
+      return NULL;
     }
-
-    final String left = serialize(root.left),
-        right = serialize(root.right);
-    StringBuilder sb = new StringBuilder().append(root.val).append(SEP)
-        .append(left).append(SEP).append(right);
-    final String res = sb.toString();
-    if (visited.containsKey(res)) {
-      result.add(visited.get(res));
+    final String curStr =
+        new StringBuilder().append(root.val).append(SEP).append(dfs(root.left))
+            .append(SEP).append(dfs(root.right)).toString();
+    TreeNode correspondingRoot = strToNodes.get(curStr);
+    if (correspondingRoot == null) {
+      strToNodes.put(curStr, root);
     } else {
-      visited.put(res, root);
+      result.add(correspondingRoot);
     }
-    return res;
+    return curStr;
   }
 }
