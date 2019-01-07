@@ -28,4 +28,12 @@ public final class Node {
   public int hashCode() {
     return Objects.hash(val, children);
   }
+
+  @Override
+  public String toString() {
+    return "Node{" +
+        "val=" + val +
+        ", children=" + children +
+        '}';
+  }
 }
