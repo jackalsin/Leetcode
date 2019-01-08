@@ -1,22 +1,17 @@
-package _0351_0400._359_Logger_Rate_Limiter;
-
+package interviews.uber._359_Logger_Rate_Limiter;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jacka
- * @version 1.0 on 10/12/2017.
- */
 class LoggerTest {
-  private Logger logger;
+  private Logger solution;
 
   @BeforeEach
-  void setUp() throws Exception {
-    logger = new Logger();
+  void setUp() {
+    solution = new Logger();
   }
 
   @Test
@@ -41,5 +36,4 @@ class LoggerTest {
 // logging string "foo" at timestamp 11
     assertTrue(logger.shouldPrintMessage(11, "foo"));
   }
-
 }
