@@ -2,9 +2,12 @@ package interviews.uber._381_Insert_Delete_GetRandom_O_1_Duplicates_allowed;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RandomizedCollectionTest {
+
   @Test
   void testFailedCase1() {
 //    ["RandomizedCollection","insert","insert","insert","insert","insert","remove","remove","remove","remove"]
@@ -52,5 +55,23 @@ class RandomizedCollectionTest {
     assertEquals(1, randomizedCollection.getRandom());
     assertEquals(1, randomizedCollection.getRandom());
     assertEquals(1, randomizedCollection.getRandom());
+  }
+
+  @Test
+  void testFailedCase4() {
+//["RandomizedCollection","insert","insert","insert","insert","insert","insert","remove","remove","remove","remove",
+//[                     [],[10],    [10],     [20],   [20],     [30],   [30],   [10],     [10],     [30],   [30],
+    final RandomizedCollection randomizedCollection = new RandomizedCollection();
+    assertTrue(randomizedCollection.insert(10));
+    assertFalse(randomizedCollection.insert(10));
+    assertTrue(randomizedCollection.insert(20));
+    assertFalse(randomizedCollection.insert(20));
+    assertTrue(randomizedCollection.insert(30));
+    assertFalse(randomizedCollection.insert(30));
+    assertTrue(randomizedCollection.remove(10));
+    assertTrue(randomizedCollection.remove(10));
+    assertTrue(randomizedCollection.remove(30));
+    assertTrue(randomizedCollection.remove(30));
+
   }
 }
