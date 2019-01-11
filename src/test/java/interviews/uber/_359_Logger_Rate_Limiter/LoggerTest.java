@@ -7,16 +7,15 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LoggerTest {
-  private Logger solution;
+  private Logger logger;
 
   @BeforeEach
   void setUp() {
-    solution = new Logger();
+    logger = new Logger();
   }
 
   @Test
   void testOnlineCase() throws Exception {
-    Logger logger = new Logger();
 
 // logging string "foo" at timestamp 1
     assertTrue(logger.shouldPrintMessage(1, "foo"));
