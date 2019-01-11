@@ -3,30 +3,23 @@ package interviews.uber._230_Kth_Smallest_Element_in_a_BST;
 import utils.TreeNode;
 
 public class Solution {
-//  private final Map<TreeNode, Integer> nodeCounts = new HashMap<>();
 
   public int kthSmallest(TreeNode root, int k) {
-    int leftCounts = countNodes(root.left);
-    if (leftCounts == k - 1) {
+    assert root != null;
+    final int leftCount = getCount(root.left);
+    if (leftCount == k - 1) {
       return root.val;
-    } else if (leftCounts < k - 1) {
-      return kthSmallest(root.right, k - leftCounts - 1);
+    } else if (leftCount < k - 1) {
+      return kthSmallest(root.right, k - leftCount - 1);
     } else {
       return kthSmallest(root.left, k);
     }
   }
 
-  private int countNodes(TreeNode root) {
+  private static int getCount(final TreeNode root) {
     if (root == null) {
       return 0;
     }
-//    if (nodeCounts.containsKey(root)) {
-//      return nodeCounts.get(root);
-//    }
-
-    int res = 1 + countNodes(root.left) + countNodes(root.right);
-//    nodeCounts.put(root, res);
-
-    return res;
+    return 1 + getCount(root.left) + getCount(root.right);
   }
 }
