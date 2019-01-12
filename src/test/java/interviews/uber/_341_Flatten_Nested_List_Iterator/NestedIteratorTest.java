@@ -7,11 +7,14 @@ import utils.nestedInteger.NestedIntegerImpl;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NestedIteratorTest {
   @BeforeEach
-  void setUp() throws Exception {}
+  void setUp() throws Exception {
+  }
 
   @Test
   void testOnlineCase1() throws Exception {

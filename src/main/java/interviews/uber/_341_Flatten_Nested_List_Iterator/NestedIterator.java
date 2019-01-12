@@ -2,9 +2,10 @@ package interviews.uber._341_Flatten_Nested_List_Iterator;
 
 import utils.nestedInteger.NestedInteger;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * Directly flatten integer performance:
@@ -15,7 +16,7 @@ import java.util.Stack;
  * @version 1.0 on 3/13/2018.
  */
 public final class NestedIterator implements Iterator<Integer> {
-  private final Stack<NestedInteger> stack = new Stack<>();
+  private final Deque<NestedInteger> stack = new ArrayDeque<>();
 
   public NestedIterator(List<NestedInteger> nestedList) {
     for (int i = nestedList.size() - 1; i >= 0; i--) {
@@ -24,23 +25,26 @@ public final class NestedIterator implements Iterator<Integer> {
   }
 
   @Override
-  public Integer next() {
-    return stack.pop().getInteger();
+  public boolean hasNext() {
+    while (!stack.isEmpty()) {
+      final NestedInteger ni = stack.pop();
+      if (ni.isInteger()) {
+        stack.push(ni);
+        return true;
+      } else {
+        final List<NestedInteger> niList = ni.getList();
+        for (int i = niList.size() - 1; i >= 0; i--) {
+          stack.push(niList.get(i));
+        }
+      }
+    }
+
+    return false;
   }
 
   @Override
-  public boolean hasNext() {
-    while (!stack.isEmpty()) {
-      final NestedInteger resultNi = stack.peek();
-      if (resultNi.isInteger()) {
-        return true;
-      }
-      stack.pop();
-      List<NestedInteger> list = resultNi.getList();
-      for (int i = list.size() - 1; i >= 0; i--) {
-        stack.add(list.get(i));
-      }
-    }
-    return false;
+  public Integer next() {
+    assert hasNext();
+    return stack.pop().getInteger();
   }
 }
