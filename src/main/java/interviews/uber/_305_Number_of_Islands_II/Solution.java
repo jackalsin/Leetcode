@@ -10,75 +10,79 @@ import java.util.List;
  */
 public class Solution {
   private static final int[][] DIRS = {
-      {-1, 0}, {0, 1}, {0, -1}, {1, 0}
+      {0, 1}, {0, -1}, {1, 0}, {-1, 0}
   };
 
-  public List<Integer> numIslands2(int m, int n, int[][] positions) {
+  public List<Integer> numIslands2(int rows, int cols, int[][] positions) {
+    final UnionFind uf = new UnionFind(rows, cols);
     final List<Integer> result = new ArrayList<>();
-    final UnionFind uf = new UnionFind(m, n);
-    for (final int[] position : positions) {
-      final int curRow = position[0], curCol = position[1], p = uf.getIndex(curRow, curCol);
-      uf.addIsland(p);
-      for (final int[] dir : DIRS) {
-        int nextRow = curRow + dir[0], nextCol = curCol + dir[1], q = uf.getIndex(nextRow, nextCol);
-        if (0 <= nextRow && nextRow < m && nextCol >= 0 && nextCol < n && uf.roots[q] != -1 &&
-            !uf.find(p, q)) {
-          uf.union(p, q);
+    for (int[] p : positions) {
+      final int row = p[0], col = p[1], i = uf.getIndex(p[0], p[1]);
+      if (uf.sizes[i] == 0) {
+        uf.add(i);
+      }
+      for (final int[] d : DIRS) {
+        final int nextRow = row + d[0], nextCol = col + d[1];
+        if (nextRow < 0 || nextCol < 0 || nextRow >= rows || nextCol >= cols) continue;
+        final int otherI = uf.getIndex(nextRow, nextCol);
+        if (uf.sizes[otherI] == 0) continue;
+        if (uf.root(i) != uf.root(otherI)) {
+          uf.union(i, otherI);
         }
       }
-      result.add(uf.realRootCount);
+      result.add(uf.count);
     }
     return result;
   }
 
   private static final class UnionFind {
-    private final int[] roots, sizes;
     private final int m, n;
-    private int realRootCount = 0;
+    private final int[] sizes, roots;
+    private int count;
 
-    UnionFind(int m, int n) {
-      roots = new int[m * n];
-      sizes = new int[m * n];
+    private UnionFind(final int m, final int n) {
+      final int size = m * n;
       this.m = m;
       this.n = n;
+
+      sizes = new int[size];
+      roots = new int[size];
+      for (int i = 0; i < size; i++) {
+        roots[i] = i;
+      }
       Arrays.fill(roots, -1);
     }
 
-    public void addIsland(int p) {
-      roots[p] = p;
-      realRootCount++;
+    private void add(int i) {
+      roots[i] = i;
+      sizes[i] = 1;
+      count++;
     }
 
-    public int getIndex(int row, int col) {
-      return row * n + col;
-    }
-
-    public int root(int m, int n) {
-      int i = getIndex(m, n);
-      return root(i);
-    }
-
-    public int root(int p) {
-      while (roots[p] != p) {
+    private int root(int p) {
+      while (p != roots[p]) {
         p = roots[p];
       }
       return p;
     }
 
-    public void union(int p, int q) {
-      final int rootP = root(p), rootQ = root(q), sizeP = sizes[p], sizeQ = sizes[q];
-      if (sizeP > sizeQ) {
-        roots[rootQ] = rootP;
-        sizes[rootP] += sizeQ;
-      } else {
-        roots[rootP] = rootQ;
-        sizes[rootQ] += sizeP;
+    private void union(final int p, final int q) {
+      final int rootP = root(p), rootQ = root(q), sizeP = sizes[rootP],
+          sizeQ = sizes[rootQ];
+      if (rootP != rootQ) {
+        if (sizeP > sizeQ) {
+          roots[rootQ] = rootP;
+          sizes[rootP] += sizeP;
+        } else {
+          roots[rootP] = rootQ;
+          sizes[rootQ] += sizeQ;
+        }
+        count--;
       }
-      realRootCount--;
     }
 
-    public boolean find(int p, int q) {
-      return root(p) == root(q);
+    private int getIndex(final int row, final int col) {
+      return col + row * n;
     }
   }
 }
