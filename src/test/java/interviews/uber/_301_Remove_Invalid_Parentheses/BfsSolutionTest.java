@@ -1,5 +1,4 @@
-package _0301_0350._301_Remove_Invalid_Parentheses;
-
+package interviews.uber._301_Remove_Invalid_Parentheses;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,18 +8,15 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/11/2017.
- */
-class SolutionTest {
+class BfsSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-//    solution = new BfsSolution();
-    solution = new DfsSolution();
+    solution = new BfsSolution();
+//    solution = new DfsSolution();
   }
 
   @Test
