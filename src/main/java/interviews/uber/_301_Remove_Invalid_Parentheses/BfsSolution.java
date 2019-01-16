@@ -10,7 +10,7 @@ import java.util.Set;
 public final class BfsSolution implements Solution {
   public List<String> removeInvalidParentheses(String s) {
     final List<String> result = new ArrayList<>();
-    if (s == null || s.length() == 0) {
+    if (s == null) {
       return result;
     }
     final Set<String> visited = new HashSet<>();
