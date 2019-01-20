@@ -17,6 +17,7 @@
     <version>1.0-SNAPSHOT</version>
     <build>
         <!--<sourceDirectory>src</sourceDirectory>-->
+        <directory>${env.MAVEN_TEMP}</directory>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
