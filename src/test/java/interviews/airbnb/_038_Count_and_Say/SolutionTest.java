@@ -1,14 +1,13 @@
-package _0001_0050._038_Count_and_Say;
-
+package interviews.airbnb._038_Count_and_Say;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/18/2017.
+ * @version 1.0 on 1/22/2019.
  */
 class SolutionTest {
   private Solution solution;
@@ -32,5 +31,4 @@ class SolutionTest {
   void testWith13() throws Exception {
     assertEquals("11131221133112132113212221", solution.countAndSay(11));
   }
-
 }
