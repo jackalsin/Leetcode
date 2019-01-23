@@ -4,7 +4,14 @@ package interviews.airbnb._041_First_Missing_Positive;
  * @author jacka
  * @version 1.0 on 1/22/2019.
  */
-public final class ConstantSpace implements Solution {
+public final class ConstantSpaceSolution implements Solution {
+  /**
+   * Time Complexity: O(N)
+   * Space Complexity: O(1)
+   *
+   * @param nums
+   * @return
+   */
   public int firstMissingPositive(int[] nums) {
     if (nums == null) {
       return 1;
@@ -12,8 +19,9 @@ public final class ConstantSpace implements Solution {
     final int n = nums.length;
     for (int i = 0; i < n; i++) {
       // 5 要在 nums[4]
-      while (nums[i] > 0 && nums[i] < n && nums[i] != i + 1) {
-        swap(nums, i, nums[nums[i] - 1]);
+      while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
+        // swap 之后，value of <value>nums[i] - i</value>会被swap到<tt>i</tt> position
+        swap(nums, i, nums[i] - 1);
       }
     }
 
