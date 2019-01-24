@@ -1,4 +1,4 @@
-package _0051_0100._073_Set_Matrix_Zeroes;
+package interviews.airbnb._073_Set_Matrix_Zeroes;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 4/30/2017.
+ * @version 1.0 on 1/24/2019.
  */
 class SolutionTest {
   private Solution solution;
