@@ -11,15 +11,18 @@ public class Solution {
   private static String helper(int A, final char a, int B, final char b) {
     assert A >= B;
     final StringBuilder sb = new StringBuilder();
-    for (int i = 0; i < B; i++) {
-      sb.append(a).append(b);
-    }
-
-    for (int i = 0; i < A - B; i++) {
-      if (i * 3 <= sb.length()) {
-        sb.insert(i * 3, a);
-      } else {
+    while (A > 0 || B > 0) {
+      if (A > 0) {
         sb.append(a);
+        A--;
+      }
+      if (A > B) {
+        sb.append(a);
+        A--;
+      }
+      if (B > 0) {
+        sb.append(b);
+        B--;
       }
     }
     return sb.toString();
