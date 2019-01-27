@@ -1,15 +1,15 @@
-package _0101_0150._147_Insertion_Sort_List;
+package interviews.airbnb._147_Insertion_Sort_List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.ListNode;
 import utils.ListNodes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 7/9/2017.
+ * @version 1.0 on 1/26/2019.
  */
 class SolutionTest {
   private Solution solution;
