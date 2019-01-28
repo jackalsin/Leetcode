@@ -1,14 +1,13 @@
-package _0151_0200._198_House_Robber;
-
+package interviews.airbnb._198_House_Robber;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/4/2017.
+ * @author jacka
+ * @version 1.0 on 1/27/2019.
  */
 class SolutionTest {
   private Solution solution;
