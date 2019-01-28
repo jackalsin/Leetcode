@@ -1,9 +1,7 @@
 package interviews.airbnb._220_Contains_Duplicate_III;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author jacka
@@ -15,36 +13,26 @@ public final class BucketSortSolution implements Solution {
     if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
       return false;
     }
-    int min = nums[0], max = nums[0];
-    for (int i = 1; i < nums.length; i++) {
-      min = Math.min(min, nums[i]);
-      max = Math.max(max, nums[i]);
-    }
-
-    // create buckets
-    final List<Set<Integer>> buckets = new ArrayList<>();
-    final int bucketNum = (int) (((long) max - min) / t) + 1;
-    for (int i = 0; i < bucketNum; i++) {
-      buckets.add(new HashSet<>());
-    }
-
+    final Map<Long, Long> buckets = new HashMap<>();
     for (int i = 0; i < nums.length; i++) {
       if (i - k - 1 >= 0) {
-        final int becketIndex = getBucketIndex(nums[i - k - 1], min, t);
-        buckets.get(becketIndex).remove(nums[i - k - 1]);
+        final long removeBucketIndex = getBucketIndex(nums[i - k - 1], t);
+        buckets.remove(removeBucketIndex);
       }
-
-      final int bucketIndex = getBucketIndex(nums[i], min, t);
-      final Set<Integer> bucket = buckets.get(bucketIndex);
-      if (!bucket.isEmpty()) {
+      final long bucketIndex = getBucketIndex(nums[i], t);
+      if (buckets.containsKey(bucketIndex)
+          || (buckets.containsKey(bucketIndex - 1) && (long) nums[i] - buckets.get(bucketIndex - 1) <= t)
+          || (buckets.containsKey(bucketIndex + 1) && buckets.get(bucketIndex + 1) - (long) nums[i] <= t)
+      ) {
         return true;
-      } // end of if
-      bucket.add(nums[i]);
+      }
+      buckets.put(bucketIndex, (long) nums[i]);
     }
     return false;
   }
 
-  private static int getBucketIndex(final int num, final int min, final int t) {
-    return (int) (((long) num - min) / t);
+  private static long getBucketIndex(final int num, final int t) {
+    final long remain = (long) num - Integer.MIN_VALUE;
+    return remain / ((long) t + 1); // 这里两个都要，t + 1也可能overflow
   }
 }
