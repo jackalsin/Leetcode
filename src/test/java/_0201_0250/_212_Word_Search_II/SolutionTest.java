@@ -1,7 +1,8 @@
 package _0201_0250._212_Word_Search_II;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +15,7 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 8/8/2017.
  */
-public class SolutionTest {
+class SolutionTest {
   private Solution solution;
 
   private static final char[][] BOARD = new char[][] {
@@ -28,23 +29,24 @@ public class SolutionTest {
       {'a', 'b'},
       {'a', 'a'}
   };
-  @Before
-  public void setUp() throws Exception {
+
+  @BeforeEach
+  void setUp() throws Exception {
     solution = new Solution();
   }
 
   @Test
-  public void testEmptyBoard() throws Exception {
+  void testEmptyBoard() throws Exception {
     assertEquals(new ArrayList<>(), solution.findWords(new char[][]{}, new String[]{"a"}));
   }
 
   @Test
-  public void testEmptyWords() throws Exception {
+  void testEmptyWords() throws Exception {
     assertEquals(new ArrayList<>(), solution.findWords(BOARD, new String[]{}));
   }
 
   @Test
-  public void testOnlineCase() throws Exception {
+  void testOnlineCase() throws Exception {
     final String[] words = new String[] { "oath", "pea", "eat", "rain" };
     List<String> expected = Arrays.asList("eat", "oath");
     List<String> actual = solution.findWords(BOARD, words);
@@ -53,7 +55,7 @@ public class SolutionTest {
   }
 
   @Test
-  public void testTLE() throws Exception {
+  void testTLE() throws Exception {
     String[] boardString = new String[] {"aaaa","aaaa","aaaa","aaaa","bcde","fghi","jklm","nopq",
         "rstu", "vwxy", "zzzz"};
     String[] words = new String[] { "aaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaab","aaaaaaaaaaaaaaac",
