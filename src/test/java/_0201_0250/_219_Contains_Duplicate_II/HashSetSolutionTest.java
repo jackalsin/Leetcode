@@ -1,7 +1,8 @@
 package _0201_0250._219_Contains_Duplicate_II;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -10,22 +11,22 @@ import static org.junit.Assert.assertTrue;
  * @author jacka
  * @version 1.0 on 8/14/2017.
  */
-public class SolutionTest {
+class HashSetSolutionTest {
   private Solution solution;
 
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
+  @BeforeEach
+  void setUp() throws Exception {
+    solution = new HashSetSolution();
   }
 
   @Test
-  public void testEmpty() throws Exception {
+  void testEmpty() throws Exception {
     assertFalse(solution.containsNearbyDuplicate(new int[]{}, 0));
   }
 
 
   @Test
-  public void testUnorderedArray() throws Exception {
+  void testUnorderedArray() throws Exception {
     final int[] input = new int[]{1, 5, -3, 5, 2, 11, 7};
     assertTrue(solution.containsNearbyDuplicate(input, 4));
   }
