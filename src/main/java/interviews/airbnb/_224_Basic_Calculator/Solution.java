@@ -1,43 +1,40 @@
 package interviews.airbnb._224_Basic_Calculator;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class Solution {
   public int calculate(String s) {
-    return calculate(s, 0, s.length());
-  }
-
-  private static int calculate(String s, int start, int end) {
+    final Deque<int[]> stack = new ArrayDeque<>();
     int l1 = 0, sign = 1, num = 0;
-    for (int i = start; i < end; i++) {
+    for (int i = 0; i < s.length(); i++) {
       final char chr = s.charAt(i);
       if (chr == ' ') continue;
       if (Character.isDigit(chr)) {
-        final int startIndex = i;
-        while (i + 1 < end && Character.isDigit(s.charAt(i + 1))) {
+        int curNum = chr - '0';
+        while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
+          curNum = curNum * 10 + (s.charAt(i + 1) - '0');
           i++;
         }
-
-        num = Integer.parseInt(s.substring(startIndex, i + 1));
-        l1 += sign * num;
-        sign = 1;
-        num = 0;
+        num = curNum;
       } else if (chr == '(') {
-        final int startIndex = i;
-        int leftCount = 1;
-        while (i + 1 < end) {
-          final char curChar = s.charAt(i + 1);
-          if (curChar == '(') leftCount++;
-          else if (curChar == ')') leftCount--;
-          if (leftCount == 0) break;
-          i++;
-        }
-        num = calculate(s, startIndex + 1, i + 1);
-        l1 += sign * num;
-        num = 0;
+        stack.push(new int[]{l1, sign});
+        l1 = 0;
         sign = 1;
       } else if (chr == '+') {
+        l1 += sign * num;
         sign = 1;
+        num = 0;
       } else if (chr == '-') {
+        l1 += sign * num;
         sign = -1;
+        num = 0;
+      } else if (chr == ')') {
+        l1 += sign * num;
+        final int[] prev = stack.pop();
+        l1 = prev[0] + prev[1] * l1;
+        sign = 1;
+        num = 0;
       }
     }
     return l1 + sign * num;
