@@ -1,20 +1,22 @@
-package _0251_0300._269_Alien_Dictionary;
+package interviews.airbnb._269_Alien_Dictionary;
 
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/29/2017.
+ * @author jacka
+ * @version 1.0 on 1/31/2019.
  */
 class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
+  void setUp() {
     solution = new Solution();
   }
 
@@ -35,16 +37,13 @@ class SolutionTest {
 
   @Test
   void testFailed() throws Exception {
-    assertEquals("acb", solution.alienOrder(new String[]{"ac", "ab", "b"}));
+    final Set<String> expected = Set.of("acb", "cab");
+    final String actual = solution.alienOrder(new String[]{"ac", "ab", "b"});
+    assertTrue(expected.contains(actual));
   }
 
   @Test
-  void testFailed2() throws Exception {
-    assertEquals("acb", solution.alienOrder(new String[]{"ac", "ab", "b"}));
-  }
-
-  @org.junit.jupiter.api.Test
   void testFailed3() throws Exception {
-    Assertions.assertEquals("z", solution.alienOrder(new String[]{"z", "z"}));
+    assertEquals("z", solution.alienOrder(new String[]{"z", "z"}));
   }
 }
