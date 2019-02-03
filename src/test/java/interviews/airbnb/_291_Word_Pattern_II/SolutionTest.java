@@ -1,21 +1,20 @@
-package _0251_0300._291_Word_Pattern_II;
-
+package interviews.airbnb._291_Word_Pattern_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/6/2017.
+ * @author jacka
+ * @version 1.0 on 2/3/2019.
  */
 class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
+  void setup() {
     solution = new Solution();
   }
 
@@ -55,4 +54,15 @@ class SolutionTest {
     assertTrue(solution.wordPatternMatch(pattern, str));
   }
 
+  @Test
+  void testFailed4() {
+    final String pattern = "e", str = "d";
+    assertTrue(solution.wordPatternMatch(pattern, str));
+  }
+
+  @Test
+  void testFailed5() {
+    final String pattern = "itwasthebestoftimes", str = "ittwaastthhebesttoofttimes";
+    assertTrue(solution.wordPatternMatch(pattern, str));
+  }
 }
