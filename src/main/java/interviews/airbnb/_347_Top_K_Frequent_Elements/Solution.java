@@ -1,40 +1,36 @@
 package interviews.airbnb._347_Top_K_Frequent_Elements;
 
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
  * @author jacka
  * @version 1.0 on 2/6/2019.
  */
-public class Solution {
+public final class Solution {
 
   public List<Integer> topKFrequent(int[] nums, int k) {
-    final Map<Integer, Integer> count = new HashMap<>();
+    final Map<Integer, Integer> counts = new HashMap<>();
     for (int n : nums) {
-      count.put(n, count.getOrDefault(n, 0) + 1);
+      counts.put(n, counts.getOrDefault(n, 0) + 1);
     }
-    final Queue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
-      @Override
-      public int compare(int[] i, int[] j) {
-        return Integer.compare(i[1], j[1]);
-      }
-    });
-    for (final Map.Entry<Integer, Integer> e : count.entrySet()) {
-      pq.add(new int[]{e.getKey(), e.getValue()});
-      if (pq.size() > k) {
-        pq.remove();
-      }
+
+    final List<List<Integer>> buckets = new ArrayList<>();
+    for (int i = 0; i < nums.length + 1; i++) {
+      buckets.add(new ArrayList<>());
     }
-    final LinkedList<Integer> res = new LinkedList<>();
-    while (!pq.isEmpty()) {
-      res.addFirst(pq.remove()[0]);
+
+    for (final Map.Entry<Integer, Integer> e : counts.entrySet()) {
+      final int key = e.getKey(), count = e.getValue();
+      buckets.get(count).add(key);
     }
-    return res;
+    final List<Integer> result = new ArrayList<>();
+    for (int i = nums.length; result.size() < k && i >= 0; i--) {
+      result.addAll(buckets.get(i));
+    }
+    assert result.size() == k;
+    return result;
   }
 }
