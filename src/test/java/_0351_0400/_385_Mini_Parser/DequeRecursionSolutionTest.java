@@ -6,12 +6,12 @@ import utils.nestedInteger._385_Mini_Parser.NestedInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+class DequeRecursionSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new DequeRecursionSolution();
   }
 
   @Test
