@@ -10,17 +10,23 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 1/22/2018.
  */
-class SolutionTest {
+class DpSolutionITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new Solution();
+    solution = new DpSolutionI();
   }
 
   @Test
   void testOnlineCase1() throws Exception {
     final int[] nums = {1, 2, 3, 6};
     assertEquals(6, solution.splitArray(nums, 2));
+  }
+
+  @Test
+  void testOnlineCase2() throws Exception {
+    final int[] nums = {7, 2, 5, 10, 8};
+    assertEquals(18, solution.splitArray(nums, 2));
   }
 }
