@@ -1,16 +1,19 @@
 package _0701_0750._710_Random_Pick_with_Blacklist;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Disabled
 class RemappingSolutionTest {
   private static final int MAX_COUNT = 1_000_000;
   private static final double BIAS = 1E-3;
 
   @Test
   void testOnlineCase1() {
-    final int N = 4, blacklists[] = {};
+    final int N = 4;
+    final int[] blacklists = {};
     final Solution solution = new RemappingSolution(N, blacklists);
     final int[] counts = new int[N];
     for (int i = 0; i < MAX_COUNT; ++i) {
@@ -23,7 +26,8 @@ class RemappingSolutionTest {
 
   @Test
   void testOnlineCase2() {
-    final int N = 3, blacklists[] = {1};
+    final int N = 3;
+    final int[] blacklists = {1};
     final Solution solution = new RemappingSolution(N, blacklists);
     final int[] counts = new int[N];
     for (int i = 0; i < MAX_COUNT; ++i) {
@@ -35,7 +39,8 @@ class RemappingSolutionTest {
 
   @Test
   void testOnlineCase3() {
-    final int N = 4, blacklists[] = {2};
+    final int N = 4;
+    final int[] blacklists = {2};
     final Solution solution = new RemappingSolution(N, blacklists);
     final int[] counts = new int[N];
     for (int i = 0; i < MAX_COUNT; ++i) {
@@ -49,7 +54,8 @@ class RemappingSolutionTest {
 
   @Test
   void testOnlineCase4() {
-    final int N = 3, blacklists[] = {0};
+    final int N = 3;
+    final int[] blacklists = {0};
     final Solution solution = new RemappingSolution(N, blacklists);
     final int[] counts = new int[N];
     for (int i = 0; i < MAX_COUNT; ++i) {
@@ -62,7 +68,8 @@ class RemappingSolutionTest {
 
   @Test
   void testOnlineCase5() {
-    final int N = 4, blacklists[] = {0, 1};
+    final int N = 4;
+    final int[] blacklists = {0, 1};
     final Solution solution = new RemappingSolution(N, blacklists);
     final int[] counts = new int[N];
     for (int i = 0; i < MAX_COUNT; ++i) {
@@ -74,7 +81,8 @@ class RemappingSolutionTest {
 
   @Test
   void testOnlineCase6() {
-    final int N = 2, blacklists[] = {1};
+    final int N = 2;
+    final int[] blacklists = {1};
     final Solution solution = new RemappingSolution(N, blacklists);
     final int[] counts = new int[N];
     for (int i = 0; i < MAX_COUNT; ++i) {
