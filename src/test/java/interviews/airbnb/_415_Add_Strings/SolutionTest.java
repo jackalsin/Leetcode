@@ -1,12 +1,16 @@
-package _0401_0450._415_Add_Strings;
-
+package interviews.airbnb._415_Add_Strings;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author jacka
+ * @version 1.0 on 2/9/2019.
+ */
 class SolutionTest {
+
   private Solution solution;
 
   @BeforeEach
