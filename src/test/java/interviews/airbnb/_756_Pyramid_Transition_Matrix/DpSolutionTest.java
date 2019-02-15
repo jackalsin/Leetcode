@@ -1,19 +1,18 @@
-package _0751_0800._756_Pyramid_Transition_Matrix;
-
+package interviews.airbnb._756_Pyramid_Transition_Matrix;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 1/6/2018.
+ * @version 1.0 on 2/14/2019.
  */
-class SolutionTest {
+class DpSolutionTest {
   private Solution solution;
 
   @BeforeEach
@@ -77,4 +76,12 @@ class SolutionTest {
     assertFalse(solution.pyramidTransition(bottom, allowed));
   }
 
+  @Test
+  void testOnlineCase4() throws Exception {
+    final String bottom = "CCC";
+    final List<String> allowed = List.of(
+        "CBB", "ACB", "ABD", "CDB", "BDC", "CBC", "DBA", "DBB", "CAB", "BCB", "BCC",
+        "BAA", "CCD", "BDD", "DDD", "CCA", "CAA", "CCC", "CCB");
+    assertTrue(solution.pyramidTransition(bottom, allowed));
+  }
 }

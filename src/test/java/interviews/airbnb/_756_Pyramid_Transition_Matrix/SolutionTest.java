@@ -1,24 +1,23 @@
-package _0751_0800._756_Pyramid_Transition_Matrix;
-
+package interviews.airbnb._756_Pyramid_Transition_Matrix;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 1/6/2018.
+ * @version 1.0 on 2/11/2019.
  */
 class SolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new DpSolution();
+    solution = new NaiveSolution();
   }
 
   @Test
@@ -76,5 +75,4 @@ class SolutionTest {
         "ABA", "ABB", "ABE", "ABF", "EFE", "EBA", "CFG", "CFA", "GFC", "GFA", "GFF");
     assertFalse(solution.pyramidTransition(bottom, allowed));
   }
-
 }
