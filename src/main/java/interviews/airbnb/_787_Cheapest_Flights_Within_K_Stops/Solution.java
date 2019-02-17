@@ -8,18 +8,20 @@ import java.util.Arrays;
  */
 public final class Solution {
   public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
-    final int[][] dp = new int[K + 2][n];
-    Arrays.fill(dp[0], Integer.MAX_VALUE);
-    dp[0][src] = 0;
+    int[] dp = new int[n];
+    Arrays.fill(dp, Integer.MAX_VALUE);
+    dp[src] = 0;
     for (int k = 1; k < K + 2; k++) {
-      System.arraycopy(dp[k - 1], 0, dp[k], 0, n);
+      final int[] tmp = new int[n];
+      System.arraycopy(dp, 0, tmp, 0, n);
 
       for (int[] f : flights) {
         final int from = f[0], to = f[1], price = f[2];
-        if (dp[k - 1][from] == Integer.MAX_VALUE) continue;
-        dp[k][to] = Math.min(dp[k][to], dp[k - 1][from] + price);
+        if (dp[from] == Integer.MAX_VALUE) continue;
+        tmp[to] = Math.min(tmp[to], dp[from] + price);
       }
+      dp = tmp;
     }
-    return dp[K + 1][dst] == Integer.MAX_VALUE ? -1 : dp[K + 1][dst];
+    return dp[dst] == Integer.MAX_VALUE ? -1 : dp[dst];
   }
 }
