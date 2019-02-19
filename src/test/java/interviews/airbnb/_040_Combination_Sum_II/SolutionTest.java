@@ -1,4 +1,4 @@
-package _0001_0050._040_Combination_Sum_II;
+package interviews.airbnb._040_Combination_Sum_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,11 +8,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/18/2017.
+ * @version 1.0 on 2/19/2019.
  */
 class SolutionTest {
   private Solution solution;
@@ -29,7 +29,7 @@ class SolutionTest {
     expect.add(Arrays.asList(1, 2, 5));
     expect.add(Arrays.asList(2, 6));
     expect.add(Arrays.asList(1, 1, 6));
-    List<List<Integer>> actual = solution.combinationSum(new int[]{10, 1, 2, 7, 6, 1, 5}, 8);
+    List<List<Integer>> actual = solution.combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8);
     assertEquals(expect.size(), actual.size());
     assertEquals(new HashSet<>(expect), new HashSet<>(actual));
 
@@ -39,7 +39,7 @@ class SolutionTest {
   void testWithTripleElements() {
     List<List<Integer>> expect = new ArrayList<>();
     expect.add(Arrays.asList(1, 1, 6));
-    List<List<Integer>> actual = solution.combinationSum(new int[]{1, 1, 1, 6, 10}, 8);
+    List<List<Integer>> actual = solution.combinationSum2(new int[]{1, 1, 1, 6, 10}, 8);
     assertEquals(expect.size(), actual.size());
     assertEquals(new HashSet<>(expect), new HashSet<>(actual));
 
