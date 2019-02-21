@@ -10,12 +10,12 @@ import static org.junit.Assert.assertEquals;
  * @author Zhiwei.Xin
  * @version 1.0 on 8/25/2017.
  */
-class SolutionTest {
+class TwoArraySolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new Solution();
+    solution = new TwoArraySolution();
   }
 
   @Test
