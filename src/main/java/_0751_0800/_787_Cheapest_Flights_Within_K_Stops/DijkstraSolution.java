@@ -1,8 +1,22 @@
 package _0751_0800._787_Cheapest_Flights_Within_K_Stops;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public final class DijkstraSolution implements Solution {
+  /**
+   * Time Complexity: O(numOfFlights + N Log N)
+   *
+   * @param n
+   * @param flights
+   * @param src
+   * @param dst
+   * @param K
+   * @return
+   */
   public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
     final Map<Integer, Map<Integer, Integer>> srcToDes = new HashMap<>();
     //The format of each flight will be (src, dst, price).
