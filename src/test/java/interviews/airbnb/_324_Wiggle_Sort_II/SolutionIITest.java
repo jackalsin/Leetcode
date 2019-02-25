@@ -11,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author jacka
  * @version 1.0 on 2/5/2019.
  */
-class SolutionTest {
+class SolutionIITest {
 
   private Solution solution;
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new Solution();
+    solution = new SolutionII();
   }
 
   @Test
