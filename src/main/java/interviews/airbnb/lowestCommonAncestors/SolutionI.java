@@ -1,4 +1,4 @@
-package interviews.airbnb.lowest_common_ancestors;
+package interviews.airbnb.lowestCommonAncestors;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;

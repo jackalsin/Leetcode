@@ -1,4 +1,4 @@
-package interviews.airbnb.collatz_conjecture;
+package interviews.airbnb.collatzConjecture;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;

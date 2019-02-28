@@ -1,4 +1,4 @@
-package interviews.airbnb.collatz_conjecture;
+package interviews.airbnb.collatzConjecture;
 
 import java.util.HashMap;
 import java.util.Map;
