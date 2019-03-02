@@ -1,10 +1,10 @@
 package interviews.airbnb.displayPage;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
-import java.util.Map;
+import java.util.Set;
 
 /**
  * @author jacka
@@ -25,22 +25,19 @@ public final class SolutionI implements Solution {
     Iterator<String> itr = input.iterator();
     int resIndex = 0;
     while (itr.hasNext() && resIndex != result.length) {
-      final LinkedHashMap<String, String> curPage = new LinkedHashMap<>();
+      final Set<String> visitedHosts = new HashSet<>();
       // get the right page
-      while (itr.hasNext() && curPage.size() < perPage) {
+      while (itr.hasNext() && visitedHosts.size() < perPage) {
         final String entry = itr.next(), hostId = entry.split(",")[0];
-        if (!curPage.containsKey(hostId)) {
+        if (!visitedHosts.contains(hostId)) {
+          result[resIndex++] = entry;
           itr.remove();
-          curPage.put(hostId, entry);
+          visitedHosts.add(hostId);
         }
       }
 
-      for (Map.Entry<String, String> e : curPage.entrySet()) {
-        result[resIndex++] = e.getValue();
-      }
-
       itr = input.iterator();
-      for (int i = 0; itr.hasNext() && curPage.size() + i < perPage; i++) {
+      for (int i = 0; itr.hasNext() && visitedHosts.size() + i < perPage; i++) {
         final String entry = itr.next();
         itr.remove();
         result[resIndex++] = entry;
