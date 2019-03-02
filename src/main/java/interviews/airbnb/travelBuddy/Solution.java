@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -34,8 +35,7 @@ public final class Solution {
       int overlap = 0;
       final String fName = f.getKey();
       final List<String> fCities = f.getValue();
-      for (int i = 0; i < fCities.size(); i++) {
-        final String c = fCities.get(i);
+      for (final String c : fCities) {
         if (myCitySet.contains(c)) overlap++;
       }
       final int citySize = fCities.size();
@@ -50,4 +50,29 @@ public final class Solution {
     Collections.reverse(result);
     return result;
   }
+
+  public List<String> getRecommendList(final int size) {
+    final List<String> travelBuddies = getTravelBuddies();
+    final LinkedHashSet<String> result = new LinkedHashSet<>();
+    // This is a must
+    if (size == 0) {
+      return new ArrayList<>(result);
+    }
+    OUT:
+    for (String b : travelBuddies) {
+      final List<String> fCity = friendsCities.get(b);
+      for (String c : fCity) {
+        if (!myCities.contains(c)) {
+          result.add(c);
+          if (result.size() == size) {
+            break OUT;
+          }
+        }
+      } // end of loop city
+
+    }
+
+    return new ArrayList<>(result);
+  }
+
 }
