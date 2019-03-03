@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author jacka
  * @version 1.0 on 2/10/2019.
  */
-class FileSystemTest {
+class MapSolutionTest {
   private FileSystem solution;
 
   @BeforeEach
   void setUp() {
-    solution = new FileSystem();
+    solution = new MapSolution();
   }
 
   @Test
