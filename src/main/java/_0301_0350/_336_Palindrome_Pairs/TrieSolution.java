@@ -53,6 +53,7 @@ public final class TrieSolution implements Solution {
 
   private void search(final List<List<Integer>> result, TrieNode root, final String word, final int indexInWords) {
     for (int i = 0; i < word.length(); i++) {
+      // curWord [non-palindrome][palindrome], word in trie [non-palindrome 反过来]
       if (root.index >= 0 && root.index != indexInWords && isPalindrome(word, i, word.length() - 1)) {
         result.add(Arrays.asList(indexInWords, root.index));
       }
@@ -65,6 +66,7 @@ public final class TrieSolution implements Solution {
 
       root = root.next[charIndex];
     }
+    // word + [palindrome] + 之前的word 不palindrome的部分
     for (int child : root.list) {
       if (child != indexInWords) {
         result.add(Arrays.asList(indexInWords, child));
