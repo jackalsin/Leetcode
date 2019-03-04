@@ -11,7 +11,10 @@ import java.util.Queue;
 public class MedianFinder {
   private final Queue<Long> small;
   private final Queue<Long> large;
-  /** initialize your data structure here. */
+
+  /**
+   * initialize your data structure here.
+   */
   public MedianFinder() {
     small = new PriorityQueue<>(new Comparator<Long>() {
       @Override
@@ -41,7 +44,7 @@ public class MedianFinder {
     if (small.size() == 0) {
       small.add(numL);
     } else if (small.size() == large.size()) {
-      if(small.peek() >= numL) small.add(numL);
+      if (small.peek() >= numL) small.add(numL);
       else {
         large.add(numL);
         small.add(large.poll());
@@ -58,15 +61,7 @@ public class MedianFinder {
 
   public double findMedian() {
     // overflow
-    return small.size() > large.size() ? small.peek(): (double) (small.peek() + large.peek()) / 2;
+    return small.size() > large.size() ? small.peek() : (double) (small.peek() + large.peek()) / 2;
   }
 
-  public static void main(String[] args) {
-    Queue<Integer> pq = new PriorityQueue<>();
-    pq.add(1);
-    pq.add(2);
-    while (!pq.isEmpty()) {
-      System.out.println(pq.remove()); // add equivalent to poll(), but remove is O(N)
-    }
-  }
 }
