@@ -35,7 +35,31 @@ class FixedWidthSolutionTest {
         "|now it's third|",
         "+--------------+"
     ), actual = solution.format(input, 14);
-    System.out.println(input.get(2).length());
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void testOnlineCaseEndWithSpace() {
+    final List<String> input = List.of(
+        "now it's third "
+    ), expected = List.of(
+        "+---------------+",
+        "|now it's third |",
+        "+---------------+"
+    ), actual = solution.format(input, 15);
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void testOnlineCaseEndWithSpace2Line() {
+    final List<String> input = List.of(
+        "now it's third "
+    ), expected = List.of(
+        "+--------------+",
+        "|now it's third|",
+        "|              |",
+        "+--------------+"
+    ), actual = solution.format(input, 14);
     assertEquals(expected, actual);
   }
 }

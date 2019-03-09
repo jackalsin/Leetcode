@@ -24,14 +24,25 @@ public final class FixedWidthSolution {
     final StringBuilder line = new StringBuilder("|");
     final List<String> result = new ArrayList<>();
     int preStart = 0;
-    for (int i = 0; i < s.length() - 1; i++) {
-      if (s.charAt(i + 1) == ' ' || i == s.length()) {
+    for (int i = 0; i <= s.length(); i++) {
+      if (i == s.length() || s.charAt(i) == ' ') {
         final String word = s.substring(preStart, i);
-        if (line.length() + word.length() >= width) {
-          padding(line, width + 1);
+        if (line.length() + word.length() >= width + 1 || i == s.length()) {
+          boolean isWordAdded = false;
+          if (line.length() + word.length() <= width + 1) { // 还可以挤一挤
+            line.append(word);
+            isWordAdded = true;
+          }
+          paddingSpace(line, width + 1);
           result.add(line.append("|").toString());
           line.setLength(0);
-          line.append("|").append(word).append(" ");
+          line.append("|");
+          if (!isWordAdded) {
+            line.append(word);
+          }
+          if (i != s.length()) {
+            line.append(" ");
+          }
         } else {
           line.append(word).append(" ");
         }
@@ -39,16 +50,15 @@ public final class FixedWidthSolution {
       }
     }
 
-    if (preStart != s.length()) {
-      line.append(s.substring(preStart));
-      padding(line, width);
+    if (line.length() != 1) {
+      paddingSpace(line, width + 1);
       result.add(line.append("|").toString());
     }
     return result;
   }
 
-  private static void padding(StringBuilder sb, final int width) {
-    while (sb.length() <= width) {
+  private static void paddingSpace(StringBuilder sb, final int width) {
+    while (sb.length() < width) {
       sb.append(" ");
     }
   }
