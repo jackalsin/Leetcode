@@ -1,4 +1,4 @@
-package _1001_1050._1001_Grid_Illumination._1006_Clumsy_Factorial;
+package _1001_1050._1006_Clumsy_Factorial;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

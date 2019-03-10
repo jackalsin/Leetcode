@@ -1,4 +1,4 @@
-package _1001_1050._1001_Grid_Illumination._1005_Maximize_Sum_Of_Array_After_K_Negations;
+package _1001_1050._1005_Maximize_Sum_Of_Array_After_K_Negations;
 
 import java.util.Arrays;
 
