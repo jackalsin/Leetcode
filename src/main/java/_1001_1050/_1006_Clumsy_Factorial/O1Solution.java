@@ -20,6 +20,6 @@ public final class O1Solution implements Solution {
     if (N == 3) return 1;
     if (N == 4) return -2;
     if (N == 5) return 0;
-    return helper(N % 4);
+    return helper((N - 2) % 4 + 2);
   }
 }
