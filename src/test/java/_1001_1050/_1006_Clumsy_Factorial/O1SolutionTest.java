@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 3/9/2019.
+ * @version 1.0 on 3/10/2019.
  */
-class SolutionTest {
+class O1SolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new O1Solution();
   }
 
   @Test
@@ -25,5 +25,10 @@ class SolutionTest {
   @Test
   void testOnlineCase2() {
     assertEquals(12, solution.clumsy(10));
+  }
+
+  @Test
+  void testOnlineCase3() {
+    assertEquals(10, solution.clumsy(11));
   }
 }
