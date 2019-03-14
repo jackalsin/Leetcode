@@ -3,24 +3,20 @@ package interviews.airbnb._252_Meeting_Rooms;
 import utils.Interval;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * @author jacka
  * @version 1.0 on 2/1/2019.
  */
-public class Solution {
+public final class Solution {
   public boolean canAttendMeetings(Interval[] intervals) {
-    Arrays.sort(intervals, new Comparator<Interval>() {
-      @Override
-      public int compare(Interval i, Interval j) {
-        return Integer.compare(i.start, j.start);
-      }
-    });
-
+    if (intervals == null || intervals.length == 0) {
+      return true;
+    }
+    Arrays.sort(intervals, (a, b) -> Integer.compare(a.start, b.start));
     for (int i = 1; i < intervals.length; i++) {
-      final Interval prev = intervals[i - 1], cur = intervals[i];
-      if (prev.end > cur.start) {
+      final Interval prev = intervals[i - 1];
+      if (prev.end > intervals[i].start) {
         return false;
       }
     }
