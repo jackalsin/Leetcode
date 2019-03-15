@@ -8,12 +8,12 @@ import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
 
-class SolutionTest {
+class KLogKSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new KLogKSolution();
   }
 
   @Test
