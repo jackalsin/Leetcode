@@ -1,6 +1,7 @@
 package _0351_0400._373_Find_K_Pairs_with_Smallest_Sums;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -12,6 +13,7 @@ import static org.junit.Assert.assertArrayEquals;
  * @author jacka
  * @version 1.0 on 3/13/2019.
  */
+@Disabled
 class SolutionIIITest {
   private Solution solution;
 
