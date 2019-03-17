@@ -7,6 +7,7 @@ import java.util.Set;
 public final class Solution {
 
   public int numDupDigitsAtMostN(int N) {
+    // 总体思路是统计unique，然后从N中减掉
     assert 1 <= N && N <= 1E9;
     final LinkedList<Integer> num = new LinkedList<>();
     for (int n = N + 1; n > 0; n /= 10) {
@@ -15,6 +16,7 @@ public final class Solution {
 
     int res = 0;
     // count the number with digits < N
+    // _, _ _, _ _ _ 这样的保证不重复
     for (int i = 1; i < num.size(); i++) {
       // i 表示位数，首位9种选择，后面的permutation
       res += 9 * permutation(9, i - 1);
