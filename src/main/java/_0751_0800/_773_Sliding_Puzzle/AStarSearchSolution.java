@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * TODO: Clean up this
+ */
 public final class AStarSearchSolution implements Solution {
   private static final int[][] DIRS = {
       {1, 0}, {-1, 0}, {0, 1}, {0, -1}
@@ -22,12 +25,12 @@ public final class AStarSearchSolution implements Solution {
     final Node start = new Node(board, zero[0], zero[1], 0);
     pq.add(start);
     final Map<String, Integer> costs = new HashMap<>();
+    costs.put(start.boardStr, Integer.MAX_VALUE);
     while (!pq.isEmpty()) {
       final Node node = pq.remove();
       if (TARGET.equals(node.boardStr)) {
         return node.depth;
       }
-
       if (node.depth + node.heuristic > costs.get(node.boardStr)) {
         continue;
       }
@@ -37,7 +40,23 @@ public final class AStarSearchSolution implements Solution {
         if (!isValid(nextRow, nextCol)) {
           continue;
         }
-        // TODO: there is a bug
+        final int[][] nextBoard = new int[ROWS][COLS];
+        for (int row = 0; row < ROWS; row++) {
+          System.arraycopy(node.board[row], 0, nextBoard[row], 0, COLS);
+        }
+
+        // Swap the board
+        {
+          nextBoard[node.zeroRow][node.zeroCol] = nextBoard[nextRow][nextCol];
+          nextBoard[nextRow][nextCol] = 0;
+        }
+        final Node nextNode = new Node(nextBoard, nextRow, nextCol, node.depth + 1);
+        final int curCost = nextNode.depth + nextNode.heuristic;
+        if (nextNode.depth + nextNode.heuristic >= costs.getOrDefault(nextNode.boardStr, Integer.MAX_VALUE)) {
+          continue;
+        }
+        pq.add(nextNode);
+        costs.put(nextNode.boardStr, curCost);
       }
     }
     return -1;
@@ -72,6 +91,11 @@ public final class AStarSearchSolution implements Solution {
       this.zeroRow = zeroRow;
       this.zeroCol = zeroCol;
       this.depth = depth;
+      this.heuristic = getHeuristic(board);
+    }
+
+
+    private static int getHeuristic(final int[][] board) {
       int heuristic = 0;
       final int rows = board.length, cols = board[0].length;
       for (int r = 0; r < rows; r++) {
@@ -82,10 +106,10 @@ public final class AStarSearchSolution implements Solution {
           heuristic += Math.abs(r - v / cols) + Math.abs(c - v % cols);
         }
       }
-      this.heuristic = heuristic;
-    } // end of constructor
+      return heuristic;
+    }
 
-    private String boardToString(final int[][] board) {
+    private static String boardToString(final int[][] board) {
       final StringBuilder sb = new StringBuilder();
       final int rows = board.length, cols = board[0].length;
       for (int r = 0; r < rows; r++) {
