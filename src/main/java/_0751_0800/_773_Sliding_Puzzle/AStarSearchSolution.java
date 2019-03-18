@@ -1,25 +1,31 @@
 package _0751_0800._773_Sliding_Puzzle;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
- * TODO: Clean up this
+ *
  */
 public final class AStarSearchSolution implements Solution {
   private static final int[][] DIRS = {
       {1, 0}, {-1, 0}, {0, 1}, {0, -1}
   };
-  private static final String TARGET = "123450";
+  private static final String TARGET = "123450",
+      TARGET_WRONG = "123540";
   private static final int ROWS = 2, COLS = 3;
 
   public int slidingPuzzle(int[][] board) {
     final int[] zero = getZeroIndex(board);
 
-    final Queue<Node> pq = new PriorityQueue<>(
-        (a, b) -> Integer.compare(a.heuristic + a.depth, b.heuristic + b.depth)
+    final PriorityQueue<Node> pq = new PriorityQueue<>(
+        new Comparator<Node>() {
+          @Override
+          public int compare(Node a, Node b) {
+            return Integer.compare(a.heuristic + a.depth, b.heuristic + b.depth);
+          }
+        }
     );
 
     final Node start = new Node(board, zero[0], zero[1], 0);
@@ -30,6 +36,9 @@ public final class AStarSearchSolution implements Solution {
       final Node node = pq.remove();
       if (TARGET.equals(node.boardStr)) {
         return node.depth;
+      }
+      if (TARGET_WRONG.equals(node.boardStr)) {
+        return -1;
       }
       if (node.depth + node.heuristic > costs.get(node.boardStr)) {
         continue;
@@ -94,7 +103,6 @@ public final class AStarSearchSolution implements Solution {
       this.heuristic = getHeuristic(board);
     }
 
-
     private static int getHeuristic(final int[][] board) {
       int heuristic = 0;
       final int rows = board.length, cols = board[0].length;
@@ -106,7 +114,8 @@ public final class AStarSearchSolution implements Solution {
           heuristic += Math.abs(r - v / cols) + Math.abs(c - v % cols);
         }
       }
-      return heuristic;
+      // 如果我们把A移动到B，那么B也会移动到某个地方，那么heuristic相当于是对半分
+      return heuristic / 2;
     }
 
     private static String boardToString(final int[][] board) {
