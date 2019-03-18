@@ -1,4 +1,4 @@
-package interviews.airbnb.maxNightsCanAccomodate;
+package interviews.airbnb.maxNightsCanAccommodate;
 
 public final class Solution {
   /**
@@ -14,7 +14,7 @@ public final class Solution {
    * @param nums
    * @return
    */
-  public int maxNightsCanAccomodate(final int[] nums) {
+  public int maxNightsCanAccommodate(final int[] nums) {
     if (nums == null || nums.length == 0) {
       return 0;
     } else if (nums.length == 1) {
