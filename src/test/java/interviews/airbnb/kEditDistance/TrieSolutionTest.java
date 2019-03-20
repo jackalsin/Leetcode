@@ -1,4 +1,4 @@
-package interviews.airbnb.findAllKEditDistance;
+package interviews.airbnb.kEditDistance;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,11 +23,10 @@ class TrieSolutionTest {
         "abc", "acc", "a"
     };
     final String target = "adc";
-    final List<String> actual = solution.getKEditDistance(input, target, 1);
+    final List<String> actual = solution.kDistance(input, target, 1);
     final Set<String> expected = Set.of(
         "abc", "acc"
     );
-    System.out.println(actual.size());
     assertEquals(expected, new HashSet<>(actual));
   }
 
@@ -37,8 +36,8 @@ class TrieSolutionTest {
         "abc", "acc", "a"
     };
     final String target = "adc";
-    final List<String> actual = solution.getKEditDistance(input, target, 2);
-    final Set<String> expected = Set.of("a");
+    final List<String> actual = solution.kDistance(input, target, 2);
+    final Set<String> expected = Set.of("acc", "a", "abc");
     assertEquals(expected, new HashSet<>(actual));
   }
 
@@ -48,7 +47,7 @@ class TrieSolutionTest {
         "abd", "bcc", "adcd"
     };
     final String target = "adc";
-    final List<String> actual = solution.getKEditDistance(input, target, 1);
+    final List<String> actual = solution.kDistance(input, target, 1);
     final Set<String> expected = Set.of("adcd");
     assertEquals(expected, new HashSet<>(actual));
   }
