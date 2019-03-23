@@ -1,4 +1,4 @@
-package interviews.airbnb.MinimumVerticesToTraverseDirectedGraph;
+package interviews.airbnb.minimumVerticesToTraverseDirectedGraph;
 
 import java.util.ArrayList;
 import java.util.Collections;
