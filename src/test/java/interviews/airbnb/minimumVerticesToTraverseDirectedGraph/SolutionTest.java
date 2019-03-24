@@ -88,4 +88,16 @@ class SolutionTest {
         expected = List.of(0, 1, 2);
     assertEquals(expected, actual);
   }
+
+  @Test
+  void testOnlineCase5() {
+    final int[][] input = {
+        {1, 0, 0},
+        {1, 0, 0},
+        {1, 0, 0}
+    };
+    final List<Integer> actual = solution.getMin(input, 3),
+        expected = List.of(1, 2);
+    assertEquals(expected, actual);
+  }
 }
