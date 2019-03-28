@@ -9,12 +9,12 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SolutionTest {
+class SccSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SccSolution();
   }
 
   @Test
@@ -27,9 +27,11 @@ class SolutionTest {
         {0, 1, 0, 0}
     };
     final List<Integer> actual = solution.getMin(input, 4);
-    final Set<Integer> expected = Set.of(1, 2, 3);
-    assertTrue(expected.contains(actual.get(0)));
-    assertEquals(1, actual.size());
+    System.out.println(actual);
+    final Set<List<Integer>> expected = Set.of(
+        List.of(0), List.of(1), List.of(2), List.of(3)
+    );
+    assertTrue(expected.contains(actual));
   }
 
   @Test
@@ -42,9 +44,8 @@ class SolutionTest {
         {0, 0, 1, 0}
     };
     final List<Integer> actual = solution.getMin(input, 4);
+    System.out.println(actual);
     final Set<List<Integer>> expected = Set.of(
-        List.of(0),
-        List.of(1),
         List.of(2),
         List.of(3)
     );
