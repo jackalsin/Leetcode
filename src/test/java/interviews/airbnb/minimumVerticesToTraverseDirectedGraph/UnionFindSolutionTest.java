@@ -31,7 +31,6 @@ class UnionFindSolutionTest {
     final Set<List<Integer>> expected = Set.of(
         List.of(0), List.of(1), List.of(2), List.of(3)
     );
-    System.out.println(actual);
     assertTrue(expected.contains(actual));
   }
 
@@ -49,7 +48,6 @@ class UnionFindSolutionTest {
         List.of(2),
         List.of(3)
     );
-    System.out.println(actual);
     assertTrue(expected.contains(actual));
   }
 

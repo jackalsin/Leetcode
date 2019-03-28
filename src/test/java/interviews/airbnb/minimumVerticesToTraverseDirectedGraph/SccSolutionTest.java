@@ -27,7 +27,6 @@ class SccSolutionTest {
         {0, 1, 0, 0}
     };
     final List<Integer> actual = solution.getMin(input, 4);
-    System.out.println(actual);
     final Set<List<Integer>> expected = Set.of(
         List.of(0), List.of(1), List.of(2), List.of(3)
     );
@@ -44,7 +43,6 @@ class SccSolutionTest {
         {0, 0, 1, 0}
     };
     final List<Integer> actual = solution.getMin(input, 4);
-    System.out.println(actual);
     final Set<List<Integer>> expected = Set.of(
         List.of(2),
         List.of(3)

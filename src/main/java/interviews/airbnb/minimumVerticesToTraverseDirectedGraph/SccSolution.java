@@ -11,6 +11,15 @@ import java.util.Map;
 import java.util.Set;
 
 public final class SccSolution implements Solution {
+
+  /**
+   * Time complexity: O(MAX(E, VLogV)
+   * 排序纯粹为了方便答案比较
+   *
+   * @param edges
+   * @param n
+   * @return
+   */
   public List<Integer> getMin(int[][] edges, int n) {
     final Map<Integer, List<Integer>> graph = getGraph(edges);
 
@@ -18,7 +27,7 @@ public final class SccSolution implements Solution {
     final Deque<Integer> stack = new ArrayDeque<>();
     final Set<Integer> visited = new HashSet<>();
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) { // Max(E, V)
       if (visited.contains(i)) {
         continue;
       }
@@ -26,7 +35,7 @@ public final class SccSolution implements Solution {
     }
 
     // reverse graph
-    final Map<Integer, List<Integer>> reverseGraph = reverseGraph(edges);
+    final Map<Integer, List<Integer>> reverseGraph = reverseGraph(edges); // Max(E, V)
     visited.clear();
 
     final List<Set<Integer>> scc = new ArrayList<>();
@@ -46,6 +55,8 @@ public final class SccSolution implements Solution {
     final int[] inDegrees = new int[scc.size()];
     final Set<Integer> toRemoveSccIndex = new HashSet<>();
     int standAlone = scc.size();
+
+    // for loop time complexity: O(E)
     for (int i = 0; i < scc.size(); i++) {
       final Set<Integer> s = scc.get(i);
       toLoop:
@@ -61,35 +72,19 @@ public final class SccSolution implements Solution {
       }
     }
     System.out.println(standAlone);
-    //
-    final Set<Integer> res = new HashSet<>();
+    // time complexity: O(V)
+    final List<Integer> result = new ArrayList<>();
     for (int i = 0; i < scc.size(); i++) {
       if (toRemoveSccIndex.contains(i)) continue;
       final Set<Integer> s = scc.get(i);
       for (int c : s) {
-        res.add(c);
+        result.add(c);
         break;
       }
     }
 
-//    visited.clear();
-//    final Set<Integer> resultSet = new HashSet<>(res);
-//    for (int i : res) {
-//      if (visited.contains(i)) continue;
-//      dfsRemove(graph, resultSet, visited, i);
-//    }
-    final List<Integer> result = new ArrayList<>(res);
     Collections.sort(result);
     return result;
-  }
-
-  private void dfsRemove(Map<Integer, List<Integer>> graph, Set<Integer> result, Set<Integer> visited, int cur) {
-    for (int next : graph.getOrDefault(cur, new ArrayList<>())) {
-      if (visited.contains(next)) continue;
-      visited.add(next);
-      result.remove(next);
-      dfsRemove(graph, result, visited, next);
-    }
   }
 
   private static void dfsUtilForReverseGraph(final Map<Integer, List<Integer>> reverseGraph, final int vertex,
