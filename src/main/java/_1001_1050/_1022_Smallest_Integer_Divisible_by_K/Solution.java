@@ -3,7 +3,7 @@ package _1001_1050._1022_Smallest_Integer_Divisible_by_K;
 public class Solution {
   public int smallestRepunitDivByK(final int K) {
     final boolean[] visited = new boolean[K];
-    int n = 1, len = 0;
+    int n = 0, len = 0;
     while (true) {
       final int mod = (n * 10 + 1) % K;
       len++;
