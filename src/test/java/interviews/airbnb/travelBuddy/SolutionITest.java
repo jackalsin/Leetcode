@@ -14,9 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author jacka
  * @version 1.0 on 3/1/2019.
  */
-class SolutionTest {
+class SolutionITest {
   private Solution solution;
-
 
   @Test
   void testOnlineCase1() {
@@ -25,7 +24,7 @@ class SolutionTest {
         "buddy1", List.of("a", "b", "e", "f"),
         "buddy2", List.of("a", "c", "d", "g")
     );
-    solution = new Solution(myCities, friendsCities);
+    solution = new SolutionI(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = List.of(
             "buddy2", "buddy1"
@@ -42,7 +41,7 @@ class SolutionTest {
         "buddy2", List.of("a", "c", "d", "g"),
         "buddy3", List.of()
     );
-    solution = new Solution(myCities, friendsCities);
+    solution = new SolutionI(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = List.of("buddy3");
     assertEquals(expected, actual);
@@ -52,7 +51,7 @@ class SolutionTest {
   void testEmptyFriendsCities() {
     final List<String> myCities = List.of("a", "b", "c", "d");
     final Map<String, List<String>> friendsCities = Map.of();
-    solution = new Solution(myCities, friendsCities);
+    solution = new SolutionI(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = Collections.emptyList();
 
@@ -63,7 +62,7 @@ class SolutionTest {
   void testBothEmpty() {
     final List<String> myCities = List.of();
     final Map<String, List<String>> friendsCities = Map.of();
-    solution = new Solution(myCities, friendsCities);
+    solution = new SolutionI(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = List.of();
     assertEquals(expected, actual);
@@ -78,7 +77,7 @@ class SolutionTest {
         "buddy1", List.of("a", "b", "e", "f"),
         "buddy2", List.of("a", "c", "d", "g")
     );
-    solution = new Solution(myCities, friendsCities);
+    solution = new SolutionI(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = List.of(
             "buddy2", "buddy1"
