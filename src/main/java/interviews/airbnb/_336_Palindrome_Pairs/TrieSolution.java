@@ -9,44 +9,45 @@ import java.util.List;
  * @version 1.0 on 3/3/2019.
  */
 public final class TrieSolution implements Solution {
-  private final List<List<Integer>> result = new ArrayList<>();
+  private static final int N = 26;
   private final Node root = new Node();
 
   public List<List<Integer>> palindromePairs(String[] words) {
     for (int i = 0; i < words.length; i++) {
-      insert(root, i, words[i]);
+      insert(words[i], i);
     }
-
+    final List<List<Integer>> result = new ArrayList<>();
     for (int i = 0; i < words.length; i++) {
-      search(root, i, words[i]);
+      search(result, words[i], i);
     }
     return result;
   }
 
-  private void insert(Node root, final int wordIndex, final String word) {
-    assert root != null;
-    for (int j = word.length() - 1; j >= 0; j--) {
-      if (isPalindrome(word, 0, j)) {
-        root.index.add(wordIndex);
-      }
-      final char chr = word.charAt(j);
-      final int chrIndex = chr - 'a';
-      if (root.next[chrIndex] == null) {
-        root.next[chrIndex] = new Node();
-      }
-      root = root.next[chrIndex];
-    }
-    root.index.add(wordIndex);
-    root.indexInWords = wordIndex;
-  }
-
-  private void search(Node root, final int indexInWords, String word) {
+  private void search(final List<List<Integer>> result, final String word, final int indexInWords) {
+    Node root = this.root;
     for (int i = 0; i < word.length(); i++) {
-      // curWord [non-palindrome][palindrome], word in trie [non-palindrome 反过来]
-      if (root.indexInWords >= 0 && isPalindrome(word, i, word.length() - 1)) {
+      final char chr = word.charAt(i);
+      final int chrIndex = chr - 'a';
+      if (root.indexInWords >= 0 && indexInWords != root.indexInWords && isPalindrome(word, i, word.length() - 1)) {
         result.add(Arrays.asList(indexInWords, root.indexInWords));
       }
+      if (root.next[chrIndex] == null) return;
+      root = root.next[chrIndex];
+    }
+    // [curWord] [palindrome] [reverse cur word]
+    for (int i : root.index) {
+      if (indexInWords != i) {
+        result.add(Arrays.asList(indexInWords, i));
+      }
+    }
+  }
 
+  private void insert(final String word, final int indexInWords) {
+    Node root = this.root;
+    for (int i = word.length() - 1; i >= 0; i--) {
+      if (isPalindrome(word, 0, i)) {
+        root.index.add(indexInWords);
+      }
       final char chr = word.charAt(i);
       final int chrIndex = chr - 'a';
       if (root.next[chrIndex] == null) {
@@ -54,20 +55,13 @@ public final class TrieSolution implements Solution {
       }
       root = root.next[chrIndex];
     }
-
-    // word + [palindrome] + 之前的word 不palindrome的部分
-    for (int child : root.index) {
-      if (indexInWords != child) {
-        result.add(Arrays.asList(indexInWords, child));
-      }
-    }
-
+    root.indexInWords = indexInWords;
+    root.index.add(indexInWords);
   }
 
-  private static boolean isPalindrome(final String str, int left, int right) {
-    for (; left < right; left++, right--) {
-      final char leftChar = str.charAt(left), rightChar = str.charAt(right);
-      if (leftChar != rightChar) {
+  private static boolean isPalindrome(final String word, int i, int j) {
+    for (; i < j; i++, j--) {
+      if (word.charAt(i) != word.charAt(j)) {
         return false;
       }
     }
@@ -75,11 +69,12 @@ public final class TrieSolution implements Solution {
   }
 
   private static final class Node {
-    private final Node[] next = new Node[26];
-    /**
-     * index in words
-     */
+    private final Node[] next = new Node[N];
     private int indexInWords = -1;
+    /**
+     * index of words that is palindrome below
+     * exclusive
+     */
     private final List<Integer> index = new ArrayList<>();
   }
 }

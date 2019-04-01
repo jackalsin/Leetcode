@@ -35,7 +35,7 @@ class TrieSolutionTest {
     final List<List<Integer>> expected = List.of(
         List.of(0, 1), List.of(1, 0), List.of(3, 2), List.of(2, 4)
     ), actual = solution.palindromePairs(words);
-    System.out.println(actual);
+//    System.out.println(actual);
     assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(solution.palindromePairs(words)));
   }
