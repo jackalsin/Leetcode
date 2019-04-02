@@ -10,33 +10,35 @@ import java.util.List;
 public final class Solution {
 
   public List<String> ipToCIDR(String ip, int n) {
-    long ipL = getLongFromIp(ip);
-
+    int ipNum = get(ip);
     final List<String> result = new ArrayList<>();
     while (n > 0) {
-      int step = (int) (ipL & (-ipL)); // most significant
+      int step = ipNum & (-ipNum);
       while (step > n) step /= 2;
-
       int submask = 32;
       for (int i = 1; i < step; i *= 2) {
         submask--;
       }
-      result.add(getIpString(ipL) + "/" + submask);
+
+      final String ipStr = get(ipNum);
+      result.add(ipStr + "/" + submask);
+      ipNum += step;
       n -= step;
-      ipL += step;
     }
     return result;
   }
 
-  private static String getIpString(final long ip) {
-    return String.format("%s.%s.%s.%s", ip >>> 24, (ip >>> 16) % 256, (ip >>> 8) % 256, ip % 256);
+  private static String get(int ip) {
+    return String.format("%d.%d.%d.%d",
+        (ip >>> 24), ((ip << 8) >>> 24), ((ip << 16) >>> 24), ((ip << 24) >>> 24)
+    );
   }
 
-  private static long getLongFromIp(String ip) {
-    final String[] items = ip.split("\\.");
-    long res = 0;
-    for (String item : items) {
-      res = res * 256 + Integer.parseInt(item);
+  private static int get(String ip) {
+    int res = 0;
+    final String[] ips = ip.split("\\.");
+    for (String sec : ips) {
+      res = res * 256 + Integer.parseInt(sec);
     }
     return res;
   }
