@@ -34,7 +34,6 @@ public final class ShenQiuSolution implements Solution {
           sb.append(str.charAt(i));
         }
       }
-
     }
     if (sb.length() > 0) {
       res.add(sb.toString());
