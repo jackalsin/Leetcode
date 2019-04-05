@@ -76,7 +76,7 @@ public final class SolutionII implements Solution {
     final StringBuilder sb = new StringBuilder("|");
     for (int i = 0; i < str.length(); i++) {
       final int start = i;
-      if (str.charAt(i) != ' ') {
+      if (str.charAt(i) != ' ') { // 如果是delimiter，直接用，别找下一个
         while (i + 1 < str.length() && str.charAt(i + 1) != ' ') {
           i++;
         }
