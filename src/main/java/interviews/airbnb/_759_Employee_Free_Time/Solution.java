@@ -16,31 +16,30 @@ public final class Solution {
     final int[] starts = new int[size], ends = new int[size];
     {
       int i = 0;
-      for (List<Interval> s : schedule) {
-        for (Interval sChild : s) {
-          starts[i] = sChild.start;
-          ends[i++] = sChild.end;
+      for (List<Interval> sche : schedule) {
+        for (Interval s : sche) {
+          starts[i] = s.start;
+          ends[i++] = s.end;
         }
       }
-    }
-
+    } // end of brace
     Arrays.sort(starts);
     Arrays.sort(ends);
     final List<Interval> result = new ArrayList<>();
-    for (int i = 1; i < size; i++) {
-      final int curStart = starts[i], prevEnd = ends[i - 1];
-      if (prevEnd < curStart) {
-        result.add(new Interval(prevEnd, curStart));
+    for (int i = 1; i < starts.length; i++) {
+      final int prevEnd = ends[i - 1], start = starts[i];
+      if (prevEnd < start) {
+        result.add(new Interval(prevEnd, start));
       }
     }
     return result;
   }
 
-  private static int getSize(final List<List<Interval>> sche) {
-    int result = 0;
-    for (List<Interval> i : sche) {
-      result += i.size();
+  private static int getSize(final List<List<Interval>> schedule) {
+    int size = 0;
+    for (final List<Interval> s : schedule) {
+      size += s.size();
     }
-    return result;
+    return size;
   }
 }
