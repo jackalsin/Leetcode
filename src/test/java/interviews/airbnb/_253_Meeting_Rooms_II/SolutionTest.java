@@ -48,4 +48,13 @@ class SolutionTest {
     Interval[] intervals = new Interval[]{new Interval(7, 10), new Interval(2, 4)};
     assertEquals(1, solution.minMeetingRooms(intervals));
   }
+
+  @Test
+  void testOnline5() {
+    Interval[] intervals = new Interval[]{
+        new Interval(13, 15), new Interval(1, 13),
+        new Interval(6, 9)
+    };
+    assertEquals(2, solution.minMeetingRooms(intervals));
+  }
 }

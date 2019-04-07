@@ -10,27 +10,30 @@ import java.util.Arrays;
  */
 public final class Solution {
   public int minMeetingRooms(Interval[] intervals) {
-    if (intervals == null || intervals.length == 0) {
-      return 0;
+    if (intervals == null) {
+      throw new NullPointerException();
     }
-    final int[] starts = new int[intervals.length], ends = new int[intervals.length];
+    final int[] starts = new int[intervals.length],
+        ends = new int[intervals.length];
     for (int i = 0; i < intervals.length; i++) {
-      starts[i] = intervals[i].start;
-      ends[i] = intervals[i].end;
+      final Interval interval = intervals[i];
+      starts[i] = interval.start;
+      ends[i] = interval.end;
     }
-
     Arrays.sort(starts);
     Arrays.sort(ends);
-    int min = 0, cur = 0;
-    for (int endIndex = 0, startIndex = 0; startIndex < ends.length; ) {
-      if (ends[endIndex] > starts[startIndex]) {
+    int startIndex = 0, min = 0, maxMin = 0;
+    for (int endIndex = 0; endIndex < intervals.length && startIndex < intervals.length; ) {
+      final int end = ends[endIndex], start = starts[startIndex];
+      if (end > start) {
+        min++;
+        maxMin = Math.max(min, maxMin);
         startIndex++;
-        min = Math.max(min, ++cur);
       } else {
-        cur--;
+        min--;
         endIndex++;
       }
     }
-    return min;
+    return maxMin;
   }
 }
