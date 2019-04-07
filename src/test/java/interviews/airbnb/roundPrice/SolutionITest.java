@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  * @author jacka
  * @version 1.0 on 3/15/2019.
  */
-class SolutionTest {
+class SolutionITest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
