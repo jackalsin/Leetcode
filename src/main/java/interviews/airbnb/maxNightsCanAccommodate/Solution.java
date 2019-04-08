@@ -1,6 +1,6 @@
 package interviews.airbnb.maxNightsCanAccommodate;
 
-public final class Solution {
+public interface Solution {
   /**
    * // [5, 1, 1, 5] => 10
    * The above array would represent an example booking period as follows -
@@ -14,18 +14,5 @@ public final class Solution {
    * @param nums
    * @return
    */
-  public int maxNightsCanAccommodate(final int[] nums) {
-    if (nums == null || nums.length == 0) {
-      return 0;
-    } else if (nums.length == 1) {
-      return nums[0];
-    }
-    final int[] dp = new int[nums.length];
-    dp[0] = nums[0];
-    dp[1] = Math.max(nums[1], nums[0]);
-    for (int i = 2; i < nums.length; i++) {
-      dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
-    }
-    return dp[dp.length - 1];
-  }
+  int maxNightsCanAccommodate(final int[] nums);
 }
