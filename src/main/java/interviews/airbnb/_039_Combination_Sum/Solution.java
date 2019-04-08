@@ -10,21 +10,23 @@ import java.util.List;
 public class Solution {
   public List<List<Integer>> combinationSum(int[] candidates, int target) {
     final List<List<Integer>> result = new ArrayList<>();
-    combinationSum(result, candidates, target, new ArrayList<>(), 0);
+    dfs(result, target, candidates, new ArrayList<>(), 0);
     return result;
   }
 
-  private static void combinationSum(final List<List<Integer>> result, final int[] candidates, final int remain,
-                                     final List<Integer> curPath, final int start) {
-    if (remain <= 0) {
-      if (remain == 0) {
-        result.add(new ArrayList<>(curPath));
-      }
+  private static void dfs(final List<List<Integer>> result, final int target, final int[] candidates,
+                          final List<Integer> curPath, final int start) {
+    if (target < 0) {
       return;
     }
+    if (target == 0) {
+      result.add(new ArrayList<>(curPath));
+      return;
+    }
+
     for (int i = start; i < candidates.length; i++) {
       curPath.add(candidates[i]);
-      combinationSum(result, candidates, remain - candidates[i], curPath, i);
+      dfs(result, target - candidates[i], candidates, curPath, i);
       curPath.remove(curPath.size() - 1);
     }
   }
