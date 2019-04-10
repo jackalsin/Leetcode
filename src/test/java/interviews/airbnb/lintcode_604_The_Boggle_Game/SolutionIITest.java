@@ -1,18 +1,35 @@
 package interviews.airbnb.lintcode_604_The_Boggle_Game;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import utils.TwoDimensionArray;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
-  private Solution solution;
+class SolutionIITest {
+  private OnePathSolution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionII();
+  }
+
+  @Test
+  void testSingleChar() {
+    final char[][] board = {
+        {'a'}
+    };
+    final String[] words = {"a"};
+    assertEquals(1, solution.boggleGame(board, words));
+  }
+
+  @Test
+  void testTwoChar() {
+    final char[][] board = {
+        {'a', 'b'}
+    };
+    final String[] words = {"a", "b"};
+    assertEquals(2, solution.boggleGame(board, words));
   }
 
   @Test
@@ -21,7 +38,7 @@ class SolutionTest {
         {'a', 'b', 'c'},
         {'d', 'e', 'f'}
     };
-    final String[] words = {"ad", "be", "abf", "ade"};
+    final String[] words = {"ad", "eb", "abf", "adeb"};
     assertEquals(2, solution.boggleGame(board, words));
   }
 
@@ -32,19 +49,22 @@ class SolutionTest {
         {'s', 'e', 'l'},
         {'s', 'h', 'o'}
     };
-    final String[] words = {"asshole", "ass", "she", "ex", "hole"};
-    // assert bogglegame(board, words)==['ass', 'ex', 'hole']
+    final String[] words = {"asshole", "ass", "she", "xe", "hole"};
+    // assert bogglegame(board, words)==['ass', 'hole', 'xe']
     assertEquals(3, solution.boggleGame(board, words));
   }
 
   @Test
   void testOnlineCase3() {
     final char[][] board = TwoDimensionArray.getCharBoard(
-        new String[]{"oaan", "etae", "ihkr", "iflv"}
+        new String[]{
+            "oaan",
+            "etae",
+            "ihkr",
+            "iflv"}
     );
     final String[] words = {"oath", "pea", "eak", "rain", "ifl"};
-    //    assert bogglegame(board, words)==['oath', 'eak', 'ifl']
-    assertEquals(3, solution.boggleGame(board, words));
+    assertEquals(1, solution.boggleGame(board, words));
   }
 
   @Test
@@ -69,28 +89,20 @@ class SolutionTest {
 
   @Test
   void testOnlineCase5() {
-    final char[][] board = TwoDimensionArray.getCharBoard(
-        new String[]{"aaba", "abaa", "aaab", "baaa"}
-    );
-    final String[] words = {"aba", "ba", "baba", "abab", "ab", "b"};
-    //    assert bogglegame(board, words)==['ab', 'b', 'ab', 'ab']
-    assertEquals(4, solution.boggleGame(board, words));
-  }
-
-  @Test
-  @Disabled
-  void testOnlineCase6() {
 //# don't run TLE
 //# words=["aaa","aa","aaaa","aaaa", "aa", "a"]
 //# board=["aaaa", "aaaa", "aaaa", "aaaa"]
 //# board=[[c for c in row] for row in board]
 //# print bogglegame(board, words)
     final char[][] board = TwoDimensionArray.getCharBoard(
-        new String[]{"aaaa", "aaaa", "aaaa", "aaaa"}
+        new String[]{
+            "abcd",
+            "dddf",
+            "ddde",
+            "ddef"
+        }
     );
-    final String[] words = {"aaa", "aa", "aaaa", "aaaa", "aa", "a"};
-    assertEquals(16, solution.boggleGame(board, words));
+    final String[] words = {"abcd", "ab", "fefe"};
+    assertEquals(2, solution.boggleGame(board, words));
   }
-
-
 }

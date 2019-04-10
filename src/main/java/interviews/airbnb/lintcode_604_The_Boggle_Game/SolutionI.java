@@ -3,7 +3,7 @@ package interviews.airbnb.lintcode_604_The_Boggle_Game;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Solution {
+public final class SolutionI implements MaxWordsPlacedSolution {
 
   private static final int[][] DIRS = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
   private int rows, cols, max = 0;
