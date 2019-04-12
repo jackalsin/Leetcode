@@ -1,4 +1,4 @@
-package interviews.airbnb.kEditDistance;
+package interviews.airbnb.lintcode_623_kEditDistance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public final class TrieSolution implements Solution {
   private final Node root = new Node();
 
   /**
-   * @param words:  a set of stirngs
+   * @param words:  a set of string candidates
    * @param target: a target string
    * @param k:      An integer
    * @return: output all the strings that meet the requirements

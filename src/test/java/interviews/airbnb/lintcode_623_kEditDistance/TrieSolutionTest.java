@@ -1,4 +1,4 @@
-package interviews.airbnb.kEditDistance;
+package interviews.airbnb.lintcode_623_kEditDistance;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

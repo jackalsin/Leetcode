@@ -1,4 +1,4 @@
-package interviews.airbnb.kEditDistance;
+package interviews.airbnb.lintcode_623_kEditDistance;
 
 import java.util.ArrayList;
 import java.util.List;
