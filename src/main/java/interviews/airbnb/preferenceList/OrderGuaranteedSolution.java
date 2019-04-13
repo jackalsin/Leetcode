@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-public final class SolutionII implements Solution {
+public final class OrderGuaranteedSolution implements Solution {
   /**
    * To break the tie, element in the first list will show up first
    *

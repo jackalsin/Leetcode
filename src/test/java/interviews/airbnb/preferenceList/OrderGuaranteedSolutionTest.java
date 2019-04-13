@@ -7,12 +7,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionIITest {
+class OrderGuaranteedSolutionTest {
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new SolutionII();
+    solution = new OrderGuaranteedSolution();
   }
 
   @Test
