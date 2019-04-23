@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class StreamCheckerTest {
+class StreamCheckerITest {
 
   @Test
   void testOnlineCase1() {
     final String[] input = new String[]{"cd", "f", "kl"};
-    StreamChecker streamChecker = new StreamChecker(input); // init the dictionary.
+    StreamChecker streamChecker = new StreamCheckerI(input); // init the dictionary.
     assertFalse(streamChecker.query('a'));          // return false
     assertFalse(streamChecker.query('b'));          // return false
     assertFalse(streamChecker.query('c'));          // return false
