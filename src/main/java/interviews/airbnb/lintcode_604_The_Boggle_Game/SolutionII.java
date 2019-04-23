@@ -43,19 +43,21 @@ public final class SolutionII implements OnePathSolution {
     }
     final int rows = board.length, cols = board[0].length;
     if (!isInRange(rows, cols, row, col)) {
-      return 0;
+      return curCount; // needs return previous valid count
     }
     final char chr = board[row][col];
     if (chr == VISITED) {
-      return 0;
+      return curCount; // needs return previous valid count
     }
     final int chrIndex = chr - 'a';
     board[row][col] = VISITED;
+    final int left = dfs(board, root.next[chrIndex], row, col - 1),
+        right = dfs(board, root.next[chrIndex], row, col + 1),
+        bottom = dfs(board, root.next[chrIndex], row + 1, col),
+        top = dfs(board, root.next[chrIndex], row - 1, col);
+
     curCount = max(curCount,
-        dfs(board, root.next[chrIndex], row, col + 1),
-        dfs(board, root.next[chrIndex], row, col - 1),
-        dfs(board, root.next[chrIndex], row + 1, col),
-        dfs(board, root.next[chrIndex], row - 1, col)
+        left, right, bottom, top
     );
     board[row][col] = chr;
     return curCount;
