@@ -17,6 +17,11 @@ public final class SolutionII implements Solution {
 
   private final Map<String, Set<String>> childToParents = new HashMap<>();
 
+  /**
+   * 这个是BFS 考虑loop
+   *
+   * @param words
+   */
   public SolutionII(final String[][] words) {
     for (String[] line : words) {
       final String parent = line[0];

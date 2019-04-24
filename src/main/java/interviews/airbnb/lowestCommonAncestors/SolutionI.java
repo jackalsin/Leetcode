@@ -14,6 +14,11 @@ import java.util.Set;
 public final class SolutionI implements Solution {
   private final Map<String, Set<String>> childToParents = new HashMap<>();
 
+  /**
+   * 这个解法是双向BFS，考虑loop
+   *
+   * @param words
+   */
   public SolutionI(final String[][] words) {
     for (String[] line : words) {
       final String parent = line[0];
