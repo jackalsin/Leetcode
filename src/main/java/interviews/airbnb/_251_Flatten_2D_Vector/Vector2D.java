@@ -5,20 +5,16 @@ package interviews.airbnb._251_Flatten_2D_Vector;
  * @version 1.0 on 1/28/2019.
  */
 public final class Vector2D {
-  private int row, col;
+  private int row = 0, col = 0;
   private final int[][] v;
 
   public Vector2D(int[][] v) {
     this.v = v;
-    row = 0;
-    col = 0;
   }
 
   public int next() {
     hasNext();
-    final int res = v[row][col];
-    col++;
-    return res;
+    return v[row][col++];
   }
 
   public boolean hasNext() {
@@ -26,6 +22,6 @@ public final class Vector2D {
       row++;
       col = 0;
     }
-    return row != v.length;
+    return row != v.length && col < v[row].length;
   }
 }
