@@ -10,7 +10,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 class ClientTest {
   private Client client;
@@ -67,7 +66,7 @@ class ClientTest {
       try {
         server.run();
       } catch (IOException e) {
-        fail("Server error");
+        e.printStackTrace();
         try {
           server.shutdown();
         } catch (IOException ex) {
