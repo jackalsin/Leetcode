@@ -10,11 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jacka
- * @version 1.0 on 2/3/2019.
- */
-class NestedIteratorTest {
+class NestedIteratorIITest {
   @Test
   void testOnlineCase1() {
     // [[1,1],2,[1,1]]
@@ -23,7 +19,7 @@ class NestedIteratorTest {
         new NestedIntegerImpl(2),
         new NestedIntegerImpl(new NestedIntegerImpl(1), new NestedIntegerImpl(1))
     );
-    NestedIterator nestedIterator = new NestedIterator(input);
+    NestedIterator nestedIterator = new NestedIteratorII(input);
     assertTrue(nestedIterator.hasNext());
     assertEquals(Integer.valueOf(1), nestedIterator.next());
     assertTrue(nestedIterator.hasNext());
@@ -37,5 +33,4 @@ class NestedIteratorTest {
     assertFalse(nestedIterator.hasNext());
     assertFalse(nestedIterator.hasNext());
   }
-
 }
