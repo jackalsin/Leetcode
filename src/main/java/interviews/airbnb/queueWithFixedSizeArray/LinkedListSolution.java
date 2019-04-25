@@ -1,61 +1,48 @@
 package interviews.airbnb.queueWithFixedSizeArray;
 
-import java.util.LinkedList;
-
 /**
  * @author jacka
  * @version 1.0 on 2/26/2019.
  */
 public final class LinkedListSolution implements MyQueue {
-  private static final int SIZE = 10;
-  private final LinkedList<Node> values = new LinkedList<>();
+  private static final int N = 10;
+
+  private Node head, tail;
+
+  public LinkedListSolution() {
+    head = tail = new Node();
+  }
 
   public void push(int x) {
-    if (values.isEmpty() || values.getLast().size() == SIZE) {
-      values.add(new Node());
+    if (tail.end == N) {
+      tail.next = new Node();
+      tail = tail.next;
     }
-    final Node lastNode = values.getLast();
-    lastNode.push(x);
+    tail.values[tail.end++] = x;
   }
 
 
   public int pop() {
-    final Node firstNode = values.getFirst();
-    final int result = firstNode.pop();
-    if (firstNode.size() == 0) {
-      values.removeFirst();
+    if (head.start == N) {
+      head = head.next;
     }
-    return result;
+    return head.values[head.start++];
   }
 
 
   public int peek() {
-    final Node firstNode = values.getFirst();
-    return firstNode.values[firstNode.left];
+    assert !empty();
+    return head.values[head.start];
   }
 
 
   public boolean empty() {
-    return values.isEmpty();
+    return head == tail && head.start == head.end;
   }
 
   private static final class Node {
-    private final int[] values = new int[SIZE];
-    private int left = 0, // inclusive start
-        right = 0; // exclusive end
-
-    private void push(int val) {
-      assert right != SIZE;
-      values[right++] = val;
-    }
-
-    private int pop() {
-      assert left != SIZE;
-      return values[left++];
-    }
-
-    private int size() {
-      return right - left;
-    }
+    private Node next;
+    private int start = 0, end = 0;
+    private final int[] values = new int[N];
   }
 }

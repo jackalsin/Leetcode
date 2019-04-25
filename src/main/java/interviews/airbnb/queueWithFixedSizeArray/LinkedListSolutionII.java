@@ -22,11 +22,10 @@ public final class LinkedListSolutionII implements MyQueue {
 
   public int pop() {
     assert !empty();
-    final int res = head.values[head.start++];
     if (head.start == SIZE) {
       head = head.next;
     }
-    return res;
+    return head.values[head.start++];
   }
 
   public int peek() {
