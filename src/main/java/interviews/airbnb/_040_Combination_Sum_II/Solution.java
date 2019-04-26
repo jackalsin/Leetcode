@@ -19,24 +19,23 @@ public final class Solution {
     return result;
   }
 
-  private static void dfs(List<List<Integer>> result, final int[] candidates, final int target,
-                          final List<Integer> curPath, int start) {
-    if (target < 0) {
+  private static void dfs(final List<List<Integer>> result, final int[] candidates, final int remain,
+                          final List<Integer> curPath, int startIndex) {
+    if (remain < 0) {
       return;
     }
-    if (target == 0) {
+    if (remain == 0) {
       result.add(new ArrayList<>(curPath));
       return;
     }
-    if (start == candidates.length) {
+    if (startIndex == candidates.length) {
       return;
     }
-
-    for (int i = start; i < candidates.length; i++) {
-      if (candidates[i] > target) return;
-      if (i != start && candidates[i] == candidates[i - 1]) continue;
+    for (int i = startIndex; i < candidates.length; i++) {
+      if (i > startIndex && candidates[i] == candidates[i - 1]) continue;
+      if (candidates[i] > remain) return;
       curPath.add(candidates[i]);
-      dfs(result, candidates, target - candidates[i], curPath, i + 1);
+      dfs(result, candidates, remain - candidates[i], curPath, i + 1);
       curPath.remove(curPath.size() - 1);
     }
   }
