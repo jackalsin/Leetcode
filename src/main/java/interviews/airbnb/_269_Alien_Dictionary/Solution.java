@@ -11,59 +11,51 @@ import java.util.Set;
  * @author jacka
  * @version 1.0 on 1/31/2019.
  */
-public class Solution {
+public final class Solution {
+
   public String alienOrder(String[] words) {
-    final Map<Character, Integer> childrenCounts = new HashMap<>();
-    final Map<Character, Set<Character>> childToParents = new HashMap<>();
-    for (String w : words) {
-      for (char chr : w.toCharArray()) {
-        childrenCounts.put(chr, 0);
+    final Map<Character, Set<Character>> map = new HashMap<>();
+    final Map<Character, Integer> indegree = new HashMap<>();
+    for (String s : words) {
+      for (char c : s.toCharArray()) {
+        indegree.put(c, 0);
       }
     }
-    for (int i = 1; i < words.length; i++) {
-      final String prev = words[i - 1], cur = words[i];
-      for (int j = 0; j < Math.min(prev.length(), cur.length()); j++) {
-        final char prevChar = prev.charAt(j), curChar = cur.charAt(j);
-        if (prevChar != curChar) {
-          childToParents.putIfAbsent(curChar, new HashSet<>());
-          final Set<Character> parents = childToParents.get(curChar);
-          childrenCounts.putIfAbsent(prevChar, 0);
-          childrenCounts.putIfAbsent(curChar, 0);
-          if (parents.add(prevChar)) {
-            childrenCounts.put(prevChar, childrenCounts.get(prevChar) + 1);
-          }
-          break;
+    for (int i = 0; i < words.length - 1; i++) {
+      final String word1 = words[i], word2 = words[i + 1];
+      final int min = Math.min(word1.length(), word2.length());
+      for (int j = 0; j < min; j++) {
+        final char c1 = word1.charAt(j), c2 = word2.charAt(j);
+        if (c1 == c2) continue;
+        final Set<Character> children = map.getOrDefault(c1, new HashSet<>());
+        map.put(c1, children);
+        if (!children.contains(c2)) {
+          indegree.put(c2, indegree.get(c2) + 1);
+          children.add(c2);
         }
-      } // end of for j
+        break;
+      }
     }
-    final char[] res = new char[childrenCounts.size()];
-    int index = res.length - 1;
     final Queue<Character> q = new ArrayDeque<>();
-    final Set<Character> visited = new HashSet<>();
-    for (final Map.Entry<Character, Integer> e : childrenCounts.entrySet()) {
+    for (final Map.Entry<Character, Integer> e : indegree.entrySet()) {
       if (e.getValue() == 0) {
-        final char key = e.getKey();
-        q.add(key);
-        visited.add(key);
+        final char chr = e.getKey();
+        q.add(chr);
       }
     }
-
+    final StringBuilder sb = new StringBuilder();
     while (!q.isEmpty()) {
-      final int size = q.size();
-      for (int i = 0; i < size; i++) {
-        final char toRemove = q.remove();
-        res[index--] = toRemove;
-        final Set<Character> parents = childToParents.getOrDefault(toRemove, new HashSet<>());
-        for (char p : parents) {
-          childrenCounts.put(p, childrenCounts.get(p) - 1);
-          if (childrenCounts.get(p) == 0 && !visited.contains(p)) {
-            q.add(p);
-            visited.add(p);
-          }
+      final char toRemove = q.remove();
+      sb.append(toRemove);
+      final Set<Character> children = map.getOrDefault(toRemove, new HashSet<>());
+      for (char chr : children) {
+        final int count = indegree.get(chr);
+        if (count == 1) {
+          q.add(chr);
         }
+        indegree.put(chr, count - 1);
       }
     }
-
-    return index == -1 ? String.valueOf(res) : "";
+    return sb.length() == indegree.size() ? sb.toString() : "";
   }
 }

@@ -1,6 +1,11 @@
 package _0251_0300._269_Alien_Dictionary;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
 /**
  * @author Zhiwei.Xin
@@ -15,8 +20,8 @@ public class Solution {
     } else if (words.length == 1) {
       return words[0];
     } else {
-      for(String s: words) {
-        for(char c : s.toCharArray()) {
+      for (String s : words) {
+        for (char c : s.toCharArray()) {
           prevCharacterCounts.put(c, 0);
         }
       }
@@ -37,7 +42,8 @@ public class Solution {
       } // end of i loop
 
       Queue<Character> queue = new ArrayDeque<>();
-
+      System.out.println(prevCharacterCounts);
+      System.out.println(smallToChildren);
       for (Map.Entry<Character, Integer> entry : prevCharacterCounts.entrySet()) {
         char key = entry.getKey();
         int count = entry.getValue();

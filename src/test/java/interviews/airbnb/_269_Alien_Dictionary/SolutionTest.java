@@ -42,6 +42,11 @@ class SolutionTest {
     assertTrue(expected.contains(actual));
   }
 
+  /**
+   * 自环还是valid，其他是invalid
+   *
+   * @throws Exception
+   */
   @Test
   void testFailed3() throws Exception {
     assertEquals("z", solution.alienOrder(new String[]{"z", "z"}));

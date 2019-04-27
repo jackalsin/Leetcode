@@ -43,8 +43,18 @@ class SolutionTest {
     assertEquals("acb", solution.alienOrder(new String[]{"ac", "ab", "b"}));
   }
 
-  @org.junit.jupiter.api.Test
+  @Test
   void testFailed3() throws Exception {
     Assertions.assertEquals("z", solution.alienOrder(new String[]{"z", "z"}));
+  }
+
+  @Test
+  void testFailed4() throws Exception {
+    Assertions.assertEquals("z", solution.alienOrder(new String[]{"z", "z", "z"}));
+  }
+
+  @Test
+  void testFailed5() throws Exception {
+    Assertions.assertEquals("zf", solution.alienOrder(new String[]{"z", "z", "f"}));
   }
 }
