@@ -22,7 +22,6 @@ public final class StringChains {
     for (final String word : words) {
       dfs(word);
     }
-    System.out.println(cache);
     return result;
   }
 
