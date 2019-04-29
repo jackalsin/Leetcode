@@ -1,6 +1,5 @@
 package interviews.airbnb.diceSimulation.solution;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -9,10 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionIITest {
   private Solution solution;
-
-  @BeforeEach
-  void setup() {
-  }
 
   @Test
   void testOnlineCase1() {
@@ -37,7 +32,6 @@ class SolutionIITest {
     }
     assertEquals(expected, SolutionII.getNextState(0, input));
   }
-
 
   // test state
 

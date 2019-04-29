@@ -20,19 +20,11 @@ public final class SolutionII implements Solution {
   /**
    * state to (sum to combination)
    */
-//  private final Map<Integer, Map<Integer, List<Integer>>> combinations = new HashMap<>();
-  private final List[][] combinations;
+  private final Map<Integer, Map<Integer, List<Integer>>> combinations = new HashMap<>();
 
   public SolutionII() {
-    // generate cache
-    for (int i = 2; i <= 12; i++) {
-      sumToPermutation.put(i, getPermutation(i));
-    }
-
-    sumToPermutation.forEach((sum, p) -> System.out.println("sum = " + sum + ", list = " + p));
     state = getInitState();
     cache = new double[state + 1][N + N + 1];
-    combinations = new List[state + 1][N + N + 1];
     Arrays.stream(cache).forEach(x -> Arrays.fill(x, -1d));
     for (int sum = 2; sum <= 12; sum++) {
       System.out.println(sum);
@@ -63,9 +55,9 @@ public final class SolutionII implements Solution {
     int state = this.state;
     while (state != 0) {
       final int sum = dice.roll(2);
-      final List<Integer> curSolution = combinations[state][sum];
-//      System.out.println(curSolution); // print solution
+      final List<Integer> curSolution = combinations.getOrDefault(state, new HashMap<>()).get(sum);
       if (curSolution == null) return false; // 没有solution
+//      System.out.println(curSolution); // print solution
       state = getNextState(state, curSolution);
     }
     return true; // solve
@@ -98,7 +90,7 @@ public final class SolutionII implements Solution {
       }
       if (probability > bestProb) {
         bestProb = probability;
-        combinations[state][sum] = p;
+        combinations.computeIfAbsent(state, x -> new HashMap<>()).put(sum, p);
       }
     } // end for loop curPermutations
     cache[state][sum] = bestProb;
@@ -128,14 +120,6 @@ public final class SolutionII implements Solution {
     if (sum < 2) {
       return result;
     }
-//    final Set<Integer> candidates = new HashSet<>(stateToList(state));
-//    final List<List<Integer>> possible = sumToPermutation.get(sum);
-//    for (final List<Integer> cand : possible) {
-//      if (candidates.containsAll(cand)) {
-//        result.add(cand);
-//      }
-//    }
-
     final List<Integer> candidates = stateToList(state);
     getPermutation(result, candidates, new ArrayList<>(), sum, 0);
     return result;
@@ -172,31 +156,4 @@ public final class SolutionII implements Solution {
     return result;
   }
 
-  // ------ permutation generation
-  private final Map<Integer, List<List<Integer>>> sumToPermutation = new HashMap<>();
-
-
-  private static List<List<Integer>> getPermutation(final int sum) {
-    final List<List<Integer>> result = new ArrayList<>();
-    getPermutation(result, new ArrayList<>(), sum, 1);
-    return result;
-  }
-
-  private static void getPermutation(final List<List<Integer>> result, final List<Integer> curPath, final int sum, final int start) {
-    if (sum < 0) {
-      return;
-    }
-    if (sum == 0) {
-      result.add(new ArrayList<>(curPath));
-      return;
-    }
-    if (start == 9 + 1) {
-      return;
-    }
-    for (int i = start; i <= 9; i++) {
-      curPath.add(i);
-      getPermutation(result, curPath, sum - i, i + 1);
-      curPath.remove(curPath.size() - 1);
-    }
-  }
 }
