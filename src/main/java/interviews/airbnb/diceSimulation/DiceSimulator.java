@@ -1,5 +1,7 @@
 package interviews.airbnb.diceSimulation;
 
+import interviews.airbnb.diceSimulation.solution.Solution;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,16 +13,16 @@ import java.util.Map;
  */
 public final class DiceSimulator {
   private static final int N = 9;
-  private final Map<Integer, Boolean> boxes = new HashMap<>();
 
   public DiceSimulator() {
     for (int i = 1; i <= N; i++) {
+      Map<Integer, Boolean> boxes = new HashMap<>();
       boxes.put(i, false);
     }
   }
 
   public boolean solve(Solution solution) {
-    return solution.solve(boxes);
+    return solution.solve();
   }
 
 }

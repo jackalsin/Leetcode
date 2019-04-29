@@ -43,7 +43,8 @@
                 <configuration>
                     <!--if you don't want the test result-->
                     <printSummary>false</printSummary>
-                    <argLine>-Xss18m</argLine>
+                    <argLine>-Xss1024m</argLine>
+                    <argLine>-Xsm1024m</argLine>
                 </configuration>
                 <dependencies>
                     <dependency>

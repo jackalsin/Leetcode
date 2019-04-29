@@ -1,5 +1,7 @@
 package interviews.airbnb.diceSimulation;
 
+import interviews.airbnb.diceSimulation.solution.Solution;
+import interviews.airbnb.diceSimulation.solution.SolutionI;
 import org.junit.jupiter.api.Test;
 
 class SolutionITest {

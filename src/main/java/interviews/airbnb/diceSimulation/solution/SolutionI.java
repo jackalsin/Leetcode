@@ -1,9 +1,12 @@
-package interviews.airbnb.diceSimulation;
+package interviews.airbnb.diceSimulation.solution;
+
+import interviews.airbnb.diceSimulation.Dice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -48,8 +51,12 @@ public final class SolutionI implements Solution {
   }
 
   @Override
-  public boolean solve(final Map<Integer, Boolean> boxes) {
-    return solve(boxes.keySet());
+  public boolean solve() {
+    final Set<Integer> boxes = new HashSet<>();
+    for (int i = 1; i <= 9; i++) {
+      boxes.add(i);
+    }
+    return solve(boxes);
   }
 
   public boolean solve(final Set<Integer> closedBoxes) {
