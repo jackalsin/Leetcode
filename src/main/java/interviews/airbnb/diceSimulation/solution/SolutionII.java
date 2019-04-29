@@ -14,13 +14,14 @@ import java.util.Map;
 public final class SolutionII implements Solution {
   private static final int N = 6, BOXES = 9;
   private final double[] sumProbability = getSumProbability();
-  private int state;
+  private int state; // 1 is closed, 0 is open
   private final double[][] cache;
   private final Dice dice = new Dice();
   /**
    * state to (sum to combination)
    */
-  private final Map<Integer, Map<Integer, List<Integer>>> combinations = new HashMap<>();
+//  private final Map<Integer, Map<Integer, List<Integer>>> combinations = new HashMap<>();
+  private final List[][] combinations;
 
   public SolutionII() {
     // generate cache
@@ -29,15 +30,22 @@ public final class SolutionII implements Solution {
     }
 
     sumToPermutation.forEach((sum, p) -> System.out.println("sum = " + sum + ", list = " + p));
-    state = 0;
-    for (int i = 1; i <= BOXES; i++) {
-      state += (1 << (i - 1));
-    }
+    state = getInitState();
     cache = new double[state + 1][N + N + 1];
+    combinations = new List[state + 1][N + N + 1];
     Arrays.stream(cache).forEach(x -> Arrays.fill(x, -1d));
     for (int sum = 2; sum <= 12; sum++) {
+      System.out.println(sum);
       dfs(state, sum);
     }
+  }
+
+  private static int getInitState() {
+    int res = 0;
+    for (int i = 1; i <= BOXES; i++) {
+      res += (1 << (i - 1));
+    }
+    return res;
   }
 
   private static double[] getSumProbability() {
@@ -55,8 +63,8 @@ public final class SolutionII implements Solution {
     int state = this.state;
     while (state != 0) {
       final int sum = dice.roll(2);
-      final List<Integer> curSolution = combinations.getOrDefault(state, new HashMap<>()).get(sum);
-      System.out.println(curSolution); // print solution
+      final List<Integer> curSolution = combinations[state][sum];
+//      System.out.println(curSolution); // print solution
       if (curSolution == null) return false; // 没有solution
       state = getNextState(state, curSolution);
     }
@@ -90,7 +98,7 @@ public final class SolutionII implements Solution {
       }
       if (probability > bestProb) {
         bestProb = probability;
-        combinations.computeIfAbsent(state, x -> new HashMap<>()).put(sum, p);
+        combinations[state][sum] = p;
       }
     } // end for loop curPermutations
     cache[state][sum] = bestProb;
@@ -105,7 +113,7 @@ public final class SolutionII implements Solution {
   static int getNextState(final int state, final List<Integer> p) {
     int res = state;
     for (int c : p) {
-      res |= (1 << (c - 1));
+      res -= (1 << (c - 1));
     }
     return res;
   }
