@@ -21,24 +21,32 @@ class SolutionTest {
   }
 
   @Test
-  void testExample1() throws Exception {
+  void testExample1() {
     assertEquals("wertf", solution.alienOrder(new String[]{"wrt", "wrf", "er", "ett", "rftt"}));
   }
 
   @Test
-  void testExample2() throws Exception {
+  void testExample2() {
     assertEquals("zx", solution.alienOrder(new String[]{"z", "x"}));
   }
 
   @Test
-  void testExample3() throws Exception {
+  void testExample3() {
     assertEquals("", solution.alienOrder(new String[]{"z", "x", "z"}));
   }
 
   @Test
-  void testFailed() throws Exception {
+  void testFailed() {
     final Set<String> expected = Set.of("acb", "cab");
     final String actual = solution.alienOrder(new String[]{"ac", "ab", "b"});
+    assertTrue(expected.contains(actual));
+  }
+
+  @Test
+  void testFailed2() {
+    // ab, zc,
+    final Set<String> expected = Set.of("abzc", "azcb", "azbc");
+    final String actual = solution.alienOrder(new String[]{"za", "zb", "ca", "cb"});
     assertTrue(expected.contains(actual));
   }
 
@@ -48,7 +56,7 @@ class SolutionTest {
    * @throws Exception
    */
   @Test
-  void testFailed3() throws Exception {
+  void testFailed3() {
     assertEquals("z", solution.alienOrder(new String[]{"z", "z"}));
   }
 }

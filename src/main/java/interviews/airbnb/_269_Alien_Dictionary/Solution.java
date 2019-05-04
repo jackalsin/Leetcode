@@ -1,6 +1,7 @@
 package interviews.airbnb._269_Alien_Dictionary;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,48 +15,53 @@ import java.util.Set;
 public final class Solution {
 
   public String alienOrder(String[] words) {
-    final Map<Character, Set<Character>> map = new HashMap<>();
-    final Map<Character, Integer> indegree = new HashMap<>();
-    for (String s : words) {
-      for (char c : s.toCharArray()) {
-        indegree.put(c, 0);
-      }
+    if (words == null || words.length == 0) {
+      return "";
     }
+    final Map<Character, Integer> indegrees = getInDegrees(words);
+    final Map<Character, Set<Character>> parentToChildren = new HashMap<>();
     for (int i = 0; i < words.length - 1; i++) {
       final String word1 = words[i], word2 = words[i + 1];
       final int min = Math.min(word1.length(), word2.length());
       for (int j = 0; j < min; j++) {
         final char c1 = word1.charAt(j), c2 = word2.charAt(j);
         if (c1 == c2) continue;
-        final Set<Character> children = map.getOrDefault(c1, new HashSet<>());
-        map.put(c1, children);
+        final Set<Character> children = parentToChildren.getOrDefault(c1, new HashSet<>());
+        parentToChildren.put(c1, children);
         if (!children.contains(c2)) {
-          indegree.put(c2, indegree.get(c2) + 1);
           children.add(c2);
+          indegrees.put(c2, indegrees.get(c2) + 1);
         }
         break;
       }
-    }
+    } // end of for loop words
     final Queue<Character> q = new ArrayDeque<>();
-    for (final Map.Entry<Character, Integer> e : indegree.entrySet()) {
+    for (final Map.Entry<Character, Integer> e : indegrees.entrySet()) {
       if (e.getValue() == 0) {
-        final char chr = e.getKey();
-        q.add(chr);
+        q.add(e.getKey());
       }
     }
-    final StringBuilder sb = new StringBuilder();
+
+    final StringBuilder result = new StringBuilder();
     while (!q.isEmpty()) {
       final char toRemove = q.remove();
-      sb.append(toRemove);
-      final Set<Character> children = map.getOrDefault(toRemove, new HashSet<>());
-      for (char chr : children) {
-        final int count = indegree.get(chr);
+      result.append(toRemove);
+      final Set<Character> children = parentToChildren.get(toRemove);
+      if (children == null) continue;
+      for (char c : children) {
+        final int count = indegrees.get(c);
         if (count == 1) {
-          q.add(chr);
+          q.add(c);
         }
-        indegree.put(chr, count - 1);
+        indegrees.put(c, count - 1);
       }
     }
-    return sb.length() == indegree.size() ? sb.toString() : "";
+    return result.length() == indegrees.size() ? result.toString() : "";
+  }
+
+  private static Map<Character, Integer> getInDegrees(final String[] words) {
+    final Map<Character, Integer> result = new HashMap<>();
+    Arrays.stream(words).forEach(word -> word.chars().forEach(chr -> result.put((char) chr, 0)));
+    return result;
   }
 }
