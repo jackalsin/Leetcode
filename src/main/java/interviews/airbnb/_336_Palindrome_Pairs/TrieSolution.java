@@ -13,73 +13,55 @@ public final class TrieSolution implements Solution {
   private final Node root = new Node();
 
   public List<List<Integer>> palindromePairs(String[] words) {
+    for (int i = 0; i < words.length; i++) {
+      insert(words[i], i);
+    }
     final List<List<Integer>> result = new ArrayList<>();
-    if (words == null || words.length == 0) {
-      return result;
-    }
     for (int i = 0; i < words.length; i++) {
-      final String word = words[i];
-      insert(root, word, word.length() - 1, i);
-    }
-
-    for (int i = 0; i < words.length; i++) {
-      final String word = words[i];
-      search(result, root, word, i, 0);
+      search(result, words[i], i);
     }
     return result;
   }
 
-  private void search(final List<List<Integer>> result, final Node root, final String word, final int indexInWords, final int i) {
-    if (i == word.length()) {
-      // word + palindrome + current path
-      for (int c : root.indexes) {
-        if (indexInWords != c) {
-          result.add(Arrays.asList(indexInWords, c));
-        }
+  private void search(final List<List<Integer>> result, final String word, final int indexInWords) {
+    Node root = this.root;
+    for (int i = 0; i < word.length(); i++) {
+      final char chr = word.charAt(i);
+      final int chrIndex = chr - 'a';
+      if (root.indexInWords >= 0 && indexInWords != root.indexInWords && isPalindrome(word, i, word.length() - 1)) {
+        result.add(Arrays.asList(indexInWords, root.indexInWords));
       }
-      return;
+      if (root.next[chrIndex] == null) return;
+      root = root.next[chrIndex];
     }
-    // current path + palindrome + root.wordIndex
-    if (root.wordIndex != indexInWords && root.wordIndex != -1 && isPalindrome(word, i, word.length() - 1)) {
-      result.add(Arrays.asList(indexInWords, root.wordIndex));
+    // [curWord] [palindrome] [reverse cur word]
+    for (int i : root.index) {
+      if (indexInWords != i) {
+        result.add(Arrays.asList(indexInWords, i));
+      }
     }
-
-    final char chr = word.charAt(i);
-    final int chrIndex = chr - 'a';
-    if (root.next[chrIndex] == null) {
-      return;
-    }
-    search(result, root.next[chrIndex], word, indexInWords, i + 1);
   }
 
-  private void insert(final Node root, final String word, final int i, final int indexInWords) {
-    if (i == -1) {
-      root.wordIndex = indexInWords;
-      root.indexes.add(indexInWords);
-      return;
+  private void insert(final String word, final int indexInWords) {
+    Node root = this.root;
+    for (int i = word.length() - 1; i >= 0; i--) {
+      if (isPalindrome(word, 0, i)) {
+        root.index.add(indexInWords);
+      }
+      final char chr = word.charAt(i);
+      final int chrIndex = chr - 'a';
+      if (root.next[chrIndex] == null) {
+        root.next[chrIndex] = new Node();
+      }
+      root = root.next[chrIndex];
     }
-
-    final char chr = word.charAt(i);
-    final int chrIndex = chr - 'a';
-    if (root.next[chrIndex] == null) {
-      root.next[chrIndex] = new Node();
-    }
-
-    if (isPalindrome(word, 0, i)) {
-      root.indexes.add(indexInWords);
-    }
-    insert(root.next[chrIndex], word, i - 1, indexInWords);
+    root.indexInWords = indexInWords;
+    root.index.add(indexInWords);
   }
 
-  /**
-   * @param word
-   * @param i    inclusive
-   * @param j    inclusive
-   * @return
-   */
-  private static boolean isPalindrome(final String word, final int i, final int j) {
-    for (int left = i, right = j; left < right; left++, right--) {
-      if (word.charAt(left) != word.charAt(right)) {
+  private static boolean isPalindrome(final String word, int i, int j) {
+    for (; i < j; i++, j--) {
+      if (word.charAt(i) != word.charAt(j)) {
         return false;
       }
     }
@@ -88,11 +70,11 @@ public final class TrieSolution implements Solution {
 
   private static final class Node {
     private final Node[] next = new Node[N];
+    private int indexInWords = -1;
     /**
-     * index of words
+     * index of words that is palindrome below
+     * exclusive
      */
-    private List<Integer> indexes = new ArrayList<>();
-
-    private int wordIndex = -1;
+    private final List<Integer> index = new ArrayList<>();
   }
 }
