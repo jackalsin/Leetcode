@@ -21,44 +21,37 @@ public final class DijkstraSolution implements Solution {
    * @return the min cost
    */
   public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
-    final Map<Integer, Map<Integer, Integer>> srcToDstToCost = getFlight(flights);
+    final Map<Integer, Map<Integer, Integer>> srcToDstToCost = getFlightMap(flights);
+    // {src, remain, price}
     final Queue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
       @Override
-      public int compare(final int[] i, final int[] j) {
-        return Integer.compare(i[1], j[1]);
+      public int compare(int[] o1, int[] o2) {
+        return Integer.compare(o1[2], o2[2]);
       }
     });
-    // city , cost, remainStop
-    pq.add(new int[]{src, 0, K + 1});
-    final Map<Integer, Integer> visited = new HashMap<>();
-    visited.put(src, 0);
+    pq.add(new int[]{src, K + 1, 0});
     while (!pq.isEmpty()) {
       final int[] toRemove = pq.remove();
-      final int cur = toRemove[0], curCost = toRemove[1], curRemain = toRemove[2];
-      if (cur == dst) {
-        return curCost;
-      }
-      if (curRemain <= 0) {
-        continue;
-      }
-      if (!srcToDstToCost.containsKey(cur)) continue;
-      final Map<Integer, Integer> dstToCost = srcToDstToCost.get(cur);
-      for (final Map.Entry<Integer, Integer> e : dstToCost.entrySet()) {
+      final int cur = toRemove[0], remain = toRemove[1], cost = toRemove[2];
+      if (cur == dst) return cost;
+      if (remain == 0) continue;
+      final Map<Integer, Integer> nextCostMap = srcToDstToCost.get(cur);
+      if (nextCostMap == null) continue;
+      for (Map.Entry<Integer, Integer> e : nextCostMap.entrySet()) {
         final int next = e.getKey(), nextCost = e.getValue();
-        if (visited.getOrDefault(next, Integer.MAX_VALUE) < curCost + nextCost) {
-          continue; // no value to loop
-        }
-        pq.add(new int[]{next, curCost + nextCost, curRemain - 1});
+        pq.add(new int[]{next, remain - 1, nextCost + cost});
       }
     }
     return -1;
   }
 
-  private Map<Integer, Map<Integer, Integer>> getFlight(int[][] flights) {
-    final Map<Integer, Map<Integer, Integer>> result = new HashMap<>();
+  private static Map<Integer, Map<Integer, Integer>> getFlightMap(final int[][] flights) {
+    final Map<Integer, Map<Integer, Integer>> map = new HashMap<>();
     for (final int[] f : flights) {
-      result.computeIfAbsent(f[0], src -> new HashMap<>()).put(f[1], f[2]);
+//      map.computeIfAbsent(f[0], x -> new HashMap<>()).put(f[1], f[2]);
+      map.putIfAbsent(f[0], new HashMap<>());
+      map.get(f[0]).put(f[1], f[2]);
     }
-    return result;
+    return map;
   }
 }
