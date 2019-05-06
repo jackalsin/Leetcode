@@ -13,33 +13,35 @@ public final class Solution {
     int ipNum = get(ip);
     final List<String> result = new ArrayList<>();
     while (n > 0) {
-      int step = ipNum & (-ipNum);
-      while (step > n) step /= 2;
-      int submask = 32;
-      for (int i = 1; i < step; i *= 2) {
+      final int rightMost = (ipNum & (-ipNum));
+      int submask = 32, count = 1;
+      while (count <= n && count <= rightMost) {
+        count *= 2;
         submask--;
       }
-
-      final String ipStr = get(ipNum);
-      result.add(ipStr + "/" + submask);
-      ipNum += step;
-      n -= step;
+      count /= 2;
+      submask++;
+      n -= count;
+      result.add(get(ipNum) + "/" + submask);
+      ipNum += count;
     }
     return result;
   }
 
-  private static String get(int ip) {
-    return String.format("%d.%d.%d.%d",
-        (ip >>> 24), ((ip << 8) >>> 24), ((ip << 16) >>> 24), ((ip << 24) >>> 24)
-    );
+  private static String get(final int ip) {
+    return String.format("%s.%s.%s.%s",
+        ip >>> 24,
+        (ip << 8) >>> 24,
+        (ip << 16) >>> 24,
+        (ip << 24) >>> 24);
   }
 
-  private static int get(String ip) {
-    int res = 0;
-    final String[] ips = ip.split("\\.");
-    for (String sec : ips) {
-      res = res * 256 + Integer.parseInt(sec);
+  private static int get(final String ip) {
+    int num = 0;
+    final String[] items = ip.split("\\.");
+    for (String item : items) {
+      num = (num << 8) | Integer.valueOf(item);
     }
-    return res;
+    return num;
   }
 }
