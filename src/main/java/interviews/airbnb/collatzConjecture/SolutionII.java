@@ -8,30 +8,26 @@ import java.util.Map;
  * @version 1.0 on 2/26/2019.
  */
 public final class SolutionII implements Solution {
-  private final Map<Integer, Integer> steps = new HashMap<>();
+  private final Map<Integer, Integer> cache = new HashMap<>();
 
   @Override
   public int findTheLongestStep(int num) {
-    if (num <= 0) {
-      throw new IllegalArgumentException("num cannot be non-negative, but num = " + num);
-    }
     int max = 0;
-    for (int i = 1; i < num; i++) {
-      final int cur = getSteps(i);
+    for (int step = 1; step <= num; step++) {
+      final int cur = findSteps(step);
       max = Math.max(cur, max);
     }
     return max;
   }
 
-  private int getSteps(final int n) {
-    if (n == 1) {
-      return 0;
+  private int findSteps(int step) {
+    if (step < 1) return 0;
+    if (step == 1) return 0;
+    if (cache.containsKey(step)) {
+      return cache.get(step);
     }
-    if (steps.containsKey(n)) {
-      return steps.get(n);
-    }
-    final int cur = 1 + ((n % 2 == 0) ? (getSteps(n / 2)) : (getSteps(3 * n + 1)));
-    steps.put(n, cur);
-    return cur;
+    final int res = step % 2 == 0 ? (1 + findSteps(step / 2)) : (1 + findSteps(3 * step + 1));
+    cache.put(step, res);
+    return res;
   }
 }
