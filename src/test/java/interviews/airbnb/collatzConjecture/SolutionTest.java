@@ -64,7 +64,6 @@ public class SolutionTest {
    * This will take 1s 141ms on my local machine
    */
   @Test
-  @Ignore
   public void testOnlineCase6() {
     //less than 1 million is 837,799, which has 524 steps,
     assertEquals(524, solution.findTheLongestStep(1_000_000));

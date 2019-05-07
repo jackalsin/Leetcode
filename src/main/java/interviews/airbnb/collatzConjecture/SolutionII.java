@@ -8,7 +8,7 @@ import java.util.Map;
  * @version 1.0 on 2/26/2019.
  */
 public final class SolutionII implements Solution {
-  private final Map<Integer, Integer> cache = new HashMap<>();
+  private final Map<Long, Integer> cache = new HashMap<>();
 
   @Override
   public int findTheLongestStep(int num) {
@@ -20,7 +20,7 @@ public final class SolutionII implements Solution {
     return max;
   }
 
-  private int findSteps(int step) {
+  private int findSteps(long step) {
     if (step < 1) return 0;
     if (step == 1) return 0;
     if (cache.containsKey(step)) {
