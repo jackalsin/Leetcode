@@ -13,54 +13,62 @@ public final class TrieSolution implements Solution {
   private final Node root = new Node();
 
   public List<List<Integer>> palindromePairs(String[] words) {
-    for (int i = 0; i < words.length; i++) {
-      insert(words[i], i);
-    }
     final List<List<Integer>> result = new ArrayList<>();
+    if (words == null || words.length == 0) {
+      return result;
+    }
     for (int i = 0; i < words.length; i++) {
-      search(result, words[i], i);
+      String word = words[i];
+      insert(root, word, i, word.length() - 1);
+    }
+    for (int i = 0; i < words.length; i++) {
+      search(result, root, words[i], i, 0);
     }
     return result;
   }
 
-  private void search(final List<List<Integer>> result, final String word, final int indexInWords) {
-    Node root = this.root;
-    for (int i = 0; i < word.length(); i++) {
-      final char chr = word.charAt(i);
-      final int chrIndex = chr - 'a';
-      if (root.indexInWords >= 0 && indexInWords != root.indexInWords && isPalindrome(word, i, word.length() - 1)) {
-        result.add(Arrays.asList(indexInWords, root.indexInWords));
+  private static void search(final List<List<Integer>> result, final Node root, final String word, final int indexInWords, int i) {
+    if (i == word.length()) {
+      // current word, palindrome, curPath
+      for (int index : root.index) {
+        if (index != indexInWords) {
+          result.add(Arrays.asList(indexInWords, index));
+        }
       }
-      if (root.next[chrIndex] == null) return;
-      root = root.next[chrIndex];
+      return;
+    } // end of i == word.length();
+
+    // curPath, palindrome, word ending here
+    if (root.indexInWords != -1 && indexInWords != root.indexInWords && isPalindrome(word, i, word.length() - 1)) {
+      result.add(Arrays.asList(indexInWords, root.indexInWords));
     }
-    // [curWord] [palindrome] [reverse cur word]
-    for (int i : root.index) {
-      if (indexInWords != i) {
-        result.add(Arrays.asList(indexInWords, i));
-      }
+    final char chr = word.charAt(i);
+    final int chrIndex = chr - 'a';
+    if (root.next[chrIndex] == null) {
+      return;
     }
+    search(result, root.next[chrIndex], word, indexInWords, i + 1);
   }
 
-  private void insert(final String word, final int indexInWords) {
-    Node root = this.root;
-    for (int i = word.length() - 1; i >= 0; i--) {
-      if (isPalindrome(word, 0, i)) {
-        root.index.add(indexInWords);
-      }
-      final char chr = word.charAt(i);
-      final int chrIndex = chr - 'a';
-      if (root.next[chrIndex] == null) {
-        root.next[chrIndex] = new Node();
-      }
-      root = root.next[chrIndex];
+  private static void insert(final Node root, final String word, int indexInWords, final int i) {
+    if (i == -1) {
+      root.indexInWords = indexInWords;
+      root.index.add(indexInWords);
+      return;
     }
-    root.indexInWords = indexInWords;
-    root.index.add(indexInWords);
+    if (isPalindrome(word, 0, i)) {
+      root.index.add(indexInWords);
+    }
+    final char chr = word.charAt(i);
+    final int chrIndex = chr - 'a';
+    if (root.next[chrIndex] == null) {
+      root.next[chrIndex] = new Node();
+    }
+    insert(root.next[chrIndex], word, indexInWords, i - 1);
   }
 
-  private static boolean isPalindrome(final String word, int i, int j) {
-    for (; i < j; i++, j--) {
+  private static boolean isPalindrome(final String word, final int left, final int right) {
+    for (int i = left, j = right; i < j; i++, j--) {
       if (word.charAt(i) != word.charAt(j)) {
         return false;
       }
@@ -72,8 +80,7 @@ public final class TrieSolution implements Solution {
     private final Node[] next = new Node[N];
     private int indexInWords = -1;
     /**
-     * index of words that is palindrome below
-     * exclusive
+     * index of words that after this char (exclusive) are
      */
     private final List<Integer> index = new ArrayList<>();
   }
