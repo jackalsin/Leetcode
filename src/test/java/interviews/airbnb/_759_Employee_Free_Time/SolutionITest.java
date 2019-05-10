@@ -3,22 +3,24 @@ package interviews.airbnb._759_Employee_Free_Time;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.Interval;
+import utils.TwoDimensionArray;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
  * @version 1.0 on 2/17/2019.
  */
-class SolutionTest {
+class SolutionITest {
 
   private Solution solution;
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
+    solution = new SolutionI();
   }
 
   @Test
@@ -68,5 +70,48 @@ class SolutionTest {
         new Interval(26, 27), new Interval(36, 39), new Interval(87, 91)
     ), actual = solution.employeeFreeTime(input);
     assertEquals(expected, actual);
+  }
+
+  // test array method
+  @Test
+  void testOnlineCaseArray1() {
+    final int[][][] input = {
+        {{1, 2}, {5, 6}},
+        {{1, 3}},
+        {{4, 10}}
+    };
+
+    final int[][] expected = {{3, 4}};
+    final int[][] actual = solution.employeeFreeTime(input);
+    assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, actual));
+  }
+
+  @Test
+  void testOnlineCaseArray2() {
+    final int[][][] input = {
+        {{1, 3}, {6, 7}},
+        {{2, 4}},
+        {{2, 5}, {9, 12}}
+    };
+
+    final int[][] expected = {{5, 6}, {7, 9}};
+    final int[][] actual = solution.employeeFreeTime(input);
+    assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, actual));
+  }
+
+  @Test
+  void testFailedCaseArray1() {
+    final int[][][] input = {
+        {{7, 24}, {29, 33}, {45, 57}, {66, 69}, {94, 99}},
+        {{6, 24}, {43, 49}, {56, 59}, {61, 75}, {80, 81}},
+        {{5, 16}, {18, 26}, {33, 36}, {39, 57}, {65, 74}},
+        {{9, 16}, {27, 35}, {40, 55}, {68, 71}, {78, 81}},
+        {{0, 25}, {29, 31}, {40, 47}, {57, 87}, {91, 94}},
+    };
+
+    final int[][] expected = {
+        {26, 27}, {36, 39}, {87, 91}
+    }, actual = solution.employeeFreeTime(input);
+    assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, actual));
   }
 }
