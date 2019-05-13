@@ -28,7 +28,7 @@ class SolutionIITest {
     final List<Integer> input = List.of(1, 3, 5, 9);
     int expected = 0;
     for (int c : input) {
-      expected |= (1 << (c - 1));
+      expected -= (1 << (c - 1));
     }
     assertEquals(expected, SolutionII.getNextState(0, input));
   }
