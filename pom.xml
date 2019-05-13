@@ -44,7 +44,6 @@
                     <!--if you don't want the test result-->
                     <printSummary>false</printSummary>
                     <argLine>-Xss1024m</argLine>
-                    <argLine>-Xms1024m</argLine>
                 </configuration>
                 <dependencies>
                     <dependency>
