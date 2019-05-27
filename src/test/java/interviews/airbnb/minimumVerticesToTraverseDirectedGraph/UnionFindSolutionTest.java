@@ -101,4 +101,20 @@ class UnionFindSolutionTest {
         expected = List.of(1, 2);
     assertEquals(expected, actual);
   }
+
+  @Test
+  void testOnlineCase6() {
+    final int[][] input = {
+        {1, 0, 0, 0},
+        {0, 0, 1, 0},
+        {1, 0, 0, 1},
+        {0, 1, 0, 0},
+    };
+    final List<Integer> actual = solution.getMin(input, 4);
+    System.out.println(actual);
+    final Set<List<Integer>> expectedSet = Set.of(
+        List.of(1), List.of(2), List.of(3)
+    );
+    assertTrue(expectedSet.contains(actual));
+  }
 }
