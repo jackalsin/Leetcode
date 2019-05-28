@@ -8,5 +8,13 @@ package interviews.airbnb.displayPage;
  */
 public interface Solution {
 
+  /**
+   * Return an array of pages,
+   * 1) every page contains at most <tt>perPage</tt>
+   *
+   * @param perPage
+   * @param pages
+   * @return
+   */
   String[] pagination(final int perPage, final String[] pages);
 }
