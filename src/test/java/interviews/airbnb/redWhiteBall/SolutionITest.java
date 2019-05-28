@@ -12,7 +12,7 @@ class SolutionITest {
 
   @BeforeEach
   void setup() {
-    solution = new SolutionI();
+    solution = new DfsMemoSolution();
   }
 
   @Test

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public final class SolutionI implements Solution {
+public final class DfsMemoSolution implements Solution {
   private static final int RED = 0, WHITE = 1;
   private final Map<State, Double> cache = new HashMap<>();
 
