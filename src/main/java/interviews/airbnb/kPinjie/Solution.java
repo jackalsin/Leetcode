@@ -1,4 +1,4 @@
-package interviews.airbnb.KPinjie;
+package interviews.airbnb.kPinjie;
 
 public interface Solution {
   /**

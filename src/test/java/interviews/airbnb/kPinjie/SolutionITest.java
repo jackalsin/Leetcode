@@ -1,4 +1,4 @@
-package interviews.airbnb.KPinjie;
+package interviews.airbnb.kPinjie;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

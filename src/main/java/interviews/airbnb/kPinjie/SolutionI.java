@@ -1,4 +1,4 @@
-package interviews.airbnb.KPinjie;
+package interviews.airbnb.kPinjie;
 
 import java.math.BigInteger;
 import java.util.HashMap;
