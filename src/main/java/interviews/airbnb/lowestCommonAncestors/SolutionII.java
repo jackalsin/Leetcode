@@ -19,6 +19,7 @@ public final class SolutionII implements Solution {
 
   /**
    * 这个是BFS 考虑loop
+   * 这个解法space complexity 有问题，同一个parent可能被放多遍，这题只能正着建tree
    *
    * @param words
    */
