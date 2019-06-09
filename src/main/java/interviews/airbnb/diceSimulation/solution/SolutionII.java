@@ -1,6 +1,6 @@
 package interviews.airbnb.diceSimulation.solution;
 
-import interviews.airbnb.diceSimulation.Dice;
+import interviews.airbnb.diceSimulation.dice.Dice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,12 +27,11 @@ public final class SolutionII implements Solution {
     cache = new double[state + 1][N + N + 1];
     Arrays.stream(cache).forEach(x -> Arrays.fill(x, -1d));
     for (int sum = 2; sum <= 12; sum++) {
-      System.out.println(sum);
       dfs(state, sum);
     }
   }
 
-  private static int getInitState() {
+  public static int getInitState() {
     int res = 0;
     for (int i = 1; i <= BOXES; i++) {
       res += (1 << (i - 1));
@@ -53,6 +52,7 @@ public final class SolutionII implements Solution {
   @Override
   public boolean solve() {
     int state = this.state;
+    assert 0b1_1111_1111 == state;
     while (state != 0) {
       final int sum = dice.roll(2);
       final List<Integer> curSolution = combinations.getOrDefault(state, new HashMap<>()).get(sum);
@@ -102,7 +102,7 @@ public final class SolutionII implements Solution {
    * @param p     the permutation
    * @return
    */
-  static int getNextState(final int state, final List<Integer> p) {
+  public static int getNextState(final int state, final List<Integer> p) {
     int res = state;
     for (int c : p) {
       res -= (1 << (c - 1));
@@ -156,4 +156,11 @@ public final class SolutionII implements Solution {
     return result;
   }
 
+  public double[][] getCache() {
+    return this.cache;
+  }
+
+  public Map<Integer, Map<Integer, List<Integer>>> getCombinations() {
+    return new HashMap<>(combinations);
+  }
 }

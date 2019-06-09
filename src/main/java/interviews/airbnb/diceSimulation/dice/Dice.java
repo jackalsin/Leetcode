@@ -1,4 +1,4 @@
-package interviews.airbnb.diceSimulation;
+package interviews.airbnb.diceSimulation.dice;
 
 import java.util.Random;
 

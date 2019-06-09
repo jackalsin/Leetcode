@@ -1,17 +1,20 @@
 package interviews.airbnb.diceSimulation.solution;
 
+import interviews.airbnb.diceSimulation.newSolution.UnlimitedBoxSolution;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionIITest {
   private Solution solution;
 
-  @Test
+  @RepeatedTest(10)
   void testOnlineCase1() {
-    int success = 0, N = 1_000_000;
+    int success = 0, N = 10_000_000;
     solution = new SolutionII();
     System.out.println("start solving");
     for (int i = 0; i < N; i++) {
@@ -73,5 +76,29 @@ class SolutionIITest {
       input |= (1 << (c - 1));
     }
     assertEquals(expected, SolutionII.stateToList(input));
+  }
+
+
+  @Test
+  void testProbability() {
+    final double[][] unlimitedBoxCache = new UnlimitedBoxSolution().getCache(),
+        solutionIICache = new SolutionII().getCache();
+
+    assertEquals(unlimitedBoxCache.length, solutionIICache.length);
+    assertEquals(unlimitedBoxCache[0].length, solutionIICache[0].length);
+    final int rows = unlimitedBoxCache.length, cols = unlimitedBoxCache[0].length;
+    for (int r = 0; r < rows; r++) {
+      for (int c = 0; c < cols; c++) {
+        assertEquals(solutionIICache[r][c], unlimitedBoxCache[r][c],
+            1e-6, String.format("row = %d, col = %d", r, c));
+      }
+    }
+  }
+
+  @Test
+  void testCombination() {
+    final Map<Integer, Map<Integer, List<Integer>>> unlimitedBoxCombinations = new UnlimitedBoxSolution().getCombinations(),
+        solutionIICombinations = new SolutionII().getCombinations();
+    assertEquals(unlimitedBoxCombinations, solutionIICombinations);
   }
 }
