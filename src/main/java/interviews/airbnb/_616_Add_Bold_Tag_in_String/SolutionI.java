@@ -5,7 +5,6 @@ import java.util.Arrays;
 public final class SolutionI implements Solution {
   private static final String BOLD_START = "<b>", BOLD_END = "</b>";
 
-  @Override
   public String addBoldTag(String s, String[] dict) {
     if (s == null) {
       return s;

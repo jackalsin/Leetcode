@@ -4,33 +4,34 @@ import java.util.Arrays;
 
 public class BooleanArraySolution implements Solution {
 
-  private static final String START_TAG = "<b>";
-  private static final String END_TAG = "</b>";
+  private static final String BOLD_START = "<b>", BOLD_END = "</b>";
 
-  @Override
   public String addBoldTag(String s, String[] dict) {
-    boolean[] isBold = new boolean[s.length()];
-    for (int i = 0; i < s.length(); i++) {
-      for (String sub : dict) {
-        if (s.startsWith(sub, i)) {
-          Arrays.fill(isBold, i, i + sub.length(), true);
-        }
-      }
+    if (s == null) {
+      return s;
     }
-    StringBuilder sb = new StringBuilder();
+    final boolean[] isBold = new boolean[s.length()];
     for (int i = 0; i < s.length(); i++) {
-      if (isBold[i]) {
-        int j = i;
-        while (j < isBold.length && isBold[j]) {
-          j++;
+      for (String w : dict) {
+        if (s.startsWith(w, i)) {
+          Arrays.fill(isBold, i, i + w.length(), true);
         }
-        sb.append(START_TAG).append(s.subSequence(i, j)).append(END_TAG);
-        i = j - 1;
-      } else {
-        sb.append(s.charAt(i));
       }
     }
 
+    final StringBuilder sb = new StringBuilder();
+    for (int end = 0; end < s.length(); end++) {
+      if (isBold[end]) {
+        sb.append(BOLD_START).append(s.charAt(end));
+        while (end + 1 < isBold.length && isBold[end + 1]) {
+          sb.append(s.charAt(end + 1));
+          end++;
+        }
+        sb.append(BOLD_END);
+      } else {
+        sb.append(s.charAt(end));
+      }
+    }
     return sb.toString();
   }
 }
