@@ -3,9 +3,11 @@ package _0601_0650._604_Design_Compressed_String_Iterator;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-public class StringIteratorTest {
+public class StringIteratorITest {
 
   @Before
   public void setUp() throws Exception {
@@ -14,7 +16,7 @@ public class StringIteratorTest {
   @Test
   public void testOnlineCase1() throws Exception {
     final long startTime = System.nanoTime();
-    StringIterator iterator = new StringIterator("L1e2t1C1o1d1e1");
+    StringIterator iterator = new StringIteratorI("L1e2t1C1o1d1e1");
 
     assertEquals('L', iterator.next());
     assertEquals('e', iterator.next());
