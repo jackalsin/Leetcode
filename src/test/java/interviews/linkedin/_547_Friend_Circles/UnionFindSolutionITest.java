@@ -5,12 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class UnionFindSolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 6/18/2019
+ */
+class UnionFindSolutionITest {
   private Solution solution;
 
   @BeforeEach
   void setup() {
-    solution = new UnionFindSolution();
+    solution = new UnionFindSolutionI();
   }
 
   @Test
@@ -53,4 +57,5 @@ class UnionFindSolutionTest {
     };
     assertEquals(1, solution.findCircleNum(Input));
   }
+
 }
