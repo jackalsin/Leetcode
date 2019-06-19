@@ -17,7 +17,6 @@ public final class KmpSolutionI implements Solution {
       if (j == -1 || s.charAt(i) == p.charAt(j)) {
         i++;
         j++;
-
       } else {
         j = next[j];
       }
