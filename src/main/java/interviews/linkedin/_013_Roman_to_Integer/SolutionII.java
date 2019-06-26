@@ -16,12 +16,18 @@ public final class SolutionII implements Solution {
   @Override
   public int romanToInt(String s) {
     int sum = 0;
-    for (int i = 0; i < s.length(); ++i) {
-      if (s.startsWith("IV", i) || s.startsWith("IX", i)) {
-        sum -= 1;
-      } else if (s.startsWith("XL", i) || s.startsWith("XC", i)) {
+    for (int i = 0; i < s.length(); i++) {
+      if (s.startsWith("IV", i)) {
+        sum--;
+      } else if (s.startsWith("IX", i)) {
+        sum--;
+      } else if (s.startsWith("XL", i)) {
         sum -= 10;
-      } else if (s.startsWith("CD", i) || s.startsWith("CM", i)) {
+      } else if (s.startsWith("XC", i)) {
+        sum -= 10;
+      } else if (s.startsWith("CD", i)) {
+        sum -= 100;
+      } else if (s.startsWith("CM", i)) {
         sum -= 100;
       } else if (s.startsWith("I", i)) {
         sum += 1;

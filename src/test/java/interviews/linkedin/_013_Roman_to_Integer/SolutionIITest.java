@@ -9,12 +9,17 @@ class SolutionIITest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
+  void setUp() {
     solution = new SolutionII();
   }
 
   @Test
-  void testOneDigit() throws Exception {
+  void testOneDigit() {
     assertEquals(9, solution.romanToInt("IX"));
+  }
+
+  @Test
+  void testMCMXCIV() {
+    assertEquals(1994, solution.romanToInt("MCMXCIV"));
   }
 }
