@@ -7,9 +7,6 @@ public class SolutionIV implements Solution {
   @Override
   public List<List<Integer>> permute(int[] nums) {
     final List<List<Integer>> result = new ArrayList<>();
-    if (nums == null || nums.length == 0) {
-      return result;
-    }
     final List<Integer> curPath = new ArrayList<>();
     permute(result, nums, curPath, new boolean[nums.length]);
     return result;
@@ -20,11 +17,8 @@ public class SolutionIV implements Solution {
       result.add(new ArrayList<>(curPath));
       return;
     }
-
-    for (int i = 0; i < nums.length; ++i) {
-      if (used[i]) {
-        continue;
-      }
+    for (int i = 0; i < nums.length; i++) {
+      if (used[i]) continue;
       used[i] = true;
       curPath.add(nums[i]);
       permute(result, nums, curPath, used);
