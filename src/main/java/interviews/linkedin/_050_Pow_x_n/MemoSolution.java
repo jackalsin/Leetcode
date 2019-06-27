@@ -10,10 +10,6 @@ import java.util.Map;
  * @version 1.0 on 10/17/2017.
  */
 public class MemoSolution implements Solution {
-  public static void main(String[] args) {
-    System.out.println(Math.log(2));
-    System.out.println(Math.log(10));
-  }
 
   public double myPow(double x, int n) {
     if (n == 0) {

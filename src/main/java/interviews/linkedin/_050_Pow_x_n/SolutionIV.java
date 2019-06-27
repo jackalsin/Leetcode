@@ -1,32 +1,33 @@
 package interviews.linkedin._050_Pow_x_n;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public final class SolutionIV implements Solution {
-  @Override
+
+  /**
+   * TODO: redo
+   *
+   * @param x
+   * @param n
+   * @return
+   */
   public double myPow(double x, int n) {
-    final Map<Long, Double> cache = new HashMap<>();
-    long nLong = (long) n;
+    if (x == 0) {
+      return n == 0 ? 1 : 0;
+    }
+    if (n == Integer.MIN_VALUE) {
+      return 1d / x / myPow(x, -(n + 1));
+    }
+    if (n < 0) {
+      return 1d / myPow(x, -n);
+    }
     if (n == 0) {
-      return x == 0 ? 0 : 1;
-    } else if (nLong < 0) {
-      nLong = Math.abs(nLong);
-      return 1d / myPow(cache, x, nLong);
+      return 1;
     }
-    return myPow(cache, x, nLong);
-
-  }
-
-  private static double myPow(final Map<Long, Double> cache, double x, long n) {
-    if (cache.containsKey(n)) {
-      return cache.get(n);
+    if (n % 2 == 0) {
+      final double half = myPow(x, n / 2);
+      return half * half;
+    } else {
+      final double half = myPow(x, n / 2);
+      return half * half * x;
     }
-    if (n == 1) {
-      return x;
-    }
-    final double half = myPow(cache, x, n / 2), res = half * half * (n % 2 == 1 ? x : 1);
-    cache.put(n, res);
-    return res;
   }
 }
