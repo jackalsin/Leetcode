@@ -8,29 +8,32 @@ import java.util.List;
  * @author jacka
  * @version 1.0 on 10/16/2017.
  */
-public class SolutionI {
+public final class SolutionI implements Solution {
   public List<List<Integer>> permuteUnique(int[] nums) {
-    List<List<Integer>> result = new ArrayList<>();
+    final List<List<Integer>> result = new ArrayList<>();
+    if (nums == null) {
+      return result;
+    }
     Arrays.sort(nums);
-    permuteUnique(result, new ArrayList<>(), nums, new boolean[nums.length]);
+    permuteUnique(result, nums, new ArrayList<>(), new boolean[nums.length]);
     return result;
   }
 
-  private void permuteUnique(List<List<Integer>> result, List<Integer> curPath, int[] nums,
-                             final boolean[] visited) {
+
+  private static void permuteUnique(final List<List<Integer>> result, final int[] nums, final List<Integer> curPath,
+                                    final boolean[] visited) {
     if (curPath.size() == nums.length) {
       result.add(new ArrayList<>(curPath));
-    }
-    for (int i = 0; i < visited.length; ++i) {
-      if (visited[i] || (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1])) {
-        continue;
-      }
-      curPath.add(nums[i]);
-      visited[i] = true;
-      permuteUnique(result, curPath, nums, visited);
-      visited[i] = false;
-      curPath.remove(curPath.size() - 1);
+      return;
     }
 
+    for (int i = 0; i < nums.length; i++) {
+      if (visited[i] || i != 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
+      visited[i] = true;
+      curPath.add(nums[i]);
+      permuteUnique(result, nums, curPath, visited);
+      curPath.remove(curPath.size() - 1);
+      visited[i] = false;
+    }
   }
 }
