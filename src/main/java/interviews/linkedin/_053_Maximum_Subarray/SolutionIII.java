@@ -10,7 +10,7 @@ public final class SolutionIII implements Solution {
       return 0;
     }
     int maxSoFar = nums[0], maxEndHere = nums[0];
-    for (int i = 1; i < nums.length; ++i) {
+    for (int i = 1; i < nums.length; i++) {
       maxEndHere = Math.max(maxEndHere + nums[i], nums[i]);
       maxSoFar = Math.max(maxSoFar, maxEndHere);
     }

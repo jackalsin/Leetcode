@@ -9,36 +9,36 @@ class SolutionIIITest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
+  void setUp() {
     solution = new SolutionIII();
   }
 
   @Test
-  void maxSubArrayWithPositiveMore() throws Exception {
+  void maxSubArrayWithPositiveMore() {
     final int[] input = new int[]{4, 5, 3, -3, 2};
     assertEquals(12, solution.maxSubArray(input));
   }
 
   @Test
-  void testWithOneElement() throws Exception {
+  void testWithOneElement() {
     final int[] input = new int[]{3};
     assertEquals(3, solution.maxSubArray(input));
   }
 
   @Test
-  void testWithOneNegativeElement() throws Exception {
+  void testWithOneNegativeElement() {
     final int[] input = new int[]{-3};
     assertEquals(-3, solution.maxSubArray(input));
   }
 
   @Test
-  void testWithTwoNegativeElement() throws Exception {
+  void testWithTwoNegativeElement() {
     final int[] input = new int[]{-3, -2};
     assertEquals(-2, solution.maxSubArray(input));
   }
 
   @Test
-  void testWithTwoNegativeElementReverse() throws Exception {
+  void testWithTwoNegativeElementReverse() {
     final int[] input = new int[]{-2, -3};
     assertEquals(-2, solution.maxSubArray(input));
   }
