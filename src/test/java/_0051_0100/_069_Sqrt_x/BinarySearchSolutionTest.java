@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 4/27/2017.
  */
-class SolutionTest {
+class BinarySearchSolutionTest {
   private Solution solution;
 
   @BeforeEach
