@@ -6,78 +6,74 @@ import java.util.List;
 public final class SolutionIII implements Solution {
   @Override
   public List<String> fullJustify(String[] words, int maxWidth) {
-    final List<String> result = new ArrayList<>(), curLine = new ArrayList<>();
-    curLine.add(words[0]);
-    int curLineChars = words[0].length();
+    final List<String> result = new ArrayList<>();
+    if (words == null || words.length == 0) {
+      return result;
+    }
+    final List<String> curLineWords = new ArrayList<>();
+    curLineWords.add(words[0]);
+    int curLineLength = words[0].length();
     for (int i = 1; i < words.length; i++) {
-      String word = words[i];
-      if (i == words.length - 1 && curLineChars + 1 + word.length() == maxWidth) {
-        curLine.add(word);
-        result.add(paddingLastLine(curLine, maxWidth));
-        curLine.clear();
-        // invalid
-      } else if (curLineChars + 1 + word.length() > maxWidth) {
-        result.add(paddingToWidth(maxWidth, curLine));
-        curLine.clear();
-        curLine.add(word);
-        curLineChars = word.length();
+      final String word = words[i];
+      if (curLineLength + 1 + word.length() > maxWidth) {
+        String actual = getLine(curLineWords, curLineLength, maxWidth);
+        result.add(actual);
+        curLineWords.clear();
+        curLineWords.add(word);
+        curLineLength = word.length();
       } else {
-        curLine.add(word);
-        curLineChars += 1 + word.length();
+        curLineLength += 1 + word.length();
+        curLineWords.add(word);
       }
     }
-    if (!curLine.isEmpty()) {
-      result.add(paddingLastLine(curLine, maxWidth));
+
+    if (!curLineWords.isEmpty()) {
+      result.add(getLastLine(curLineWords, maxWidth));
     }
     return result;
   }
 
-  private static String paddingLastLine(final List<String> curLine, final int width) {
+  private static String getLastLine(final List<String> curLineWords, final int maxWidth) {
+    final StringBuilder sb = new StringBuilder().append(curLineWords.get(0));
+    for (int i = 1; i < curLineWords.size(); i++) {
+      sb.append(" ").append(curLineWords.get(i));
+    }
+    while (sb.length() < maxWidth) {
+      sb.append(" ");
+    }
+    return sb.toString();
+  }
+
+  private static String getLine(final List<String> words, final int oneSpaceLen, final int maxWidth) {
+    assert !words.isEmpty();
+    final int len = oneSpaceLen - (words.size() - 1), totalSpace = maxWidth - len;
     final StringBuilder sb = new StringBuilder();
-    sb.append(curLine.get(0));
-    for (int i = 1; i < curLine.size(); ++i) {
-      sb.append(" ").append(curLine.get(i));
+    if (words.size() == 1) {
+      sb.append(words.get(0));
+      appendPadding(sb, maxWidth - sb.length());
+      return sb.toString();
     }
-    appendSpace(sb, width);
-    return sb.toString();
-  }
+    final int smallSpace = totalSpace / (words.size() - 1),
+        bigSpace = smallSpace + 1,
+        bigSpaceNum = totalSpace % (words.size() - 1);
 
-  static String paddingToWidth(final int width, final List<String> curLine) {
-    assert curLine.size() != 0;
-    if (curLine.size() == 1) {
-      final String word = curLine.get(0);
-      return appendSpace(new StringBuilder().append(word), width);
+    sb.append(words.get(0));
+    for (int i = 0; i < bigSpaceNum; i++) {
+      appendPadding(sb, bigSpace);
+      sb.append(words.get(i + 1));
     }
-    int sum = 0;
-    for (String word : curLine) {
-      sum += word.length();
-    }
-    final int smallSpace = (width - sum) / (curLine.size() - 1), bigSpace = smallSpace + 1;
-    int bigSpaceCount = (width - sum) % (curLine.size() - 1), smallSpaceCount = curLine.size() - 1 - bigSpaceCount;
-    final StringBuilder sb = new StringBuilder().append(curLine.get(0));
-    for (int i = 1; i < curLine.size(); ++i) {
-      if (bigSpaceCount > 0) {
-        bigSpaceCount--;
-        repeatSpace(sb, bigSpace);
-      } else if (smallSpaceCount > 0) {
-        smallSpaceCount--;
-        repeatSpace(sb, smallSpace);
-      }
-      sb.append(curLine.get(i));
+
+    for (int i = bigSpaceNum + 1; i < words.size(); i++) {
+      appendPadding(sb, smallSpace);
+      sb.append(words.get(i));
     }
     return sb.toString();
   }
 
-  private static void repeatSpace(final StringBuilder sb, final int num) {
-    for (int i = 0; i < num; ++i) {
+  private static void appendPadding(final StringBuilder sb, final int width) {
+    for (int i = 0; i < width; i++) {
       sb.append(" ");
     }
   }
 
-  private static String appendSpace(final StringBuilder sb, final int width) {
-    while (sb.length() < width) {
-      sb.append(" ");
-    }
-    return sb.toString();
-  }
 }

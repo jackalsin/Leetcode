@@ -87,38 +87,37 @@ class SolutionIIITest {
     assertEquals(output, solution.fullJustify(words, 16));
   }
 
-  @Test
-  void testWithPaddingOneWord() throws Exception {
-    final String input = "justification.";
-    final List<String> curLine = new ArrayList<>();
-    curLine.add("justification.");
-    assertEquals("justification.  ",
-        SolutionIII.paddingToWidth(16, curLine));
-  }
-
-  @Test
-  void testWithActualLenLine2() throws Exception {
-    final String expected = "example  of text";
-    final String input = "example of text";
-    final List<String> curLine = new ArrayList<>();
-    curLine.add("example");
-    curLine.add("of");
-    curLine.add("text");
-    assertEquals(expected,
-        SolutionIII.paddingToWidth(16, curLine));
-  }
-
-  @Test
-  void testWithActualLenLine1() throws Exception {
-    final String expected = "This    is    an";
-    final String input = "This is an";
-    final List<String> curLine = new ArrayList<>();
-    curLine.add("This");
-    curLine.add("is");
-    curLine.add("an");
-    assertEquals(expected,
-        SolutionIII.paddingToWidth(16, curLine));
-  }
-
+//  @Test
+//  void testWithPaddingOneWord() throws Exception {
+//    final String input = "justification.";
+//    final List<String> curLine = new ArrayList<>();
+//    curLine.add("justification.");
+//    assertEquals("justification.  ",
+//        SolutionIII.paddingToWidth(16, curLine));
+//  }
+//
+//  @Test
+//  void testWithActualLenLine2() throws Exception {
+//    final String expected = "example  of text";
+//    final String input = "example of text";
+//    final List<String> curLine = new ArrayList<>();
+//    curLine.add("example");
+//    curLine.add("of");
+//    curLine.add("text");
+//    assertEquals(expected,
+//        SolutionIII.paddingToWidth(16, curLine));
+//  }
+//
+//  @Test
+//  void testWithActualLenLine1() throws Exception {
+//    final String expected = "This    is    an";
+//    final String input = "This is an";
+//    final List<String> curLine = new ArrayList<>();
+//    curLine.add("This");
+//    curLine.add("is");
+//    curLine.add("an");
+//    assertEquals(expected,
+//        SolutionIII.paddingToWidth(16, curLine));
+//  }
 
 }
