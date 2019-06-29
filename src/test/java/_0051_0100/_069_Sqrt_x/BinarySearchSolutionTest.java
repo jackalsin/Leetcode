@@ -15,7 +15,7 @@ class BinarySearchSolutionTest {
 
   @BeforeEach
   void setUp() throws Exception {
-    solution = new Solution();
+    solution = new BinarySearchSolution();
   }
 
   @Test
