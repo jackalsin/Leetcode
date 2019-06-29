@@ -10,32 +10,38 @@ public final class SolutionIII implements Solution {
    */
   @Override
   public ListNode rotateRight(ListNode head, int k) {
-    if (head == null || k == 0) {
+    if (head == null || head.next == null) {
       return head;
     }
-    ListNode cur = head;
-    int len = 0;
-    while (cur != null) {
-      len++;
-      cur = cur.next;
+    final int n = getSize(head), actualK = k % n;
+    if (actualK == 0) {
+      return head;
     }
-
-    k %= len;
+    final ListNode dummy = new ListNode(0);
+    dummy.next = head;
     ListNode fast = head, slow = head;
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < actualK; i++) {
       fast = fast.next;
     }
 
     while (fast.next != null) {
-      fast = fast.next;
       slow = slow.next;
+      fast = fast.next;
     }
 
-    fast.next = head;
     ListNode newHead = slow.next;
     slow.next = null;
+    fast.next = dummy.next;
     return newHead;
   }
 
-
+  private static int getSize(final ListNode head) {
+    int n = 0;
+    ListNode cur = head;
+    while (cur != null) {
+      n++;
+      cur = cur.next;
+    }
+    return n;
+  }
 }
