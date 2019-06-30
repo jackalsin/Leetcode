@@ -9,23 +9,28 @@ class SolutionIITest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
+  void setUp() {
     solution = new SolutionII();
   }
 
   @Test
-  void testWithEmptyCouples() throws Exception {
+  void testWithEmptyCouples() {
     assertEquals(0, solution.minDistance("", ""));
   }
 
   @Test
-  void testWithEmpty() throws Exception {
+  void testWithEmpty() {
     assertEquals(5, solution.minDistance("", "word1"));
   }
 
   @Test
-  void testWithCommonCase1() throws Exception {
+  void testWithCommonCase1() {
     assertEquals(2, solution.minDistance("word", "wcd"));
+  }
+
+  @Test
+  void testWithFailedCase1() {
+    assertEquals(5, solution.minDistance("intention", "execution"));
   }
 
 }
