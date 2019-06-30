@@ -4,48 +4,54 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class SolutionV implements Solution {
-
   /**
-   * @param s
-   * @param t
+   * @param s long
+   * @param t short
    * @return
    */
   @Override
   public String minWindow(String s, String t) {
-    final Map<Character, Integer> charCounts = new HashMap<>();
-    for (char chr : t.toCharArray()) {
-      charCounts.put(chr, charCounts.getOrDefault(chr, 0) + 1);
+    if (s == null) {
+      return "";
+    } else if (t == null) {
+      return "";
     }
-
-    int minLeft = 0, minLen = Integer.MAX_VALUE, count = charCounts.size(), left = 0;
-    final char[] chars = s.toCharArray();
-    for (int right = 0; right < chars.length; right++) {
-      final char rightChar = chars[right];
-      if (charCounts.containsKey(rightChar)) {
-        charCounts.put(rightChar, charCounts.get(rightChar) - 1);
-        if (charCounts.get(rightChar) == 0) {
-          count--;
-        }
-      } // end of if`
-
-      while (count == 0) {
-        final char leftChar = chars[left];
-        if (charCounts.containsKey(leftChar)) {
-          final int prevCount = charCounts.get(leftChar);
-          charCounts.put(leftChar, prevCount + 1);
-          if (prevCount == 0) {
-            count++;
-          }
-        }
-        final int curLen = (right - left + 1);
-        if (curLen < minLen) { // one unique window
-          minLen = curLen;
-          minLeft = left;
-        }
-        left++;
+    final Map<Character, Integer> charMap = getCharMap(t);
+    int left = 0, size = charMap.size();
+    long minLength = Long.MAX_VALUE;
+    String minString = "";
+    for (int right = 0; right < s.length(); right++) {
+      final char chr = s.charAt(right);
+      if (charMap.containsKey(chr)) {
+        final int beforeCount = charMap.get(chr);
+        charMap.put(chr, charMap.get(chr) - 1);
+        if (beforeCount == 1) size--;
       }
-
+      while (size == 0) {
+        final int curLength = right - left + 1;
+        if (curLength < minLength) {
+          minLength = curLength;
+          minString = s.substring(left, right + 1);
+        }
+        final char leftChar = s.charAt(left++);
+        if (charMap.containsKey(leftChar)) {
+          int beforeCount = charMap.get(leftChar);
+          if (beforeCount == 0) {
+            size++;
+          }
+          charMap.put(leftChar, beforeCount + 1);
+        }
+      }
     }
-    return minLen == Integer.MAX_VALUE ? "" : s.substring(minLeft, minLeft + minLen);
+    // here we are mainly stopping the invalid answer.
+    return minLength == Long.MAX_VALUE ? "" : minString;
+  }
+
+  private static Map<Character, Integer> getCharMap(final String t) {
+    final Map<Character, Integer> result = new HashMap<>();
+    for (char c : t.toCharArray()) {
+      result.put(c, result.getOrDefault(c, 0) + 1);
+    }
+    return result;
   }
 }
