@@ -1,4 +1,4 @@
-package _0101_0150._103_Binary_Tree_Zigzag_Level_Order_Traversal;
+package interviews.linkedin._103_Binary_Tree_Zigzag_Level_Order_Traversal;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,22 +10,22 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 6/16/2017.
+ * @author jacka
+ * @version 1.0 on 6/30/2019
  */
-class SolutionTest {
+class SolutionIIITest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
+  void setUp() {
+    solution = new SolutionIII();
   }
 
   @Test
-  void test1Level() throws Exception {
+  void test1Level() {
     final TreeNode input = TreeNodes.getTreeLevelOrder(1);
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(Collections.singletonList(1));
@@ -33,7 +33,7 @@ class SolutionTest {
   }
 
   @Test
-  void test2Levels() throws Exception {
+  void test2Levels() {
     final TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3);
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(Collections.singletonList(1));
@@ -42,7 +42,7 @@ class SolutionTest {
   }
 
   @Test
-  void test3Levels() throws Exception {
+  void test3Levels() {
     final TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, 6, 7);
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(Collections.singletonList(1));
@@ -52,7 +52,7 @@ class SolutionTest {
   }
 
   @Test
-  void testNullPointer() throws Exception {
+  void testNullPointer() {
     assertEquals(new ArrayList<>(), solution.zigzagLevelOrder(null));
   }
 }
