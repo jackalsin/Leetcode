@@ -9,16 +9,24 @@ public final class SolutionV implements Solution {
     if (nums == null || nums.length == 0) {
       return 0;
     }
-
-    int maxSoFar = nums[0], maxEndHere = nums[0], minEndHere = nums[0];
+    int minProdEndHere = nums[0],
+        maxProdEndHere = nums[0],
+        maxSoFar = nums[0];
     for (int i = 1; i < nums.length; i++) {
-      final int prevMaxEndHere = maxEndHere, prevMinEndHere = minEndHere;
-      maxEndHere = Math.max(prevMaxEndHere * nums[i], prevMinEndHere * nums[i]);
-      maxEndHere = Math.max(maxEndHere, nums[i]);
-      minEndHere = Math.min(prevMaxEndHere * nums[i], prevMinEndHere * nums[i]);
-      minEndHere = Math.min(minEndHere, nums[i]);
-      maxSoFar = Math.max(maxSoFar, maxEndHere);
+      final int prevMinProdEndHere = minProdEndHere,
+          prevMaxProdEndHere = maxProdEndHere;
+      minProdEndHere = min(prevMinProdEndHere * nums[i], prevMaxProdEndHere * nums[i], nums[i]);
+      maxProdEndHere = max(prevMinProdEndHere * nums[i], prevMaxProdEndHere * nums[i], nums[i]);
+      maxSoFar = Math.max(maxSoFar, maxProdEndHere);
     }
     return maxSoFar;
+  }
+
+  private static int min(int a, int b, int c) {
+    return Math.min(Math.min(a, b), c);
+  }
+
+  private static int max(int a, int b, int c) {
+    return Math.max(Math.max(a, b), c);
   }
 }
