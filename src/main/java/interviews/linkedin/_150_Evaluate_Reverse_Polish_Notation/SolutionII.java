@@ -14,9 +14,8 @@ public final class SolutionII implements Solution {
       return 0;
     }
     final Deque<Integer> stack = new ArrayDeque<>();
-
-    for (final String t : tokens) {
-      switch (t) {
+    for (final String token : tokens) {
+      switch (token) {
         case "+":
           stack.push(stack.pop() + stack.pop());
           break;
@@ -31,7 +30,7 @@ public final class SolutionII implements Solution {
           stack.push(first / second);
           break;
         default:
-          stack.push(Integer.parseInt(t));
+          stack.push(Integer.valueOf(token));
       }
     }
     assert stack.size() == 1;
