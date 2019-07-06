@@ -5,11 +5,14 @@ import utils.TreeNode;
 public class SolutionV implements Solution {
   @Override
   public TreeNode upsideDownBinaryTree(TreeNode root) {
-    if (root == null || root.left == null) {
+    if (root == null) {
+      return null;
+    }
+    if (root.left == null) {
       return root;
     }
-    final TreeNode left = root.left, right = root.right;
-    final TreeNode newRoot = upsideDownBinaryTree(left);
+    final TreeNode newRoot = upsideDownBinaryTree(root.left),
+        left = root.left, right = root.right;
     root.left = null;
     root.right = null;
     left.left = right;
