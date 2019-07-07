@@ -8,18 +8,18 @@ import java.util.Set;
  * @version 1.0 on 10/15/2017.
  */
 public final class TwoSumFindHeavyIII implements TwoSum {
-  private final Set<Integer> vals = new HashSet<>(), sum = new HashSet<>();
+  private final Set<Integer> others = new HashSet<>(), sums = new HashSet<>();
 
   @Override
   public void add(int number) {
-    for (int val : vals) {
-      sum.add(val + number);
+    for (int o : others) {
+      sums.add(o + number);
     }
-    vals.add(number);
+    others.add(number);
   }
 
   @Override
   public boolean find(int value) {
-    return sum.contains(value);
+    return sums.contains(value);
   }
 }
