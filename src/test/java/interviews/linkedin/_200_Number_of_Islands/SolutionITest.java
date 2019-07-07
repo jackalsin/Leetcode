@@ -1,20 +1,17 @@
 package interviews.linkedin._200_Number_of_Islands;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionITest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new SolutionI();
-  }
-
-  @Test
-  void testExample1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testExample1(Solution solution) {
     final char[][] grid = getCharBoard(new String[]{
         "11110",
         "11010",
@@ -24,8 +21,9 @@ class SolutionITest {
     assertEquals(1, solution.numIslands(grid));
   }
 
-  @Test
-  void testExample2() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testExample2(Solution solution) {
     final char[][] grid = getCharBoard(new String[]{
         "11000",
         "11000",
@@ -35,12 +33,12 @@ class SolutionITest {
     assertEquals(3, solution.numIslands(grid));
   }
 
-  @Test
-  void testEmpty() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testEmpty(Solution solution) {
     final char[][] grid = new char[][]{{}};
     assertEquals(0, solution.numIslands(grid));
   }
-
 
   private static char[][] getCharBoard(String[] input) {
     char[][] board = new char[input.length][input[0].length()];
@@ -51,6 +49,13 @@ class SolutionITest {
       }
     }
     return board;
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
 }
