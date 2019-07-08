@@ -1,32 +1,31 @@
 package interviews.linkedin._205_Isomorphic_Strings;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public final class SolutionIV implements Solution {
-  @Override
-  public boolean isIsomorphic(String s, String t) {
-    if (s.length() != t.length()) {
+  private static final int N = 256;
+
+  public boolean isIsomorphic(String sString, String tString) {
+    if (sString == null && tString == null) {
+      return true;
+    } else if (sString == null || tString == null) {
       return false;
     }
-    final Map<Character, Character> map = new HashMap<>();
-    final boolean[] alreadyMapped = new boolean[256];
-    for (int i = 0; i < s.length(); ++i) {
-      final char sChar = s.charAt(i), tChar = t.charAt(i);
-      if (map.containsKey(sChar)) {
-        if (map.get(sChar) != tChar) {
+
+    assert sString.length() == tString.length();
+    final char[] sToT = new char[N], tToS = new char[N];
+    final char[] s = sString.toCharArray(), t = tString.toCharArray();
+    for (int i = 0; i < s.length; i++) {
+      final char sChar = s[i], tChar = t[i];
+      if (sToT[sChar] != 0 && tToS[tChar] != 0) {
+        if (sToT[sChar] != tChar || tToS[tChar] != sChar) {
           return false;
         }
+      } else if (sToT[sChar] != 0 || tToS[tChar] != 0) {
+        return false;
       } else {
-        map.put(sChar, tChar);
-        if (alreadyMapped[tChar]) {
-          return false;
-        }
-        alreadyMapped[tChar] = true;
+        sToT[sChar] = tChar;
+        tToS[tChar] = sChar;
       }
-
     }
-
     return true;
   }
 }
