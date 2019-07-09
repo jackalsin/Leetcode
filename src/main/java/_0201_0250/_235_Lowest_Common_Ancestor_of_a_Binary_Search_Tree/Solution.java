@@ -6,13 +6,6 @@ import utils.TreeNode;
  * @author jacka
  * @version 1.0 on 8/18/2017.
  */
-public class Solution {
-  public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    if (root.val > p.val && root.val > q.val) {
-      return lowestCommonAncestor(root.left, p, q);
-    } else if (root.val < p.val && root.val < q.val) {
-      return lowestCommonAncestor(root.right, p, q);
-    }
-    return root;
-  }
+public interface Solution {
+  TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q);
 }

@@ -2,8 +2,11 @@ package _0201_0250._235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree;
 
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import utils.TreeNode;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 8/18/2017.
  */
 class SolutionTest {
-  private Solution solution;
+  private static final TreeNode root = new TreeNode(6);
 
-  private TreeNode root = new TreeNode(6);
+  SolutionTest() {
+  }
 
   @BeforeEach
   void setUp() {
-    solution = new Solution();
     root.left = new TreeNode(2);
     root.left.left = new TreeNode(0);
     root.left.right = new TreeNode(4);
@@ -30,26 +33,37 @@ class SolutionTest {
     root.right.right = new TreeNode(9);
   }
 
-  @Test
-  void testPEqualsQRoot() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testPEqualsQRoot(Solution solution) {
     assertEquals(root, solution.lowestCommonAncestor(root, root, root));
   }
 
-  @Test
-  void testPEqualsQNonRoot() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testPEqualsQNonRoot(Solution solution) {
     assertEquals(root.left, solution.lowestCommonAncestor(root, root.left, root.left));
   }
 
-  @Test
-  void testParent() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testParent(Solution solution) {
     assertEquals(root.left.right, solution.lowestCommonAncestor(root, root.left.right,
         root.left.right.right));
   }
 
-  @Test
-  void testRegular() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testRegular(Solution solution) {
     assertEquals(root.left, solution.lowestCommonAncestor(root, root.left.left,
         root.left.right.right));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
 }
