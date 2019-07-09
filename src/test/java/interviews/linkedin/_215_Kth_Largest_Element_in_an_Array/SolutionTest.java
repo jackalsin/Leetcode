@@ -1,34 +1,41 @@
 package interviews.linkedin._215_Kth_Largest_Element_in_an_Array;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  void testOneElement() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOneElement(Solution solution) throws Exception {
     final int[] input = new int[]{1};
     assertEquals(1, solution.findKthLargest(input, 1));
   }
 
-  @Test
-  void testOnlineCase() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase(Solution solution) throws Exception {
     final int[] input = new int[]{3, 2, 1, 5, 6, 4};
     assertEquals(5, solution.findKthLargest(input, 2));
   }
 
-  @Test
-  void testDuplicate() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testDuplicate(Solution solution) throws Exception {
     final int[] input = new int[]{1, 2, 3, 4, 5, 5, 5, 6};
     assertEquals(5, solution.findKthLargest(input, 2));
     assertEquals(4, solution.findKthLargest(input, 5));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII()
+    );
   }
 }
