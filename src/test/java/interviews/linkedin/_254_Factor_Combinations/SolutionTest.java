@@ -1,12 +1,13 @@
 package interviews.linkedin._254_Factor_Combinations;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,26 +15,23 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 10/22/2017.
  */
-public class SolutionTest {
-  private Solution solution;
+class SolutionTest {
 
-  @Before
-  public void setUp() throws Exception {
-    solution = new SolutionII();
-  }
-
-  @Test
-  public void test1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test1(Solution solution) {
     assertEquals(new ArrayList<>(), solution.getFactors(1));
   }
 
-  @Test
-  public void test37() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test37(Solution solution) {
     assertEquals(new ArrayList<>(), solution.getFactors(37));
   }
 
-  @Test
-  public void test12() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test12(Solution solution) {
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(Arrays.asList(2, 2, 3));
     expected.add(Arrays.asList(2, 6));
@@ -43,8 +41,9 @@ public class SolutionTest {
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
   }
 
-  @Test
-  public void test32() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test32(Solution solution) {
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(Arrays.asList(2, 16));
     expected.add(Arrays.asList(2, 2, 8));
@@ -55,5 +54,14 @@ public class SolutionTest {
     List<List<Integer>> actual = solution.getFactors(32);
     assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII(),
+        new SolutionIV()
+    );
   }
 }
