@@ -19,6 +19,7 @@ public final class DfsSolution implements Solution {
     final Map<Integer, List<Integer>> graph = getGraph(edges);
     final boolean[] visited = new boolean[n];
     for (int i = 0; i < n; i++) {
+      // don't loop already visited
       if (!visited[i] && hasCycle(graph, visited, i, -1)) {
         return true;
       }
@@ -32,6 +33,8 @@ public final class DfsSolution implements Solution {
     final List<Integer> neighbors = graph.getOrDefault(cur, new ArrayList<>());
     for (int n : neighbors) {
       if (visited[n]) {
+        // 2 points cannot form a cycle in an undirected graph
+        // this is excluding this situation
         if (n != parent) {
           return true;
         }
