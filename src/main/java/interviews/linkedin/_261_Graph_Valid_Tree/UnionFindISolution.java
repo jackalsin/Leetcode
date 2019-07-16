@@ -1,6 +1,6 @@
 package interviews.linkedin._261_Graph_Valid_Tree;
 
-public final class SolutionI implements Solution {
+public final class UnionFindISolution implements Solution {
   public boolean validTree(int n, int[][] edges) {
     // G has no simple cycles and has n − 1 edges.
     if (edges.length != n - 1) {
