@@ -49,7 +49,8 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new DfsSolution()
+        new DfsSolution(),
+        new UnionFindSolution()
     );
   }
 
