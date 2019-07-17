@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author zhiwei.xin
  * @version 1.0 on 9/20/18
  */
-class SolutionITest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -57,7 +57,8 @@ class SolutionITest {
         new SolutionIII(),
         new SolutionIV(),
         new SolutionV(),
-        new SolutionVI()
+        new SolutionVI(),
+        new SolutionVII()
     );
   }
 }
