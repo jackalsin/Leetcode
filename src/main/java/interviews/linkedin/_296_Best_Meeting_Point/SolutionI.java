@@ -8,6 +8,8 @@ import java.util.List;
  * @version 1.0 on 7/20/2019
  */
 public final class SolutionI implements Solution {
+
+  // TODO:
   @Override
   public int minTotalDistance(int[][] grid) {
     if (grid == null || grid.length == 0) {
