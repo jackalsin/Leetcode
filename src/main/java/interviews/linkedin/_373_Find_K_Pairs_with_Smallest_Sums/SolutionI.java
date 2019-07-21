@@ -1,11 +1,16 @@
 package interviews.linkedin._373_Find_K_Pairs_with_Smallest_Sums;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public final class SolutionI implements Solution {
   @Override
-  public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {
-    final List<int[]> result = new ArrayList<>();
+  public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+    final List<List<Integer>> result = new ArrayList<>();
     if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0 || k <= 0) {
       return result;
     }
@@ -23,7 +28,7 @@ public final class SolutionI implements Solution {
     for (int i = 0; i < k; i++) {
       if (pq.isEmpty()) break;
       final int[] toRemove = pq.remove();
-      result.add(new int[]{toRemove[0], toRemove[1]});
+      result.add(Arrays.asList(toRemove[0], toRemove[1]));
       if (toRemove[2] != nums2.length - 1) {
         pq.add(new int[]{toRemove[0], nums2[toRemove[2] + 1], toRemove[2] + 1});
       }
