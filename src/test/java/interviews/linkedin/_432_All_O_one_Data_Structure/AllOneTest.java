@@ -1,7 +1,9 @@
 package interviews.linkedin._432_All_O_one_Data_Structure;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,13 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 9/15/18
  */
 class AllOneTest {
-  @BeforeEach
-  void setUp() {
-  }
 
-  @Test
-  void testOnlineCase1() {
-    final AllOne allOne = new AllOne();
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(AllOne allOne) {
     assertEquals("", allOne.getMaxKey());
     assertEquals("", allOne.getMinKey());
 
@@ -43,11 +42,11 @@ class AllOneTest {
 
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(AllOne allOne) {
 //    ["AllOne","inc","inc","inc","inc","inc","dec","dec","getMaxKey","getMinKey"]
 //    [[],      ["a"],["b"],["b"],["b"],["b"],["b"],["b"],[],[]]
-    final AllOne allOne = new AllOne();
     assertEquals("", allOne.getMaxKey());
     assertEquals("", allOne.getMinKey());
 
@@ -63,11 +62,11 @@ class AllOneTest {
 
   }
 
-  @Test
-  void testFailedCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase1(AllOne allOne) {
 //    ["AllOne","inc","inc","inc","inc","inc","inc","inc","inc","inc","inc","inc","inc","getMinKey"]
 //    [[],["a"],["b"],["c"],["d"],["a"],["b"],["c"],["d"],["c"],["d"],["d"],["a"],[]]
-    final AllOne allOne = new AllOne();
 
     allOne.inc("a");
     allOne.inc("b");
@@ -87,11 +86,11 @@ class AllOneTest {
 
   private static final String HELLO = "hello", WORLD = "world", LEET = "leet";
 
-  @Test
-  void testFailedCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase2(AllOne allOne) {
 //    ["AllOne","inc",  "inc",    "inc",    "dec",    "inc",    "inc","getMaxKey","dec","dec","dec","getMaxKey"]
 //    [[],    ["hello"],["world"],["hello"],["world"],["hello"],["leet"],[],["hello"],["hello"],["hello"],[]]
-    final AllOne allOne = new AllOne();
     allOne.inc(HELLO);
     allOne.inc(WORLD);
     allOne.inc(HELLO);
@@ -107,5 +106,13 @@ class AllOneTest {
 
     assertEquals(LEET, allOne.getMaxKey());
 
+  }
+
+  static Stream<AllOne> solutionProvider() {
+    return Stream.of(
+        new AllOneI(),
+        new AllOneII(),
+        new AllOneIII()
+    );
   }
 }

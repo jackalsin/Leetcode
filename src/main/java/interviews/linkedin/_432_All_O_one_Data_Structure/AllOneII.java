@@ -9,7 +9,7 @@ import java.util.Set;
  * @author zhiwei.xin
  * @version 1.0 on 9/15/18
  */
-public final class AllOneII {
+public final class AllOneII implements AllOne {
   private final Node head = new Node(0), tail = new Node(0);
 
   {
