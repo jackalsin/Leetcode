@@ -22,7 +22,7 @@ public final class SolutionI implements Solution {
     cache = new HashMap<>();
     visited = new boolean[maxChoosableInteger + 1];
     final boolean res = canIWin(desiredTotal);
-    display(visited);
+//    display(visited);
     return res;
   }
 
@@ -39,7 +39,7 @@ public final class SolutionI implements Solution {
       if (!visited[i]) {
         visited[i] = true;
         if (!canIWin(remain - i)) { // lose
-          System.out.println("Return true = " + i);
+//          System.out.println("Return true = " + i);
           cache.put(status, true);
           visited[i] = false;
           return true; // once true, mean has a solution to win.
