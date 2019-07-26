@@ -1,22 +1,18 @@
 package interviews.linkedin._636_Exclusive_Time_of_Functions;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class SolutionITest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() {
-    solution = new SolutionI();
-  }
-
-  @Test
-  void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     final int n = 2;
     final List<String> logs = List.of(
         "0:start:0",
@@ -26,5 +22,14 @@ class SolutionITest {
 
     final int[] output = {3, 4}, actual = solution.exclusiveTime(n, logs);
     assertArrayEquals(output, actual);
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII(),
+        new SolutionIV()
+    );
   }
 }
