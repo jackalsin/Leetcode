@@ -25,7 +25,7 @@ public final class SolutionI implements Solution {
       }
       result.add(curLine);
     }
-    bfs(result, root, 0, (1 << depth) - 2, F0);
+    bfs(result, root, 0, (1 << depth) - 2, 0);
     return result;
   }
 
