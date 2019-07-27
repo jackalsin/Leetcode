@@ -44,7 +44,7 @@ public final class MyHashMapLinkedList implements Solution {
   }
 
 
-  public int remove(int key) {
+  public void remove(int key) {
     final int hash = key % SIZE;
     final List<Node> curList = buckets.get(hash);
     Node toRemove = null;
@@ -58,9 +58,7 @@ public final class MyHashMapLinkedList implements Solution {
     }
     if (toRemove != null) {
       curList.remove(i);
-      return toRemove.val;
     }
-    return -1;
   }
 
   private static final class Node {

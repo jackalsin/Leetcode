@@ -15,5 +15,5 @@ public interface Solution {
   /**
    * Removes the mapping of the specified value key if this map contains a mapping for the key
    */
-  int remove(int key);
+  void remove(int key);
 }

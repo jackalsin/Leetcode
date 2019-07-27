@@ -25,8 +25,7 @@ public final class MyHashMap implements Solution {
   }
 
 
-  public int remove(int key) {
+  public void remove(int key) {
     buckets[key] = -1;
-    return key;
   }
 }
