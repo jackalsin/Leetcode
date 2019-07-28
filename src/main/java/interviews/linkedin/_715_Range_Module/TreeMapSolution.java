@@ -12,6 +12,12 @@ public final class TreeMapSolution implements Solution {
    */
   private final TreeMap<Integer, Integer> treeMap = new TreeMap<>();
 
+  /**
+   * Time Complexity: O(N)
+   *
+   * @param left
+   * @param right
+   */
   public void addRange(int left, int right) {
     // 对 left 取floor
     final Integer start = treeMap.floorKey(left), end = treeMap.floorKey(right);
@@ -25,6 +31,13 @@ public final class TreeMapSolution implements Solution {
     treeMap.subMap(left, false, right, true).clear();
   }
 
+  /**
+   * Time Complexity: O(logN)
+   *
+   * @param left
+   * @param right
+   * @return
+   */
   public boolean queryRange(int left, int right) {
     final Integer start = treeMap.floorKey(left);
     if (start == null) {
@@ -33,6 +46,12 @@ public final class TreeMapSolution implements Solution {
     return treeMap.get(start) >= right;
   }
 
+  /**
+   * Time Complexity: O(N)
+   *
+   * @param left
+   * @param right
+   */
   public void removeRange(int left, int right) {
     final Integer start = treeMap.floorKey(left), end = treeMap.floorKey(right);
     if (start == null && end == null) {
