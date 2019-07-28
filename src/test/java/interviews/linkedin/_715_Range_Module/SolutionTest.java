@@ -26,7 +26,6 @@ class SolutionTest {
     assertTrue(solution.queryRange(10, 14));
     assertFalse(solution.queryRange(13, 15));
     assertTrue(solution.queryRange(16, 17));
-
   }
 
   @ParameterizedTest
@@ -215,7 +214,8 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new TreeMapSolution()
+        new TreeMapSolution(),
+        new SegmentTreeLazyPropagationNodeSolution()
     );
   }
 }
