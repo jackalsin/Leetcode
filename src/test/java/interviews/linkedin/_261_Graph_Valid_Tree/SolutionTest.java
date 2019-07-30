@@ -43,7 +43,7 @@ class SolutionTest {
         new UnionFindISolution(),
         new SolutionII(),
         new DfsSolution(),
-        new SolutionI()
+        new UnionFindSolutionI()
     );
   }
 }

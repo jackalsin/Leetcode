@@ -4,7 +4,7 @@ package interviews.linkedin._261_Graph_Valid_Tree;
  * @author jacka
  * @version 1.0 on 7/29/2019
  */
-public final class SolutionI implements Solution {
+public final class UnionFindSolutionI implements Solution {
   @Override
   public boolean validTree(int n, int[][] edges) {
     if (n <= 0 || edges == null) {
