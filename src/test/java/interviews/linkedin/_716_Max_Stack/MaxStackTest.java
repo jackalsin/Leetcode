@@ -1,20 +1,16 @@
 package interviews.linkedin._716_Max_Stack;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MaxStackIIITest {
-  private MaxStack maxStack;
-
-  @BeforeEach
-  void setUp() {
-    maxStack = new MaxStackIII();
-  }
-
-  @Test
-  void testOnlineCase1() {
+class MaxStackTest {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(MaxStack maxStack) {
     maxStack.push(5);
     maxStack.push(1);
     maxStack.push(5);
@@ -26,8 +22,9 @@ class MaxStackIIITest {
     assertEquals(5, maxStack.pop());
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(MaxStack maxStack) {
 //    ["MaxStack","push","push","push","peekMax","popMax","popMax","top"]
 //    [[],[5],[1],[6],[],[],[],[]]
     maxStack.push(5);
@@ -39,13 +36,25 @@ class MaxStackIIITest {
     assertEquals(1, maxStack.top());
   }
 
-  @Test
-  void testOnlineCase3() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(MaxStack maxStack) {
 //    ["MaxStack","push","push","push","peekMax","popMax","popMax","top"]
 //    [[],[5],[1],[6],[],[],[],[]]
     maxStack.push(5);
     maxStack.push(5);
     assertEquals(5, maxStack.popMax());
     assertEquals(5, maxStack.popMax());
+  }
+
+  static Stream<MaxStack> solutionProvider() {
+    return Stream.of(
+        new MaxStackI(),
+        new MaxStackII(),
+        new MaxStackIII(),
+        new MaxStackIV(),
+        new MaxStackV(),
+        new MaxStackVI()
+    );
   }
 }
