@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SolutionTest {
 
-
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testPositive(Solution solution) {
@@ -43,7 +42,8 @@ class SolutionTest {
     return Stream.of(
         new UnionFindISolution(),
         new SolutionII(),
-        new DfsSolution()
+        new DfsSolution(),
+        new SolutionI()
     );
   }
 }
