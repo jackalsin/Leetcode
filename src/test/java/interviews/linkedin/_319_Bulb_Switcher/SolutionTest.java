@@ -1,20 +1,24 @@
 package interviews.linkedin._319_Bulb_Switcher;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
-  private Solution solution;
 
-  @BeforeEach
-  void setup() {
-    solution = new Solution();
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
+    assertEquals(1, solution.bulbSwitch(3));
   }
 
-  @Test
-  void testOnlineCase1() {
-    assertEquals(1, solution.bulbSwitch(3));
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 }
