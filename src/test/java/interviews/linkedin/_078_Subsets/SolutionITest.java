@@ -1,24 +1,20 @@
 package interviews.linkedin._078_Subsets;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionITest {
-  private Solution solution;
 
-  @BeforeEach
-  void setup() {
-    solution = new SolutionI();
-  }
-
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     final int[] nums = {1, 2, 3};
     final Set<List<Integer>> expected = Set.of(
         List.of(),
@@ -34,5 +30,12 @@ class SolutionITest {
     final List<List<Integer>> actual = solution.subsets(nums);
     assertEquals(expected.size(), actual.size());
     assertEquals(expected, new HashSet<>(actual));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 }
