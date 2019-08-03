@@ -1,21 +1,17 @@
 package interviews.linkedin._023_Merge_k_Sorted_Lists;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import utils.ListNode;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionIITest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new SolutionII();
-  }
-
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     //[[1,4,5],[1,3,4],[2,6]]
     final ListNode[] list = {new ListNode(1), new ListNode(1), new ListNode(2)};
     list[0].next = new ListNode(4);
@@ -34,5 +30,16 @@ class SolutionIITest {
     }
 
     assertEquals(expectedDummy.next, actual);
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII(),
+        new SolutionIV(),
+        new PriorityQueueSolution(),
+        new ConstantSpaceSolution()
+    );
   }
 }
