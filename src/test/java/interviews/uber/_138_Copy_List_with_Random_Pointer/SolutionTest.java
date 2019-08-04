@@ -2,7 +2,7 @@ package interviews.uber._138_Copy_List_with_Random_Pointer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.RandomListNode;
+import utils._138_Copy_List_with_Random_Pointer.Node;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -21,13 +21,13 @@ class SolutionTest {
 
   @Test
   void test1Element() {
-    RandomListNode head = new RandomListNode(1);
+    Node head = new Node(1);
     solution.copyRandomList(head);
   }
 
   @Test
   void test1ElementWithRandom() {
-    RandomListNode head = new RandomListNode(1);
+    Node head = new Node(1);
     head.random = head;
     solution.copyRandomList(head);
   }

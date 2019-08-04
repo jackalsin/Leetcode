@@ -2,7 +2,7 @@ package interviews.uber._133_Clone_Graph;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Node;
+import utils._133_Clone_Graph.Node;
 
 import java.util.ArrayList;
 

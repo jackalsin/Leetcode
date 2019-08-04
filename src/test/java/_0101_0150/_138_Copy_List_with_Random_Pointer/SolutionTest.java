@@ -3,7 +3,7 @@ package _0101_0150._138_Copy_List_with_Random_Pointer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.RandomListNode;
+import utils._138_Copy_List_with_Random_Pointer.Node;
 
 import static org.junit.Assert.assertEquals;
 
@@ -27,13 +27,13 @@ class SolutionTest {
 
   @Test
   void test1Element() throws Exception {
-    RandomListNode head = new RandomListNode(1);
+    Node head = new Node(1);
     solution.copyRandomList(head);
   }
 
   @Test
   void test1ElementWithRandom() throws Exception {
-    RandomListNode head = new RandomListNode(1);
+    Node head = new Node(1);
     head.random = head;
     solution.copyRandomList(head);
   }

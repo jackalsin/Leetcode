@@ -2,7 +2,7 @@ package interviews.linkedin._133_Clone_Graph;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.Node;
+import utils._133_Clone_Graph.Node;
 
 import java.util.ArrayList;
 import java.util.stream.Stream;

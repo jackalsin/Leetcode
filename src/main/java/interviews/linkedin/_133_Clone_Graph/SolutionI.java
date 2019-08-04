@@ -1,6 +1,6 @@
 package interviews.linkedin._133_Clone_Graph;
 
-import utils.Node;
+import utils._133_Clone_Graph.Node;
 
 import java.util.ArrayList;
 import java.util.HashMap;

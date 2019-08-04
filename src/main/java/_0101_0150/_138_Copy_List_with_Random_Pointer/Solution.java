@@ -1,6 +1,6 @@
 package _0101_0150._138_Copy_List_with_Random_Pointer;
 
-import utils.RandomListNode;
+import utils._138_Copy_List_with_Random_Pointer.Node;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,14 +10,14 @@ import java.util.Map;
  * @version 1.0 on 7/1/2017.
  */
 public class Solution {
-  private Map<RandomListNode, RandomListNode> originToClone = new HashMap<>();
+  private Map<Node, Node> originToClone = new HashMap<>();
 
-  public RandomListNode copyRandomList(RandomListNode head) {
+  public Node copyRandomList(Node head) {
     if (head == null) {
       return null;
     } else {
       if (originToClone.get(head) == null) {
-        RandomListNode dup = new RandomListNode(head.label);
+        Node dup = new Node(head.val);
         originToClone.put(head, dup);
         dup.next = copyRandomList(head.next);
         dup.random = copyRandomList(head.random);

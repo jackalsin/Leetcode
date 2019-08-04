@@ -1,35 +1,40 @@
 package interviews.linkedin._138_Copy_List_with_Random_Pointer;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import utils.RandomListNode;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import utils._138_Copy_List_with_Random_Pointer.Node;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  void testEmpty() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testEmpty(Solution solution) {
     assertNull(solution.copyRandomList(null));
   }
 
-  @Test
-  void test1Element() throws Exception {
-    RandomListNode head = new RandomListNode(1);
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test1Element(Solution solution) {
+    Node head = new Node(1);
     solution.copyRandomList(head);
   }
 
-  @Test
-  void test1ElementWithRandom() throws Exception {
-    RandomListNode head = new RandomListNode(1);
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test1ElementWithRandom(Solution solution) {
+    Node head = new Node(1);
     head.random = head;
     solution.copyRandomList(head);
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
 }
