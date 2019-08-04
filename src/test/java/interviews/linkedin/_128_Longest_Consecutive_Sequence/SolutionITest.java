@@ -1,4 +1,4 @@
-package _0101_0150._128_Longest_Consecutive_Sequence;
+package interviews.linkedin._128_Longest_Consecutive_Sequence;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,9 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 7/1/2017.
+ * @version 1.0 on 8/3/2019
  */
-class SolutionTest {
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase(Solution solution) {
@@ -67,8 +68,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SrcToLengthSolution(),
-        new SrcToDstMapSolution()
+        new SolutionI()
     );
   }
 }
