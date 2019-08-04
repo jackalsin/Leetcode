@@ -1,8 +1,11 @@
 package interviews.linkedin._133_Clone_Graph;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import utils.UndirectedGraphNode;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import utils.Node;
+
+import java.util.ArrayList;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,23 +15,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 9/6/18
  */
 class SolutionTest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
-  }
-
-  @Test
-  void testEmpty() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testEmpty(Solution solution) {
     assertNull(solution.cloneGraph(null));
   }
 
-  @Test
-  void testOnlineCase() {
-    UndirectedGraphNode node0 = new UndirectedGraphNode(0);
-    UndirectedGraphNode node1 = new UndirectedGraphNode(1);
-    UndirectedGraphNode node2 = new UndirectedGraphNode(2);
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase(Solution solution) {
+    Node node0 = new Node(0, new ArrayList<>());
+    Node node1 = new Node(1, new ArrayList<>());
+    Node node2 = new Node(2, new ArrayList<>());
     node0.neighbors.add(node1);
     node0.neighbors.add(node2);
     node1.neighbors.add(node0);
@@ -40,4 +39,10 @@ class SolutionTest {
     assertEquals(node0, solution.cloneGraph(node0));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
+  }
 }

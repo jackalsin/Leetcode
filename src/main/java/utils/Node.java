@@ -1,24 +1,24 @@
 package utils;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 /**
  * Nodes are labeled uniquely.
+ *
  * @author Zhiwei.Xin
  * @version 1.0 on 7/4/2017.
  */
-public final class UndirectedGraphNode {
+public final class Node {
 
-  public int label;
+  public int val;
 
-  public List<UndirectedGraphNode> neighbors;
+  public List<Node> neighbors;
 
-  public UndirectedGraphNode(int x) {
-    label = x;
-    neighbors = new ArrayList<>();
+  public Node(int _val, List<Node> _neighbors) {
+    val = _val;
+    neighbors = _neighbors;
   }
 
   @Override
@@ -26,13 +26,13 @@ public final class UndirectedGraphNode {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof UndirectedGraphNode)) {
+    if (!(o instanceof Node)) {
       return false;
     }
 
-    UndirectedGraphNode that = (UndirectedGraphNode) o;
+    Node that = (Node) o;
 
-    if (label != that.label) {
+    if (val != that.val) {
       return false;
     }
     if (neighbors == null && that.neighbors == null) {
@@ -47,18 +47,18 @@ public final class UndirectedGraphNode {
         (thatNeighborLabels, neighbors);
   }
 
-  private Set<Integer> getLabelSet(List<UndirectedGraphNode> list) {
+  private Set<Integer> getLabelSet(List<Node> list) {
     Set<Integer> result = new HashSet<>();
-    for(UndirectedGraphNode child: list) {
-      result.add(child.label);
+    for (Node child : list) {
+      result.add(child.val);
     }
     return result;
   }
 
-  private boolean containAllLables(Set<Integer> thatNeighbors, List<UndirectedGraphNode>
+  private boolean containAllLables(Set<Integer> thatNeighbors, List<Node>
       neighbors) {
-    for (UndirectedGraphNode child : neighbors) {
-      if (!thatNeighbors.contains(child.label)) {
+    for (Node child : neighbors) {
+      if (!thatNeighbors.contains(child.val)) {
         return false;
       }
     }
@@ -67,11 +67,11 @@ public final class UndirectedGraphNode {
 
   @Override
   public int hashCode() {
-    int result = label;
+    int result = val;
     int neighborHashCode = 0;
     if (neighbors != null) {
-      for (UndirectedGraphNode child : neighbors) {
-        neighborHashCode = 31 * neighborHashCode + child.label;
+      for (Node child : neighbors) {
+        neighborHashCode = 31 * neighborHashCode + child.val;
       }
     }
     result = 31 * result + neighborHashCode;

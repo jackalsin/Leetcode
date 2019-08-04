@@ -1,8 +1,9 @@
 package _0101_0150._133_Clone_Graph;
 
-import utils.UndirectedGraphNode;
+import utils.Node;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
@@ -13,25 +14,25 @@ import java.util.Queue;
  */
 public class SlowSolution implements Solution {
 
-  public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+  public Node cloneGraph(Node node) {
     if (node == null) return null;
-    UndirectedGraphNode result = new UndirectedGraphNode(node.label);
+    Node result = new Node(node.val, new ArrayList<>());
 
-    Queue<UndirectedGraphNode> queue = new ArrayDeque<>();
-    Map<Integer, UndirectedGraphNode> labelToClones = new HashMap<>();
+    Queue<Node> queue = new ArrayDeque<>();
+    Map<Integer, Node> labelToClones = new HashMap<>();
 
-    labelToClones.put(node.label, result);
+    labelToClones.put(node.val, result);
 
     queue.add(node);
     while (!queue.isEmpty()) {
-      UndirectedGraphNode origin = queue.poll();
-       for (UndirectedGraphNode neighbor: origin.neighbors) {
-        if (!labelToClones.containsKey(neighbor.label)) {
-          UndirectedGraphNode neighborDup = new UndirectedGraphNode(neighbor.label);
-          labelToClones.put(neighbor.label, neighborDup);
+      Node origin = queue.poll();
+      for (Node neighbor : origin.neighbors) {
+        if (!labelToClones.containsKey(neighbor.val)) {
+          Node neighborDup = new Node(neighbor.val, new ArrayList<>());
+          labelToClones.put(neighbor.val, neighborDup);
           queue.add(neighbor);
         }
-        labelToClones.get(origin.label).neighbors.add(labelToClones.get(neighbor.label));
+        labelToClones.get(origin.val).neighbors.add(labelToClones.get(neighbor.val));
       }
     }
     return result;

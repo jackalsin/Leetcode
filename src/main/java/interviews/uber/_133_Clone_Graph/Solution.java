@@ -1,7 +1,7 @@
 package interviews.uber._133_Clone_Graph;
 
-import utils.UndirectedGraphNode;
+import utils.Node;
 
 public interface Solution {
-  UndirectedGraphNode cloneGraph(UndirectedGraphNode node);
+  Node cloneGraph(Node node);
 }

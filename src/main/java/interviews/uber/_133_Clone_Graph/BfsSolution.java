@@ -1,37 +1,38 @@
 package interviews.uber._133_Clone_Graph;
 
-import utils.UndirectedGraphNode;
+import utils.Node;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
 
 public final class BfsSolution implements Solution {
-  public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-    final Map<Integer, UndirectedGraphNode> graph = new HashMap<>();
-    final Queue<UndirectedGraphNode> queue = new ArrayDeque<>();
+  public Node cloneGraph(Node node) {
+    final Map<Integer, Node> graph = new HashMap<>();
+    final Queue<Node> queue = new ArrayDeque<>();
     if (node == null) {
       return null;
     }
     queue.add(node);
 
     while (!queue.isEmpty()) {
-      final UndirectedGraphNode toRemove = queue.remove(),
-          toRemoveCopy = graph.getOrDefault(toRemove.label, new UndirectedGraphNode(toRemove.label));
+      final Node toRemove = queue.remove(),
+          toRemoveCopy = graph.getOrDefault(toRemove.val, new Node(toRemove.val, new ArrayList<>()));
       // add to graph
-      graph.put(toRemoveCopy.label, toRemoveCopy);
+      graph.put(toRemoveCopy.val, toRemoveCopy);
 
-      for (final UndirectedGraphNode neighbor : toRemove.neighbors) {
-        final UndirectedGraphNode newNeighbor = graph.getOrDefault(
-            neighbor.label, new UndirectedGraphNode(neighbor.label));
-        if (!graph.containsKey(neighbor.label)) {
+      for (final Node neighbor : toRemove.neighbors) {
+        final Node newNeighbor = graph.getOrDefault(
+            neighbor.val, new Node(neighbor.val, new ArrayList<>()));
+        if (!graph.containsKey(neighbor.val)) {
           queue.add(neighbor);
-          graph.put(neighbor.label, newNeighbor);
+          graph.put(neighbor.val, newNeighbor);
         }
         toRemoveCopy.neighbors.add(newNeighbor);
       }
     }
-    return graph.get(node.label);
+    return graph.get(node.val);
   }
 }

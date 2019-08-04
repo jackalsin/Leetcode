@@ -1,7 +1,8 @@
 package interviews.facebook._133_Clone_Graph;
 
-import utils.UndirectedGraphNode;
+import utils.Node;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,24 +15,24 @@ import java.util.Map;
  * };
  */
 public class Solution {
-  public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+  public Node cloneGraph(Node node) {
     if (node == null) {
       return null;
     }
-    final Map<UndirectedGraphNode, UndirectedGraphNode> originalToClones = new HashMap<>();
+    final Map<Node, Node> originalToClones = new HashMap<>();
     return cloneGraph(originalToClones, node);
   }
 
-  private static UndirectedGraphNode cloneGraph(Map<UndirectedGraphNode, UndirectedGraphNode> originalToClones,
-                                                UndirectedGraphNode node) {
+  private static Node cloneGraph(Map<Node, Node> originalToClones,
+                                 Node node) {
     if (originalToClones.containsKey(node)) {
       return originalToClones.get(node);
     }
 
-    final UndirectedGraphNode copy = new UndirectedGraphNode(node.label);
+    final Node copy = new Node(node.val, new ArrayList<>());
     originalToClones.put(node, copy);
 
-    for (final UndirectedGraphNode nei : node.neighbors) {
+    for (final Node nei : node.neighbors) {
       copy.neighbors.add(cloneGraph(originalToClones, nei));
     }
     return copy;

@@ -2,7 +2,9 @@ package interviews.uber._133_Clone_Graph;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.UndirectedGraphNode;
+import utils.Node;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -24,9 +26,9 @@ class SolutionTest {
 
   @Test
   void testOnlineCase() {
-    UndirectedGraphNode node0 = new UndirectedGraphNode(0);
-    UndirectedGraphNode node1 = new UndirectedGraphNode(1);
-    UndirectedGraphNode node2 = new UndirectedGraphNode(2);
+    Node node0 = new Node(0, new ArrayList<>());
+    Node node1 = new Node(1, new ArrayList<>());
+    Node node2 = new Node(2, new ArrayList<>());
     node0.neighbors.add(node1);
     node0.neighbors.add(node2);
     node1.neighbors.add(node0);
