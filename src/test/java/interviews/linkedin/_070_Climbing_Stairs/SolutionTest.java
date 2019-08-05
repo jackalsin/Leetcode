@@ -1,35 +1,42 @@
 package interviews.linkedin._070_Climbing_Stairs;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  void testWith1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWith1(Solution solution) {
     assertEquals(1, solution.climbStairs(1));
   }
 
-  @Test
-  void testWith2() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWith2(Solution solution) {
     assertEquals(2, solution.climbStairs(2));
   }
 
-  @Test
-  void testWith3() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWith3(Solution solution) {
     assertEquals(3, solution.climbStairs(3));
   }
 
-  @Test
-  void testWith4() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWith4(Solution solution) {
     assertEquals(5, solution.climbStairs(4));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 }
