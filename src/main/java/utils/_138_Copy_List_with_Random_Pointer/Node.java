@@ -8,7 +8,26 @@ public final class Node {
   public int val;
   public Node next, random;
 
-  public Node(int x) {
-    this.val = x;
+  @Deprecated
+  public Node(int val) {
+    this.val = val;
+  }
+
+  public Node() {
+  }
+
+  public Node(int _val, Node _next, Node _random) {
+    val = _val;
+    next = _next;
+    random = _random;
+  }
+
+  @Override
+  public String toString() {
+    return "Node{" +
+        "val=" + val +
+        ", next=" + next +
+        ", random=" + random.val +
+        '}';
   }
 }

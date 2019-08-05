@@ -19,7 +19,7 @@ public final class SolutionII implements Solution {
     if (map.containsKey(head)) {
       return map.get(head);
     }
-    final Node copy = new Node(head.val);
+    final Node copy = new Node(head.val, null, null);
     map.put(head, copy);
     copy.next = copyRandomList(head.next);
     copy.random = copyRandomList(head.random);

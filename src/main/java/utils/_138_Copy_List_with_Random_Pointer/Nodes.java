@@ -10,10 +10,10 @@ public final class Nodes {
     if (vals == null || vals.length == 0) {
       return null;
     } else {
-      Node head = new Node(vals[0]);
+      Node head = new Node(vals[0], null, null);
       Node prev = head;
       for (int i = 1; i < vals.length; i++) {
-        prev.next = new Node(vals[1]);
+        prev.next = new Node(vals[1], null, null);
         prev = prev.next;
       }
       return head;

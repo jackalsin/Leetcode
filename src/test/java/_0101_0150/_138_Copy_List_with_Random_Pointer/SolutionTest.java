@@ -1,9 +1,11 @@
 package _0101_0150._138_Copy_List_with_Random_Pointer;
 
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import utils._138_Copy_List_with_Random_Pointer.Node;
+
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,33 +15,41 @@ import static org.junit.Assert.assertEquals;
  */
 class SolutionTest {
 
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  void testEmpty() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testEmpty(Solution solution) {
     assertEquals(null, solution.copyRandomList(null));
   }
 
-  @Test
-  void test1Element() throws Exception {
-    Node head = new Node(1);
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test1Element(Solution solution) {
+    Node head = new Node(1, null, null);
     solution.copyRandomList(head);
   }
 
-  @Test
-  void test1ElementWithRandom() throws Exception {
-    Node head = new Node(1);
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test1ElementWithRandom(Solution solution) {
+    Node head = new Node(1, null, null);
     head.random = head;
     solution.copyRandomList(head);
   }
 
-  @Test
-  void test2Element() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test2Element(Solution solution) {
+    final Node head = new Node(1, null, null);
+    head.next = new Node(2, null, null);
+    head.random = head.next;
+    head.next.random = head.next;
+    solution.copyRandomList(head);
+  }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new O1SpaceSolution(),
+        new ONSpaceSolution()
+    );
   }
 }

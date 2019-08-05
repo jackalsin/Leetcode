@@ -23,7 +23,7 @@ public class Solution {
     if (oldToNew.containsKey(head)) {
       return oldToNew.get(head);
     }
-    final Node newHead = new Node(head.val);
+    final Node newHead = new Node(head.val, null, null);
     oldToNew.put(head, newHead);
     newHead.next = copyRandomList(head.next);
     newHead.random = copyRandomList(head.random);

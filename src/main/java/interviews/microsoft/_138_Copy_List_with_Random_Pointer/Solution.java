@@ -12,7 +12,7 @@ public class Solution {
     Node curNode = head;
 
     while (curNode != null) {
-      final Node curNodeCopy = new Node(curNode.val);
+      final Node curNodeCopy = new Node(curNode.val, null, null);
       oldToNew.put(curNode, curNodeCopy);
       curNode = curNode.next;
     }

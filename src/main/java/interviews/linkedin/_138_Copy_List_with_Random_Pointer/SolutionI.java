@@ -19,7 +19,7 @@ public final class SolutionI implements Solution {
     if (oldToNew.containsKey(old)) {
       return oldToNew.get(old);
     }
-    final Node newNode = new Node(old.val);
+    final Node newNode = new Node(old.val, null, null);
     oldToNew.put(old, newNode);
     newNode.next = copyRandomList(oldToNew, old.next);
     newNode.random = copyRandomList(oldToNew, old.random);
