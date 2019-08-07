@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  * @author jacka
  * @version 1.0 on 10/22/2017.
  */
-public class SolutionTest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  public void testOnlineCase(Solution solution) throws Exception {
+  void testOnlineCase(Solution solution) throws Exception {
     final int[] input = {1, 2, 3, 4};
     final int[] expected = {24, 12, 8, 6};
     assertArrayEquals(expected, solution.productExceptSelf(input));
