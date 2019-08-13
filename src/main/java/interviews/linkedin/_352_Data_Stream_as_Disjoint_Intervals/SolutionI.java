@@ -2,9 +2,7 @@ package interviews.linkedin._352_Data_Stream_as_Disjoint_Intervals;
 
 import utils.Interval;
 
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.TreeSet;
 
 /**
@@ -51,7 +49,14 @@ public final class SolutionI implements SummaryRanges {
   }
 
   @Override
-  public List<Interval> getIntervals() {
-    return new ArrayList<>(treeSet);
+  public int[][] getIntervals() {
+    final int[][] res = new int[treeSet.size()][2];
+    int i = 0;
+    for (final Interval e : treeSet) {
+      res[i][0] = e.start;
+      res[i][1] = e.end;
+      ++i;
+    }
+    return res;
   }
 }
