@@ -84,7 +84,8 @@ class RandomizedCollectionTest {
   static Stream<RandomizedCollection> solutionProvider() {
     return Stream.of(
         new RandomizedCollectionI(),
-        new RandomizedCollectionII()
+        new RandomizedCollectionII(),
+        new RandomizedCollectionIII()
     );
   }
 }
