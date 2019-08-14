@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import utils.ListNode;
 import utils.ListNodes;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionITest {
@@ -21,11 +19,9 @@ class SolutionITest {
       counts[solution.getRandom()]++;
     }
     final double expected = 1d / 3;
-    System.out.println(Arrays.toString(counts));
     for (int c : counts) {
       final double actual = c / (double) total;
       assertEquals(expected, actual, BIAS);
     }
-
   }
 }
