@@ -7,5 +7,12 @@ import utils.TreeNode;
  * @version 1.0 on 9/14/18
  */
 public interface Solution {
+  /**
+   * TODO: Revisit when it has time
+   *
+   * @param root
+   * @param key
+   * @return
+   */
   TreeNode deleteNode(TreeNode root, int key);
 }
