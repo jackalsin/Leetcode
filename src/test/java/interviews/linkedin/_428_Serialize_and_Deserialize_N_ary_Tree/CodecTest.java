@@ -1,10 +1,11 @@
 package interviews.linkedin._428_Serialize_and_Deserialize_N_ary_Tree;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import utils.treeNode.Node;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,15 +15,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class CodecTest {
 
-  private Codec solution;
-
-  @BeforeEach
-  void setup() {
-    solution = new Codec();
-  }
-
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Codec solution) {
     final Node root = new Node();
     root.val = 1;
     root.children = List.of(new Node(3, List.of(
@@ -32,8 +27,9 @@ class CodecTest {
     assertEquals(root, solution.deserialize(actual));
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Codec solution) {
     final Node root = new Node();
     root.val = 1;
     root.children = List.of(new Node(3, List.of(
@@ -43,10 +39,18 @@ class CodecTest {
     assertEquals(root, solution.deserialize(actual));
   }
 
-  @Test
-  void testNull() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testNull(Codec solution) {
     final Node root = null;
     final String actual = solution.serialize(root);
     assertEquals(root, solution.deserialize(actual));
+  }
+
+  static Stream<Codec> solutionProvider() {
+    return Stream.of(
+        new CodecI(),
+        new CodecII()
+    );
   }
 }
