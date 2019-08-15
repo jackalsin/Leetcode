@@ -1,9 +1,10 @@
 package interviews.linkedin._311_Sparse_Matrix_Multiplication;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertTrue;
 
@@ -11,16 +12,11 @@ import static org.junit.Assert.assertTrue;
  * @author jacka
  * @version 1.0 on 10/22/2017.
  */
-public class SolutionTest {
-  private Solution solution;
+class SolutionTest {
 
-  @Before
-  public void setUp() throws Exception {
-    solution = new SolutionII();
-  }
-
-  @Test
-  public void testOnlineCase() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase(Solution solution) throws Exception {
     final int[][] A = {
         {1, 0, 0},
         {-1, 0, 3}
@@ -34,6 +30,14 @@ public class SolutionTest {
     final int[][] C = {{7, 0, 0}, {-7, 0, 3}};
     assertTrue(Arrays.deepEquals(C, solution.multiply(A, B)));
 
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII()
+    );
   }
 
 }
