@@ -1,4 +1,4 @@
-package interviews.linkedin._451_Sort_Characters_By_Frequency;
+package _0451_0500._451_Sort_Characters_By_Frequency;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,7 +8,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SolutionITest {
+/**
+ * @author jacka
+ * @version 1.0 on 8/14/2019
+ */
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -43,8 +47,7 @@ class SolutionITest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII(),
-        new BucketSortingSolution()
+        new SolutionII()
     );
   }
 }
