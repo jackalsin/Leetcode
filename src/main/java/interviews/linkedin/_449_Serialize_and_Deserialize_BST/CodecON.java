@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * @author zhiwei.xin
  * @version 1.0 on 9/14/18
  */
-public final class CodecON {
+public final class CodecON implements Codec {
   private static final String SEP = ",";
 
   public String serialize(TreeNode root) {
@@ -34,7 +34,8 @@ public final class CodecON {
     if (data.length() == 0) {
       return null;
     }
-    final Queue<Integer> queue = Arrays.stream(data.split(SEP)).map(Integer::parseInt).collect(Collectors.toCollection(ArrayDeque::new));
+    final Queue<Integer> queue =
+        Arrays.stream(data.split(SEP)).map(Integer::parseInt).collect(Collectors.toCollection(ArrayDeque::new));
     return deserialize(queue, Long.MIN_VALUE, Long.MAX_VALUE);
   }
 
