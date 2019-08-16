@@ -1,20 +1,17 @@
 package interviews.linkedin._547_Friend_Circles;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class UnionFindSolutionTest {
-  private Solution solution;
+class SolutionTest {
 
-  @BeforeEach
-  void setup() {
-    solution = new UnionFindSolution();
-  }
-
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     final int[][] Input = {
         {1, 1, 0},
         {1, 1, 0},
@@ -22,8 +19,9 @@ class UnionFindSolutionTest {
     assertEquals(2, solution.findCircleNum(Input));
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
     final int[][] Input = {
         {1, 1, 0},
         {1, 1, 1},
@@ -32,8 +30,9 @@ class UnionFindSolutionTest {
   }
 
 
-  @Test
-  void testOnlineCase3() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
     final int[][] Input = {
         {1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0},
         {0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -53,4 +52,15 @@ class UnionFindSolutionTest {
     };
     assertEquals(1, solution.findCircleNum(Input));
   }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new DfsSolution(),
+        new UnionFindSolution(),
+        new UnionFindSolutionI(),
+        new DfsSolutionI(),
+        new UnionFindSolutionII()
+    );
+  }
+
 }
