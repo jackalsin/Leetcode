@@ -11,7 +11,7 @@ import java.util.Queue;
  * @author jacka
  * @version 1.0 on 10/23/2017.
  */
-public class SolutionI {
+public final class SolutionI implements Solution {
   public List<Integer> largestValues(TreeNode root) {
     final List<Integer> result = new ArrayList<>();
     if (root == null) {
