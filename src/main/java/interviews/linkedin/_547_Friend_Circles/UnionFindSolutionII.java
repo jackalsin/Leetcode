@@ -40,7 +40,7 @@ public final class UnionFindSolutionII implements Solution {
 
     public void union(final int p, final int q) {
       final int rootP = root(p), rootQ = root(q),
-          sizeP = roots[rootP], sizeQ = roots[rootQ];
+          sizeP = sizes[rootP], sizeQ = sizes[rootQ];
       if (rootP == rootQ) return;
       individualCounts--;
       if (sizeP < sizeQ) {
