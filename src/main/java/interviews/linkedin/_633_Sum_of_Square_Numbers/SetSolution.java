@@ -4,10 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * Time complexity: O(Sqrt(c))
+ * Space complexity: O(Sqrt(c))
+ *
  * @author jacka
  * @version 1.0 on 10/22/2017.
  */
-public class SquareNSolution {
+public final class SetSolution implements Solution {
   public boolean judgeSquareSum(int c) {
     Set<Integer> validSquare = new HashSet<>();
     for (long i = 0; i * i <= c; i++) {

@@ -1,18 +1,19 @@
-package _0601_0650._633_Sum_of_Square_Numbers;
+package interviews.linkedin._633_Sum_of_Square_Numbers;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 10/15/2017.
+ * @version 1.0 on 8/15/2019
  */
 class SolutionTest {
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -36,8 +37,8 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new TwoPointerSolution(),
-        new SetSolution()
+        new SetSolution(),
+        new TwoPointerSolution()
     );
   }
 }
