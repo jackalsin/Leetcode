@@ -1,34 +1,35 @@
 package interviews.linkedin._748_Shortest_Completing_Word;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionIITest {
-  private Solution solution;
+class SolutionTest {
 
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new SolutionII();
-  }
-
-  @Test
-  void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     final String licensePlate = "1s3 PSt", expected = "steps";
     final String[] words = {"step", "steps", "stripe", "stepple"};
     assertEquals(expected, solution.shortestCompletingWord(licensePlate, words));
   }
 
-  @Test
-  void testOnlineCase2() throws Exception {
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
     final String licensePlate = "1s3 456", expected = "pest";
     final String[] words = {"looks", "pest", "stew", "show"};
     assertEquals(expected, solution.shortestCompletingWord(licensePlate, words));
   }
 
-  @Test
-  void testOnlineCase3() throws Exception {
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
     final String licensePlate = "GrC8950", expected = "according";
     final String[] words = {
         "measure", "other", "every", "base", "according", "level", "meeting", "none", "marriage", "rest"
@@ -36,4 +37,12 @@ class SolutionIITest {
     assertEquals(expected, solution.shortestCompletingWord(licensePlate, words));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII(),
+        new SolutionIV()
+    );
+  }
 }
