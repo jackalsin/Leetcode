@@ -1,27 +1,35 @@
 package interviews.linkedin._730_Count_Different_Palindromic_Subsequences;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionITest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new SolutionI();
-  }
-
-  @Test
-  void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     final String input = "bccb";
     assertEquals(6, solution.countPalindromicSubsequences(input));
   }
 
-  @Test
-  void testOnlineCase2() throws Exception {
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
     final String input = "abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba";
     assertEquals(104860361, solution.countPalindromicSubsequences(input));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII(),
+        new SolutionIV()
+    );
   }
 }
