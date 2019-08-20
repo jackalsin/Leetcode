@@ -7,5 +7,11 @@ import utils.TreeNode;
  * @version 1.0 on 7/28/2019
  */
 public interface Solution {
+  /**
+   * TODO: revisit
+   *
+   * @param S
+   * @return
+   */
   TreeNode recoverFromPreorder(String S);
 }
