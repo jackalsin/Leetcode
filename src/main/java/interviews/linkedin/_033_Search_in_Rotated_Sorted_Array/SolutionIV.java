@@ -10,7 +10,7 @@ public final class SolutionIV implements Solution {
   }
 
   private static int search(final int[] nums, final int target, int left, int right) {
-    while (left <= right) { // TODO: 这个等号容易漏
+    while (left <= right) { // 这个等号容易漏
       final int mid = (right - left) / 2 + left;
       if (nums[mid] <= nums[right]) { // right side is sorted
         if (nums[mid] <= target && target <= nums[right]) {
