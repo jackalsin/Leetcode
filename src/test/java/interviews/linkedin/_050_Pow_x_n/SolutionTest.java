@@ -1,40 +1,38 @@
 package interviews.linkedin._050_Pow_x_n;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.Assert.assertEquals;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
  * @version 1.0 on 10/17/2017.
  */
-public class SolutionTest {
-  private static final double DELTA = 1E-9;
-  private Solution solution;
+class SolutionTest {
+  private static final double DELTA = 1E-6;
 
-  @Before
-  public void setUp() throws Exception {
-//    solution = new SimpleSolution();
-    solution = new SolutionII();
-  }
-
-  @Test
-  public void testNormalCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testNormalCase1(Solution solution) {
     final double x = 2d;
     final int n = 5;
     assertEquals(Math.pow(x, n), solution.myPow(x, n), DELTA);
   }
 
-  @Test
-  public void testFailedCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase1(Solution solution) {
     final double x = 0.44528;
     final int n = 0;
     assertEquals(1d, solution.myPow(x, n), DELTA);
   }
 
-  @Test
-  public void testFailedCase2() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase2(Solution solution) {
     final double x = 34.00515;
     final int n = -3;
     final double actual = solution.myPow(x, n);
@@ -42,17 +40,29 @@ public class SolutionTest {
     assertEquals(expected, actual, DELTA);
   }
 
-  @Test
-  public void testFailedCase3() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase3(Solution solution) {
     final double x = 0.00001;
     final int n = 2147483647;
     assertEquals(Math.pow(x, n), solution.myPow(x, n), DELTA);
   }
 
-  @Test
-  public void testFailedCase4() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase4(Solution solution) {
     final double x = 2d;
     final int n = Integer.MIN_VALUE;
     assertEquals(Math.pow(x, n), solution.myPow(x, n), DELTA);
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII(),
+        new MemoSolution(),
+        new SimpleSolution()
+    );
   }
 }

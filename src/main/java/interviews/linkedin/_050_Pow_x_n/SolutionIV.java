@@ -3,8 +3,6 @@ package interviews.linkedin._050_Pow_x_n;
 public final class SolutionIV implements Solution {
 
   /**
-   * TODO: redo
-   *
    * @param x
    * @param n
    * @return
