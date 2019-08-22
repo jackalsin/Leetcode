@@ -8,5 +8,11 @@ import java.util.List;
  */
 public interface Solution {
 
+  /**
+   * TODO: Revisit
+   *
+   * @param matrix
+   * @return
+   */
   List<Integer> spiralOrder(int[][] matrix);
 }
