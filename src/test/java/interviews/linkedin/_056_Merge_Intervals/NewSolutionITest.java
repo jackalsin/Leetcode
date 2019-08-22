@@ -1,7 +1,9 @@
 package interviews.linkedin._056_Merge_Intervals;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
@@ -11,19 +13,19 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  * @version 1.0 on 6/27/2019
  */
 class NewSolutionITest {
-
-  private NewSolution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new NewSolutionI();
-  }
-
-  @Test
-  void testWithOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithOnlineCase1(NewSolution solution) {
     final int[][] actual = solution.merge(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15,
         18}});
     assertArrayEquals(new int[][]{{1, 6}, {8, 10}, {15, 18}}, actual);
+  }
+
+  static Stream<NewSolution> solutionProvider() {
+    return Stream.of(
+        new NewSolutionI(),
+        new NewSolutionII()
+    );
   }
 
 
