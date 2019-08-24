@@ -1,7 +1,9 @@
 package interviews.linkedin._065_Valid_Number;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -10,72 +12,86 @@ import static org.junit.Assert.assertTrue;
  * @author jacka
  * @version 1.0 on 10/17/2017.
  */
-public class SolutionTest {
-  private Solution solution;
-
-  @Before
-  public void setUp() throws Exception {
-    solution = new SolutionII();
-  }
-
-  @Test
-  public void test0() throws Exception {
+class SolutionTest {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test0(Solution solution) {
     assertTrue(solution.isNumber("0"));
   }
 
-  @Test
-  public void test0_1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test0_1(Solution solution) {
     assertTrue(solution.isNumber("0.1"));
     assertTrue(solution.isNumber(" 0.1 "));
   }
 
-  @Test
-  public void testAbc() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testAbc(Solution solution) {
     assertFalse(solution.isNumber("abc"));
   }
 
-  @Test
-  public void test1a() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test1a(Solution solution) {
     assertFalse(solution.isNumber("1a"));
   }
 
-  @Test
-  public void test03() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test03(Solution solution) {
     assertTrue(solution.isNumber(".3"));
   }
 
-  @Test
-  public void test03E81() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test03E81(Solution solution) {
     assertTrue(solution.isNumber(".3e81"));
   }
 
-  @Test
-  public void test3Point0() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test3Point0(Solution solution) {
     assertTrue(solution.isNumber("3."));
   }
 
-  @Test
-  public void test2e10() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test2e10(Solution solution) {
     assertTrue(solution.isNumber("2e10"));
   }
 
-  @Test
-  public void test2E10() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test2E10(Solution solution) {
     assertTrue(solution.isNumber("2E10"));
   }
 
-  @Test
-  public void test2E3Point5() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test2E3Point5(Solution solution) {
     assertFalse(solution.isNumber("2E3.5"));
   }
 
-  @Test
-  public void test2ENegative3Point5() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test2ENegative3Point5(Solution solution) {
     assertFalse(solution.isNumber("2E3.5"));
   }
 
-  @Test
-  public void testEmpty() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testEmpty(Solution solution) {
     assertFalse(solution.isNumber(""));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII(),
+        new SolutionIV()
+    );
   }
 }
