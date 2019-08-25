@@ -38,7 +38,7 @@ class SolutionTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new StackSolution(),
-        new SolutionII()
+        new StackSolutionI()
     );
   }
 }
