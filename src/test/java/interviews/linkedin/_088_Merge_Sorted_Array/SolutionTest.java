@@ -1,29 +1,26 @@
 package interviews.linkedin._088_Merge_Sorted_Array;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class SolutionTest {
 
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
-  }
-
-  @Test
-  void testBothFinish() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testBothFinish(Solution solution) {
     final int[] nums1 = new int[]{1, 3, 5, 0, 0, 0};
     final int[] nums2 = new int[]{2, 4, 6};
     solution.merge(nums1, 3, nums2, 3);
     assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, nums1);
   }
 
-  @Test
-  void test1FinishFirst() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test1FinishFirst(Solution solution) {
     final int[] nums1 = new int[]{1, 0, 0, 0};
     final int[] nums2 = new int[]{-1, 2, 4};
     final int[] expected = new int[]{-1, 1, 2, 4};
@@ -31,8 +28,9 @@ class SolutionTest {
     assertArrayEquals(expected, nums1);
   }
 
-  @Test
-  void test2FinishFirst() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test2FinishFirst(Solution solution) {
     final int[] nums1 = new int[]{1, 3, 4, 0};
     final int[] nums2 = new int[]{2};
     final int[] expected = new int[]{1, 2, 3, 4};
@@ -40,4 +38,9 @@ class SolutionTest {
     assertArrayEquals(expected, nums1);
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
