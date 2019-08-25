@@ -1,13 +1,14 @@
 package interviews.linkedin._113_Path_Sum_II;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import utils.TreeNode;
 import utils.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,15 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 6/30/2019
  */
 class SolutionITest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() {
-    solution = new SolutionI();
-  }
-
-  @Test
-  void testOnlineCase() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(5, 4, 8, 11, null, 13, 4);
     root.left.left.left = new TreeNode(7);
     root.left.left.right = new TreeNode(2);
@@ -36,4 +32,10 @@ class SolutionITest {
     assertEquals(expected, solution.pathSum(root, 22));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
+  }
 }
