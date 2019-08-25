@@ -7,6 +7,7 @@ import utils.TreeNodes;
 
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -29,10 +30,17 @@ class SolutionTest {
     assertTrue(solution.hasPathSum(root, 22));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testTreeNodeNull(Solution solution) {
+    assertFalse(solution.hasPathSum(null, 0));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII()
+        new SolutionII(),
+        new SolutionIII()
     );
   }
 }

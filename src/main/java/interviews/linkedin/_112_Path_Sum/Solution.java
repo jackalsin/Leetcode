@@ -4,5 +4,12 @@ import utils.TreeNode;
 
 public interface Solution {
 
+  /**
+   * TODO: Revisit
+   *
+   * @param root
+   * @param sum
+   * @return
+   */
   boolean hasPathSum(TreeNode root, int sum);
 }
