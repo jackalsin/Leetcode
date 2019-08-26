@@ -1,6 +1,13 @@
 package interviews.linkedin._126_Word_Ladder_II;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
 public final class SolutionI implements Solution {
   private final Map<String, Integer> distances = new HashMap<>();
@@ -17,7 +24,8 @@ public final class SolutionI implements Solution {
     return result;
   }
 
-  private void dfs(final List<List<String>> result, final String endWord, final String beginWord, final List<String> curPath) {
+  private void dfs(final List<List<String>> result, final String endWord, final String beginWord,
+                   final List<String> curPath) {
     if (beginWord.equals(endWord)) {
 //      System.out.println(curPath);
       if (result.isEmpty()) {
