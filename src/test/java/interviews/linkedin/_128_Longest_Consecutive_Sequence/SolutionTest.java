@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author jacka
  * @version 1.0 on 8/3/2019
  */
-class SolutionITest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -66,9 +66,21 @@ class SolutionITest {
     assertEquals(14, solution.longestConsecutive(input));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase6(Solution solution) {
+    final int[] input = new int[]{
+        -7, -1, 3, -9, -4, 7, -3, 2, 4, 9, 4, -9, 8, -7, 5, -1, -7};
+    final int[] dup = new int[input.length];
+    System.arraycopy(input, 0, dup, 0, dup.length);
+    Arrays.sort(dup);
+    assertEquals(4, solution.longestConsecutive(input));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
