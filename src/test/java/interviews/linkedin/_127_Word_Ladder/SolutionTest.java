@@ -1,9 +1,10 @@
 package interviews.linkedin._127_Word_Ladder;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,24 +12,19 @@ import static org.junit.Assert.assertEquals;
  * @author Zhiwei.Xin
  * @version 1.0 on 10/20/2017.
  */
-public class SolutionTest {
-  private Solution solution;
-
-  @Before
-  public void setUp() throws Exception {
-    solution = new SolutionII();
-  }
-
-  @Test
-  public void testFailedOnNonExistence() {
+class SolutionTest {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedOnNonExistence(Solution solution) {
     final List<String> wordList = List.of("hot", "dot", "dog", "lot", "log");
     final String begin = "hit";
     final String end = "cog";
     assertEquals(0, solution.ladderLength(begin, end, wordList));
   }
 
-  @Test
-  public void testFailedCount() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCount(Solution solution) {
 //    Explanation: As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog"
     final List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
     final String begin = "hit";
@@ -36,12 +32,22 @@ public class SolutionTest {
     assertEquals(5, solution.ladderLength(begin, end, wordList));
   }
 
-  @Test
-  public void testBeginWordCount() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testBeginWordCount(Solution solution) {
     final List<String> wordList = List.of("a", "b", "c");
     final String begin = "a";
     final String end = "c";
     assertEquals(2, solution.ladderLength(begin, end, wordList));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SingleBfsSolution(),
+        new BiDirectionBfsSolution()
+    );
   }
 
 }
