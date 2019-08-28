@@ -1,9 +1,11 @@
 package interviews.linkedin._142_Linked_List_Cycle_II;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import utils.ListNode;
 import utils.ListNodes;
+
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -13,21 +15,17 @@ import static org.junit.Assert.assertNull;
  * @version 1.0 on 7/4/2019
  */
 class SolutionITest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() {
-    solution = new SolutionI();
-  }
-
-  @Test
-  void testNoCycle() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testNoCycle(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
-    assertEquals(null, solution.detectCycle(head));
+    assertNull(solution.detectCycle(head));
   }
 
-  @Test
-  void testSelfCycle() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testSelfCycle(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     head.next.next.next.next.next = head.next.next;
 
@@ -35,8 +33,9 @@ class SolutionITest {
     assertEquals(begin.val, solution.detectCycle(head).val);
   }
 
-  @Test
-  void testFailedCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase1(Solution solution) {
     final int[] input = new int[]{7032, 15013, 6890, 8877, 11344, 320, 13037, 9414, 6817, 1566, 14907, -2756, 9931,
         -4488, 11602, 4887, 1239, 6231, -5366, 8501, 1142, -1367, -4140, -5460, 15554, -4686, 12603, 1471, 5378,
         15246, 11273, 13817, 5814, 3846, 12556, 1024, 3348, 13880, 14906, 14002, 9863, 8177, -2043, 15882, 11985,
@@ -523,5 +522,12 @@ class SolutionITest {
         , 10554, 2509, 3158, 3882, -4438, 10054, -6376, 9356, -807, 8661, 10824, -2218};
     final ListNode head = ListNodes.getListOfNodes(input);
     assertNull(solution.detectCycle(head));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 }
