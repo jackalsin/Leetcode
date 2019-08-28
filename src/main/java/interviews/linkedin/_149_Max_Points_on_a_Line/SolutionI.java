@@ -1,7 +1,5 @@
 package interviews.linkedin._149_Max_Points_on_a_Line;
 
-import utils.Point;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,17 +8,17 @@ import java.util.Map;
  * @version 1.0 on 10/20/2017.
  */
 public final class SolutionI implements Solution {
-  public int maxPoints(Point[] points) {
+  public int maxPoints(final int[][] points) {
     if (points == null || points.length == 0) {
       return 0;
     }
     int max = 1;
     for (int i = 0; i < points.length - 1; ++i) {
-      final Point base = points[i];
+      final int[] base = points[i];
       final Map<Long, Integer> ratioToCounts = new HashMap<>();
       int invalid = 0, self = 1;
       for (int j = i + 1; j < points.length; ++j) {
-        int deltaX = points[j].x - base.x, deltaY = points[j].y - base.y;
+        int deltaX = points[j][0] - base[0], deltaY = points[j][1] - base[1];
         if (deltaX == 0) {
           if (deltaY == 0) {
             self++;

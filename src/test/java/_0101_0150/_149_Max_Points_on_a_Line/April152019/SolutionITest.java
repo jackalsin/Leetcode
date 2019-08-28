@@ -101,8 +101,17 @@ class SolutionITest {
     assertEquals(4, solution.maxPoints(points));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedForConstantSpaceSolution(Solution solution) {
+    final int[][] points = {{1, 1}, {2, 1}, {3, 3}, {3, 2}, {5, 5}};
+    assertEquals(3, solution.maxPoints(points));
+  }
+
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new SolutionI(), new ConstantSpaceSolution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 
 }

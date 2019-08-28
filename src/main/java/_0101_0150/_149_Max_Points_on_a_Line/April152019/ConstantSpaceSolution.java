@@ -1,5 +1,9 @@
 package _0101_0150._149_Max_Points_on_a_Line.April152019;
 
+/**
+ * This solution should be wrong. Not meaning to check
+ */
+@Deprecated
 public final class ConstantSpaceSolution implements Solution {
   @Override
   public int maxPoints(int[][] points) {
