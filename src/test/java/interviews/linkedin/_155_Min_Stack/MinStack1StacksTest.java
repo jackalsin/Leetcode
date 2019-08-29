@@ -20,13 +20,25 @@ class MinStack1StacksTest {
     assertEquals(-2, minStack.getMin());
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(MinStack minStack) {
+    minStack.push(0);
+    minStack.push(1);
+    minStack.push(0);
+    assertEquals(0, minStack.getMin());  //  --> Returns 0.
+    minStack.pop();
+    assertEquals(0, minStack.getMin());
+  }
+
   static Stream<MinStack> solutionProvider() {
     return Stream.of(
         new MinStack1Stacks(),
         new MinStack2Stacks(),
         new MinStack2StackI(),
         new MinStack1StackI(),
-        new MinStack2StackII()
+        new MinStack2StackII(),
+        new MinStack1StackII()
     );
   }
 }
