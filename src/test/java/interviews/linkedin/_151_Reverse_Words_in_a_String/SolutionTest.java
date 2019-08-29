@@ -46,7 +46,8 @@ class SolutionTest {
         new SolutionI(),
         new SolutionII(),
         new SolutionIII(),
-        new SolutionIV()
+        new SolutionIV(),
+        new SolutionV()
     );
   }
 }
