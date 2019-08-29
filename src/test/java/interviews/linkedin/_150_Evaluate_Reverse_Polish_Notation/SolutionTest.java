@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author jacka
  * @version 1.0 on 7/6/2019
  */
-class SolutionIITest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
