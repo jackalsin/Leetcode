@@ -25,7 +25,8 @@ class MinStack1StacksTest {
         new MinStack1Stacks(),
         new MinStack2Stacks(),
         new MinStack2StackI(),
-        new MinStack1StackI()
+        new MinStack1StackI(),
+        new MinStack2StackII()
     );
   }
 }
