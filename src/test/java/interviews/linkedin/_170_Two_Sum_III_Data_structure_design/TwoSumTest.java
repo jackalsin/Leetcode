@@ -52,6 +52,7 @@ class TwoSumTest {
         new TwoSumAddHeavyII(),
         new TwoSumAddHeavyIII(),
         new TwoSumAddHeavyIV(),
+        new TwoSumFindHeavyI(),
         new TwoSumFindHeavyII(),
         new TwoSumFindHeavyIII()
     );
