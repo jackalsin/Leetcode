@@ -7,12 +7,19 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionIITest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase1(Solution solution) {
     final int[] nums = {1, 2, 3, 1};
+    assertEquals(4, solution.rob(nums));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
+    final int[] nums = {2, 1, 1, 2};
     assertEquals(4, solution.rob(nums));
   }
 
