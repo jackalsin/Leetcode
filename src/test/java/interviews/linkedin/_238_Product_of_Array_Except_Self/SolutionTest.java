@@ -15,9 +15,17 @@ class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  void testOnlineCase(Solution solution) throws Exception {
+  void testOnlineCase(Solution solution) {
     final int[] input = {1, 2, 3, 4};
     final int[] expected = {24, 12, 8, 6};
+    assertArrayEquals(expected, solution.productExceptSelf(input));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
+    final int[] input = {9, 0, -2};
+    final int[] expected = {0, -18, 0};
     assertArrayEquals(expected, solution.productExceptSelf(input));
   }
 
@@ -25,7 +33,8 @@ class SolutionTest {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
-        new SolutionIII()
+        new SolutionIII(),
+        new SolutionIV()
     );
   }
 }
