@@ -37,8 +37,8 @@ class SolutionTest {
     expected.add(Arrays.asList(2, 6));
     expected.add(Arrays.asList(3, 4));
     List<List<Integer>> actual = solution.getFactors(12);
-    assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
   }
 
   @ParameterizedTest
@@ -52,8 +52,8 @@ class SolutionTest {
     expected.add(Arrays.asList(2, 4, 4));
     expected.add(Arrays.asList(4, 8));
     List<List<Integer>> actual = solution.getFactors(32);
-    assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
   }
 
   static Stream<Solution> solutionProvider() {
@@ -61,7 +61,8 @@ class SolutionTest {
         new SolutionI(),
         new SolutionII(),
         new SolutionIII(),
-        new SolutionIV()
+        new SolutionIV(),
+        new SolutionV()
     );
   }
 }
