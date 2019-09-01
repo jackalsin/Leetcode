@@ -11,21 +11,21 @@ class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  void testOneElement(Solution solution) throws Exception {
+  void testOneElement(Solution solution) {
     final int[] input = new int[]{1};
     assertEquals(1, solution.findKthLargest(input, 1));
   }
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  void testOnlineCase(Solution solution) throws Exception {
+  void testOnlineCase(Solution solution) {
     final int[] input = new int[]{3, 2, 1, 5, 6, 4};
     assertEquals(5, solution.findKthLargest(input, 2));
   }
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  void testDuplicate(Solution solution) throws Exception {
+  void testDuplicate(Solution solution) {
     final int[] input = new int[]{1, 2, 3, 4, 5, 5, 5, 6};
     assertEquals(5, solution.findKthLargest(input, 2));
     assertEquals(4, solution.findKthLargest(input, 5));
@@ -35,7 +35,8 @@ class SolutionTest {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
-        new SolutionIII()
+        new SolutionIII(),
+        new SolutionIV()
     );
   }
 }
