@@ -27,10 +27,19 @@ class SolutionTest {
     assertEquals(0, solution.closestValue(root, target));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
+    final TreeNode root = TreeNodes.getTreeLevelOrder(1, null, 2);
+    final double target = Integer.MAX_VALUE;
+    assertEquals(2, solution.closestValue(root, target));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII()
+        new SolutionII(),
+        new SolutionIII()
     );
   }
 }
