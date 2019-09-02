@@ -38,12 +38,20 @@ class SolutionTest {
     assertTrue(solution.validTree(5, edges));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailed1(Solution solution) {
+    final int[][] edges = {{0, 1}, {0, 4}, {1, 4}, {2, 3}};
+    assertFalse(solution.validTree(5, edges));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new UnionFindISolution(),
         new SolutionII(),
         new DfsSolution(),
         new UnionFindSolutionI(),
+        new UnionFindSolutionII(),
         new DfsSolutionI()
     );
   }
