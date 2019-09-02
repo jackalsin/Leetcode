@@ -8,57 +8,55 @@ import java.util.Deque;
  * @version 1.0 on 7/16/2019
  */
 public final class SolutionV implements Solution {
-  private static final String[] TWENTIES = {
-      "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
-      "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"
+  private static final String HUNDRED = "Hundred", ZERO = "Zero";
+  private static final String[] ONES = {
+      "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+      "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+      "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty"
   }, TENS = {
-      "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+      "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty",
+      "Ninety"
   }, THOUSAND = {"", "Thousand", "Million", "Billion"};
-  private static final String HUNDRED = "Hundred";
 
   public String numberToWords(int num) {
-    final Deque<String> stack = new ArrayDeque<>();
     if (num == 0) {
-      return "Zero";
+      return ZERO;
     }
-    int thousandIndex = 0;
-    while (num > 0) {
-      final int threeDigits = num % 1000;
-      num /= 1000;
-      final String three = getThree(threeDigits);
-      if (!three.isEmpty()) {
-        if (thousandIndex != 0) {
-          stack.push(THOUSAND[thousandIndex]);
+    final Deque<String> stack = new ArrayDeque<>();
+    for (int thousandIndex = 0; num != 0; num /= 1000, ++thousandIndex) {
+      final int cur = num % 1000;
+      final String curStr = getThree(cur);
+      if (!curStr.isEmpty()) {
+        final String thousand = THOUSAND[thousandIndex];
+        if (!thousand.isEmpty()) {
+          stack.push(thousand);
         }
-        stack.push(three);
+        stack.push(curStr);
       }
-      thousandIndex++;
     }
     final StringBuilder sb = new StringBuilder();
     while (!stack.isEmpty()) {
       sb.append(" ").append(stack.pop());
     }
-    return sb.length() == 0 ? "" : sb.substring(1);
+    return sb.substring(1);
   }
 
-  private static String getThree(final int threeDigits) {
-    final int ones = threeDigits % 10, tens = (threeDigits / 10) % 10, hundred = threeDigits / 100,
-        lastTwo = threeDigits % 100;
+  private static String getThree(final int cur) {
+    final int hundred = cur / 100, two = cur - hundred * 100,
+        ten = cur / 10 % 10, one = cur % 10;
     final StringBuilder sb = new StringBuilder();
     if (hundred != 0) {
-      sb.append(" ").append(TWENTIES[hundred]).append(" ").append(HUNDRED);
+      sb.append(" ").append(ONES[hundred]).append(" ").append(HUNDRED);
     }
-    if (lastTwo > 0 && lastTwo < 20) {
-      sb.append(" ").append(TWENTIES[lastTwo]);
-    } else {
-      if (tens != 0) {
-        sb.append(" ").append(TENS[tens]);
-      }
-      if (ones != 0) {
-        sb.append(" ").append(TWENTIES[ones]);
-      }
-    }
-    return sb.length() == 0 ? sb.toString() : sb.substring(1);
-  }
 
+    if (0 < two && two < 20) {
+      sb.append(" ").append(ONES[two]);
+    } else if (two >= 20) {
+      sb.append(" ").append(TENS[ten]);
+      if (one != 0) {
+        sb.append(" ").append(ONES[one]);
+      }
+    }
+    return sb.length() == 0 ? "" : sb.substring(1);
+  }
 }

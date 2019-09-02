@@ -58,6 +58,18 @@ class SolutionTest {
     assertEquals("One Million Two Hundred", solution.numberToWords(1_000_200));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test30(Solution solution) {
+    assertEquals("Thirty", solution.numberToWords(30));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test20(Solution solution) {
+    assertEquals("Twenty", solution.numberToWords(20));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SolutionI(),
