@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionIITest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -59,7 +59,8 @@ class SolutionIITest {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
-        new SolutionIII()
+        new SolutionIII(),
+        new SolutionIV()
     );
   }
 }
