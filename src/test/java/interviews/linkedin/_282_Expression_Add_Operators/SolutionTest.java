@@ -43,10 +43,7 @@ class SolutionTest {
   void testOnlineCase3(Solution solution) {
     final String input = "105";
     List<String> actual = solution.addOperators(input, 5);
-    Set<String> expect = new HashSet<String>() {{
-      add("1*0+5");
-      add("10-5");
-    }};
+    Set<String> expect = Set.of("1*0+5", "10-5");
     assertEquals(expect, new HashSet<>(actual));
     assertEquals(expect.size(), actual.size());
   }
@@ -207,13 +204,24 @@ class SolutionTest {
     assertEquals(expect.size(), actual.size());
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase6(Solution solution) {
+    final String input = "2147483648";
+    List<String> actual = solution.addOperators(input, -2147483648);
+    Set<String> expect = Set.of();
+    assertEquals(expect, new HashSet<>(actual));
+    assertEquals(expect.size(), actual.size());
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
         new SolutionIII(),
         new SolutionIV(),
-        new SolutionV()
+        new SolutionV(),
+        new SolutionVI()
     );
   }
 }
