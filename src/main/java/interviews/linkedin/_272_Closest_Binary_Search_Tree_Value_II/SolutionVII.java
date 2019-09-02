@@ -18,76 +18,78 @@ public final class SolutionVII implements Solution {
     if (root == null || k <= 0) {
       return result;
     }
-    final Deque<TreeNode> preStack = initPreStack(root, target),
-        postStack = initPostStack(root, target);
-    for (int i = 0; i < k; i++) {
-      if (preStack.isEmpty() && postStack.isEmpty()) {
-        break;
-      } else if (preStack.isEmpty()) {
-        result.add(postStack.peek().val);
-        nextPost(postStack);
-      } else if (postStack.isEmpty()) {
-        result.add(preStack.peek().val);
-        nextPre(preStack);
-      } else {
-        if (target - preStack.peek().val < postStack.peek().val - target) {
-          result.add(preStack.peek().val);
-          nextPre(preStack);
+    final Deque<TreeNode> prevStack = getPrevStack(root, target),
+        postStack = getPostStack(root, target);
+    while ((!prevStack.isEmpty() || !postStack.isEmpty()) && result.size() < k) {
+      if (!prevStack.isEmpty() && !postStack.isEmpty()) {
+        if (target - prevStack.peek().val < postStack.peek().val - target) {
+          result.add(prevStack.peek().val);
+          nextPrevStack(prevStack);
         } else {
           result.add(postStack.peek().val);
-          nextPost(postStack);
+          nextPostStack(postStack);
         }
+      } else if (prevStack.isEmpty()) {
+        result.add(postStack.peek().val);
+        nextPostStack(postStack);
+      } else {
+        result.add(prevStack.peek().val);
+        nextPrevStack(prevStack);
       }
     }
     return result;
   }
 
-  private static void nextPre(final Deque<TreeNode> stack) {
-    TreeNode cur = stack.pop();
-    cur = cur.left;
-    while (cur != null) {
-      stack.push(cur);
-      cur = cur.right;
-    }
-  }
-
-  private static void nextPost(final Deque<TreeNode> stack) {
-    TreeNode cur = stack.pop();
-    cur = cur.right;
+  private static void nextPostStack(final Deque<TreeNode> stack) {
+    assert !stack.isEmpty();
+    final TreeNode toRemove = stack.pop();
+    TreeNode cur = toRemove.right;
     while (cur != null) {
       stack.push(cur);
       cur = cur.left;
     }
   }
 
+  private static void nextPrevStack(final Deque<TreeNode> stack) {
+    assert !stack.isEmpty();
+    final TreeNode toRemove = stack.pop();
+    TreeNode cur = toRemove.left;
+    while (cur != null) {
+      stack.push(cur);
+      cur = cur.right;
+    }
+  }
+
   /**
-   * <= target
+   * root.val <= target
    *
    * @param root
    * @param target
    * @return
    */
-  private static Deque<TreeNode> initPreStack(TreeNode root, final double target) {
+  private Deque<TreeNode> getPrevStack(final TreeNode root, final double target) {
     final Deque<TreeNode> stack = new ArrayDeque<>();
-    while (root != null) {
-      if (root.val <= target) {
-        stack.push(root);
-        root = root.right;
+    TreeNode cur = root;
+    while (cur != null) {
+      if (cur.val <= target) {
+        stack.push(cur);
+        cur = cur.right;
       } else {
-        root = root.left;
+        cur = cur.left;
       }
     }
     return stack;
   }
 
-  private static Deque<TreeNode> initPostStack(TreeNode root, final double target) {
+  private Deque<TreeNode> getPostStack(final TreeNode root, final double target) {
     final Deque<TreeNode> stack = new ArrayDeque<>();
-    while (root != null) {
-      if (root.val > target) {
-        stack.push(root);
-        root = root.left;
+    TreeNode cur = root;
+    while (cur != null) {
+      if (cur.val > target) {
+        stack.push(cur);
+        cur = cur.left;
       } else {
-        root = root.right;
+        cur = cur.right;
       }
     }
     return stack;
