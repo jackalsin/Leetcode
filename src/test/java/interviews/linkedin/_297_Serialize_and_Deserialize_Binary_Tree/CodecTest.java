@@ -17,7 +17,7 @@ class CodecTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  void testOnlineCase(Codec codec) throws Exception {
+  void testOnlineCase(Codec codec) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(4, 2, 6, 1, 3, 5, 7);
     assertEquals(root, codec.deserialize(codec.serialize(root)));
   }
@@ -27,7 +27,8 @@ class CodecTest {
         new CodecI(),
         new CodecII(),
         new CodecIII(),
-        new CodecIV()
+        new CodecIV(),
+        new CodecV()
     );
   }
 }
