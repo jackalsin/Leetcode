@@ -34,7 +34,8 @@ class HitCounterITest {
 
   static Stream<HitCounter> solutionProvider() {
     return Stream.of(
-        new HitCounterI()
+        new HitCounterI(),
+        new HitCounterII()
     );
   }
 }
