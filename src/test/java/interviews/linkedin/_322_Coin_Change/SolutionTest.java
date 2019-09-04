@@ -40,9 +40,11 @@ class SolutionTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new DfsSolution(),
-        new DpSolution(),
         new DfsSolutionI(),
-        new DpSolutionI()
+        new DfsSolutionII(),
+        new DpSolution(),
+        new DpSolutionI(),
+        new DpSolutionII()
     );
   }
 
