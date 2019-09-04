@@ -33,7 +33,8 @@ class SolutionTest {
         new SolutionIII(),
         new SolutionIV(),
         new SolutionV(),
-        new SolutionVI()
+        new SolutionVI(),
+        new SolutionVII()
     );
   }
 }
