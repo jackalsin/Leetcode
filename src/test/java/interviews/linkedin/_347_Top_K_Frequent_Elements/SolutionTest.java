@@ -27,7 +27,9 @@ class SolutionTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new PqSolution(),
-        new BucketSortSolution()
+        new BucketSortSolution(),
+        new PqSolutionI(),
+        new BucketSolutionI()
     );
   }
 }
