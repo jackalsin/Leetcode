@@ -81,7 +81,8 @@ class SolutionTest {
   static Stream<SummaryRanges> solutionProvider() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII()
+        new SolutionII(),
+        new SolutionIII()
     );
   }
 }
