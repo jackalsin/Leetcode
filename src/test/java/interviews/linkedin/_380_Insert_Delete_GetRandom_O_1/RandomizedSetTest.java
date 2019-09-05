@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -62,10 +63,34 @@ class RandomizedSetTest {
     assertFalse(randomizedSet.insert(1));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase3(RandomizedSet randomizedSet) {
+//["insert","remove","insert","remove","getRandom","getRandom","getRandom","getRandom",
+//[[0],     [0],      [-1],   [0],      [],         [],         [],         [],
+//[true,    true,     true,   false,    -1,         -1,         -1,         -1,
+// "getRandom","getRandom","getRandom","getRandom","getRandom","getRandom"]
+// [],          [],         [],         [],         [],         []]
+// -1,          -1,         -1,         -1,         -1,         -1]
+    assertTrue(randomizedSet.insert(0));
+    assertTrue(randomizedSet.remove(0));
+    assertTrue(randomizedSet.insert(-1));
+    assertFalse(randomizedSet.remove(0));
+    assertEquals(-1, randomizedSet.getRandom());
+    assertEquals(-1, randomizedSet.getRandom());
+    assertEquals(-1, randomizedSet.getRandom());
+    assertEquals(-1, randomizedSet.getRandom());
+    assertEquals(-1, randomizedSet.getRandom());
+    assertEquals(-1, randomizedSet.getRandom());
+    assertEquals(-1, randomizedSet.getRandom());
+    assertEquals(-1, randomizedSet.getRandom());
+  }
+
   static Stream<RandomizedSet> solutionProvider() {
     return Stream.of(
         new RandomizedSetI(),
-        new RandomizedSetII()
+        new RandomizedSetII(),
+        new RandomizedSetIII()
     );
   }
 
