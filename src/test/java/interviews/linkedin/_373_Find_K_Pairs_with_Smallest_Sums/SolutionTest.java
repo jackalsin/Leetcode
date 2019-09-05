@@ -77,11 +77,11 @@ class SolutionTest {
     assertTrue(expected.contains(actual));
   }
 
-
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII()
+        new SolutionII(),
+        new SolutionIII()
     );
   }
 }
