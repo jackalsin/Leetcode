@@ -50,7 +50,8 @@ class CodecTest {
   static Stream<Codec> solutionProvider() {
     return Stream.of(
         new CodecI(),
-        new CodecII()
+        new CodecII(),
+        new CodecIII()
     );
   }
 }
