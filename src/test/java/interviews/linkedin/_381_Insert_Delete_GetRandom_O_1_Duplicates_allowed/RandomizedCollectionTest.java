@@ -45,6 +45,20 @@ class RandomizedCollectionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
+  void testFailedCase5(RandomizedCollection randomizedCollection) {
+    assertTrue(randomizedCollection.insert(0));
+    assertTrue(randomizedCollection.remove(0));
+    assertTrue(randomizedCollection.insert(-1));
+    assertFalse(randomizedCollection.remove(0));
+    assertEquals(-1, randomizedCollection.getRandom());
+    assertEquals(-1, randomizedCollection.getRandom());
+    assertEquals(-1, randomizedCollection.getRandom());
+    assertEquals(-1, randomizedCollection.getRandom());
+    assertEquals(-1, randomizedCollection.getRandom());
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
   void testFailedCase3(RandomizedCollection randomizedCollection) {
     assertTrue(randomizedCollection.insert(1));
     assertFalse(randomizedCollection.insert(1));
@@ -85,7 +99,8 @@ class RandomizedCollectionTest {
     return Stream.of(
         new RandomizedCollectionI(),
         new RandomizedCollectionII(),
-        new RandomizedCollectionIII()
+        new RandomizedCollectionIII(),
+        new RandomizedCollectionIV()
     );
   }
 }

@@ -1,5 +1,8 @@
 package interviews.linkedin._381_Insert_Delete_GetRandom_O_1_Duplicates_allowed;
 
+/**
+ * TODO: Remove
+ */
 public interface RandomizedCollection {
 
   /**
