@@ -42,7 +42,8 @@ class CodecTest {
   static Stream<Codec> solutionProvider() {
     return Stream.of(
         new CodecON(),
-        new CodecI()
+        new CodecI(),
+        new CodecII()
     );
   }
 }
