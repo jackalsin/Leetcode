@@ -105,14 +105,14 @@ class AllOneTest {
     allOne.dec(HELLO);
 
     assertEquals(LEET, allOne.getMaxKey());
-
   }
 
   static Stream<AllOne> solutionProvider() {
     return Stream.of(
         new AllOneI(),
         new AllOneII(),
-        new AllOneIII()
+        new AllOneIII(),
+        new AllOneIV()
     );
   }
 }
