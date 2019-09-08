@@ -34,6 +34,7 @@ class SolutionITest {
         new SolutionI(),
         new SolutionII(),
         new DirectInsertSolution(),
+        new DirectInsertSolutionI(),
         new SwapSolution()
     );
   }
