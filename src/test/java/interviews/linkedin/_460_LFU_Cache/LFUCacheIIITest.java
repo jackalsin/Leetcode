@@ -1,7 +1,10 @@
 package interviews.linkedin._460_LFU_Cache;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,15 +13,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 9/14/18
  */
 class LFUCacheIIITest {
-  private LFUCache cache;
-
-  @BeforeEach
-  void setUp() {
-    cache = new LFUCacheIII(2);
-  }
-
-  @Test
-  void testOnlineCase() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
+    LFUCache cache = solutionClass
+        .getConstructor(Integer.TYPE)
+        .newInstance(2);
     cache.put(1, 1);
     cache.put(2, 2);
     assertEquals(1, cache.get(1));       // returns 1
@@ -31,15 +32,24 @@ class LFUCacheIIITest {
     assertEquals(4, cache.get(4));       // returns 4
   }
 
-  @Test
-  void testEmpty() {
-    cache = new LFUCacheIII(0);
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testEmpty(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
+    LFUCache cache = solutionClass
+        .getConstructor(Integer.TYPE)
+        .newInstance(0);
     cache.put(0, 0);
     cache.get(0);
   }
 
-  @Test
-  void testFailedCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase1(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
+    LFUCache cache = solutionClass
+        .getConstructor(Integer.TYPE)
+        .newInstance(2);
     cache.put(1, 1);
     cache.put(2, 2);
     assertEquals(1, cache.get(1));
@@ -53,8 +63,13 @@ class LFUCacheIIITest {
 
   }
 
-  @Test
-  void testFailedCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase2(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
+    LFUCache cache = solutionClass
+        .getConstructor(Integer.TYPE)
+        .newInstance(2);
 //["LFUCache", "put",   "put",  "get",  "get",  "put",  "get",  "get",  "get"]
 //[[2],         [2, 1], [3, 2], [3],    [2],    [4, 3], [2],    [3],    [4]]
     cache.put(2, 1);
@@ -67,8 +82,13 @@ class LFUCacheIIITest {
     assertEquals(3, cache.get(4));
   }
 
-  @Test
-  void testFailedCase3() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase3(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
+    LFUCache cache = solutionClass
+        .getConstructor(Integer.TYPE)
+        .newInstance(2);
     //["LFUCache","put","put","get","put","put","get"]
     //[[2],[2,1],[2,2],[2],[1,1],[4,1],[2]]
     //    Output:
@@ -81,5 +101,14 @@ class LFUCacheIIITest {
     cache.put(1, 1);
     cache.put(4, 1);
     assertEquals(2, cache.get(2));
+  }
+
+  static Stream<Class> solutionProvider() {
+    return Stream.of(
+        LFUCacheI.class,
+        LFUCacheII.class,
+        LFUCacheIII.class,
+        LFUCacheIV.class
+    );
   }
 }
