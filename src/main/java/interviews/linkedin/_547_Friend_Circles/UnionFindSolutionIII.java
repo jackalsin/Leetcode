@@ -4,45 +4,44 @@ import java.util.Arrays;
 
 /**
  * @author jacka
- * @version 1.0 on 8/15/2019
+ * @version 1.0 on 9/11/2019
  */
-public final class UnionFindSolutionII implements Solution {
-  @Override
+public final class UnionFindSolutionIII implements Solution {
+
   public int findCircleNum(int[][] M) {
     if (M == null || M.length == 0) {
       return 0;
     }
-    final int n = M.length;
-    final UnionFind uf = new UnionFind(n);
-    for (int i = 0; i < M.length; ++i) {
-      for (int j = i + 1; j < M.length; ++j) {
-        if (M[i][j] == 1) {
-          uf.union(i, j);
+    final int rows = M.length, cols = M[0].length;
+    UnionFind uf = new UnionFind(rows);
+    for (int row = 0; row < rows; ++row) {
+      for (int col = row + 1; col < cols; ++col) {
+        if (M[row][col] == 1) {
+          uf.union(row, col);
         }
       }
     }
-    return uf.individualCounts;
+    return uf.individualRoots;
   }
 
   private static final class UnionFind {
     private final int[] roots, sizes;
-    private int individualCounts;
+    private int individualRoots;
 
-    private UnionFind(final int n) {
-      individualCounts = n;
+    private UnionFind(int n) {
+      individualRoots = n;
       roots = new int[n];
+      sizes = new int[n];
       for (int i = 0; i < n; ++i) {
         roots[i] = i;
       }
-      sizes = new int[n];
       Arrays.fill(sizes, 1);
     }
 
-    public void union(final int p, final int q) {
-      final int rootP = root(p), rootQ = root(q),
-          sizeP = sizes[rootP], sizeQ = sizes[rootQ];
+    private void union(final int p, final int q) {
+      final int rootP = root(p), rootQ = root(q);
       if (rootP == rootQ) return;
-      individualCounts--;
+      final int sizeP = sizes[rootP], sizeQ = sizes[rootQ];
       if (sizeP < sizeQ) {
         roots[rootP] = rootQ;
         sizes[rootQ] += sizes[rootP];
@@ -50,6 +49,7 @@ public final class UnionFindSolutionII implements Solution {
         roots[rootQ] = rootP;
         sizes[rootP] += sizes[rootQ];
       }
+      --individualRoots;
     }
 
     private int root(int p) {
