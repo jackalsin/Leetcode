@@ -6,7 +6,12 @@ package interviews.linkedin._605_Can_Place_Flowers;
  */
 public final class SolutionIII implements Solution {
   public boolean canPlaceFlowers(int[] bed, int n) {
-    assert bed.length >= 1;
+    if (bed == null || bed.length == 0) {
+      return n <= 0;
+    }
+    if (n <= 0) {
+      return true;
+    }
     int count = 0;
     for (int i = 0; i < bed.length; ++i) {
       if (bed[i] == 1) continue;

@@ -17,6 +17,7 @@ class SolutionTest {
     assertTrue(solution.canPlaceFlowers(followerBed, 1));
   }
 
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase2(Solution solution) {
@@ -32,12 +33,22 @@ class SolutionTest {
     assertFalse(solution.canPlaceFlowers(followerBed, 2));
   }
 
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testEmpty(Solution solution) {
+    final int[] followerBed = {};
+    assertFalse(solution.canPlaceFlowers(followerBed, 1));
+  }
+
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testSinglePlot(Solution solution) {
     final int[] followerBed = {0};
     assertTrue(solution.canPlaceFlowers(followerBed, 1));
   }
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -51,7 +62,8 @@ class SolutionTest {
         new SolutionI(),
         new SolutionII(),
         new SolutionIII(),
-        new SolutionIV()
+        new SolutionIV(),
+        new SolutionV()
     );
   }
 }
