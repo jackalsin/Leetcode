@@ -38,7 +38,8 @@ class SolutionTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SetSolution(),
-        new TwoPointerSolution()
+        new TwoPointerSolution(),
+        new TwoPointerSolutionI()
     );
   }
 }
