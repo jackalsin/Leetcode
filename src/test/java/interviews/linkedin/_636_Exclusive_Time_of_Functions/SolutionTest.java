@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-class SolutionITest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -29,7 +29,8 @@ class SolutionITest {
         new SolutionI(),
         new SolutionII(),
         new SolutionIII(),
-        new SolutionIV()
+        new SolutionIV(),
+        new SolutionV()
     );
   }
 }
