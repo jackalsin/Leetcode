@@ -56,9 +56,10 @@ class SolutionTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new DfsSolution(),
+        new DfsSolutionI(),
+        new DfsSolutionII(),
         new UnionFindSolution(),
         new UnionFindSolutionI(),
-        new DfsSolutionI(),
         new UnionFindSolutionII(),
         new UnionFindSolutionIII()
     );
