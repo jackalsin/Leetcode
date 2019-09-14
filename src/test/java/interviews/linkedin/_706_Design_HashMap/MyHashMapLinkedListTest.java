@@ -41,7 +41,9 @@ class MyHashMapLinkedListTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new MyHashMap(),
-        new MyHashMapI()
+        new MyHashMapI(),
+        new MyHashMapLinkedListI(),
+        new MyHashMapLinkedList()
     );
   }
 }
