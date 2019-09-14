@@ -1,5 +1,8 @@
 package _0701_0750._715_Range_Module;
 
+/**
+ * TODO:Revisit
+ */
 public interface Solution {
 
   void addRange(int left, int right);

@@ -215,6 +215,7 @@ class SolutionTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new TreeMapSolution(),
+        new TreeMapSolutionI(),
         new SegmentTreeLazyPropagationNodeSolution()
     );
   }
