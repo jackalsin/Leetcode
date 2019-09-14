@@ -44,7 +44,8 @@ class SolutionTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new PriorityQueueSolution(),
-        new BucketSolution()
+        new BucketSolution(),
+        new PqSolution()
     );
   }
 }
