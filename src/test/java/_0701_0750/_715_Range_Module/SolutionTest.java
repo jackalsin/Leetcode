@@ -1,21 +1,17 @@
 package _0701_0750._715_Range_Module;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class TreeSetSolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setup() {
-    solution = new TreeSetSolution();
-  }
-
-  @Test
-  void testOnlineCase1() {
+class SolutionTest {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
 //    addRange(10, 20): null
 //    removeRange(14, 16): null
 //    queryRange(10, 14): true (Every number in [10, 14) is being tracked)
@@ -26,11 +22,11 @@ class TreeSetSolutionTest {
     assertTrue(solution.queryRange(10, 14));
     assertFalse(solution.queryRange(13, 15));
     assertTrue(solution.queryRange(16, 17));
-
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
 //    ["RangeModule","addRange","addRange","addRange","queryRange","queryRange","queryRange","removeRange","queryRange"]
 //    [[],[10,180],             [150,200],[250,500],[50,100],[180,300],[600,1000],[50,150],[50,100]]
     solution.addRange(10, 100);
@@ -43,8 +39,9 @@ class TreeSetSolutionTest {
     assertFalse(solution.queryRange(50, 100));
   }
 
-  @Test
-  void testOnlineCase3() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
 //["addRange","queryRange","removeRange","removeRange","addRange","queryRange","addRange","queryRange", "removeRange"]
 //[[5,8],       [3,4],        [5,6],        [3,6],      [1,3],      [2,3],      [4,8],      [2,3],        [4,9]]
 //    [null,    false,        null,         null,         null,       true  ,   null,       true,           null]
@@ -59,8 +56,9 @@ class TreeSetSolutionTest {
     solution.removeRange(4, 9);
   }
 
-  @Test
-  void testOnlineCase5() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase5(Solution solution) {
 //    Input:
 //["RangeModule","removeRange","addRange","queryRange","addRange","addRange","addRange","queryRange","queryRange",
 //[[],            [8,9],        [6,10],     [4,7],      [3,4],      [1,5],      [3,6],      [2,4],      [7,8],
@@ -94,8 +92,9 @@ class TreeSetSolutionTest {
     assertFalse(solution.queryRange(4, 6));
   }
 
-  @Test
-  void testOnlineCase4() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase4(Solution solution) {
 //    Input:
 //["addRange","removeRange","removeRange","addRange","removeRange","addRange","queryRange","queryRange","queryRange"]
 //[[6,8],     [7,8],          [8,9],      [8,9],      [1,3],        [1,8],        [2,4] ,     [2,9],      [4,6]]
@@ -114,8 +113,9 @@ class TreeSetSolutionTest {
     assertTrue(solution.queryRange(4, 6));
   }
 
-  @Test
-  void testFailedCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase2(Solution solution) {
     assertFalse(solution.queryRange(21, 34));
     assertFalse(solution.queryRange(27, 87));
     solution.addRange(44, 53);
@@ -206,5 +206,13 @@ class TreeSetSolutionTest {
     solution.removeRange(36, 83);
     solution.removeRange(15, 45);
     assertFalse(solution.queryRange(10, 48));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new TreeMapSolution(),
+        new TreeSetSolution(),
+        new SegmentTreeSolution()
+    );
   }
 }
