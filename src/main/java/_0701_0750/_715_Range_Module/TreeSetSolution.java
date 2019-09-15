@@ -1,6 +1,10 @@
 package _0701_0750._715_Range_Module;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeSet;
 
 public final class TreeSetSolution implements Solution {
   private final TreeSet<Interval> ranges = new TreeSet<>(new Comparator<Interval>() {
@@ -41,6 +45,13 @@ public final class TreeSetSolution implements Solution {
       itr.remove();
     }
     ranges.addAll(todo);
+  }
+
+  @Override
+  public String toString() {
+    return "TreeSetSolution{" +
+        "ranges=" + ranges +
+        '}';
   }
 
   private static final class Interval {

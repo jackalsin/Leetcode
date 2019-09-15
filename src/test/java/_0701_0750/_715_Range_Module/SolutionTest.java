@@ -208,6 +208,108 @@ class SolutionTest {
     assertFalse(solution.queryRange(10, 48));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase6(Solution solution) {
+    // [null,null,null,null,false,false,null,null,null,null,null,false,null,null,null,null,false,false,null,null,
+    // true,null,false,null,false,null,null,null,null,null,null,null,null,null,true,true,false,false,true,null,null,
+    solution.addRange(55, 62);
+    solution.addRange(1, 29);
+    solution.removeRange(18, 49);
+    assertFalse(solution.queryRange(6, 98));
+    assertFalse(solution.queryRange(59, 71));
+    solution.removeRange(40, 45);
+    solution.removeRange(4, 58);
+    solution.removeRange(57, 69);
+    solution.removeRange(20, 30);
+    solution.removeRange(1, 40);
+    assertFalse(solution.queryRange(73, 93));
+    solution.removeRange(32, 93);
+    solution.addRange(38, 100);
+    solution.removeRange(50, 64);
+    solution.addRange(26, 72);
+    assertFalse(solution.queryRange(8, 74));
+    assertFalse(solution.queryRange(15, 53));
+    solution.addRange(44, 85);
+    solution.addRange(10, 71);
+    assertTrue(solution.queryRange(54, 70));
+    solution.removeRange(10, 45);
+    assertFalse(solution.queryRange(30, 66));
+    solution.addRange(47, 98);
+    assertFalse(solution.queryRange(1, 7));
+    solution.removeRange(44, 78);
+    solution.removeRange(31, 49);
+    solution.addRange(62, 63);
+    solution.addRange(49, 88);
+    solution.removeRange(47, 72);
+    solution.removeRange(8, 50);
+    solution.removeRange(49, 79);
+    solution.addRange(31, 47);
+    solution.addRange(54, 87);
+    assertTrue(solution.queryRange(77, 78));
+    assertTrue(solution.queryRange(59, 100));
+    assertFalse(solution.queryRange(8, 9));
+    assertFalse(solution.queryRange(50, 51));
+    assertTrue(solution.queryRange(67, 93));
+    // false,null,null,null,true,null,null,null,null,false,null,null,false,null,null,null,true,null,true,null,null,
+    // null,null,false,null,false,false,null,false,null,null,false,null,null,false,null,null,null,null,null,null,
+    solution.removeRange(25, 86);
+    solution.removeRange(8, 92);
+    solution.queryRange(31, 87);
+    solution.addRange(90, 95);
+    solution.addRange(28, 56);
+    solution.addRange(10, 42);
+    solution.queryRange(27, 34);
+    solution.addRange(75, 81);
+    solution.addRange(17, 63);
+    solution.removeRange(78, 90);
+    solution.addRange(9, 18);
+    assertFalse(solution.queryRange(51, 74));
+    solution.removeRange(20, 54);
+    solution.addRange(35, 72);
+    assertFalse(solution.queryRange(2, 29));
+    solution.addRange(28, 41);
+    solution.addRange(17, 95);
+    solution.addRange(73, 75);
+    assertTrue(solution.queryRange(34, 43));
+    solution.addRange(57, 96);
+    assertTrue(solution.queryRange(51, 72));
+    solution.removeRange(21, 67);
+    solution.removeRange(40, 73);
+    solution.removeRange(14, 26);
+    solution.removeRange(71, 86);
+    assertFalse(solution.queryRange(34, 41));
+    solution.removeRange(10, 25);
+    assertFalse(solution.queryRange(27, 68));
+    assertFalse(solution.queryRange(18, 32));
+    solution.removeRange(30, 31);
+    assertFalse(solution.queryRange(45, 61));
+    solution.addRange(64, 66);
+    solution.addRange(18, 93);
+    assertFalse(solution.queryRange(13, 21));
+    solution.removeRange(13, 46);
+    solution.removeRange(56, 99);
+    assertFalse(solution.queryRange(6, 93));
+    solution.addRange(25, 36);
+    solution.removeRange(27, 88);
+    solution.removeRange(82, 83);
+    solution.addRange(30, 71);
+    solution.addRange(31, 73);
+    solution.addRange(10, 41);
+    // true,true,null,true,null,false,null,null,false]
+    System.out.println(solution.toString());
+    assertTrue(solution.queryRange(71, 72));
+    assertTrue(solution.queryRange(9, 56));
+    solution.addRange(22, 76);
+    assertTrue(solution.queryRange(38, 74));
+    solution.removeRange(2, 77);
+    assertFalse(solution.queryRange(33, 61));
+    solution.removeRange(74, 75);
+    solution.addRange(11, 43);
+    assertFalse(solution.queryRange(27, 75));
+  }
+
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new TreeMapSolution(),

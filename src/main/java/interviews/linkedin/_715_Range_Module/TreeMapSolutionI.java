@@ -12,11 +12,12 @@ public final class TreeMapSolutionI implements Solution {
 
   public void addRange(int left, int right) {
     --right;
-    final Map.Entry<Integer, Integer> leftEntry = treeMap.floorEntry(left),
+    // 此处 right + 1是为了防止[1, 3], [8, 8]在内，然后addRange(1, 8)
+    final Map.Entry<Integer, Integer> leftEntry = treeMap.floorEntry(left - 1),
         rightEntry = treeMap.floorEntry(right + 1);
     final int[] toInsert = {left, right};
     // update left entry
-    if (leftEntry != null && leftEntry.getValue() >= left) {
+    if (leftEntry != null && leftEntry.getValue() >= left - 1) {
       toInsert[0] = leftEntry.getKey();
     }
     if (rightEntry != null && rightEntry.getValue() > right) {
@@ -51,4 +52,5 @@ public final class TreeMapSolutionI implements Solution {
     }
     treeMap.subMap(left, true, right, true).clear();
   }
+
 }
