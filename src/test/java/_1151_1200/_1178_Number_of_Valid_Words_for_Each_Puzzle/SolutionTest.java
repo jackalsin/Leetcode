@@ -1,4 +1,4 @@
-package _5001_5050._5176_Number_of_Valid_Words_for_Each_Puzzle;
+package _1151_1200._1178_Number_of_Valid_Words_for_Each_Puzzle;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
