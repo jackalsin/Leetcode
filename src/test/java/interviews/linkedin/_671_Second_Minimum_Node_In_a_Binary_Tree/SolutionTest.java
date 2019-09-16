@@ -32,7 +32,12 @@ class SolutionTest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase3(Solution solution) {
-    final TreeNode root = TreeNodes.getTreeLevelOrder(1, 1, 3, 1, 1, 3, 4, 3, 1, 1, 1, 3, 8, 4, 8, 3, 3, 1, 6, 2, 1);
+    final TreeNode root = TreeNodes.getTreeLevelOrder(
+        1,
+        1, 3,
+        1, 1, 3, 4,
+        3, 1, 1, 1, 3, 8, 4, 8,
+        3, 3, 1, 6, 2, 1);
     assertEquals(2, solution.findSecondMinimumValue(root));
   }
 
