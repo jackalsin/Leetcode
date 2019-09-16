@@ -34,7 +34,7 @@ class SolutionTest {
   @MethodSource("solutionProvider")
   void testOnlineCase2(Solution solution) {
     ClassLoader classLoader = getClass().getClassLoader();
-    final File file = new File(classLoader.getResource("./_5001_5050/_5176_Number_of_Valid_Words_for_Each_Puzzle" +
+    final File file = new File(classLoader.getResource("./_1151_1200/_1178_Number_of_Valid_Words_for_Each_Puzzle" +
         "/TLESolutionData").getFile());
     String[] words = null, puzzles = null;
     List<Integer> expected = List.of();
