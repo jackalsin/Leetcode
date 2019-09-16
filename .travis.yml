@@ -1,14 +1,14 @@
 language: java
 
+env:
+  - MAVEN_TEMP=MAVEN_TEMP
+
 cache:
   directories:
     - "$HOME/.m2/repository"
 
 dist: xenial
 sudo: required
-
-jdk:
-  - openjdk11
 
 # Get latest install-jdk.sh script
 before_install:
