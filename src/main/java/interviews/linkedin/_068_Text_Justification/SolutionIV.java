@@ -11,7 +11,7 @@ public final class SolutionIV implements Solution {
   @Override
   public List<String> fullJustify(String[] words, int maxWidth) {
     final List<String> result = new ArrayList<>();
-    if (words == null || maxWidth <= 0 || words.length == 0) {
+    if (words == null || maxWidth < 0 || words.length == 0) {
       return result;
     }
     final List<String> curLine = new ArrayList<String>() {{

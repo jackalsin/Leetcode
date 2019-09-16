@@ -11,7 +11,7 @@ public final class SolutionVI implements Solution {
 
   public int findSecondMinimumValue(TreeNode root) {
     update(root);
-    return 0;
+    return (int) sec;
   }
 
   private void update(TreeNode root) {
@@ -23,9 +23,11 @@ public final class SolutionVI implements Solution {
       final int left = root.left.val, right = root.right.val;
       if (left > root.val) {
         sec = Math.min(sec, left);
+        update(root.right);
         return;
       } else if (right > root.val) {
         sec = Math.min(sec, right);
+        update(root.left);
         return;
       }
     }

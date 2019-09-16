@@ -47,7 +47,8 @@ public final class SolutionI implements Solution {
     for (char chr : chars) {
       res |= (1 << (chr - 'a'));
     }
-    return Integer.bitCount(res) <= 7 ? res : 0;
+//    return Integer.bitCount(res) <= 7 ? res : 0;
+    return res;
   }
 
 }
