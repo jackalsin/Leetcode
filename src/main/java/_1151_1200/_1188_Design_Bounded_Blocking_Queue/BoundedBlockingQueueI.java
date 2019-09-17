@@ -38,6 +38,8 @@ public final class BoundedBlockingQueueI implements BoundedBlockingQueue {
   }
 
   public int size() {
-    return q.size();
+    synchronized (q) {
+      return q.size();
+    }
   }
 }
