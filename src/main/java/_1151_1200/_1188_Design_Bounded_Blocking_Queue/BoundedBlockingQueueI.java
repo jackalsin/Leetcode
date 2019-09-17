@@ -26,15 +26,14 @@ public final class BoundedBlockingQueueI implements BoundedBlockingQueue {
   }
 
   public int dequeue() throws InterruptedException {
-    final int res;
     synchronized (q) {
       while (q.isEmpty()) {
         q.wait();
       }
-      res = q.remove();
+      final int res = q.remove();
       q.notifyAll();
+      return res;
     }
-    return res;
   }
 
   public int size() {
