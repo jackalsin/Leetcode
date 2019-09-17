@@ -7,15 +7,11 @@ import java.util.TreeMap;
 
 /**
  * @author jacka
- * @version 1.0 on 7/29/2019
+ * @version 1.0 on 9/16/2019
  */
 public final class MaxStackVI implements MaxStack {
   private final TreeMap<Integer, List<Node>> treeMap = new TreeMap<>();
-
-  /**
-   * in and out from head
-   */
-  private final Node head = new Node(-1), tail = new Node(-1);
+  private final Node head = new Node(0), tail = new Node(0);
 
   {
     head.next = tail;
@@ -23,53 +19,56 @@ public final class MaxStackVI implements MaxStack {
   }
 
   public void push(int x) {
+    // from tail
     final Node cur = new Node(x);
     treeMap.computeIfAbsent(x, key -> new ArrayList<>()).add(cur);
-    append(head, cur);
+    append(tail.prev, cur);
   }
 
   public int pop() {
-    assert head.next != tail;
-    final Node cur = head.next;
-    final List<Node> curList = treeMap.get(cur.key);
-    if (curList.size() == 1) {
-      treeMap.remove(cur.key);
-    } else {
-      curList.remove(curList.size() - 1);
+    final Node toRemove = tail.prev;
+    final int key = toRemove.key;
+    final List<Node> curVal = treeMap.get(key);
+    curVal.remove(curVal.size() - 1);
+    if (curVal.isEmpty()) {
+      treeMap.remove(key);
     }
-    remove(cur);
-    return cur.key;
+    remove(toRemove);
+    return key;
   }
 
   public int top() {
-    return head.next.key;
+    return tail.prev.key;
   }
 
   public int peekMax() {
+    assert !treeMap.isEmpty();
     return treeMap.lastKey();
   }
 
   public int popMax() {
-    final Map.Entry<Integer, List<Node>> curEntry = treeMap.lastEntry();
-    final List<Node> curLine = curEntry.getValue();
-    final Node cur = curLine.remove(curLine.size() - 1);
-    if (curLine.isEmpty()) {
-      treeMap.remove(curEntry.getKey());
+    assert !treeMap.isEmpty();
+    final Map.Entry<Integer, List<Node>> toRemoveEntry = treeMap.lastEntry();
+    final int toRemoveKey = toRemoveEntry.getKey();
+    final List<Node> toRemoveNodes = toRemoveEntry.getValue();
+    final Node toRemoveNode = toRemoveNodes.remove(toRemoveNodes.size() - 1);
+    if (toRemoveNodes.isEmpty()) {
+      treeMap.remove(toRemoveKey);
     }
-    remove(cur);
-    return curEntry.getKey();
+    remove(toRemoveNode);
+    return toRemoveKey;
   }
 
-  private void remove(final Node cur) {
+  private static void remove(final Node cur) {
     final Node prev = cur.prev, next = cur.next;
     prev.next = next;
     next.prev = prev;
   }
 
-  private void append(final Node prev, final Node cur) {
+  private static void append(final Node prev, final Node cur) {
     final Node next = prev.next;
-    cur.prev = prev;
     prev.next = cur;
+    cur.prev = prev;
 
     cur.next = next;
     next.prev = cur;
@@ -79,7 +78,7 @@ public final class MaxStackVI implements MaxStack {
     private Node prev, next;
     private final int key;
 
-    private Node(int key) {
+    private Node(final int key) {
       this.key = key;
     }
   }
