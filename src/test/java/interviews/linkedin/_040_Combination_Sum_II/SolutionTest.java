@@ -39,8 +39,8 @@ class SolutionTest {
     expect.add(Arrays.asList(1, 1, 6));
 
     List<List<Integer>> actual = solution.combinationSum2(new int[]{1, 1, 1, 6, 10}, 8);
-    assertEquals(new HashSet<>(expect), new HashSet<>(actual));
     assertEquals(expect.size(), actual.size());
+    assertEquals(new HashSet<>(expect), new HashSet<>(actual));
   }
 
   @ParameterizedTest
@@ -50,8 +50,8 @@ class SolutionTest {
         List.of(1, 1, 1, 5), List.of(1, 1, 3, 3), List.of(3, 5)
     );
     List<List<Integer>> actual = solution.combinationSum2(new int[]{3, 1, 3, 5, 1, 1}, 8);
-    assertEquals(new HashSet<>(expect), new HashSet<>(actual));
     assertEquals(expect.size(), actual.size());
+    assertEquals(new HashSet<>(expect), new HashSet<>(actual));
   }
 
   static Stream<Solution> solutionProvider() {
@@ -59,7 +59,8 @@ class SolutionTest {
         new SolutionI(),
         new SolutionII(),
         new SolutionIII(),
-        new SolutionIV()
+        new SolutionIV(),
+        new SolutionV()
     );
   }
 }
