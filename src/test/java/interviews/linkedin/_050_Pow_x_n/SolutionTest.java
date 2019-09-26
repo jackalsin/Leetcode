@@ -62,7 +62,8 @@ class SolutionTest {
         new SolutionII(),
         new SolutionIII(),
         new MemoSolution(),
-        new SimpleSolution()
+        new SimpleSolution(),
+        new SolutionV()
     );
   }
 }
