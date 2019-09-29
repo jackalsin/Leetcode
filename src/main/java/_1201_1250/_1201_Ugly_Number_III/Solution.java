@@ -1,4 +1,4 @@
-package _1151_1200._1201_Ugly_Number_III;
+package _1201_1250._1201_Ugly_Number_III;
 
 /**
  * @author jacka
