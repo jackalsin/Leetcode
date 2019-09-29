@@ -9,6 +9,12 @@ import java.util.Random;
  * @version 1.0 on 9/28/2019
  */
 public final class SolutionI implements Skiplist {
+  // Sentinel
+  //          \
+  // level 3: -Inf ----------------------------> 4
+  // level 2: -Inf ------------> 2 ------------> 4
+  // level 1: -Inf ----> 1 ----> 2 ------------> 4
+  // level 0: -Inf ----> 1 ----> 2 ----> 3 ----> 4 : this level is the most concrete level
   private static final double DEFAULT_PROB = 0.5;
   private final Random rand = new Random();
   private final List<Node> sentinels = new ArrayList<>();
@@ -27,7 +33,6 @@ public final class SolutionI implements Skiplist {
     // cur 最下层，比他小或者等于 num
     final Node toInsert = new Node(num);
     append(cur, toInsert);
-
     // populate the level
     populateLevelUp(toInsert);
   }
