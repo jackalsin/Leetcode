@@ -4,8 +4,6 @@ import utils.ListNode;
 
 public final class SolutionII implements Solution {
   /**
-   * TODO:
-   *
    * @param head
    * @param k
    * @return

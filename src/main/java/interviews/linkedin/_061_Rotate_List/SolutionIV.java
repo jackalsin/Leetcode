@@ -12,33 +12,32 @@ public final class SolutionIV implements Solution {
     if (head == null) {
       return head;
     }
-    final int len = getLen(head);
-    k %= len;
-    if (k == 0) {
-      return head;
-    }
-    // march k
-    ListNode fast = head;
+    final int size = getSize(head);
+    k %= size;
+    final ListNode dummy = new ListNode(1);
+    dummy.next = head;
+    ListNode fast = dummy, slow = dummy;
     for (int i = 0; i < k; ++i) {
       fast = fast.next;
     }
-    ListNode slow = head;
     while (fast.next != null) {
       fast = fast.next;
       slow = slow.next;
     }
-    final ListNode newHead = slow.next;
+
+    fast.next = dummy.next;
+    dummy.next = slow.next;
     slow.next = null;
-    fast.next = head;
-    return newHead;
+    return dummy.next;
   }
 
-  private static int getLen(ListNode head) {
-    int i = 0;
-    while (head != null) {
-      i++;
-      head = head.next;
+  private static int getSize(final ListNode head) {
+    int count = 0;
+    ListNode cur = head;
+    while (cur != null) {
+      cur = cur.next;
+      ++count;
     }
-    return i;
+    return count;
   }
 }
