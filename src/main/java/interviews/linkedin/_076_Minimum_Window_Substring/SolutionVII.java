@@ -10,38 +10,41 @@ import java.util.Map;
 public final class SolutionVII implements Solution {
   @Override
   public String minWindow(String s, String t) {
-    if (s == null || t == null || s.length() == 0 || t.length() == 0) {
-      return "";
-    }
     final Map<Character, Integer> charCount = getCharCount(t);
-    int count = charCount.size(), left = 0, minLeft = 0, minRight = s.length();
+    int minLen = Integer.MAX_VALUE, left = 0, minLeft = -1, uniqueCount = charCount.size();
     for (int right = 0; right < s.length(); ++right) {
-      final char chr = s.charAt(right);
-      if (!charCount.containsKey(chr)) continue;
-      charCount.put(chr, charCount.get(chr) - 1);
-      if (charCount.get(chr) == 0) {
-        count--;
+      final char rightChar = s.charAt(right);
+      if (!charCount.containsKey(rightChar)) continue;
+      final int prevCount = charCount.get(rightChar);
+      charCount.put(rightChar, prevCount - 1);
+      if (prevCount == 1) {
+        uniqueCount--;
       }
-      for (; count == 0; ++left) {
-        assert left <= right;
+      while (uniqueCount == 0) {
         final char leftChar = s.charAt(left);
-        if (!charCount.containsKey(leftChar)) continue;
-        if (charCount.get(leftChar) == 0) {
-          count++;
+        if (!charCount.containsKey(leftChar)) {
+          left++;
+          continue;
         }
         charCount.put(leftChar, charCount.get(leftChar) + 1);
-        if (right - left + 1 < minRight - minLeft + 1) {
-          minRight = right;
+        if (charCount.get(leftChar) == 1) {
+          uniqueCount++;
+        }
+        final int curLen = right - left + 1;
+        if (curLen < minLen) {
+          minLen = curLen;
           minLeft = left;
         }
+        left++;
       }
     }
-    return minRight == s.length() ? "" : s.substring(minLeft, minRight + 1);
+    return minLeft == -1 ? "" : s.substring(minLeft, minLeft + minLen);
   }
 
-  private static Map<Character, Integer> getCharCount(String t) {
+  private static Map<Character, Integer> getCharCount(final String t) {
     final Map<Character, Integer> result = new HashMap<>();
-    for (final char chr : t.toCharArray()) {
+    final char[] chars = t.toCharArray();
+    for (char chr : chars) {
       result.put(chr, result.getOrDefault(chr, 0) + 1);
     }
     return result;
