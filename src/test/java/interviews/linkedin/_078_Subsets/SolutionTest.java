@@ -28,7 +28,6 @@ class SolutionTest {
     );
 
     final List<List<Integer>> actual = solution.subsets(nums);
-    System.out.println(actual);
     assertEquals(expected.size(), actual.size());
     assertEquals(expected, new HashSet<>(actual));
   }
@@ -37,7 +36,8 @@ class SolutionTest {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
-        new SolutionIII()
+        new SolutionIII(),
+        new SolutionIV()
     );
   }
 }
