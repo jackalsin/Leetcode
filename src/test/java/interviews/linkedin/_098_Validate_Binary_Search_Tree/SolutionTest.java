@@ -39,7 +39,9 @@ class SolutionTest {
     return Stream.of(
         new StackSolution(),
         new StackSolutionI(),
-        new MorrisTraversalSolution()
+        new MorrisTraversalSolution(),
+        new StackSolutionII(),
+        new DfsSolution()
     );
   }
 }
