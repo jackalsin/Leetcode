@@ -21,7 +21,6 @@ class SolutionTest {
     final int[] expected = new int[]{1, 2, 2, 1, 0, 2, 1, 2};
     Arrays.sort(expected);
     solution.sortColors(input);
-    System.out.println(Arrays.toString(input));
     assertArrayEquals(expected, input);
   }
 
