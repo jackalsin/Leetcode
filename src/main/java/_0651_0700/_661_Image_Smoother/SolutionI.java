@@ -34,7 +34,6 @@ public final class SolutionI implements Solution {
         sum += m[row + d[0]][col + d[1]];
       }
     }
-    System.out.println("row = " + row + ", col = " + col + ", sum = " + sum + ", count = " + count);
     return count == 0 ? 0 : sum / count;
   }
 
