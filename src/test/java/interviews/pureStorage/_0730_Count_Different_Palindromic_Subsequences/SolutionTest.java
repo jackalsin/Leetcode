@@ -34,7 +34,6 @@ class SolutionTest {
     assertEquals(5, solution.countPalindromicSubsequences(input));
   }
 
-
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SolutionI()
