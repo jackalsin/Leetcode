@@ -1,4 +1,4 @@
-package _0701_0750._715_Range_Module;
+package interviews.oracle._715_Range_Module;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,7 +8,12 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 10/13/2019
+ */
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase1(Solution solution) {
@@ -210,6 +215,14 @@ class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
+  void testOnlineCase7(Solution solution) {
+    solution.addRange(9, 10);
+    solution.addRange(10, 72);
+    assertTrue(solution.queryRange(9, 72));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
   void testOnlineCase6(Solution solution) {
     // [null,null,null,null,false,false,null,null,null,null,null,false,null,null,null,null,false,false,null,null,
     // true,null,false,null,false,null,null,null,null,null,null,null,null,null,true,true,false,false,true,null,null,
@@ -308,19 +321,10 @@ class SolutionTest {
     assertFalse(solution.queryRange(27, 75));
   }
 
-  @ParameterizedTest
-  @MethodSource("solutionProvider")
-  void testOnlineCase7(Solution solution) {
-    solution.addRange(9, 10);
-    solution.addRange(10, 72);
-    assertTrue(solution.queryRange(9, 72));
-  }
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new TreeMapSolution(),
-        new TreeSetSolution(),
-        new SegmentTreeSolution()
+        new SolutionI()
     );
   }
 }
