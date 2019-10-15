@@ -1,23 +1,19 @@
 package _0401_0450._425_Word_Squares;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
-public class SolutionTest {
-  private Solution solution;
+class SolutionTest {
 
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  public void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     final String[] words = {"area", "lead", "wall", "lady", "ball"};
     final List<List<String>> expected = List.of(
         List.of(
@@ -37,8 +33,9 @@ public class SolutionTest {
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
   }
 
-  @Test
-  public void testOnlineCase2() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
     final String[] words = {"abat", "baba", "atan", "atal"};
     final List<List<String>> expected = List.of(
         List.of(
@@ -55,8 +52,15 @@ public class SolutionTest {
         )
     );
     final List<List<String>> actual = solution.wordSquares(words);
-    assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionII(),
+        new SolutionI()
+    );
   }
 
 }
