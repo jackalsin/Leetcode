@@ -11,7 +11,7 @@ import java.util.Queue;
  * @author Zhiwei.Xin
  * @version 1.0 on 8/25/2017.
  */
-public final class PriorityQueueSolution {
+public final class PriorityQueueSolution implements Solution {
 
   public int minMeetingRooms(Interval[] intervals) {
     Arrays.sort(intervals, new Comparator<Interval>() {
