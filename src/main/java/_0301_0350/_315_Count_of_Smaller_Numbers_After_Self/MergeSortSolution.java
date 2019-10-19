@@ -10,6 +10,7 @@ public final class MergeSortSolution implements Solution {
       return new ArrayList<>();
     }
     /* During sorting, we don't sort nums, we sort index */
+    // we sort ascending order
     final int[] count = new int[nums.length], index = new int[nums.length];
     for (int i = 0; i < nums.length; i++) {
       index[i] = i;
