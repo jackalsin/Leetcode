@@ -1,4 +1,4 @@
-package _0101_0150._141_Linked_List_Cycle;
+package interviews.oracle._141_Linked_List_Cycle;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,14 +7,15 @@ import utils.ListNodes;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 7/1/2017.
+ * @version 1.0 on 10/19/2019
  */
 class SolutionTest {
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testNoCycle0(Solution solution) {
@@ -54,7 +55,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
