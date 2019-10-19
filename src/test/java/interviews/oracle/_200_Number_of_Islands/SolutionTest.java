@@ -1,5 +1,4 @@
-package _0151_0200._200_Number_of_Islands;
-
+package interviews.oracle._200_Number_of_Islands;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,9 +10,10 @@ import static utils.TwoDimensionArray.getCharBoard;
 
 /**
  * @author jacka
- * @version 1.0 on 8/5/2017.
+ * @version 1.0 on 10/18/2019
  */
 class SolutionTest {
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -48,7 +48,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
