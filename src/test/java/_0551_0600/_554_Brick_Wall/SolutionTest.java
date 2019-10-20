@@ -1,22 +1,17 @@
 package _0551_0600._554_Brick_Wall;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionIIITest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new SolutionIII();
-  }
-
-  @Test
-  void testOnlineCase1() {
+class SolutionTest {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(1, 2, 2, 1),
         List.of(3, 1, 2),
@@ -29,8 +24,9 @@ class SolutionIIITest {
     assertEquals(2, solution.leastBricks(input));
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(1),
         List.of(1),
@@ -38,6 +34,14 @@ class SolutionIIITest {
     );
 
     assertEquals(3, solution.leastBricks(input));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII()
+    );
   }
 
 }
