@@ -1,5 +1,4 @@
-package _0651_0700._692_Top_K_Frequent_Words;
-
+package interviews.oracle._692_Top_K_Frequent_Words;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,9 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/3/2018.
+ * @version 1.0 on 10/20/2019
  */
-class TrieSolutionTest {
+class PriorityQueueTest {
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -43,6 +43,9 @@ class TrieSolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new TrieSolution());
+    return Stream.of(
+        new PriorityQueueSolution(),
+        new TrieSolution()
+    );
   }
 }
