@@ -1,4 +1,4 @@
-package _0351_0400._394_Decode_String;
+package interviews.oracle._394_Decode_String;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,9 +9,10 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 11/11/2017.
+ * @version 1.0 on 10/20/2019
  */
 class SolutionTest {
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnline1(Solution solution) {
@@ -32,7 +33,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
