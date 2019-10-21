@@ -1,8 +1,10 @@
 package _0101_0150._116_Populating_Next_Right_Pointers_in_Each_Node;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import utils.TreeLinkNode;
+
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,16 +12,11 @@ import static org.junit.Assert.assertEquals;
  * @author jacka
  * @version 1.0 on 6/25/2017.
  */
-public class SolutionTest {
-  private Solution solution;
+class SolutionTest {
 
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  public void testOnlineCase() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase(Solution solution) {
     TreeLinkNode expected = new TreeLinkNode(1);
     expected.left = new TreeLinkNode(2);
     expected.right = new TreeLinkNode(3);
@@ -45,5 +42,11 @@ public class SolutionTest {
     solution.connect(root);
 
     assertEquals(expected, root);
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new Solution()
+    );
   }
 }
