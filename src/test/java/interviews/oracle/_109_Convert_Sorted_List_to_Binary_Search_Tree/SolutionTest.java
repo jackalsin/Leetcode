@@ -1,24 +1,25 @@
-package _0101_0150._109_Convert_Sorted_List_to_Binary_Search_Tree;
+package interviews.oracle._109_Convert_Sorted_List_to_Binary_Search_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import utils.ListNode;
 import utils.TreeNode;
 
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 6/19/2017.
+ * @version 1.0 on 10/20/2019
  */
-
 class SolutionTest {
 
   static Stream<Solution> solutionProvider() throws Exception {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 
@@ -39,9 +40,14 @@ class SolutionTest {
   void test2Element(Solution solution) {
     ListNode inputHead = new ListNode(1);
     inputHead.next = new ListNode(2);
-    TreeNode expected = new TreeNode(2);
-    expected.left = new TreeNode(1);
-    assertEquals(expected, solution.sortedListToBST(inputHead));
+    TreeNode expected1 = new TreeNode(2);
+    expected1.left = new TreeNode(1);
+    TreeNode expected2 = new TreeNode(1);
+    expected2.right = new TreeNode(2);
+    final Set<TreeNode> expected = Set.of(
+        expected1, expected2);
+    TreeNode actual = solution.sortedListToBST(inputHead);
+    assertTrue(expected.contains(actual));
   }
 
   @ParameterizedTest
