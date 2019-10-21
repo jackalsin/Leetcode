@@ -1,19 +1,19 @@
-package _0051_0100._079_Word_Search;
-
+package interviews.oracle._079_Word_Search;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 5/13/2017.
+ * @version 1.0 on 10/21/2019
  */
 class SolutionTest {
+
   private static final char[][] BOARD = new char[][]{
       {'A', 'B', 'C', 'E'},
       {'S', 'F', 'C', 'S'},
@@ -40,7 +40,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
