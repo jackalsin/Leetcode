@@ -23,8 +23,11 @@ public final class SolutionI implements Solution {
   }};
 
   public List<String> letterCombinations(String digits) {
-    final StringBuilder sb = new StringBuilder();
     final List<String> result = new ArrayList<>();
+    if (digits == null || digits.length() == 0) {
+      return result;
+    }
+    final StringBuilder sb = new StringBuilder();
     letterCombinations(result, sb, digits, 0);
     return result;
   }
