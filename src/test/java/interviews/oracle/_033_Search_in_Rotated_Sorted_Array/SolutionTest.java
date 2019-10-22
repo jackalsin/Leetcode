@@ -1,4 +1,4 @@
-package _0001_0050._033_Search_in_Rotated_Sorted_Array;
+package interviews.oracle._033_Search_in_Rotated_Sorted_Array;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/2/7.
+ * @version 1.0 on 10/21/2019
  */
 class SolutionTest {
   private static final int[] LEFT_SORT = new int[]{4, 5, 6, 8, 10, 0, 1, 2};
@@ -70,9 +70,15 @@ class SolutionTest {
     assertEquals(-1, solution.search(RIGHT_SORT, 8));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWith3_1_1(Solution solution) {
+    assertEquals(1, solution.search(new int[]{3, 1}, 1));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
