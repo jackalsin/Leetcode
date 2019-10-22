@@ -11,9 +11,9 @@ public final class ListNodes {
    *
    * @param values an array of integer values to be assigned to the list.
    * @return the head of the integer list of ListNode
-   * @throws NullPointerException     if values is null
+   * @throws NullPointerException if values is null
    */
-  public static ListNode getListOfNodes(int[] values) {
+  public static ListNode getListOfNodes(int... values) {
     if (values == null) {
       throw new NullPointerException();
     } else {
