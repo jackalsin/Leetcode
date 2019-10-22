@@ -1,4 +1,4 @@
-package _0001_0050._023_Merge_k_Sorted_Lists;
+package interviews.oracle._023_Merge_k_Sorted_Lists;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,14 +7,14 @@ import utils.ListNodes;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * @author jacka
- * @version 1.0 on 1/23/2017.
+ * @version 1.0 on 10/21/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -33,10 +33,9 @@ class SolutionTest {
     final ListNode result = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5, 6, 6, 7, 8});
     assertEquals(result, solution.mergeKLists(input));
   }
-
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new PqSolution()
     );
   }
 }
