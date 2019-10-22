@@ -51,7 +51,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new BITSolution(),
+//        new BITSolution(),
         new MergeSortSolution(),
         new BSTSolution()
     );
