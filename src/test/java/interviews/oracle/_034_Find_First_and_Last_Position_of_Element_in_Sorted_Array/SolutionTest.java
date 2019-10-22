@@ -1,5 +1,4 @@
-package _0001_0050._034_Search_for_a_Range;
-
+package interviews.oracle._034_Find_First_and_Last_Position_of_Element_in_Sorted_Array;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,10 +6,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author jacka
- * @version 1.0 on 2/15/2017.
+ * @version 1.0 on 10/21/2019
  */
 class SolutionTest {
 
@@ -50,7 +50,8 @@ class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
-
 }
