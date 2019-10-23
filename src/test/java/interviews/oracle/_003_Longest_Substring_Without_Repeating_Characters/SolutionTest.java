@@ -1,17 +1,18 @@
-package _0001_0050._003_Longest_Substring_Without_Repeating_Characters;
+package interviews.oracle._003_Longest_Substring_Without_Repeating_Characters;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/1/7.
+ * @version 1.0 on 10/22/2019
  */
 class SolutionTest {
+
   //  Given "abcabcbb", the answer is "abc", which the length is 3.
   private static final String STR1 = "abcabcbb";
   //  Given "bbbbb", the answer is "b", with the length of 1.
@@ -35,7 +36,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }

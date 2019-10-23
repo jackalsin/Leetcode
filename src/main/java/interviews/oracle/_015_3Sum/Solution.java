@@ -7,5 +7,11 @@ import java.util.List;
  * @version 1.0 on 10/22/2019
  */
 public interface Solution {
+  /**
+   * TODO:
+   *
+   * @param nums
+   * @return
+   */
   List<List<Integer>> threeSum(int[] nums);
 }
