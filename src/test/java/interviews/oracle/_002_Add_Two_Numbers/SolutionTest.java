@@ -1,4 +1,4 @@
-package _0001_0050._002_Add_Two_Numbers;
+package interviews.oracle._002_Add_Two_Numbers;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,12 +7,11 @@ import utils.ListNodes;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/1/7.
+ * @version 1.0 on 10/22/2019
  */
 class SolutionTest {
 
@@ -36,10 +35,10 @@ class SolutionTest {
         solution.addTwoNumbers(NUM_432, NUM_38));
   }
 
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI(),
-        new InplaceCalculationSolution()
+        new SolutionI()
     );
   }
 }
