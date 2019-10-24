@@ -1,4 +1,4 @@
-package _0001_0050._046_Permutations;
+package interviews.oracle._046_Permutations;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author jacka
- * @version 1.0 on 2/25/2017.
+ * @version 1.0 on 10/23/2019
  */
 class SolutionTest {
 
@@ -49,11 +49,9 @@ class SolutionTest {
   void testWithEmptyArray(Solution solution) {
     assertEquals(new ArrayList<>(), solution.permute(new int[]{}));
   }
-
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new DfsSolution(),
-        new SwapSolution()
+        new SolutionI()
     );
   }
 }

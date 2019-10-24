@@ -7,14 +7,17 @@ import java.util.List;
  * @author jacka
  * @version 1.0 on 2/25/2017.
  */
-public class SwapSolution {
+public final class SwapSolution implements Solution {
 
   public List<List<Integer>> permute(int[] nums) {
+    final List<List<Integer>> result = new ArrayList<>();
+    if (nums == null || nums.length == 0) {
+      return result;
+    }
     final List<Integer> curPath = new ArrayList<>();
     for (int num : nums) {
       curPath.add(num);
     }
-    final List<List<Integer>> result = new ArrayList<>();
     permutation(result, curPath, 0);
     return result;
   }

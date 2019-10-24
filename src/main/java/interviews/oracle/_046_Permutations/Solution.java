@@ -1,10 +1,10 @@
-package _0001_0050._046_Permutations;
+package interviews.oracle._046_Permutations;
 
 import java.util.List;
 
 /**
  * @author jacka
- * @version 1.0 on 2/25/2017.
+ * @version 1.0 on 10/23/2019
  */
 public interface Solution {
   List<List<Integer>> permute(int[] nums);
