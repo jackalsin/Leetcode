@@ -1,4 +1,4 @@
-package _0001_0050._004_Median_of_Two_Sorted_Arrays;
+package interviews.oracle._004_Median_of_Two_Sorted_Arrays;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,10 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/1/8.
+ * @version 1.0 on 10/22/2019
  */
 class SolutionTest {
-
   private final int[] nums1 = new int[]{1, 3, 5, 7};
   private final int[] nums2 = new int[]{2, 4, 6, 8};
   private final int[] nums3 = new int[]{3, 4, 5};
@@ -64,7 +63,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
