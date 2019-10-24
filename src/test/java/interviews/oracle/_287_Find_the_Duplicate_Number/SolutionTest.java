@@ -1,15 +1,15 @@
-package _0251_0300._287_Find_the_Duplicate_Number;
+package interviews.oracle._287_Find_the_Duplicate_Number;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 9/4/2017.
+ * @version 1.0 on 10/23/2019
  */
 class SolutionTest {
 
@@ -50,7 +50,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
