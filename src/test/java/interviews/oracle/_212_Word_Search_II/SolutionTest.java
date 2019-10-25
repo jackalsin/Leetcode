@@ -1,5 +1,4 @@
-package _0201_0250._212_Word_Search_II;
-
+package interviews.oracle._212_Word_Search_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,12 +9,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.TwoDimensionArray.getCharBoard;
 
 /**
  * @author jacka
- * @version 1.0 on 8/8/2017.
+ * @version 1.0 on 10/24/2019
  */
 class SolutionTest {
   private static final char[][] BOARD = new char[][]{
@@ -43,8 +42,8 @@ class SolutionTest {
     final String[] words = new String[]{"oath", "pea", "eat", "rain"};
     List<String> expected = Arrays.asList("eat", "oath");
     List<String> actual = solution.findWords(BOARD, words);
-    assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
   }
 
   @ParameterizedTest
@@ -169,7 +168,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
