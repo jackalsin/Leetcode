@@ -1,18 +1,17 @@
-package _0001_0050._050_Pow_x_n;
+package interviews.oracle._050_Pow_x_n;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 3/2/2017.
+ * @version 1.0 on 10/24/2019
  */
 class SolutionTest {
-
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testWithBasePositiveIndexPositive(Solution solution) {
@@ -47,7 +46,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
