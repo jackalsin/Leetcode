@@ -1,63 +1,70 @@
 package _0601_0650._622_Design_Circular_Queue;
 
+import java.util.Arrays;
+
 /**
  * @author jacka
  * @version 1.0 on 10/26/2019
  */
 public final class MyCircularQueue implements Solution {
-  private final int k;
+  private final int capacity;
   private final int[] values;
-  private int start = 0, end = 0;
+  private int start = 0, end = -1, size = 0;
 
   public MyCircularQueue(int k) {
-    this.k = k;
+    this.capacity = k;
     values = new int[k];
   }
 
   public boolean enQueue(int value) {
-    if (end == start + k || k == 0) {
+    if (isFull()) {
       return false;
     }
-    values[end % k] = value;
-    ++end;
+    end = (end + 1) % capacity;
+    values[end] = value;
+    size++;
     return true;
   }
 
   public boolean deQueue() {
-    if (start == end || k == 0) {
+    if (size == 0) {
       return false;
     }
-    ++start;
-    pruneIndex();
+    start = (start + 1) % capacity;
+    size--;
     return true;
   }
 
   public int Front() {
-    if (end <= start) {
+    if (isEmpty()) {
       return -1;
     }
-    return values[start % k];
+    return values[start];
   }
 
   public int Rear() {
-    if (end <= start) {
+    if (size == 0) {
       return -1;
     }
-    return values[(end - 1 + k) % k];
+    return values[end];
   }
 
   public boolean isEmpty() {
-    return start == end;
+    return size == 0;
   }
 
   public boolean isFull() {
-    return start + k == end;
+    return size == capacity;
   }
 
-  private void pruneIndex() {
-    if (start >= k) {
-      start -= k;
-      end -= k;
-    }
+  @Override
+  public String toString() {
+    return "MyCircularQueue{" +
+        "capacity=" + capacity +
+        ", values=" + Arrays.toString(values) +
+        ", start=" + start +
+        ", end=" + end +
+        ", size=" + size +
+        '}';
   }
 }

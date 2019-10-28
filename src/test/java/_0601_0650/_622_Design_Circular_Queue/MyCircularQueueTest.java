@@ -25,6 +25,7 @@ class MyCircularQueueTest {
     assertTrue(circularQueue.enQueue(2));  // return true
     assertTrue(circularQueue.enQueue(3));  // return true
     assertFalse(circularQueue.enQueue(4));  // return false, the queue is full
+    System.out.println(circularQueue);
     assertEquals(3, circularQueue.Rear());  // return 3
     assertTrue(circularQueue.isFull());  // return true
     assertTrue(circularQueue.deQueue());  // return true
