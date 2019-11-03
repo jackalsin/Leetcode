@@ -49,9 +49,24 @@ class SolutionITest {
     assertEquals(1, solution.minMeetingRooms(intervals));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnline4(Solution solution) {
+    final int[][] intervals = {{5, 8}, {6, 8}};
+    assertEquals(2, solution.minMeetingRooms(intervals));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnline5(Solution solution) {
+    final int[][] intervals ={{0,30},{5,10},{15,20}};
+    assertEquals(2, solution.minMeetingRooms(intervals));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
