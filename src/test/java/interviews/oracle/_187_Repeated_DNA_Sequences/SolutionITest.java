@@ -1,5 +1,6 @@
-package _0151_0200._187_Repeated_DNA_Sequences;
+package interviews.oracle._187_Repeated_DNA_Sequences;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -7,13 +8,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 8/3/2017.
+ * @version 1.0 on 11/2/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -31,9 +32,15 @@ class SolutionTest {
     assertEquals(expected, solution.findRepeatedDnaSequences(source));
   }
 
+  @Test
+  void testOnlineCase1() {
+    final String input = "AAAAACCCCC";
+    assertEquals(input, SolutionI.deserialize(0b01_0101_0101));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
