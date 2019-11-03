@@ -1,4 +1,4 @@
-package _0101_0150._126_Word_Ladder_II;
+package interviews.oracle._126_Word_Ladder_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,13 +9,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 6/27/2017.
+ * @author jacka
+ * @version 1.0 on 11/2/2019
  */
-class SolutionTest {
+class SolutionITest {
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -526,8 +527,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionPass(),
-        new SampleSolution()
+        new SolutionI()
     );
   }
 }
