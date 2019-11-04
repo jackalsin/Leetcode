@@ -1,17 +1,18 @@
-package _0051_0100._076_Minimum_Window_Substring;
+package interviews.oracle._076_Minimum_Window_Substring;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/1/27.
+ * @version 1.0 on 11/3/2019
  */
-class SolutionTest {
+class SolutionITest {
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -19,9 +20,10 @@ class SolutionTest {
     assertEquals("BANC", solution.minWindow("ADOBECODEBANC", "ABC"));
   }
 
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
