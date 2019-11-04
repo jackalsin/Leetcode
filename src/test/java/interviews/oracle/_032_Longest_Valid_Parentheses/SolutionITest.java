@@ -1,5 +1,4 @@
-package _0001_0050._032_Longest_Valid_Parentheses;
-
+package interviews.oracle._032_Longest_Valid_Parentheses;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/2/8.
+ * @version 1.0 on 11/3/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -37,8 +36,16 @@ class SolutionTest {
   void testWithAllInvalid(Solution solution) {
     assertEquals(0, solution.longestValidParentheses(")("));
   }
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testPrevMatchThenTailMatch(Solution solution) {
+    assertEquals(6, solution.longestValidParentheses("()(())"));
+  }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new StackSolution(),
+        new DpSolution()
+    );
   }
 }
