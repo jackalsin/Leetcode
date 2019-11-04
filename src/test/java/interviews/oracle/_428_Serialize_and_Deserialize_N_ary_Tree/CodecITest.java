@@ -1,4 +1,4 @@
-package _0401_0450._428_Serialize_and_Deserialize_N_ary_Tree;
+package interviews.oracle._428_Serialize_and_Deserialize_N_ary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,9 +7,13 @@ import utils.treeNode.Node;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class CodecTest {
+/**
+ * @author jacka
+ * @version 1.0 on 11/3/2019
+ */
+class CodecITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -45,7 +49,7 @@ class CodecTest {
 
   static Stream<Codec> solutionProvider() {
     return Stream.of(
-        new Codec()
+        new CodecI()
     );
   }
 }
