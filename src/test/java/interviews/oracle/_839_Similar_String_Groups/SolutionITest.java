@@ -1,4 +1,4 @@
-package _0801_0850._839_Similar_String_Groups;
+package interviews.oracle._839_Similar_String_Groups;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -6,11 +6,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author jacka
- * @version 1.0 on 11/2/2019
+ * @version 1.0 on 11/9/2019
  */
 class SolutionITest {
 
