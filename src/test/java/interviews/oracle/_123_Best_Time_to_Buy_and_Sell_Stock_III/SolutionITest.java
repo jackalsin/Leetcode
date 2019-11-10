@@ -1,18 +1,17 @@
-package _0101_0150._123_Best_Time_to_Buy_and_Sell_Stock_III;
-
+package interviews.oracle._123_Best_Time_to_Buy_and_Sell_Stock_III;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 6/25/2017.
+ * @version 1.0 on 11/10/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -43,7 +42,7 @@ class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  void testMultiTransMaxContinous(Solution solution) {
+  void testMultiTransMaxContinuous(Solution solution) {
     final int[] input = new int[]{1, 2, 4, 2, 5, 7, 2, 4, 9, 0};
     assertEquals(13, solution.maxProfit(input));
   }
@@ -56,6 +55,8 @@ class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
