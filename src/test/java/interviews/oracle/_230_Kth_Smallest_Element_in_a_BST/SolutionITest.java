@@ -1,5 +1,4 @@
-package _0201_0250._230_Kth_Smallest_Element_in_a_BST;
-
+package interviews.oracle._230_Kth_Smallest_Element_in_a_BST;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,13 +7,13 @@ import utils.TreeNodes;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 8/17/2017.
+ * @version 1.0 on 11/9/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -28,12 +27,12 @@ class SolutionTest {
   void test4Level(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(4, 2, 6, 1, 3, 5, 7);
     for (int i = 1; i <= 7; i++) {
-      assertEquals("k = " + i + " pass", i, solution.kthSmallest(root, i));
+      assertEquals(i, solution.kthSmallest(root, i), "k = " + i + " pass");
     }
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(new SolutionI());
   }
 
 }
