@@ -12,8 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author jacka
  * @version 1.0 on 10/20/2019
  */
-class PriorityQueueTest {
-
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -45,6 +44,7 @@ class PriorityQueueTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new PriorityQueueSolution(),
+        new PriorityQueueSolutionI(),
         new TrieSolution()
     );
   }
