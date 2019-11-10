@@ -24,10 +24,20 @@ class SolutionTest {
     assertArrayEquals(expected, input);
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test2(Solution solution) {
+    final int[] input = new int[]{2, 0, 2, 1, 1, 0},
+        expected = new int[]{0, 0, 1, 1, 2, 2};
+    Arrays.sort(expected);
+    solution.sortColors(input);
+    assertArrayEquals(expected, input);
+  }
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
