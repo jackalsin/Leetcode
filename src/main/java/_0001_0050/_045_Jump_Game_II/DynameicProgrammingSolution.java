@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author jacka
  * @version 1.0 on 2/23/2017.
  */
-public class DynameicProgrammingSolution {
+public final class DynameicProgrammingSolution implements Solution {
   public int jump(int[] nums) {
     if (nums == null || nums.length == 0) {
       return 0;

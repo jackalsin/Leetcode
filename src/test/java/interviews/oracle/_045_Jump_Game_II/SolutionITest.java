@@ -1,17 +1,17 @@
-package _0001_0050._045_Jump_Game_II;
+package interviews.oracle._045_Jump_Game_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/24/2017.
+ * @version 1.0 on 11/24/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -43,8 +43,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI(),
-        new DynameicProgrammingSolution()
+        new SolutionI()
     );
   }
 }

@@ -1,8 +1,8 @@
-package _0001_0050._045_Jump_Game_II;
+package interviews.oracle._045_Jump_Game_II;
 
 /**
  * @author jacka
- * @version 1.0 on 2/24/2017.
+ * @version 1.0 on 11/24/2019
  */
 public interface Solution {
   int jump(int[] nums);
