@@ -32,7 +32,8 @@ class LRUCacheTest {
 
   static Stream<Class> solutionProvider() {
     return Stream.of(
-        LRUCacheI.class
+        LRUCacheI.class,
+        LRUCacheII.class
     );
   }
 }
