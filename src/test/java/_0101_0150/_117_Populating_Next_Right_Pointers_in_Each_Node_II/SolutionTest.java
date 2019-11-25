@@ -1,8 +1,10 @@
 package _0101_0150._117_Populating_Next_Right_Pointers_in_Each_Node_II;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import utils.TreeLinkNode;
+
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,15 +13,10 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 6/25/2017.
  */
 class SolutionTest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  void testFullBalancedTree() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFullBalancedTree(Solution solution) {
     TreeLinkNode expected = new TreeLinkNode(1);
     expected.left = new TreeLinkNode(2);
     expected.right = new TreeLinkNode(3);
@@ -47,8 +44,9 @@ class SolutionTest {
     assertEquals(expected, root);
   }
 
-  @Test
-  void testNullInMid() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testNullInMid(Solution solution) {
     TreeLinkNode expected = new TreeLinkNode(1);
     expected.left = new TreeLinkNode(2);
     expected.right = new TreeLinkNode(3);
@@ -73,8 +71,9 @@ class SolutionTest {
     assertEquals(expected, root);
   }
 
-  @Test
-  void testNullInHead() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testNullInHead(Solution solution) {
     TreeLinkNode expected = new TreeLinkNode(1);
     expected.left = new TreeLinkNode(2);
     expected.right = new TreeLinkNode(3);
@@ -99,4 +98,9 @@ class SolutionTest {
     assertEquals(expected, root);
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new Solution()
+    );
+  }
 }

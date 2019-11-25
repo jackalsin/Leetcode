@@ -15,6 +15,11 @@ public final class Node {
   public Node() {
   }
 
+  @Deprecated
+  public Node(int val) {
+    this.val = val;
+  }
+
   public Node(int _val, Node _left, Node _right, Node _next) {
     val = _val;
     left = _left;
@@ -38,13 +43,27 @@ public final class Node {
     return Objects.hash(val, left, right, next);
   }
 
+//  @Override
+//  public String toString() {
+//    return "Node{" +
+//        "val=" + val +
+//        ", left=" + getValueOrNull(left) +
+//        ", right=" + getValueOrNull(right) +
+//        ", next=" + getValueOrNull(next) +
+//        '}';
+//  }
+
   @Override
   public String toString() {
     return "Node{" +
         "val=" + val +
-        ", left=" + left.val +
-        ", right=" + right.val +
-        ", next=" + next.val +
+        ", left=" + left +
+        ", right=" + right +
+        ", next=" + next +
         '}';
+  }
+
+  private static String getValueOrNull(Node node) {
+    return node == null ? "null" : String.valueOf(node.val);
   }
 }
