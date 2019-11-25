@@ -9,7 +9,7 @@ import java.util.Queue;
  * @author jacka
  * @version 1.0 on 11/24/2019
  */
-public final class SolutionI implements Solution {
+public final class QueueSolution implements Solution {
   @Override
   public Node connect(Node root) {
     if (root == null) {

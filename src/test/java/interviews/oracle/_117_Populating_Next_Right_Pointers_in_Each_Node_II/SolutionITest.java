@@ -100,7 +100,8 @@ class SolutionITest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new QueueSolution(),
+        new O1SpaceSolution()
     );
   }
 }
