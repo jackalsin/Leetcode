@@ -1,19 +1,17 @@
-package _0201_0250._227_Basic_Calculator_II;
+package interviews.oracle._227_Basic_Calculator_II;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author jacka
- * @version 1.0 on 8/17/2017.
+ * @author zhixi
+ * @version 1.0 on 11/28/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -37,6 +35,8 @@ class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new GenericSolution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
