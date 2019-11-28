@@ -1,4 +1,5 @@
-package _0051_0100._094_Binary_Tree_Inorder_Traversal;
+package interviews.oracle._094_Binary_Tree_Inorder_Traversal;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import utils.TreeNode;
@@ -9,26 +10,25 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 5/31/2017.
+ * @author zhixi
+ * @version 1.0 on 11/28/2019
  */
-public class SolutionTest {
+class StackSolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  public void testBalancedTree(Solution solution) throws Exception {
+  public void testBalancedTree(Solution solution) {
     final TreeNode root = new TreeNode(1);
     root.left = null;
     root.right = new TreeNode(2);
     root.right.left = new TreeNode(3);
-
     assertEquals(Arrays.asList(1, 3, 2), solution.inorderTraversal(root));
   }
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new StackSolution(),
+        new MorrisSolution()
     );
   }
-
 }
