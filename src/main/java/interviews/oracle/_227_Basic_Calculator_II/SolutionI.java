@@ -25,6 +25,7 @@ public final class SolutionI implements Solution {
         l1 += o1 * l2;
         o1 = chr == '+' ? 1 : -1;
         l2 = 1;
+        o2 = 1;
       } else if (chr == '*') {
         o2 = 1;
       } else if (chr == '/') {

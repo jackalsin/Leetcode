@@ -34,6 +34,13 @@ class SolutionITest {
     assertEquals(5, solution.calculate(input));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnline4(Solution solution) {
+    final String input = "4/3+2";
+    assertEquals(3, solution.calculate(input));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new SolutionI()
