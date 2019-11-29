@@ -1,4 +1,4 @@
-package _0201_0250._224_Basic_Calculator;
+package interviews.oracle._224_Basic_Calculator;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 8/16/2017.
+ * @version 1.0 on 11/29/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -39,7 +39,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
