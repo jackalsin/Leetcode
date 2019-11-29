@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author zhixi
@@ -40,11 +40,40 @@ class SolutionITest {
     final String input = "(2+6* 3+5- (3*14/7+2)*5)+3";
     assertEquals(-12, solution.calculate(input)); // = 2
   }
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase5(Solution solution) {
     final String input = "10/2/5";
     assertEquals(1, solution.calculate(input)); // = 2
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase6(Solution solution) {
+    final String input = "-1+4*3/3/3";
+    assertEquals(0, solution.calculate(input)); // = 2
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase7(Solution solution) {
+    final String input = "(-1)+4*3/3/3";
+    assertEquals(0, solution.calculate(input)); // = 2
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase8(Solution solution) {
+    final String input = " (-1)+4*3/3/3";
+    assertEquals(0, solution.calculate(input)); // = 2
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase9(Solution solution) {
+    final String input = "1 - (-7)";
+    assertEquals(8, solution.calculate(input)); // = 2
   }
 
   static Stream<Solution> solutionProvider() {

@@ -1,8 +1,5 @@
 package _0751_0800._772_Basic_Calculator_III;
 
-import _0201_0250._227_Basic_Calculator_II.GenericSolution;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -38,6 +35,20 @@ class GenericSolutionTest {
   void testOnlineCase4(Solution solution) {
     final String input = "(2+6* 3+5- (3*14/7+2)*5)+3";
     assertEquals(-12, solution.calculate(input)); // = 2
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase5(Solution solution) {
+    final String input = "10/2/5";
+    assertEquals(1, solution.calculate(input)); // = 2
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase6(Solution solution) {
+    final String input = "-1+4*3/3/3";
+    assertEquals(0, solution.calculate(input)); // = 2
   }
 
   static Stream<Solution> solutionProvider() {
