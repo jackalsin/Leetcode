@@ -1,8 +1,9 @@
-package _0051_0100._098_Validate_Binary_Search_Tree;
+package interviews.oracle._098_Validate_Binary_Search_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import utils.TreeNode;
+import utils.TreeNodes;
 
 import java.util.stream.Stream;
 
@@ -11,9 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 6/6/2017.
+ * @version 1.0 on 11/29/2019
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -42,7 +43,16 @@ public class SolutionTest {
     assertFalse(solution.isValidBST(root));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testFailedCase2(Solution solution) {
+    TreeNode root = TreeNodes.getTreeLevelOrder(1, 1);
+    assertFalse(solution.isValidBST(root));
+  }
+
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
