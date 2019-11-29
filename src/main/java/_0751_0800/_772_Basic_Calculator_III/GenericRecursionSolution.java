@@ -3,6 +3,9 @@ package _0751_0800._772_Basic_Calculator_III;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * This solution cannot handle -7 + 3;
+ */
 public final class GenericRecursionSolution implements Solution {
   private static final int PLUS = 1, MINUS = -1, MULTIPLY = 1, DIVIDE = -1;
 

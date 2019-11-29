@@ -28,7 +28,6 @@ public final class SolutionI implements Solution {
           ++i;
         }
         l2 = o2 == 1 ? l2 * getNumber(unaryOp, num) : l2 / getNumber(unaryOp, num);
-
         unaryOp = 1;
       } else if (chr == '*') {
         o2 = 1;

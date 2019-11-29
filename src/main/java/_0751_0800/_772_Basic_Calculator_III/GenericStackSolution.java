@@ -1,10 +1,9 @@
 package _0751_0800._772_Basic_Calculator_III;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public final class GenericStackSolution implements Solution {
-  private static final int PLUS = 1, MINUS = -1, MULTIPLY = 1, DIVIDE = -1;
-
   /**
    * 68 / 68 test cases passed.
    * Status: Accepted
@@ -14,49 +13,66 @@ public final class GenericStackSolution implements Solution {
    * @return
    */
   public int calculate(String s) {
-    //    o1 == 1 means +; o1 == -1 means - ;
-    //    o2 == 1 means *; o2 == -1 means /.
-    //    By default we have l1 = 0, o1 = 1, and l2 = 1, o2 = 1.
-    final Stack<Integer> stack = new Stack<>();
-    int l1 = 0, o1 = 1, l2 = 1, o2 = 1;
-    for (int i = 0; i < s.length(); i++) {
-      final char chr = s.charAt(i);
-      if (Character.isDigit(chr)) {
+    if (s == null || s.length() == 0) {
+      return 0;
+    }
+    final char[] chars = s.toCharArray();
+    int l1 = 0, o1 = 1, l2 = 1, o2 = 1, unaryOp = 0; // 0 means not met a number
+    final Deque<int[]> stack = new ArrayDeque<>();
+    for (int i = 0; i < chars.length; ++i) {
+      final char chr = chars[i];
+      if (chr == ' ') {
+        continue;
+      } else if (Character.isDigit(chr)) {
         int num = chr - '0';
-        while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
-          num = num * 10 + s.charAt(i + 1) - '0';
-          i++;
+        while (i + 1 < chars.length && Character.isDigit(chars[i + 1])) {
+          num = num * 10 + chars[i + 1] - '0';
+          ++i;
         }
-        l2 = o2 == MULTIPLY ? (l2 * num) : (l2 / num);
-
-      } else if (chr == '(') {
-        stack.push(l1);
-        stack.push(o1);
-        stack.push(l2);
-        stack.push(o2);
-        l1 = 0;
-        l2 = 1;
-        o1 = PLUS;
-        o2 = MULTIPLY;
-      } else if (chr == ')') {
-        int num = l1 + o1 * l2;
-        o2 = stack.pop();
-        l2 = stack.pop();
-        o1 = stack.pop();
-        l1 = stack.pop();
-
-        l2 = o2 == MULTIPLY ? l2 * num : l2 / num;
-
-      } else if (chr == '*' || chr == '/') {
-        o2 = chr == '*' ? MULTIPLY : DIVIDE;
+        l2 = o2 == 1 ? l2 * getNumber(unaryOp, num) : l2 / getNumber(unaryOp, num);
+        unaryOp = 1;
+      } else if (chr == '*') {
+        o2 = 1;
+        unaryOp = 0;
+      } else if (chr == '/') {
+        o2 = -1;
+        unaryOp = 0;
       } else if (chr == '+' || chr == '-') {
-        l1 = l1 + o1 * l2;
-        o1 = chr == '+' ? PLUS : MINUS;
+        if (unaryOp == 0) {
+          unaryOp = chr == '+' ? 1 : -1;
+        } else {
+          l1 += o1 * l2;
+          o1 = chr == '+' ? 1 : -1;
+          l2 = 1;
+          o2 = 1;
+          unaryOp = 0;
+        }
+      } else if (chr == '(') {
+        stack.push(new int[]{l1, o1, l2, o2});
+        l1 = 0;
+        o1 = 1;
         l2 = 1;
         o2 = 1;
+        unaryOp = 0;
+      } else if (chr == ')') {
+        final int[] prev = stack.pop();
+        l1 += o1 * l2;
+        o2 = prev[3];
+        l2 = o2 == 1 ? prev[2] * l1 : prev[2] / l1;
+        l1 = prev[0];
+        o1 = prev[1];
+      } else {
+        throw new IllegalArgumentException("char " + chr);
       }
     }
-
     return l1 + o1 * l2;
+  }
+
+  private static int getNumber(final int prevOp, final int num) {
+    if (prevOp == 0) {
+      return num;
+    } else {
+      return prevOp * num;
+    }
   }
 }
