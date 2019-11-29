@@ -1,16 +1,17 @@
-package _0751_0800._772_Basic_Calculator_III;
+package interviews.oracle._772_Basic_Calculator_III;
 
-import _0201_0250._227_Basic_Calculator_II.GenericSolution;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class GenericSolutionTest {
+/**
+ * @author zhixi
+ * @version 1.0 on 11/28/2019
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -39,8 +40,16 @@ class GenericSolutionTest {
     final String input = "(2+6* 3+5- (3*14/7+2)*5)+3";
     assertEquals(-12, solution.calculate(input)); // = 2
   }
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase5(Solution solution) {
+    final String input = "10/2/5";
+    assertEquals(1, solution.calculate(input)); // = 2
+  }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new GenericStackSolution(), new GenericRecursionSolution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
