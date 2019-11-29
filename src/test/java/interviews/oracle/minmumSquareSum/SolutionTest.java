@@ -29,7 +29,7 @@ class SolutionTest {
   @MethodSource("solutionProvider")
   void testOnlineCase22(Solution solution) {
     // 4 + 9 + 9
-    assertEquals(4, solution.getMinSquareSum(22));
+    assertEquals(3, solution.getMinSquareSum(22));
   }
 
   @ParameterizedTest

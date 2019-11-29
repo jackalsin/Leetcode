@@ -1,7 +1,5 @@
 package interviews.oracle.minmumSquareSum;
 
-import java.util.Arrays;
-
 /**
  * @author jacka
  * @version 1.0 on 10/26/2019
