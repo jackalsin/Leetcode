@@ -1,33 +1,31 @@
 package _0401_0450._417_Pacific_Atlantic_Water_Flow;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertTrue;
 
 public class SolutionTest {
-  private Solution solution;
 
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  public void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testOnlineCase1(Solution solution) {
     final int[][] matrix = {{1, 2, 2, 3, 5}, {3, 2, 3, 4, 4}, {2, 4, 5, 3, 1}, {6, 7, 1, 4, 5}, {5, 1, 1, 2, 4}};
     final List<int[]> expected = List.of(
-        new int[]{0, 4}, new int[]{1, 3}, new int[]{1, 4}, new int[]{2, 2}, new int[]{3, 0}, new int[]{3, 1}, new int[]{4, 0});
+        new int[]{0, 4}, new int[]{1, 3}, new int[]{1, 4}, new int[]{2, 2}, new int[]{3, 0}, new int[]{3, 1},
+        new int[]{4, 0});
     final List<int[]> actual = solution.pacificAtlantic(matrix);
     assertTrue(listArrayEquals(expected, actual));
   }
 
-  @Test
-  public void testFailedCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testFailedCase1(Solution solution) {
     final int[][] matrix = {
         {1, 2},
         {4, 3}};
@@ -35,6 +33,10 @@ public class SolutionTest {
         new int[]{1, 0}, new int[]{0, 1}, new int[]{1, 1});
     final List<int[]> actual = solution.pacificAtlantic(matrix);
     assertTrue(listArrayEquals(expected, actual));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(new Solution());
   }
 
   private static boolean listArrayEquals(List<int[]> expected, List<int[]> actual) {
@@ -60,7 +62,6 @@ public class SolutionTest {
       }
     }
     return true;
-
   }
 
 }
