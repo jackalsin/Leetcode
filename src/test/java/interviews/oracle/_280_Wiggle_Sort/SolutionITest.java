@@ -1,4 +1,4 @@
-package _0251_0300._280_Wiggle_Sort;
+package interviews.oracle._280_Wiggle_Sort;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,9 +9,9 @@ import static utils._280_Wiggle_Sort.Validator.assertIsWiggle;
 
 /**
  * @author jacka
- * @version 1.0 on 2/24/2019.
+ * @version 1.0 on 12/1/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -22,6 +22,8 @@ class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
