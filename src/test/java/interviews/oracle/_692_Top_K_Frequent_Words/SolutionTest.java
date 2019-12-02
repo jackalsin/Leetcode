@@ -45,7 +45,9 @@ class SolutionTest {
     return Stream.of(
         new PriorityQueueSolution(),
         new PriorityQueueSolutionI(),
-        new TrieSolution()
+        new PriorityQueueSolutionII(),
+        new TrieSolution(),
+        new BucketSolution()
     );
   }
 }

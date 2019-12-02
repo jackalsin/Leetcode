@@ -13,8 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author jacka
  * @version 1.0 on 2/3/2018.
  */
-class TrieSolutionTest {
-
+class SolutionTest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase1(Solution solution) {
@@ -43,6 +42,9 @@ class TrieSolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new TrieSolution());
+    return Stream.of(
+        new TrieSolution(),
+        new BucketSolution()
+    );
   }
 }
