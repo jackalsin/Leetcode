@@ -32,14 +32,15 @@ class SolutionTest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void addTwoNumbers2(Solution solution) {
-    assertEquals(ListNodes.getListOfNodes(0, 7, 4),
-        solution.addTwoNumbers(NUM_432, NUM_38));
+    final ListNode expected = ListNodes.getListOfNodes(0, 7, 4),
+        actual = solution.addTwoNumbers(NUM_432, NUM_38);
+    assertEquals(expected, actual);
   }
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI(),
-        new InplaceCalculationSolution()
+        new SolutionI()
+//        new InplaceCalculationSolution()
     );
   }
 }

@@ -53,8 +53,8 @@ class GenericSolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new GenericStackSolution(),
-        new GenericRecursionSolution()
+        new GenericStackSolution()
+//        new GenericRecursionSolution()
     );
   }
 }
