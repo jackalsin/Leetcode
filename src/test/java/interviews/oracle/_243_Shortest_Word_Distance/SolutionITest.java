@@ -1,5 +1,4 @@
-package _0201_0250._243_Shortest_Word_Distance;
-
+package interviews.oracle._243_Shortest_Word_Distance;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,11 +8,10 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/21/2017.
+ * @author jacka
+ * @version 1.0 on 12/2/2019
  */
-class SolutionTest {
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase1(Solution solution) {
@@ -30,7 +28,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
