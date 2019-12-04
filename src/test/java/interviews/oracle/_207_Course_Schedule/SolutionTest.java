@@ -1,4 +1,4 @@
-package _0201_0250._207_Course_Schedule;
+package interviews.oracle._207_Course_Schedule;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,9 +10,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 8/6/2017.
+ * @version 1.0 on 12/3/2019
  */
-public class SolutionTest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -28,7 +28,7 @@ public class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
