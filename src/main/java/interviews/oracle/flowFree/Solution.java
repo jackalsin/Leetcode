@@ -5,5 +5,5 @@ package interviews.oracle.flowFree;
  * @version 1.0 on 11/10/2019
  */
 public interface Solution {
-  char[][] solve(final int size, final int[] p1, final int[]... p);
+  int[][] solve(final int size, final int[][][] p);
 }
