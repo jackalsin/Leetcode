@@ -1,4 +1,4 @@
-package _0401_0450._403_Frog_Jump;
+package interviews.oracle._403_Frog_Jump;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,14 +8,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new DfsSolution(),
-        new SlowSolution()
-    );
-  }
+/**
+ * @author jacka
+ * @version 1.0 on 12/7/2019
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -38,4 +35,16 @@ class SolutionTest {
     assertFalse(solution.canCross(nums));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase4(Solution solution) {
+    final int[] nums = {0, 2};
+    assertFalse(solution.canCross(nums));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
