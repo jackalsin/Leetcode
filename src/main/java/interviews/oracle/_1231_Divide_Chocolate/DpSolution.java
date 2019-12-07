@@ -4,7 +4,7 @@ package interviews.oracle._1231_Divide_Chocolate;
  * @author jacka
  * @version 1.0 on 12/5/2019
  */
-public final class SolutionI implements Solution {
+public final class DpSolution implements Solution {
   @Override
   public int maximizeSweetness(int[] sweetness, int K) {
     if (sweetness == null || sweetness.length == 0) {
