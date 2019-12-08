@@ -1,4 +1,4 @@
-package _0151_0200._159_Longest_Substring_with_At_Most_Two_Distinct_Characters;
+package interviews.oracle._159_Longest_Substring_with_At_Most_Two_Distinct_Characters;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,10 +8,10 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 7/23/2017.
+ * @author jacka
+ * @version 1.0 on 12/7/2019
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -51,7 +51,7 @@ public class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
