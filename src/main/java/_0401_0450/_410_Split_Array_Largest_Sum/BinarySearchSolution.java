@@ -11,7 +11,7 @@ public final class BinarySearchSolution implements Solution {
       max = Math.max(n, max);
       sum += n;
     }
-
+    // start from the max is important, otherwise, the cuts calculation can be wrong
     long left = max, right = sum;
     while (left < right) {
       final long mid = left + (right - left) / 2;
