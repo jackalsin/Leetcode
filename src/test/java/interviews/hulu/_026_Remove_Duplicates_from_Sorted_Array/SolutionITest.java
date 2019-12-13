@@ -1,4 +1,4 @@
-package _0001_0050._026_Remove_Duplicates_from_Sorted_Array;
+package interviews.hulu._026_Remove_Duplicates_from_Sorted_Array;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,19 +10,38 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/1/24.
+ * @version 1.0 on 12/12/2019
  */
-public class SolutionTest {
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testWithHeadingDup(Solution solution) throws Exception {
     assertTrue(isValid(new int[]{1, 1, 2, 3, 4, 5}, solution));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testOnlineCase1(Solution solution) throws Exception {
+    final int[] actual = {1, 1, 2}, expected = {1, 2, 2};
+    final int len = solution.removeDuplicates(actual);
+    assertEquals(2, len);
+    assertArrayEquals(expected, actual);
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testOnlineCase2(Solution solution) throws Exception {
+    final int[] actual = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4},
+        expected = {0, 1, 2, 3, 4, 2, 2, 3, 3, 4};
+    final int len = solution.removeDuplicates(actual);
+    assertEquals(5, len);
+    assertArrayEquals(expected, actual);
   }
 
   private boolean isValid(int[] input, final Solution solution) {
@@ -48,8 +67,7 @@ public class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
-
 }
