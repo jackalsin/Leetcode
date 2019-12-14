@@ -1,4 +1,4 @@
-package _0301_0350._326_Power_of_Three;
+package interviews.hulu._326_Power_of_Three;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,15 +9,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 9/25/2017.
+ * @version 1.0 on 12/14/2019
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testAllPositive(Solution solution) throws Exception {
@@ -28,4 +22,9 @@ public class SolutionTest {
     }
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
