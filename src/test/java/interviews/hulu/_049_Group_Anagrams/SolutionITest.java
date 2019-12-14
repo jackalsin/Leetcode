@@ -1,4 +1,4 @@
-package _0001_0050._049_Group_Anagrams;
+package interviews.hulu._049_Group_Anagrams;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,18 +12,13 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 3/2/2017.
+ * @version 1.0 on 12/13/2019
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  public void testWithOnlineExample(Solution solution) throws Exception {
+  void testOnlineCase1(Solution solution) {
     String[] inputs = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
     List<List<String>> expect = new ArrayList<>();
     expect.add(Arrays.asList("ate", "eat", "tea"));
@@ -33,4 +28,9 @@ public class SolutionTest {
     assertEquals(expect.size(), actual.size());
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
