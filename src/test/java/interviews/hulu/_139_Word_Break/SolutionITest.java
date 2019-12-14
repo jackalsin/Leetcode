@@ -1,7 +1,7 @@
-package _0101_0150._139_Word_Break;
+package interviews.hulu._139_Word_Break;
 
-
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,18 +12,20 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 7/5/2017.
+ * @version 1.0 on 12/14/2019
  */
-class SolutionTest {
+class SolutionITest {
 
-  @Test
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
   void testLeetCode(Solution solution) {
     final String input = "leetcode";
     List<String> dict = Arrays.asList("leet", "code");
     assertTrue(solution.wordBreak(input, dict));
   }
 
-  @Test
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
   void testA(Solution solution) {
     final String input = "aaa";
     List<String> dict = Collections.singletonList("a");
@@ -31,6 +33,8 @@ class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
