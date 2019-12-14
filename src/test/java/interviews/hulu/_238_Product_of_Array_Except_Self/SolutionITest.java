@@ -1,4 +1,4 @@
-package _0201_0250._238_Product_of_Array_Except_Self;
+package interviews.hulu._238_Product_of_Array_Except_Self;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,9 +9,10 @@ import static org.junit.Assert.assertArrayEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 8/19/2017.
+ * @version 1.0 on 12/14/2019
  */
-public class SolutionTest {
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testOnlineCase(Solution solution) throws Exception {
@@ -21,6 +22,8 @@ public class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
