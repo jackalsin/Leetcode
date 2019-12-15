@@ -1,4 +1,4 @@
-package _0401_0450._440_K_th_Smallest_in_Lexicographical_Order;
+package interviews.hulu._440_K_th_Smallest_in_Lexicographical_Order;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,7 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 12/14/2019
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -38,7 +42,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
