@@ -24,7 +24,7 @@ class SolutionITest {
     solution.addWord("hello");
     solution.addWord("bob");
     solution.addWord("hello");
-    final int max = 1_000_000;
+    final int max = 10_000_000;
     final Map<String, Integer> wordCount = new HashMap<>();
     for (int i = 0; i < max; ++i) {
       final String word = solution.getWord("hello");

@@ -20,9 +20,24 @@ class SolutionITest {
     assertEquals(17, solution.sumSubarrayMins(input));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase85(Solution solution) {
+    final int[] input = {85};
+    assertEquals(85, solution.sumSubarrayMins(input));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase(Solution solution) {
+    final int[] input = {71, 55, 82, 55};
+    assertEquals(593, solution.sumSubarrayMins(input));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new DpSolution()
+        new DpSolution(),
+        new MonoIncreaseStackSolution()
     );
   }
 }
