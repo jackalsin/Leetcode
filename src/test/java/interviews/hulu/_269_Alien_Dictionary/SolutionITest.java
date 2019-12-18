@@ -1,17 +1,19 @@
-package _0251_0300._269_Alien_Dictionary;
+package interviews.hulu._269_Alien_Dictionary;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/29/2017.
+ * @author jacka
+ * @version 1.0 on 12/17/2019
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -61,9 +63,30 @@ class SolutionTest {
     assertEquals("zf", solution.alienOrder(new String[]{"z", "z", "f"}));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailed6(Solution solution) {
+    assertEquals("abcd", solution.alienOrder(new String[]{"ab", "adc"}));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailed7(Solution solution) {
+    final String actual = solution.alienOrder(new String[]{"za", "zb", "ca", "cb"});
+    final Set<String> expected = Set.of(
+        "abzc",
+        "azbc",
+        "azcb",
+        "zcab",
+        "zacb",
+        "zabc"
+    );
+    assertTrue(expected.contains(actual));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
