@@ -1,4 +1,4 @@
-package _0301_0350._337_House_Robber_III;
+package interviews.hulu._337_House_Robber_III;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,13 +11,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 10/5/2017.
+ * @version 1.0 on 12/18/2019
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testOnlineCase(Solution solution) throws Exception {
@@ -30,5 +26,11 @@ public class SolutionTest {
   public void testOnlineCase2(Solution solution) throws Exception {
     TreeNode root = TreeNodes.getTreeLevelOrder(3, 4, 5, 1, 3, null, 1);
     assertEquals(9, solution.rob(root));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
