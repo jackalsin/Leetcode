@@ -1,4 +1,4 @@
-package _0551_0600._567_Permutation_in_String;
+package interviews.hulu._567_Permutation_in_String;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,16 +10,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 10/29/2017.
+ * @version 1.0 on 12/19/2019
  */
-public class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new BruteForce(),
-        new CompareOcurrenceSolution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -76,4 +69,9 @@ public class SolutionTest {
     assertFalse(solution.checkInclusion(s1, s2));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
