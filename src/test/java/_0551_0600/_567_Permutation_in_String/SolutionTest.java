@@ -16,7 +16,7 @@ public class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new BruteForce(),
+//        new BruteForce(),
         new CompareOcurrenceSolution()
     );
   }
