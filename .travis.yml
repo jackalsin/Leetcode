@@ -1,37 +1,24 @@
 language: java
-
 env:
-  - MAVEN_TEMP=MAVEN_TEMP
-
+- MAVEN_TEMP=MAVEN_TEMP
 cache:
   directories:
     - "$HOME/.m2/repository"
-
 dist: xenial
 sudo: required
-
-# Get latest install-jdk.sh script
 before_install:
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-
-## do everything in HermiT directory
-## this installs dependencies. Ant needs no installation because they are already there.
 install: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V;
-
-## do the tests
-# script: ant test-hard && cd HermiT && mvn test
 script: mvn test;
-## a single JVM should be enough.
-## Adding openjdk7 is probably a sensible thing, but means I have to 
-## edit the ant build.xml file which is unfortunate.
 jdk:
   - openjdk11
-
 after_success:
   - mvn clean cobertura:cobertura coveralls:report
-
 notification:
   slack: jackalsin-personal:qozHNsKCv2gavUKGDM5LOMcf
   email:
     on_success: never
     on_failure: always
+notifications:
+  slack:
+    secure: bkPStX0Sxj949k15frFesIPnxgoXt27yHFrHLWJOP/U6Li0Qer1a8oI7tGowd3I5oyUxf3F4hbKrdTFIL+up9EYS4qiKJ/1tv7kiBKic3VRC9tiM2qTJw46/qWgHkcXoPiLzX+E/LEUWE7ovaZjip9H51vbrI18jqFOZfG0T3SvIKmTaV34vb78GZRfjHYHkmiuC/OVl1EsQs/r8OOxAxvcF9x4TEqDLnzDiLsGjvZxADWXFCk/jWuNvYldRIE52KlUc2aXhhpsvMTPn1js1bbX9RB2OIZdrQa1dDrnltyECoTOhTpGhXQ1LTDXhpLzNOM3BIl0SiE5rmYxhszTEauRarAevcC44OtW1r76V9vG5vtHK7mL1EvmWVOyDesN9R6ItsLWVOYQewxqtVmxdlFOl0nIdSx7rsBlHxsji3upA/7X+NyjVi6N7H6/3LiQV2EZty/h8Yl4/qpyMCJvdxMJvHQp/Z6TY/NLtBLwiOPqdG1OkIbFLSjP+7IqCx8/NYLwErjUfG0FsdNX7bKZrPjiUeJqfRHrhkMPxrNLxvDLd6dzwXwiaJfdas0isyV5Lep960h+S6+bHTJMSBopGfZc/9FAq30qnDbolzjW1BZ9zq2D71BKPb+azDrrh+Wh18H6MR3GlwJ3pmCaxUp0GRXUbqxdQ+v9LlDD6raljXms=

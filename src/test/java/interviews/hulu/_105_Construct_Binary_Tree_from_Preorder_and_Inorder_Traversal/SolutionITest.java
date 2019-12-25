@@ -1,4 +1,4 @@
-package _0101_0150._105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal;
+package interviews.hulu._105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,14 +11,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 6/18/2017.
+ * @version 1.0 on 12/25/2019
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -34,5 +29,11 @@ public class SolutionTest {
     final int[] inOrder = new int[]{4, 2, 5, 1, 6, 3, 7};
     final TreeNode root = TreeNodes.getTreeLevelOrder(levelOrder);
     assertEquals(root, solution.buildTree(preOrder, inOrder));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
