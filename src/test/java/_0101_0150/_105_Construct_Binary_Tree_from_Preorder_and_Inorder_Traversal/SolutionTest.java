@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new ONSolution()
     );
   }
 
