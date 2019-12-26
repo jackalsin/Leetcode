@@ -1,4 +1,4 @@
-package _0351_0400._353_Design_Snake_Game;
+package interviews.hulu._353_Design_Snake_Game;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,17 +9,19 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 10/9/2017.
+ * @author jacka
+ * @version 1.0 on 12/25/2019
  */
-public class SnakeGameTest {
+class SnakeGameITest {
+
   private static final String U = "U", D = "D", L = "L", R = "R";
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testOnlineCase(Class<SnakeGame> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
-    final SnakeGame snakeGame = solutionClass.getConstructor(Integer.TYPE, Integer.TYPE, int[][].class)
+    final SnakeGame snakeGame = solutionClass.getConstructor(Integer.TYPE,
+        Integer.TYPE, int[][].class)
         .newInstance(3, 2, new int[][]{{1, 2}, {0, 1}});
     assertEquals(0, snakeGame.move(R));
     assertEquals(0, snakeGame.move(D));
@@ -99,7 +101,7 @@ public class SnakeGameTest {
 
   static Stream<Class> solutionProvider() {
     return Stream.of(
-        SnakeGame.class
+        SnakeGameI.class
     );
   }
 }
