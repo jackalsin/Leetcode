@@ -3,12 +3,14 @@ package _1201_1250._1242_Web_Crawler_Multithreaded;
 import utils._1242_Web_Crawler_Multithreaded.HtmlParser;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * @author jacka
@@ -16,20 +18,24 @@ import java.util.concurrent.Future;
  */
 public final class ExecutorServiceSolution implements Solution {
   private static final String PREFIX = "https://";
+  private static final Object DUMMY = new Object();
   private static final int THREAD_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
-  private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-  private final HashSet<String> scheduled = new HashSet<>();
+  private static final ExecutorService EXECUTOR_SERVICE = Executors.newScheduledThreadPool(THREAD_POOL_SIZE);
+  private final ConcurrentHashMap<String, Object> scheduled = new ConcurrentHashMap<>();
+  private final BlockingQueue<Future<?>> futures = new LinkedBlockingDeque<>();
 
   public List<String> crawl(String startUrl, HtmlParser htmlParser) {
     final String hostname = getHostname(startUrl);
-    scheduled.add(startUrl);
-    final Future<?> future = EXECUTOR_SERVICE.submit(new CrawlTask(startUrl, hostname, htmlParser));
-    try {
-      future.get();
-    } catch (InterruptedException | ExecutionException e) {
-      e.printStackTrace();
+    scheduled.put(startUrl, DUMMY);
+    futures.add(EXECUTOR_SERVICE.submit(new CrawlTask(startUrl, hostname, htmlParser)));
+    while (!futures.isEmpty()) {
+      try {
+        futures.remove().get();
+      } catch (InterruptedException | ExecutionException e) {
+        e.printStackTrace();
+      }
     }
-    return new ArrayList<>(scheduled);
+    return new ArrayList<>(scheduled.keySet());
   }
 
   private static String getHostname(final String startUrl) {
@@ -51,28 +57,16 @@ public final class ExecutorServiceSolution implements Solution {
     @Override
     public void run() {
       final List<String> children = htmlParser.getUrls(startUrl);
-      final List<Future<?>> futures = new ArrayList<>();
-      for (String c : children) {
-//        System.out.print("checking url = " + c);
-        if (!c.startsWith(hostname)) {
-//          System.out.println(" skip");
-          continue;
-        }
-        synchronized (scheduled) {
-          if (scheduled.add(c)) {
-//            System.out.println(" adding to q");
-            futures.add(EXECUTOR_SERVICE.submit(new CrawlTask(c, hostname, htmlParser)));
+      children.parallelStream().forEach(
+          c -> {
+            if (!c.startsWith(hostname)) {
+              return;
+            }
+            if (scheduled.put(c, DUMMY) == null) {
+              futures.add(EXECUTOR_SERVICE.submit(new CrawlTask(c, hostname, htmlParser)));
+            }
           }
-        }
-      } // end of for loop
-      for (Future<?> f : futures) {
-        try {
-          f.get();
-//          System.out.println("waiting for finishing");
-        } catch (InterruptedException | ExecutionException e) {
-          e.printStackTrace();
-        }
-      }
+      );
     }
   }
 }
