@@ -1,4 +1,4 @@
-package _0051_0100._093_Restore_IP_Addresses;
+package interviews.uber._093_Restore_IP_Addresses;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,10 +11,10 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 5/31/2017.
+ * @author jacka
+ * @version 1.0 on 1/6/2020
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -43,6 +43,9 @@ public class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new DfsSolution(),
+        new CombinationSolution()
+    );
   }
 }
