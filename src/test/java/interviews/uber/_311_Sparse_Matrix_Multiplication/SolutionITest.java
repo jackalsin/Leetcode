@@ -1,4 +1,4 @@
-package _0301_0350._311_Sparse_Matrix_Multiplication;
+package interviews.uber._311_Sparse_Matrix_Multiplication;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,9 +10,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 9/17/2017.
+ * @version 1.0 on 1/7/2020
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -33,7 +33,7 @@ public class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
