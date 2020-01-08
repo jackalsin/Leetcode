@@ -4,7 +4,7 @@ package _0601_0650._621_Task_Scheduler;
  * @author jacka
  * @version 1.0 on 3/12/2018.
  */
-public class MathSolution {
+public final class MathSolution implements Solution {
   /**
    * https://leetcode.com/problems/task-scheduler/discuss/104496/concise-Java-Solution-O(N)-time-O(26)-space
    */
