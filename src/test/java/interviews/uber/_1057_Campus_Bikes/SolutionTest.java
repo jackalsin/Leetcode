@@ -1,4 +1,4 @@
-package _1051_1100._1057_Campus_Bikes;
+package interviews.uber._1057_Campus_Bikes;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,12 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-class SolutionITest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new SolutionI()
-    );
-  }
+/**
+ * @author jacka
+ * @version 1.0 on 1/8/2020
+ */
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -42,5 +41,11 @@ class SolutionITest {
     };
     final int[] expected = {0, 1, 2, 3, 4, 5, 6, 7}, actual = solution.assignBikes(workers, bikes);
     assertArrayEquals(expected, actual);
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new PqSolution()
+    );
   }
 }
