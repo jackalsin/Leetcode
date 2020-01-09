@@ -1,39 +1,44 @@
 package interviews.uber._140_Word_Break_II;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testLeetCode() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testLeetCode(Solution solution) {
     List<String> candidates = List.of("leet", "code");
     final String input = "leetcode";
     assertEquals(List.of("leet code"), solution.wordBreak(input, candidates));
   }
 
-  @Test
-  void testEmpty() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testEmpty(Solution solution) {
     List<String> candidates = List.of();
     final String input = "";
     final List<String> actual = solution.wordBreak(input, candidates);
     assertEquals(new ArrayList<>(), actual);
   }
 
-  @Test
-  void testFailedCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase1(Solution solution) {
     final List<String> candidates = List.of("cat", "cats", "and", "sand", "dog");
     final String input = "catsanddog";
     final List<String> actual = solution.wordBreak(input, candidates);
@@ -42,9 +47,11 @@ class SolutionTest {
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
   }
 
-  @Test
-  void testTLECase1() {
-    final List<String> wordList = List.of("a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa");
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testTLECase1(Solution solution) {
+    final List<String> wordList = List.of("a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa",
+        "aaaaaaaaa", "aaaaaaaaaa");
     final String input =
         "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
             "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
