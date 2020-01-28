@@ -1,4 +1,4 @@
-package _0501_0550._546_Remove_Boxes;
+package _0501_0550._545_Boundary_of_Binary_Tree;
 
 import org.junit.Before;
 import org.junit.Test;
