@@ -5,5 +5,8 @@ package _0551_0600._555_Split_Concatenated_Strings;
  * @version 1.0 on 10/27/2019
  */
 public interface Solution {
+  /**
+   * TODO:
+   */
   String splitLoopedString(String[] strs);
 }
