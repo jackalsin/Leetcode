@@ -5,6 +5,9 @@ package _0551_0600._565_Array_Nesting;
  * @version 1.0 on 2/2/2020
  */
 public final class SolutionI implements Solution {
+  /**
+   * 根据题意，any value in [0, n -1] 会有一个值指向它，也就是一定会有一个或者多个完整的环
+   */
   @Override
   public int arrayNesting(int[] nums) {
     int maxSize = 0;
