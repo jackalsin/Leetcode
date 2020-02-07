@@ -1,5 +1,4 @@
-package _0201_0250._236_Lowest_Common_Ancestor_of_a_Binary_Tree;
-
+package interviews.hulu._236_Lowest_Common_Ancestor_of_a_Binary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,11 +9,10 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/19/2017.
+ * @author jacka
+ * @version 1.0 on 2/6/2020
  */
-class SolutionTest {
-
+class SolutionITest {
   private final TreeNode root = new TreeNode(3);
 
   {
@@ -58,9 +56,10 @@ class SolutionTest {
         root.left.right.right));
   }
 
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
