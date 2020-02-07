@@ -1,5 +1,4 @@
-package _0301_0350._347_Top_K_Frequent_Elements;
-
+package interviews.hulu._347_Top_K_Frequent_Elements;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,9 +12,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 10/7/2017.
+ * @version 1.0 on 2/6/2020
  */
-class SolutionTest {
+class MapSolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -26,8 +25,11 @@ class SolutionTest {
     assertEquals(expected, new HashSet<>(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new MapSolution(),
+        new BucketSortSolution()
+    );
+  }
 }
