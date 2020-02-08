@@ -36,7 +36,8 @@ class SolutionITest {
 
   static Stream<Class> solutionProvider() {
     return Stream.of(
-        SolutionI.class
+        MapSolution.class,
+        ReservoirSampleSolution.class
     );
   }
 }

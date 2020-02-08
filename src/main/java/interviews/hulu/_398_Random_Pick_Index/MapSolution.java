@@ -10,11 +10,11 @@ import java.util.Random;
  * @author jacka
  * @version 1.0 on 2/7/2020
  */
-public final class SolutionI implements Solution {
+public final class MapSolution implements Solution {
   private final Map<Integer, List<Integer>> reversedIndex = new HashMap<>();
   private final Random rand = new Random();
 
-  public SolutionI(int[] nums) {
+  public MapSolution(int[] nums) {
     for (int i = 0; i < nums.length; ++i) {
       reversedIndex.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
     }
