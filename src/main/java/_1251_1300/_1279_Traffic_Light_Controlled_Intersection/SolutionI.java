@@ -1,4 +1,4 @@
-package _1251_1300._1268_Search_Suggestions_System._1279_Traffic_Light_Controlled_Intersection;
+package _1251_1300._1279_Traffic_Light_Controlled_Intersection;
 
 /**
  * @author jacka
