@@ -1,4 +1,4 @@
-package _0101_0150._140_Word_Break_II;
+package interviews.hulu._140_Word_Break_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,13 +10,14 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 7/8/2017.
+ * @author jacka
+ * @version 1.0 on 2/10/2020
  */
-public class SolutionTest {
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  public void testLeetCode(Solution solution) {
+  void testOnlineCase1(Solution solution) {
     List<String> candidates = Arrays.asList("leet", "code");
     final String input = "leetcode";
     assertEquals(Arrays.asList("leet code"), solution.wordBreak(input, candidates));
@@ -34,7 +35,8 @@ public class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new DpSolution(),
-        new MemorizedSolution());
+//        new SolutionI(),
+        new DfsMemoSolution()
+    );
   }
 }
