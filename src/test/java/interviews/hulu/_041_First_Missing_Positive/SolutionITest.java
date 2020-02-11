@@ -1,5 +1,4 @@
-package _0001_0050._041_First_Missing_Positive;
-
+package interviews.hulu._041_First_Missing_Positive;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,10 +9,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/20/2017.
+ * @version 1.0 on 2/10/2020
  */
 class SolutionITest {
-
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testMissing1(Solution solution) {
@@ -30,8 +28,7 @@ class SolutionITest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI(),
-        new BucketSortSolution()
+        new SolutionI()
     );
   }
 }
