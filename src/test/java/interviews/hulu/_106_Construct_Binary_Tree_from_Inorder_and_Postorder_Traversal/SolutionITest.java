@@ -1,4 +1,4 @@
-package _0101_0150._106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal;
+package interviews.hulu._106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,10 +10,10 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 6/19/2017.
+ * @author jacka
+ * @version 1.0 on 2/10/2020
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -25,10 +25,18 @@ public class SolutionTest {
     assertEquals(root, solution.buildTree(inorder, postOrder));
   }
 
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void test3Levels2(Solution solution) throws Exception {
+    final int[] inorder = new int[]{9, 3, 15, 20, 7};
+    final int[] postOrder = new int[]{9, 15, 7, 20, 3};
+    final TreeNode root = TreeNodes.getTreeLevelOrder(3, 9, 20, null, null, 15, 7);
+    assertEquals(root, solution.buildTree(inorder, postOrder));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
