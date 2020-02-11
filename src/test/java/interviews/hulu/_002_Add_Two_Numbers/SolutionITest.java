@@ -1,4 +1,4 @@
-package interviews.hulu._002._Add_Two_Numbers;
+package interviews.hulu._002_Add_Two_Numbers;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

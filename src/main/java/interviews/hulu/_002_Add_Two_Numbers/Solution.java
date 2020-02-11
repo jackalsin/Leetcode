@@ -1,4 +1,4 @@
-package interviews.hulu._002._Add_Two_Numbers;
+package interviews.hulu._002_Add_Two_Numbers;
 
 import utils.ListNode;
 
