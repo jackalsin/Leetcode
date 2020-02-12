@@ -25,7 +25,7 @@ class SolutionITest {
     final ListNode head = ListNodes.getListOfNodes(1, 2, 3);
     Solution solution = solutionClass.getConstructor(ListNode.class).newInstance(head);
     final Map<Integer, Integer> prob = new HashMap<>();
-    final int total = 1_000_000;
+    final int total = 10_000_000;
     for (int i = 0; i < total; ++i) {
       final int res = solution.getRandom();
       prob.put(res, prob.getOrDefault(res, 0) + 1);
