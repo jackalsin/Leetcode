@@ -1,6 +1,5 @@
-package _0051_0100._051_N_Queens;
+package interviews.tableau._051_N_Queens;
 
-import org.junit.Before;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -13,17 +12,10 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 3/3/2017.
+ * @author jacka
+ * @version 1.0 on 2/12/2020
  */
-public class SolutionTest {
-
-  @Before
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -32,9 +24,13 @@ public class SolutionTest {
     expected.add(Arrays.asList(".Q..", "...Q", "Q...", "..Q."));
     expected.add(Arrays.asList("..Q.", "Q...", "...Q", ".Q.."));
     List<List<String>> actual = solution.solveNQueens(4);
-    assertEquals(expected.size(), actual.size());
-
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
