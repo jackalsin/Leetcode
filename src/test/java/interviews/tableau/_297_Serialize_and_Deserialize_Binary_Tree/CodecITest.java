@@ -1,5 +1,4 @@
-package _0251_0300._297_Serialize_and_Deserialize_Binary_Tree;
-
+package interviews.tableau._297_Serialize_and_Deserialize_Binary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,24 +10,24 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 9/10/2017.
+ * @version 1.0 on 2/14/2020
  */
-class CodecTest {
-
-  static Stream<Codec> solutionProvider() {
-    return Stream.of(
-        new Codec()
-    );
-  }
+class CodecITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  void testCase1(Codec solution) {
+  void testOnlineCase1(Codec solution) {
     TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);
     root.left.left = new TreeNode(3);
     root.left.right = new TreeNode(4);
     TreeNode actual = solution.deserialize(solution.serialize(root));
     assertEquals(root, actual);
+  }
+
+  static Stream<Codec> solutionProvider() {
+    return Stream.of(
+        new CodecI()
+    );
   }
 }
