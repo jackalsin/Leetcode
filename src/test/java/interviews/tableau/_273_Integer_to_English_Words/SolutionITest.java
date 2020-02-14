@@ -1,5 +1,4 @@
-package _0251_0300._273_Integer_to_English_Words;
-
+package interviews.tableau._273_Integer_to_English_Words;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,9 +9,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 9/2/2017.
+ * @version 1.0 on 2/13/2020
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -63,9 +62,15 @@ class SolutionTest {
     assertEquals("One Million Two Hundred", solution.numberToWords(1_000_200));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test20(Solution solution) {
+    assertEquals("Twenty", solution.numberToWords(20));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new IntuitiveSolution()
+        new SolutionI()
     );
   }
 }
