@@ -1,5 +1,4 @@
-package _0051_0100._088_Merge_Sorted_Array;
-
+package interviews.tableau._088_Merge_Sorted_Array;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,12 +9,9 @@ import static org.junit.Assert.assertArrayEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 5/28/2017.
+ * @version 1.0 on 2/13/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -44,5 +40,11 @@ class SolutionTest {
     final int[] expected = new int[]{1, 2, 3, 4};
     solution.merge(nums1, 3, nums2, 1);
     assertArrayEquals(expected, nums1);
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
