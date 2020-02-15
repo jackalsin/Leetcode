@@ -1,6 +1,12 @@
 package _0201_0250._218_The_Skyline_Problem;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * @author jacka
@@ -20,7 +26,7 @@ public class Solution {
    * @param buildings an array of [left, right, height]
    * @return
    */
-  public List<int[]> getSkyline(int[][] buildings) {
+  public List<List<Integer>> getSkyline(int[][] buildings) {
     Map<Integer, List<int[]>> criticalPoints = new TreeMap<>();
     for (int[] building : buildings) { //getOrDefault
       criticalPoints.putIfAbsent(building[0], new ArrayList<>());
@@ -51,7 +57,7 @@ public class Solution {
       }
     });
 
-    List<int[]> result = new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
     for (Map.Entry<Integer, List<int[]>> entry : criticalPoints.entrySet()) {
       int cpLeft = entry.getKey();
       List<int[]> edgesContainsCriticalPoints = entry.getValue();
@@ -64,11 +70,11 @@ public class Solution {
       }
 
       if (pq.isEmpty()) {
-        result.add(new int[]{cpLeft, 0});
+        result.add(Arrays.asList(cpLeft, 0));
       } else {
         int h = pq.first()[2];
-        if (result.size() == 0 || h != result.get(result.size() - 1)[1]) {
-          result.add(new int[]{cpLeft, h});
+        if (result.size() == 0 || h != result.get(result.size() - 1).get(1)) {
+          result.add(Arrays.asList(cpLeft, h));
         }
       }
     }
