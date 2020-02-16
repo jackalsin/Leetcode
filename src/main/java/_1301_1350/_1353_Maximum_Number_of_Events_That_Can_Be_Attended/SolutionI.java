@@ -15,7 +15,7 @@ public final class SolutionI implements Solution {
     final PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> Integer.compare(a[1], b[1]));
     for (int d = 1; d <= 100_000; d++) {
       while (i < n && events[i][0] == d) {
-        pq.add(events[i]);
+        pq.add(events[i++]);
       }
       while (!pq.isEmpty() && pq.peek()[1] < d) {
         pq.remove();
