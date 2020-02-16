@@ -4,7 +4,6 @@ import utils._133_Clone_Graph.Node;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,7 +20,7 @@ public final class MapSolution implements Solution {
     if (cache.containsKey(node)) {
       return cache.get(node);
     }
-    final List<Node> neighbors = new ArrayList<>();
+    final ArrayList<Node> neighbors = new ArrayList<>();
     final Node copy = new Node(node.val, neighbors);
     cache.put(node, copy);
     for (final Node dst : node.neighbors) {

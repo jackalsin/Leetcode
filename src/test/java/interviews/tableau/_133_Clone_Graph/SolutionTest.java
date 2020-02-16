@@ -1,4 +1,4 @@
-package _0101_0150._133_Clone_Graph;
+package interviews.tableau._133_Clone_Graph;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,17 +11,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 7/4/2017.
+ * @author jacka
+ * @version 1.0 on 2/15/2020
  */
-public class SolutionTest {
+class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new SlowSolution(),
-        new AwesomeSolution()
-    );
-  }
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -46,4 +40,9 @@ public class SolutionTest {
     assertEquals(node0, solution.cloneGraph(node0));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new ONSolution()
+    );
+  }
 }

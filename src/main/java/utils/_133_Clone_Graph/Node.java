@@ -1,5 +1,6 @@
 package utils._133_Clone_Graph;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +17,17 @@ public final class Node {
 
   public List<Node> neighbors;
 
-  public Node(int _val, List<Node> _neighbors) {
+  public Node() {
+    val = 0;
+    neighbors = new ArrayList<>();
+  }
+
+  public Node(int _val) {
+    val = _val;
+    neighbors = new ArrayList<>();
+  }
+
+  public Node(int _val, ArrayList<Node> _neighbors) {
     val = _val;
     neighbors = _neighbors;
   }
