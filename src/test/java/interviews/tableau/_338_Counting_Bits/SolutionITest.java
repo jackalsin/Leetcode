@@ -1,4 +1,4 @@
-package _0301_0350._338_Counting_Bits;
+package interviews.tableau._338_Counting_Bits;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,14 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 10/5/2017.
+ * @version 1.0 on 2/17/2020
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -32,4 +27,9 @@ public class SolutionTest {
     assertArrayEquals(expected, solution.countBits(4));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
