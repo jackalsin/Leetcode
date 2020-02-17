@@ -10,7 +10,7 @@ import java.util.Queue;
  * @author jacka
  * @version 1.0 on 2/11/2020
  */
-public final class SolutionI implements Solution {
+public final class PqSolution implements Solution {
   @Override
   public ListNode mergeKLists(ListNode[] lists) {
     final Queue<ListNode> pq = new PriorityQueue<>(new Comparator<ListNode>() {
