@@ -5,6 +5,8 @@ package _0951_1000._1000_Minimum_Cost_to_Merge_Stones;
  * @version 1.0 on 2/16/2020
  */
 public interface Solution {
-  public int mergeStones(int[] stones, int K);
-
+  /**
+   * TODO:
+   */
+  int mergeStones(int[] stones, int K);
 }
