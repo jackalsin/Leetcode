@@ -5,7 +5,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -125,7 +124,6 @@ class SolutionITest {
     for (int i = 0; i < MAX_COUNT; ++i) {
       counts[solution.pick()]++;
     }
-    System.out.println(Arrays.toString(counts));
     assertEquals(1d / 2, counts[0] / (double) MAX_COUNT, BIAS);
     assertEquals(1d / 2, counts[3] / (double) MAX_COUNT, BIAS);
   }
