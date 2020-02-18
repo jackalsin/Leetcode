@@ -1,9 +1,11 @@
 package _0001_0050._014_Longest_Common_Prefix;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.Assert.assertEquals;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -19,45 +21,52 @@ public class SolutionTest {
       new String[]{"good", "goodbye", "goodday"};
   private static final String[] COMMON_DECIDED_BY_MID_STRING =
       new String[]{"goodbye", "good", "goodday"};
-  private Solution solution;
 
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new Solution()
+    );
   }
 
-  @Test
-  public void longestCommonPrefixSingleEmptyString() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void longestCommonPrefixSingleEmptyString(Solution solution) {
     assertEquals("", solution.longestCommonPrefix(SINGLE_EMPTY_STRING));
   }
 
-  @Test
-  public void longestCommonPrefixSingleNonEmptyString() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void longestCommonPrefixSingleNonEmptyString(Solution solution) {
     assertEquals("Good", solution.longestCommonPrefix(SINGLE_NON_EMPTY_STRING));
   }
 
-  @Test
-  public void longestCommonPrefixEmptyInit() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void longestCommonPrefixEmptyInit(Solution solution) {
     assertEquals("", solution.longestCommonPrefix(EMPTY_STRINGS_INIT));
   }
 
-  @Test
-  public void longestCommonPrefixSingleMid() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void longestCommonPrefixSingleMid(Solution solution) {
     assertEquals("", solution.longestCommonPrefix(EMPTY_STRINGS_MID));
   }
 
-  @Test
-  public void longestCommonPrefixSingleNoCommonString() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void longestCommonPrefixSingleNoCommonString(Solution solution) {
     assertEquals("", solution.longestCommonPrefix(NO_COMMON_STRINGS));
   }
 
-  @Test
-  public void longestCommonPrefixSingleCommonFirstString() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void longestCommonPrefixSingleCommonFirstString(Solution solution) {
     assertEquals("good", solution.longestCommonPrefix(COMMON_DECIDED_BY_FISRT_STRING));
   }
 
-  @Test
-  public void longestCommonPrefixSingleCommonMidString() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void longestCommonPrefixSingleCommonMidString(Solution solution) {
     assertEquals("good", solution.longestCommonPrefix(COMMON_DECIDED_BY_MID_STRING));
   }
 
