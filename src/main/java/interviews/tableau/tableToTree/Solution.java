@@ -1,5 +1,7 @@
 package interviews.tableau.tableToTree;
 
+import java.util.List;
+
 /**
  * @author jacka
  * @version 1.0 on 2/15/2020
@@ -15,17 +17,17 @@ public interface Solution {
    * banana M 5
    * 输出要打印成：
    * apple
-   *         M
-   *             1
-   *             2
+   * M
+   * 1
+   * 2
    * pear
-   *        M
-   *           3
+   * M
+   * 3
    * banana
-   *            L
-   *               4
-   *            M
-   *               5
+   * L
+   * 4
+   * M
+   * 5
    */
-  void transform();
+  List<String> transform(final List<String> input);
 }
