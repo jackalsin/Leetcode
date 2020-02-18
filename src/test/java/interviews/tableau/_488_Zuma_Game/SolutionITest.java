@@ -1,4 +1,4 @@
-package _0451_0500._488_Zuma_Game;
+package interviews.tableau._488_Zuma_Game;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -8,7 +8,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 2/18/2020
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -45,12 +49,9 @@ class SolutionTest {
     assertEquals(2, solution.findMinStep(board, hand));
   }
 
-  // ----------------------- test find min step -------------------------------------
-  // test RemoveContinuous
   @Test
-  void testRemoveContinuous() {
-    final String board = "WWWW", hand = "WW";
-    assertEquals("", SolutionI.removeContinuous(board));
+  void testRemoveContinuously() {
+    assertEquals("", SolutionI.removeContinuously("WWWW"));
   }
 
   static Stream<Solution> solutionProvider() {
