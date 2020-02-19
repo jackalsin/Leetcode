@@ -1,5 +1,4 @@
-package _0001_0050._043_Multiply_Strings;
-
+package interviews.tableau._043_Multiply_Strings;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,15 +9,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/22/2017.
+ * @version 1.0 on 2/18/2020
  */
-class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -39,5 +32,17 @@ class SolutionTest {
   @MethodSource("solutionProvider")
   void testWithLeadingZero(Solution solution) {
     assertEquals(String.valueOf(43 * 27), solution.multiply("43", "27"));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void test999And999(Solution solution) {
+    assertEquals(String.valueOf(999 * 999), solution.multiply("999", "999"));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }

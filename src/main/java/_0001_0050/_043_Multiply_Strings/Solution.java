@@ -4,7 +4,8 @@ package _0001_0050._043_Multiply_Strings;
  * @author jacka
  * @version 1.0 on 2/20/2017.
  */
-public class Solution {
+public class
+Solution {
   public String multiply(String num1, String num2) {
     if (num1 == null || num1.isEmpty()) {
       throw new IllegalArgumentException("num1 cannot be null or empty, now nums1 = " + num1);
