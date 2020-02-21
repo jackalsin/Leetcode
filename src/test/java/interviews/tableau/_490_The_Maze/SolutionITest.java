@@ -1,4 +1,4 @@
-package _0451_0500._490_The_Maze;
+package interviews.tableau._490_The_Maze;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,16 +10,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 12/3/2017.
+ * @version 1.0 on 2/19/2020
  */
-public class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new DFSSolution(),
-        new BFSSolution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -60,4 +53,9 @@ public class SolutionTest {
     assertTrue(solution.hasPath(board, new int[]{0, 4}, new int[]{1, 2}));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new DfsSolution()
+    );
+  }
 }
