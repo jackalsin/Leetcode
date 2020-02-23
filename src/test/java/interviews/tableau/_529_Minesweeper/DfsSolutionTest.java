@@ -2,7 +2,6 @@ package interviews.tableau._529_Minesweeper;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TwoDimensionArray;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -31,7 +30,7 @@ class DfsSolutionTest {
         {'B', 'B', 'B', 'B', 'B'}};
 
     final char[][] actual = solution.updateBoard(input, click);
-    TwoDimensionArray.toString(actual);
+//    TwoDimensionArray.toString(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
   }
 
