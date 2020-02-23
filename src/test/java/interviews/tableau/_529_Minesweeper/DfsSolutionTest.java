@@ -1,26 +1,25 @@
-package _0501_0550._529_Minesweeper;
+package interviews.tableau._529_Minesweeper;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import utils.TwoDimensionArray;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new BFSSolution(),
-        new DfsSolution()
-    );
-  }
+/**
+ * @author jacka
+ * @version 1.0 on 2/23/2020
+ */
+class DfsSolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase1(Solution solution) {
-    final char[][] input = {{'E', 'E', 'E', 'E', 'E'},
+    final char[][] input = {
+        {'E', 'E', 'E', 'E', 'E'},
         {'E', 'E', 'M', 'E', 'E'},
         {'E', 'E', 'E', 'E', 'E'},
         {'E', 'E', 'E', 'E', 'E'}};
@@ -32,7 +31,7 @@ class SolutionTest {
         {'B', 'B', 'B', 'B', 'B'}};
 
     final char[][] actual = solution.updateBoard(input, click);
-//    TwoDimensionArray.display2DimensionArray(actual);
+    TwoDimensionArray.display(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
   }
 
@@ -54,5 +53,11 @@ class SolutionTest {
     };
 
     assertTrue(Arrays.deepEquals(expected, solution.updateBoard(input, click)));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new DfsSolution()
+    );
   }
 }
