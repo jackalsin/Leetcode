@@ -2,6 +2,11 @@ package _0501_0550._505_The_Maze_II;
 
 import java.util.Arrays;
 
+/**
+ * 这个解法的错错法如下：
+ * 如果到达（x0,y0），然后步进到(x1, y1)，那么（x0, y0）已经被标记了，如果有从（x2,y2）到（x1， y1）可以产生更短的距离达到
+ * destination, 则产生的cache是不正确的
+ */
 public class DfsWrongSolution implements Solution {
   private static final int[][] DIRS = {{1, 0}, {0, 1}, {0, -1}, {-1, 0}};
   private static final int NO_PATH = -1;

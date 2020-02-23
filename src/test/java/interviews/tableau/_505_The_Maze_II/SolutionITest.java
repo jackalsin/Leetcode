@@ -1,4 +1,4 @@
-package _0501_0550._505_The_Maze_II;
+package interviews.tableau._505_The_Maze_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,17 +9,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 12/5/2017.
+ * @version 1.0 on 2/20/2020
  */
-public class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new DfsSolution(),
-//        new DfsWrongSolution(),
-        new BfsSolution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -411,5 +403,11 @@ public class SolutionTest {
     System.out.println(board.length);
     System.out.println(board[0].length);
     assertEquals(59, solution.shortestDistance(board, start, des));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
