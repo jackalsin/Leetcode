@@ -71,7 +71,7 @@ public final class TwoDimensionArray {
     return true;
   }
 
-  public static void display(char[][] array) {
+  public static void toString(char[][] array) {
     if (array == null) {
       throw new NullPointerException("array cannot be null");
     }
@@ -82,7 +82,7 @@ public final class TwoDimensionArray {
     System.out.println("]");
   }
 
-  public static void display(long[][] array) {
+  public static void toString(long[][] array) {
     if (array == null) {
       throw new NullPointerException("array cannot be null");
     }
@@ -93,7 +93,7 @@ public final class TwoDimensionArray {
     System.out.println("]");
   }
 
-  public static void display(final String[][] dp) {
+  public static void toString(final String[][] dp) {
   /*  final int maxLen = Arrays.stream(dp).max(new Comparator<String[]>() {
       @Override
       public int compare(String[] o1, String[] o2) {
@@ -143,7 +143,7 @@ public final class TwoDimensionArray {
     return sb.toString();
   }
 
-  public static void display(int[][] array) {
+  public static void toString(int[][] array) {
     if (array == null) {
       throw new NullPointerException("array cannot be null");
     }
@@ -154,7 +154,7 @@ public final class TwoDimensionArray {
     System.out.println("]");
   }
 
-  public static void display(boolean[][] array) {
+  public static void toString(boolean[][] array) {
     if (array == null) {
       throw new NullPointerException("array cannot be null");
     }

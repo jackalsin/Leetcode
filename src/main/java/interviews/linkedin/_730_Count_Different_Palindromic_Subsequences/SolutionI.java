@@ -36,7 +36,7 @@ public final class SolutionI implements Solution {
     }
 
     for (int i = 0; i < 4; i++) {
-      TwoDimensionArray.display(dp[i]);
+      TwoDimensionArray.toString(dp[i]);
     }
 
     return safeAdd(dp[0][0][n - 1], dp[1][0][n - 1], dp[2][0][n - 1],

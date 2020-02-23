@@ -1,9 +1,9 @@
 package _0451_0500._497_Random_Point_in_Non_overlapping_Rectangles;
 
 import org.junit.jupiter.api.Test;
+import utils.TwoDimensionArray;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils.TwoDimensionArray.display;
 
 class SolutionTest {
   private Solution solution;
@@ -25,7 +25,7 @@ class SolutionTest {
         assertEquals(1d / 25, p[row][col] / (double) MAX_COUNT, BIAS);
       }
     }
-    display(p);
+    TwoDimensionArray.toString(p);
   }
 
 }

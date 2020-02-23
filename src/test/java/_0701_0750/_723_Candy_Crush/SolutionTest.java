@@ -2,11 +2,11 @@ package _0701_0750._723_Candy_Crush;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.TwoDimensionArray;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.TwoDimensionArray.display;
 
 class SolutionTest {
   private Solution solution;
@@ -43,7 +43,7 @@ class SolutionTest {
     };
 
     final int[][] actual = solution.candyCrush(board);
-    display(actual);
+    TwoDimensionArray.toString(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
 
   }

@@ -33,7 +33,7 @@ class SolutionTest {
         {'B', 'B', 'B', 'B', 'B'}};
 
     final char[][] actual = solution.updateBoard(input, click);
-    TwoDimensionArray.display(actual);
+    TwoDimensionArray.toString(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
   }
 

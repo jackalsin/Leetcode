@@ -36,7 +36,7 @@ class SolutionTest {
         "198524367", "975863124", "832491756", "641275983"
     });
     solution.solveSudoku(board);
-    TwoDimensionArray.display(board);
+    TwoDimensionArray.toString(board);
     assertTrue(TwoDimensionArrayEquals(expected, board));
   }
 

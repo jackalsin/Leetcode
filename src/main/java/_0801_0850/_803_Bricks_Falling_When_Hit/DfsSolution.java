@@ -1,6 +1,6 @@
 package _0801_0850._803_Bricks_Falling_When_Hit;
 
-import static utils.TwoDimensionArray.display;
+import utils.TwoDimensionArray;
 
 /**
  * Time Complexity: O(N)
@@ -33,7 +33,7 @@ public final class DfsSolution implements Solution {
         res[i] = dfs(grid, rows, cols, row, col) - 1; // hit doesn't count
       }
 
-      display(grid);
+      TwoDimensionArray.toString(grid);
     }
     return res;
   }

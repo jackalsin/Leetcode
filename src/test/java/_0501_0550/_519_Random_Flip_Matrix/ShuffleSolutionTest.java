@@ -2,13 +2,13 @@ package _0501_0550._519_Random_Flip_Matrix;
 
 import org.junit.jupiter.api.Test;
 import utils.Point;
+import utils.TwoDimensionArray;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.TwoDimensionArray.display;
 
 class ShuffleSolutionTest {
   @Test
@@ -43,7 +43,7 @@ class ShuffleSolutionTest {
       }
     }
 
-    display(counts);
+    TwoDimensionArray.toString(counts);
 
   }
 }
