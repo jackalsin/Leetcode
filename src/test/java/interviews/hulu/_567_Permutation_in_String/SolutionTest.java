@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
  * @author jacka
  * @version 1.0 on 12/19/2019
  */
-class SolutionITest {
+class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -71,7 +71,8 @@ class SolutionITest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
