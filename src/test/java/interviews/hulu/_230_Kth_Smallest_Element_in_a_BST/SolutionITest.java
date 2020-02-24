@@ -33,8 +33,8 @@ class SolutionITest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI(),
-        new SolutionII()
+        new NonCacheVersion(),
+        new CacheVersion()
     );
   }
 }

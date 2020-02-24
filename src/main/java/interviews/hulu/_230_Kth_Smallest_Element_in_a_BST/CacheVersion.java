@@ -9,7 +9,7 @@ import java.util.Map;
  * @author jacka
  * @version 1.0 on 2/8/2020
  */
-public final class SolutionII implements Solution {
+public final class CacheVersion implements Solution {
   private final Map<TreeNode, Integer> cache = new HashMap<>();
 
   public int kthSmallest(TreeNode root, int k) {
