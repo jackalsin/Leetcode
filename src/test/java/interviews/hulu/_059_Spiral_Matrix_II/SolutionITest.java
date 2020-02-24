@@ -1,4 +1,4 @@
-package _0051_0100._059_Spiral_Matrix_II;
+package interviews.hulu._059_Spiral_Matrix_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,15 +10,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 4/22/2017.
+ * @version 1.0 on 2/23/2020
  */
-public class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -39,5 +33,11 @@ public class SolutionTest {
   public void testWith3(Solution solution) {
     int[][] expected = {{1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
     assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, solution.generateMatrix(3)));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
