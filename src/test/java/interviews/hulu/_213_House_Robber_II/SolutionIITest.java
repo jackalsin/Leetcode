@@ -1,4 +1,4 @@
-package _0201_0250._213_House_Robber_II;
+package interviews.hulu._213_House_Robber_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,9 +9,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 8/9/2017.
+ * @version 1.0 on 2/24/2020
  */
-public class SolutionTest {
+class SolutionIITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testEmpty(Solution solution) {
@@ -47,13 +47,6 @@ public class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  public void test1(Solution solution) {
-    final int[] input = new int[]{1};
-    assertEquals(1, solution.rob(input));
-  }
-
-  @ParameterizedTest
-  @MethodSource("solutionProvider")
   public void testMaxHead(Solution solution) {
     final int[] input = new int[]{6, 1, 5};
     assertEquals(6, solution.rob(input));
@@ -74,6 +67,9 @@ public class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 }
