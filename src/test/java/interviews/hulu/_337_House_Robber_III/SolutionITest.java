@@ -17,7 +17,10 @@ class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testOnlineCase(Solution solution) throws Exception {
-    TreeNode root = TreeNodes.getTreeLevelOrder(3, 2, 3, null, 3, null, 1);
+    TreeNode root = TreeNodes.getTreeLevelOrder(
+        3,
+        2, 3,
+        null, 3, null, 1);
     assertEquals(7, solution.rob(root));
   }
 
@@ -30,7 +33,8 @@ class SolutionITest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
