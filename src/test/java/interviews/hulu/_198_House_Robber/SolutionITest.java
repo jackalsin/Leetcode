@@ -1,5 +1,4 @@
-package _0151_0200._198_House_Robber;
-
+package interviews.hulu._198_House_Robber;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,10 +8,10 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/4/2017.
+ * @author jacka
+ * @version 1.0 on 2/24/2020
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -52,7 +51,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
