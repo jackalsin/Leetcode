@@ -41,9 +41,17 @@ class SolutionITest {
     assertEquals(19999, solution.coinChange(coins, 19999));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase5(Solution solution) {
+    final int[] coins = {1, Integer.MAX_VALUE};
+    assertEquals(2, solution.coinChange(coins, 2));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
