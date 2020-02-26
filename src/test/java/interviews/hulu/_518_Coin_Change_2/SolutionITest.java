@@ -34,9 +34,24 @@ class SolutionITest {
     assertEquals(1, solution.change(10, coins));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase4(Solution solution) {
+    final int[] coins = {};
+    assertEquals(1, solution.change(0, coins));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase5(Solution solution) {
+    final int[] coins = {};
+    assertEquals(0, solution.change(7, coins));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
