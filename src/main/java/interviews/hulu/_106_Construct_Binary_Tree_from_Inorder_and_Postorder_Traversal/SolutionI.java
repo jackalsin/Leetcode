@@ -16,10 +16,10 @@ public final class SolutionI implements Solution {
     for (int i = 0; i < postorder.length; ++i) {
       inorderReverseIndex.put(inorder[i], i);
     }
-    return buildTree(inorder, postorder, postorder.length - 1, 0, postorder.length - 1);
+    return buildTree(postorder, postorder.length - 1, 0, postorder.length - 1);
   }
 
-  private TreeNode buildTree(final int[] inorder, final int[] postorder, final int rootIndexPostOrder,
+  private TreeNode buildTree(final int[] postorder, final int rootIndexPostOrder,
                              final int inorderLeft, int inorderRight) {
 //    System.out.println("rootIndexPostorder = " + rootIndexPostOrder + ",  inorderLeft = " + inorderLeft +
 //        ", inorderRight = " + inorderRight);
@@ -32,9 +32,9 @@ public final class SolutionI implements Solution {
     final TreeNode root = new TreeNode(postorder[rootIndexPostOrder]);
     final int rootIndexInorder = inorderReverseIndex.get(postorder[rootIndexPostOrder]);
 //    System.out.println(rootIndexInorder);
-    root.left = buildTree(inorder, postorder, rootIndexPostOrder - (inorderRight - rootIndexInorder + 1),
+    root.left = buildTree(postorder, rootIndexPostOrder - (inorderRight - rootIndexInorder + 1),
         inorderLeft, rootIndexInorder - 1);
-    root.right = buildTree(inorder, postorder, rootIndexPostOrder - 1,
+    root.right = buildTree(postorder, rootIndexPostOrder - 1,
         rootIndexInorder + 1, inorderRight);
     return root;
   }
