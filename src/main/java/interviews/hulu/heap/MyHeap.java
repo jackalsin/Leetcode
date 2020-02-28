@@ -61,7 +61,7 @@ public final class MyHeap {
   }
 
   private boolean hasParentIndex(final int c) {
-    return c != 0; // TODO: good enough?
+    return c != 0;
   }
 
   private static int getParentIndex(final int c) {
