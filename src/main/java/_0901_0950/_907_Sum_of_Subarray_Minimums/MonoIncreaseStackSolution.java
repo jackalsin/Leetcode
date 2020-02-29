@@ -1,6 +1,7 @@
 package _0901_0950._907_Sum_of_Subarray_Minimums;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
 
 /**
@@ -24,6 +25,8 @@ public final class MonoIncreaseStackSolution implements Solution {
       }
       previousDistance[i] = previousStack.isEmpty() ? i + 1 : i - previousStack.peek()[1];
       previousStack.push(new int[]{A[i], i});
+      System.out.println("i = " + i);
+      previousStack.forEach(x -> System.out.println(Arrays.toString(x)));
     }
     for (int i = n - 1; i >= 0; --i) {
       while (!nextStack.isEmpty() && nextStack.peek()[0] > A[i]) {
@@ -32,9 +35,11 @@ public final class MonoIncreaseStackSolution implements Solution {
       nextDistance[i] = nextStack.isEmpty() ? n - i : nextStack.peek()[1] - i;
       nextStack.push(new int[]{A[i], i});
     }
-
-//    System.out.println("PrevDistance = " + Arrays.toString(previousDistance));
-//    System.out.println("nextDistance = " + Arrays.toString(nextDistance));
+//
+//    PrevDistance = [1, 2, 1, 1]
+//    nextDistance = [1, 3, 2, 1]
+    System.out.println("PrevDistance = " + Arrays.toString(previousDistance));
+    System.out.println("nextDistance = " + Arrays.toString(nextDistance));
     int sum = 0;
     for (int i = 0; i < n; ++i) {
       // sub array start from previousDistance[i]中任意一个，结束于nextDistance[i]
