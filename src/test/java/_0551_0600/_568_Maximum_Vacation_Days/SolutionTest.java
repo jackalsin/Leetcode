@@ -1,20 +1,22 @@
 package _0551_0600._568_Maximum_Vacation_Days;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.Assert.assertEquals;
+import java.util.stream.Stream;
 
-public class SolutionTest {
-  private Solution solution;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
+class SolutionTest {
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new Solution()
+    );
   }
 
-  @Test
-  public void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     final int[][] flights = {
         {0, 1, 1},
         {1, 0, 1},
@@ -26,8 +28,9 @@ public class SolutionTest {
     assertEquals(12, solution.maxVacationDays(flights, days));
   }
 
-  @Test
-  public void testOnlineCase2() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
     final int[][] flights = {
         {0, 0, 0},
         {0, 0, 0},
@@ -40,14 +43,16 @@ public class SolutionTest {
     assertEquals(3, solution.maxVacationDays(flights, days));
   }
 
-  @Test
-  public void testOnlineCase3() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
     final int[][] flights = {{0, 1, 1}, {1, 0, 1}, {1, 1, 0}}, days = {{7, 0, 0}, {0, 7, 0}, {0, 0, 7}};
     assertEquals(21, solution.maxVacationDays(flights, days));
   }
 
-  @Test
-  public void testFailedCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testFailedCase1(Solution solution) {
     final int[][] flights = {
         {0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0},
