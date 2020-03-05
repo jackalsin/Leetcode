@@ -6,6 +6,7 @@ package _0551_0600._600_Non_negative_Integers_without_Consecutive_Ones;
  */
 public final class SolutionI implements Solution {
   /*
+  * TODO:
    * 初步观察可得：Denote f(k) 为有k位bit时，有多少符合没有consecutive 1s的数
    * 1. if k = 5, we have range [00_000, 11_111]
    * 1.1 [00_000, 01_111] is f(4)
