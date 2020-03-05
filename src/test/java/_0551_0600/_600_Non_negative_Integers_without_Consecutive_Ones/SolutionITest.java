@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -16,19 +16,19 @@ class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase1(Solution solution) {
-    final String[] list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"},
-        list2 = {"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"},
-        expected = {"Shogun"};
-    assertArrayEquals(expected, solution.findRestaurant(list1, list2));
+    assertEquals(5, solution.findIntegers(5));
   }
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase2(Solution solution) {
-    final String[] list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"},
-        list2 = {"KFC", "Shogun", "Burger King"},
-        expected = {"Shogun"};
-    assertArrayEquals(expected, solution.findRestaurant(list1, list2));
+    assertEquals(8, solution.findIntegers(15));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
+    assertEquals(103682, solution.findIntegers(10010110));
   }
 
   static Stream<Solution> solutionProvider() {

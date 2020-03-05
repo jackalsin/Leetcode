@@ -1,38 +1,41 @@
 package _0551_0600._600_Non_negative_Integers_without_Consecutive_Ones;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * @author jacka
  * @version 1.0 on 3/2/2020
  */
 public final class SolutionI implements Solution {
-  @Override
-  public String[] findRestaurant(String[] list1, String[] list2) {
-    if (list1 == null || list2 == null) {
-      return new String[0];
+  /*
+   * 初步观察可得：Denote f(k) 为有k位bit时，有多少符合没有consecutive 1s的数
+   * 1. if k = 5, we have range [00_000, 11_111]
+   * 1.1 [00_000, 01_111] is f(4)
+   * 1.2 [10_000, 10_111] is f(3)
+   * 1.3 [11_000, 11_111] should never be part of it
+   */
+
+  private static final int[] F = new int[32];
+
+  static {
+    F[0] = 1;
+    F[1] = 2;
+    for (int i = 2; i < 32; ++i) {
+      F[i] = F[i - 1] + F[i - 2];
     }
-    final Map<String, Integer> reverseIndex = new HashMap<>();
-    for (int i = 0; i < list1.length; ++i) {
-      reverseIndex.put(list1[i], i);
-    }
-    final List<String> result = new ArrayList<>();
-    int min = Integer.MAX_VALUE;
-    for (int i = 0; i < list2.length; ++i) {
-      if (reverseIndex.containsKey(list2[i])) {
-        final int cur = reverseIndex.get(list2[i]) + i;
-        if (cur <= min) {
-          if (cur < min) {
-            min = cur;
-            result.clear();
-          }
-          result.add(list2[i]);
-        }
+//    System.out.println(Arrays.toString(F));
+  }
+
+  public int findIntegers(int num) {
+//    System.out.println(Integer.toBinaryString(num));
+    int res = 0, preBit = 0;
+    for (int bit = (1 << 31), i = 31; i >= 0; --i, bit >>>= 1) {
+      if ((num & bit) != 0) {
+        res += F[i];
+        if (preBit == 1) return res;
+        preBit = 1;
+      } else {
+        preBit = 0;
       }
     }
-    return result.toArray(new String[0]);
+    return res + 1;
   }
 }
