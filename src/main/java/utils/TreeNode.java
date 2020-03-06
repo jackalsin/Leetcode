@@ -15,6 +15,17 @@ public final class TreeNode {
     val = x;
   }
 
+  @Deprecated
+  public TreeNode(TreeNode root) {
+    val = root.val;
+    if (root.left != null) {
+      left = new TreeNode(root.left);
+    }
+    if (root.right != null) {
+      right = new TreeNode(root.right);
+    }
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
