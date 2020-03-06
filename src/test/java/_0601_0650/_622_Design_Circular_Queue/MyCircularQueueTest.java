@@ -34,7 +34,8 @@ class MyCircularQueueTest {
 
   static Stream<Class> solutionProvider() {
     return Stream.of(
-        MyCircularQueue.class
+        MyCircularQueue.class,
+        MyCircularQueueI.class
     );
   }
 }
