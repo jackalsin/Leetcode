@@ -8,3 +8,4 @@ leetcode-411/*.pyc
 .DS_Store
 .classpath
 .project
+venv
