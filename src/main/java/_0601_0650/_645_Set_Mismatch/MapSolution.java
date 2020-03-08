@@ -7,7 +7,7 @@ import java.util.Map;
  * @author jacka
  * @version 1.0 on 3/8/2020
  */
-public final class SolutionI implements Solution {
+public final class MapSolution implements Solution {
   @Override
   public int[] findErrorNums(int[] nums) {
     if (nums == null) {
