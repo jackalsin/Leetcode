@@ -9,7 +9,9 @@ public final class OptimizedSolution implements Solution {
 
   public int kInversePairs(int N, int K) {
     final int[][] dp = new int[N + 1][K + 1];
-
+    // 显然，dp[n][k] = dp[n][k] + dp[n][k - 1] + ... + dp[n][k - n + 1]
+    // 那么 dp[n][k + 1] = dp[n][k + 1] + dp[n][k + 1- 1] + ... + dp[n][k + 1 - n + 1]
+    // 两式相减，则可以得到dp[n][k + 1] = dp[n][k] + dp[n - 1][k + 1] - dp[n- 1][k - n + 1]
     // `dp[n][k+1] = dp[n][k]+dp[n-1][k+1]-dp[n-1][k+1-n]`
     // `dp[n][k] = dp[n][k - 1]+dp[n-1][k]-dp[n-1][k-n]`
     for (int n = 1; n <= N; ++n) {

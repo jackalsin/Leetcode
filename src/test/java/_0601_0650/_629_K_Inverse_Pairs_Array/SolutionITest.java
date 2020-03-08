@@ -44,10 +44,26 @@ class SolutionITest {
     assertEquals(expected, solution.kInversePairs(n, k));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase6(Solution solution) {
+    final int n = 1, k = 1, expected = 0;
+    assertEquals(expected, solution.kInversePairs(n, k));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase7(Solution solution) {
+    final int n = 1000, k = 1000, expected = 663677020;
+    assertEquals(expected, solution.kInversePairs(n, k));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
         new NaiveSolution(),
-        new OptimizedSolution()
+        new OptimizedSolution(),
+        new NaiveSolutionI(),
+        new OptimizedSolutionI()
     );
   }
 }
