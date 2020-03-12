@@ -97,7 +97,6 @@ public final class TreeNodes {
       }
       if (node != null) {
         queue.offer(node);
-
       }
     }
     return root;
