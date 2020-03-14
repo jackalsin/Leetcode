@@ -4,5 +4,8 @@ import java.util.List;
 
 public interface Solution {
 
+  /**
+   * TODO
+   */
   int[] smallestRange(List<List<Integer>> nums);
 }
