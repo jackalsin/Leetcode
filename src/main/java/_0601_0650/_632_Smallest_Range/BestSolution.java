@@ -24,7 +24,7 @@ public final class BestSolution implements Solution {
     证明：
       我们先假设是始终移动a先，那么pq会经历[4, a, y], [a,b, y],但miss掉[4,b,y]的情况，does it really matter?
       1. a == b
-        那么我们移动谁都没关系，[4, b, y】 会在移动[4, a, y]的时候考虑到
+        那么我们移动谁都没关系，[4, b, y] 会在移动[4, a, y]的时候考虑到
       2. a < b
         2.1. y < 4
             y < 4 <= a, b
