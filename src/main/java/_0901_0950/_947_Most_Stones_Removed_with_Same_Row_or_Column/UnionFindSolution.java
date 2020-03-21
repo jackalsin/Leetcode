@@ -7,6 +7,9 @@ public final class UnionFindSolution implements Solution {
   private final Map<Integer, Integer> parents = new HashMap<>();
   private int islands = 0;
 
+  /*
+  类似于number of island， dfs找到所有联系点，那么按照dfs反向消除即可
+  */
   public int removeStones(int[][] stones) {
     for (final int[] stone : stones) {
       final int row = stone[0], col = ~stone[1];

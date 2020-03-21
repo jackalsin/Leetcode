@@ -1,4 +1,4 @@
-package _0901_0950._947_Most_Stones_Removed_with_Same_Row_or_Column;
+package interviews.google._0947_Most_Stones_Removed_with_Same_Row_or_Column;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,7 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class UnionFindSolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 3/21/2020
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -32,7 +36,7 @@ class UnionFindSolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new UnionFindSolution()
+        new SolutionI()
     );
   }
 }
