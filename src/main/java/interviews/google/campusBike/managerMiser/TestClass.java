@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author jacka
@@ -22,7 +24,6 @@ public final class TestClass {
 
     public FordFulkerson(final FlowNetwork g, final int[][] costs, final int s, final int t) {
       this.g = g;
-//      System.err.println(g.v);
       distTo = new int[g.v];
       edgeTo = new FlowEdge[g.v];
       this.costs = costs;
@@ -31,7 +32,11 @@ public final class TestClass {
         for (int i = t; i != s; i = edgeTo[i].other(i)) {
           System.err.print(String.format("%d <- ", i));
           toAdd = Math.min(toAdd, edgeTo[i].residualCapacityTo(i));
-          cost += cost(edgeTo[i].other(i), i);
+          if (i == edgeTo[i].to()) { // forward edge
+            cost += cost(edgeTo[i].other(i), i);
+          } else {
+            cost -= cost(edgeTo[i].other(i), i);
+          }
         }
         System.err.println("toAdd = " + toAdd);
         for (int i = t; i != s; i = edgeTo[i].other(i)) {
@@ -50,18 +55,15 @@ public final class TestClass {
       for (int k = 0; k < v; k++) { // as a counter
         final int[] nextDist = new int[v];
         System.arraycopy(distTo, 0, nextDist, 0, v);
-        for (int i = 0; i < v; ++i) {
-//        if (distTo[i] == Integer.MAX_VALUE) continue;
-          final List<FlowEdge> edges = g.adjacentLists.get(i);
-          for (final FlowEdge e : edges) {
-            final int next = e.other(i), cost = cost(i, next), residualCapacityTo = e.residualCapacityTo(next);
-            final boolean isEval = (cost == 0 || (residualCapacityTo > 0 && nextDist[next] > (long) distTo[i] + cost));
-            if (cost == 0 || (residualCapacityTo > 0 && nextDist[next] > (long) distTo[i] + cost)) {
-              nextDist[next] = distTo[i] + cost;
-              edgeTo[next] = e;
-            }
+        for (final FlowEdge e : g.edges) {
+          final int from = e.from(), to = e.to(), cost = cost(from, to);
+          if (e.residualCapacityTo(to) > 0 && nextDist[to] > (long) distTo[from] + cost) {
+            nextDist[to] = distTo[from] + cost;
+            edgeTo[to] = e;
+          } else if (e.residualCapacityTo(from) > 0 && nextDist[from] > (long) distTo[to] - cost) {
+            nextDist[from] = distTo[to] - cost;
+            edgeTo[from] = e;
           }
-          System.err.println("k " + k + ", i = " + i + ", " + Arrays.toString(nextDist));
         }
         System.arraycopy(nextDist, 0, distTo, 0, v);
       } // end of counter loop
@@ -94,6 +96,7 @@ public final class TestClass {
   public static final class FlowNetwork {
     private final int v;
     private final List<List<FlowEdge>> adjacentLists = new ArrayList<>();
+    private final Set<FlowEdge> edges = new HashSet<>();
 
     public FlowNetwork(final int v) {
       this.v = v;
@@ -102,10 +105,15 @@ public final class TestClass {
       }
     }
 
+    public Iterable<FlowEdge> edges() {
+      return new HashSet<>(edges);
+    }
+
     public void addEdge(final FlowEdge e) {
       final int v = e.from(), w = e.to();
       adjacentLists.get(v).add(e);
       adjacentLists.get(w).add(e);
+      edges.add(e);
     }
 
     @Override
