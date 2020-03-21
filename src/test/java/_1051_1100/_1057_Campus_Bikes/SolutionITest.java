@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionITest {
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 
