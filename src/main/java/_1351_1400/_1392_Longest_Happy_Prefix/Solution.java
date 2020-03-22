@@ -5,6 +5,8 @@ package _1351_1400._1392_Longest_Happy_Prefix;
  * @version 1.0 on 3/21/2020
  */
 public interface Solution {
-  public String longestPrefix(String s);
-
+  /**
+   * TODO
+   */
+  String longestPrefix(String s);
 }
