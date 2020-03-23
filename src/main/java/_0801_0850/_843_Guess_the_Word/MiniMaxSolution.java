@@ -19,6 +19,8 @@ public final class MiniMaxSolution implements Solution {
       Pair<String, Integer> minPair = new Pair<>("", wordList.size());
       System.out.println(zeroMatchCount);
       // 找到最少zero match的
+      // 因为大概率match会出现0（25/26）^6≈79%，那么我们始终选取zero match最少的word，
+      // 那么一旦出现match = 0，我们能够只留下count个words，从而骚起来
       for (String word : wordList) {
         // mistake 1: NullPointerException
         final int curWordZeroMatch = zeroMatchCount.getOrDefault(word, 0);
