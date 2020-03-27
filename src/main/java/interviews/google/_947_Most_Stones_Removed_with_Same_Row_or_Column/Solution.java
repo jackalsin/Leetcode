@@ -1,4 +1,4 @@
-package interviews.google._0947_Most_Stones_Removed_with_Same_Row_or_Column;
+package interviews.google._947_Most_Stones_Removed_with_Same_Row_or_Column;
 
 /**
  * @author jacka
