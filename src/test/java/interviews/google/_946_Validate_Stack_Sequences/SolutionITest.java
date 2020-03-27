@@ -1,4 +1,4 @@
-package _0901_0950._946_Validate_Stack_Sequences;
+package interviews.google._946_Validate_Stack_Sequences;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,7 +8,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 3/26/2020
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -16,7 +20,6 @@ class SolutionTest {
     final int[] pushed = {1, 2, 3, 4, 5}, popped = {4, 5, 3, 2, 1};
     assertTrue(solution.validateStackSequences(pushed, popped));
   }
-
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -126,7 +129,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
