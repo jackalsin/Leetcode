@@ -7,6 +7,7 @@ import utils.TreeNodes;
 
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -35,6 +36,16 @@ class SolutionITest {
         null, null, 1);
     final int n = 9, x = 4;
     assertTrue(solution.btreeGameWinningMove(root, n, x));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
+    //                1
+    //          2           3
+    final TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 3);
+    final int n = 3, x = 1;
+    assertFalse(solution.btreeGameWinningMove(root, n, x));
   }
 
   static Stream<Solution> solutionProvider() {
