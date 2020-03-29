@@ -12,6 +12,7 @@ public class Solution {
    * @return
    */
   public int maximalSquare(char[][] matrix) {
+    /*其实这题跟hight计算没关系，直接dp[i][j] denotes the max side length that can form a square whose right bottom is [i, j]*/
 //    return twoDArraySolution(matrix);
     return oneArraySolution(matrix);
   }

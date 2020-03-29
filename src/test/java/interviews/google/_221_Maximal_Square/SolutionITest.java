@@ -1,4 +1,4 @@
-package _0201_0250._221_Maximal_Square;
+package interviews.google._221_Maximal_Square;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,17 +9,17 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/15/2017.
+ * @author jacka
+ * @version 1.0 on 3/29/2020
  */
-class SolutionTest {
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase(Solution solution) throws Exception {
     final char[][] board = TwoDimensionArray.getCharBoard(new String[]{
         "10100", "10111", "11111", "10010"
     });
-
     assertEquals(4, solution.maximalSquare(board));
   }
 
@@ -41,9 +41,18 @@ class SolutionTest {
     assertEquals(1, solution.maximalSquare(board));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
+    final char[][] board = TwoDimensionArray.getCharBoard(new String[]{
+        "00000", "10000", "01000"
+    });
+    assertEquals(1, solution.maximalSquare(board));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
