@@ -1,4 +1,4 @@
-package _0801_0850._801_Minimum_Swaps_To_Make_Sequences_Increasing;
+package interviews.google._801_Minimum_Swaps_To_Make_Sequences_Increasing;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,8 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
-
+/**
+ * @author jacka
+ * @version 1.0 on 3/29/2020
+ */
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase1(Solution solution) {
@@ -24,9 +27,17 @@ class SolutionTest {
     assertEquals(2, solution.minSwap(A, B));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
+    final int[] A = {2, 4, 5, 7, 10},
+        B = {1, 3, 4, 5, 9};
+    assertEquals(0, solution.minSwap(A, B));
+  }
+
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
