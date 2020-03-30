@@ -1,4 +1,4 @@
-package _0551_0600._552_Student_Attendance_Record_II;
+package interviews.google._552_Student_Attendance_Record_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,10 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
+/**
+ * @author jacka
+ * @version 1.0 on 3/29/2020
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -46,5 +47,11 @@ public class SolutionTest {
   @MethodSource("solutionProvider")
   public void testOnlineCase100(Solution solution) {
     assertEquals(985598218, solution.checkRecord(100));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
