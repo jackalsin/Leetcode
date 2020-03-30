@@ -1,4 +1,4 @@
-package _0601_0650._642_Design_Search_Autocomplete_System;
+package interviews.google._642_Design_Search_Autocomplete_System;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,10 +13,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 11/1/2017.
+ * @version 1.0 on 3/29/2020
  */
-public class AutocompleteSystemTest {
-
+class AutocompleteSystemITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase(Class<AutocompleteSystem> solutionClass) throws NoSuchMethodException, IllegalAccessException,
@@ -63,9 +62,7 @@ public class AutocompleteSystemTest {
 
   static Stream<Class> solutionProvider() {
     return Stream.of(
-        AutocompleteSystem.class
+        AutocompleteSystemI.class
     );
   }
-
-
 }
