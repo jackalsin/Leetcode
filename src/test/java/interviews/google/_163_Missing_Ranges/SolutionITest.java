@@ -1,4 +1,4 @@
-package _0151_0200._163_Missing_Ranges;
+package interviews.google._163_Missing_Ranges;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,16 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 7/23/2017.
+ * @version 1.0 on 3/29/2020
  */
-class SolutionTest {
-  private final int[] input = new int[]{0, 1, 3, 50, 75};
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -44,6 +37,7 @@ class SolutionTest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testLeading(Solution solution) {
+    final int[] input = new int[]{0, 1, 3, 50, 75};
     assertEquals(Arrays.asList("2", "4->49", "51->74", "76->99"), solution.findMissingRanges(input,
         0, 99));
   }
@@ -56,4 +50,9 @@ class SolutionTest {
         .MAX_VALUE));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
