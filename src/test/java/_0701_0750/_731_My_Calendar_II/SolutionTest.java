@@ -1,21 +1,18 @@
 package _0701_0750._731_My_Calendar_II;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SolutionTest {
-  private Solution solution;
 
-  @BeforeEach
-  void setup() {
-    solution = new Solution();
-  }
-
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
     assertTrue(solution.book(10, 20)); // returns true
     assertTrue(solution.book(50, 60)); // returns true
     assertTrue(solution.book(10, 40)); // returns true
@@ -25,8 +22,9 @@ class SolutionTest {
 
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
 //["book",  "book",   "book","book",  "book","book",  "book","book","book","book"]
 //[[24,40], [43,50],  [27,43],[5,21], [30,40],[14,29],[3,19],[3,14],[25,39],[6,19]]
 //[true,    true,     true,true,      false,false,    true,false,   false,false]
@@ -53,16 +51,18 @@ class SolutionTest {
       true, false, false, false, false, false, false, false, false, true, false, false, false
   };
 
-//  @Test
-//  void testOnlineCase3() {
+//  @ParameterizedTest
+//  @MethodSource("solutionProvider")
+//  void testOnlineCase3(Solution solution){
 //    for (int i = 0; i < INPUT.length; i++) {
 //      final String functionName = EXPECTED[i] ? "assertTrue" : "assertFalse";
 //      System.out.println(functionName + "(solution.book(" + INPUT[i][0] + ", " + INPUT[i][1] + "));");
 //    }
 //  }
 
-  @Test
-  void testOnlineCase4() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase4(Solution solution) {
     assertTrue(solution.book(47, 50));
     assertTrue(solution.book(1, 10));
     assertTrue(solution.book(27, 36));
@@ -95,4 +95,8 @@ class SolutionTest {
     assertFalse(solution.book(13, 21));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(new SolutionI(),
+        new BetterSolution());
+  }
 }
