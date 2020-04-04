@@ -23,7 +23,6 @@ class SolutionITest {
     assertFalse(solution.book(5, 15)); // returns false
     assertTrue(solution.book(5, 10)); // returns true
     assertTrue(solution.book(25, 55)); // returns true
-
   }
 
   @ParameterizedTest
@@ -43,26 +42,6 @@ class SolutionITest {
     assertFalse(solution.book(25, 39));
     assertFalse(solution.book(6, 19));
   }
-
-  private static final int[][] INPUT = {
-      {47, 50}, {1, 10}, {27, 36}, {40, 47}, {20, 27}, {15, 23}, {10, 18}, {27, 36}, {17, 25}, {8, 17}, {24, 33},
-      {23, 28}, {21, 27}, {47, 50}, {14, 21}, {26, 32}, {16, 21}, {2, 7}, {24, 33}, {6, 13}, {44, 50}, {33, 39},
-      {30, 36}, {6, 15}, {21, 27},
-      {49, 50}, {38, 45}, {4, 12}, {46, 50}, {13, 21}
-  };
-  private static final boolean[] EXPECTED = {
-      true, true, true, true, true, true, true, true, false, false, false, false, false, true, false, false, false,
-      true, false, false, false, false, false, false, false, false, true, false, false, false
-  };
-
-//  @ParameterizedTest
-//  @MethodSource("solutionProvider")
-//  void testOnlineCase3(Solution solution){
-//    for (int i = 0; i < INPUT.length; i++) {
-//      final String functionName = EXPECTED[i] ? "assertTrue" : "assertFalse";
-//      System.out.println(functionName + "(solution.book(" + INPUT[i][0] + ", " + INPUT[i][1] + "));");
-//    }
-//  }
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -99,6 +78,29 @@ class SolutionITest {
     assertFalse(solution.book(13, 21));
   }
 
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase3(Solution solution) {
+//    ["MyCalendarTwo","book","book","book","book","book","book","book","book","book","book","book","book","book",
+//    "book","book","book","book","book","book","book"]
+//[[],[26,45],[76,92],[25,37],[18,36],[40,50],[19,31],[48,60],[1,16],[46,65],[61,78],[74,90],[43,60],[27,43],[5,21],
+//[null,true, true,   true,     false,  true,   false,  true,   true, false,  true,   false,  false,  false,  true,
+// [80,90],[14,29],[3,19],[3,14],[75,89],[56,69]]
+// true,    false,  false,  false,  false,  true]
+    assertTrue(solution.book(26, 45));
+    assertTrue(solution.book(76, 92));
+    assertTrue(solution.book(25, 37));
+    assertFalse(solution.book(18, 36));
+    assertTrue(solution.book(40, 50));
+    assertFalse(solution.book(19, 31));
+    assertTrue(solution.book(48, 60));
+    assertTrue(solution.book(1, 16));
+    assertFalse(solution.book(46, 65));
+    assertTrue(solution.book(61, 78));
+    assertFalse(solution.book(74, 90));
+    assertFalse(solution.book(43, 60));
+  }
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
