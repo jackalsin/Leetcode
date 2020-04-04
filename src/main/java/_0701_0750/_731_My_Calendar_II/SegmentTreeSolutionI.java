@@ -1,6 +1,6 @@
 package _0701_0750._731_My_Calendar_II;
 
-public final class SolutionI implements Solution {
+public final class SegmentTreeSolutionI implements Solution {
   private static final int MAX = (int) (1E9);
   //  private static final int MAX = (int) (59);
   private final SegmentTreeNode root = new SegmentTreeNode(0, MAX);

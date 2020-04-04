@@ -1,4 +1,4 @@
-package _0701_0750._731_My_Calendar_II;
+package interviews.google._731_My_Calendar_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,7 +8,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 4/4/2020
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -28,10 +32,10 @@ class SolutionTest {
 //["book",  "book",   "book","book",  "book","book",  "book","book","book","book"]
 //[[24,40], [43,50],  [27,43],[5,21], [30,40],[14,29],[3,19],[3,14],[25,39],[6,19]]
 //[true,    true,     true,true,      false,false,    true,false,   false,false]
-    assertTrue(solution.book(24, 40));
-    assertTrue(solution.book(43, 50));
-    assertTrue(solution.book(27, 43));
-    assertTrue(solution.book(5, 21));
+    assertTrue(solution.book(24, 40)); // [24, 39]
+    assertTrue(solution.book(43, 50)); // [24, 39] [43, 49]
+    assertTrue(solution.book(27, 43)); // [24, 26, 1], [27, 39, 2], [40, 49, 1]
+    assertTrue(solution.book(5, 21)); // [5, 21, 1], [24, 26, 1], [27, 39, 2], [40, 49, 1]
     assertFalse(solution.book(30, 40));
     assertFalse(solution.book(14, 29));
     assertTrue(solution.book(3, 19));
@@ -95,8 +99,10 @@ class SolutionTest {
     assertFalse(solution.book(13, 21));
   }
 
+
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new SegmentTreeSolutionI(),
-        new BetterSolution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
