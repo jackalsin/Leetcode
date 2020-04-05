@@ -13,6 +13,7 @@ public final class SolutionI implements Solution {
 
   private static String helper(final int a, final int b, final int c, final String aStr, final String bStr,
                                final String cStr) {
+    // ===== 保证 a >= b >= c
     if (a < b) {
       return helper(b, a, c, bStr, aStr, cStr);
     }
@@ -22,6 +23,10 @@ public final class SolutionI implements Solution {
     if (b == 0) {
       return repeat(aStr, Math.min(2, a));
     }
+    // ===== 保证结束
+    // 如果a放两个，那么要节约地放，这样才能使得a放的更多，
+    // 如果最大值没发生交替，append一个只是为了分隔相同的最大值
+    // 如果发生交替，那就不用append了
     final int aUsed = Math.min(2, a), bUsed = a - aUsed >= b ? 1 : 0;
     return repeat(aStr, aUsed) + repeat(bStr, bUsed) + helper(a - aUsed, b - bUsed, c, aStr, bStr, cStr);
   }

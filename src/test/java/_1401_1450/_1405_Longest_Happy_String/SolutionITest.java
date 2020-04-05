@@ -43,6 +43,15 @@ class SolutionITest {
     System.out.println(actual);
     assertTrue(expected.contains(actual));
   }
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase5(Solution solution) {
+    final int a = 4, b = 2, c = 0;
+    final Set<String> expected = Set.of("aabbaa");
+    final String actual = solution.longestDiverseString(a, b, c);
+    System.out.println(actual);
+    assertTrue(expected.contains(actual));
+  }
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
