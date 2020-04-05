@@ -1,20 +1,22 @@
 package _0701_0750._727_Minimum_Window_Subsequence;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.Assert.assertEquals;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SolutionTest {
-  private Solution solution;
-
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new Solution()
+    );
   }
 
-  @Test
-  public void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testOnlineCase1(Solution solution) {
     final String S = "abcdebdde", T = "bde", expected = "bcde";
     assertEquals(expected, solution.minWindow(S, T));
   }
