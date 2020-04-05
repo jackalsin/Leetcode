@@ -20,7 +20,6 @@ class SolutionITest {
     final int a = 1, b = 1, c = 7;
     final Set<String> expected = Set.of("ccaccbcc", "ccbccacc");
     final String actual = solution.longestDiverseString(a, b, c);
-    System.out.println(actual);
     assertTrue(expected.contains(actual));
   }
 
@@ -30,7 +29,6 @@ class SolutionITest {
     final int a = 2, b = 2, c = 1;
     final Set<String> expected = Set.of("aabbc", "ababc");
     final String actual = solution.longestDiverseString(a, b, c);
-    System.out.println(actual);
     assertTrue(expected.contains(actual));
   }
 
@@ -40,16 +38,15 @@ class SolutionITest {
     final int a = 7, b = 1, c = 0;
     final Set<String> expected = Set.of("aabaa");
     final String actual = solution.longestDiverseString(a, b, c);
-    System.out.println(actual);
     assertTrue(expected.contains(actual));
   }
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase5(Solution solution) {
     final int a = 4, b = 2, c = 0;
-    final Set<String> expected = Set.of("aabbaa");
+    final Set<String> expected = Set.of("aabbaa", "aabaab");
     final String actual = solution.longestDiverseString(a, b, c);
-    System.out.println(actual);
     assertTrue(expected.contains(actual));
   }
 
@@ -58,9 +55,9 @@ class SolutionITest {
   void testOnlineCase4(Solution solution) {
     final int a = 0, b = 8, c = 11;
     //                                  "ccbbccbbccbbccbbcc"
-    final Set<String> expected = Set.of("ccbccbbccbbccbbccbc");
+    //                                  "ccbccbccbbccbbccbbc"
+    final Set<String> expected = Set.of("ccbccbbccbbccbbccbc", "ccbccbccbbccbbccbbc");
     final String actual = solution.longestDiverseString(a, b, c);
-    System.out.println(actual);
     assertTrue(expected.contains(actual));
   }
 
