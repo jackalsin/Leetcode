@@ -53,7 +53,6 @@ class SolutionITest {
     solution.cleanRoom(robot);
     final int[][] actual = robot.getBoard();
     assertArrayEquals(expected, actual);
-    TwoDimensionArray.println(actual);
   }
 
   static Stream<Solution> solutionProvider() {
