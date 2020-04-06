@@ -31,7 +31,7 @@ public class ONCubicSolution implements Solution {
           }
         }
       }
-      TwoDimensionArray.toString(dp);
+      TwoDimensionArray.println(dp);
     }
     return dp[0][n - 1];
   }

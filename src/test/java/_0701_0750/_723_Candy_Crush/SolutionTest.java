@@ -43,7 +43,7 @@ class SolutionTest {
     };
 
     final int[][] actual = solution.candyCrush(board);
-    TwoDimensionArray.toString(actual);
+    TwoDimensionArray.println(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
 
   }

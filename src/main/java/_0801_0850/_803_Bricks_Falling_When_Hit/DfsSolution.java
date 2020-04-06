@@ -33,7 +33,7 @@ public final class DfsSolution implements Solution {
         res[i] = dfs(grid, rows, cols, row, col) - 1; // hit doesn't count
       }
 
-      TwoDimensionArray.toString(grid);
+      TwoDimensionArray.println(grid);
     }
     return res;
   }

@@ -61,7 +61,7 @@ class SolutionTest {
         result[row][col] = row * cols + col + 1;
       }
     }
-    TwoDimensionArray.toString(result);
+    TwoDimensionArray.println(result);
     return result;
   }
 

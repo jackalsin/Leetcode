@@ -32,7 +32,7 @@ class SolutionTest {
         "198524367", "975863124", "832491756", "641275983"
     });
     solution.solveSudoku(board);
-    TwoDimensionArray.toString(board);
+    TwoDimensionArray.println(board);
 
     interviews.uber._036_Valid_Sudoku.Solution validSolution = new interviews.uber
         ._036_Valid_Sudoku.Solution();

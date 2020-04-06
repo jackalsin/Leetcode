@@ -35,7 +35,7 @@ class BfsSolutionTest {
         {2, 1, 2},
         {2, 2, 2}
     }, actual = solution.colorBorder(input, 1, 1, 2);
-    TwoDimensionArray.toString(actual);
+    TwoDimensionArray.println(actual);
     assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, actual));
   }
 

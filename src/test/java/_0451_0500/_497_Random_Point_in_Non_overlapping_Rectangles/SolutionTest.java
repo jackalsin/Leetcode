@@ -25,7 +25,7 @@ class SolutionTest {
         assertEquals(1d / 25, p[row][col] / (double) MAX_COUNT, BIAS);
       }
     }
-    TwoDimensionArray.toString(p);
+    TwoDimensionArray.println(p);
   }
 
 }

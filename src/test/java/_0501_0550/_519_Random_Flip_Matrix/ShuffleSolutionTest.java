@@ -43,7 +43,7 @@ class ShuffleSolutionTest {
       }
     }
 
-    TwoDimensionArray.toString(counts);
+    TwoDimensionArray.println(counts);
 
   }
 }

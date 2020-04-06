@@ -38,7 +38,7 @@ public class SolutionTest {
     int[][] expected = new int[][]{{3, 1}, {4, 2}};
     int[][] actual = new int[][]{{1, 2}, {3, 4}};
     solution.rotate(actual);
-    TwoDimensionArray.toString(actual);
+    TwoDimensionArray.println(actual);
     assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, actual));
   }
 
@@ -50,7 +50,7 @@ public class SolutionTest {
         {16, 12, 8, 4}};
     int[][] actual = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
     solution.rotate(actual);
-    TwoDimensionArray.toString(actual);
+    TwoDimensionArray.println(actual);
     assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, actual));
   }
 }
