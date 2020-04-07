@@ -1,6 +1,5 @@
 package interviews.google._363_Max_Sum_of_Rectangle_No_Larger_Than_K;
 
-import java.util.Arrays;
 import java.util.TreeSet;
 
 /**
@@ -10,6 +9,9 @@ import java.util.TreeSet;
 public final class SolutionI implements Solution {
   @Override
   public int maxSumSubmatrix(int[][] matrix, int k) {
+    /*
+     * Loop every possible up and bottom pair and get accumulated sum, find the max sum of subarray
+     */
     if (matrix == null || matrix.length == 0) {
       return 0;
     }
