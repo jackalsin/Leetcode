@@ -25,6 +25,9 @@ public class Solution {
           height[col] = 0;
         }
       }
+      /*为什么这个是对的？
+       * 如果上面的高度左边界是a，现在左边界连续1的起始点为b，那么 max(a, b)必然是此处高处的起点
+       */
       for (int col = 0; col < cols; col++) {
         if (matrix[row][col] == '1') {
           left[col] = Math.max(curLeft, left[col]);

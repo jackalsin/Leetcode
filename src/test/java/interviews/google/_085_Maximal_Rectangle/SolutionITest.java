@@ -1,41 +1,21 @@
-package _0051_0100._085_Maximal_Rectangle;
+package interviews.google._085_Maximal_Rectangle;
 
-
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TwoDimensionArray;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 5/21/2017.
+ * @version 1.0 on 4/7/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase(Solution solution) {
-    final char[][] board = new char[][]{
-        {'0', '0', '0', '1', '0', '0', '0'},
-        {'0', '0', '1', '1', '1', '0', '0'},
-        {'0', '1', '1', '1', '1', '1', '0'}
-    };
-
-    assertEquals(6, solution.maximalRectangle(board));
-  }
-
-  @ParameterizedTest
-  @MethodSource("solutionProvider")
-  void testOnlineCase2(Solution solution) {
-
     final char[][] board = new char[][]{
         {'0', '0', '0', '1', '0', '0', '0'},
         {'0', '0', '1', '1', '1', '0', '0'},
@@ -69,22 +49,6 @@ class SolutionTest {
     assertEquals(12, solution.maximalRectangle(inputBoard));
   }
 
-  // ------ test get board ----
-  @Test
-  void testGetBoard() {
-    final String input = "1 1 1 0 0 0 0 0\n" +
-        "1 1 1 1 1 1 1 1\n" +
-        "0 0 0 0 1 1 1 1\n" +
-        "0 0 0 0 1 1 1 1\n";
-    char[][] expected = new char[][]{
-        {'1', '1', '1', '0', '0', '0', '0', '0'},
-        {'1', '1', '1', '1', '1', '1', '1', '1'},
-        {'0', '0', '0', '0', '1', '1', '1', '1'},
-        {'0', '0', '0', '0', '1', '1', '1', '1'},
-    };
-    assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, getBoard(input)));
-  }
-
   private char[][] getBoard(String strBoard) {
     String[] rowLines = strBoard.split("\n");
     int rows = rowLines.length;
@@ -97,5 +61,10 @@ class SolutionTest {
     }
     return result;
   }
-}
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
+}
