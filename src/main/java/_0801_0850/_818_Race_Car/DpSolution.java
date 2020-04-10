@@ -3,6 +3,7 @@ package _0801_0850._818_Race_Car;
 public final class DpSolution implements Solution {
   /**
    * Time Complexity: O(log(target) ^ 2)
+   * https://leetcode.com/problems/race-car/discuss/123834/C%2B%2BJavaPython-DP-solution
    */
   public int racecar(int target) {
     final int[] dp = new int[10001];
