@@ -13,14 +13,16 @@ public final class SolutionII implements Solution {
     }
     final int total = K + 1;
     long left = 0, right = sum;
-    while (left < right) { // first can divide to k
-      final long mid = (left + right) / 2;
+    while (left < right) { // last can divide to k
+      final long mid = (1 + left + right) / 2;
       final int count = getCount(sweetness, mid);
-      System.out.println("Left = " + left + ", right = " + right + ", mid = " + mid + ", count = " + count);
+//      System.out.println("Left = " + left + ", right = " + right + ", mid = " + mid + ", count = " + count);
       if (count > total) {
         left = mid + 1;
+      } else if (count == total) {
+        left = mid;
       } else {
-        right = mid;
+        right = mid - 1;
       }
     }
     return (int) left;
@@ -33,15 +35,11 @@ public final class SolutionII implements Solution {
     int count = 0;
     long sum = 0;
     for (int s : sweetness) {
-      if (sum + s >= minSum) {
+      sum += s;
+      if (sum >= minSum) {
         sum = 0;
         count++;
-      } else {
-        sum += s;
       }
-    }
-    if (sum > 0) {
-      count++;
     }
     return count;
   }
