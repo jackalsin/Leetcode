@@ -7,6 +7,7 @@ package interviews.google._1231_Divide_Chocolate;
 public final class SolutionII implements Solution {
   @Override
   public int maximizeSweetness(int[] sweetness, int K) {
+    //  https://leetcode.com/problems/find-the-shortest-superstring/discuss/194932/Travelling-Salesman-Problem
     long sum = 0;
     for (int s : sweetness) {
       sum += s;
