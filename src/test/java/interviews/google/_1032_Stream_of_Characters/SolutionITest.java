@@ -1,4 +1,4 @@
-package _1001_1050._1032_Stream_of_Characters;
+package interviews.google._1032_Stream_of_Characters;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -6,10 +6,15 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.lang.reflect.InvocationTargetException;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class StreamCheckerIITest {
+/**
+ * @author jacka
+ * @version 1.0 on 4/11/2020
+ */
+class SolutionITest {
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -32,10 +37,23 @@ class StreamCheckerIITest {
     assertTrue(streamChecker.query('l'));          // return true, because 'kl' is in the wordlist
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Class<StreamChecker> solutionClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
+    final String[] input = new String[]{"abaa", "abaab", "aabbb", "bab", "ab"};
+    // init the dictionary.
+    StreamChecker streamChecker = solutionClass.getConstructor(String[].class).newInstance(new Object[]{input});
+    assertFalse(streamChecker.query('a'));          // return false
+    assertFalse(streamChecker.query('a'));          // return false
+    assertTrue(streamChecker.query('b'));          // return true, because 'ab'
+    assertFalse(streamChecker.query('b'));          // return false
+    assertTrue(streamChecker.query('b'));          // return true, 'aabbb'
+  }
+
   static Stream<Class> solutionProvider() {
     return Stream.of(
-        StreamCheckerI.class,
-        StreamCheckerII.class
+        StreamCheckerI.class
     );
   }
 }
