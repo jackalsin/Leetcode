@@ -1,4 +1,4 @@
-package _1001_1050._1145_Binary_Tree_Coloring_Game;
+package _1101_1150._1145_Binary_Tree_Coloring_Game;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
