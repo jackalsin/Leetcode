@@ -24,7 +24,8 @@ public final class SolutionI implements Solution {
       return 0;
     }
     int count = 0;
-    if (isInRange(low, high, s) == 0) {
+    if (!s.isEmpty() && (s.length() == 1 || s.charAt(0) != '0') && isInRange(low, high, s) == 0) {
+//      System.out.println(s);
       count++;
     }
     if (s.isEmpty()) {
@@ -40,21 +41,25 @@ public final class SolutionI implements Solution {
     return count;
   }
 
-  private static int isInRange(final String low, final String high, final String cur) {
-    if (cur.length() < low.length()) {
-      return -1;
-    }
-    if (high.length() < cur.length()) {
-      return 1;
-    }
-    final int lowCmp = low.compareTo(cur),
-        highCmp = cur.compareTo(high);
-    if (lowCmp < 0) {
-      return -1;
+  static int isInRange(final String low, final String high, final String cur) {
+    final int lowCmp = compare(low, cur),
+        highCmp = compare(cur, high);
+    if (lowCmp > 0) {
+      return -1; // low > cur
     }
     if (highCmp > 0) {
-      return 1;
+      return 1; // cur > high
     }
     return 0;
+  }
+
+  private static int compare(final String a, final String b) {
+    if (a.length() > b.length()) {
+      return 1;
+    } else if (a.length() == b.length()) {
+      return a.compareTo(b);
+    } else {
+      return -1;
+    }
   }
 }

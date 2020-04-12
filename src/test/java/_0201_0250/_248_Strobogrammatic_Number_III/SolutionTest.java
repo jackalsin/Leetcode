@@ -1,28 +1,30 @@
 package _0201_0250._248_Strobogrammatic_Number_III;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.Assert.assertEquals;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
  * @version 1.0 on 8/24/2017.
  */
 public class SolutionTest {
-  private Solution solution;
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(new Solution());
   }
 
-  @Test
-  public void testZero() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testZero(Solution solution) {
     assertEquals(1, solution.strobogrammaticInRange("0", "0"));
   }
 
-  @Test
-  public void testLeadingZero() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testLeadingZero(Solution solution) {
     assertEquals(3, solution.strobogrammaticInRange("90", "111"));
   }
 }
