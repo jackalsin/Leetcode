@@ -1,28 +1,21 @@
-package _0351_0400._359_Logger_Rate_Limiter;
-
+package interviews.google._359_Logger_Rate_Limiter;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 10/12/2017.
+ * @version 1.0 on 4/13/2020
  */
-class LoggerTest {
-  static Stream<Logger> solutionProvider() {
-    return Stream.of(
-        new Logger()
-    );
-  }
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  void testOnlineCase(Logger logger) {
+  void testOnlineCase(Solution logger) {
 // logging string "foo" at timestamp 1
     assertTrue(logger.shouldPrintMessage(1, "foo"));
 
@@ -42,4 +35,10 @@ class LoggerTest {
     assertTrue(logger.shouldPrintMessage(11, "foo"));
   }
 
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
