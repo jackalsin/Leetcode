@@ -1,5 +1,4 @@
-package _0251_0300._299_Bulls_and_Cows;
-
+package interviews.google._299_Bulls_and_Cows;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,14 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 9/10/2017.
+ * @version 1.0 on 4/13/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -37,4 +31,15 @@ class SolutionTest {
     assertEquals("0A4B", solution.getHint("1122", "2211"));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase4(Solution solution) {
+    assertEquals("3A0B", solution.getHint("1122", "1222"));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
