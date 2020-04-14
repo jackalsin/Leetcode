@@ -1,4 +1,4 @@
-package _0801_0850._844_Backspace_String_Compare;
+package interviews.google._844_Backspace_String_Compare;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,10 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 4/9/2020
+ * @version 1.0 on 4/13/2020
  */
 class SolutionITest {
-
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -73,8 +72,7 @@ class SolutionITest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new ONSpaceSolution(),
-        new O1SpaceSolution()
+        new SolutionI()
     );
   }
 }
