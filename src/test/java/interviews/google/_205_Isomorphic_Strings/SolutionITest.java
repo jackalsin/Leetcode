@@ -1,23 +1,18 @@
-package _0201_0250._205_Isomorphic_Strings;
+package interviews.google._205_Isomorphic_Strings;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 8/6/2017.
+ * @version 1.0 on 4/14/2020
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -47,5 +42,11 @@ public class SolutionTest {
   @MethodSource("solutionProvider")
   public void testAbAndAA(Solution solution) throws Exception {
     assertFalse(solution.isIsomorphic("ab", "aa"));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
