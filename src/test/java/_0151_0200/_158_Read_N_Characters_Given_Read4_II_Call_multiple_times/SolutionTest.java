@@ -1,7 +1,10 @@
 package _0151_0200._158_Read_N_Characters_Given_Read4_II_Call_multiple_times;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,19 +13,21 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 7/23/2017.
  */
 public class SolutionTest {
-  private Solution solution;
 
-  @Before
-  public void setUp() throws Exception {
-
-  }
-
-  @Test
-  public void testAbc() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
     final String s = "abc";
-    solution = new Solution(s);
+    Solution solution = solutionClass.getConstructor(String.class).newInstance(s);
     assertEquals(1, solution.read(new char[1], 1));
     assertEquals(3, solution.read(new char[4], 4));
     assertEquals(0, solution.read(new char[0], 0));
+  }
+
+  static Stream<Class> solutionProvider() {
+    return Stream.of(
+        Solution.class
+    );
   }
 }

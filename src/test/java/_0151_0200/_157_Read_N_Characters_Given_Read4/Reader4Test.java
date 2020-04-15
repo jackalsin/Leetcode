@@ -14,14 +14,20 @@ public class Reader4Test {
 
   @Before
   public void setUp() throws Exception {
-    reader4 = new Reader4("ss");
+    reader4 = new Reader4Impl("ss");
   }
 
   @Test
   public void test3Chars() throws Exception {
     final char[] input = "avc".toCharArray();
-    assertEquals(3, reader4.read4(input));
+    assertEquals(2, reader4.read4(input));
     assertEquals(0, reader4.read4(input));
   }
 
+  private static final class Reader4Impl extends Reader4 {
+
+    public Reader4Impl(String s) {
+      super(s);
+    }
+  }
 }
