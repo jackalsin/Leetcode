@@ -22,7 +22,7 @@ public final class SolutionI implements Solution {
 
     int res = 0;
     /*loop every pair [col_left, col_right]
-    * and pretend this is the subarry sum equals to target problem*/
+    * and pretend this is the subarray sum equals to target problem*/
     for (int left = 0; left < cols; left++) {
       for (int right = left; right < cols; right++) {
         final Map<Integer, Integer> sumToCount = new HashMap<>() {{
