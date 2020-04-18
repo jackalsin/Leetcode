@@ -11,7 +11,7 @@ public final class SolutionI implements Solution {
       return 0;
     }
     final int rows = grid.length, cols = grid[0].length;
-    for(int j = 1; j < cols; ++j) {
+    for (int j = 1; j < cols; ++j) {
       grid[0][j] += grid[0][j - 1];
     }
     for (int i = 1; i < rows; ++i) {
