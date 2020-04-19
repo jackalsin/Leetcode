@@ -3,6 +3,9 @@ package _1401_1450._1420_Build_Array_Where_You_Can_Find_The_Maximum_Exactly_K_Co
 public final class BottomUpSolution implements Solution {
   private static final int MOD = 1000000007;
 
+  /**
+   * https://leetcode.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons/discuss/586576/C%2B%2B-Bottom-Up-Dynamic-Programming-with-Explanation
+   */
   public int numOfArrays(int N, int M, int K) {
     final long[][][] dp = new long[N + 1][M + 1][K + 1];
     // len 1, max = j, cost 1
