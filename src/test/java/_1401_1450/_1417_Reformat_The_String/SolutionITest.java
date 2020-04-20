@@ -16,7 +16,7 @@ class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase1(Solution solution) {
-    final String s = "a0b1c2", expected = "0a1b2c";
+    final String s = "a0b1c2", expected = "c2b1a0";
     assertEquals(expected, solution.reformat(s));
   }
 
