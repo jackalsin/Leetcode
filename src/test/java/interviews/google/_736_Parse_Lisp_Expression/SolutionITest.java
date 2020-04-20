@@ -1,4 +1,4 @@
-package _0701_0750._736_Parse_Lisp_Expression;
+package interviews.google._736_Parse_Lisp_Expression;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,13 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new ON2Solution(),
-        new ONSolution()
-    );
-  }
+/**
+ * @author jacka
+ * @version 1.0 on 4/19/2020
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -83,5 +81,11 @@ class SolutionTest {
   void testOnlineCase10(Solution solution) {
     final String input = "(let x 7 -12)";
     assertEquals(-12, solution.evaluate(input));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
