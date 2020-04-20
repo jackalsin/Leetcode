@@ -1,7 +1,9 @@
 package interviews.google._042_Trapping_Rain_Water;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,15 +13,16 @@ import static org.junit.Assert.assertEquals;
  */
 public class SolutionTest {
 
-  private Solution solution;
-
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  public void testWithOnlineCase() throws Exception {
-    assertEquals(6, solution.trap(new int[] {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testWithOnlineCase(Solution solution) {
+    assertEquals(6, solution.trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
   }
 }
