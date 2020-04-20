@@ -1,4 +1,4 @@
-package _1001_1050._1008_Construct_Binary_Search_Tree_from_Preorder_Traversal;
+package explore._1008_Construct_Binary_Search_Tree_from_Preorder_Traversal;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,14 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 3/9/2019.
+ * @version 1.0 on 4/20/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -27,5 +22,11 @@ class SolutionTest {
     final TreeNode expected = TreeNodes.getTreeLevelOrder(8, 5, 10, 1, 7, null, 12),
         actual = solution.bstFromPreorder(input);
     assertEquals(expected, actual);
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
