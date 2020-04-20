@@ -21,7 +21,7 @@ public class SolutionTest {
     final String s = "abc";
     Solution solution = solutionClass.getConstructor(String.class).newInstance(s);
     assertEquals(1, solution.read(new char[1], 1));
-    assertEquals(3, solution.read(new char[4], 4));
+    assertEquals(2, solution.read(new char[4], 4));
     assertEquals(0, solution.read(new char[0], 0));
   }
 

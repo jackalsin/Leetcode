@@ -32,6 +32,6 @@ public final class SolutionI implements Solution {
       l2 = l1;
       l1 = tmp;
     }
-    return sb.length() == s.length() ? "" : sb.toString();
+    return sb.length() == s.length() ? sb.toString() : "";
   }
 }
