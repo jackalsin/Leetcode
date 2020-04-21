@@ -1,5 +1,4 @@
-package _0251_0300._295_Find_Median_from_Data_Stream;
-
+package interviews.google._295_Find_Median_from_Data_Stream;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,15 +8,10 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/5/2017.
+ * @author jacka
+ * @version 1.0 on 4/21/2020
  */
-class MedianFinderTest {
-  static Stream<MedianFinder> solutionProvider() {
-    return Stream.of(
-        new MedianFinder()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -45,4 +39,9 @@ class MedianFinderTest {
     assertEquals(-3.0, solution.findMedian(), 1E-9);
   }
 
+  static Stream<MedianFinder> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
