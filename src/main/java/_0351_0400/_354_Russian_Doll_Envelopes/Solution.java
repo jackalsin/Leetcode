@@ -19,13 +19,17 @@ public class Solution {
         }
       }
     });
-    System.out.println(Arrays.deepToString(envelopes));
+    // width is increasing, but if two widths are the same, the height is decreasing
+    // after sorting, all envelopes are valid 'based on width', so we just binary search based on 'heights'
+    // to choose 'some of them' to meet the requirement
+    // Ex. after sorting: (1,3), (3,5), (6,8), (6,7), (8,4), (9,5)
+    // transform to question find LIS: [3,5,8,7,4,5] => like '300. Longest Increasing Subsequence'
     final int[] dp = new int[envelopes.length];
     int len = 0;
     for (int[] envelope : envelopes) {
-      int insertPoint  = Arrays.binarySearch(dp, 0, len, envelope[1]);
+      int insertPoint = Arrays.binarySearch(dp, 0, len, envelope[1]);
       if (insertPoint < 0) {
-        insertPoint = - (insertPoint + 1);
+        insertPoint = -(insertPoint + 1);
       }
       dp[insertPoint] = envelope[1];
       if (insertPoint == len) len++;
