@@ -1,4 +1,4 @@
-package _0301_0350._329_Longest_Increasing_Path_in_a_Matrix;
+package interviews.google._329_Longest_Increasing_Path_in_a_Matrix;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,15 +8,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/29/2017.
+ * @author jacka
+ * @version 1.0 on 4/21/2020
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -38,5 +34,11 @@ public class SolutionTest {
         {2, 2, 1},
     };
     assertEquals(4, solution.longestIncreasingPath(board));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
