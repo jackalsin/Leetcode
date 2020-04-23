@@ -1,4 +1,4 @@
-package _0201_0250._201_Bitwise_AND_of_Numbers_Range;
+package explore._201_Bitwise_AND_of_Numbers_Range;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,15 +7,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/2/2017.
- */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testZero(Solution solution) {
@@ -34,5 +26,11 @@ public class SolutionTest {
     assertEquals(0b101000, solution.rangeBitwiseAnd(0b101101,
         0b101010));
   }
-}
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
+
+}
