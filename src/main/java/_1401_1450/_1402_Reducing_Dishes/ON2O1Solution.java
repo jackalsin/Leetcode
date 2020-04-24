@@ -6,24 +6,24 @@ import java.util.Arrays;
  * @author jacka
  * @version 1.0 on 4/23/2020
  */
-public final class SolutionI implements Solution {
+public final class ON2O1Solution implements Solution {
   @Override
   public int maxSatisfaction(int[] satisfaction) {
     final int n = satisfaction.length;
     Arrays.sort(satisfaction);
 //    System.out.println(Arrays.toString(satisfaction));
-    final int[][] dp = new int[n + 1][n + 1];
+    int[] prev = new int[n + 1];
+    int res = 0;
     for (int i = 0; i < n; ++i) {
+      final int[] next = new int[n + 1];
       int max = Integer.MIN_VALUE;
       for (int j = i; j < n; ++j) {
-        dp[i + 1][j + 1] = Math.max(max, dp[i][j] + (i + 1) * satisfaction[j]);
-        max = Math.max(dp[i + 1][i + 1], max);
+        next[j + 1] = Math.max(max, prev[j] + (i + 1) * satisfaction[j]);
+        max = Math.max(next[j + 1], max);
       }
+      res = Math.max(res, next[n]);
+      prev = next;
     }
-    int max = Integer.MIN_VALUE;
-    for (int i = 0; i <= n; ++i) {
-      max = Math.max(max, dp[i][n]);
-    }
-    return max;
+    return res;
   }
 }
