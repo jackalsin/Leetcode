@@ -1,8 +1,8 @@
-package _1351_1400._1397_Find_All_Good_Strings;
+package dynamicProgramming._1397_Find_All_Good_Strings;
 
 /**
  * @author jacka
- * @version 1.0 on 3/28/2020
+ * @version 1.0 on 4/24/2020
  */
 public final class SolutionI implements Solution {
   private char[] s1 = null, s2 = null, evil = null;
@@ -39,6 +39,7 @@ public final class SolutionI implements Solution {
         end = isPrefix2 ? s2[i] : 'z';
     for (char chr = start; chr <= end; ++chr) {
       int nextPtr = evilPtr;
+      // 找到改到点
       while (!(nextPtr == -1 || chr == evil[nextPtr])) {
         nextPtr = next[nextPtr];
       }

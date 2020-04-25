@@ -1,59 +1,65 @@
 package example.string;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class KMPTest {
 
-  private KMP solution;
-
-  @BeforeEach
-  void setup() {
-    solution = new KMP();
+  static Stream<KMP> solutionProvider() {
+    return Stream.of(
+        new KMPI(),
+        new KMPII()
+    );
   }
 
   // ----- test of substring -------------------
-  @Test
-  void testSubstring1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testSubstring1(KMP solution) {
     final String haystack = "hello", needle = "ll";
     assertEquals(2, solution.substring(haystack, needle));
   }
 
-  @Test
-  void testSubstring2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testSubstring2(KMP solution) {
     final String haystack = "aaaaa", needle = "bba";
     assertEquals(-1, solution.substring(haystack, needle));
   }
 
   // ----- getNext(final String pattern) --------
-  @Test
-  void testGetNext1() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testGetNext1(KMP solution) {
     final String p = "ABCDABD";
     final int[] expected = {-1, 0, 0, 0, 0, 1, 2};
-    final int[] actual = KMP.getNext(p);
+    final int[] actual = solution.getNext(p);
 //    System.out.println(Arrays.toString(actual));
     assertArrayEquals(expected, actual);
   }
 
-  @Test
-  void testGetNext2() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testGetNext2(KMP solution) {
     final String p = "ABCDABCDABD";
     final int[] expected = {-1, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6};
-    final int[] actual = KMP.getNext(p);
+    final int[] actual = solution.getNext(p);
 //    System.out.println(Arrays.toString(actual));
     assertArrayEquals(expected, actual);
   }
 
-  @Test
-  void testGetNext3() {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testGetNext3(KMP solution) {
     final String p = "";
     final int[] expected = {};
-    final int[] actual = KMP.getNext(p);
+    final int[] actual = solution.getNext(p);
 //    System.out.println(Arrays.toString(actual));
     assertArrayEquals(expected, actual);
   }
-
 }
