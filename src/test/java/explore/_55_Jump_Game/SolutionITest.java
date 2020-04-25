@@ -1,23 +1,18 @@
-package _0051_0100._055_Jump_Game;
+package explore._55_Jump_Game;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 4/20/2017.
+ * @author jacka
+ * @version 1.0 on 4/25/2020
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -35,5 +30,11 @@ public class SolutionTest {
   @MethodSource("solutionProvider")
   public void testWithOnlineCase3(Solution solution) {
     assertTrue(solution.canJump(new int[]{1, 2, 3}));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
