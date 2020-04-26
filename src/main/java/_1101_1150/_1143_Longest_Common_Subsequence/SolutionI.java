@@ -9,7 +9,6 @@ public final class SolutionI implements Solution {
   public int longestCommonSubsequence(String text1, String text2) {
     final int m = text1.length(), n = text2.length();
     int[] prev = new int[n + 1];
-    final int[][] dp = new int[m + 1][n + 1];
     for (int i = 0; i < text1.length(); ++i) {
       int[] next = new int[n + 1];
       for (int j = 0; j < text2.length(); ++j) {
