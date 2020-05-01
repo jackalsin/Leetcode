@@ -2,7 +2,6 @@ package _1201_1250._1202_Smallest_String_With_Swaps;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -28,11 +27,8 @@ public final class SolutionI implements Solution {
       result.get(uf.root(i)).add(s.charAt(i));
     }
     final StringBuilder sb = new StringBuilder();
-    result.forEach(x -> x.sort(new Comparator<Character>() {
-      @Override
-      public int compare(Character o1, Character o2) {
-        return Character.compare(o2, o1);
-      }
+    result.forEach(x -> x.sort((o1, o2) -> {
+      return Character.compare(o2, o1);
     }));
     for (int i = 0; i < s.length(); ++i) {
       final List<Character> list = result.get(uf.root(i));
