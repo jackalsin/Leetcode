@@ -1,5 +1,4 @@
-package _0001_0050._010_Regular_Expression_Matching;
-
+package interviews.byteDance._010_Regular_Expression_Matching;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,12 +9,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/1/17.
+ * @version 1.0 on 5/2/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -57,12 +53,17 @@ class SolutionTest {
   @MethodSource("solutionStream")
   void isMatchCaseOne(Solution solution) {
     assertTrue(solution.isMatch("aaa", "ab*ac*a"));
-
   }
 
   @ParameterizedTest
   @MethodSource("solutionStream")
   void isMatchCaseTwo(Solution solution) {
     assertTrue(solution.isMatch("aaa", "ab*a*c*a"));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
