@@ -1,5 +1,4 @@
-package _0001_0050._015_3Sum;
-
+package interviews.byteDance._015_3Sum;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,19 +10,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2017/1/19.
+ * @version 1.0 on 5/3/2020
  */
-class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -35,6 +28,7 @@ class SolutionTest {
     List<List<Integer>> actual =
         solution.threeSum(new int[]{-1, 0, 1, 2, -1, -4});
     assertEquals(expected, new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
   }
 
   @ParameterizedTest
@@ -54,4 +48,9 @@ class SolutionTest {
     );
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
