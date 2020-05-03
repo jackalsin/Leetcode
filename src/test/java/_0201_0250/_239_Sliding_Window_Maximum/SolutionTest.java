@@ -1,46 +1,53 @@
 package _0201_0250._239_Sliding_Window_Maximum;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.Assert.assertArrayEquals;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * @author jacka
  * @version 1.0 on 8/19/2017.
  */
 public class SolutionTest {
-  private Solution solution;
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new ONSolution(),
+        new SolutionI()
+    );
   }
 
-  @Test
-  public void testOnline() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testOnline(Solution solution) {
     final int[] input = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
-    final int[] expected = new int[] {3, 3, 5, 5, 6, 7};
+    final int[] expected = new int[]{3, 3, 5, 5, 6, 7};
     assertArrayEquals(expected, solution.maxSlidingWindow(input, 3));
   }
 
-  @Test
-  public void testEmpty() throws Exception {
-    final int[] input = new int[] {};
-    final int[] expected = new int[] {};
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testEmpty(Solution solution) {
+    final int[] input = new int[]{};
+    final int[] expected = new int[]{};
     assertArrayEquals(expected, solution.maxSlidingWindow(input, 0));
   }
 
-  @Test
-  public void testFailedCase() throws Exception {
-    final int[] input = new int[] {-7,-8,7,5,7,1,6,0};
-    final int[] expected = new int[] {7, 7, 7, 7, 7};
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testFailedCase(Solution solution) {
+    final int[] input = new int[]{-7, -8, 7, 5, 7, 1, 6, 0};
+    final int[] expected = new int[]{7, 7, 7, 7, 7};
     assertArrayEquals(expected, solution.maxSlidingWindow(input, 4));
   }
 
-  @Test
-  public void testFailedCase2() throws Exception {
-    final int[] input = new int[] {1,3,1,2,0,5};
-    final int[] expected = new int[] {3,3,2,5};
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  public void testFailedCase2(Solution solution) {
+    final int[] input = new int[]{1, 3, 1, 2, 0, 5};
+    final int[] expected = new int[]{3, 3, 2, 5};
     assertArrayEquals(expected, solution.maxSlidingWindow(input, 3));
   }
 }
