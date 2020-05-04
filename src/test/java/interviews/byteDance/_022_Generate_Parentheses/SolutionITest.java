@@ -1,4 +1,4 @@
-package _0001_0050._022_Generate_Parentheses;
+package interviews.byteDance._022_Generate_Parentheses;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,16 +13,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 1/23/2017.
+ * @version 1.0 on 5/3/2020
  */
-public class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionProvider")
   public void testWith0(Solution solution) {
@@ -57,4 +50,9 @@ public class SolutionTest {
     assertEquals(sampleInOrderAns.size(), actualAns.size());
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
