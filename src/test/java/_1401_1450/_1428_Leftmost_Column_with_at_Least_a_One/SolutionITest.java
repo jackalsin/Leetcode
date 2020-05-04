@@ -1,4 +1,4 @@
-package explore.Leftmost_Column_with_at_Least_a_One;
+package _1401_1450._1428_Leftmost_Column_with_at_Least_a_One;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
