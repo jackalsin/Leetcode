@@ -1,5 +1,4 @@
-package _0001_0050._031_Next_Permutation;
-
+package interviews.byteDance._031_Next_Permutation;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,12 +9,10 @@ import static org.junit.Assert.assertArrayEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 1/31/2017.
+ * @version 1.0 on 5/5/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
+
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -35,4 +32,9 @@ class SolutionTest {
     assertArrayEquals(result, input);
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
