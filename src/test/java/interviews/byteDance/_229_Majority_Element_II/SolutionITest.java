@@ -1,4 +1,4 @@
-package _0201_0250._229_Majority_Element_II;
+package interviews.byteDance._229_Majority_Element_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,12 +13,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 8/17/2017.
+ * @version 1.0 on 5/6/2020
  */
-public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -28,5 +25,11 @@ public class SolutionTest {
     final List<Integer> actual = solution.majorityElement(input);
     assertEquals(expected.size(), actual.size());
     assertEquals(expected, new HashSet<>(actual));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
