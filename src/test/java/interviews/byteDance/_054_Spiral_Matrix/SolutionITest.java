@@ -1,4 +1,4 @@
-package _0051_0100._054_Spiral_Matrix;
+package interviews.byteDance._054_Spiral_Matrix;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,10 +10,10 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 4/20/2017.
+ * @author zhixi
+ * @version 1.0 on 5/6/2020
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -48,6 +48,8 @@ public class SolutionTest {
   }
 
   static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }

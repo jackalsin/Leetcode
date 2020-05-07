@@ -5,5 +5,5 @@ package interviews.byteDance._053_Maximum_Subarray;
  * @version 1.0 on 5/6/2020
  */
 public interface Solution {
-  public int maxSubArray(int[] nums);
+   int maxSubArray(int[] nums);
 }
