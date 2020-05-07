@@ -1,5 +1,4 @@
-package _0051_0100._072_Edit_Distance;
-
+package interviews.byteDance._072_Edit_Distance;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,15 +8,10 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author jacka
- * @version 1.0 on 4/29/2017.
+ * @author zhixi
+ * @version 1.0 on 5/7/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -35,5 +29,17 @@ class SolutionTest {
   @MethodSource("solutionProvider")
   void testWithCommonCase1(Solution solution) {
     assertEquals(2, solution.minDistance("word", "wcd"));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithCommonCase2(Solution solution) {
+    assertEquals(3, solution.minDistance("horse", "ros"));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
