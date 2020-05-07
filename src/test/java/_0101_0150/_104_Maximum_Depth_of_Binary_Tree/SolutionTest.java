@@ -35,7 +35,7 @@ public class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  public void test3LevelsIncomplit(Solution solution) {
+  public void test3LevelsIncomplete(Solution solution) {
     TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3, 4);
     assertEquals(3, solution.maxDepth(input));
   }
