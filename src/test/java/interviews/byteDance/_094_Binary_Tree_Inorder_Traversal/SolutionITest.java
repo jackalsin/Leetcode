@@ -1,22 +1,24 @@
-package _0051_0100._094_Binary_Tree_Inorder_Traversal;
+package interviews.byteDance._094_Binary_Tree_Inorder_Traversal;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import utils.TreeNode;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 5/31/2017.
+ * @author zhixi
+ * @version 1.0 on 5/7/2020
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
-  public void testBalancedTree(Solution solution) throws Exception {
+  public void testBalancedTree(Solution solution) {
     final TreeNode root = new TreeNode(1);
     root.left = null;
     root.right = new TreeNode(2);
@@ -24,10 +26,16 @@ public class SolutionTest {
     assertEquals(Arrays.asList(1, 3, 2), solution.inorderTraversal(root));
   }
 
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase1(Solution solution) {
+    assertEquals(List.of(), solution.inorderTraversal(null));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new MorrisTraversalSolution()
+    );
+  }
 }
