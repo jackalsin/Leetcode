@@ -1,21 +1,17 @@
-package _0051_0100._053_Maximum_Subarray;
+package interviews.byteDance._053_Maximum_Subarray;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 3/27/2017.
+ * @author zhixi
+ * @version 1.0 on 5/6/2020
  */
-public class SolutionTest {
-
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -50,5 +46,11 @@ public class SolutionTest {
   public void testWithTwoNegativeElementReverse(Solution solution) {
     final int[] input = new int[]{-2, -3};
     assertEquals(-2, solution.maxSubArray(input));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
