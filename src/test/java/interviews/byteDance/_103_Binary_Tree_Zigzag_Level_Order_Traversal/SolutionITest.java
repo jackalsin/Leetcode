@@ -1,4 +1,4 @@
-package _0101_0150._103_Binary_Tree_Zigzag_Level_Order_Traversal;
+package interviews.byteDance._103_Binary_Tree_Zigzag_Level_Order_Traversal;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -14,13 +14,10 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 6/16/2017.
+ * @author zhixi
+ * @version 1.0 on 5/7/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -56,5 +53,11 @@ class SolutionTest {
   @MethodSource("solutionProvider")
   void testNullPointer(Solution solution) {
     assertEquals(new ArrayList<>(), solution.zigzagLevelOrder(null));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
