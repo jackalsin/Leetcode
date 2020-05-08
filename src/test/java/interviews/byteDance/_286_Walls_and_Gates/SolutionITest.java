@@ -1,4 +1,4 @@
-package _0251_0300._286_Walls_and_Gates;
+package interviews.byteDance._286_Walls_and_Gates;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -6,21 +6,15 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/5/2017.
+ * @author jacka
+ * @version 1.0 on 5/8/2020
  */
-public class SolutionTest {
-  private static final int INF = Integer.MAX_VALUE;
+class SolutionITest {
 
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new NaiveBfsSolution(),
-        new AdvancedBfsSolution()
-    );
-  }
+  private static final int INF = Integer.MAX_VALUE;
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -40,4 +34,9 @@ public class SolutionTest {
     assertTrue(Arrays.deepEquals(expected, input));
   }
 
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
