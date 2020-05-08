@@ -1,4 +1,4 @@
-package interviews.microsoft._232_Implement_Queue_using_Stacks;
+package interviews.byteDance._232_Implement_Queue_using_Stacks;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,7 +9,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-class MyQueueTest {
+/**
+ * @author jacka
+ * @version 1.0 on 5/8/2020
+ */
+class MyQueueITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -25,7 +29,7 @@ class MyQueueTest {
 
   static Stream<Class> solutionProvider() {
     return Stream.of(
-        MyQueue.class
+        MyQueueI.class
     );
   }
 }
