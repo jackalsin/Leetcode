@@ -1,4 +1,4 @@
-package _0151_0200._160_Intersection_of_Two_Linked_Lists;
+package interviews.byteDance._160_Intersection_of_Two_Linked_Lists;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,7 +9,12 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 5/7/2020
+ */
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionProvider")
   void testOnlineCase(Solution solution) {
@@ -21,9 +26,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new SolutionI(),
-        new SolutionII(),
-        new SolutionIII()
+        new SolutionI()
     );
   }
 }
