@@ -1,4 +1,4 @@
-package _0201_0250._206_Reverse_Linked_List;
+package interviews.byteDance._206_Reverse_Linked_List;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,7 +9,11 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 5/7/2020
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -37,7 +41,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionProvider() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
