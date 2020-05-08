@@ -1,5 +1,4 @@
-package _0151_0200._199_Binary_Tree_Right_Side_View;
-
+package interviews.byteDance._199_Binary_Tree_Right_Side_View;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,14 +12,9 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 8/4/2017.
+ * @version 1.0 on 5/7/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionProvider() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionProvider")
@@ -43,5 +37,11 @@ class SolutionTest {
     root.right = new TreeNode(3);
     root.left.right = new TreeNode(5);
     assertEquals(result, solution.rightSideView(root));
+  }
+
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
