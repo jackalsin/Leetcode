@@ -1,5 +1,6 @@
-package _0401_0450._445_Add_Two_Numbers_II;
+package interviews.byteDance._445_Add_Two_Numbers_II;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import utils.ListNode;
@@ -7,20 +8,13 @@ import utils.ListNodes;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 10/29/2017.
+ * @version 1.0 on 5/9/2020
  */
-public class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new ReverseSolution(),
-        new ReverseResultNotInPlace(),
-        new NoReverseSolution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -56,17 +50,15 @@ public class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
-  public void testFailedCase99And8(Solution solution) {
+  public void testFailedCase99And8(@NotNull Solution solution) {
     ListNode l1 = ListNodes.getListOfNodes(9, 9);
     ListNode l2 = ListNodes.getListOfNodes(8);
     assertEquals(ListNodes.getListOfNodes(1, 0, 7), solution.addTwoNumbers(l1, l2));
   }
 
-  @ParameterizedTest
-  @MethodSource("solutionStream")
-  public void testFailedCase899And2(Solution solution) {
-    ListNode l1 = ListNodes.getListOfNodes(8, 9, 9);
-    ListNode l2 = ListNodes.getListOfNodes(2);
-    assertEquals(ListNodes.getListOfNodes(9, 0, 1), solution.addTwoNumbers(l1, l2));
+  static @NotNull Stream<Solution> solutionStream() {
+    return Stream.of(
+        new ReverseSolution()
+    );
   }
 }
