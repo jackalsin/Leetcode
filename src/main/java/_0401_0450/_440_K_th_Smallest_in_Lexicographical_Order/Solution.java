@@ -1,7 +1,11 @@
 package _0401_0450._440_K_th_Smallest_in_Lexicographical_Order;
 
 public class Solution {
-  // TODO: validate in Leetcode
+
+  /**
+   * @see
+   * <a href='https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/discuss/92242/ConciseEasy-to-understand-Java-5ms-solution-with-Explaination'>Concise/Easy-to-understand Java 5ms solution with Explaination</a>
+   */
   public int findKthNumber(int n, int k) {
     int cur = 1;
     k--;
