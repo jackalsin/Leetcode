@@ -1,22 +1,18 @@
-package _0451_0500._470_Implement_Rand10_Using_Rand7;
+package interviews.byteDance._470_Implement_Rand10_Using_Rand7;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class AdvanceSolutionITest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new AdvanceSolutionI(),
-        new Lee215Solution()
-    );
-  }
-
+/**
+ * @author jacka
+ * @version 1.0 on 5/9/2020
+ */
+class SolutionITest {
   private static final int MAX_COUNT = 10_000_000;
-
   private static final double BIAS = 1E-3;
 
   @ParameterizedTest
@@ -32,4 +28,9 @@ class AdvanceSolutionITest {
     }
   }
 
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
