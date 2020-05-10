@@ -9,6 +9,8 @@ public class Solution {
   private static final char X_CHAR = 'X', L = 'L', R = 'R';
 
   /**
+   * @see
+   * <a href='https://leetcode.com/problems/swap-adjacent-in-lr-string/discuss/217070/Python-using-corresponding-position-'>explanation</a>
    * Time Complexity: O(N)
    */
   public boolean canTransform(String start, String end) {

@@ -1,4 +1,4 @@
-package _0751_0800._777_Swap_Adjacent_in_LR_String;
+package interviews.byteDance._777_Swap_Adjacent_in_LR_String;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,12 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 3/6/2018.
+ * @version 1.0 on 5/10/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -30,5 +27,11 @@ class SolutionTest {
     final String start = "XXRXXLXXXX",
         end = "XXXXRXXLXX";
     assertFalse(solution.canTransform(start, end));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
