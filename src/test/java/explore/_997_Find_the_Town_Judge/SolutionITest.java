@@ -1,4 +1,4 @@
-package _0951_1000._997_Find_the_Town_Judge;
+package explore._997_Find_the_Town_Judge;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,14 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/23/2019.
+ * @version 1.0 on 5/10/2020
  */
-class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -79,4 +74,18 @@ class SolutionTest {
     assertEquals(-1, solution.findJudge(N, trust));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase7(Solution solution) {
+    final int N = 1;
+    final int[][] trust = {
+    };
+    assertEquals(1, solution.findJudge(N, trust));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
