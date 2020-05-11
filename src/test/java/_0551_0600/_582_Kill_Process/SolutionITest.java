@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final List<Integer> pid = List.of(1, 3, 10, 5),
         ppid = List.of(3, 0, 5, 3);
@@ -24,7 +24,7 @@ class SolutionITest {
     assertEquals(expected, solution.killProcess(pid, ppid, kill));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

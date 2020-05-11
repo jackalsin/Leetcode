@@ -13,26 +13,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 9/10/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     assertEquals("1A3B", solution.getHint("1807", "7810"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     assertEquals("1A1B", solution.getHint("1123", "0111"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     assertEquals("0A4B", solution.getHint("1122", "2211"));
   }

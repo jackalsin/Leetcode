@@ -16,13 +16,13 @@ import static org.junit.Assert.assertEquals;
 class CodecTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Codec codec) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(4, 2, 6, 1, 3, 5, 7);
     assertEquals(root, codec.deserialize(codec.serialize(root)));
   }
 
-  static Stream<Codec> solutionProvider() {
+  static Stream<Codec> solutionStream() {
     return Stream.of(
         new CodecI(),
         new CodecII(),

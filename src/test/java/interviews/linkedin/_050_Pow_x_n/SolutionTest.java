@@ -15,7 +15,7 @@ class SolutionTest {
   private static final double DELTA = 1E-6;
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNormalCase1(Solution solution) {
     final double x = 2d;
     final int n = 5;
@@ -23,7 +23,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(Solution solution) {
     final double x = 0.44528;
     final int n = 0;
@@ -31,7 +31,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(Solution solution) {
     final double x = 34.00515;
     final int n = -3;
@@ -41,7 +41,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase3(Solution solution) {
     final double x = 0.00001;
     final int n = 2147483647;
@@ -49,14 +49,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase4(Solution solution) {
     final double x = 2d;
     final int n = Integer.MIN_VALUE;
     assertEquals(Math.pow(x, n), solution.myPow(x, n), DELTA);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

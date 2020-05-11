@@ -15,24 +15,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     assertFalse(solution.canConstruct("a", "b"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     assertFalse(solution.canConstruct("aa", "ab"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     assertTrue(solution.canConstruct("aa", "aab"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

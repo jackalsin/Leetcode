@@ -14,20 +14,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] nums = {21, 4, 7};
     assertEquals(32, solution.sumFourDivisors(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     assertEquals(45, solution.sumFourDivisors(nums));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

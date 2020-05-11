@@ -14,34 +14,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String s = "ababab", expected = "abab", actual = solution.longestPrefix(s);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String s = "level", expected = "l", actual = solution.longestPrefix(s);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String s = "leetcodeleet", expected = "leet", actual = solution.longestPrefix(s);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String s = "a", expected = "", actual = solution.longestPrefix(s);
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

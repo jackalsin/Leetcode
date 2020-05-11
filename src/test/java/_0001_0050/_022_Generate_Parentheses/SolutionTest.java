@@ -17,26 +17,26 @@ import static org.junit.Assert.assertEquals;
  */
 public class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWith0(Solution solution) {
     assertEquals(Collections.singletonList(""), solution.generateParenthesis(0));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWith1(Solution solution) {
     assertEquals(Collections.singletonList("()"), solution.generateParenthesis(1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWith2(Solution solution) {
     final List<String> sampleAns = Arrays.asList("()()", "(())");
     final List<String> actualAns = solution.generateParenthesis(2);
@@ -45,7 +45,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWith3(Solution solution) {
     final List<String> sampleInOrderAns =
         Arrays.asList("((()))", "(()())", "(())()", "()(())", "()()()");

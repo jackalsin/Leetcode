@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) throws Exception {
     TreeNode root = TreeNodes.getTreeLevelOrder(
         3,
@@ -25,13 +25,13 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) throws Exception {
     TreeNode root = TreeNodes.getTreeLevelOrder(3, 4, 5, 1, 3, null, 1);
     assertEquals(9, solution.rob(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

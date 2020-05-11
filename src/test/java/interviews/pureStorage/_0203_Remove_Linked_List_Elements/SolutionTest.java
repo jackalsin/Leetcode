@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testRemoveLast(Solution solution) {
     final ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 6, 3, 4, 5});
     final ListNode expected = ListNodes.getListOfNodes(new int[]{1, 2, 6, 3, 4});
@@ -24,14 +24,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testRemoveFirst(Solution solution) {
     final ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 6, 3, 4, 5});
     final ListNode expected = ListNodes.getListOfNodes(new int[]{2, 6, 3, 4, 5});
     assertEquals(expected, solution.removeElements(head, 1));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

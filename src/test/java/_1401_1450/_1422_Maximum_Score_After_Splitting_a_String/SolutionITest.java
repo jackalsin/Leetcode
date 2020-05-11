@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input = "011101";
     final int expected = 5;
@@ -22,7 +22,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String input = "00111";
     final int expected = 5;
@@ -30,14 +30,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String input = "1111";
     final int expected = 3;
     assertEquals(expected, solution.maxScore(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

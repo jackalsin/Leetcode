@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class LFUCacheIIITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     LFUCache cache = solutionClass
@@ -33,7 +33,7 @@ class LFUCacheIIITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     LFUCache cache = solutionClass
@@ -44,7 +44,7 @@ class LFUCacheIIITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     LFUCache cache = solutionClass
@@ -64,7 +64,7 @@ class LFUCacheIIITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     LFUCache cache = solutionClass
@@ -83,7 +83,7 @@ class LFUCacheIIITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase3(Class<LFUCache> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     LFUCache cache = solutionClass
@@ -103,7 +103,7 @@ class LFUCacheIIITest {
     assertEquals(2, cache.get(2));
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         LFUCacheI.class,
         LFUCacheII.class,

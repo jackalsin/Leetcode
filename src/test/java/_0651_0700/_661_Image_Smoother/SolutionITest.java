@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[][] input = {
         {1, 1, 1},
@@ -29,7 +29,7 @@ class SolutionITest {
     assertTrue(Arrays.deepEquals(actual, expected));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

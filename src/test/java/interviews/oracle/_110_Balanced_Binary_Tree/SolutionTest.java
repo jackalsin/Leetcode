@@ -6,7 +6,8 @@ import utils.TreeNode;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
@@ -15,20 +16,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1Level(Solution solution) {
     TreeNode root = new TreeNode(1);
     assertTrue(solution.isBalanced(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test0Level(Solution solution) {
     assertTrue(solution.isBalanced(null));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2LevelsBalanced(Solution solution) {
     TreeNode root = new TreeNode(2);
     root.left = new TreeNode(1);
@@ -37,7 +38,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2LevelsBalanced1Diff(Solution solution) {
     TreeNode root = new TreeNode(4);
     root.left = new TreeNode(3);
@@ -45,7 +46,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test3LevelsBalanced1Diff(Solution solution) {
     TreeNode root = new TreeNode(4);
     root.left = new TreeNode(3);
@@ -55,7 +56,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNotBalanced(Solution solution) {
     TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);
@@ -67,7 +68,7 @@ class SolutionTest {
     assertFalse(solution.isBalanced(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

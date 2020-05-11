@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input = ")21(21)a1(", expected = "-121021a11";
     assertEquals(expected, solution.transform(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

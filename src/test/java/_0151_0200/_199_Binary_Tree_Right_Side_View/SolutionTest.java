@@ -16,14 +16,14 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 8/4/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     List<Integer> result = Arrays.asList(1, 3, 4);
     TreeNode root = new TreeNode(1);
@@ -35,7 +35,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testPenetrateTestCase(Solution solution) {
     List<Integer> result = Arrays.asList(1, 3, 5);
     TreeNode root = new TreeNode(1);

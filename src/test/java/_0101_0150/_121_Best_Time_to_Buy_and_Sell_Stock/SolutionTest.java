@@ -12,21 +12,21 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 6/24/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     final int[] prices = new int[]{7, 1, 5, 3, 6, 4};
     assertEquals(5, solution.maxProfit(prices));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCaseZeroProfit(Solution solution) {
     final int[] prices = new int[]{7, 6, 5, 4, 3, 1};
     assertEquals(0, solution.maxProfit(prices));

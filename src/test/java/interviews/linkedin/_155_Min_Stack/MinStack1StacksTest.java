@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MinStack1StacksTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(MinStack minStack) {
     minStack.push(-2);
     minStack.push(0);
@@ -21,7 +21,7 @@ class MinStack1StacksTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(MinStack minStack) {
     minStack.push(0);
     minStack.push(1);
@@ -31,7 +31,7 @@ class MinStack1StacksTest {
     assertEquals(0, minStack.getMin());
   }
 
-  static Stream<MinStack> solutionProvider() {
+  static Stream<MinStack> solutionStream() {
     return Stream.of(
         new MinStack1Stacks(),
         new MinStack2Stacks(),

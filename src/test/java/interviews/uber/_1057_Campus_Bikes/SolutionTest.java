@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[][] workers = {{0, 0}, {2, 1}}, bikes = {{1, 2}, {3, 3}};
     final int[] expected = {1, 0}, actual = solution.assignBikes(workers, bikes);
@@ -22,7 +22,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[][] workers = {{0, 0}, {1, 1}, {2, 0}}, bikes = {{1, 0}, {2, 2}, {2, 1}};
     final int[] expected = {0, 2, 1}, actual = solution.assignBikes(workers, bikes);
@@ -30,7 +30,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(Solution solution) {
 //    [[0,0],[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0]]
 //[[0,999],[1,999],[2,999],[3,999],[4,999],[5,999],[6,999],[7,999],[8,999]]
@@ -43,7 +43,7 @@ class SolutionTest {
     assertArrayEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new PqSolution()
     );

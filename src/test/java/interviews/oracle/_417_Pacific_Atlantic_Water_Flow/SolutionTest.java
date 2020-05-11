@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase1(Solution solution) {
     final int[][] matrix = {
         {1, 2, 2, 3, 5},
@@ -33,7 +33,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase1(Solution solution) {
     final int[][] matrix = {
         {1, 2},
@@ -45,7 +45,7 @@ class SolutionTest {
     assertEquals(expected.size(), actual.size());
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new BfsSolution(),
         new DfsSolution()

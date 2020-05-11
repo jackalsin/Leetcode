@@ -17,20 +17,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 1, 1, 1, 1, null, 1);
     assertTrue(solution.isUnivalTree(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(2, 2, 2, 5, 2);
     assertFalse(solution.isUnivalTree(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

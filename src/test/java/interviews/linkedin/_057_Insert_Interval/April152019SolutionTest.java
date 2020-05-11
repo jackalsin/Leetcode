@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class April152019SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(April152019Solution solution) {
     final int[] newInterval = {5, 7};
     final int[][] expected = {newInterval};
@@ -23,7 +23,7 @@ class April152019SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(April152019Solution solution) {
     final int[] newInterval = {2, 5};
     final int[][] expected = {{1, 5}, {6, 9}},
@@ -33,7 +33,7 @@ class April152019SolutionTest {
     assertArrayEquals(expected, actual);
   }
 
-  static Stream<April152019Solution> solutionProvider() {
+  static Stream<April152019Solution> solutionStream() {
     return Stream.of(
         new SolutionIV(),
         new SolutionV()

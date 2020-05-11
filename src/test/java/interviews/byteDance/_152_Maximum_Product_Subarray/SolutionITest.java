@@ -14,20 +14,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnline(Solution solution) {
     final int[] input = new int[]{2, 3, -2, 4};
     assertEquals(6, solution.maxProduct(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnline2(Solution solution) {
     final int[] input = new int[]{-4, -3, -2};
     assertEquals(12, solution.maxProduct(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

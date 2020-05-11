@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution logger) {
 // logging string "foo" at timestamp 1
     assertTrue(logger.shouldPrintMessage(1, "foo"));
@@ -36,7 +36,7 @@ class SolutionITest {
   }
 
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

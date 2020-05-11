@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testBothFinish(Solution solution) {
     final int[] nums1 = new int[]{1, 3, 5, 0, 0, 0};
     final int[] nums2 = new int[]{2, 4, 6};
@@ -19,7 +19,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1FinishFirst(Solution solution) {
     final int[] nums1 = new int[]{1, 0, 0, 0};
     final int[] nums2 = new int[]{-1, 2, 4};
@@ -29,7 +29,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2FinishFirst(Solution solution) {
     final int[] nums1 = new int[]{1, 3, 4, 0};
     final int[] nums2 = new int[]{2};
@@ -38,7 +38,7 @@ class SolutionTest {
     assertArrayEquals(expected, nums1);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

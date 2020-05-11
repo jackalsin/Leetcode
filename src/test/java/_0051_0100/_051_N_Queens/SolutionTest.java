@@ -15,14 +15,14 @@ import static org.junit.Assert.assertEquals;
  */
 public class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWith4(Solution solution) {
     List<List<String>> expected = List.of(
         List.of(".Q..", "...Q", "Q...", "..Q."),

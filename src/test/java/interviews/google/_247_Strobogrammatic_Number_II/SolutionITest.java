@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test1(Solution solution) {
     final List<String> expected = Arrays.asList("0", "1", "8");
     final List<String> actual = solution.findStrobogrammatic(1);
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test2(Solution solution) {
     final List<String> expected = Arrays.asList("11", "69", "88", "96");
     final List<String> actual = solution.findStrobogrammatic(2);
@@ -35,7 +35,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test3(Solution solution) {
     final List<String> expected = Arrays.asList("101", "111", "181", "609", "619", "689", "808", "818", "888", "906",
         "916", "986");
@@ -44,7 +44,7 @@ class SolutionITest {
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

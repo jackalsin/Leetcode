@@ -14,41 +14,41 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test11(Solution solution) {
     final int[] input = new int[]{1, 1};
     assertEquals(1, solution.findDuplicate(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test112(Solution solution) {
     final int[] input = new int[]{1, 1, 2};
     assertEquals(1, solution.findDuplicate(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test122(Solution solution) {
     final int[] input = new int[]{1, 2, 2};
     assertEquals(2, solution.findDuplicate(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(Solution solution) {
     final int[] input = {1, 3, 4, 2, 1};
     assertEquals(1, solution.findDuplicate(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(Solution solution) {
     final int[] input = {1, 3, 4, 1, 2};
     assertEquals(1, solution.findDuplicate(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

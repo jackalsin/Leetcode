@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MyHeapTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(MyHeap solution) {
     solution.add(1);
     solution.add(2);
@@ -27,7 +27,7 @@ class MyHeapTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(MyHeap solution) {
     solution.add(2);
     solution.add(1);
@@ -39,7 +39,7 @@ class MyHeapTest {
     assertEquals(3, solution.remove());
   }
 
-  static Stream<MyHeap> solutionProvider() {
+  static Stream<MyHeap> solutionStream() {
     return Stream.of(
         new MyHeap()
     );

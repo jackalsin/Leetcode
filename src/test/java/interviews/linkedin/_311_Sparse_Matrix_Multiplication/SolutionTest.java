@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) throws Exception {
     final int[][] A = {
         {1, 0, 0},
@@ -32,7 +32,7 @@ class SolutionTest {
 
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

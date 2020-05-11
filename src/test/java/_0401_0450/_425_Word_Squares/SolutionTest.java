@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String[] words = {"area", "lead", "wall", "lady", "ball"};
     final List<List<String>> expected = List.of(
@@ -34,7 +34,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String[] words = {"abat", "baba", "atan", "atal"};
     final List<List<String>> expected = List.of(
@@ -56,7 +56,7 @@ class SolutionTest {
     assertEquals(expected.size(), actual.size());
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionII(),
         new SolutionI()

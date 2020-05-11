@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase(Solution solution) {
     final int[][] input = new int[][]{{2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}};
     final List<List<Integer>> expected = List.of(List.of(2, 10), List.of(3, 15), List.of(7, 12),
@@ -24,7 +24,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedTestCase(Solution solution) {
     final int[][] input = new int[][]{{0, 3, 3}, {1, 5, 3}, {2, 4, 3}, {3, 7, 3}};
     final List<List<Integer>> expected = List.of(
@@ -32,7 +32,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

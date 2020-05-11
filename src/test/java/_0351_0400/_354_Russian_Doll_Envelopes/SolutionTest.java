@@ -12,28 +12,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 10/9/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     final int[][] input = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
     assertEquals(3, solution.maxEnvelopes(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
     final int[][] input = {};
     assertEquals(0, solution.maxEnvelopes(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final int[][] input = {{5, 4}, {6, 5}, {6, 7}, {2, 3}, {7, 6}};
     assertEquals(4, solution.maxEnvelopes(input));

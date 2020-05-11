@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testNoDup(Solution solution) {
     final int[] input = new int[]{1, 2, 3, 4, 5};
     final ListNode head = ListNodes.getListOfNodes(input);
@@ -25,7 +25,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testLeadingDup(Solution solution) {
     final int[] input = new int[]{1, 1, 1, 2, 3};
     final ListNode head = ListNodes.getListOfNodes(input);
@@ -34,7 +34,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testTailingDup(Solution solution) {
     final int[] input = new int[]{1, 2, 3, 3, 3};
     final ListNode head = ListNodes.getListOfNodes(input);
@@ -43,7 +43,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testContiousDup(Solution solution) {
     final int[] input = new int[]{2, 2, 3, 3};
     final ListNode head = ListNodes.getListOfNodes(input);
@@ -51,7 +51,7 @@ class SolutionITest {
     assertEquals(ListNodes.getListOfNodes(new int[]{2, 3}), solution.deleteDuplicates(head));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

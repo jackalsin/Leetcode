@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase1(Solution solution) {
     final int[][] board = {
         {0, 0, 1, 0, 0},
@@ -27,7 +27,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final int[][] board = {
         {0, 0, 1, 0, 0},
@@ -40,7 +40,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase1(Solution solution) {
     final int[][] board = {
         {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1,
@@ -405,7 +405,7 @@ class SolutionITest {
     assertEquals(59, solution.shortestDistance(board, start, des));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

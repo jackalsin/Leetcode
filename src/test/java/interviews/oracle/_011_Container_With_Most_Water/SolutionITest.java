@@ -16,25 +16,25 @@ class SolutionITest {
   private final int[] twoElements = new int[]{3, 5};
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testCommon(Solution solution) {
     assertEquals(15, solution.maxArea(common1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoElement(Solution solution) {
     assertEquals(3, solution.maxArea(twoElements));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] input = {1, 8, 6, 2, 5, 4, 8, 3, 7};
     assertEquals(49, solution.maxArea(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

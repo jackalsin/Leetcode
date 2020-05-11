@@ -14,20 +14,20 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String[] input = new String[]{"practice", "makes", "perfect", "coding", "makes"};
     assertEquals(3, solution.shortestDistance(input, "coding", "practice"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String[] input = new String[]{"practice", "makes", "perfect", "coding", "makes"};
     assertEquals(1, solution.shortestDistance(input, "makes", "coding"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

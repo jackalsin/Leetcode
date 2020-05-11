@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input = "{a,b}{c,{d,e}}";
     final List<String> expected = List.of("ac", "ad", "ae", "bc", "bd", "be"),
@@ -25,7 +25,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String input = "{{a,z},a{b,c},{ab,z}}";
     final List<String> expected = List.of("a", "ab", "ac", "z"),
@@ -34,7 +34,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String input = "{a{b,c},{a,z},{ab,z}}";
     final List<String> expected = List.of("a", "ab", "ac", "z"),
@@ -43,7 +43,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String input = "a{b,c}";
     final List<String> expected = List.of("ab", "ac"),
@@ -52,7 +52,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final String input = "{a,b}c{d,e}f";
     final List<String> expected = List.of("acdf", "acef", "bcdf", "bcef"),
@@ -60,7 +60,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

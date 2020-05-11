@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 3/9/2019.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] input = {8, 5, 1, 7, 10, 12};
     final TreeNode expected = TreeNodes.getTreeLevelOrder(8, 5, 10, 1, 7, null, 12),

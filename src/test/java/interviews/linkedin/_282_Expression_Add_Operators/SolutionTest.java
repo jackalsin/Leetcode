@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input = "123";
     List<String> actual = solution.addOperators(input, 6);
@@ -26,7 +26,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String input = "232";
     List<String> actual = solution.addOperators(input, 8);
@@ -39,7 +39,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String input = "105";
     List<String> actual = solution.addOperators(input, 5);
@@ -49,7 +49,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String input = "00";
     List<String> actual = solution.addOperators(input, 0);
@@ -63,7 +63,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final String input = "3456237490";
     List<String> actual = solution.addOperators(input, 9191);
@@ -73,7 +73,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase123456789And5(Solution solution) {
     final String input = "123456789";
     final List<String> actual = solution.addOperators(input, 45);
@@ -205,7 +205,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase6(Solution solution) {
     final String input = "2147483648";
     List<String> actual = solution.addOperators(input, -2147483648);
@@ -214,7 +214,7 @@ class SolutionTest {
     assertEquals(expect.size(), actual.size());
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

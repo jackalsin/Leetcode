@@ -15,7 +15,7 @@ import static utils._358_Rearrange_String_k_Distance_Apart.Assertions.assertTrue
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     final int k = 3;
     final String input = "aabbcc", actual = solution.rearrangeString(input, k);
@@ -23,7 +23,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final int k = 3;
     final String input = "aabbcc", actual = solution.rearrangeString(input, k);
@@ -31,14 +31,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase3(Solution solution) {
     final int k = 2;
     final String input = "aabbcc", actual = solution.rearrangeString(input, k);
     assertTrue(actual, input, k);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

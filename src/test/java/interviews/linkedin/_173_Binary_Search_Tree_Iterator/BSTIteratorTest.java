@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 class BSTIteratorTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1Null2(Class<BSTIterator> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, null, 2);
@@ -27,7 +27,7 @@ class BSTIteratorTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1To15(Class<BSTIterator> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final TreeNode root = TreeNodes.getTreeLevelOrder(8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11,
@@ -50,7 +50,7 @@ class BSTIteratorTest {
     assertEquals(15, bstIterator.next());
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         BSTIteratorI.class,
         BSTIteratorII.class,

@@ -22,24 +22,24 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithOnlineCase(Solution solution) {
     assertTrue(solution.exist(getBoard(), "ASA"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithOnlineCase2(Solution solution) {
     assertTrue(solution.exist(getBoard(), "ABC"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithDupVisited(Solution solution) {
     assertFalse(solution.exist(getBoard(), "BFB"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) throws Exception {
     final int[] nums = {1, 1, 1, 2, 2, 3};
     final Set<Integer> expected = Set.of(1, 2);
@@ -26,7 +26,7 @@ class SolutionTest {
     assertEquals(expected, new HashSet<>(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 

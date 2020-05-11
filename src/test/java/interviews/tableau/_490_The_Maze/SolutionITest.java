@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase1(Solution solution) {
     final int[][] board = {
         {0, 0, 1, 0, 0},
@@ -28,7 +28,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final int[][] board = {
         {0, 0, 1, 0, 0},
@@ -41,7 +41,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase3(Solution solution) {
     final int[][] board = {
         {0, 0, 1, 0, 0},
@@ -53,7 +53,7 @@ class SolutionITest {
     assertTrue(solution.hasPath(board, new int[]{0, 4}, new int[]{1, 2}));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new DfsSolution()
     );

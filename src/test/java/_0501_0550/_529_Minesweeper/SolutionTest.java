@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new BFSSolution(),
         new DfsSolution()
@@ -18,7 +18,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final char[][] input = {{'E', 'E', 'E', 'E', 'E'},
         {'E', 'E', 'M', 'E', 'E'},
@@ -37,7 +37,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final char[][] input = {
         {'B', '1', 'E', '1', 'B'},

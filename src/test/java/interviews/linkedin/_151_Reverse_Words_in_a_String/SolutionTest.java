@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnline(Solution solution) {
     String input = "the sky is blue";
     String expected = "blue is sky the";
@@ -18,7 +18,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testSpace(Solution solution) {
     String input = " ";
     String expected = "";
@@ -26,7 +26,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed(Solution solution) {
     String input = " 1";
     String expected = "1";
@@ -34,14 +34,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed2(Solution solution) {
     String input = "1 ";
     String expected = "1";
     assertEquals(expected, solution.reverseWords(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

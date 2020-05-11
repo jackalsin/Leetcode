@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input = "4(2(3)(1))(6(5))";
     final TreeNode expected = TreeNodes.getTreeLevelOrder(
@@ -28,7 +28,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String input = "-4(2(3)(1))(6(5)(7))";
     final TreeNode expected = TreeNodes.getTreeLevelOrder(
@@ -39,7 +39,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

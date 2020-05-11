@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithExampleCase(Solution solution) throws Exception {
     List<List<Integer>> expect = new ArrayList<>();
     expect.add(Arrays.asList(2, 2, 3));
@@ -26,7 +26,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) throws Exception {
     final List<List<Integer>> expect = List.of(
         List.of(3, 4, 4),
@@ -38,7 +38,7 @@ class SolutionTest {
     assertEquals(new HashSet<>(expect), new HashSet<>(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

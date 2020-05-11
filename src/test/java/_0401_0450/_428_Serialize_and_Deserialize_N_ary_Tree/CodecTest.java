@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CodecTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Codec solution) {
     final Node root = new Node();
     root.val = 1;
@@ -24,7 +24,7 @@ class CodecTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Codec solution) {
     final Node root = new Node();
     root.val = 1;
@@ -36,14 +36,14 @@ class CodecTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNull(Codec solution) {
     final Node root = null;
     final String actual = solution.serialize(root);
     assertEquals(root, solution.deserialize(actual));
   }
 
-  static Stream<Codec> solutionProvider() {
+  static Stream<Codec> solutionStream() {
     return Stream.of(
         new Codec()
     );

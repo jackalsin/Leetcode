@@ -14,34 +14,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] nums = {1, 1, 1};
     assertEquals(2, solution.subarraySum(nums, 2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] nums = {1, 1, 1};
     assertEquals(3, solution.subarraySum(nums, 1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[] nums = {1, 1, 1};
     assertEquals(1, solution.subarraySum(nums, 3));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int[] nums = {1, -1, 1, -1};
     assertEquals(4, solution.subarraySum(nums, 0));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

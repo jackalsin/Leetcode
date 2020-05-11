@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] followerBed = {1, 0, 0, 0, 1};
     assertTrue(solution.canPlaceFlowers(followerBed, 1));
@@ -19,7 +19,7 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] followerBed = {1, 0, 0, 0, 1};
     assertFalse(solution.canPlaceFlowers(followerBed, 2));
@@ -27,7 +27,7 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(Solution solution) {
     final int[] followerBed = {1, 0, 0, 0, 0, 1};
     assertFalse(solution.canPlaceFlowers(followerBed, 2));
@@ -35,7 +35,7 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     final int[] followerBed = {};
     assertFalse(solution.canPlaceFlowers(followerBed, 1));
@@ -43,7 +43,7 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testSinglePlot(Solution solution) {
     final int[] followerBed = {0};
     assertTrue(solution.canPlaceFlowers(followerBed, 1));
@@ -51,13 +51,13 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(Solution solution) {
     final int[] flowerBed = {0, 0, 0, 0, 0, 1, 0, 0};
     assertTrue(solution.canPlaceFlowers(flowerBed, 0));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

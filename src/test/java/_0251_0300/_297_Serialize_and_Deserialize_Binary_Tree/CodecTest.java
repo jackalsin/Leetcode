@@ -15,14 +15,14 @@ import static org.junit.Assert.assertEquals;
  */
 class CodecTest {
 
-  static Stream<Codec> solutionProvider() {
+  static Stream<Codec> solutionStream() {
     return Stream.of(
         new Codec()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testCase1(Codec solution) {
     TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);

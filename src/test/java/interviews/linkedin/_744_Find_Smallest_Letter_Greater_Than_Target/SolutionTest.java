@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final char[] letters = {'c', 'f', 'j'};
     final char target = 'a';
@@ -18,7 +18,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final char[] letters = {'c', 'f', 'j'};
     final char target = 'c';
@@ -26,7 +26,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final char[] letters = {'c', 'f', 'j'};
     final char target = 'd';
@@ -34,7 +34,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final char[] letters = {'c', 'f', 'j'};
     final char target = 'g';
@@ -42,7 +42,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final char[] letters = {'c', 'f', 'j'};
     final char target = 'a';
@@ -50,7 +50,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase6(Solution solution) {
     final char[] letters = {'c', 'f', 'j'};
     final char target = 'j';
@@ -59,14 +59,14 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase7(Solution solution) {
     final char[] letters = {'c', 'f', 'j'};
     final char target = 'k';
     assertEquals('c', solution.nextGreatestLetter(letters, target));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

@@ -18,13 +18,13 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
     assertNull(solution.cloneGraph(null));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     Node node0 = new Node(0, new ArrayList<>());
     Node node1 = new Node(1, new ArrayList<>());
@@ -40,7 +40,7 @@ class SolutionTest {
     assertEquals(node0, solution.cloneGraph(node0));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new ONSolution()
     );

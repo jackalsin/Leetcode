@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 5/19/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testNoDup(Solution solution) {
     final int[] input = new int[]{1, 2, 3, 4, 5};
     final ListNode head = ListNodes.getListOfNodes(input);
@@ -28,7 +28,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testLeadingDup(Solution solution) {
     final int[] input = new int[]{1, 1, 1, 2, 3};
     final ListNode head = ListNodes.getListOfNodes(input);
@@ -37,7 +37,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testTailingDup(Solution solution) {
     final int[] input = new int[]{1, 2, 3, 3, 3};
     final ListNode head = ListNodes.getListOfNodes(input);
@@ -46,7 +46,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testContiousDup(Solution solution) {
     final int[] input = new int[]{2, 2, 3, 3};
     final ListNode head = ListNodes.getListOfNodes(input);

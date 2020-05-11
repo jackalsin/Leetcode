@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new DfsSolution(),
         new SlowSolution()
@@ -18,21 +18,21 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] nums = {0};
     assertTrue(solution.canCross(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] nums = {0, 1, 3, 5, 6, 8, 12, 17};
     assertTrue(solution.canCross(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[] nums = {0, 1, 2, 3, 4, 8, 9, 11};
     assertFalse(solution.canCross(nums));

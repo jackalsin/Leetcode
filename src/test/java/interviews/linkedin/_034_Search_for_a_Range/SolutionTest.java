@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] input = {2, 2};
     assertArrayEquals(new int[]{0, 1}, solution.searchRange(input, 2));
@@ -21,27 +21,27 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] input = {5, 7, 7, 8, 8, 10};
     assertArrayEquals(new int[]{3, 4}, solution.searchRange(input, 8));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase(Solution solution) {
     final int[] input = {1};
     assertArrayEquals(new int[]{0, 0}, solution.searchRange(input, 1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(Solution solution) {
     final int[] input = {5, 7, 7, 8, 8, 10};
     assertArrayEquals(new int[]{-1, -1}, solution.searchRange(input, 6));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

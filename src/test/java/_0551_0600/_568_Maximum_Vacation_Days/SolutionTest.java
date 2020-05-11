@@ -8,14 +8,14 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[][] flights = {
         {0, 1, 1},
@@ -29,7 +29,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[][] flights = {
         {0, 0, 0},
@@ -44,14 +44,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[][] flights = {{0, 1, 1}, {1, 0, 1}, {1, 1, 0}}, days = {{7, 0, 0}, {0, 7, 0}, {0, 0, 7}};
     assertEquals(21, solution.maxVacationDays(flights, days));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(Solution solution) {
     final int[][] flights = {
         {0, 0, 0, 0, 0},

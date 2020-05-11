@@ -12,30 +12,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 4/28/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithRoot(Solution solution) {
     assertEquals("/", solution.simplifyPath("/"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithRootSimple(Solution solution) {
     assertEquals("/", solution.simplifyPath("/c/c/../../"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test1(Solution solution) {
     assertEquals("/c/e", solution.simplifyPath("/c/./c/../e"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testMissed1(Solution solution) {
     assertEquals("/", solution.simplifyPath("/.."));
   }

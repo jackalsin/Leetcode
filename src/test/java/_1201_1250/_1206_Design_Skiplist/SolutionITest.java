@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Skiplist solution) {
     solution.add(1);
     solution.add(2);
@@ -29,7 +29,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Skiplist solution) {
 //  "add","add","add","add","search","erase","search","search","search"]
 //  [0],  [5],   [2],   [1],  [0],    [5],      [2],      [3],    [2]
@@ -45,7 +45,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Skiplist solution) {
 // ["add", "add", "add", "search", "add", "search", "erase", "erase", "search"]
 // [1],     [2],  [3],    [0],      [4],    [1],      [0],    [1],      [1]
@@ -61,7 +61,7 @@ class SolutionITest {
     assertFalse(solution.search(1));
   }
 
-  static Stream<Skiplist> solutionProvider() {
+  static Stream<Skiplist> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

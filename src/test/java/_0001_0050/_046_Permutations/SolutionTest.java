@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithSingleElement(Solution solution) {
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(Collections.singletonList(1));
@@ -28,7 +28,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithMultipleElements(Solution solution) {
     final Set<List<Integer>> expected = new HashSet<>();
     expected.add(Arrays.asList(1, 2, 3));
@@ -45,12 +45,12 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithEmptyArray(Solution solution) {
     assertEquals(new ArrayList<>(), solution.permute(new int[]{}));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new DfsSolution(),
         new SwapSolution()

@@ -20,13 +20,13 @@ import static org.junit.Assert.assertTrue;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithHeadingDup(Solution solution) throws Exception {
     assertTrue(isValid(new int[]{1, 1, 2, 3, 4, 5}, solution));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase1(Solution solution) throws Exception {
     final int[] actual = {1, 1, 2}, expected = {1, 2, 2};
     final int len = solution.removeDuplicates(actual);
@@ -35,7 +35,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) throws Exception {
     final int[] actual = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4},
         expected = {0, 1, 2, 3, 4, 2, 2, 3, 3, 4};
@@ -65,7 +65,7 @@ class SolutionITest {
     }
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

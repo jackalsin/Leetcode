@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input = "dcab", expected = "bacd";
     final List<List<Integer>> pairs = List.of(
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String input = "dcab", expected = "abcd";
     final List<List<Integer>> pairs = List.of(
@@ -38,7 +38,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String input = "cba", expected = "abc";
     final List<List<Integer>> pairs = List.of(
@@ -48,7 +48,7 @@ class SolutionITest {
     assertEquals(expected, solution.smallestStringWithSwaps(input, pairs));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

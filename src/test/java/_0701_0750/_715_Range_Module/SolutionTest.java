@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
 //    addRange(10, 20): null
 //    removeRange(14, 16): null
@@ -25,7 +25,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
 //    ["RangeModule","addRange","addRange","addRange","queryRange","queryRange","queryRange","removeRange","queryRange"]
 //    [[],[10,180],             [150,200],[250,500],[50,100],[180,300],[600,1000],[50,150],[50,100]]
@@ -40,7 +40,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
 //["addRange","queryRange","removeRange","removeRange","addRange","queryRange","addRange","queryRange", "removeRange"]
 //[[5,8],       [3,4],        [5,6],        [3,6],      [1,3],      [2,3],      [4,8],      [2,3],        [4,9]]
@@ -57,7 +57,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
 //    Input:
 //["RangeModule","removeRange","addRange","queryRange","addRange","addRange","addRange","queryRange","queryRange",
@@ -93,7 +93,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
 //    Input:
 //["addRange","removeRange","removeRange","addRange","removeRange","addRange","queryRange","queryRange","queryRange"]
@@ -114,7 +114,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(Solution solution) {
     assertFalse(solution.queryRange(21, 34));
     assertFalse(solution.queryRange(27, 87));
@@ -209,7 +209,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase6(Solution solution) {
     // [null,null,null,null,false,false,null,null,null,null,null,false,null,null,null,null,false,false,null,null,
     // true,null,false,null,false,null,null,null,null,null,null,null,null,null,true,true,false,false,true,null,null,
@@ -309,14 +309,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase7(Solution solution) {
     solution.addRange(9, 10);
     solution.addRange(10, 72);
     assertTrue(solution.queryRange(9, 72));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new TreeMapSolution(),
         new TreeSetSolution(),

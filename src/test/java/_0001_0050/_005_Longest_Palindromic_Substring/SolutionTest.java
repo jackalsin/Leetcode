@@ -24,32 +24,32 @@ class SolutionTest {
   private static final String ABCDAD = "abcdad";
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void longestPalindromeEndOddAnswer(Solution solution) {
     assertEquals("dad", solution.longestPalindrome(ABCDAD));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void longestPalindromeFullOddAnswer(Solution solution) {
     assertEquals("aca", solution.longestPalindrome(ACA));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void longestPalindromeFullEvenAnswer(Solution solution) {
     assertEquals("abba", solution.longestPalindrome(ABBA));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void longestPalindromeSingleCharAnswer(Solution solution) {
     Set<String> ans = new HashSet<>(Arrays.asList("a", "b", "c", "d"));
     String expect = solution.longestPalindrome(ABCD);
     assertTrue(ans.contains(expect));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new RecursionSolution(),
         new DpSolution()

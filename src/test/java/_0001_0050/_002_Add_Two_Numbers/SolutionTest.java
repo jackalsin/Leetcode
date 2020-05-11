@@ -23,21 +23,21 @@ class SolutionTest {
   private static final ListNode NUM_38 = ListNodes.getListOfNodes(8, 3);
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void addTwoNumbers(Solution solution) {
     assertEquals(ListNodes.getListOfNodes(0, 0, 2, 1),
         solution.addTwoNumbers(NUM_432, NUM_768));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void addTwoNumbers2(Solution solution) {
     final ListNode expected = ListNodes.getListOfNodes(0, 7, 4),
         actual = solution.addTwoNumbers(NUM_432, NUM_38);
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
 //        new InplaceCalculationSolution()

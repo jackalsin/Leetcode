@@ -13,12 +13,12 @@ import static org.junit.Assert.assertArrayEquals;
  * @version 1.0 on 1/31/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithRegularElement(Solution solution) {
     final int[] input = new int[]{1, 4, 6, 5, 3, 2};
     solution.nextPermutation(input);
@@ -27,7 +27,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithDuplicatedElement(Solution solution) {
     final int[] input = new int[]{1, 5, 1};
     solution.nextPermutation(input);

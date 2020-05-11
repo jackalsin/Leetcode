@@ -14,34 +14,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int arr[] = {1, 2, 3}, expected = 2, actual = solution.countElements(arr);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int arr[] = {1, 1, 3, 3, 5, 5, 7, 7}, expected = 0, actual = solution.countElements(arr);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int arr[] = {1, 3, 2, 3, 5, 0}, expected = 3, actual = solution.countElements(arr);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int arr[] = {1, 1, 2, 2}, expected = 2, actual = solution.countElements(arr);
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

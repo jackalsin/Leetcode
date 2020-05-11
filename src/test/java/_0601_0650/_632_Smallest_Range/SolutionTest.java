@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(4, 10, 15, 24, 26),
@@ -24,7 +24,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(24, 39),
@@ -36,7 +36,7 @@ class SolutionTest {
     assertArrayEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SinglePriorityQueueSolution(),
         new BestSolution()

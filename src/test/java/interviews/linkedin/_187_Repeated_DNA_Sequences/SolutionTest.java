@@ -15,20 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testAAAAAAAAAAA(Solution solution) {
     final String input = "AAAAAAAAAAA";
     assertEquals(List.of("AAAAAAAAAA"), solution.findRepeatedDnaSequences(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testAAAAACCCCCAAAAACCCCCCAAAAAGGGTTT(Solution solution) {
     final String input = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
     assertEquals(List.of("AAAAACCCCC", "CCCCCAAAAA"), solution.findRepeatedDnaSequences(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

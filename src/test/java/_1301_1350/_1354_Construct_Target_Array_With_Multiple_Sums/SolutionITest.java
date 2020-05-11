@@ -15,21 +15,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] input = {9, 3, 5};
     assertTrue(solution.isPossible(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] input = {1, 1, 1, 2};
     assertFalse(solution.isPossible(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[] input = {8, 5};
     assertTrue(solution.isPossible(input));
@@ -37,19 +37,20 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int[] input = {1, 1, 1, 1, 11, 16};
     assertTrue(solution.isPossible(input));
   }
+
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final int[] input = {29799,253,1,4016,1007,1,1,1,14936,7528};
     assertFalse(solution.isPossible(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

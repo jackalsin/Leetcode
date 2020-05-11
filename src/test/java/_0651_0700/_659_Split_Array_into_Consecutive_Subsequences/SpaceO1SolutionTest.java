@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
  * @version 1.0 on 12/28/2017.
  */
 public class SpaceO1SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SpaceO1Solution(),
         new SpaceONSolution()
@@ -21,28 +21,28 @@ public class SpaceO1SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase1(Solution solution) {
     final int[] nums = {1, 2, 3, 4, 5, 6};
     assertTrue(solution.isPossible(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final int[] nums = {1, 2, 3, 3, 4, 4, 5, 5};
     assertTrue(solution.isPossible(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase3(Solution solution) {
     final int[] nums = {1, 2, 3, 4, 4, 5};
     assertFalse(solution.isPossible(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase1(Solution solution) {
     final int[] nums = {1, 2, 3, 3, 4, 5};
     assertTrue(solution.isPossible(nums));

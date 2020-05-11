@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] nums1 = {1, 7, 11};
     final int[] nums2 = {2, 4, 6};
@@ -23,7 +23,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] nums1 = {1, 1, 2};
     final int[] nums2 = {1, 2, 3};
@@ -33,7 +33,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[] nums1 = {1, 2, 3};
     final int[] nums2 = {1, 1, 2};
@@ -43,7 +43,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int[] nums1 = {1, 2};
     final int[] nums2 = {3};
@@ -53,7 +53,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedOnEmpty(Solution solution) {
     final int[] nums1 = {};
     final int[] nums2 = {3, 5, 7, 9};
@@ -63,7 +63,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedOnKLargerThanActual(Solution solution) {
     final int[] nums1 = {1, 1, 2};
     final int[] nums2 = {1, 2, 3};
@@ -77,7 +77,7 @@ class SolutionTest {
     assertTrue(expected.contains(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int n = 5;
     final int[][] edges = {{0, 1}, {1, 2}, {3, 4}};
@@ -18,7 +18,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int n = 5;
     final int[][] edges = {{0, 1}, {1, 2}, {2, 3}, {3, 4}};
@@ -26,14 +26,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int n = 5;
     final int[][] edges = {{0, 1}, {1, 2}, {0, 2}, {3, 4}};
     assertEquals(2, solution.countComponents(5, edges));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

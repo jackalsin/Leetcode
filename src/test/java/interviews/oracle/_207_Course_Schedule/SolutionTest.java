@@ -15,18 +15,18 @@ import static org.junit.Assert.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testPossible(Solution solution) {
     assertTrue(solution.canFinish(2, new int[][]{{1, 0}}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testImpossible(Solution solution) {
     assertFalse(solution.canFinish(2, new int[][]{{1, 0}, {0, 1}}));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

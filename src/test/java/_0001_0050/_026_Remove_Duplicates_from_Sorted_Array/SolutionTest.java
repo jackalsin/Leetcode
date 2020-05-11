@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 public class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithHeadingDup(Solution solution) throws Exception {
     assertTrue(isValid(new int[]{1, 1, 2, 3, 4, 5}, solution));
   }
@@ -46,7 +46,7 @@ public class SolutionTest {
     }
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

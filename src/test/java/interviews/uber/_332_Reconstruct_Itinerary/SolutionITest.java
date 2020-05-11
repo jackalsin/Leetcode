@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase1(Solution solution) {
     final List<List<String>> tickets = List.of(
         List.of("MUC", "LHR"),
@@ -27,7 +27,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final List<List<String>> tickets = List.of(
         List.of("JFK", "SFO"), List.of("JFK", "ATL"), List.of("SFO", "ATL"),
@@ -37,7 +37,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase3(Solution solution) {
     final List<List<String>> tickets = List.of(
         List.of("JFK", "KUL"),
@@ -47,7 +47,7 @@ class SolutionITest {
     assertEquals(expected, solution.findItinerary(tickets));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

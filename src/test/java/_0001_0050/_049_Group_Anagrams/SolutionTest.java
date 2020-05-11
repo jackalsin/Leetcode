@@ -15,14 +15,14 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 3/2/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithOnlineExample(Solution solution) throws Exception {
     String[] inputs = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
     List<List<String>> expect = new ArrayList<>();

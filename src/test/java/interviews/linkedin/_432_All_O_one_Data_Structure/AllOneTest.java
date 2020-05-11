@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AllOneTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(AllOne allOne) {
     assertEquals("", allOne.getMaxKey());
     assertEquals("", allOne.getMinKey());
@@ -43,7 +43,7 @@ class AllOneTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(AllOne allOne) {
 //    ["AllOne","inc","inc","inc","inc","inc","dec","dec","getMaxKey","getMinKey"]
 //    [[],      ["a"],["b"],["b"],["b"],["b"],["b"],["b"],[],[]]
@@ -63,7 +63,7 @@ class AllOneTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(AllOne allOne) {
 //    ["AllOne","inc","inc","inc","inc","inc","inc","inc","inc","inc","inc","inc","inc","getMinKey"]
 //    [[],["a"],["b"],["c"],["d"],["a"],["b"],["c"],["d"],["c"],["d"],["d"],["a"],[]]
@@ -87,7 +87,7 @@ class AllOneTest {
   private static final String HELLO = "hello", WORLD = "world", LEET = "leet";
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(AllOne allOne) {
 //    ["AllOne","inc",  "inc",    "inc",    "dec",    "inc",    "inc","getMaxKey","dec","dec","dec","getMaxKey"]
 //    [[],    ["hello"],["world"],["hello"],["world"],["hello"],["leet"],[],["hello"],["hello"],["hello"],[]]
@@ -107,7 +107,7 @@ class AllOneTest {
     assertEquals(LEET, allOne.getMaxKey());
   }
 
-  static Stream<AllOne> solutionProvider() {
+  static Stream<AllOne> solutionStream() {
     return Stream.of(
         new AllOneI(),
         new AllOneII(),

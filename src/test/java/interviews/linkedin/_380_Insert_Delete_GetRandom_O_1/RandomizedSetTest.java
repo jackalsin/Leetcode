@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class RandomizedSetTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(RandomizedSet randomizedSet) throws Exception {
 //  ["RandomizedSet","insert","remove","insert","getRandom","remove","insert","getRandom"]
 //  [[],            [1],        [2],    [2],      [],       [1],      [2],        []]
@@ -31,7 +31,7 @@ class RandomizedSetTest {
    * @throws Exception
    */
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(RandomizedSet randomizedSet) {
 //    ["RandomizedSet","insert","insert","remove","insert","insert","insert","remove","remove","insert","remove",
 //    "insert","insert","insert","insert","insert","getRandom","insert","remove","insert","insert"]
@@ -64,7 +64,7 @@ class RandomizedSetTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase3(RandomizedSet randomizedSet) {
 //["insert","remove","insert","remove","getRandom","getRandom","getRandom","getRandom",
 //[[0],     [0],      [-1],   [0],      [],         [],         [],         [],
@@ -86,7 +86,7 @@ class RandomizedSetTest {
     assertEquals(-1, randomizedSet.getRandom());
   }
 
-  static Stream<RandomizedSet> solutionProvider() {
+  static Stream<RandomizedSet> solutionStream() {
     return Stream.of(
         new RandomizedSetI(),
         new RandomizedSetII(),

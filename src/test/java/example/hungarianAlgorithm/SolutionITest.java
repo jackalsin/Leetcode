@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[][] input = {
         {0, 1}, {0, 3}, {0, 5}, {0, 7},
@@ -30,7 +30,7 @@ class SolutionITest {
     assertTrue(expected.contains(actual), "actual is not expected = " + actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -15,30 +15,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithAllValid(Solution solution) {
     assertEquals(8, solution.longestValidParentheses("(()()())"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithLeadingValid(Solution solution) {
     assertEquals(8, solution.longestValidParentheses("(()()()()"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithTailingValid(Solution solution) {
     assertEquals(8, solution.longestValidParentheses("()()()())"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithAllInvalid(Solution solution) {
     assertEquals(0, solution.longestValidParentheses(")("));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 }

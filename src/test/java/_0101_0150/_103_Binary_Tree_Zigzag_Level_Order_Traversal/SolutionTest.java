@@ -18,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 6/16/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1Level(Solution solution) {
     final TreeNode input = TreeNodes.getTreeLevelOrder(1);
     final List<List<Integer>> expected = new ArrayList<>();
@@ -32,7 +32,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2Levels(Solution solution) {
     final TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3);
     final List<List<Integer>> expected = new ArrayList<>();
@@ -42,7 +42,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test3Levels(Solution solution) {
     final TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, 6, 7);
     final List<List<Integer>> expected = new ArrayList<>();
@@ -53,7 +53,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNullPointer(Solution solution) {
     assertEquals(new ArrayList<>(), solution.zigzagLevelOrder(null));
   }

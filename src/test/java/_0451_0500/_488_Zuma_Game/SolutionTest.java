@@ -11,35 +11,35 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String board = "WRRBBW", hand = "RB";
     assertEquals(-1, solution.findMinStep(board, hand));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String board = "WWRRBBWW", hand = "WRBRW";
     assertEquals(2, solution.findMinStep(board, hand));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String board = "G", hand = "GGGGG";
     assertEquals(2, solution.findMinStep(board, hand));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String board = "RBYYBBRRB", hand = "YRBGB";
     assertEquals(3, solution.findMinStep(board, hand));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final String board = "RRWWRRBBRR", hand = "WB";
     assertEquals(2, solution.findMinStep(board, hand));
@@ -53,7 +53,7 @@ class SolutionTest {
     assertEquals("", SolutionI.removeContinuous(board));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

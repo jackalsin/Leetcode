@@ -15,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testSelfCycle(Solution solution) {
     final int[][] input = {{0, 0}};
     assertTrue(solution.hasCycle(1, input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testHasCycle(Solution solution) {
     final int[][] input = {
         {0, 1},
@@ -35,7 +35,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testHasNoCycle(Solution solution) {
     final int[][] input = {
         {0, 1},
@@ -47,7 +47,7 @@ class SolutionTest {
   }
 
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new DfsSolution(),
         new UnionFindSolution()

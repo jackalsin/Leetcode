@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] nums = {8, 2, 4, 7};
     final int expected = 2, actual = solution.longestSubarray(nums, 4);
@@ -22,7 +22,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] nums = {9, 10, 1, 7, 9, 3, 9, 9};
     final int expected = 5, actual = solution.longestSubarray(nums, 7);
@@ -30,7 +30,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[] nums = {34, 24, 70, 27, 40, 26, 32, 47, 11, 36, 12, 97, 58, 12, 84,
         74, 83, 44, 30, 50, 40, 6, 42, 24, 41, 75, 39, 32, 43, 13, 70,
@@ -41,7 +41,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new TreeMapSolution(),
         new ONSolution()

@@ -32,7 +32,7 @@ class SolutionITest {
   );
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final Map<String, List<String>> starToMovies = Map.of(
         STAR1, M_1,
@@ -46,7 +46,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final Map<String, List<String>> starToMovies = Map.of(
         STAR1, M_1,
@@ -59,7 +59,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final Map<String, List<String>> starToMovies = Map.of(
         STAR1, M_1,
@@ -74,7 +74,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

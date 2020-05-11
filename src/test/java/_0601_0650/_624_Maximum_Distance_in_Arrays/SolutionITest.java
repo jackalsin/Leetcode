@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(1, 2, 3),
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(1),
@@ -36,7 +36,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(1, 4, 5),
@@ -45,7 +45,7 @@ class SolutionITest {
     assertEquals(5, solution.maxDistance(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new ONSpaceSolution(),
         new O1SpaceSolution()

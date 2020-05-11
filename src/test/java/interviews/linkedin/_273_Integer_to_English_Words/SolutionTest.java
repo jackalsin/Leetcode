@@ -10,67 +10,67 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testZero(Solution solution) {
     assertEquals("Zero", solution.numberToWords(0));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOne(Solution solution) {
     assertEquals("One", solution.numberToWords(1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test27(Solution solution) {
     assertEquals("Twenty Seven", solution.numberToWords(27));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test127(Solution solution) {
     assertEquals("One Hundred Twenty Seven", solution.numberToWords(127));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1227(Solution solution) {
     assertEquals("One Thousand Two Hundred Twenty Seven", solution.numberToWords(1227));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1234567(Solution solution) {
     assertEquals("One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven",
         solution.numberToWords(1234567));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testMillion(Solution solution) {
     assertEquals("One Million", solution.numberToWords(1_000_000));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testMillion2Hundred(Solution solution) {
     assertEquals("One Million Two Hundred", solution.numberToWords(1_000_200));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test30(Solution solution) {
     assertEquals("Thirty", solution.numberToWords(30));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test20(Solution solution) {
     assertEquals("Twenty", solution.numberToWords(20));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

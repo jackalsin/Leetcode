@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithOnlineCase1(Solution solution) {
     final int[][] input = new int[][]{{1, 3}, {6, 9}},
         expected = new int[][]{{1, 5}, {6, 9}};
@@ -22,7 +22,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithOnlineCase2(Solution solution) {
     final int[][] input = (new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}});
     final int[][] expected = (new int[][]{{1, 2}, {3, 10}, {12, 16}});
@@ -30,14 +30,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithMissingLastIndex(Solution solution) {
     final int[][] input = new int[][]{{1, 5}},
         expected = new int[][]{{1, 5}};
     assertArrayEquals(expected, solution.insert(input, new int[]{2, 3}));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

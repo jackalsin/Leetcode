@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CodecTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Codec solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(2, 1, 3);
     final TreeNode actual = solution.deserialize(solution.serialize(root));
@@ -24,7 +24,7 @@ class CodecTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Codec solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(2, null, 3);
     final TreeNode actual = solution.deserialize(solution.serialize(root));
@@ -32,14 +32,14 @@ class CodecTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(Codec solution) {
     final TreeNode root = null;
     final TreeNode actual = solution.deserialize(solution.serialize(root));
     assertEquals(root, actual);
   }
 
-  static Stream<Codec> solutionProvider() {
+  static Stream<Codec> solutionStream() {
     return Stream.of(
         new CodecON(),
         new CodecI(),

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ProductOfNumbersTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(ProductOfNumbers productOfNumbers) {
     productOfNumbers.add(3);        // [3]
     productOfNumbers.add(0);        // [3,0]
@@ -29,7 +29,7 @@ class ProductOfNumbersTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(ProductOfNumbers productOfNumbers) {
     productOfNumbers.add(3);        // [3]
     productOfNumbers.add(1);        // [3,1]
@@ -45,7 +45,7 @@ class ProductOfNumbersTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(ProductOfNumbers productOfNumbers) {
 //    ["ProductOfNumbers","add","add","add","add","add","add","add","add","getProduct","getProduct","getProduct",
 //    "getProduct","add"]
@@ -62,7 +62,7 @@ class ProductOfNumbersTest {
     assertEquals(224, productOfNumbers.getProduct(6));
   }
 
-  static Stream<ProductOfNumbers> solutionProvider() {
+  static Stream<ProductOfNumbers> solutionStream() {
     return Stream.of(
         new ProductOfNumbersI()
     );

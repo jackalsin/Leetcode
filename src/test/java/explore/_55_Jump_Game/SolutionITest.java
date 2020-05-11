@@ -15,24 +15,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithOnlineCase1(Solution solution) {
     assertTrue(solution.canJump(new int[]{2, 3, 1, 1, 4}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithOnlineCase2(Solution solution) {
     assertFalse(solution.canJump(new int[]{3, 2, 1, 0, 4}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithOnlineCase3(Solution solution) {
     assertTrue(solution.canJump(new int[]{1, 2, 3}));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

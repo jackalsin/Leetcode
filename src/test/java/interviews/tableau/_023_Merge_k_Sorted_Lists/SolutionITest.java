@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final ListNode[] head = {
         ListNodes.getListOfNodes(1, 4, 5),
@@ -29,7 +29,7 @@ class SolutionITest {
     assertEquals(expect, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new PqSolution(),
         new O1Solution()

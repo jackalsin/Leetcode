@@ -16,14 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(4, 2, 7, 1, 3);
     final TreeNode expected = TreeNodes.getTreeLevelOrder(4, 2, 7, 1, 3, 5);
     assertEquals(expected, solution.insertIntoBST(root, 5));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

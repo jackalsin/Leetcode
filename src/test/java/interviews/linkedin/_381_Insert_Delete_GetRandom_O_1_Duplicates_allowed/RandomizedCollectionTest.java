@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class RandomizedCollectionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(RandomizedCollection randomizedCollection) {
 //    ["RandomizedCollection","insert","insert","insert","insert","insert","remove","remove","remove","remove"]
 //    [[],                      [4],      [3],      [4],    [2],    [4],      [4],    [ 3],     [4],    [4]]
@@ -33,7 +33,7 @@ class RandomizedCollectionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(RandomizedCollection randomizedCollection) {
     assertTrue(randomizedCollection.insert(0));
     assertTrue(randomizedCollection.insert(1));
@@ -44,7 +44,7 @@ class RandomizedCollectionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase5(RandomizedCollection randomizedCollection) {
     assertTrue(randomizedCollection.insert(0));
     assertTrue(randomizedCollection.remove(0));
@@ -58,7 +58,7 @@ class RandomizedCollectionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase3(RandomizedCollection randomizedCollection) {
     assertTrue(randomizedCollection.insert(1));
     assertFalse(randomizedCollection.insert(1));
@@ -79,7 +79,7 @@ class RandomizedCollectionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase4(RandomizedCollection randomizedCollection) {
 //["RandomizedCollection","insert","insert","insert","insert","insert","insert","remove","remove","remove","remove",
 //[                     [],[10],    [10],     [20],   [20],     [30],   [30],   [10],     [10],     [30],   [30],
@@ -95,7 +95,7 @@ class RandomizedCollectionTest {
     assertTrue(randomizedCollection.remove(30));
   }
 
-  static Stream<RandomizedCollection> solutionProvider() {
+  static Stream<RandomizedCollection> solutionStream() {
     return Stream.of(
         new RandomizedCollectionI(),
         new RandomizedCollectionII(),

@@ -14,27 +14,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) throws Exception {
     final String[] input = new String[]{};
     assertEquals(0, solution.evalRPN(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) throws Exception {
     final String[] input = new String[]{"2", "1", "+", "3", "*"};
     assertEquals(9, solution.evalRPN(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) throws Exception {
     final String[] input = new String[]{"4", "13", "5", "/", "+"};
     assertEquals(6, solution.evalRPN(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new SolutionI(), new SolutionII());
   }
 }

@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test3(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 3);
     assertEquals(6, solution.maxPathSum(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

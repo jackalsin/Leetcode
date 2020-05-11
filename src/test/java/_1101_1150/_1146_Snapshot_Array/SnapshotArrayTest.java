@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SnapshotArrayTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<Solution> cacheClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     Solution snapshotArr = cacheClass.getConstructor(Integer.TYPE).newInstance(3);
@@ -25,7 +25,7 @@ class SnapshotArrayTest {
     assertEquals(5, snapshotArr.get(0, 0));  // Get the value of array[0] with snap_id = 0, return 5
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         SnapshotArray.class
     );

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testExample1(Solution solution) {
     final char[][] grid = getCharBoard(new String[]{
         "11110",
@@ -22,7 +22,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testExample2(Solution solution) {
     final char[][] grid = getCharBoard(new String[]{
         "11000",
@@ -34,7 +34,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     final char[][] grid = new char[][]{{}};
     assertEquals(0, solution.numIslands(grid));
@@ -51,7 +51,7 @@ class SolutionTest {
     return board;
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

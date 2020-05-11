@@ -14,34 +14,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int arr[] = {1, 2}, k = 3, expected = 9;
     assertEquals(expected, solution.kConcatenationMaxSum(arr, k));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int arr[] = {1, -2, 1}, k = 5, expected = 2;
     assertEquals(expected, solution.kConcatenationMaxSum(arr, k));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int arr[] = {-1, -2}, k = 7, expected = 0;
     assertEquals(expected, solution.kConcatenationMaxSum(arr, k));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int arr[] = {-5, 4, -4, -3, 5, -3}, k = 3, expected = 5;
     assertEquals(expected, solution.kConcatenationMaxSum(arr, k));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

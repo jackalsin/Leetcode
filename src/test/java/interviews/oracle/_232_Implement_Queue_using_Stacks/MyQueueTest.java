@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class MyQueueTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(MyQueue queue) {
     queue.push(1);
     queue.push(2);
@@ -24,7 +24,7 @@ class MyQueueTest {
     assertFalse(queue.empty()); // returns false
   }
 
-  static Stream<MyQueue> solutionProvider() {
+  static Stream<MyQueue> solutionStream() {
     return Stream.of(
         new MyQueueI()
     );

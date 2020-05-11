@@ -34,8 +34,8 @@ class H2OTest {
   );
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
-  void testOnlineCase(H2O solutionProvider) throws InterruptedException, ExecutionException {
+  @MethodSource("solutionStream")
+  void testOnlineCase(H2O solutionStream) throws InterruptedException, ExecutionException {
     final StringBuffer sb = new StringBuffer();
     final List<Callable<Object>> callables = new ArrayList<>();
     final ReleaseHydrogen releaseHydrogen = new ReleaseHydrogen(sb);
@@ -44,7 +44,7 @@ class H2OTest {
       if (i % 3 != 0) {
         callables.add(Executors.callable(() -> {
           try {
-            solutionProvider.hydrogen(releaseHydrogen);
+            solutionStream.hydrogen(releaseHydrogen);
           } catch (InterruptedException e) {
             e.printStackTrace();
           }
@@ -52,7 +52,7 @@ class H2OTest {
       } else {
         callables.add(Executors.callable(() -> {
           try {
-            solutionProvider.oxygen(releaseOxygen);
+            solutionStream.oxygen(releaseOxygen);
           } catch (InterruptedException e) {
             e.printStackTrace();
           }
@@ -91,7 +91,7 @@ class H2OTest {
     }
   }
 
-  static Stream<H2O> solutionProvider() {
+  static Stream<H2O> solutionStream() {
     return Stream.of(
         new LockH2O(),
         new SemaphoreH2O()

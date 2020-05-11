@@ -14,20 +14,20 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] prices = new int[]{7, 1, 5, 3, 6, 4};
     assertEquals(5, solution.maxProfit(prices));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] prices = new int[]{7, 6, 5, 4, 3, 1};
     assertEquals(0, solution.maxProfit(prices));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

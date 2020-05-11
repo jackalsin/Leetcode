@@ -14,34 +14,34 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] input = new int[]{3, 3, 5, 0, 0, 3, 1, 4};
     assertEquals(6, solution.maxProfit(2, input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testMultiTransMaxContinous(Solution solution) throws Exception {
     final int[] input = new int[]{1, 2, 4, 2, 5, 7, 2, 4, 9, 0};
     assertEquals(13, solution.maxProfit(2, input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test3TransMax(Solution solution) throws Exception {
     final int[] input = new int[]{3, 3, 5, 0, 0, 3, 1, 4};
     assertEquals(6, solution.maxProfit(2, input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test2TransMax(Solution solution) throws Exception {
     final int[] input = new int[]{2, 4, 1};
     assertEquals(2, solution.maxProfit(2, input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

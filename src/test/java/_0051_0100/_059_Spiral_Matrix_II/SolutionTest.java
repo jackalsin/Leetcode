@@ -14,28 +14,28 @@ import static org.junit.Assert.assertTrue;
  */
 public class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWith1(Solution solution) {
     int[][] expected = {{1}};
     assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, solution.generateMatrix(1)));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWith2(Solution solution) {
     int[][] expected = {{1, 2}, {4, 3}};
     assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, solution.generateMatrix(2)));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWith3(Solution solution) {
     int[][] expected = {{1, 2, 3}, {8, 9, 4}, {7, 6, 5}};
     assertTrue(TwoDimensionArray.TwoDimensionArrayEquals(expected, solution.generateMatrix(3)));

@@ -14,20 +14,20 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 6/18/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new ONSolution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
     assertEquals(null, solution.buildTree(new int[]{}, new int[]{}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test3Levels(Solution solution) {
     final int[] preOrder = new int[]{1, 2, 4, 5, 3, 6, 7};
     final int[] levelOrder = new int[]{1, 2, 3, 4, 5, 6, 7};

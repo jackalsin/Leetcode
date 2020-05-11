@@ -17,18 +17,18 @@ class SolutionITest {
   private final int[] twoElements = new int[]{3, 5};
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testCommon(Solution solution) {
     assertEquals(15, solution.maxArea(common1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoElement(Solution solution) {
     assertEquals(3, solution.maxArea(twoElements));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

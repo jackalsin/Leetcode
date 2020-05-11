@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 class WordDistanceITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<WordDistance> solutionClass) throws Exception {
     final String[] words = {"practice", "makes", "perfect", "coding", "makes"};
     final WordDistance wordDistance = solutionClass
@@ -25,7 +25,7 @@ class WordDistanceITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Class<WordDistance> solutionClass) throws Exception {
     final String[] words = {"a", "b"};
     final WordDistance wordDistance = solutionClass
@@ -34,7 +34,7 @@ class WordDistanceITest {
     assertEquals(1, wordDistance.shortest("a", "b"));
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         WordDistanceI.class
     );

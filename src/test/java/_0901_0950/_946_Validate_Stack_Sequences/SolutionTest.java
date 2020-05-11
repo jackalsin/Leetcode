@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] pushed = {1, 2, 3, 4, 5}, popped = {4, 5, 3, 2, 1};
     assertTrue(solution.validateStackSequences(pushed, popped));
@@ -19,14 +19,14 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] pushed = {1, 2, 3, 4, 5}, popped = {4, 3, 5, 1, 2};
     assertFalse(solution.validateStackSequences(pushed, popped));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTLE(Solution solution) {
     final int[] pushed = {48, 70, 284, 568, 870, 142, 32, 1, 969, 170, 546, 353, 192, 730, 145, 456, 929, 160, 395,
         262, 671, 716, 826, 498, 792, 373, 943, 329, 62, 11, 548, 331, 363, 429, 558, 348, 460, 242, 788, 55, 844,
@@ -124,7 +124,7 @@ class SolutionTest {
     assertTrue(solution.validateStackSequences(pushed, popped));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

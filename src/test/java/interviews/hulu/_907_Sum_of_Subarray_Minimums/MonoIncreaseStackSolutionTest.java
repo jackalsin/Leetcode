@@ -14,27 +14,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MonoIncreaseStackSolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] input = {3, 1, 2, 4};
     assertEquals(17, solution.sumSubarrayMins(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase85(Solution solution) {
     final int[] input = {85};
     assertEquals(85, solution.sumSubarrayMins(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase(Solution solution) {
     final int[] input = {71, 55, 82, 55};
     assertEquals(593, solution.sumSubarrayMins(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new MonoIncreaseStackSolution()
     );

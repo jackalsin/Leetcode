@@ -16,62 +16,62 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String S = "ab#c", T = "ad#c";
     assertTrue(solution.backspaceCompare(S, T));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String S = "a##c", T = "#a#c";
     assertTrue(solution.backspaceCompare(S, T));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String S = "a#c", T = "b";
     assertFalse(solution.backspaceCompare(S, T));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String S = "ab##", T = "c#d#";
     assertTrue(solution.backspaceCompare(S, T));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final String S = "xywrrmp", T = "xywrrmu#p";
     assertTrue(solution.backspaceCompare(S, T));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase6(Solution solution) {
     final String S = "nzp#o#g", T = "b#nzp#o#g";
     assertTrue(solution.backspaceCompare(S, T));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase7(Solution solution) {
     final String S = "bxj##tw", T = "bxo#j##tw";
     assertTrue(solution.backspaceCompare(S, T));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase8(Solution solution) {
     final String S = "ab##", T = "c#d#";
     assertTrue(solution.backspaceCompare(S, T));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new ONSpaceSolution(),
         new O1SpaceSolution()

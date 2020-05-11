@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LRUCacheTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<LRUCache> cacheClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     LRUCache cache = cacheClass.getConstructor(Integer.TYPE).newInstance(2);
@@ -30,7 +30,7 @@ class LRUCacheTest {
     assertEquals(4, cache.get(4));       // returns 4
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         LRUCacheI.class,
         LRUCacheII.class

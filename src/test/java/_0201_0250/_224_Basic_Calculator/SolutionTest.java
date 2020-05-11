@@ -14,30 +14,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1Plus1(Solution solution) {
     assertEquals(2, solution.calculate("1 + 1"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2Minus1Plus2(Solution solution) {
     assertEquals(3, solution.calculate(" 2-1 + 2"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testLine3(Solution solution) {
     assertEquals(23, solution.calculate("(1+(4+5+2)-3)+(6+8)"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2147483647(Solution solution) {
     assertEquals(2147483647, solution.calculate("2147483647"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

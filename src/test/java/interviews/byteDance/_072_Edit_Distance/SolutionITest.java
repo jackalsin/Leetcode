@@ -14,30 +14,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithEmptyCouples(Solution solution) {
     assertEquals(0, solution.minDistance("", ""));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithEmpty(Solution solution) {
     assertEquals(5, solution.minDistance("", "word1"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithCommonCase1(Solution solution) {
     assertEquals(2, solution.minDistance("word", "wcd"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithCommonCase2(Solution solution) {
     assertEquals(3, solution.minDistance("horse", "ros"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String secret = "acckzz";
     final Master master = new MasterImpl(secret);
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String secret = "acckzz";
     final Master master = new MasterImpl(secret);
@@ -36,7 +36,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String secret = "hbaczn";
     final Master master = new MasterImpl(secret);
@@ -55,7 +55,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String secret = "ccoyyo";
     final Master master = new MasterImpl(secret);
@@ -73,7 +73,7 @@ class SolutionITest {
     assertTrue(master.hit());
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new RandomSolution(),
         new MinMaxSolution()

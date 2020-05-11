@@ -17,21 +17,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, 6);
     assertTrue(solution.isCompleteTree(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, null, 7);
     assertFalse(solution.isCompleteTree(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, 6);
     root.left.left.left = new TreeNode(8);
@@ -39,7 +39,7 @@ class SolutionITest {
   }
 
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

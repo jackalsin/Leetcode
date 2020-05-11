@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new DFSSolution(),
         new BFSSolution()
@@ -22,7 +22,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase1(Solution solution) {
     final int[][] board = {
         {0, 0, 1, 0, 0},
@@ -35,7 +35,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final int[][] board = {
         {0, 0, 1, 0, 0},
@@ -48,7 +48,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase3(Solution solution) {
     final int[][] board = {
         {0, 0, 1, 0, 0},

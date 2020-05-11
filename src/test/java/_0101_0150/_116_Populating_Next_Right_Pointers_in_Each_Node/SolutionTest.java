@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     TreeLinkNode expected = new TreeLinkNode(1);
     expected.left = new TreeLinkNode(2);
@@ -44,7 +44,7 @@ class SolutionTest {
     assertEquals(expected, root);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

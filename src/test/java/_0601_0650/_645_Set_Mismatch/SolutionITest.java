@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] nums = {1, 2, 2, 4};
     assertArrayEquals(new int[]{2, 3}, solution.findErrorNums(nums));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new MapSolution(),
         new ArraySolution(),

@@ -13,18 +13,18 @@ import static org.junit.Assert.assertTrue;
  * @version 1.0 on 8/5/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new SolutionI(), new SolutionII());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testIsHappy(Solution solution) {
     assertTrue(solution.isHappy(19));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test887(Solution solution) {
     assertFalse(solution.isHappy(887));
   }

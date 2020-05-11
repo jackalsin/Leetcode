@@ -15,21 +15,21 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     final int[] input = new int[]{};
     assertEquals(0, solution.rob(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOne(Solution solution) {
     final int[] input = new int[]{1};
     assertEquals(1, solution.rob(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwo(Solution solution) {
     final int[] input = new int[]{1, 2};
     assertEquals(2, solution.rob(input));
@@ -37,20 +37,20 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testThree(Solution solution) {
     final int[] input = new int[]{1, 2, 3};
     assertEquals(4, solution.rob(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test131(Solution solution) {
     final int[] input = new int[]{1, 3, 1};
     assertEquals(3, solution.rob(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

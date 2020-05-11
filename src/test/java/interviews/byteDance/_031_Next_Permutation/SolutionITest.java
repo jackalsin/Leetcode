@@ -15,7 +15,7 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithRegularElement(Solution solution) {
     final int[] input = new int[]{1, 4, 6, 5, 3, 2};
     solution.nextPermutation(input);
@@ -24,7 +24,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithDuplicatedElement(Solution solution) {
     final int[] input = new int[]{1, 5, 1};
     solution.nextPermutation(input);
@@ -32,7 +32,7 @@ class SolutionITest {
     assertArrayEquals(result, input);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

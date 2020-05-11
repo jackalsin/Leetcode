@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String[] words = {"abc", "deq", "mee", "aqq", "dkd", "ccc"};
     final String pattern = "abb";
@@ -27,7 +27,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String[] words = {"badc", "abab", "dddd", "dede", "yyxx"};
     final String pattern = "baba";
@@ -37,7 +37,7 @@ class SolutionTest {
     assertEquals(expected.size(), actual.size());
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

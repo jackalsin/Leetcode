@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String text = "&amp; is an HTML entity but &ambassador; is not.",
         expected = "& is an HTML entity but &ambassador; is not.",
@@ -23,7 +23,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String text = "Stay home! Practice on Leetcode :)",
         expected = "Stay home! Practice on Leetcode :)",
@@ -32,7 +32,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String text = "x &gt; y &amp;&amp; x &lt; y is always false",
         expected = "x > y && x < y is always false",
@@ -41,7 +41,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String text = "leetcode.com&frasl;problemset&frasl;all",
         expected = "leetcode.com/problemset/all",
@@ -49,7 +49,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

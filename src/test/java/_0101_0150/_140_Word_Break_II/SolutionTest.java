@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testLeetCode(Solution solution) {
     List<String> candidates = Arrays.asList("leet", "code");
     final String input = "leetcode";
@@ -23,7 +23,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseMle(Solution solution) {
     List<String> candidates = Arrays.asList("a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa",
         "aaaaaaaaa", "aaaaaaaaaa");
@@ -32,7 +32,7 @@ public class SolutionTest {
     assertEquals(Arrays.asList(), solution.wordBreak(input, candidates));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
 //        new DpSolution(), // failed on MLE
         new MemorizedSolution());

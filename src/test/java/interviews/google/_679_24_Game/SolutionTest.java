@@ -15,27 +15,27 @@ import static org.junit.Assert.assertTrue;
 public class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase1(Solution solution) {
     final int[] nums = {4, 1, 8, 7};
     assertTrue(solution.judgePoint24(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final int[] nums = {1, 2, 1, 2};
     assertFalse(solution.judgePoint24(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase1(Solution solution) {
     final int[] nums = {3, 3, 8, 8};
     assertTrue(solution.judgePoint24(nums));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     solution.insertionSortList(null);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOneElement(Solution solution) {
     final ListNode input = ListNodes.getListOfNodes(2);
     final ListNode expected = ListNodes.getListOfNodes(2);
@@ -30,14 +30,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test5Element(Solution solution) {
     final ListNode input = ListNodes.getListOfNodes(4, 3, 1, 2, 5);
     final ListNode expected = ListNodes.getListOfNodes(1, 2, 3, 4, 5);
     assertEquals(expected, solution.insertionSortList(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

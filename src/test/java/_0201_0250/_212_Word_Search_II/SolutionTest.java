@@ -26,19 +26,19 @@ class SolutionTest {
   };
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmptyBoard(Solution solution) {
     assertEquals(new ArrayList<>(), solution.findWords(new char[][]{}, new String[]{"a"}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmptyWords(Solution solution) {
     assertEquals(new ArrayList<>(), solution.findWords(BOARD, new String[]{}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final String[] words = new String[]{"oath", "pea", "eat", "rain"};
     List<String> expected = Arrays.asList("eat", "oath");
@@ -48,7 +48,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTLE(Solution solution) {
     String[] boardString = new String[]{"aaaa", "aaaa", "aaaa", "aaaa", "bcde", "fghi", "jklm", "nopq",
         "rstu", "vwxy", "zzzz"};
@@ -167,7 +167,7 @@ class SolutionTest {
     solution.findWords(board, words);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

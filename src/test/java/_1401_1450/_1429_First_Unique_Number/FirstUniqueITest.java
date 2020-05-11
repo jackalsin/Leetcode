@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class FirstUniqueITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<FirstUnique> cacheClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int[] nums = {2, 3, 5};
@@ -29,7 +29,7 @@ class FirstUniqueITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Class<FirstUnique> cacheClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int[] nums = {7, 7, 7, 7, 7, 7};
@@ -47,7 +47,7 @@ class FirstUniqueITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Class<FirstUnique> cacheClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int[] nums = {809};
@@ -57,7 +57,7 @@ class FirstUniqueITest {
     assertEquals(-1, firstUnique.showFirstUnique()); // return -1
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         FirstUniqueI.class
     );

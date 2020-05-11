@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, null, 2, 3, 4, null, null, 5, 6, null, 7, null, null, null,
         8, null, 9);
@@ -24,20 +24,20 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 1, 1, null, 1, null, null, 1, 1, null, 1);
     assertEquals(4, solution.longestZigZag(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1);
     assertEquals(0, solution.longestZigZag(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

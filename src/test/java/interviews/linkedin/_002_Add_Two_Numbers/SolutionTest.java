@@ -18,7 +18,7 @@ class SolutionTest {
   private static final ListNode NUM_38 = ListNodes.getListOfNodes(new int[]{8, 3});
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void addTwoNumbers(Solution solution) throws Exception {
     assertEquals(ListNodes.getListOfNodes(new int[]{0, 0, 2, 1}),
         solution.addTwoNumbers(NUM_432, NUM_768));
@@ -26,7 +26,7 @@ class SolutionTest {
         solution.addTwoNumbers(NUM_432, NUM_38));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

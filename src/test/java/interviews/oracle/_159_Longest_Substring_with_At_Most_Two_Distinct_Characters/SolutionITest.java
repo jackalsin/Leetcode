@@ -14,42 +14,42 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
     assertEquals(0, solution.lengthOfLongestSubstringTwoDistinct(""));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOneElement(Solution solution) {
     assertEquals(1, solution.lengthOfLongestSubstringTwoDistinct("c"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOneDuplicatedElement(Solution solution) {
     assertEquals(5, solution.lengthOfLongestSubstringTwoDistinct("ccccc"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testTwoElements(Solution solution) {
     assertEquals(6, solution.lengthOfLongestSubstringTwoDistinct("ceecce"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testThreeElements(Solution solution) {
     assertEquals(3, solution.lengthOfLongestSubstringTwoDistinct("eceba"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testThreeElementsLast(Solution solution) {
     assertEquals(5, solution.lengthOfLongestSubstringTwoDistinct("ccaabbb"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -18,7 +18,7 @@ class SolutionITest {
   private static final double BIAS = 1E-3;
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int start = 10, end = 20, picked = 5, totalToss = 10_000_000, totalOccur = totalToss * picked;
     final Map<Integer, Integer> counts = new HashMap<>();
@@ -32,7 +32,7 @@ class SolutionITest {
     }
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

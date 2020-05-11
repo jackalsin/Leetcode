@@ -14,20 +14,20 @@ import static org.junit.Assert.assertArrayEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] input = new int[]{2, 7, 11, 15};
     assertArrayEquals(new int[]{1, 2}, solution.twoSum(input, 9));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] input = new int[]{5, 25, 75};
     assertArrayEquals(new int[]{2, 3}, solution.twoSum(input, 100));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -12,14 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 9/29/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     final int[][] board = {
         {9, 9, 4},
@@ -30,7 +30,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     final int[][] board = {
         {3, 4, 5},

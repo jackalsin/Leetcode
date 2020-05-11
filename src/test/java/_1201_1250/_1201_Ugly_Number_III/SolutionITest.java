@@ -14,34 +14,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int expected = 4, n = 3, a = 2, b = 3, c = 5;
     assertEquals(expected, solution.nthUglyNumber(n, a, b, c));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int expected = 6, n = 4, a = 2, b = 3, c = 4;
     assertEquals(expected, solution.nthUglyNumber(n, a, b, c));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int expected = 10, n = 5, a = 2, b = 11, c = 13;
     assertEquals(expected, solution.nthUglyNumber(n, a, b, c));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int expected = 1999999984, n = 1000000000, a = 2, b = 217983653, c = 336916467;
     assertEquals(expected, solution.nthUglyNumber(n, a, b, c));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

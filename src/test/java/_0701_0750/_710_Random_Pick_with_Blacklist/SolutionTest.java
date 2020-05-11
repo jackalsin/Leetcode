@@ -15,7 +15,7 @@ class SolutionTest {
   private static final double BIAS = 1E-3;
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int N = 4;
@@ -31,7 +31,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int N = 3;
@@ -46,7 +46,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int N = 4;
@@ -63,7 +63,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int N = 3;
@@ -79,7 +79,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int N = 4;
@@ -94,7 +94,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase6(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final int N = 2;
@@ -108,7 +108,7 @@ class SolutionTest {
     assertEquals(1, counts[0] / (double) MAX_COUNT, BIAS);
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         RemappingSolution.class,
         BinarySearchSolution.class

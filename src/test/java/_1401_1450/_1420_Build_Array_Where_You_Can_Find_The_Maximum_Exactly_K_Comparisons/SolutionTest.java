@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int n = 2, m = 3, k = 1, expected = 6, actual = solution.numOfArrays(n, m, k);
     assertEquals(expected, actual);
@@ -22,34 +22,34 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int n = 5, m = 2, k = 3, expected = 0, actual = solution.numOfArrays(n, m, k);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int n = 9, m = 1, k = 1, expected = 1, actual = solution.numOfArrays(n, m, k);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final int n = 50, m = 100, k = 25, expected = 34549172, actual = solution.numOfArrays(n, m, k);
     assertEquals(expected, actual);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int n = 37, m = 17, k = 7, expected = 418930126, actual = solution.numOfArrays(n, m, k);
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new BottomUpSolution()
     );

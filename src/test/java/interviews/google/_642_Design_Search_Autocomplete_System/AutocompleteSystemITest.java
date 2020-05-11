@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  */
 class AutocompleteSystemITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<AutocompleteSystem> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final String[] input = {"i love you", "island", "ironman", "i love leetcode"};
@@ -35,7 +35,7 @@ class AutocompleteSystemITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Class<AutocompleteSystem> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final String[] input = {"abc", "abbc", "a"};
@@ -60,7 +60,7 @@ class AutocompleteSystemITest {
     assertEquals(afterB, autocompleteSystem.input('b'));
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         AutocompleteSystemI.class
     );

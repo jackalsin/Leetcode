@@ -17,14 +17,14 @@ import static org.junit.Assert.assertNull;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithAllNull(Solution solution) {
     final ListNode[] input = new ListNode[]{null, null};
     assertNull(solution.mergeKLists(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithEqualLength(Solution solution) {
     final ListNode node1 = ListNodes.getListOfNodes(new int[]{1, 5, 7});
     final ListNode node2 = ListNodes.getListOfNodes(new int[]{2, 4, 6});
@@ -34,7 +34,7 @@ class SolutionTest {
     assertEquals(result, solution.mergeKLists(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

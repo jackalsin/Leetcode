@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input = "23";
     final Set<String> expected = Set.of("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf");
@@ -25,7 +25,7 @@ class SolutionITest {
     assertEquals(expected, new HashSet<>(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

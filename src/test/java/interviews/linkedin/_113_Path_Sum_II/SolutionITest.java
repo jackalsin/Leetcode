@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(5, 4, 8, 11, null, 13, 4);
     root.left.left.left = new TreeNode(7);
@@ -32,7 +32,7 @@ class SolutionITest {
     assertEquals(expected, solution.pathSum(root, 22));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

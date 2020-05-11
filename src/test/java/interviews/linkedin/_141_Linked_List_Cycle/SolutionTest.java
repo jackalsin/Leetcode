@@ -17,27 +17,27 @@ import static org.junit.Assert.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNoCycle0(Solution solution) {
     assertFalse(solution.hasCycle(null));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNoCycle1(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1});
     assertFalse(solution.hasCycle(head));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNoCycle2(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2});
     assertFalse(solution.hasCycle(head));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testCycle1(Solution solution) {
     ListNode head = new ListNode(1);
     head.next = head;
@@ -45,7 +45,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testCycle2(Solution solution) {
     ListNode head = new ListNode(1);
     head.next = new ListNode(2);
@@ -53,7 +53,7 @@ class SolutionTest {
     assertTrue(solution.hasCycle(head));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     solution.checkIn(873562, "7PY3O0JV", 85);
     solution.checkOut(873562, "LEF142E5", 180);
@@ -20,7 +20,7 @@ class SolutionITest {
     solution.checkIn(285106, "AUCG6WDZ", 192);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

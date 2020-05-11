@@ -15,21 +15,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int sweetness[] = {1, 2, 3, 4, 5, 6, 7, 8, 9}, K = 5;
     assertEquals(6, solution.maximizeSweetness(sweetness, K));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int sweetness[] = {5, 6, 7, 8, 9, 1, 2, 3, 4}, K = 8;
     assertEquals(1, solution.maximizeSweetness(sweetness, K));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int sweetness[] = {1, 2, 2, 1, 2, 2, 1, 2, 2}, K = 2;
     assertEquals(5, solution.maximizeSweetness(sweetness, K));
@@ -37,7 +37,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseTLE(Solution solution) {
     final int sweetness[] = {54487, 22862, 15980, 75514, 10176, 69413, 22597, 25789, 57252, 37805, 49434, 19820, 3777
         , 54094, 76138, 29564, 93511, 48031, 97611, 52716, 46951, 43803, 18916, 66766, 92983, 5554, 10954, 3199,
@@ -307,7 +307,7 @@ class SolutionITest {
 //    You can divide the chocolate to[ 1, 2, 2], [1, 2, 2], [1, 2, 2]
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionII()
     );

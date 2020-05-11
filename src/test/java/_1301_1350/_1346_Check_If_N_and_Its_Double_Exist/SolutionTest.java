@@ -15,34 +15,34 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(SolutionI solution) {
     final int[] input = {10, 2, 5, 3};
     assertTrue(solution.checkIfExist(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(SolutionI solution) {
     final int[] input = {5, 10, 2, 3};
     assertTrue(solution.checkIfExist(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(SolutionI solution) {
     final int[] input = {1};
     assertFalse(solution.checkIfExist(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(SolutionI solution) {
     final int[] input = {-20, 8, -6, -14, 0, -19, 14, 4};
     assertTrue(solution.checkIfExist(input));
   }
 
-  static Stream<SolutionI> solutionProvider() {
+  static Stream<SolutionI> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

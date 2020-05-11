@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String nums1 = "0", nums2 = "123",
         expected = "0", actual = solution.multiply(nums1, nums2);
@@ -23,7 +23,7 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseNoCarry(Solution solution) {
     final String nums1 = "123", nums2 = "123",
         expected = "15129", actual = solution.multiply(nums1, nums2);
@@ -31,14 +31,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseCarry(Solution solution) {
     final String nums1 = "99", nums2 = "99",
         expected = "9801", actual = solution.multiply(nums1, nums2);
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

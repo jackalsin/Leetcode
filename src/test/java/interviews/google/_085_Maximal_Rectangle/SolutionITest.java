@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final char[][] board = new char[][]{
         {'0', '0', '0', '1', '0', '0', '0'},
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnline3(Solution solution) {
     final String input =
         "1 1 1 0 0 0 0 0\n" +
@@ -38,7 +38,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnline4(Solution solution) {
     final String input =
         "1 1 1 0 0 0 0 0\n" +
@@ -62,7 +62,7 @@ class SolutionITest {
     return result;
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

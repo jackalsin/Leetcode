@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] input = {5, 2, 6, 1};
     final List<Integer> expected = Arrays.asList(2, 1, 1, 0);
@@ -24,7 +24,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase(Solution solution) {
     final int[] input = {-1, -1};
     final List<Integer> expected = Arrays.asList(0, 0);
@@ -32,7 +32,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] input = {3, 2, 2, 6, 1};
     final List<Integer> expected = Arrays.asList(3, 1, 1, 1, 0);
@@ -40,7 +40,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(Solution solution) {
     final int[] input = {26, 78, 27, 100, 33, 67, 90, 23, 66, 5, 38, 7, 35, 23, 52, 22, 83, 51, 98, 69, 81, 32, 78, 28,
         94, 13, 2, 97, 3, 76, 99, 51, 9, 21, 84, 66, 65, 36, 100, 41};
@@ -49,7 +49,7 @@ class SolutionITest {
     assertEquals(expected, solution.countSmaller(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void threeSum(Solution solution) {
     final Set<List<Integer>> expected = Set.of(
         List.of(-1, 0, 1),
@@ -32,7 +32,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void threeSumWithDipAnsSymmetric(Solution solution) {
     List<List<Integer>> sampleAnswer = new ArrayList<>();
     sampleAnswer.add(Arrays.asList(-4, 2, 2));
@@ -48,7 +48,7 @@ class SolutionITest {
     );
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

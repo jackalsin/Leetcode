@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     String[] inputs = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
     List<List<String>> expect = new ArrayList<>();
@@ -28,7 +28,7 @@ class SolutionITest {
     assertEquals(expect.size(), actual.size());
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

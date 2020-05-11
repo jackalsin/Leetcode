@@ -12,14 +12,14 @@ import static org.junit.Assert.assertTrue;
  * @version 1.0 on 9/25/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testAllPositive(Solution solution) throws Exception {
     int cur = 1;
     for (int i = 0; i <= 19; i++) {

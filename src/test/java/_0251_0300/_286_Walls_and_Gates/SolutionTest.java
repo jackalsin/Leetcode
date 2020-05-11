@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 public class SolutionTest {
   private static final int INF = Integer.MAX_VALUE;
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new NaiveBfsSolution(),
         new AdvancedBfsSolution()
@@ -23,7 +23,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnline(Solution solution) {
     final int[][] input = {
         {INF, -1, 0, INF},

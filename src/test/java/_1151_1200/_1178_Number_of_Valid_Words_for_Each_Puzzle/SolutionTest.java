@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String[] words = {"aaaa", "asas", "able", "ability", "actt", "actor", "access"},
         puzzles = {"aboveyz", "abrodyz", "abslute", "absoryz", "actresz", "gaswxyz"};
@@ -31,7 +31,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     ClassLoader classLoader = getClass().getClassLoader();
     final File file = new File(classLoader.getResource("./_1151_1200/_1178_Number_of_Valid_Words_for_Each_Puzzle" +
@@ -54,7 +54,7 @@ class SolutionTest {
     return readLine.split(",");
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SampleSolution(),

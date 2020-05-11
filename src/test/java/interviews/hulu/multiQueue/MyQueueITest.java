@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MyQueueITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(MultiQueue solution) {
     final int[] arr1 = {0, 1, 2, 3},
         arr2 = {4, 5, 6, 7},
@@ -34,7 +34,7 @@ class MyQueueITest {
     assertEquals(expected3, solution.read(4));
   }
 
-  static Stream<MultiQueue> solutionProvider() {
+  static Stream<MultiQueue> solutionStream() {
     return Stream.of(
         new MyQueueI()
     );

@@ -17,7 +17,7 @@ class SnakeGameITest {
   private static final String U = "U", D = "D", L = "L", R = "R";
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Class<SnakeGame> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final SnakeGame snakeGame = solutionClass.getConstructor(Integer.TYPE,
@@ -35,7 +35,7 @@ class SnakeGameITest {
    * Running out of food, food queue is null;
    */
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase(Class<SnakeGame> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final SnakeGame snakeGame = solutionClass.getConstructor(Integer.TYPE, Integer.TYPE, int[][].class)
@@ -51,7 +51,7 @@ class SnakeGameITest {
    * ["L"],["D"],["R"],["U"]]
    */
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase2(Class<SnakeGame> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final SnakeGame snakeGame = solutionClass.getConstructor(Integer.TYPE, Integer.TYPE, int[][].class)
@@ -80,7 +80,7 @@ class SnakeGameITest {
    * @throws Exception
    */
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase3(Class<SnakeGame> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final SnakeGame snakeGame = solutionClass.getConstructor(Integer.TYPE, Integer.TYPE, int[][].class)
@@ -99,7 +99,7 @@ class SnakeGameITest {
     assertEquals(3, snakeGame.move(D));
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         SnakeGameI.class
     );

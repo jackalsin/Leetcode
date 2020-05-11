@@ -13,26 +13,26 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 4/24/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith1By1(Solution solution) {
     assertEquals(0, solution.minPathSum(new int[][]{{0}}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith3By3(Solution solution) {
     assertEquals(9, solution.minPathSum(new int[][]{{1, 2, 3}, {2, 4, 1}, {3, 1, 2}}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith3by1(Solution solution) {
     assertEquals(4, solution.minPathSum(new int[][]{{0, 1, 3}}));
   }

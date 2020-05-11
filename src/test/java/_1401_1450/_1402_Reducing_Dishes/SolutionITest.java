@@ -14,34 +14,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int input[] = {-1, -8, 0, 5, -9}, expected = 14;
     assertEquals(expected, solution.maxSatisfaction(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int input[] = {4, 3, 2}, expected = 20;
     assertEquals(expected, solution.maxSatisfaction(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int input[] = {-1, -4, -5}, expected = 0;
     assertEquals(expected, solution.maxSatisfaction(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int input[] = {-2, 5, -1, 0, 3, -3}, expected = 35;
     assertEquals(expected, solution.maxSatisfaction(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new ON2O1Solution(),
         new ONLogN_O1Solution()

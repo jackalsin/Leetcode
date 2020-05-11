@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) throws Exception {
     final int[] nums = {1, 1, 1, 2, 2, 3};
     final int[] actual = solution.topKFrequent(nums, 2), expected = {1, 2};
     assertArrayEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(1, 2, 3),
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(1, 2, 3),
@@ -37,7 +37,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(2, 3, 4),
@@ -48,7 +48,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(54581641, 64080174, 24346381, 69107959),
@@ -61,7 +61,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final List<List<Integer>> input = List.of(
         List.of(8, 11, 4, 13),
@@ -73,7 +73,7 @@ class SolutionITest {
     assertEquals(57, solution.cutOffTree(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

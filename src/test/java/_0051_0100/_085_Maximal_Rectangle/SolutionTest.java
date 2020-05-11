@@ -16,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 5/21/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final char[][] board = new char[][]{
         {'0', '0', '0', '1', '0', '0', '0'},
@@ -33,7 +33,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
 
     final char[][] board = new char[][]{
@@ -46,7 +46,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnline3(Solution solution) {
     final String input =
         "1 1 1 0 0 0 0 0\n" +
@@ -58,7 +58,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnline4(Solution solution) {
     final String input =
         "1 1 1 0 0 0 0 0\n" +

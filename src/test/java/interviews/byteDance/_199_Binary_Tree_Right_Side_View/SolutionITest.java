@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     List<Integer> result = Arrays.asList(1, 3, 4);
     TreeNode root = new TreeNode(1);
@@ -29,7 +29,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testPenetrateTestCase(Solution solution) {
     List<Integer> result = Arrays.asList(1, 3, 5);
     TreeNode root = new TreeNode(1);
@@ -39,7 +39,7 @@ class SolutionITest {
     assertEquals(result, solution.rightSideView(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

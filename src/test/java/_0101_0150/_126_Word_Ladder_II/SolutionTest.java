@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     String beginWord = "hit";
     String endWord = "cog";
@@ -33,7 +33,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEndWordNotInCandidates(Solution solution) {
     String beginWord = "hit";
     String endWord = "cog";
@@ -46,7 +46,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTLECase(Solution solution) {
     String beginWord = "qa";
     String endWord = "sq";
@@ -67,7 +67,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTLECase2(Solution solution) {
     final List<String> candidates = Arrays.asList("kid", "tag", "pup", "ail", "tun", "woo", "erg",
         "luz", "brr", "gay", "sip", "kay", "per", "val", "mes", "ohs", "now", "boa", "cet", "pal", "bar",
@@ -122,7 +122,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTLE3(Solution solution) {
     String beginWord = "nanny";
     String endWord = "aloud";
@@ -524,7 +524,7 @@ class SolutionTest {
     */
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionPass(),
         new SampleSolution()

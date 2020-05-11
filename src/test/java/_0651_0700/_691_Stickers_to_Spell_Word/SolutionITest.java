@@ -14,28 +14,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input[] = {"notice", "possible"}, target = "basicbasic";
     assertEquals(-1, solution.minStickers(input, target));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String input[] = {"with", "example", "science"}, target = "thehat";
     assertEquals(3, solution.minStickers(input, target));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String input[] = {"these", "guess", "about", "garden", "him"}, target = "atomher";
     assertEquals(3, solution.minStickers(input, target));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String input[] = {"heavy", "claim", "seven", "set", "had", "it", "dead", "jump", "design", "question",
         "sugar", "dress", "any", "special", "ground", "huge", "use", "busy", "prove", "there", "lone", "window",
@@ -46,7 +46,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final String input[] = {"claim", "last", "determine", "cry", "bed", "result", "human", "duck", "seem"},
         target = "camereal";
@@ -54,7 +54,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase6(Solution solution) {
     //                      0         1       2       3         4       5           6       7       8
     final String input[] = {"swim", "love", "father", "shape", "rich", "multiply", "new", "fill", "history"},
@@ -68,7 +68,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase7(Solution solution) {
     final String input[] = {"all", "chord", "doctor", "dance", "drive", "ready", "phrase", "skill", "dress", "select"
         , "if", "develop", "space", "broad", "lone", "was", "fight", "how", "window", "place", "has", "plural", "star"
@@ -78,7 +78,7 @@ class SolutionITest {
     assertEquals(4, solution.minStickers(input, target));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new TLESolution(),
         new SolutionI()

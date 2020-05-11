@@ -18,19 +18,19 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1(Solution solution) {
     assertEquals(new ArrayList<>(), solution.getFactors(1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test37(Solution solution) {
     assertEquals(new ArrayList<>(), solution.getFactors(37));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test12(Solution solution) {
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(Arrays.asList(2, 2, 3));
@@ -42,7 +42,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test32(Solution solution) {
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(Arrays.asList(2, 16));
@@ -56,7 +56,7 @@ class SolutionTest {
     assertEquals(expected.size(), actual.size());
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

@@ -23,7 +23,7 @@ class SolutionTest {
   private static final double BIAS = 1e-3;
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final Map<List<Integer>, Double> listCounts = new HashMap<>();
     for (int i = 0; i < TOTAL; ++i) {
@@ -38,7 +38,7 @@ class SolutionTest {
     }
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(INPUT),
         new SolutionII(INPUT),

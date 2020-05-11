@@ -16,12 +16,12 @@ class SolutionTest {
   private static final String[] WORDS = {"abc", "abd", "abcd", "bcd", "bcde", "bcdef"};
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution, String[] words, final String suffix, final int expected) {
     assertEquals(expected, solution.suffixCount(words, suffix));
   }
 
-  static Stream<Arguments> solutionProvider() {
+  static Stream<Arguments> solutionStream() {
     return Stream.of(
         Arguments.of(new SolutionI(), WORDS, "abc", 2),
         Arguments.of(new SolutionI(), WORDS, "abcd", 1),

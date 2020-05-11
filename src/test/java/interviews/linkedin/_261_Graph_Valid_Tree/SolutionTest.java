@@ -11,41 +11,41 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testPositive(Solution solution) {
     final int[][] edges = new int[][]{{0, 1}, {0, 2}, {0, 3}, {1, 4}};
     assertTrue(solution.validTree(5, edges));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNegative(Solution solution) {
     final int[][] edges = new int[][]{{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}};
     assertFalse(solution.validTree(5, edges));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2Components(Solution solution) {
     final int[][] edges = new int[][]{{0, 1}, {2, 3}};
     assertFalse(solution.validTree(4, edges));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed(Solution solution) {
     final int[][] edges = new int[][]{{0, 1}, {0, 2}, {2, 3}, {2, 4}};
     assertTrue(solution.validTree(5, edges));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed1(Solution solution) {
     final int[][] edges = {{0, 1}, {0, 4}, {1, 4}, {2, 3}};
     assertFalse(solution.validTree(5, edges));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new UnionFindISolution(),
         new SolutionII(),

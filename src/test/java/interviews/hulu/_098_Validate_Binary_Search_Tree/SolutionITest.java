@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test213(Solution solution) {
     TreeNode root = new TreeNode(2);
     root.left = new TreeNode(1);
@@ -25,7 +25,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test123(Solution solution) {
     TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);
@@ -34,7 +34,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase1(Solution solution) {
     TreeNode root = new TreeNode(5);
     root.left = new TreeNode(14);
@@ -42,7 +42,7 @@ class SolutionITest {
     assertFalse(solution.isValidBST(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

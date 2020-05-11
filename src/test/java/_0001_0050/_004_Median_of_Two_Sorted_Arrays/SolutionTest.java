@@ -25,44 +25,44 @@ class SolutionTest {
   private final int[] nums8 = new int[]{1};
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void findMedianSortedArrays(Solution solution) {
     assertEquals(4.5, solution.findMedianSortedArrays(nums1, nums2), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void findMedianSortedArrays2(Solution solution) {
     assertEquals(4d, solution.findMedianSortedArrays(nums3, nums2), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void findMedianSortedArrays3(Solution solution) {
     assertEquals(3, solution.findMedianSortedArrays(nums3, nums4), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void findMedianSortedArrays4(Solution solution) {
     assertEquals(3, solution.findMedianSortedArrays(nums5, nums6), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void findMedianSortedArrays5(Solution solution) {
     assertEquals(1, solution.findMedianSortedArrays(nums7, nums8), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void findMedianSortedArrays6(Solution solution) {
     int[] nums1 = new int[]{1, 2};
     int[] nums2 = new int[]{3, 4};
     assertEquals(2.5, solution.findMedianSortedArrays(nums1, nums2), 1e-8);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
@@ -17,7 +17,7 @@ class SolutionITest {
   private static final int INF = Integer.MAX_VALUE;
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnline(Solution solution) {
     final int[][] input = {
         {INF, -1, 0, INF},
@@ -34,7 +34,7 @@ class SolutionITest {
     assertTrue(Arrays.deepEquals(expected, input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

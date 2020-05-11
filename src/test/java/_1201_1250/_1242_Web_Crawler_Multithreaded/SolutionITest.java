@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String[] urls = {"http://news.yahoo.com",
         "http://news.yahoo.com/news",
@@ -47,7 +47,7 @@ class SolutionITest {
     return htmlParser;
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new ExecutorServiceSolution()
         , new ParallelSteamSolution()

@@ -30,21 +30,21 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testPEqualsQRoot(Solution solution) {
     assertEquals(root, solution.lowestCommonAncestor(root, root, root));
   }
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testPEqualsQNonRoot(Solution solution) {
     assertEquals(root.left, solution.lowestCommonAncestor(root, root.left, root.left));
   }
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testParent(Solution solution) {
     assertEquals(root.left.right, solution.lowestCommonAncestor(root, root.left.right,
         root.left.right.right));
@@ -52,13 +52,13 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testRegular(Solution solution) {
     assertEquals(root.left, solution.lowestCommonAncestor(root, root.left.left,
         root.left.right.right));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

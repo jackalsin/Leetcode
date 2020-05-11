@@ -16,7 +16,7 @@ import static utils.TwoDimensionArray.getCharBoard;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testExample1(Solution solution) {
     final char[][] grid = getCharBoard(new String[]{
         "11110",
@@ -28,7 +28,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testExample2(Solution solution) {
     final char[][] grid = getCharBoard(new String[]{
         "11000",
@@ -40,13 +40,13 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     final char[][] grid = new char[][]{{}};
     assertEquals(0, solution.numIslands(grid));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

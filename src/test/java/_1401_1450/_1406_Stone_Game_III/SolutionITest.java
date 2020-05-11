@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] values = {1, 2, 3, 7};
     final String expected = "Bob", actual = solution.stoneGameIII(values);
@@ -22,7 +22,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] values = {1, 2, 3, -9};
     final String expected = "Alice", actual = solution.stoneGameIII(values);
@@ -30,7 +30,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[] values = {1, 2, 3, 6};
     final String expected = "Tie", actual = solution.stoneGameIII(values);
@@ -38,7 +38,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int[] values = {1, 2, 3, -1, -2, -3, 7};
     final String expected = "Alice", actual = solution.stoneGameIII(values);
@@ -46,14 +46,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final int[] values = {-1, -2, -3};
     final String expected = "Tie", actual = solution.stoneGameIII(values);
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionII()
     );

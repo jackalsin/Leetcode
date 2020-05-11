@@ -9,25 +9,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testZero(Solution solution) {
     assertEquals(0, solution.rangeBitwiseAnd(0, 0));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test1And2(Solution solution) {
     assertEquals(0, solution.rangeBitwiseAnd(1, 2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test0b101010And0b101101(Solution solution) {
     assertEquals(0b101000, solution.rangeBitwiseAnd(0b101101,
         0b101010));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

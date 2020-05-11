@@ -15,26 +15,26 @@ import static org.junit.Assert.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test25(Solution solution) {
     assertTrue(solution.judgeSquareSum(25));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final int input = 5;
     assertTrue(solution.judgeSquareSum(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int input = 3;
     assertFalse(solution.judgeSquareSum(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new TwoPointerSolution(),
         new SetSolution()

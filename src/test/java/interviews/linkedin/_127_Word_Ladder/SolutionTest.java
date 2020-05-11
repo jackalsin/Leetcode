@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedOnNonExistence(Solution solution) {
     final List<String> wordList = List.of("hot", "dot", "dog", "lot", "log");
     final String begin = "hit";
@@ -23,7 +23,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCount(Solution solution) {
 //    Explanation: As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog"
     final List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
@@ -33,7 +33,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testBeginWordCount(Solution solution) {
     final List<String> wordList = List.of("a", "b", "c");
     final String begin = "a";
@@ -41,7 +41,7 @@ class SolutionTest {
     assertEquals(2, solution.ladderLength(begin, end, wordList));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

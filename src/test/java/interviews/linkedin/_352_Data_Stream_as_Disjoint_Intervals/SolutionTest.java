@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(SummaryRanges summaryRanges) {
     summaryRanges.addNum(1);
     assertArrayEquals(new int[][]{{1, 1}}, summaryRanges.getIntervals());
@@ -29,7 +29,7 @@ class SolutionTest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(SummaryRanges summaryRanges) {
 //    ["SummaryRanges","addNum","getIntervals","addNum","getIntervals","addNum","getIntervals","addNum",
 //    "getIntervals","addNum","getIntervals","addNum","getIntervals","addNum","getIntervals","addNum","getIntervals",
@@ -45,7 +45,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(SummaryRanges summaryRanges) {
 //["addNum","getIntervals","addNum","getIntervals","addNum","getIntervals","addNum","getIntervals",
 //[[6],      [],            [6],     [],            [0],      [],           [4],        [],
@@ -78,7 +78,7 @@ class SolutionTest {
     assertArrayEquals(new int[][]{{0, 0}, {4, 8}}, summaryRanges.getIntervals());
   }
 
-  static Stream<SummaryRanges> solutionProvider() {
+  static Stream<SummaryRanges> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

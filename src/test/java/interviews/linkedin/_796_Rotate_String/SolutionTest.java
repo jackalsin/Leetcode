@@ -15,27 +15,27 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String A = "abcde", B = "cdeab";
     assertTrue(solution.rotateString(A, B));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String A = "abcde", B = "abced";
     assertFalse(solution.rotateString(A, B));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String A = "aa", B = "a";
     assertFalse(solution.rotateString(A, B));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new KmpSolution(),
         new KmpSolutionI(),

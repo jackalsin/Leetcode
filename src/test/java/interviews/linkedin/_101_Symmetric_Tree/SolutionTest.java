@@ -17,27 +17,27 @@ import static org.junit.Assert.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 2, 3, 4, 4, 3);
     assertTrue(solution.isSymmetric(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testThreeLevelTree(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 2, 3, 4, 4, 3, 5, 6, 7, 8, 8, 7, 6, 5);
     assertTrue(solution.isSymmetric(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed1(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 2, null, 3, null, 3);
     assertFalse(solution.isSymmetric(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

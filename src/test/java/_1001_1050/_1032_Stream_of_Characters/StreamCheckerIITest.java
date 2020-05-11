@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class StreamCheckerIITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Class<StreamChecker> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final String[] input = new String[]{"cd", "f", "kl"};
@@ -32,7 +32,7 @@ class StreamCheckerIITest {
     assertTrue(streamChecker.query('l'));          // return true, because 'kl' is in the wordlist
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         StreamCheckerI.class,
         StreamCheckerII.class

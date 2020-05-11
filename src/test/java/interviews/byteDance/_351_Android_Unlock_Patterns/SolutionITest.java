@@ -15,24 +15,24 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCaseM1N1(Solution solution) {
     assertEquals(9, solution.numberOfPatterns(1, 1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCaseM1N2(Solution solution) {
     assertEquals(65, solution.numberOfPatterns(1, 2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCaseM1N3(Solution solution) {
     assertEquals(385, solution.numberOfPatterns(1, 3));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

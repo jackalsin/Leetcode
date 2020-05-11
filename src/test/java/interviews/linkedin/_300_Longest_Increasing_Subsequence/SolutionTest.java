@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] input = {10, 9, 2, 5, 3, 7, 101, 18};
     assertEquals(4, solution.lengthOfLIS(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

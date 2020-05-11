@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int arr[] = {6, 4, 14, 6, 8, 13, 9, 7, 10, 6, 12}, d = 2,
         expected = 4, actual = solution.maxJumps(arr, d);
@@ -22,7 +22,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int arr[] = {3, 3, 3, 3, 3}, d = 3,
         expected = 1, actual = solution.maxJumps(arr, d);
@@ -30,7 +30,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int arr[] = {7, 6, 5, 4, 3, 2, 1}, d = 1,
         expected = 7, actual = solution.maxJumps(arr, d);
@@ -38,7 +38,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int arr[] = {7, 1, 7, 1, 7, 1}, d = 2,
         expected = 2, actual = solution.maxJumps(arr, d);
@@ -46,14 +46,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final int arr[] = {66}, d = 1,
         expected = 1, actual = solution.maxJumps(arr, d);
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new ReverseJumpSolution()

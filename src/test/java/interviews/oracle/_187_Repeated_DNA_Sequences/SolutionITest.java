@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final String source = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
     final List<String> expected = Arrays.asList("AAAAACCCCC", "CCCCCAAAAA");
@@ -25,7 +25,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test10Chars(Solution solution) {
     final String source = "AAAAAAAAAAA";
     final List<String> expected = Arrays.asList("AAAAAAAAAA");
@@ -38,7 +38,7 @@ class SolutionITest {
     assertEquals(input, SolutionI.deserialize(0b01_0101_0101));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

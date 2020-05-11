@@ -15,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] input = new int[]{100, 4, 200, 1, 3, 2};
     assertEquals(4, solution.longestConsecutive(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] input = new int[]{4, 0, -4, -2, 2, 5, 2, 0, -8, -8, -8, -8, -1, 7, 4, 5, 5, -4, 6, 6, -3};
     final int[] dup = new int[input.length];
@@ -32,7 +32,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[] input = new int[]{-2, -3, -3, 7, -3, 0, 5, 0, -8, -4, -1, 2};
     final int[] dup = new int[input.length];
@@ -42,7 +42,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int[] input = new int[]{
         4, 2, 2, -4, 0, -2, 4, -3, -4, -4, -5,
@@ -55,7 +55,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final int[] input = new int[]{
         -6, 6, -9, -7, 0, 3, 4, -2, 2, -1, 9, -9, 5,
@@ -67,7 +67,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase6(Solution solution) {
     final int[] input = new int[]{
         -7, -1, 3, -9, -4, 7, -3, 2, 4, 9, 4, -9, 8, -7, 5, -1, -7};
@@ -77,7 +77,7 @@ class SolutionTest {
     assertEquals(4, solution.longestConsecutive(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String input = "{a,b}c{d,e}f";
     final Set<String> expected = Set.of("acdf", "acef", "bcdf", "bcef");
@@ -30,7 +30,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String input = "abcd";
     final Set<String> expected = Set.of(input);
@@ -41,7 +41,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String input = "{a,b}{z,x,y}";
     final List<String> expected = List.of("ax", "ay", "az", "bx", "by", "bz");
@@ -50,7 +50,7 @@ class SolutionITest {
     assertEquals(expected, actualList);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

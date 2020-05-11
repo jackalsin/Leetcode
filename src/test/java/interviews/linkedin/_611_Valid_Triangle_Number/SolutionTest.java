@@ -10,27 +10,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] input = {2, 2, 3, 4};
     assertEquals(3, solution.triangleNumber(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testDuplicate1(Solution solution) {
     final int[] input = {2, 2, 2, 3, 4};
     assertEquals(7, solution.triangleNumber(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed2(Solution solution) {
     final int[] input = {0, 1, 0};
     assertEquals(0, solution.triangleNumber(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * @author jacka
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnline(Solution solution) {
     final int[] input = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
     final int[] expected = new int[]{3, 3, 5, 5, 6, 7};
@@ -22,7 +22,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
     final int[] input = new int[]{};
     final int[] expected = new int[]{};
@@ -30,7 +30,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase(Solution solution) {
     final int[] input = new int[]{-7, -8, 7, 5, 7, 1, 6, 0};
     final int[] expected = new int[]{7, 7, 7, 7, 7};
@@ -38,14 +38,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testFailedCase2(Solution solution) {
     final int[] input = new int[]{1, 3, 1, 2, 0, 5};
     final int[] expected = new int[]{3, 3, 2, 5};
     assertArrayEquals(expected, solution.maxSlidingWindow(input, 3));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

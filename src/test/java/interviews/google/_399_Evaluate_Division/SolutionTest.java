@@ -15,7 +15,7 @@ import static org.junit.Assert.assertArrayEquals;
 public class SolutionTest {
   private static final double BIAS = 1E-8;
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()
@@ -23,7 +23,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) throws Exception {
     final List<List<String>> equations = List.of(List.of("a", "b"), List.of("b", "c")),
         queries = List.of(

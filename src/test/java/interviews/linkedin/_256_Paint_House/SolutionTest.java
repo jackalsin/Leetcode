@@ -10,21 +10,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     final int[][] costs = new int[][]{};
     assertEquals(0, solution.minCost(costs));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOne(Solution solution) {
     final int[][] costs = new int[][]{{7, 2, 6}};
     assertEquals(2, solution.minCost(costs));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNormal(Solution solution) {
     final int[][] costs = new int[][]{
         {4, 5, 6},
@@ -34,7 +34,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNormal2(Solution solution) {
     final int[][] costs = new int[][]{
         {4, 5, 6},
@@ -45,7 +45,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNormal3(Solution solution) {
     final int[][] costs = new int[][]{
         {17, 2, 17},
@@ -55,7 +55,7 @@ class SolutionTest {
     assertEquals(10, solution.minCost(costs));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

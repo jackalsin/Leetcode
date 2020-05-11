@@ -10,27 +10,27 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     assertNull(solution.copyRandomList(null));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1Element(Solution solution) {
     Node head = new Node(1);
     solution.copyRandomList(head);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1ElementWithRandom(Solution solution) {
     Node head = new Node(1);
     head.random = head;
     solution.copyRandomList(head);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

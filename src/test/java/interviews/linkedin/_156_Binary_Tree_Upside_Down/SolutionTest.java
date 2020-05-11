@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOneElement(Solution solution) {
     TreeNode input = TreeNodes.getTreeLevelOrder(1);
     TreeNode expected = TreeNodes.getTreeLevelOrder(1);
@@ -20,7 +20,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoElements(Solution solution) {
     TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, null);
     TreeNode expected = TreeNodes.getTreeLevelOrder(2, null, 1);
@@ -28,7 +28,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoLevelsFull(Solution solution) {
     TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3);
     TreeNode expected = TreeNodes.getTreeLevelOrder(2, 3, 1);
@@ -36,14 +36,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testThreeLevels(Solution solution) {
     TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, null, null);
     TreeNode expected = TreeNodes.getTreeLevelOrder(4, 5, 2, null, null, 3, 1);
     assertEquals(expected, solution.upsideDownBinaryTree(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

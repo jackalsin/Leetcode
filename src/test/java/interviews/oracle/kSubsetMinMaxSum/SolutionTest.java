@@ -14,20 +14,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int nums[] = {1, 2, 3}, k = 2;
     assertEquals(3, solution.minMaxSum(nums, k));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int nums[] = {2, 2, 3, 3}, k = 2;
     assertEquals(5, solution.minMaxSum(nums, k));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new BruteForceSolution(),
         new DfsMemoSolution()

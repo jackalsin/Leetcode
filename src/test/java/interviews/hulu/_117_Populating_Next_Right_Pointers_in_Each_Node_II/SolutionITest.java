@@ -16,7 +16,7 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFullBalancedTree(Solution solution) {
     Node expected = new Node(1);
     expected.left = new Node(2);
@@ -46,7 +46,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNullInMid(Solution solution) {
     Node expected = new Node(1);
     expected.left = new Node(2);
@@ -73,7 +73,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNullInHead(Solution solution) {
     Node expected = new Node(1);
     expected.left = new Node(2);
@@ -99,7 +99,7 @@ class SolutionITest {
     assertEquals(expected, root);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SpaceONSolution(),
         new SpaceO1Solution()

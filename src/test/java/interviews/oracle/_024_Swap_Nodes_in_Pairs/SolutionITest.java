@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithOddList(Solution solution) {
     final ListNode input = ListNodes.getListOfNodes(new int[]{1, 3, 5});
     final ListNode result = ListNodes.getListOfNodes(new int[]{3, 1, 5});
@@ -24,14 +24,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithEvenList(Solution solution) {
     final ListNode input = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4});
     final ListNode result = ListNodes.getListOfNodes(new int[]{2, 1, 4, 3});
     assertEquals(result, solution.swapPairs(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

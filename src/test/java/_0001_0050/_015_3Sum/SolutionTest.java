@@ -19,14 +19,14 @@ import static org.junit.Assert.assertEquals;
  */
 class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void threeSum(Solution solution) {
     final Set<List<Integer>> expected = Set.of(
         List.of(-1, 0, 1),
@@ -38,7 +38,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void threeSumWithDipAnsSymmetric(Solution solution) {
     List<List<Integer>> sampleAnswer = new ArrayList<>();
     sampleAnswer.add(Arrays.asList(-4, 2, 2));

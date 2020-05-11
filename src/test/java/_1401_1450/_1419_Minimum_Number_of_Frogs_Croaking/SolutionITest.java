@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String croakOfFrogs = "croakcroak";
     final int expected = 1, actual = solution.minNumberOfFrogs(croakOfFrogs);
@@ -22,7 +22,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String croakOfFrogs = "crcoakroak";
     final int expected = 2, actual = solution.minNumberOfFrogs(croakOfFrogs);
@@ -30,7 +30,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String croakOfFrogs = "croakcrook";
     final int expected = -1, actual = solution.minNumberOfFrogs(croakOfFrogs);
@@ -39,14 +39,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String croakOfFrogs = "croakcroa";
     final int expected = -1, actual = solution.minNumberOfFrogs(croakOfFrogs);
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

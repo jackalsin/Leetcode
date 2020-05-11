@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int a = 1, b = 1, c = 7;
     final Set<String> expected = Set.of("ccaccbcc", "ccbccacc");
@@ -24,7 +24,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int a = 2, b = 2, c = 1;
     final Set<String> expected = Set.of("aabbc", "ababc");
@@ -33,7 +33,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int a = 7, b = 1, c = 0;
     final Set<String> expected = Set.of("aabaa");
@@ -42,7 +42,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final int a = 4, b = 2, c = 0;
     final Set<String> expected = Set.of("aabbaa", "aabaab");
@@ -51,7 +51,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int a = 0, b = 8, c = 11;
     //                                  "ccbbccbbccbbccbbcc"
@@ -61,7 +61,7 @@ class SolutionITest {
     assertTrue(expected.contains(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

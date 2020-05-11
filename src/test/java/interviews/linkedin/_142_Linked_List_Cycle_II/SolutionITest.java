@@ -17,14 +17,14 @@ import static org.junit.Assert.assertNull;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNoCycle(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
     assertNull(solution.detectCycle(head));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testSelfCycle(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     head.next.next.next.next.next = head.next.next;
@@ -34,7 +34,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(Solution solution) {
     final int[] input = new int[]{7032, 15013, 6890, 8877, 11344, 320, 13037, 9414, 6817, 1566, 14907, -2756, 9931,
         -4488, 11602, 4887, 1239, 6231, -5366, 8501, 1142, -1367, -4140, -5460, 15554, -4686, 12603, 1471, 5378,
@@ -524,7 +524,7 @@ class SolutionITest {
     assertNull(solution.detectCycle(head));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

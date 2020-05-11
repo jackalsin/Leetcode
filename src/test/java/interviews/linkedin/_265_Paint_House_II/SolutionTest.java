@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[][] nums = {{1, 5, 3}, {2, 9, 4}};
     assertEquals(5, solution.minCostII(nums));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[][] nums = {
         {10, 15, 12, 14, 18, 5},
@@ -35,7 +35,7 @@ class SolutionTest {
     assertEquals(41, solution.minCostII(nums));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

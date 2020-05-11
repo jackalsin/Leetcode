@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] tree = {2, 2}, squirrel = {4, 4};
     final int[][] nuts = {{3, 0}, {2, 5}};
     assertEquals(12, solution.minDistance(5, 7, tree, squirrel, nuts));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new OnePassSolution(),
         new TwoPassSolution()

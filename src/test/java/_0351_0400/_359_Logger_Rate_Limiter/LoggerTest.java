@@ -14,14 +14,14 @@ import static org.junit.Assert.assertTrue;
  * @version 1.0 on 10/12/2017.
  */
 class LoggerTest {
-  static Stream<Logger> solutionProvider() {
+  static Stream<Logger> solutionStream() {
     return Stream.of(
         new Logger()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Logger logger) {
 // logging string "foo" at timestamp 1
     assertTrue(logger.shouldPrintMessage(1, "foo"));

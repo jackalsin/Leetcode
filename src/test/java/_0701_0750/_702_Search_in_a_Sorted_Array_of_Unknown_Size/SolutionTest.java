@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final ArrayReader ar = new ArrayReader(new int[]{-1, 0, 3, 5, 9, 12});
     final int target = 9;
@@ -19,14 +19,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final ArrayReader ar = new ArrayReader(new int[]{-1, 0, 3, 5, 9, 12});
     final int target = 2;
     assertEquals(-1, solution.search(ar, target));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII());

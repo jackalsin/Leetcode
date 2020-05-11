@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TweetCountsTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(TweetCounts tweetCounts) {
     tweetCounts.recordTweet("tweet3", 0);
     tweetCounts.recordTweet("tweet3", 60);
@@ -35,7 +35,7 @@ class TweetCountsTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(TweetCounts tweetCounts) {
 //    ["TweetCounts","recordTweet","recordTweet","recordTweet","recordTweet","recordTweet",
 //    "getTweetCountsPerFrequency","getTweetCountsPerFrequency","recordTweet","getTweetCountsPerFrequency",
@@ -51,7 +51,7 @@ class TweetCountsTest {
     assertEquals(List.of(0, 0), tweetCounts.getTweetCountsPerFrequency("hour", "tweet0", 820240432, 820244034)); //
   }
 
-  static Stream<TweetCounts> solutionProvider() {
+  static Stream<TweetCounts> solutionStream() {
     return Stream.of(
         new TweetCounts()
     );

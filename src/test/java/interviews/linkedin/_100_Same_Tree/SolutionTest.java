@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testValid(Solution solution) {
     final TreeNode p = TreeNodes.getTreeLevelOrder(2, 1, 3),
         q = TreeNodes.getTreeLevelOrder(2, 1, 3);
@@ -24,14 +24,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testInvalid(Solution solution) {
     final TreeNode p = TreeNodes.getTreeLevelOrder(1, 2, null),
         q = TreeNodes.getTreeLevelOrder(1, null, 2);
     assertFalse(solution.isSameTree(p, q));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

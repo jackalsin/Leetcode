@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 3, 4, 5, 6);
     final int expected = 110, actual = solution.maxProduct(root);
@@ -24,7 +24,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(2, 3, 9, 10, 7, 8, 6, 5, 4, 11, 1);
     final int expected = 1025, actual = solution.maxProduct(root);
@@ -32,7 +32,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, null, 2, 3, 4, null, null, 5, 6);
     final int expected = 90, actual = solution.maxProduct(root);
@@ -40,7 +40,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 1);
     final int expected = 1, actual = solution.maxProduct(root);
@@ -48,7 +48,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(3434, 4223, 2441, 6764, 5911, 7094, 1827, 9223, 3580, 6615,
         8446, 2770, 5112, 718, 3292, 4092, 3269, 377, 7407, 4515, 4512, 6098, 282, 2197, 9833, 5285, 5841, 9643, 8708
@@ -165,7 +165,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new ONSpaceSolution()
     );

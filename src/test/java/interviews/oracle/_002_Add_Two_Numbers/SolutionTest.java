@@ -7,7 +7,7 @@ import utils.ListNodes;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -22,21 +22,21 @@ class SolutionTest {
   private static final ListNode NUM_38 = ListNodes.getListOfNodes(8, 3);
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void addTwoNumbers(Solution solution) {
     assertEquals(ListNodes.getListOfNodes(0, 0, 2, 1),
         solution.addTwoNumbers(NUM_432, NUM_768));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void addTwoNumbers2(Solution solution) {
     assertEquals(ListNodes.getListOfNodes(0, 7, 4),
         solution.addTwoNumbers(NUM_432, NUM_38));
   }
 
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -14,69 +14,69 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] digits = {8, 1, 9};
     assertEquals("981", solution.largestMultipleOfThree(digits));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[] digits = {8, 6, 7, 1, 0};
     assertEquals("8760", solution.largestMultipleOfThree(digits));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[] digits = {1};
     assertEquals("", solution.largestMultipleOfThree(digits));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final int[] digits = {0, 0, 0, 0};
     assertEquals("0", solution.largestMultipleOfThree(digits));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final int[] digits = {1, 1, 1};
     assertEquals("111", solution.largestMultipleOfThree(digits));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase6(Solution solution) {
     final int[] digits = {1, 1, 1, 2};
     assertEquals("111", solution.largestMultipleOfThree(digits));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase7(Solution solution) {
     final int[] digits = {5, 8};
     assertEquals("", solution.largestMultipleOfThree(digits));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase8(Solution solution) {
     final int[] digits = {9, 8, 6, 8, 6};
     assertEquals("966", solution.largestMultipleOfThree(digits));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase9(Solution solution) {
     final int[] digits = {4, 0, 0, 0};
     assertEquals("0", solution.largestMultipleOfThree(digits));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

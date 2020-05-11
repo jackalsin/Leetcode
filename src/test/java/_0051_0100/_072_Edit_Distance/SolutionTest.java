@@ -13,26 +13,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 4/29/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithEmptyCouples(Solution solution) {
     assertEquals(0, solution.minDistance("", ""));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithEmpty(Solution solution) {
     assertEquals(5, solution.minDistance("", "word1"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithCommonCase1(Solution solution) {
     assertEquals(2, solution.minDistance("word", "wcd"));
   }

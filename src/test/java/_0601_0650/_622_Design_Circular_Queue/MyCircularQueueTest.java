@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class MyCircularQueueTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     Solution circularQueue = solutionClass.getConstructor(Integer.TYPE).newInstance(3);
@@ -32,7 +32,7 @@ class MyCircularQueueTest {
     assertEquals(4, circularQueue.Rear());  // return 4
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         MyCircularQueue.class,
         MyCircularQueueI.class

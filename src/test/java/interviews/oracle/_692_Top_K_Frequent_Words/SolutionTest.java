@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String[] input = {"i", "love", "leetcode", "i", "love", "leetcode"};
     final List<String> expected = List.of("i", "leetcode");
@@ -24,7 +24,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String[] input = {"i", "love", "leetcode", "i", "love", "coding"};
     final List<String> expected = List.of("i", "love");
@@ -33,7 +33,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String[] input = {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"};
     final List<String> expected = List.of("the", "is", "sunny", "day");
@@ -41,7 +41,7 @@ class SolutionTest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new PriorityQueueSolution(),
         new PriorityQueueSolutionI(),

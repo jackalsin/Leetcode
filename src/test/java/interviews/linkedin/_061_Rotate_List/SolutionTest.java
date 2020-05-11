@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith5And2(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     ListNode expected = ListNodes.getListOfNodes(new int[]{4, 5, 1, 2, 3});
@@ -19,7 +19,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith5And7(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     ListNode expected = ListNodes.getListOfNodes(new int[]{4, 5, 1, 2, 3});
@@ -27,7 +27,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith0And0(Solution solution) {
     ListNode head = null;
     ListNode expected = null;
@@ -35,7 +35,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith1And1(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1});
     ListNode expected = ListNodes.getListOfNodes(new int[]{1});
@@ -43,7 +43,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith1And0(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1});
     ListNode expected = ListNodes.getListOfNodes(new int[]{1});
@@ -51,7 +51,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith2And0(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2});
     ListNode expected = ListNodes.getListOfNodes(new int[]{1, 2});
@@ -59,14 +59,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith2And2(Solution solution) {
     ListNode head = ListNodes.getListOfNodes(new int[]{1, 2});
     ListNode expected = ListNodes.getListOfNodes(new int[]{1, 2});
     assertEquals(expected, solution.rotateRight(head, 2));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

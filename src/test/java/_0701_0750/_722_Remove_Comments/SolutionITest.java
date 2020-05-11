@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String[] source = new String[]{"/*Test program */", "int main()", "{ ", "  // variable declaration " +
         "", "int a, b, c;", "/* This is a test", "   multiline  ", "   comment for ", "   testing */", "a = b + c;",
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String[] source = new String[]{"a/*comment", "line", "more_comment*/b"};
     final List<String> actual = solution.removeComments(source);
@@ -35,7 +35,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseCharWithComments(Solution solution) {
     final String[] source = new String[]{"a/*comment", "line", "more_comment*/"};
     final List<String> actual = solution.removeComments(source);
@@ -44,7 +44,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String[] source = new String[]{"main() {", "/* here is commments", "  // still comments */",
         "   double s = 33;", "   cout << s;", "}"};
@@ -54,7 +54,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed1(Solution solution) {
     final String[] source = new String[]{
         "class test{",
@@ -75,7 +75,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String[] input = {"alex", "loves", "leetcode"};
     final Set<String> expected = Set.of(
@@ -32,7 +32,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     // gctactattccaatgc
     final String[] input = {"catg", "ctaagt", "gcta", "ttca", "atgcatc"};
@@ -41,7 +41,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     // gctactattccaatgc
     final String[] input = {"ppgortnmsy", "czmysoeeyugbiylso", "nbfzpppvhbjydtx", "rnzynedhoiunkpon",
@@ -53,7 +53,7 @@ class SolutionITest {
     assertEquals(expected, solution.shortestSuperstring(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new PqSolutionI(),
         new PqSolutionII(),

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(MapSum solution) {
     solution.insert("apple", 3);
     assertEquals(3, solution.sum("ap"));
@@ -23,7 +23,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(MapSum solution) {
     solution.insert("aa", 3);
     assertEquals(3, solution.sum("a"));
@@ -31,7 +31,7 @@ class SolutionITest {
     assertEquals(2, solution.sum("a"));
   }
 
-  static Stream<MapSum> solutionProvider() {
+  static Stream<MapSum> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

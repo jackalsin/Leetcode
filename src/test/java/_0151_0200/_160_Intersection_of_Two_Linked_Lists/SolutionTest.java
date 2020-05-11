@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     ListNode headA = ListNodes.getListOfNodes(1, 2, 3, 4, 5);
     ListNode headB = ListNodes.getListOfNodes(-1, -2, -3);
@@ -19,7 +19,7 @@ class SolutionTest {
     assertEquals(headA.next.next, solution.getIntersectionNode(headA, headB));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

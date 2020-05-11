@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     ListNode headA = ListNodes.getListOfNodes(new int[]{1, 2, 3, 4, 5});
     ListNode headB = ListNodes.getListOfNodes(new int[]{-1, -2, -3});
@@ -26,14 +26,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     ListNode headA = ListNodes.getListOfNodes(new int[]{2, 6, 4});
     ListNode headB = ListNodes.getListOfNodes(new int[]{1, 5});
     assertNull(solution.getIntersectionNode(headA, headB));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

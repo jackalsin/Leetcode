@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MyHashMapLinkedListTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution hashMap) {
     hashMap.put(1, 1);
     hashMap.put(2, 2);
@@ -22,7 +22,7 @@ class MyHashMapLinkedListTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution hashMap) {
 //    ["MyHashMap","remove","get","put","put","put","get","put","put","put","put"]
 //[[],[14],[4],[7,3],[11,1],[12,1],[7],[1,19],[0,3],[1,8],[2,6]]
@@ -38,7 +38,7 @@ class MyHashMapLinkedListTest {
     hashMap.put(2, 6);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new MyHashMap(),
         new MyHashMapI(),

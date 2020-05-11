@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] input = new int[]{1, 2, 2, 1, 0, 2, 1, 2};
     final int[] expected = new int[]{1, 2, 2, 1, 0, 2, 1, 2};
@@ -24,7 +24,7 @@ class SolutionTest {
     assertArrayEquals(expected, input);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

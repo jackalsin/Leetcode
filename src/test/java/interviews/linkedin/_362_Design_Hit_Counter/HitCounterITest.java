@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class HitCounterITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(HitCounter counter) {
     // hit at timestamp 1.
     counter.hit(1);
@@ -32,7 +32,7 @@ class HitCounterITest {
     assertEquals(3, counter.getHits(301));
   }
 
-  static Stream<HitCounter> solutionProvider() {
+  static Stream<HitCounter> solutionStream() {
     return Stream.of(
         new HitCounterI(),
         new HitCounterII()

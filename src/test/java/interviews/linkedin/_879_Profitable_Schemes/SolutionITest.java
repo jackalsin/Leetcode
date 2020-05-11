@@ -18,7 +18,7 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int G = 5, P = 3, group[] = {2, 2}, profit[] = {2, 3};
     assertEquals(2, solution.profitableSchemes(G, P, group, profit));
@@ -27,7 +27,7 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int G = 10, P = 5, group[] = {2, 3, 5}, profit[] = {6, 7, 8};
     assertEquals(7, solution.profitableSchemes(G, P, group, profit));
@@ -35,7 +35,7 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int G = 100, P = 100, group[] = {2, 5, 36, 2, 5, 5, 14, 1, 12, 1, 14, 15, 1, 1, 27, 13, 6, 59, 6, 1, 7, 1,
         2, 7, 6, 1, 6, 1, 3, 1, 2, 11, 3, 39, 21, 20, 1, 27, 26, 22, 11, 17, 3, 2, 4, 5, 6, 18, 4, 14, 1, 1, 1, 3, 12
@@ -48,7 +48,7 @@ class SolutionITest {
   }
 
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

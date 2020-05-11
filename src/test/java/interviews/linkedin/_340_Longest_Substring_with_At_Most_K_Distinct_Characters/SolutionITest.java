@@ -10,27 +10,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) throws Exception {
     final String s = "eceba";
     assertEquals(3, solution.lengthOfLongestSubstringKDistinct(s, 2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) throws Exception {
     final String s = "aa";
     assertEquals(2, solution.lengthOfLongestSubstringKDistinct(s, 1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testKEquals0(Solution solution) throws Exception {
     final String s = "abaccc";
     assertEquals(4, solution.lengthOfLongestSubstringKDistinct(s, 2));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -22,7 +22,7 @@ class SolutionITest {
     assertEquals(3, SolutionI.getScore5(156));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

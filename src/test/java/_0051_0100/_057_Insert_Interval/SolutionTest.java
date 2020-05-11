@@ -16,14 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithOnlineCase1(Solution solution) {
     List<Interval> input = Util.getIntervals(new int[][]{{1, 3}, {6, 9}});
     List<Interval> expected = Util.getIntervals(new int[][]{{1, 5}, {6, 9}});
@@ -31,7 +31,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithOnlineCase2(Solution solution) {
     List<Interval> input = Util.getIntervals(new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}});
     List<Interval> expected = Util.getIntervals(new int[][]{{1, 2}, {3, 10}, {12, 16}});
@@ -39,7 +39,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithMissingLastIndex(Solution solution) {
     List<Interval> input = Util.getIntervals(new int[][]{{1, 5}});
     List<Interval> expected = Util.getIntervals(new int[][]{{1, 5}});

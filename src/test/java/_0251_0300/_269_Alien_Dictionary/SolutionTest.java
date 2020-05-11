@@ -14,54 +14,54 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testExample1(Solution solution) {
     assertEquals("wertf", solution.alienOrder(new String[]{"wrt", "wrf", "er", "ett", "rftt"}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testExample2(Solution solution) {
     assertEquals("zx", solution.alienOrder(new String[]{"z", "x"}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testExample3(Solution solution) {
     assertEquals("", solution.alienOrder(new String[]{"z", "x", "z"}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed(Solution solution) {
     assertEquals("acb", solution.alienOrder(new String[]{"ac", "ab", "b"}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed2(Solution solution) {
     assertEquals("acb", solution.alienOrder(new String[]{"ac", "ab", "b"}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed3(Solution solution) {
     assertEquals("z", solution.alienOrder(new String[]{"z", "z"}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed4(Solution solution) {
     assertEquals("z", solution.alienOrder(new String[]{"z", "z", "z"}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed5(Solution solution) {
     assertEquals("zf", solution.alienOrder(new String[]{"z", "z", "f"}));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

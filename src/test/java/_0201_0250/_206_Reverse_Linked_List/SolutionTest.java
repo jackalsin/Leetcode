@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOneElement(Solution solution) {
     ListNode input = ListNodes.getListOfNodes(1);
     ListNode expected = ListNodes.getListOfNodes(1);
@@ -20,7 +20,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoElements(Solution solution) {
     ListNode input = ListNodes.getListOfNodes(1, 2);
     ListNode expected = ListNodes.getListOfNodes(2, 1);
@@ -28,14 +28,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testThreeElements(Solution solution) {
     ListNode input = ListNodes.getListOfNodes(1, 2, 3);
     ListNode expected = ListNodes.getListOfNodes(3, 2, 1);
     assertEquals(expected, solution.reverseList(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testA(Solution solution) {
     final String s = "a";
     final String t = "a";
@@ -21,7 +21,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testAAndAA(Solution solution) {
     final String s = "a";
     final String t = "aa";
@@ -29,14 +29,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testADOBECODEBANC(Solution solution) {
     final String s = "ADOBECODEBANC";
     final String t = "ABC";
     assertEquals("BANC", solution.minWindow(s, t));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SortSolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] nums = {1, 2, 3, 1};
     assertTrue(solution.containsDuplicate(nums));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SortSolution(),
         new SetSolution()

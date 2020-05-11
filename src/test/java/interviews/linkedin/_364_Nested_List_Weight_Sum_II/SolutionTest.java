@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final List<NestedInteger> input = List.of(new NestedIntegerImpl(new NestedIntegerImpl(1),
         new NestedIntegerImpl(1)), new NestedIntegerImpl(2), new NestedIntegerImpl(new
@@ -24,7 +24,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final List<NestedInteger> input = of(new NestedIntegerImpl(1), new NestedIntegerImpl(
         new NestedIntegerImpl(4), new NestedIntegerImpl(new NestedIntegerImpl(6))
@@ -32,7 +32,7 @@ class SolutionTest {
     assertEquals(17, solution.depthSumInverse(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

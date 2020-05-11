@@ -16,25 +16,25 @@ import static org.junit.Assert.assertTrue;
 public class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     assertEquals("abcabc", solution.rearrangeString("aabbcc", 3));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase2(Solution solution) {
     assertEquals("", solution.rearrangeString("aaabc", 3));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase3(Solution solution) {
     final String actual = solution.rearrangeString("aaadbbcc", 2);
     assertTrue(Set.of("abacabcd", "abcabcda").contains(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 }

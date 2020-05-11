@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     final String input = "25525511135";
     final List<String> expected = Arrays.asList("255.255.11.135", "255.255.111.35");
@@ -25,7 +25,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testLeadingZero(Solution solution) {
     final String input = "010010";
     final List<String> expected = Arrays.asList("0.10.0.10", "0.100.1.0");
@@ -33,7 +33,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testTLE(Solution solution) {
     StringBuilder inputSb = new StringBuilder();
     for (int i = 0; i < 10_000; i++) {
@@ -42,7 +42,7 @@ public class SolutionTest {
     assertEquals(new HashSet<>(), new HashSet<>(solution.restoreIpAddresses(inputSb.toString())));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 }

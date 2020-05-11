@@ -13,20 +13,20 @@ import static org.junit.Assert.assertEquals;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testMissing1(Solution solution) {
     final int[] input = new int[]{0, -1, 3, 5, 2};
     assertEquals(1, solution.firstMissingPositive(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith1ToN(Solution solution) {
     final int[] input = new int[]{1, 2, 3, 4};
     assertEquals(5, solution.firstMissingPositive(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

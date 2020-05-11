@@ -15,7 +15,7 @@ import static utils._324_Wiggle_Sort_II.Validator.assertIsWiggle;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase(Solution solution) {
     final int[] input = {1, 2, 2, 1, 2, 1, 1, 1, 1, 2, 2, 2};
     solution.wiggleSort(input);
@@ -23,7 +23,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase2(Solution solution) {
     final int[] input = {1};
     solution.wiggleSort(input);
@@ -31,7 +31,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase3(Solution solution) {
     final int[] input = {4, 5, 5, 6};
     solution.wiggleSort(input);
@@ -40,7 +40,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase4(Solution solution) {
     final int[] input = {1, 3, 2, 2, 3, 1};
     solution.wiggleSort(input);
@@ -48,7 +48,7 @@ class SolutionTest {
     assertTrue(assertIsWiggle(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

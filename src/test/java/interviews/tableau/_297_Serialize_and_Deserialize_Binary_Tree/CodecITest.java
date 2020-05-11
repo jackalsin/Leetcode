@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 class CodecITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Codec solution) {
     TreeNode root = new TreeNode(1);
     root.left = new TreeNode(2);
@@ -25,7 +25,7 @@ class CodecITest {
     assertEquals(root, actual);
   }
 
-  static Stream<Codec> solutionProvider() {
+  static Stream<Codec> solutionStream() {
     return Stream.of(
         new CodecI()
     );

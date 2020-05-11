@@ -13,20 +13,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     final int[] prices = new int[]{7, 1, 5, 3, 6, 4};
     assertEquals(5, solution.maxProfit(prices));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCaseZeroProfit(Solution solution) {
     final int[] prices = new int[]{7, 6, 5, 4, 3, 1};
     assertEquals(0, solution.maxProfit(prices));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

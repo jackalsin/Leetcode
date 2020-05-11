@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseNull(Solution solution) {
     final int[][] input = null, expected = new int[][]{},
         actual = solution.merge(input);
@@ -22,7 +22,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseEmpty(Solution solution) {
     final int[][] input = new int[][]{}, expected = new int[][]{},
         actual = solution.merge(input);
@@ -30,7 +30,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testSingleElement(Solution solution) {
     final int[][] input = {{1, 3}}, expected = {{1, 3}},
         actual = solution.merge(input);
@@ -38,7 +38,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testMergeElement(Solution solution) {
     final int[][] input = {{1, 3}, {3, 5}}, expected = {{1, 5}},
         actual = solution.merge(input);
@@ -46,14 +46,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testNotMergeElement(Solution solution) {
     final int[][] input = {{1, 3}, {4, 5}}, expected = {{1, 3}, {4, 5}},
         actual = solution.merge(input);
     assertArrayEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -16,26 +16,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testValid(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(2, 1, 3);
     assertTrue(solution.isValidBST(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testInvalid(Solution solution) {
     final TreeNode root = TreeNodes.getTreeLevelOrder(1, 2, 3);
     assertFalse(solution.isValidBST(root));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     assertTrue(solution.isValidBST(null));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new StackSolution(),
         new StackSolutionI(),

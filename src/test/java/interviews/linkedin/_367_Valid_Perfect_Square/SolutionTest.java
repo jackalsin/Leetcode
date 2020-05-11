@@ -15,20 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test16Solution(Solution solution) {
     final int num = 16;
     assertTrue(solution.isPerfectSquare(num));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test14Solution(Solution solution) {
     final int num = 14;
     assertFalse(solution.isPerfectSquare(num));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

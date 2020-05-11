@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testBalancedTree(Solution solution) throws Exception {
     final TreeNode root = new TreeNode(1);
     root.left = null;
@@ -24,7 +24,7 @@ public class SolutionTest {
     assertEquals(Arrays.asList(1, 3, 2), solution.inorderTraversal(root));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

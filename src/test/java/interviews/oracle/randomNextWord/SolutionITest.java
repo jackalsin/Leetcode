@@ -17,7 +17,7 @@ class SolutionITest {
   private static final double BIAS = 1e-3;
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     solution.addWord("hello");
     solution.addWord("alice");
@@ -37,7 +37,7 @@ class SolutionITest {
     }
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new HashMapSolution(),
         new TrieSolution()

@@ -13,12 +13,12 @@ import static org.junit.Assert.assertArrayEquals;
  * @version 1.0 on 5/28/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testBothFinish(Solution solution) {
     final int[] nums1 = new int[]{1, 3, 5, 0, 0, 0};
     final int[] nums2 = new int[]{2, 4, 6};
@@ -27,7 +27,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1FinishFirst(Solution solution) {
     final int[] nums1 = new int[]{1, 0, 0, 0};
     final int[] nums2 = new int[]{-1, 2, 4};
@@ -37,7 +37,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2FinishFirst(Solution solution) {
     final int[] nums1 = new int[]{1, 3, 4, 0};
     final int[] nums2 = new int[]{2};

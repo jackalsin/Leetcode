@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MinStackO1SpaceTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Class<MinStack> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final MinStack minStack = solutionClass.getConstructor().newInstance();
@@ -23,7 +23,7 @@ class MinStackO1SpaceTest {
     assertEquals(-2, minStack.getMin());
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         MinStackO1Space.class
     );

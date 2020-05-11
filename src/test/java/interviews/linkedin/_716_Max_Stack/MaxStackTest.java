@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MaxStackTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(MaxStack maxStack) {
     maxStack.push(5);
     maxStack.push(1);
@@ -23,7 +23,7 @@ class MaxStackTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(MaxStack maxStack) {
 //    ["MaxStack","push","push","push","peekMax","popMax","popMax","top"]
 //    [[],[5],[1],[6],[],[],[],[]]
@@ -37,7 +37,7 @@ class MaxStackTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(MaxStack maxStack) {
 //    ["MaxStack","push","push","push","peekMax","popMax","popMax","top"]
 //    [[],[5],[1],[6],[],[],[],[]]
@@ -47,7 +47,7 @@ class MaxStackTest {
     assertEquals(5, maxStack.popMax());
   }
 
-  static Stream<MaxStack> solutionProvider() {
+  static Stream<MaxStack> solutionStream() {
     return Stream.of(
         new MaxStackI(),
         new MaxStackII(),

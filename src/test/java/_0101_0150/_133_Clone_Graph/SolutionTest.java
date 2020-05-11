@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNull;
  */
 public class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SlowSolution(),
         new AwesomeSolution()
@@ -24,13 +24,13 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
     assertNull(solution.cloneGraph(null));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     Node node0 = new Node(0, new ArrayList<>());
     Node node1 = new Node(1, new ArrayList<>());

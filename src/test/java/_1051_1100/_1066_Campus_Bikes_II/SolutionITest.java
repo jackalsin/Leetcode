@@ -14,21 +14,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[][] workers = {{0, 0}, {2, 1}}, bikes = {{1, 2}, {3, 3}};
     assertEquals(6, solution.assignBikes(workers, bikes));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[][] workers = {{0, 0}, {1, 1}, {2, 0}}, bikes = {{1, 0}, {2, 2}, {2, 1}};
     assertEquals(4, solution.assignBikes(workers, bikes));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int[][] workers = {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}},
         bikes = {{0, 999}, {1, 999}, {2, 999}, {3, 999}, {4, 999}, {5, 999}};
@@ -36,7 +36,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     //                        0           1             2         3         4           5
     final int[][] workers = {{586, 230}, {563, 941}, {714, 182}, {32, 97}, {448, 259}, {103, 716}},
@@ -52,7 +52,7 @@ class SolutionITest {
     assertEquals(1050, solution.assignBikes(workers, bikes));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new BruteForceSolution(),
         new FordFulkersonSolution()

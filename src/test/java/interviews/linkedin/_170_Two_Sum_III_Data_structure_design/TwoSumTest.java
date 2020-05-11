@@ -15,14 +15,14 @@ import static org.junit.Assert.assertTrue;
 class TwoSumTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1Element(TwoSum twoSum) {
     twoSum.add(0);
     assertFalse(twoSum.find(0));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testDuplicatedElements(TwoSum twoSum) {
     twoSum.add(0);
     twoSum.add(0);
@@ -30,7 +30,7 @@ class TwoSumTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoDistinctElements(TwoSum twoSum) {
     twoSum.add(0);
     twoSum.add(1);
@@ -38,7 +38,7 @@ class TwoSumTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase(TwoSum twoSum) {
     twoSum.add(0);
     twoSum.add(-1);
@@ -46,7 +46,7 @@ class TwoSumTest {
     assertTrue(twoSum.find(0));
   }
 
-  static Stream<TwoSum> solutionProvider() {
+  static Stream<TwoSum> solutionStream() {
     return Stream.of(
         new TwoSumAddHeavy(),
         new TwoSumAddHeavyII(),

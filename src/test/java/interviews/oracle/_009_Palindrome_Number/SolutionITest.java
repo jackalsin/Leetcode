@@ -15,48 +15,48 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testMinValue(Solution solution) {
     assertFalse(solution.isPalindrome(Integer.MIN_VALUE));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testMaxValue(Solution solution) {
     assertFalse(solution.isPalindrome(Integer.MAX_VALUE));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testZero(Solution solution) {
     assertTrue(solution.isPalindrome(0));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testSingleDigit(Solution solution) {
     assertTrue(solution.isPalindrome(1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoDigits(Solution solution) {
     assertTrue(solution.isPalindrome(11));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testThreeDigits(Solution solution) {
     assertTrue(solution.isPalindrome(121));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFourDigits(Solution solution) {
     assertTrue(solution.isPalindrome(1221));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

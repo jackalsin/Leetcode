@@ -17,14 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseNull(Solution solution) {
     final ListNode head = null;
     assertNull(solution.removeNthFromEnd(head, 0));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseRemoveMid(Solution solution) {
     final ListNode head = ListNodes.getListOfNodes(1, 2, 3, 4, 5),
         actual = solution.removeNthFromEnd(head, 2),
@@ -33,7 +33,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineRemoveHead(Solution solution) {
     final ListNode head = ListNodes.getListOfNodes(1, 2, 3, 4, 5),
         actual = solution.removeNthFromEnd(head, 5),
@@ -42,7 +42,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testRemoveTail(Solution solution) {
     final ListNode head = ListNodes.getListOfNodes(1, 2, 3, 4, 5),
         actual = solution.removeNthFromEnd(head, 1),
@@ -50,7 +50,7 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

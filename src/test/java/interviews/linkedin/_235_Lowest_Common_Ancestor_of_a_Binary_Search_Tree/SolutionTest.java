@@ -31,7 +31,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testPEqualsQRoot(Class<Solution> solutionClass) throws InvocationTargetException, NoSuchMethodException,
       InstantiationException, IllegalAccessException {
     Solution solution = getSolution(solutionClass);
@@ -39,7 +39,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testPEqualsQNonRoot(Class<Solution> solutionClass) throws InvocationTargetException, NoSuchMethodException,
       InstantiationException, IllegalAccessException {
     Solution solution = getSolution(solutionClass);
@@ -47,7 +47,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testParent(Class<Solution> solutionClass) throws InvocationTargetException, NoSuchMethodException,
       InstantiationException, IllegalAccessException {
     Solution solution = getSolution(solutionClass);
@@ -56,7 +56,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testRegular(Class<Solution> solutionClass) throws InvocationTargetException, NoSuchMethodException,
       InstantiationException, IllegalAccessException {
     Solution solution = getSolution(solutionClass);
@@ -64,7 +64,7 @@ class SolutionTest {
         root.left.right.right));
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         SolutionI.class,
         SolutionII.class

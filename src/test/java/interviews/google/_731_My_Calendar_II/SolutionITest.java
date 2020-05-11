@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     assertTrue(solution.book(10, 20)); // returns true
     assertTrue(solution.book(50, 60)); // returns true
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
 //["book",  "book",   "book","book",  "book","book",  "book","book","book","book"]
 //[[24,40], [43,50],  [27,43],[5,21], [30,40],[14,29],[3,19],[3,14],[25,39],[6,19]]
@@ -44,7 +44,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     assertTrue(solution.book(47, 50));
     assertTrue(solution.book(1, 10));
@@ -80,7 +80,7 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
 //    ["MyCalendarTwo","book","book","book","book","book","book","book","book","book","book","book","book","book",
 //    "book","book","book","book","book","book","book"]
@@ -102,7 +102,7 @@ class SolutionITest {
     assertFalse(solution.book(43, 60));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

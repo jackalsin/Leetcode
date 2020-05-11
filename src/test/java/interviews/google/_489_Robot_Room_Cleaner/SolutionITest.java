@@ -2,7 +2,6 @@ package interviews.google._489_Robot_Room_Cleaner;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TwoDimensionArray;
 import utils._489_Robot_Room_Cleaner.RobotImpl;
 
 import java.util.stream.Stream;
@@ -16,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     // 8 ge
     //      1, 1, 1, 1, 1, 0, 1, 1
@@ -55,7 +54,7 @@ class SolutionITest {
     assertArrayEquals(expected, actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

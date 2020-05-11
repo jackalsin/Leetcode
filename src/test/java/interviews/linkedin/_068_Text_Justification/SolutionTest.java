@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final List<String> expected = List.of("Science  is  what we", "understand      well", "enough to explain to", "a " +
         " computer.  Art is", "everything  else  we", "do                  ");
@@ -24,7 +24,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithMissed(Solution solution) {
     String[] words = new String[]{"a", "b", "c", "d", "e"};
     List<String> output = new ArrayList<>();
@@ -35,7 +35,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithMissed2(Solution solution) {
     String[] words = new String[]{"What", "must", "be", "shall", "be."};
     List<String> output = new ArrayList<>();
@@ -45,7 +45,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithMissed4(Solution solution) {
     String[] words = new String[]{""};
     List<String> output = new ArrayList<>();
@@ -54,7 +54,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithMissed3(Solution solution) {
     String[] words = new String[]{"a", "b", "c", "d", "e"};
     List<String> output = new ArrayList<>();
@@ -66,7 +66,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithEmptyStringAndZeroLength(Solution solution) {
     String[] words = new String[]{""};
     List<String> output = new ArrayList<>();
@@ -75,7 +75,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithWordEqualMax(Solution solution) {
     String[] words = new String[]{"a"};
     List<String> expected = new ArrayList<>();
@@ -84,14 +84,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithOnlineCase(Solution solution) {
     String[] words = new String[]{"This", "is", "an", "example", "of", "text", "justification."};
     List<String> output = Arrays.asList("This    is    an", "example  of text", "justification.  ");
     assertEquals(output, solution.fullJustify(words, 16));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

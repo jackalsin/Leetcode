@@ -10,28 +10,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
   // non duplicated test cases
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOneElement(Solution solution) {
     final int[] input = new int[]{1};
     assertEquals(1, solution.findMin(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoElement(Solution solution) {
     final int[] input = new int[]{1, 2};
     assertEquals(1, solution.findMin(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoElements(Solution solution) {
     final int[] input = new int[]{2, 1};
     assertEquals(1, solution.findMin(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test5Elements(Solution solution) {
     final int[] input = new int[]{2, 3, 4, 0, 1};
     assertEquals(0, solution.findMin(input));
@@ -39,20 +39,20 @@ class SolutionTest {
 
   // duplicated test cases
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testDup1(Solution solution) {
     final int[] input = new int[]{2, 2, 2, 0, 1};
     assertEquals(0, solution.findMin(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testDup2(Solution solution) {
     final int[] input = new int[]{1, 3, 3};
     assertEquals(1, solution.findMin(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class DfsSolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final char[][] input = {
         {'E', 'E', 'E', 'E', 'E'},
@@ -35,7 +35,7 @@ class DfsSolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final char[][] input = {
         {'B', '1', 'E', '1', 'B'},
@@ -54,7 +54,7 @@ class DfsSolutionTest {
     assertTrue(Arrays.deepEquals(expected, solution.updateBoard(input, click)));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new DfsSolution()
     );

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class KMPTest {
 
-  static Stream<KMP> solutionProvider() {
+  static Stream<KMP> solutionStream() {
     return Stream.of(
         new KMPI(),
         new KMPII()
@@ -19,14 +19,14 @@ class KMPTest {
 
   // ----- test of substring -------------------
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testSubstring1(KMP solution) {
     final String haystack = "hello", needle = "ll";
     assertEquals(2, solution.substring(haystack, needle));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testSubstring2(KMP solution) {
     final String haystack = "aaaaa", needle = "bba";
     assertEquals(-1, solution.substring(haystack, needle));
@@ -34,7 +34,7 @@ class KMPTest {
 
   // ----- getNext(final String pattern) --------
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testGetNext1(KMP solution) {
     final String p = "ABCDABD";
     final int[] expected = {-1, 0, 0, 0, 0, 1, 2};
@@ -44,7 +44,7 @@ class KMPTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testGetNext2(KMP solution) {
     final String p = "ABCDABCDABD";
     final int[] expected = {-1, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6};
@@ -54,7 +54,7 @@ class KMPTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testGetNext3(KMP solution) {
     final String p = "";
     final int[] expected = {};

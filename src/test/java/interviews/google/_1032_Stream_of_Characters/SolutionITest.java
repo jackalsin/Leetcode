@@ -17,7 +17,7 @@ class SolutionITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Class<StreamChecker> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final String[] input = new String[]{"cd", "f", "kl"};
@@ -38,7 +38,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Class<StreamChecker> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final String[] input = new String[]{"abaa", "abaab", "aabbb", "bab", "ab"};
@@ -51,7 +51,7 @@ class SolutionITest {
     assertTrue(streamChecker.query('b'));          // return true, 'aabbb'
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         StreamCheckerI.class
     );

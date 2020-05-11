@@ -15,19 +15,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testZero(Solution solution) {
     assertEquals(1, solution.strobogrammaticInRange("0", "0"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testLeadingZero(Solution solution) {
     assertEquals(3, solution.strobogrammaticInRange("90", "111"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testLeading50And100(Solution solution) {
     assertEquals(3, solution.strobogrammaticInRange("50", "100"));
   }
@@ -40,7 +40,7 @@ class SolutionITest {
     assertEquals(1, SolutionI.isInRange("90", "111", "112"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

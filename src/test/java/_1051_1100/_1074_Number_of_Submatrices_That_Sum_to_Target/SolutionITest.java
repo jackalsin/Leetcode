@@ -14,20 +14,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int matrix[][] = {{0, 1, 0}, {1, 1, 1}, {0, 1, 0}}, target = 0;
     assertEquals(4, solution.numSubmatrixSumTarget(matrix, target));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int matrix[][] = {{1, -1}, {-1, 1}}, target = 0;
     assertEquals(5, solution.numSubmatrixSumTarget(matrix, target));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

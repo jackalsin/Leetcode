@@ -17,26 +17,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class SolutionTest {
 
-  static Stream<Solution> solutionProvider() throws Exception {
+  static Stream<Solution> solutionStream() throws Exception {
     return Stream.of(
         new SolutionI()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test0Element(Solution solution) {
     assertEquals(null, solution.sortedListToBST(null));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1Element(Solution solution) {
     assertEquals(new TreeNode(1), solution.sortedListToBST(new ListNode(1)));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2Element(Solution solution) {
     ListNode inputHead = new ListNode(1);
     inputHead.next = new ListNode(2);
@@ -51,7 +51,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test3Element(Solution solution) {
     ListNode inputHead = new ListNode(1);
     inputHead.next = new ListNode(2);

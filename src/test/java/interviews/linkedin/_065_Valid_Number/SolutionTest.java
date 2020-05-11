@@ -14,79 +14,79 @@ import static org.junit.Assert.assertTrue;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test0(Solution solution) {
     assertTrue(solution.isNumber("0"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test0_1(Solution solution) {
     assertTrue(solution.isNumber("0.1"));
     assertTrue(solution.isNumber(" 0.1 "));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testAbc(Solution solution) {
     assertFalse(solution.isNumber("abc"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1a(Solution solution) {
     assertFalse(solution.isNumber("1a"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test03(Solution solution) {
     assertTrue(solution.isNumber(".3"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test03E81(Solution solution) {
     assertTrue(solution.isNumber(".3e81"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test3Point0(Solution solution) {
     assertTrue(solution.isNumber("3."));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2e10(Solution solution) {
     assertTrue(solution.isNumber("2e10"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2E10(Solution solution) {
     assertTrue(solution.isNumber("2E10"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2E3Point5(Solution solution) {
     assertFalse(solution.isNumber("2E3.5"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2ENegative3Point5(Solution solution) {
     assertFalse(solution.isNumber("2E3.5"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     assertFalse(solution.isNumber(""));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

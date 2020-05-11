@@ -15,31 +15,31 @@ import static org.junit.Assert.assertTrue;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     assertFalse(solution.canIWin(10, 11));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedOnDuplication(Solution solution) {
     assertTrue(solution.canIWin(10, 0));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed10And1(Solution solution) {
     assertTrue(solution.canIWin(10, 1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed10And40(Solution solution) {
     assertFalse(solution.canIWin(10, 40));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed20And210(Solution solution) {
     final long start = System.nanoTime();
     assertFalse(solution.canIWin(20, 210));
@@ -48,7 +48,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed5And50(Solution solution) {
     final long start = System.nanoTime();
     assertFalse(solution.canIWin(5, 50));
@@ -56,7 +56,7 @@ class SolutionTest {
     System.out.println((end - start) / 1e6 + " ms");
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),

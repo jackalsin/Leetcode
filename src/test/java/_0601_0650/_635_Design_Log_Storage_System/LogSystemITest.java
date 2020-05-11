@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LogSystemITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     Solution solution = solutionClass.getConstructor().newInstance();
@@ -38,7 +38,7 @@ class LogSystemITest {
     // logs start from 2016:01:01:01 to 2017:01:01:23, where log 3 is left outside the range.
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         LogSystemI.class
     );

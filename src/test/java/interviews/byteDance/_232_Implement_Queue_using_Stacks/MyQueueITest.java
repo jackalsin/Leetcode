@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class MyQueueITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<MyQueue> myQueueClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     MyQueue queue = myQueueClass.getConstructor().newInstance();
@@ -27,7 +27,7 @@ class MyQueueITest {
     assertFalse(queue.empty()); // returns false
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         MyQueueI.class
     );

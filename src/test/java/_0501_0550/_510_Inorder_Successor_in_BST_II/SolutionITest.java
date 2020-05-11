@@ -19,7 +19,7 @@ import static utils._510_Inorder_Successor_in_BST_II.Nodes.link;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final Node node1 = new Node(), node2 = new Node(), node3 = new Node();
     node1.val = 1;
@@ -31,7 +31,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final Map<Integer, Node> map = new HashMap<>();
     for (int val : new int[]{1, 2, 3, 4, 5, 6, 7, 8}) {
@@ -47,7 +47,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final Map<Integer, Node> map = new HashMap<>();
     for (int i : new int[]{2, 3, 4, 6, 7, 9, 13, 15, 17, 18, 20}) {
@@ -65,7 +65,7 @@ class SolutionITest {
     assertEquals(map.get(17), actual);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

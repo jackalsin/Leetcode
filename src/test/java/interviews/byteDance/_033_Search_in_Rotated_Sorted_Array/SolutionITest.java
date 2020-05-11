@@ -17,61 +17,61 @@ class SolutionITest {
   private static final int[] RIGHT_SORT = new int[]{6, 7, 9, 0, 1, 3, 4, 5};
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithLeftSortedTargetLeftFound(Solution solution) {
     assertEquals(2, solution.search(LEFT_SORT, 6));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithLeftSortedTargetLeftNotFound(Solution solution) {
     assertEquals(-1, solution.search(LEFT_SORT, 7));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithLeftSortedTargetRightFound(Solution solution) {
     assertEquals(LEFT_SORT.length - 1, solution.search(LEFT_SORT, 2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithLeftSortedTargetRightNotFound(Solution solution) {
     assertEquals(-1, solution.search(LEFT_SORT, 11));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithLeftSortedTargetNotBetweenEnds(Solution solution) {
     assertEquals(-1, solution.search(LEFT_SORT, 3));
   }
 
   // -------- right sorted ---------
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithRightSortedTargetLeftFound(Solution solution) {
     assertEquals(1, solution.search(RIGHT_SORT, 7));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithRightSortedTargetLeftNotFound(Solution solution) {
     assertEquals(-1, solution.search(RIGHT_SORT, 8));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithRightSortedTargetRightFound(Solution solution) {
     assertEquals(5, solution.search(RIGHT_SORT, 3));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithRightSortedTargetRightNotFound(Solution solution) {
     assertEquals(-1, solution.search(RIGHT_SORT, 8));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

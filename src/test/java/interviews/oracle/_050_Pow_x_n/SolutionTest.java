@@ -13,38 +13,38 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithBasePositiveIndexPositive(Solution solution) {
     assertEquals(Math.pow(3, 5), solution.myPow(3, 5), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithBasePositiveIndexNegative(Solution solution) {
     assertEquals(Math.pow(3, -5), solution.myPow(3, -5), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithBaseNegativeIndexNegative(Solution solution) {
     assertEquals(Math.pow(-3, -5), solution.myPow(-3, -5), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithBaseNegativeIndexPositive(Solution solution) {
     assertEquals(Math.pow(-3, 5), solution.myPow(-3, 5), 1e-8);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithBaseSmallIndexLarge(Solution solution) {
     double base = 0.00001;
     int index = 2147483647;
     assertEquals(Math.pow(base, index), solution.myPow(base, index), 1e-8);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -14,14 +14,14 @@ import static utils._280_Wiggle_Sort.Validator.assertIsWiggle;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] input = {3, 5, 2, 1, 6, 4};
     solution.wiggleSort(input);
     assertIsWiggle(input);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

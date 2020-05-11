@@ -13,14 +13,14 @@ import static org.junit.Assert.assertArrayEquals;
  */
 public class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) throws Exception {
     final int[] input = new int[]{1, 2, 3, 4};
     final int[] expected = new int[]{24, 12, 8, 6};
     assertArrayEquals(expected, solution.productExceptSelf(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 }

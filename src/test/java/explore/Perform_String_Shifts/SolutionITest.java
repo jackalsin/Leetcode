@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String s = "abc", expected = "cab";
     final int[][] shift = {{0, 1}, {1, 2}};
@@ -22,14 +22,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String s = "abcdefg", expected = "efgabcd";
     final int[][] shift = {{1, 1}, {1, 1}, {0, 2}, {1, 3}};
     assertEquals(expected, solution.stringShift(s, shift));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

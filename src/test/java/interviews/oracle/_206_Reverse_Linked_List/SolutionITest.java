@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOneElement(Solution solution) {
     ListNode input = ListNodes.getListOfNodes(new int[]{1});
     ListNode expected = ListNodes.getListOfNodes(new int[]{1});
@@ -24,7 +24,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testTwoElements(Solution solution) {
     ListNode input = ListNodes.getListOfNodes(new int[]{1, 2});
     ListNode expected = ListNodes.getListOfNodes(new int[]{2, 1});
@@ -32,14 +32,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testThreeElements(Solution solution) {
     ListNode input = ListNodes.getListOfNodes(new int[]{1, 2, 3});
     ListNode expected = ListNodes.getListOfNodes(new int[]{3, 2, 1});
     assertEquals(expected, solution.reverseList(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

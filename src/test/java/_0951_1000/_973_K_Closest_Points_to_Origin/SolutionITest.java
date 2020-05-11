@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[][] input = {{1, 3}, {-2, 2}}, expected = {{-2, 2}};
     final int K = 1;
@@ -18,7 +18,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int[][] input = {{3, 3}, {5, -1}, {-2, 4}}, expected = {{3, 3}, {-2, 4}};
     final int K = 2;
@@ -26,14 +26,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOverflows(Solution solution) {
     final int[][] input = {{3, 3}, {Integer.MIN_VALUE, Integer.MIN_VALUE}}, expected = {{3, 3}};
     final int K = 1;
     assertArrayEquals(expected, solution.kClosest(input, K));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

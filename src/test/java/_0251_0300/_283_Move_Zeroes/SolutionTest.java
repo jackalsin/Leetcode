@@ -12,7 +12,7 @@ import static org.junit.Assert.assertArrayEquals;
  * @version 1.0 on 9/4/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()
@@ -20,7 +20,7 @@ public class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnline(Solution solution) {
     final int[] input = new int[]{0, 1, 0, 3, 12};
     final int[] expected = new int[]{1, 3, 12, 0, 0};

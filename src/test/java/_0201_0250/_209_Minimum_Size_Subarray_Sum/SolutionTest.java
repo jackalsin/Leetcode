@@ -12,18 +12,18 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 8/6/2017.
  */
 class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     assertEquals(0, solution.minSubArrayLen(1, new int[]{}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] input = new int[]{2, 3, 1, 2, 4, 3};
     assertEquals(2, solution.minSubArrayLen(7, input));

@@ -12,18 +12,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 8/24/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testZero(Solution solution) {
     assertEquals(1, solution.strobogrammaticInRange("0", "0"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testLeadingZero(Solution solution) {
     assertEquals(3, solution.strobogrammaticInRange("90", "111"));
   }

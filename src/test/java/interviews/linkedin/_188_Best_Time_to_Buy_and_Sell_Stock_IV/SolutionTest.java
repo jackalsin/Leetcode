@@ -14,27 +14,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testMultiMaxLater(Solution solution) {
     final int[] input = new int[]{3, 3, 5, 0, 0, 3, 1, 4};
     assertEquals(6, solution.maxProfit(2, input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testMultiTransMaxContinous(Solution solution) {
     final int[] input = new int[]{1, 2, 4, 2, 5, 7, 2, 4, 9, 0};
     assertEquals(13, solution.maxProfit(2, input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test3TransMax(Solution solution) {
     final int[] input = new int[]{3, 3, 5, 0, 0, 3, 1, 4};
     assertEquals(6, solution.maxProfit(2, input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 9/5/2017.
  */
 class MedianFinderTest {
-  static Stream<MedianFinder> solutionProvider() {
+  static Stream<MedianFinder> solutionStream() {
     return Stream.of(
         new MedianFinder()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOdd(MedianFinder solution) {
     solution.addNum(2);
     assertEquals(2d, solution.findMedian(), 1E-9);
@@ -31,7 +31,7 @@ class MedianFinderTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(MedianFinder solution) {
     solution.addNum(-1);
     assertEquals(-1, solution.findMedian(), 1E-9);

@@ -15,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CodecITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Codec solution) {
     final List<String> input = List.of("a", "", "cdi"),
         actual = solution.decode(solution.encode(input));
     assertEquals(input, actual);
   }
 
-  static Stream<Codec> solutionProvider() {
+  static Stream<Codec> solutionStream() {
     return Stream.of(
         new CodecI()
     );

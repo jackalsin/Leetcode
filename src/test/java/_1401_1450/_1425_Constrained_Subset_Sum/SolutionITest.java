@@ -14,37 +14,37 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     assertEquals(37, solution.constrainedSubsetSum(new int[]{10, 2, -10, 5, 20}, 2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     assertEquals(-1, solution.constrainedSubsetSum(new int[]{-1, -2, -3}, 1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     assertEquals(23, solution.constrainedSubsetSum(new int[]{10, -2, -10, -5, 20}, 2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     assertEquals(23, solution.constrainedSubsetSum(new int[]{10, -2, -10, -5, 20}, 2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     assertEquals(16091, solution.constrainedSubsetSum(new int[]{-8269, 3217, -4023, -4138, -683, 6455, -3621, 9242,
         4015, -3790}, 1));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

@@ -15,30 +15,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DoubleSolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     assertEquals("0", solution.addStrings("0", "0"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase0And0Point0(Solution solution) {
     assertEquals("0.0", solution.addStrings("0.0", "0"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5Point3And3Point7(Solution solution) {
     assertEquals("9", solution.addStrings("5.3", "3.7"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5Point3And3Point2(Solution solution) {
     assertEquals("8.5", solution.addStrings("5.3", "3.2"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new DoubleSolution()
     );

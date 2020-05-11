@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith11And11(Solution solution) {
     // no carry
     assertEquals("121", solution.multiply("11", "11"));
@@ -22,25 +22,25 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWith233And233(Solution solution) {
     // no carry
     assertEquals("54289", solution.multiply("233", "233"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testWithLeadingZero(Solution solution) {
     assertEquals(String.valueOf(43 * 27), solution.multiply("43", "27"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test999And999(Solution solution) {
     assertEquals(String.valueOf(999 * 999), solution.multiply("999", "999"));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

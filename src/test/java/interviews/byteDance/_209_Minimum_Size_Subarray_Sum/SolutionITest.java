@@ -6,7 +6,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author jacka
@@ -15,18 +14,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     assertEquals(0, solution.minSubArrayLen(1, new int[]{}));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final int[] input = new int[]{2, 3, 1, 2, 4, 3};
     assertEquals(2, solution.minSubArrayLen(7, input));
   }
-  static Stream<Solution> solutionProvider() {
+
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

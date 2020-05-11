@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int weights[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, D = 5;
     assertEquals(15, solution.shipWithinDays(weights, D));
@@ -31,7 +31,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final int weights[] = {3, 2, 2, 4, 1, 4}, D = 3;
     assertEquals(6, solution.shipWithinDays(weights, D));
@@ -41,14 +41,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final int weights[] = {1, 2, 3, 1, 1}, D = 4;
     assertEquals(3, solution.shipWithinDays(weights, D));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     ClassLoader classLoader = getClass().getClassLoader();
     final File file = new File(classLoader.getResource("./_1001_1050._1011_Capacity_To_Ship_Packages_Within_D_Days" +
@@ -67,7 +67,7 @@ class SolutionITest {
     return readLine.split(",");
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

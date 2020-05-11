@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final int[] nums = {1, 1, 1, 2, 2, 3};
     final Set<Integer> expected = Set.of(1, 2);
@@ -26,7 +26,7 @@ class SolutionTest {
 
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new PqSolution(),
         new BucketSortSolution()

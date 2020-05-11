@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 class ZigzagIteratorTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<Solution> cacheClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     final List<Integer> v1 = Arrays.asList(1, 2);
@@ -33,7 +33,7 @@ class ZigzagIteratorTest {
     Assert.assertEquals(expected, actual);
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         ZigzagIterator.class
     );

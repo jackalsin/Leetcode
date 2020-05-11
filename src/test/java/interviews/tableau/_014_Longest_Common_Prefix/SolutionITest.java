@@ -14,34 +14,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void longestCommonPrefixSingleCommonMidString(Solution solution) {
     final String[] input = {"flower", "flow", "flight"};
     assertEquals("fl", solution.longestCommonPrefix(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void longestCommon2(Solution solution) {
     final String[] input = {"dog", "racecar", "car"};
     assertEquals("", solution.longestCommonPrefix(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void longestCommon3(Solution solution) {
     final String[] input = {"", "b"};
     assertEquals("", solution.longestCommonPrefix(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void longestCommon4(Solution solution) {
     final String[] input = {"a"};
     assertEquals("a", solution.longestCommonPrefix(input));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

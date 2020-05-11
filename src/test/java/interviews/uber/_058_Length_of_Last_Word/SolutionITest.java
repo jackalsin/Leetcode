@@ -14,54 +14,54 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithEmpty(Solution solution) {
     assertEquals(0, solution.lengthOfLastWord(""));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithNoSpaces(Solution solution) {
     assertEquals(4, solution.lengthOfLastWord("abcd"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithLastIsMax(Solution solution) {
     assertEquals(3, solution.lengthOfLastWord("a b c def"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithFirstIsMax(Solution solution) {
     assertEquals(3, solution.lengthOfLastWord("abcd b c def"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithEmptyWithTailingSpace(Solution solution) {
     assertEquals(0, solution.lengthOfLastWord(""));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithNoSpacesWithTailingSpace(Solution solution) {
     assertEquals(4, solution.lengthOfLastWord("abcd "));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithLastIsMaxWithTailingSpace(Solution solution) {
     assertEquals(3, solution.lengthOfLastWord("a b c def "));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testWithFirstIsMaxWithTailingSpace(Solution solution) {
     assertEquals(3, solution.lengthOfLastWord("abcd b c def "));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

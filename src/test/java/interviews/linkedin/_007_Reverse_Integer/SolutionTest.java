@@ -9,48 +9,48 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void reverseZero(Solution solution) {
     assertEquals(0, solution.reverse(0));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void reverseNegativeSingleDigit(Solution solution) {
     assertEquals(-1, solution.reverse(-1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void reverseNegativeTwoDigits(Solution solution) {
     assertEquals(-12, solution.reverse(-21));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void reversePositiveSingleDigit(Solution solution) {
     assertEquals(1, solution.reverse(1));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void reversePositiveTwoDigits(Solution solution) {
     assertEquals(12, solution.reverse(21));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void reverseMinValue(Solution solution) {
     assertEquals(0, solution.reverse(Integer.MIN_VALUE));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void reverseOverflow(Solution solution) {
     assertEquals(-2143847412, solution.reverse(-2147483412));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

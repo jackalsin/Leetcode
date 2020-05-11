@@ -15,26 +15,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class SolutionTest {
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(new Solution());
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test1Level(Solution solution) {
     TreeNode input = TreeNodes.getTreeLevelOrder(1);
     assertEquals(1, solution.maxDepth(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test2Levels(Solution solution) {
     TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3);
     assertEquals(2, solution.maxDepth(input));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test3LevelsIncomplete(Solution solution) {
     TreeNode input = TreeNodes.getTreeLevelOrder(1, 2, 3, 4);
     assertEquals(3, solution.maxDepth(input));

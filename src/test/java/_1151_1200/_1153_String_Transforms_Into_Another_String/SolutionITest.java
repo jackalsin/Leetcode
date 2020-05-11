@@ -15,28 +15,28 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String str1 = "leetcode", str2 = "codeleet";
     assertFalse(solution.canConvert(str1, str2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String str1 = "aabcc", str2 = "ccdee";
     assertTrue(solution.canConvert(str1, str2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase3(Solution solution) {
     final String str1 = "aabcc", str2 = "cccee";
     assertTrue(solution.canConvert(str1, str2));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String str1 = "abcdefghijklmnopqrstuvwxyz", str2 =
         "bcdefghijklmnopqrstuvwxyza";
@@ -44,14 +44,14 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase5(Solution solution) {
     final String str1 = "abcdefghijklmnopqrstuvwxyz", str2 =
         "bcdefghijklmnopqrstuvwxyzq";
     assertTrue(solution.canConvert(str1, str2));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

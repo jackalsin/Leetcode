@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test3Levels(Solution solution) throws Exception {
     final int[] inorder = new int[]{1, 2, 3, 4, 5, 6, 7};
     final int[] levelOrder = new int[]{4, 2, 6, 1, 3, 5, 7};
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test3Levels2(Solution solution) throws Exception {
     final int[] inorder = new int[]{9, 3, 15, 20, 7};
     final int[] postOrder = new int[]{9, 15, 7, 20, 3};
@@ -34,7 +34,7 @@ class SolutionITest {
     assertEquals(root, solution.buildTree(inorder, postOrder));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()

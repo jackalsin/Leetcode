@@ -10,14 +10,14 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MiniMaxSolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new MiniMaxSolution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
     final String secret = "acckzz";
     final Master master = new MasterImpl(secret);
@@ -28,7 +28,7 @@ class MiniMaxSolutionTest {
 
   //  @Disabled
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String secret = "acckzz";
     final Master master = new MasterImpl(secret);

@@ -6,7 +6,7 @@ import utils._138_Copy_List_with_Random_Pointer.Node;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -15,20 +15,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     assertEquals(null, solution.copyRandomList(null));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1Element(Solution solution) {
     Node head = new Node(1, null, null);
     solution.copyRandomList(head);
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test1ElementWithRandom(Solution solution) {
     Node head = new Node(1, null, null);
     head.random = head;
@@ -36,7 +36,7 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test2Element(Solution solution) {
     final Node head = new Node(1, null, null);
     head.next = new Node(2, null, null);
@@ -45,7 +45,7 @@ class SolutionTest {
     solution.copyRandomList(head);
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new O1SpaceSolution(),
         new ONSpaceSolution()

@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 class SolutionTest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
     final String source = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
     final List<String> expected = Arrays.asList("AAAAACCCCC", "CCCCCAAAAA");
@@ -24,14 +24,14 @@ class SolutionTest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void test10Chars(Solution solution) {
     final String source = "AAAAAAAAAAA";
     final List<String> expected = Arrays.asList("AAAAAAAAAA");
     assertEquals(expected, solution.findRepeatedDnaSequences(source));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

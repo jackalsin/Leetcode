@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class MyCircularDequeITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Class<MyCircularDeque> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     MyCircularDeque solution = solutionClass.getConstructor(Integer.TYPE).newInstance(3);
@@ -34,7 +34,7 @@ class MyCircularDequeITest {
 
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase2(Class<MyCircularDeque> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
     MyCircularDeque solution = solutionClass.getConstructor(Integer.TYPE).newInstance(77);
@@ -52,7 +52,7 @@ class MyCircularDequeITest {
     assertEquals(19, solution.getRear());
   }
 
-  static Stream<Class> solutionProvider() {
+  static Stream<Class> solutionStream() {
     return Stream.of(
         MyCircularDequeI.class
     );

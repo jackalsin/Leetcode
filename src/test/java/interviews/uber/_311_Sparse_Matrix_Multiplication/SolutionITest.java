@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase(Solution solution) {
     final int[][] A = {
         {1, 0, 0},
@@ -31,7 +31,7 @@ class SolutionITest {
     assertTrue(Arrays.deepEquals(C, solution.multiply(A, B)));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

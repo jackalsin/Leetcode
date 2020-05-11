@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionITest {
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOdd(MedianFinder solution) {
     solution.addNum(2);
     assertEquals(2d, solution.findMedian(), 1E-9);
@@ -25,7 +25,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailedCase1(MedianFinder solution) {
     solution.addNum(-1);
     assertEquals(-1, solution.findMedian(), 1E-9);
@@ -39,7 +39,7 @@ class SolutionITest {
     assertEquals(-3.0, solution.findMedian(), 1E-9);
   }
 
-  static Stream<MedianFinder> solutionProvider() {
+  static Stream<MedianFinder> solutionStream() {
     return Stream.of(
         new SolutionI()
     );

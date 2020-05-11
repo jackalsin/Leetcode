@@ -23,7 +23,7 @@ class SolutionTest {
   private static final String STR6 = "abba";
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void lengthOfLongestSubstring(Solution solution) {
     assertEquals(3, solution.lengthOfLongestSubstring(STR1));
     assertEquals(1, solution.lengthOfLongestSubstring(STR2));
@@ -33,7 +33,7 @@ class SolutionTest {
     assertEquals(2, solution.lengthOfLongestSubstring(STR6));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );

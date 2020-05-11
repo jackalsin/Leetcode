@@ -13,38 +13,38 @@ import static org.junit.Assert.assertTrue;
  * @version 1.0 on 8/6/2017.
  */
 public class SolutionTest {
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new Solution()
     );
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
     assertTrue(solution.isIsomorphic("", ""));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testExample1(Solution solution) {
     assertTrue(solution.isIsomorphic("egg", "add"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testExample2(Solution solution) {
     assertFalse(solution.isIsomorphic("foo", "bar"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testExample3(Solution solution) {
     assertTrue(solution.isIsomorphic("paper", "title"));
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testAbAndAA(Solution solution) throws Exception {
     assertFalse(solution.isIsomorphic("ab", "aa"));
   }

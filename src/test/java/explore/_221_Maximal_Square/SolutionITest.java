@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) throws Exception {
     final char[][] board = TwoDimensionArray.getCharBoard(new String[]{
         "10100", "10111", "11111", "10010"
@@ -24,7 +24,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testOnlineCaseOFailed(Solution solution) throws Exception {
     final char[][] board = TwoDimensionArray.getCharBoard(new String[]{
         "1010", "1011", "1011", "1111"
@@ -33,7 +33,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   void testFailed(Solution solution) throws Exception {
     final char[][] board = TwoDimensionArray.getCharBoard(new String[]{
         "10", "01", "01", "01", "11", "00", "01"
@@ -41,7 +41,7 @@ class SolutionITest {
     assertEquals(1, solution.maximalSquare(board));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()
     );
