@@ -1,4 +1,4 @@
-package _0751_0800._792_Number_of_Matching_Subsequences;
+package interviews.byteDance.hibernation;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,13 +7,19 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 5/10/2020
+ */
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
-    final String S = "abcde";
-    final String[] words = {"a", "bb", "acd", "ace"};
-    assertEquals(3, solution.numMatchingSubseq(S, words));
+    assertEquals(1, solution.get(0));
+    assertEquals(1, solution.get(1));
+    assertEquals(1, solution.get(2));
+    assertEquals(1, solution.get(3));
   }
 
   static Stream<Solution> solutionStream() {
