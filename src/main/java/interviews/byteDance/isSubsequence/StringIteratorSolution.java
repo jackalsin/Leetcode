@@ -1,4 +1,4 @@
-package explore.isSubsequence;
+package interviews.byteDance.isSubsequence;
 
 import java.util.HashMap;
 import java.util.LinkedList;

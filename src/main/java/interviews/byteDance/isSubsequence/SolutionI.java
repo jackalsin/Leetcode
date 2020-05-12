@@ -1,4 +1,4 @@
-package explore.isSubsequence;
+package interviews.byteDance.isSubsequence;
 
 /**
  * @author jacka
