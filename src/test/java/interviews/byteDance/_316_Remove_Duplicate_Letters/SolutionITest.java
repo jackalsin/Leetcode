@@ -1,23 +1,17 @@
-package _0301_0350._316_Remove_Duplicate_Letters;
+package interviews.byteDance._316_Remove_Duplicate_Letters;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/20/2017.
+ * @author jacka
+ * @version 1.0 on 5/12/2020
  */
-public class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new RecursionSolution(),
-        new StackSolution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -63,5 +57,19 @@ public class SolutionTest {
     final String input = "abacb";
     assertEquals("abc", solution.removeDuplicateLetters(input));
 
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testbabcb(Solution solution) {
+    final String input = "babcb";
+    assertEquals("abc", solution.removeDuplicateLetters(input));
+
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
