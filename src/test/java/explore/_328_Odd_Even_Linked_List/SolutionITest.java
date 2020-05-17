@@ -1,4 +1,4 @@
-package _0301_0350._328_Odd_Even_Linked_List;
+package explore._328_Odd_Even_Linked_List;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,18 +7,13 @@ import utils.ListNodes;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/29/2017.
+ * @author jacka
+ * @version 1.0 on 5/16/2020
  */
-public class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -60,4 +55,9 @@ public class SolutionTest {
     assertEquals(expected, solution.oddEvenList(head));
   }
 
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
