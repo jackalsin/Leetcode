@@ -1,6 +1,6 @@
 package _0551_0600._572_Subtree_of_Another_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
 

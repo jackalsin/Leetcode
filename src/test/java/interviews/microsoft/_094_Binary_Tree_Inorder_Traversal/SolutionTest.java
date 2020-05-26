@@ -2,7 +2,7 @@ package interviews.microsoft._094_Binary_Tree_Inorder_Traversal;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.Arrays;
 

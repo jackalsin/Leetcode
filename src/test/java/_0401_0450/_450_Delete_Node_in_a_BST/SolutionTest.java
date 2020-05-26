@@ -2,8 +2,8 @@ package _0401_0450._450_Delete_Node_in_a_BST;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.Objects;
 import java.util.Set;

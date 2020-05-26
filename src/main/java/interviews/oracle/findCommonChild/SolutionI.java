@@ -1,6 +1,6 @@
 package interviews.oracle.findCommonChild;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

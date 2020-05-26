@@ -1,6 +1,6 @@
 package _0851_0900._865_Smallest_Subtree_with_all_the_Deepest_Node;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
 

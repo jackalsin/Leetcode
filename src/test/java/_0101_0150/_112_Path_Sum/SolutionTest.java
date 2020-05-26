@@ -2,7 +2,7 @@ package _0101_0150._112_Path_Sum;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

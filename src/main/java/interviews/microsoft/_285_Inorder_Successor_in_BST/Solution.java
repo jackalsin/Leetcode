@@ -1,6 +1,6 @@
 package interviews.microsoft._285_Inorder_Successor_in_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
 

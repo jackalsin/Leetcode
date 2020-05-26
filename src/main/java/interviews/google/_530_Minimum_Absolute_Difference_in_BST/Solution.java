@@ -1,6 +1,6 @@
 package interviews.google._530_Minimum_Absolute_Difference_in_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

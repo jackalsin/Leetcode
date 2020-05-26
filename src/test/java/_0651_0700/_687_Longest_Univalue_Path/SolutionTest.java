@@ -2,8 +2,8 @@ package _0651_0700._687_Longest_Univalue_Path;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

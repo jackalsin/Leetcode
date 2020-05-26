@@ -1,6 +1,6 @@
 package interviews.google._951_Flip_Equivalent_Binary_Trees;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

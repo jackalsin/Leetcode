@@ -1,6 +1,6 @@
 package _0751_0800._776_Split_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
   public TreeNode[] splitBST(TreeNode root, int V) {

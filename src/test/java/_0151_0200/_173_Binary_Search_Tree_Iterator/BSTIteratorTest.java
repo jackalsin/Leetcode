@@ -2,8 +2,8 @@ package _0151_0200._173_Binary_Search_Tree_Iterator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

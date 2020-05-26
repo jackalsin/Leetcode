@@ -1,6 +1,6 @@
 package _0501_0550._536_Construct_Binary_Tree_from_String;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

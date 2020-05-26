@@ -1,6 +1,6 @@
 package interviews.linkedin._270_Closest_Binary_Search_Tree_Value;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public final class SolutionI implements Solution {
 

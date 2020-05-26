@@ -1,6 +1,6 @@
 package interviews.linkedin._230_Kth_Smallest_Element_in_a_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
   public int kthSmallest(TreeNode root, int k) {

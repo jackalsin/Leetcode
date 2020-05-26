@@ -1,6 +1,6 @@
 package interviews.linkedin._701_Insert_into_a_Binary_Search_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

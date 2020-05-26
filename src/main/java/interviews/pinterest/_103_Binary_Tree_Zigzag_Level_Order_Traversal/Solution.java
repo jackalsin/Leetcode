@@ -1,8 +1,12 @@
 package interviews.pinterest._103_Binary_Tree_Zigzag_Level_Order_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Queue;
 
 public class Solution {
   public List<List<Integer>> zigzagLevelOrder(TreeNode root) {

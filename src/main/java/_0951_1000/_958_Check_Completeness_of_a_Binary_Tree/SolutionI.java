@@ -1,6 +1,6 @@
 package _0951_1000._958_Check_Completeness_of_a_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

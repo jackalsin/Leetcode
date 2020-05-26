@@ -2,8 +2,8 @@ package interviews.microsoft._270_Closest_Binary_Search_Tree_Value;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

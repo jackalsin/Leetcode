@@ -1,6 +1,6 @@
 package interviews.linkedin._235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author zhiwei.xin

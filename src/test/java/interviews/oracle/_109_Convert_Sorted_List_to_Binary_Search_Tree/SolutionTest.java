@@ -3,7 +3,7 @@ package interviews.oracle._109_Convert_Sorted_List_to_Binary_Search_Tree;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import utils.ListNode;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.Set;
 import java.util.stream.Stream;

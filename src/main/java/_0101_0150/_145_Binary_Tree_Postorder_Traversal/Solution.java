@@ -1,6 +1,6 @@
 package _0101_0150._145_Binary_Tree_Postorder_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

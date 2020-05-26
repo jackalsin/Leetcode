@@ -1,6 +1,6 @@
 package interviews.hulu._449_Serialize_and_Deserialize_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * TODO:

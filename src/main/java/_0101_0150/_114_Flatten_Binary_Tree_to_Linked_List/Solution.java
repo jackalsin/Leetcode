@@ -1,6 +1,6 @@
 package _0101_0150._114_Flatten_Binary_Tree_to_Linked_List;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author Zhiwei.Xin

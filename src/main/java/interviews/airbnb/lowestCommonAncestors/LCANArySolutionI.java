@@ -1,6 +1,6 @@
 package interviews.airbnb.lowestCommonAncestors;
 
-import utils.treeNode.Node;
+import utils.nAryTree.Node;
 
 import java.util.ArrayList;
 import java.util.List;

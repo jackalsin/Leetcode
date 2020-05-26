@@ -1,6 +1,6 @@
 package _0501_0550._508_Most_Frequent_Subtree_Sum;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;

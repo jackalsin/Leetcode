@@ -1,6 +1,6 @@
 package interviews.facebook._173_Binary_Search_Tree_Iterator;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

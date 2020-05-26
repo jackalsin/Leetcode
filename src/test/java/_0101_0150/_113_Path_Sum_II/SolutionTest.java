@@ -2,8 +2,8 @@ package _0101_0150._113_Path_Sum_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

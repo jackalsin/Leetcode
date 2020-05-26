@@ -1,6 +1,6 @@
 package interviews.linkedin._199_Binary_Tree_Right_Side_View;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

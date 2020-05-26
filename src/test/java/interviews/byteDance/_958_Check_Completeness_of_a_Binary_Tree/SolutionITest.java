@@ -2,7 +2,7 @@ package interviews.byteDance._958_Check_Completeness_of_a_Binary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

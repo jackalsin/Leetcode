@@ -1,6 +1,6 @@
 package interviews.microsoft.noodleEssence._099_Recover_Binary_Search_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

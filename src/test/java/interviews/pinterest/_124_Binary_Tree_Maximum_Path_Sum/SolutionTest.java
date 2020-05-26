@@ -2,8 +2,8 @@ package interviews.pinterest._124_Binary_Tree_Maximum_Path_Sum;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,10 +1,10 @@
 package interviews.google.similar_tree;
 
+import utils.binaryTree.TreeNode;
+
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import utils.TreeNode;
 
 /**
  * @author jacka

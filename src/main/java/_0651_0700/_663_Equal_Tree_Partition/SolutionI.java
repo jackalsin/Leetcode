@@ -1,9 +1,8 @@
 package _0651_0700._663_Equal_Tree_Partition;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**

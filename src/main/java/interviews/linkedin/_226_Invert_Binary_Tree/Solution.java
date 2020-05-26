@@ -1,6 +1,6 @@
 package interviews.linkedin._226_Invert_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public interface Solution {
   TreeNode invertTree(TreeNode root);

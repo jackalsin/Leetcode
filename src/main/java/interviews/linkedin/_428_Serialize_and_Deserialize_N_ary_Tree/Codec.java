@@ -1,6 +1,6 @@
 package interviews.linkedin._428_Serialize_and_Deserialize_N_ary_Tree;
 
-import utils.treeNode.Node;
+import utils.nAryTree.Node;
 
 /**
  * @author zhiwei.xin

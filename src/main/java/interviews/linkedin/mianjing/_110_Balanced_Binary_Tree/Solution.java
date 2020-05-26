@@ -1,6 +1,6 @@
 package interviews.linkedin.mianjing._110_Balanced_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
   public boolean isBalanced(TreeNode root) {

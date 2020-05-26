@@ -2,8 +2,8 @@ package _0651_0700._663_Equal_Tree_Partition;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

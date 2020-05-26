@@ -1,6 +1,6 @@
 package _0651_0700._662_Maximum_Width_of_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

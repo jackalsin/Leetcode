@@ -1,6 +1,6 @@
 package _0301_0350._337_House_Robber_III;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

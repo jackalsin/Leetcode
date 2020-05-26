@@ -1,6 +1,6 @@
 package interviews.microsoft._094_Binary_Tree_Inorder_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

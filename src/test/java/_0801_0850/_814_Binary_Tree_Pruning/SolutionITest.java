@@ -2,8 +2,8 @@ package _0801_0850._814_Binary_Tree_Pruning;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

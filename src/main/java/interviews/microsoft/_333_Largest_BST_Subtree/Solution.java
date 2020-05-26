@@ -1,6 +1,6 @@
 package interviews.microsoft._333_Largest_BST_Subtree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
   private int maxSize = 0;

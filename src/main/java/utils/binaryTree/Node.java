@@ -1,11 +1,15 @@
-package utils.treeNode;
+package utils.binaryTree;
 
-import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author jacka
+ * @version 1.0 on 5/24/2020
+ */
 public final class Node {
   public int val;
-  public List<Node> children;
+  public Node left;
+  public Node right;
 
   public Node() {
   }
@@ -14,30 +18,33 @@ public final class Node {
     val = _val;
   }
 
-  public Node(int _val, List<Node> _children) {
+  public Node(int _val, Node _left, Node _right) {
     val = _val;
-    children = _children;
+    left = _left;
+    right = _right;
   }
 
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (!(o instanceof Node)) return false;
     Node node = (Node) o;
     return val == node.val &&
-        Objects.equals(children, node.children);
+        Objects.equals(left, node.left) &&
+        Objects.equals(right, node.right);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(val, children);
+    return Objects.hash(val, left, right);
   }
 
   @Override
   public String toString() {
     return "Node{" +
         "val=" + val +
-        ", children=" + children +
+        ", left=" + left +
+        ", right=" + right +
         '}';
   }
 }

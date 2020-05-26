@@ -1,6 +1,6 @@
 package interviews.uber._112_Path_Sum;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
   public boolean hasPathSum(TreeNode root, int sum) {

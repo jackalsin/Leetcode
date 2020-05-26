@@ -1,6 +1,6 @@
 package _0801_0850._814_Binary_Tree_Pruning;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

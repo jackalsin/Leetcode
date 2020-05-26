@@ -1,6 +1,6 @@
 package _0401_0450._404_Sum_of_Left_Leaves;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * 102 / 102 test cases passed.

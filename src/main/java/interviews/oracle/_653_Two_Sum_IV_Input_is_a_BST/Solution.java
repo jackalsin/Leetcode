@@ -1,6 +1,6 @@
 package interviews.oracle._653_Two_Sum_IV_Input_is_a_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

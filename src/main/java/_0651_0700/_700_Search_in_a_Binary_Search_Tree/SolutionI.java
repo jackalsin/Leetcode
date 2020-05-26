@@ -1,6 +1,6 @@
 package _0651_0700._700_Search_in_a_Binary_Search_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

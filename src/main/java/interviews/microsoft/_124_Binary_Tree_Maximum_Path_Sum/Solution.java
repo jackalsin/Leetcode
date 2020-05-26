@@ -1,6 +1,6 @@
 package interviews.microsoft._124_Binary_Tree_Maximum_Path_Sum;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
   private int sum = Integer.MIN_VALUE;

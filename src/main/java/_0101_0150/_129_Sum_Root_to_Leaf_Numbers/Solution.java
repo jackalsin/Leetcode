@@ -1,6 +1,6 @@
 package _0101_0150._129_Sum_Root_to_Leaf_Numbers;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package _0951_1000._965_Univalued_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

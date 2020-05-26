@@ -2,8 +2,8 @@ package interviews.linkedin.mianjing._156_Binary_Tree_Upside_Down;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

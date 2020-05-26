@@ -1,7 +1,7 @@
 package interviews.linkedin._655_Print_Binary_Tree;
 
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.List;
 

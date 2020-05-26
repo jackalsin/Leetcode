@@ -1,6 +1,6 @@
 package interviews.oracle._110_Balanced_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

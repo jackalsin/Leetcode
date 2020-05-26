@@ -1,7 +1,7 @@
 package _0051_0100._098_Validate_Binary_Search_Tree;
 
 import interviews.linkedin._098_Validate_Binary_Search_Tree.Solution;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package _0751_0800._783_Minimum_Distance_Between_BST_Nodes;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

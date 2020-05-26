@@ -1,6 +1,6 @@
 package interviews.google._270_Closest_Binary_Search_Tree_Value;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

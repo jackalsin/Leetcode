@@ -1,6 +1,6 @@
 package _0401_0450._437_Path_Sum_III;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

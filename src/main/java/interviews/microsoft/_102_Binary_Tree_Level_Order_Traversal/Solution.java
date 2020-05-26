@@ -1,6 +1,6 @@
 package interviews.microsoft._102_Binary_Tree_Level_Order_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

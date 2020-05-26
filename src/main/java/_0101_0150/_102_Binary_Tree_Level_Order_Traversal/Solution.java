@@ -1,6 +1,6 @@
 package _0101_0150._102_Binary_Tree_Level_Order_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -2,7 +2,7 @@ package _0251_0300._298_Binary_Tree_Longest_Consecutive_Sequence;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import static org.junit.Assert.assertEquals;
 

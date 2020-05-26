@@ -1,6 +1,6 @@
 package _0701_0750._742_Closest_Leaf_in_a_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package interviews.linkedin._098_Validate_Binary_Search_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package interviews.hulu._230_Kth_Smallest_Element_in_a_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

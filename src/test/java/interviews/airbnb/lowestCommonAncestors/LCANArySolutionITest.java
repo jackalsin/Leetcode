@@ -2,7 +2,7 @@ package interviews.airbnb.lowestCommonAncestors;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.treeNode.Node;
+import utils.nAryTree.Node;
 
 import java.util.ArrayList;
 import java.util.List;

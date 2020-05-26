@@ -2,8 +2,8 @@ package _0251_0300._270_Closest_Binary_Search_Tree_Value;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

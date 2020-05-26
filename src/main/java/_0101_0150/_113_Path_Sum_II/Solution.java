@@ -1,6 +1,6 @@
 package _0101_0150._113_Path_Sum_II;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

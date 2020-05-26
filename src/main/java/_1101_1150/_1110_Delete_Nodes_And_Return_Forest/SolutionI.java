@@ -1,6 +1,6 @@
 package _1101_1150._1110_Delete_Nodes_And_Return_Forest;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashSet;

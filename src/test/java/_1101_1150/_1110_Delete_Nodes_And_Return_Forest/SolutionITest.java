@@ -2,8 +2,8 @@ package _1101_1150._1110_Delete_Nodes_And_Return_Forest;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.HashSet;
 import java.util.List;

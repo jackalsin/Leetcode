@@ -1,6 +1,6 @@
 package interviews.linkedin._101_Symmetric_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

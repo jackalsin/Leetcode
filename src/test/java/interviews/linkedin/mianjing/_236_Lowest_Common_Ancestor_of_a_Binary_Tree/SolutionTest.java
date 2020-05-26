@@ -2,7 +2,7 @@ package interviews.linkedin.mianjing._236_Lowest_Common_Ancestor_of_a_Binary_Tre
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

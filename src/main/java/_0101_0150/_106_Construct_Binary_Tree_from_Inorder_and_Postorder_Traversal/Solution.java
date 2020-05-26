@@ -1,6 +1,6 @@
 package _0101_0150._106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;

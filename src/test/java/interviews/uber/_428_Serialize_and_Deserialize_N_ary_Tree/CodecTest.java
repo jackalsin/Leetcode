@@ -2,7 +2,7 @@ package interviews.uber._428_Serialize_and_Deserialize_N_ary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.treeNode.Node;
+import utils.nAryTree.Node;
 
 import java.util.List;
 

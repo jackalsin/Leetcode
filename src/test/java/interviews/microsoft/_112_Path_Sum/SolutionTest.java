@@ -2,7 +2,7 @@ package interviews.microsoft._112_Path_Sum;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

@@ -1,6 +1,6 @@
 package _0101_0150._104_Maximum_Depth_of_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author Zhiwei.Xin

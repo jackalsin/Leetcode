@@ -1,6 +1,6 @@
 package interviews.uber._236_Lowest_Common_Ancestor_of_a_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

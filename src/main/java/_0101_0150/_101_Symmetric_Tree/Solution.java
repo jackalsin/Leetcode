@@ -1,6 +1,6 @@
 package _0101_0150._101_Symmetric_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author Zhiwei.Xin

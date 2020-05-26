@@ -2,8 +2,8 @@ package interviews.linkedin._450_Delete_Node_in_a_BST;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.Objects;
 import java.util.Set;

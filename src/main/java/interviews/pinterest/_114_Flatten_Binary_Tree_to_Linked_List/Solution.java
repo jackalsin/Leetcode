@@ -1,6 +1,6 @@
 package interviews.pinterest._114_Flatten_Binary_Tree_to_Linked_List;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
   public void flatten(TreeNode root) {

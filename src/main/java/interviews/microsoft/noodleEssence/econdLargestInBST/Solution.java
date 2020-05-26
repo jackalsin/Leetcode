@@ -1,6 +1,6 @@
 package interviews.microsoft.noodleEssence.econdLargestInBST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
 

@@ -2,6 +2,8 @@ package utils;
 
 import org.junit.Before;
 import org.junit.Test;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.Arrays;
 import java.util.List;

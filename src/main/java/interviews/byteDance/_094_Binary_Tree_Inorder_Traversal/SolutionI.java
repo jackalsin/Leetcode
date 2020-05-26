@@ -1,6 +1,6 @@
 package interviews.byteDance._094_Binary_Tree_Inorder_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

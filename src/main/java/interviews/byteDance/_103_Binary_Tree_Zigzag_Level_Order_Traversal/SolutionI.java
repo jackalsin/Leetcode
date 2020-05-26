@@ -1,6 +1,6 @@
 package interviews.byteDance._103_Binary_Tree_Zigzag_Level_Order_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package interviews.tableau._230_Kth_Smallest_Element_in_a_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

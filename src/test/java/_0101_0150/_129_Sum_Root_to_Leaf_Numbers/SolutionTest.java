@@ -2,8 +2,8 @@ package _0101_0150._129_Sum_Root_to_Leaf_Numbers;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

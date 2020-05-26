@@ -1,6 +1,6 @@
 package interviews.microsoft._112_Path_Sum;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
 

@@ -1,7 +1,7 @@
 package _0551_0600._589_N_ary_Tree_Preorder_Traversal;
 
 
-import utils.treeNode.Node;
+import utils.nAryTree.Node;
 
 import java.util.List;
 

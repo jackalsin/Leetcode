@@ -2,8 +2,8 @@ package _0501_0550._501_Find_Mode_in_Binary_Search_Tree;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertArrayEquals;
 

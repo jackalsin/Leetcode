@@ -1,6 +1,6 @@
 package _0101_0150._108_Convert_Sorted_Array_to_Binary_Search_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

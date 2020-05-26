@@ -2,8 +2,8 @@ package interviews.linkedin.mianjing._742_Closest_Leaf_in_a_Binary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.Objects;
 import java.util.Set;

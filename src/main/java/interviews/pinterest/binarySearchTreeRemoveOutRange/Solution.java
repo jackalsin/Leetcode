@@ -1,6 +1,6 @@
 package interviews.pinterest.binarySearchTreeRemoveOutRange;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * 给定一个binary search tree，再给定int max，int  min，构成一个range [min, max]，把bst里面在range外的枝减掉，最后返回新的root。

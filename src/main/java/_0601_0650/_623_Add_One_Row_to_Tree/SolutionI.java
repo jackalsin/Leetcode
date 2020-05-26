@@ -1,6 +1,6 @@
 package _0601_0650._623_Add_One_Row_to_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

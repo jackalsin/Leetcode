@@ -1,6 +1,6 @@
 package interviews.byteDance._1339_Maximum_Product_of_Splitted_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.HashSet;
 import java.util.Set;

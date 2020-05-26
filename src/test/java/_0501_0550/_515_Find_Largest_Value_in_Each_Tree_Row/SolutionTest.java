@@ -2,8 +2,8 @@ package _0501_0550._515_Find_Largest_Value_in_Each_Tree_Row;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.List;
 

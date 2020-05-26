@@ -1,6 +1,6 @@
 package interviews.linkedin._100_Same_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package interviews.linkedin.mianjing._156_Binary_Tree_Upside_Down;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public class Solution {
 

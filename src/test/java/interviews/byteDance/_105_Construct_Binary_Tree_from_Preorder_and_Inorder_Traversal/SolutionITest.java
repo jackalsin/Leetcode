@@ -2,8 +2,8 @@ package interviews.byteDance._105_Construct_Binary_Tree_from_Preorder_and_Inorde
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

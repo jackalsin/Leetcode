@@ -1,6 +1,6 @@
 package _0201_0250._222_Count_Complete_Tree_Nodes;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package _0201_0250._226_Invert_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

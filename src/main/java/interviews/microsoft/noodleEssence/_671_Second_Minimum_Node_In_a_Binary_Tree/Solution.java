@@ -1,6 +1,6 @@
 package interviews.microsoft.noodleEssence._671_Second_Minimum_Node_In_a_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

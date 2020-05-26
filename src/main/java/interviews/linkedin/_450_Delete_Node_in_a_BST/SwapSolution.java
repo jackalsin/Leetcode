@@ -1,6 +1,6 @@
 package interviews.linkedin._450_Delete_Node_in_a_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

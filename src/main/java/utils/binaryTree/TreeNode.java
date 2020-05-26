@@ -1,4 +1,4 @@
-package utils;
+package utils.binaryTree;
 
 import java.util.Objects;
 

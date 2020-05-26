@@ -1,6 +1,6 @@
 package _0251_0300._257_Binary_Tree_Paths;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

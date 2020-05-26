@@ -1,6 +1,6 @@
 package interviews.microsoft.noodleEssence._297_Serialize_and_Deserialize_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

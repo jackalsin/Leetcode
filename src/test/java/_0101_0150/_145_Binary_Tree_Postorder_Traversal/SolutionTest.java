@@ -2,8 +2,8 @@ package _0101_0150._145_Binary_Tree_Postorder_Traversal;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

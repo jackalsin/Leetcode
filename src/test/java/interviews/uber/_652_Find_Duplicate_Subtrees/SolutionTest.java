@@ -2,8 +2,8 @@ package interviews.uber._652_Find_Duplicate_Subtrees;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.HashSet;
 import java.util.List;

@@ -2,8 +2,8 @@ package interviews.microsoft._103_Binary_Tree_Zigzag_Level_Order_Traversal;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

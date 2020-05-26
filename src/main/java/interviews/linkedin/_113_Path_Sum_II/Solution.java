@@ -1,6 +1,6 @@
 package interviews.linkedin._113_Path_Sum_II;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.List;
 

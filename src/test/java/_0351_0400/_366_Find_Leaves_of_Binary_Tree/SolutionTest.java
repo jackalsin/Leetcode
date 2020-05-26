@@ -3,8 +3,8 @@ package _0351_0400._366_Find_Leaves_of_Binary_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.HashSet;

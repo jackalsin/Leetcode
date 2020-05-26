@@ -1,6 +1,6 @@
 package explore._124_Binary_Tree_Maximum_Path_Sum;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

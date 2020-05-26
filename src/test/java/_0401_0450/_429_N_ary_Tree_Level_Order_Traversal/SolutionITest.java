@@ -2,7 +2,7 @@ package _0401_0450._429_N_ary_Tree_Level_Order_Traversal;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.treeNode.Node;
+import utils.nAryTree.Node;
 
 import java.util.List;
 import java.util.stream.Stream;

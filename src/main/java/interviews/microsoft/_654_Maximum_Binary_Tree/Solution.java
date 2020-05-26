@@ -1,6 +1,6 @@
 package interviews.microsoft._654_Maximum_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 public interface Solution {
 

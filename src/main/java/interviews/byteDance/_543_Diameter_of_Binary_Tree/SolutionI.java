@@ -1,6 +1,6 @@
 package interviews.byteDance._543_Diameter_of_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

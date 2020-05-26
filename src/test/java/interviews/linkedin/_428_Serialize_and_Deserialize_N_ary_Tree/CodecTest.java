@@ -2,7 +2,7 @@ package interviews.linkedin._428_Serialize_and_Deserialize_N_ary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.treeNode.Node;
+import utils.nAryTree.Node;
 
 import java.util.List;
 import java.util.stream.Stream;

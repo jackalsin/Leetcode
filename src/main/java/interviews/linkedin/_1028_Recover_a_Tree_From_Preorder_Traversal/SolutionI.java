@@ -1,6 +1,6 @@
 package interviews.linkedin._1028_Recover_a_Tree_From_Preorder_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

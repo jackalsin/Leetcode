@@ -1,6 +1,6 @@
 package interviews.facebook._098_Validate_Binary_Search_Tre_;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

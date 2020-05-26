@@ -2,8 +2,8 @@ package interviews.linkedin._671_Second_Minimum_Node_In_a_Binary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

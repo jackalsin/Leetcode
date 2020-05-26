@@ -2,7 +2,7 @@ package interviews.tableau._098_Validate_Binary_Search_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.stream.Stream;
 

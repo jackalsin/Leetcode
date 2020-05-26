@@ -1,6 +1,6 @@
 package interviews.linkedin.mianjing._366_Find_Leaves_of_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

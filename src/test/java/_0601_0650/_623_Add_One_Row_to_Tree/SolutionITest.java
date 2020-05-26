@@ -2,8 +2,8 @@ package _0601_0650._623_Add_One_Row_to_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import java.util.Objects;
 import java.util.stream.Stream;

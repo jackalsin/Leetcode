@@ -1,6 +1,6 @@
 package _0651_0700._671_Second_Minimum_Node_In_a_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

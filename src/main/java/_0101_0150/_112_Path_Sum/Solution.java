@@ -1,6 +1,6 @@
 package _0101_0150._112_Path_Sum;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

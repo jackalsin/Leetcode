@@ -1,6 +1,6 @@
 package interviews.linkedin._515_Find_Largest_Value_in_Each_Tree_Row;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

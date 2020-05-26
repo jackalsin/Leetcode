@@ -1,6 +1,6 @@
 package _0401_0450._449_Serialize_and_Deserialize_BST;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

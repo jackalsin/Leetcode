@@ -1,6 +1,6 @@
 package _0501_0550._549_Binary_Tree_Longest_Consecutive_Sequence_II;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

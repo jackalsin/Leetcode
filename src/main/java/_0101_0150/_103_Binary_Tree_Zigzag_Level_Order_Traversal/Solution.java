@@ -1,8 +1,12 @@
 package _0101_0150._103_Binary_Tree_Zigzag_Level_Order_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * @author Zhiwei.Xin

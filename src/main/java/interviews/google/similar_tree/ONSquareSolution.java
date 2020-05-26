@@ -1,6 +1,6 @@
 package interviews.google.similar_tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

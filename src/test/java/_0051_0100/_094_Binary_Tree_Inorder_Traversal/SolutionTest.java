@@ -1,7 +1,7 @@
 package _0051_0100._094_Binary_Tree_Inorder_Traversal;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.Arrays;
 import java.util.stream.Stream;

@@ -2,9 +2,8 @@ package interviews.google.similar_tree;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import utils.TreeNode;
-import utils.TreeNodes;
+import utils.binaryTree.TreeNode;
+import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertTrue;
 

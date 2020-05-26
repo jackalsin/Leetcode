@@ -1,6 +1,6 @@
 package _0551_0600._590_N_ary_Tree_Postorder_Traversal;
 
-import utils.treeNode.Node;
+import utils.nAryTree.Node;
 
 import java.util.List;
 

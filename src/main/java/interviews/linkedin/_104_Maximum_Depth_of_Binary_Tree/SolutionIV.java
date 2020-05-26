@@ -1,6 +1,6 @@
 package interviews.linkedin._104_Maximum_Depth_of_Binary_Tree;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

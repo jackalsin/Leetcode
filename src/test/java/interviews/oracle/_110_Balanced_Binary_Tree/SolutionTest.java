@@ -2,7 +2,7 @@ package interviews.oracle._110_Balanced_Binary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.stream.Stream;
 

@@ -2,7 +2,7 @@ package interviews.microsoft.noodleEssence._297_Serialize_and_Deserialize_Binary
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

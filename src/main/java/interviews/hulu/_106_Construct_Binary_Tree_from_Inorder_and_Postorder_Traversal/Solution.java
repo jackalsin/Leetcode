@@ -1,6 +1,6 @@
 package interviews.hulu._106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal;
 
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 /**
  * @author jacka

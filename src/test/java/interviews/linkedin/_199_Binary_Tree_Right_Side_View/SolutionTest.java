@@ -2,7 +2,7 @@ package interviews.linkedin._199_Binary_Tree_Right_Side_View;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeNode;
+import utils.binaryTree.TreeNode;
 
 import java.util.Arrays;
 import java.util.List;
