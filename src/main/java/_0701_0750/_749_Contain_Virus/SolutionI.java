@@ -8,13 +8,18 @@ public final class SolutionI implements Solution {
   private int R = 0, C = 0;
   private static final int INACTIVE = -1;
 
+  /*
+  grid:
+    1 : infected
+    0 : healthy
+    -1: 被wall隔离了
+  */
   public int containVirus(int[][] grid) {
     R = grid.length;
     C = grid[0].length;
     int res = 0;
     while (true) {
       final int wall = process(grid);
-//      System.out.println("Wall = " + wall);
       if (wall == 0) break;
       res += wall;
     }
@@ -67,10 +72,12 @@ public final class SolutionI implements Solution {
         }
       }
     }
-//    TwoDimensionArray.println(grid);
     return maxAreaWall;
   }
 
+  /**
+   * mark the infect
+   */
   private void markSpread(final int[][] grid, final boolean[][] visit, int row, int col) {
     if (row < 0 || row >= R || col < 0 || col >= C || visit[row][col]) {
       return;
@@ -96,11 +103,14 @@ public final class SolutionI implements Solution {
     markInactive(grid, row, col - 1);
   }
 
+  /**
+   * Get the area that will be infected next round
+   */
   private int getNextThreatenArea(final int[][] grid, final int[][] visited, final int color,
                                   final int row, final int col, final int[] walls) {
     if (row < 0 || row >= R || col < 0 || col >= C) return 0;
     if (grid[row][col] == 0) {
-      walls[0]++;
+      walls[0]++; // every time it from 1 to 0, wall can be increased
       if (visited[row][col] == color) return 0;
       visited[row][col] = color;
       return 1;
