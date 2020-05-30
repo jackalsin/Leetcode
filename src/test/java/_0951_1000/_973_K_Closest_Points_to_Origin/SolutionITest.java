@@ -3,9 +3,13 @@ package _0951_1000._973_K_Closest_Points_to_Origin;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionITest {
 
@@ -27,17 +31,26 @@ class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
-  void testOverflows(Solution solution) {
-    final int[][] input = {{3, 3}, {Integer.MIN_VALUE, Integer.MIN_VALUE}}, expected = {{3, 3}};
-    final int K = 1;
-    assertArrayEquals(expected, solution.kClosest(input, K));
+  void testOnlineCase4(Solution solution) {
+    final int K = 5;
+    final int[][] input = {{10, -7}, {-3, 5}, {-6, 5}, {-5, 10}, {4, 6}, {6, 0}},
+        expected = {{-3, 5}, {6, 0}, {4, 6}, {-6, 5}, {-5, 10}}, actual = solution.kClosest(input, K);
+    assertEquals(getUnordered(expected), getUnordered(actual));
+  }
+
+  private static Set<List<Integer>> getUnordered(final int[][] input) {
+    final Set<List<Integer>> result = new HashSet<>();
+    for (final int[] e : input) {
+      result.add(List.of(e[0], e[1]));
+    }
+    return result;
   }
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new PqSolution(),
+        new QuickSelectionSelection()
     );
   }
-
 
 }
