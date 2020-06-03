@@ -7,7 +7,8 @@ import java.util.Arrays;
  * @version 1.0 on 2/28/2017.
  */
 public final class TwoDimensionArray {
-  private TwoDimensionArray() {}
+  private TwoDimensionArray() {
+  }
 
   public static boolean TwoDimensionArrayEquals(char[][] board1, char[][] board2) {
     if (board1 == null) {
@@ -77,6 +78,17 @@ public final class TwoDimensionArray {
     }
     System.out.println("[");
     for (char[] child : array) {
+      System.out.println("\t" + Arrays.toString(child));
+    }
+    System.out.println("]");
+  }
+
+  public static void println(double[][] array) {
+    if (array == null) {
+      throw new NullPointerException("array cannot be null");
+    }
+    System.out.println("[");
+    for (double[] child : array) {
       System.out.println("\t" + Arrays.toString(child));
     }
     System.out.println("]");
@@ -167,7 +179,8 @@ public final class TwoDimensionArray {
 
   /**
    * Get a char board from <tt>strs</tt>.
-   * @param strs  an non-empty string arrays whose elements have the same length
+   *
+   * @param strs an non-empty string arrays whose elements have the same length
    * @return
    */
   public static char[][] getCharBoard(String[] strs) {
