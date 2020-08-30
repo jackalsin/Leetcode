@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
- * Time Complexity: O(max(n, k) * log(n))
+ * Time Complexity: O((n + k) * log(n))
  *
  * @author jacka
  * @version 1.0 on 8/30/2020

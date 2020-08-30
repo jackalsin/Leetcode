@@ -3,6 +3,7 @@ package _0751_0800._786_K_th_Smallest_Prime_Fraction;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -18,12 +19,13 @@ class SolutionITest {
   void testOnlineCase1(Solution solution) {
     final int A[] = {1, 2, 3, 5}, K = 3,
         expected[] = {2, 5}, actual[] = solution.kthSmallestPrimeFraction(A, K);
-    assertArrayEquals(expected, actual);
+    assertArrayEquals(expected, actual, "actual = " + Arrays.toString(actual));
   }
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new PqSolution()
+        new PqSolution(),
+        new BinarySearchSolution()
     );
   }
 }
