@@ -5,14 +5,6 @@ package _0801_0850._808_Soup_Servings;
  * @version 1.0 on 8/31/2020
  */
 public final class SolutionI implements Solution {
-//  private final Map<Long, double[]> cache = new HashMap<>();
-//  private static final int[][] DIRS = {
-//      {100, 0}, {75, 25}, {50, 50}, {25, 75}
-//  };
-
-  private static final int[][] DIRS = {
-      {4, 0}, {3, 1}, {2, 2}, {1, 3}
-  };
   private final double[][] cache = new double[200][200];
 
   public double soupServings(int N) {
