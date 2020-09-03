@@ -13,7 +13,8 @@ public final class SolutionI implements Solution {
   private int[] result, childrenCount;
   private final List<Set<Integer>> adjacentList = new ArrayList<>();
   private int N;
-
+  // <a href="https://leetcode.com/problems/sum-of-distances-in-tree/discuss/130583/C%2B%2BJavaPython-Pre-order-and
+  // -Post-order-DFS-O(N)"></a>
   public int[] sumOfDistancesInTree(int N, int[][] edges) {
     this.N = N;
     result = new int[N];
