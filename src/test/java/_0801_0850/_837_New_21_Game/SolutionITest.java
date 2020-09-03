@@ -35,9 +35,18 @@ class SolutionITest {
     assertEquals(0.73278, solution.new21Game(N, K, W), BIAS);
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase4(Solution solution) {
+    final int N = 0, K = 0, W = 1;
+    assertEquals(1, solution.new21Game(N, K, W), BIAS);
+  }
+
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new ONSolution()
+//        new MLESolution(),
+//        new TLESolution()
     );
   }
 }
