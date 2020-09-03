@@ -5,6 +5,9 @@ package _0801_0850._837_New_21_Game;
  * @version 1.0 on 9/2/2020
  */
 public final class ONSolution implements Solution {
+  /**
+   * <a href="https://leetcode.com/problems/new-21-game/discuss/132334/One-Pass-DP-O(N)"></a>
+   */
   @Override
   public double new21Game(int N, int K, int W) {
     if (K == 0 || N >= K + W) return 1.0;
