@@ -49,10 +49,8 @@ public final class SolutionI implements Solution {
       this.cur = cur;
     }
 
-    private Path(final Path path) {
-      this(path.visited, path.cost, path.cur);
-    }
-
+    /* We don't need the cost in the hash set and equals, which is used in the visit set
+     */
     @Override
     public boolean equals(Object o) {
       if (this == o) return true;
