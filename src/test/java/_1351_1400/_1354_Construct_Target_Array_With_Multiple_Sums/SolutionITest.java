@@ -1,4 +1,4 @@
-package _1301_1350._1354_Construct_Target_Array_With_Multiple_Sums;
+package _1351_1400._1354_Construct_Target_Array_With_Multiple_Sums;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

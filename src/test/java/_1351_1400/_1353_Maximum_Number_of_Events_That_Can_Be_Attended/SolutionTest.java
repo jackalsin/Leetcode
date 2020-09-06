@@ -1,4 +1,4 @@
-package _1301_1350._1353_Maximum_Number_of_Events_That_Can_Be_Attended;
+package _1351_1400._1353_Maximum_Number_of_Events_That_Can_Be_Attended;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

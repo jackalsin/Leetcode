@@ -1,4 +1,4 @@
-package _1301_1350._1352_Product_of_the_Last_K_Numbers;
+package _1351_1400._1352_Product_of_the_Last_K_Numbers;
 
 /**
  * @author jacka
