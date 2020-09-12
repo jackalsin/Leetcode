@@ -9,7 +9,7 @@ import java.util.TreeSet;
  * @author jacka
  * @version 1.0 on 2/21/2019.
  */
-public final class ExamRoomInterval {
+public final class ExamRoomInterval implements ExamRoom {
 
   private final int N;
   private final Map<Integer, Interval> startMap = new HashMap<>(),
