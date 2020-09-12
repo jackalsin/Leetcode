@@ -37,6 +37,13 @@ class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
+  void testOnlineCase6(Solution solution) {
+    final String A = "aba", B = "aba";
+    assertTrue(solution.buddyStrings(A, B));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
   void testOnlineCase4(Solution solution) {
     final String A = "aaaaaaabc", B = "aaaaaaacb";
     assertTrue(solution.buddyStrings(A, B));
@@ -51,7 +58,8 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
