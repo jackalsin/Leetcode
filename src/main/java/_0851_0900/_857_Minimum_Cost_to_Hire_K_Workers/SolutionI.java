@@ -1,6 +1,6 @@
 package _0851_0900._857_Minimum_Cost_to_Hire_K_Workers;
 
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -16,35 +16,22 @@ public final class SolutionI implements Solution {
   @Override
   public double mincostToHireWorkers(int[] quality, int[] wage, int K) {
     assert K >= 1;
-    final Queue<Integer> minRatioToMinQuality =
-        new PriorityQueue<>(Comparator.comparingDouble(i -> (double) wage[i] / quality[i]));
-    for (int i = 0; i < quality.length; ++i) {
-      minRatioToMinQuality.add(i);
+    final int n = quality.length;
+    final double[][] minRatioWorkers = new double[n][2];
+    for (int i = 0; i < n; ++i) {
+      minRatioWorkers[i][0] = (double) wage[i] / quality[i];
+      minRatioWorkers[i][1] = quality[i];
     }
+    Arrays.sort(minRatioWorkers, (w1, w2) -> Double.compare(w1[0], w2[0]));
+    final Queue<Double> maxQuality = new PriorityQueue<>((x, y) -> Double.compare(y, x));
     double sumK = 0, result = Double.MAX_VALUE;
-    final Queue<Integer> maxQuality = new PriorityQueue<>((i, j) -> Integer.compare(quality[j], quality[i]));
-    final Queue<Integer> maxRatio =
-        new PriorityQueue<>((i, j) -> -Double.compare((double) wage[i] / quality[i], (double) wage[j] / quality[j]));
-    for (int i = 0; i < quality.length; ++i) {
-      final int toAdd = minRatioToMinQuality.remove();
-      maxRatio.add(toAdd);
-      sumK += quality[toAdd];
-      maxQuality.add(toAdd);
-      if (i >= K - 1) {
-        if (i > K - 1) {
-          final int toRemove = maxQuality.remove();
-          sumK -= quality[toRemove];
-          maxRatio.remove(toRemove);
-        }
-        assert !maxRatio.isEmpty();
-        final double ratio = ratio(wage[maxRatio.peek()], quality[maxRatio.peek()]);
-        result = Math.min(result, sumK * ratio);
-      }
+    for (int i = 0, len = minRatioWorkers.length; i < len; i++) {
+      final double[] worker = minRatioWorkers[i];
+      sumK += worker[1];
+      maxQuality.add(worker[1]);
+      if (i >= K) sumK -= maxQuality.remove();
+      if (i >= K - 1) result = Math.min(result, sumK * worker[0]);
     }
     return result;
-  }
-
-  private static double ratio(final double wage, final double quality) {
-    return wage / quality;
   }
 }
