@@ -61,7 +61,6 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI()

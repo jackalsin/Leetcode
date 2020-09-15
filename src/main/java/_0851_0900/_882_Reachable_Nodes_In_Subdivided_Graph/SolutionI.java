@@ -1,6 +1,7 @@
 package _0851_0900._882_Reachable_Nodes_In_Subdivided_Graph;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -11,39 +12,36 @@ import java.util.Queue;
 public final class SolutionI implements Solution {
   @Override
   public int reachableNodes(int[][] edges, int M, int N) {
-    final int[][] graph = new int[N][N];
-    for (int i = 0; i < N; i++) {
-      Arrays.fill(graph[i], -1);
-    }
+    final Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
     for (final int[] e : edges) {
-      graph[e[0]][e[1]] = e[2];
-      graph[e[1]][e[0]] = e[2];
+      graph.computeIfAbsent(e[0], k -> new HashMap<>()).put(e[1], e[2]);
+      graph.computeIfAbsent(e[1], k -> new HashMap<>()).put(e[0], e[2]);
     }
     int result = 0;
     final boolean[] visited = new boolean[N];
     final Queue<int[]> pq = new PriorityQueue<>((x, y) -> Integer.compare(y[1], x[1]));
     pq.add(new int[]{0, M});
-//    TwoDimensionArray.println(graph);
     while (!pq.isEmpty()) {
       final int[] toRemove = pq.remove();
       final int start = toRemove[0], move = toRemove[1];
       if (visited[start]) continue;
       visited[start] = true;
       result++;
-      for (int i = 0; i < N; ++i) {
-        if (graph[start][i] >= 0 && i != start) {
-          if (move - graph[start][i] > 0 && !visited[i]) {
-            pq.add(new int[]{i, move - graph[start][i] - 1});
+      final Map<Integer, Integer> neighbors = graph.get(start);
+      if (neighbors == null) continue;
+      for (final var e : neighbors.entrySet()) {
+        final int next = e.getKey(), remainPoints = e.getValue();
+        if (remainPoints >= 0) {
+          if (move - remainPoints > 0 && !visited[next]) {
+            pq.add(new int[]{next, move - remainPoints - 1});
           }
-          graph[i][start] -= move;
-//          graph[i][start] -= Math.min(move, graph[start][i]);
-          result += Math.min(move, graph[start][i]);
+          final Map<Integer, Integer> nextNeighbors = graph.get(next);
+          if (nextNeighbors != null) {
+            nextNeighbors.put(start, nextNeighbors.get(start) - move);
+          }
+          result += Math.min(move, graph.get(start).get(next));
         }
       }
-//      System.out.println("--------------------------------------");
-//      System.out.println(result);
-//      pq.forEach(x -> System.out.println(Arrays.toString(x)));
-//      TwoDimensionArray.println(graph);
     }
     return result;
   }
