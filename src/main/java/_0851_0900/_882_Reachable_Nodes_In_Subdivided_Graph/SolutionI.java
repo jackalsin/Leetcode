@@ -10,6 +10,9 @@ import java.util.Queue;
  * @version 1.0 on 9/14/2020
  */
 public final class SolutionI implements Solution {
+  /**
+   * <a href='https://leetcode.com/problems/reachable-nodes-in-subdivided-graph/discuss/156739/C%2B%2BJavaPython-Dijkstra-%2B-Priority-Queue'></a>
+   */
   @Override
   public int reachableNodes(int[][] edges, int M, int N) {
     final Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
