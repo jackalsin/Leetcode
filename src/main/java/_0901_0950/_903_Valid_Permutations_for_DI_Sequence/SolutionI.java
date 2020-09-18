@@ -10,44 +10,52 @@ import java.util.Map;
 public final class SolutionI implements Solution {
   private static final char I = 'I', D = 'D';
   private static final int MOD = (int) (1e9 + 7);
-  private final Map<String, Integer> cache = new HashMap<>();
+  private final Map<Long, Integer> cache = new HashMap<>();
   private int[][] nCk;
 
   public int numPermsDISequence(String s) {
     final int n = s.length();
     nCk = new int[n + 1][n + 1];
-    return numPermsDISequenceHelper(s);
+    return numPermsDISequenceHelper(s.toCharArray(), 0, n - 1);
   }
 
-  private int numPermsDISequenceHelper(final String s) {
-    if (s.isEmpty()) {
+  private int numPermsDISequenceHelper(final char[] chars, final int start, final int end) {
+//    System.out.printf("Start = %d, end = %d\n", start, end);
+    final int n = end - start + 1;
+    assert n >= 0;
+    if (n == 0) {
       return 1;
     }
-    if (cache.containsKey(s)) return cache.get(s);
-    final int n = s.length();
+    final long key = getKey(start, end);
+    if (cache.containsKey(key)) return cache.get(key);
     int result = 0;
     // if the max is at the head
-    if (s.charAt(0) == D) {
-      result = safeAdd(result, numPermsDISequenceHelper(s.substring(1)));
+    if (chars[start] == D) {
+      result = safeAdd(result, numPermsDISequenceHelper(chars, start + 1, end));
     }
     // if max is in the end
-    if (s.charAt(n - 1) == I) {
-      result = safeAdd(result, numPermsDISequenceHelper(s.substring(0, n - 1)));
+    if (chars[end] == I) {
+      result = safeAdd(result, numPermsDISequenceHelper(chars, start, end - 1));
     }
     // in the middle
-    for (int i = 0; i + 1 < n; ++i) {
-      if (s.charAt(i) == I && s.charAt(i + 1) == D) {
-        final int left = numPermsDISequenceHelper(s.substring(0, i)),
-            right = numPermsDISequenceHelper(s.substring(i + 2)),
-            nCk = combination(n, i + 1);
+    for (int i = start; i < end; ++i) {
+      if (chars[i] == I && chars[i + 1] == D) {
+        final int left = numPermsDISequenceHelper(chars, start, i - 1),
+            right = numPermsDISequenceHelper(chars, i + 2, end),
+            nCk = combination(n, i - start + 1);
         result = safeAdd(result, ((long) left * right % MOD) * nCk);
       }
     }
-    cache.put(s, result);
+    cache.put(key, result);
     return result;
   }
 
+  private static long getKey(long start, long end) {
+    return start << 32 | end;
+  }
+
   private int combination(final int n, int i) {
+//    System.out.printf("n = %d, i = %d\n", n, i);
     if (nCk[n][i] != 0) {
       return nCk[n][i];
     }
