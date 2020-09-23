@@ -5,6 +5,9 @@ package _0901_0950._930_Binary_Subarrays_With_Sum;
  * @version 1.0 on 9/22/2020
  */
 public final class SpaceO1Solution implements Solution {
+  /**
+   * <a href='https://leetcode.com/problems/binary-subarrays-with-sum/discuss/186683/C%2B%2BJavaPython-Sliding-Window-O(1)-Space'></a>
+   */
   @Override
   public int numSubarraysWithSum(int[] A, int S) {
     return atMost(A, S) - atMost(A, S - 1);
