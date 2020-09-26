@@ -5,4 +5,4 @@ package contest.template._01;
  * @version 1.0 on 9/20/2020
  */
 public interface Solution {
-}
+  }
