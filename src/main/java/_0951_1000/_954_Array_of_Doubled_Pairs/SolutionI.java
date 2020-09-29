@@ -1,9 +1,6 @@
 package _0951_1000._954_Array_of_Doubled_Pairs;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.TreeMap;
 
 /**
  * @author jacka
@@ -12,32 +9,22 @@ import java.util.Queue;
 public final class SolutionI implements Solution {
   @Override
   public boolean canReorderDoubled(int[] A) {
-    final Map<Integer, Integer> counts = new HashMap<>();
+    final TreeMap<Integer, Integer> counts = new TreeMap<>();
     for (final int a : A) {
       counts.put(a, counts.getOrDefault(a, 0) + 1);
     }
-    final Queue<Integer> keySet = new PriorityQueue<>((x, y) -> Integer.compare(Math.abs(x), Math.abs(y)));
-    keySet.addAll(counts.keySet());
-    while (!keySet.isEmpty()) {
-      final int key = keySet.remove(),
-          keyCount = counts.getOrDefault(key, 0);
-//      System.out.println(key);
-      if (keyCount == 0) continue;
-      final int target = key * 2;
-      final int expectedCount = keyCount,
-          actualCount = counts.getOrDefault(target, 0);
-      if (expectedCount > actualCount) {
-        return false;
-      } else {
-        if (expectedCount < actualCount) {
-          counts.put(target, -expectedCount + actualCount);
-        } else {
-          counts.remove(target);
-        }
-        counts.remove(key);
+    for (final var e : counts.entrySet()) {
+      final int key = e.getKey(), count = e.getValue();
+      if (count == 0) {
+        continue;
       }
+      final int target = key < 0 ? key / 2 : key * 2,
+          actualCount = counts.getOrDefault(target, 0);
+      if (key < 0 && key % 2 != 0 || actualCount < count) {
+        return false;
+      }
+      counts.put(target, actualCount - count);
     }
-//    System.out.println(counts);
-    return counts.isEmpty();
+    return true;
   }
 }
