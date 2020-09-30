@@ -1,28 +1,22 @@
-package _0201_0250._240_Search_a_2D_Matrix_II;
+package interviews.newsbreak._240_Search_a_2D_Matrix_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 8/20/2017.
+ * @version 1.0 on 9/29/2020
  */
-public class SolutionTest {
-
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
-  public void testOnlineCase(Solution solution) throws Exception {
+  void testOnlineCase1(Solution solution) {
     final int[][] board = new int[][]{
         {1, 4, 7, 11, 15},
         {2, 5, 8, 12, 19},
@@ -33,5 +27,11 @@ public class SolutionTest {
 
     assertTrue(solution.searchMatrix(board, 5));
     assertFalse(solution.searchMatrix(board, 20));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
