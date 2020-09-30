@@ -7,7 +7,7 @@ import java.util.Queue;
  * @author Zhiwei.Xin
  * @version 1.0 on 9/5/2017.
  */
-public class AdvancedBfsSolution implements Solution {
+public class BfsSolution implements Solution {
   private static final int[][] DIRS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
   private static final int INF = Integer.MAX_VALUE;
