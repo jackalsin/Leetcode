@@ -7,6 +7,9 @@ import java.util.Arrays;
  * @version 1.0 on 9/28/2020
  */
 public final class DpSolution implements Solution {
+  /**
+   * <a herf='https://leetcode.com/problems/tallest-billboard/discuss/203181/JavaC%2B%2BPython-DP-min(O(SN2)-O(3N2-*-N)'></a>
+   */
   @Override
   public int tallestBillboard(int[] rods) {
     /*dp[d] 代表有一个pair {dp[d] + d, dp[d]}*/
