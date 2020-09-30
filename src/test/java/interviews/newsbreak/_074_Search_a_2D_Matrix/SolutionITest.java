@@ -1,4 +1,4 @@
-package _0051_0100._074_Search_a_2D_Matrix;
+package interviews.newsbreak._074_Search_a_2D_Matrix;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,13 +8,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 /**
  * @author jacka
- * @version 1.0 on 5/11/2017.
+ * @version 1.0 on 9/29/2020
  */
-class SolutionTest {
-
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -29,6 +27,7 @@ class SolutionTest {
     assertFalse(solution.searchMatrix(new int[][]{{1}}, 0));
   }
 
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testWith3By3True(Solution solution) {
@@ -42,7 +41,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
