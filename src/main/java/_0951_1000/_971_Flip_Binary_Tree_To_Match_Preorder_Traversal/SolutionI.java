@@ -23,47 +23,38 @@ public final class SolutionI implements Solution {
       valToIndex.put(voyage[i], i);
     }
 
-    flipMatchVoyage(root, voyage, 0, n - 1);
-    return result;
+    final boolean reached = flipMatchVoyage(root, voyage, 0, n - 1);
+    return reached ? result : UNREACH;
   }
 
-  private void flipMatchVoyage(final TreeNode root, final int[] voyage, final int left, final int right) {
+  private boolean flipMatchVoyage(final TreeNode root, final int[] voyage, final int left, final int right) {
     assert root != null;
-    if (UNREACH.equals(result)) {
-      return;
-    }
     if (root.val != voyage[left]) {
-      resetUnreach();
-      return;
+      return false;
     }
     if (root.left == null && root.right == null) {
       if (left != right) {
-        resetUnreach();
-        return;
+        return false;
       }
-      return;
+      return true;
     } else if (root.left == null) {
-      flipMatchVoyage(root.right, voyage, left + 1, right);
+      return flipMatchVoyage(root.right, voyage, left + 1, right);
     } else if (root.right == null) {
-      flipMatchVoyage(root.left, voyage, left + 1, right);
+      return flipMatchVoyage(root.left, voyage, left + 1, right);
     } else {
       if (root.left.val == voyage[left + 1]) {
         final int rightIndex = valToIndex.get(root.right.val);
-        flipMatchVoyage(root.left, voyage, left + 1, rightIndex - 1);
-        flipMatchVoyage(root.right, voyage, rightIndex, right);
+        return flipMatchVoyage(root.left, voyage, left + 1, rightIndex - 1) &&
+            flipMatchVoyage(root.right, voyage, rightIndex, right);
       } else if (root.right.val == voyage[left + 1]) {
         result.add(root.val);
         final int leftIndex = valToIndex.get(root.left.val);
-        flipMatchVoyage(root.left, voyage, leftIndex, right);
-        flipMatchVoyage(root.right, voyage, left + 1, leftIndex - 1);
+        return flipMatchVoyage(root.left, voyage, leftIndex, right) &&
+            flipMatchVoyage(root.right, voyage, left + 1, leftIndex - 1);
       } else {
-        resetUnreach();
+        return false;
       }
     }
   }
 
-  private void resetUnreach() {
-    result.clear();
-    result.add(-1);
-  }
 }
