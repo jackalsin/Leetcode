@@ -21,7 +21,7 @@
     <modules>
         <module>com.github.jackalsin.leetcode.definition</module>
         <module>com.github.jackalsin.leetcode.problems</module>
-<!--        <module>com.github.jackalsin.leetcode.contest</module>-->
+        <module>com.github.jackalsin.leetcode.interview</module>
     </modules>
     <build>
         <!--<sourceDirectory>src</sourceDirectory>-->
@@ -89,14 +89,14 @@
             <!--                </configuration>-->
             <!--            </plugin>-->
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>src/main/config</directory>
-            </resource>
-        </resources>
+        <!--        <resources>-->
+        <!--            <resource>-->
+        <!--                <directory>src/main/resources</directory>-->
+        <!--            </resource>-->
+        <!--            <resource>-->
+        <!--                <directory>src/main/config</directory>-->
+        <!--            </resource>-->
+        <!--        </resources>-->
     </build>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
