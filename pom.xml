@@ -19,9 +19,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>com.github.jackalsin.leetcode.definition</module>
-        <module>com.github.jackalsin.leetcode.problems</module>
-        <module>com.github.jackalsin.leetcode.interview</module>
+        <module>definition</module>
+        <module>problems</module>
+        <module>interview</module>
     </modules>
     <build>
         <!--<sourceDirectory>src</sourceDirectory>-->

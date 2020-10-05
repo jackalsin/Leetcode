@@ -2,30 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>com.github.jackalsin.leetcode</groupId>
         <artifactId>java-leetcode</artifactId>
+        <groupId>com.github.jackalsin.leetcode</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>com.github.jackalsin.leetcode.problems</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>src/main/config</directory>
-            </resource>
-        </resources>
-    </build>
+    <artifactId>interview</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.github.jackalsin.leetcode</groupId>
-            <artifactId>com.github.jackalsin.leetcode.definition</artifactId>
+            <artifactId>definition</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
