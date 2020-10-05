@@ -1,6 +1,6 @@
 package uber._206_Reverse_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   /**

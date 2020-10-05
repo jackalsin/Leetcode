@@ -1,6 +1,6 @@
 package linkedin._428_Serialize_and_Deserialize_N_ary_Tree;
 
-import utils.nAryTree.Node;
+import definition.nAryTree.Node;
 
 /**
  * @author zhiwei.xin

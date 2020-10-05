@@ -1,6 +1,6 @@
 package linkedin._112_Path_Sum;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public final class SolutionI implements Solution {
 

@@ -1,6 +1,6 @@
 package _0351_0400._369_Plus_One_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

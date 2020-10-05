@@ -3,8 +3,8 @@ package uber._036_Valid_Sudoku;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static definition.SudokuUtils.create2dSudokuArray;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.SudokuUtils.create2dSudokuArray;
 
 /**
  * @author jacka

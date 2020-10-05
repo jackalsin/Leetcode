@@ -1,6 +1,6 @@
 package microsoft.noodleEssence._117_Populating_Next_Right_Pointers_in_Each_Node_II;
 
-import utils.TreeLinkNode;
+import definition.TreeLinkNode;
 
 public class Solution {
   public void connect(TreeLinkNode root) {

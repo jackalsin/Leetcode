@@ -1,9 +1,9 @@
 package uber._450_Delete_Node_in_a_BST;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.util.Objects;
 import java.util.Set;

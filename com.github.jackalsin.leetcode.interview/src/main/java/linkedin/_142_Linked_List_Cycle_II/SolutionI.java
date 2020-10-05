@@ -1,6 +1,6 @@
 package linkedin._142_Linked_List_Cycle_II;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

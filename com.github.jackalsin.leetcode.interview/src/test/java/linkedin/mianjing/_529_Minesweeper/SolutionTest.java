@@ -1,8 +1,8 @@
 package linkedin.mianjing._529_Minesweeper;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TwoDimensionArray;
 
 import java.util.Arrays;
 

@@ -1,6 +1,6 @@
 package _0851_0900._889_Construct_Binary_Tree_from_Preorder_and_Postorder_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

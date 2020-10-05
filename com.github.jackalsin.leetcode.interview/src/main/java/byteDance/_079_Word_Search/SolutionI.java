@@ -1,6 +1,6 @@
 package byteDance._079_Word_Search;
 
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 /**
  * @author zhixi

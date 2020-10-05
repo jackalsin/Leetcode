@@ -1,8 +1,8 @@
 package microsoft._048_Rotate_Image;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TwoDimensionArray;
 
 import static junit.framework.TestCase.assertTrue;
 

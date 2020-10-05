@@ -1,6 +1,6 @@
 package _0401_0450._436_Find_Right_Interval;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.Map;
 import java.util.TreeMap;

@@ -1,4 +1,4 @@
-package utils._489_Robot_Room_Cleaner;
+package definition._489_Robot_Room_Cleaner;
 
 import java.util.Arrays;
 

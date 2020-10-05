@@ -1,9 +1,9 @@
 package oracle._002_Add_Two_Numbers;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
-import utils.ListNodes;
 
 import java.util.stream.Stream;
 

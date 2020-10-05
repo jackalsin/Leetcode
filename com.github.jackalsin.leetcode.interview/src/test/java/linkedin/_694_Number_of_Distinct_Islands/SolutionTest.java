@@ -1,8 +1,8 @@
 package linkedin._694_Number_of_Distinct_Islands;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TwoDimensionArray;
 
 import java.util.stream.Stream;
 

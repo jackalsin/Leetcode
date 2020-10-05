@@ -1,6 +1,6 @@
 package _0651_0700._687_Longest_Univalue_Path;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
   private int max = 0;

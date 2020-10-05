@@ -1,6 +1,6 @@
 package _0151_0200._156_Binary_Tree_Upside_Down;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
     /**

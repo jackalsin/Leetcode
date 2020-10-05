@@ -2,7 +2,7 @@ package _0501_0550._510_Inorder_Successor_in_BST_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._510_Inorder_Successor_in_BST_II.Node;
+import definition._510_Inorder_Successor_in_BST_II.Node;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static utils._510_Inorder_Successor_in_BST_II.Nodes.link;
+import static definition._510_Inorder_Successor_in_BST_II.Nodes.link;
 
 /**
  * @author jacka

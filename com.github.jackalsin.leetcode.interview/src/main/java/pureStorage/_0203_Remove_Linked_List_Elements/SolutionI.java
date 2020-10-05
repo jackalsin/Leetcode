@@ -1,6 +1,6 @@
 package pureStorage._0203_Remove_Linked_List_Elements;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

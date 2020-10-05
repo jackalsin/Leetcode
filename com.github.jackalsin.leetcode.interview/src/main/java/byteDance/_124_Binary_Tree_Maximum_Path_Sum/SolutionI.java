@@ -1,6 +1,6 @@
 package byteDance._124_Binary_Tree_Maximum_Path_Sum;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author zhixi

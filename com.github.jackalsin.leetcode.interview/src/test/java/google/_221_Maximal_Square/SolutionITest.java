@@ -1,8 +1,8 @@
 package google._221_Maximal_Square;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TwoDimensionArray;
 
 import java.util.stream.Stream;
 

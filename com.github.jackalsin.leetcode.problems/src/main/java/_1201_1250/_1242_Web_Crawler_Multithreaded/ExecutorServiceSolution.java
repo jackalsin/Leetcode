@@ -1,6 +1,6 @@
 package _1201_1250._1242_Web_Crawler_Multithreaded;
 
-import utils._1242_Web_Crawler_Multithreaded.HtmlParser;
+import definition._1242_Web_Crawler_Multithreaded.HtmlParser;
 
 import java.util.ArrayList;
 import java.util.List;

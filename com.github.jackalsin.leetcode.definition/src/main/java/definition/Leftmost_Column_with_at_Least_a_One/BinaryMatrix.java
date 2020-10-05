@@ -1,4 +1,4 @@
-package utils.Leftmost_Column_with_at_Least_a_One;
+package definition.Leftmost_Column_with_at_Least_a_One;
 
 import java.util.List;
 

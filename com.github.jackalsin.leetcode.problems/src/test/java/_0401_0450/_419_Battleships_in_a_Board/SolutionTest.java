@@ -2,7 +2,7 @@ package _0401_0450._419_Battleships_in_a_Board;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 import static org.junit.Assert.assertEquals;
 

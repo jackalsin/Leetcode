@@ -1,6 +1,6 @@
 package linkedin._061_Rotate_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

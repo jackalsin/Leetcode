@@ -1,8 +1,8 @@
 package _0051_0100._054_Spiral_Matrix;
 
+import definition._054_Spiral_Matrix.Board;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._054_Spiral_Matrix.Board;
 
 import java.util.List;
 import java.util.stream.Stream;

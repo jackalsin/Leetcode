@@ -1,6 +1,6 @@
 package _0801_0850._803_Bricks_Falling_When_Hit;
 
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 /**
  * Time Complexity: O(N)

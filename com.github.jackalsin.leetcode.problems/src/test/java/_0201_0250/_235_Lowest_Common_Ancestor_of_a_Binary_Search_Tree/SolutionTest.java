@@ -4,7 +4,7 @@ package _0201_0250._235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.stream.Stream;
 

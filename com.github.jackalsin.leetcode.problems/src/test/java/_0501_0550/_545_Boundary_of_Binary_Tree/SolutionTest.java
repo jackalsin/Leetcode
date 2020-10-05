@@ -2,8 +2,8 @@ package _0501_0550._545_Boundary_of_Binary_Tree;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.List;

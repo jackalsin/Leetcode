@@ -2,7 +2,7 @@ package _0201_0250._221_Maximal_Square;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 import java.util.stream.Stream;
 

@@ -1,15 +1,15 @@
 package airbnb._037_Sudoku_Solver;
 
+import definition.SudokuUtils;
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.SudokuUtils;
-import utils.TwoDimensionArray;
 
 import static airbnb._037_Sudoku_Solver.Solution.isValidCol;
 import static airbnb._037_Sudoku_Solver.Solution.isValidSquare;
+import static definition.TwoDimensionArray.TwoDimensionArrayEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static utils.TwoDimensionArray.TwoDimensionArrayEquals;
 
 /**
  * @author jacka

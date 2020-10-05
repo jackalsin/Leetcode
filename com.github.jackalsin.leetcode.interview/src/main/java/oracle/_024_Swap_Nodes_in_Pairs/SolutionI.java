@@ -1,6 +1,6 @@
 package oracle._024_Swap_Nodes_in_Pairs;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

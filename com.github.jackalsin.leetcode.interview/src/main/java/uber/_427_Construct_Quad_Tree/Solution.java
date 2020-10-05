@@ -1,6 +1,6 @@
 package uber._427_Construct_Quad_Tree;
 
-import utils._427_Construct_Quad_Tree.Node;
+import definition._427_Construct_Quad_Tree.Node;
 
 public class Solution {
   public Node construct(int[][] grid) {

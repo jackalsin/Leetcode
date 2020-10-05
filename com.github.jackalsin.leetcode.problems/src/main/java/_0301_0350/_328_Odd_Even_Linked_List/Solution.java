@@ -1,6 +1,6 @@
 package _0301_0350._328_Odd_Even_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author Zhiwei.Xin

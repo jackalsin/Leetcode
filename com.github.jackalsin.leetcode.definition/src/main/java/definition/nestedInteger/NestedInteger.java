@@ -1,4 +1,4 @@
-package utils.nestedInteger;
+package definition.nestedInteger;
 
 import java.util.List;
 

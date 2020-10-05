@@ -2,8 +2,8 @@ package _0701_0750._725_Split_Linked_List_in_Parts;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.ListNode;
-import utils.ListNodes;
+import definition.ListNode;
+import definition.ListNodes;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

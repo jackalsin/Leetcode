@@ -2,8 +2,8 @@ package example.tree;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.List;

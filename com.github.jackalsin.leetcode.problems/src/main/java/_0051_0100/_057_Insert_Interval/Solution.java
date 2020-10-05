@@ -1,6 +1,6 @@
 package _0051_0100._057_Insert_Interval;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.ArrayList;
 import java.util.List;

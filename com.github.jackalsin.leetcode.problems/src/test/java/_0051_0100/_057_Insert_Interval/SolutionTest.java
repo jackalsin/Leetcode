@@ -1,9 +1,9 @@
 package _0051_0100._057_Insert_Interval;
 
+import definition.Interval;
+import definition.Util;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.Interval;
-import utils.Util;
 
 import java.util.List;
 import java.util.stream.Stream;

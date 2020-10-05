@@ -2,7 +2,7 @@ package _0251_0300._252_Meeting_Rooms;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
+import definition.Interval;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

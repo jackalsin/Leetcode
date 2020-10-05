@@ -3,8 +3,8 @@ package _0351_0400._364_Nested_List_Weight_Sum_II;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.nestedInteger.NestedInteger;
-import utils.nestedInteger.NestedIntegerImpl;
+import definition.nestedInteger.NestedInteger;
+import definition.nestedInteger.NestedIntegerImpl;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package linkedin.mianjing._149_Max_Points_on_a_Line;
 
+import definition.Point;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Point;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

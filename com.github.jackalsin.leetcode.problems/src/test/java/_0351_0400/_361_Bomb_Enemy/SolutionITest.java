@@ -2,7 +2,7 @@ package _0351_0400._361_Bomb_Enemy;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 import static org.junit.Assert.assertEquals;
 

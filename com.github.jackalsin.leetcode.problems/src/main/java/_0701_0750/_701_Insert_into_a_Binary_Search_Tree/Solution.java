@@ -1,6 +1,6 @@
 package _0701_0750._701_Insert_into_a_Binary_Search_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
   public TreeNode insertIntoBST(TreeNode root, int val) {

@@ -1,6 +1,6 @@
 package airbnb._002_Add_Two_Numbers;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

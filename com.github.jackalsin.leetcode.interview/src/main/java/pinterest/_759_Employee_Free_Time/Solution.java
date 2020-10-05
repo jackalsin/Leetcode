@@ -1,6 +1,6 @@
 package pinterest._759_Employee_Free_Time;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.ArrayList;
 import java.util.Collections;

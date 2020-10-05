@@ -2,7 +2,7 @@ package _0351_0400._385_Mini_Parser;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.nestedInteger._385_Mini_Parser.NestedInteger;
+import definition.nestedInteger._385_Mini_Parser.NestedInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

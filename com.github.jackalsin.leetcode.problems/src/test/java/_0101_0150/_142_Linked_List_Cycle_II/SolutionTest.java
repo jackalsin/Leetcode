@@ -1,9 +1,9 @@
 package _0101_0150._142_Linked_List_Cycle_II;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.Assert.assertEquals;
 

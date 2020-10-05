@@ -1,6 +1,6 @@
 package _0351_0400._382_Linked_List_Random_Node;
 
-import utils.ListNode;
+import definition.ListNode;
 
 import java.util.Random;
 

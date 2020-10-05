@@ -1,6 +1,6 @@
 package _0101_0150._133_Clone_Graph;
 
-import utils._133_Clone_Graph.Node;
+import definition._133_Clone_Graph.Node;
 
 /**
  * @author Zhiwei.Xin

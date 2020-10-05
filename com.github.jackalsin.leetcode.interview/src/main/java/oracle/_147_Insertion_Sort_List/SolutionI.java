@@ -1,6 +1,6 @@
 package oracle._147_Insertion_Sort_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

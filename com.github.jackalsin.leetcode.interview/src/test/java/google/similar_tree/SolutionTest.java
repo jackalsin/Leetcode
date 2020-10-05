@@ -1,9 +1,9 @@
 package google.similar_tree;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertTrue;
 

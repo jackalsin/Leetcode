@@ -1,9 +1,9 @@
 package linkedin.mianjing._061_Rotate_List;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

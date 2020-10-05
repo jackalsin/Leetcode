@@ -1,9 +1,9 @@
 package oracle._019_Remove_Nth_Node_From_End_of_List;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
-import utils.ListNodes;
 
 import java.util.stream.Stream;
 

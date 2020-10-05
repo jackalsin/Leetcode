@@ -1,10 +1,10 @@
 package linkedin._1117_Building_H2O;
 
+import definition._1117_Building_H2O.ReleaseHydrogen;
+import definition._1117_Building_H2O.ReleaseOxygen;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._1117_Building_H2O.ReleaseHydrogen;
-import utils._1117_Building_H2O.ReleaseOxygen;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package _0501_0550._501_Find_Mode_in_Binary_Search_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.HashMap;
 import java.util.HashSet;

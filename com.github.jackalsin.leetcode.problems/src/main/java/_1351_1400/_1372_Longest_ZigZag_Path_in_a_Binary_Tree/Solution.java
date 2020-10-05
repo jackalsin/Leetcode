@@ -1,6 +1,6 @@
 package _1351_1400._1372_Longest_ZigZag_Path_in_a_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

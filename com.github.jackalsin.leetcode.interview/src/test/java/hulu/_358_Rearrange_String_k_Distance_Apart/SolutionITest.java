@@ -5,8 +5,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static definition._358_Rearrange_String_k_Distance_Apart.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils._358_Rearrange_String_k_Distance_Apart.Assertions.assertTrue;
 
 /**
  * @author jacka

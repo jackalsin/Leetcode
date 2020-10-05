@@ -1,4 +1,4 @@
-package utils._559_Maximum_Depth_of_N_ary_Tree;
+package definition._559_Maximum_Depth_of_N_ary_Tree;
 
 import java.util.List;
 import java.util.Objects;

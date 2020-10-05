@@ -1,6 +1,6 @@
 package airbnb._021_Merge_Two_Sorted_Lists;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package google.geo;
 
-import utils.Point;
+import definition.Point;
 
 /**
  * @author jacka

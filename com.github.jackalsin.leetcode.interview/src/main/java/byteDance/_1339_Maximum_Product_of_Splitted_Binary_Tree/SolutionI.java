@@ -1,6 +1,6 @@
 package byteDance._1339_Maximum_Product_of_Splitted_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.HashSet;
 import java.util.Set;

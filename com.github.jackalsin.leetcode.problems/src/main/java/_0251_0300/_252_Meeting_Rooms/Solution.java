@@ -1,6 +1,6 @@
 package _0251_0300._252_Meeting_Rooms;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.Arrays;
 import java.util.Comparator;

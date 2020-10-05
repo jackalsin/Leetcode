@@ -1,6 +1,6 @@
 package _0851_0900._872_Leaf_Similar_Trees;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package oracle._653_Two_Sum_IV_Input_is_a_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

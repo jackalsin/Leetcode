@@ -1,6 +1,6 @@
 package _0501_0550._530_Minimum_Absolute_Difference_in_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

@@ -2,8 +2,8 @@ package _0801_0850._843_Guess_the_Word;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._843_Guess_the_Word.Master;
-import utils._843_Guess_the_Word.MasterImpl;
+import definition._843_Guess_the_Word.Master;
+import definition._843_Guess_the_Word.MasterImpl;
 
 import java.util.stream.Stream;
 

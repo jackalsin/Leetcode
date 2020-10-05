@@ -1,6 +1,6 @@
 package linkedin._100_Same_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

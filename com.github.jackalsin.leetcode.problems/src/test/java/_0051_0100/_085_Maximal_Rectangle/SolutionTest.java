@@ -1,10 +1,10 @@
 package _0051_0100._085_Maximal_Rectangle;
 
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TwoDimensionArray;
 
 import java.util.stream.Stream;
 

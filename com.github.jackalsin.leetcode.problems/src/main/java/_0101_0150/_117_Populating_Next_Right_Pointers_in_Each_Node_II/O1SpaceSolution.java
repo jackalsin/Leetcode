@@ -1,6 +1,6 @@
 package _0101_0150._117_Populating_Next_Right_Pointers_in_Each_Node_II;
 
-import utils.treeLinkNode._117_Populating_Next_Right_Pointers_in_Each_Node_II.Node;
+import definition.treeLinkNode._117_Populating_Next_Right_Pointers_in_Each_Node_II.Node;
 
 /**
  * @author jacka

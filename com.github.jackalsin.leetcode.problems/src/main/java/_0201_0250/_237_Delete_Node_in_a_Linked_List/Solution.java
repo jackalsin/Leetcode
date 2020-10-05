@@ -1,6 +1,6 @@
 package _0201_0250._237_Delete_Node_in_a_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

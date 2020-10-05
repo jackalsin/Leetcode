@@ -1,6 +1,6 @@
 package _0551_0600._559_Maximum_Depth_of_N_ary_Tree;
 
-import utils._559_Maximum_Depth_of_N_ary_Tree.Node;
+import definition._559_Maximum_Depth_of_N_ary_Tree.Node;
 
 /**
  * @author jacka

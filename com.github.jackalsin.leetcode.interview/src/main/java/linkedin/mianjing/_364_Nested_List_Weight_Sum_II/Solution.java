@@ -1,6 +1,6 @@
 package linkedin.mianjing._364_Nested_List_Weight_Sum_II;
 
-import utils.nestedInteger.NestedInteger;
+import definition.nestedInteger.NestedInteger;
 
 import java.util.List;
 

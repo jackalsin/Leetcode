@@ -1,6 +1,6 @@
 package google.rectangleRandomDistribute;
 
-import utils.Point;
+import definition.Point;
 
 import java.util.HashMap;
 import java.util.Map;

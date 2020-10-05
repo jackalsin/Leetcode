@@ -1,4 +1,4 @@
-package utils._1242_Web_Crawler_Multithreaded;
+package definition._1242_Web_Crawler_Multithreaded;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,6 +1,6 @@
 package linkedin._730_Count_Different_Palindromic_Subsequences;
 
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 public final class SolutionI implements Solution {
   private static final int BASE = 1_000_000_000 + 7;

@@ -1,6 +1,6 @@
 package _0951_1000._998_Maximum_Binary_Tree_II;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

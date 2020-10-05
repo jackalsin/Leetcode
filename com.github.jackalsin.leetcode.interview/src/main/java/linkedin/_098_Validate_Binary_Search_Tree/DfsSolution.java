@@ -1,6 +1,6 @@
 package linkedin._098_Validate_Binary_Search_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public final class DfsSolution implements Solution {
   @Override

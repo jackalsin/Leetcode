@@ -1,6 +1,6 @@
 package linkedin._023_Merge_k_Sorted_Lists;
 
-import utils.ListNode;
+import definition.ListNode;
 
 import java.util.PriorityQueue;
 import java.util.Queue;

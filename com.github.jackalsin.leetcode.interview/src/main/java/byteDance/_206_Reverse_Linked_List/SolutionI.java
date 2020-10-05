@@ -1,6 +1,6 @@
 package byteDance._206_Reverse_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

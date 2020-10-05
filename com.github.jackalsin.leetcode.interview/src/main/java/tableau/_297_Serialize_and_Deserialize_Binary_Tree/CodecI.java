@@ -1,6 +1,6 @@
 package tableau._297_Serialize_and_Deserialize_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

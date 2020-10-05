@@ -1,15 +1,15 @@
 package _0001_0050._037_Sudoku_Solver;
 
+import definition.SudokuUtils;
+import definition.TwoDimensionArray;
 import org.junit.Before;
 import org.junit.Test;
-import utils.SudokuUtils;
-import utils.TwoDimensionArray;
 
 import static _0001_0050._037_Sudoku_Solver.Solution.isValidInCol;
 import static _0001_0050._037_Sudoku_Solver.Solution.isValidInSquare;
+import static definition.TwoDimensionArray.TwoDimensionArrayEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static utils.TwoDimensionArray.TwoDimensionArrayEquals;
 
 /**
  * @author jacka

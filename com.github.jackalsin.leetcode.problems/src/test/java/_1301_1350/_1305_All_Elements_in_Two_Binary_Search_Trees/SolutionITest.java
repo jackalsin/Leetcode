@@ -2,8 +2,8 @@ package _1301_1350._1305_All_Elements_in_Two_Binary_Search_Trees;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.util.List;
 import java.util.stream.Stream;

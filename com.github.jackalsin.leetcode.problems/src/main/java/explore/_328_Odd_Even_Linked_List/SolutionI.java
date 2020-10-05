@@ -1,6 +1,6 @@
 package explore._328_Odd_Even_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package microsoft._235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
   public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

@@ -1,8 +1,8 @@
 package uber._253_Meeting_Rooms_II;
 
+import definition.Interval;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

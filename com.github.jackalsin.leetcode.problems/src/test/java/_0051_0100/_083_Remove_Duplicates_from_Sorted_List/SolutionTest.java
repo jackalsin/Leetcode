@@ -1,9 +1,9 @@
 package _0051_0100._083_Remove_Duplicates_from_Sorted_List;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
-import utils.ListNodes;
 
 import java.util.stream.Stream;
 

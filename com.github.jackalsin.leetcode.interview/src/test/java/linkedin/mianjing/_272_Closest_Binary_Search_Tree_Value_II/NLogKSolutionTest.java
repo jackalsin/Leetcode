@@ -1,9 +1,9 @@
 package linkedin.mianjing._272_Closest_Binary_Search_Tree_Value_II;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

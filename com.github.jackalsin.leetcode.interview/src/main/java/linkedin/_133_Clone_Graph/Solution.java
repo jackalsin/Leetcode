@@ -1,6 +1,6 @@
 package linkedin._133_Clone_Graph;
 
-import utils._133_Clone_Graph.Node;
+import definition._133_Clone_Graph.Node;
 
 /**
  * TODO: Revisited

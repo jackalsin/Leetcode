@@ -1,10 +1,9 @@
 package uber._024_Swap_Nodes_in_Pairs;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

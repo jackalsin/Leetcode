@@ -1,8 +1,8 @@
 package linkedin._057_Insert_Interval;
 
+import definition.Interval;
 import org.junit.Before;
 import org.junit.Test;
-import utils.Interval;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,7 +2,7 @@ package _0851_0900._894_All_Possible_Full_Binary_Trees;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.List;
 

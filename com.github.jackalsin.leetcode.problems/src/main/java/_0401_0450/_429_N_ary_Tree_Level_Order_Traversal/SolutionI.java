@@ -1,7 +1,7 @@
 package _0401_0450._429_N_ary_Tree_Level_Order_Traversal;
 
 
-import utils.nAryTree.Node;
+import definition.nAryTree.Node;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

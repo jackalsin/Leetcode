@@ -1,8 +1,8 @@
 package uber._427_Construct_Quad_Tree;
 
+import definition._427_Construct_Quad_Tree.Node;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils._427_Construct_Quad_Tree.Node;
 
 class SolutionTest {
   private Solution solution;

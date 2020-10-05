@@ -1,6 +1,6 @@
 package linkedin._341_Flatten_Nested_List_Iterator;
 
-import utils.nestedInteger.NestedInteger;
+import definition.nestedInteger.NestedInteger;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

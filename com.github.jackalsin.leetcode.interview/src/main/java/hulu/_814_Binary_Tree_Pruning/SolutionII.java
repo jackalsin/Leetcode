@@ -1,6 +1,6 @@
 package hulu._814_Binary_Tree_Pruning;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

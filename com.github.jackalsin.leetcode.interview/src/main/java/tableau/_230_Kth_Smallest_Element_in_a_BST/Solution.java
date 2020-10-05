@@ -1,6 +1,6 @@
 package tableau._230_Kth_Smallest_Element_in_a_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

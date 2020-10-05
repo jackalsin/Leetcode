@@ -1,6 +1,6 @@
 package uber._337_House_Robber_III;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class IntSolution implements Solution {
   /**

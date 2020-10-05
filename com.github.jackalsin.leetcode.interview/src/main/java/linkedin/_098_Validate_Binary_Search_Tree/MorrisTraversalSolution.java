@@ -1,6 +1,6 @@
 package linkedin._098_Validate_Binary_Search_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

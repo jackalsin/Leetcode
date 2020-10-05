@@ -1,8 +1,8 @@
 package hulu._236_Lowest_Common_Ancestor_of_a_Binary_Tree;
 
+import definition.binaryTree.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
 
 import java.util.stream.Stream;
 

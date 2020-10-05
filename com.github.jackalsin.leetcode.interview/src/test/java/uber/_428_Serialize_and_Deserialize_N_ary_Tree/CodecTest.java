@@ -1,8 +1,8 @@
 package uber._428_Serialize_and_Deserialize_N_ary_Tree;
 
+import definition.nAryTree.Node;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.nAryTree.Node;
 
 import java.util.List;
 

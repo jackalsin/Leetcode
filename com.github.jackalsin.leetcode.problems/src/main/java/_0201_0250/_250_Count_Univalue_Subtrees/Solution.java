@@ -1,6 +1,6 @@
 package _0201_0250._250_Count_Univalue_Subtrees;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

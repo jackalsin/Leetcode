@@ -1,6 +1,6 @@
 package _0601_0650._617_Merge_Two_Binary_Trees;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author zhiwei.xin

@@ -1,6 +1,6 @@
 package linkedin.mianjing._272_Closest_Binary_Search_Tree_Value_II;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.List;
 

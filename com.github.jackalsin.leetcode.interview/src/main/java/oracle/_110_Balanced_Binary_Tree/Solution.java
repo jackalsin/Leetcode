@@ -1,6 +1,6 @@
 package oracle._110_Balanced_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package facebook._023_Merge_k_Sorted_Lists;
 
-import utils.ListNode;
+import definition.ListNode;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

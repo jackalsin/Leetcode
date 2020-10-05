@@ -1,9 +1,9 @@
 package byteDance._1339_Maximum_Product_of_Splitted_Binary_Tree;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

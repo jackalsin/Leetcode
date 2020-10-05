@@ -1,9 +1,9 @@
 package byteDance._025_Reverse_Nodes_in_k_Group;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
-import utils.ListNodes;
 
 import java.util.stream.Stream;
 

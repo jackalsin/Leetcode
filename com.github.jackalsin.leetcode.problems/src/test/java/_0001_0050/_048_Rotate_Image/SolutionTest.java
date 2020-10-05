@@ -1,8 +1,8 @@
 package _0001_0050._048_Rotate_Image;
 
+import definition.TwoDimensionArray;
 import org.junit.Before;
 import org.junit.Test;
-import utils.TwoDimensionArray;
 
 import static org.junit.Assert.assertTrue;
 

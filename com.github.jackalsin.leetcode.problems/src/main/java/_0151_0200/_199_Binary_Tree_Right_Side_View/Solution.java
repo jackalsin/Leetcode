@@ -1,6 +1,6 @@
 package _0151_0200._199_Binary_Tree_Right_Side_View;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package _0451_0500._471_Encode_String_with_Shortest_Length;
 
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package microsoft._206_Reverse_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public ListNode reverseList(ListNode head) {

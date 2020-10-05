@@ -1,8 +1,8 @@
 package byteDance._199_Binary_Tree_Right_Side_View;
 
+import definition.binaryTree.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
 
 import java.util.Arrays;
 import java.util.List;

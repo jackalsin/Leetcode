@@ -1,6 +1,6 @@
 package _0001_0050._019_Remove_Nth_Node_From_End_of_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package _0101_0150._142_Linked_List_Cycle_II;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

@@ -2,8 +2,8 @@ package _0501_0550._508_Most_Frequent_Subtree_Sum;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.util.Arrays;
 import java.util.Set;

@@ -1,9 +1,9 @@
 package _0101_0150._114_Flatten_Binary_Tree_to_Linked_List;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

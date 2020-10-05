@@ -1,6 +1,6 @@
 package microsoft._114_Flatten_Binary_Tree_to_Linked_List;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public final class SolutionI implements Solution {
 

@@ -1,6 +1,6 @@
 package google._489_Robot_Room_Cleaner;
 
-import utils._489_Robot_Room_Cleaner.Robot;
+import definition._489_Robot_Room_Cleaner.Robot;
 
 import java.util.HashSet;
 import java.util.Objects;

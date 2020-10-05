@@ -1,4 +1,4 @@
-package utils._702_Search_in_a_Sorted_Array_of_Unknown_Size;
+package definition._702_Search_in_a_Sorted_Array_of_Unknown_Size;
 
 public final class ArrayReader {
   private final int[] elems;

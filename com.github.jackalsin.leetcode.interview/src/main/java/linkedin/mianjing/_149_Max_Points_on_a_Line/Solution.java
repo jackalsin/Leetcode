@@ -1,6 +1,6 @@
 package linkedin.mianjing._149_Max_Points_on_a_Line;
 
-import utils.Point;
+import definition.Point;
 
 public interface Solution {
   int maxPoints(Point[] points);

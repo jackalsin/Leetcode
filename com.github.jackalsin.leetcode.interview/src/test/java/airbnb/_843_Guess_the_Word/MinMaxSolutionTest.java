@@ -1,9 +1,9 @@
 package airbnb._843_Guess_the_Word;
 
+import definition._843_Guess_the_Word.Master;
+import definition._843_Guess_the_Word.MasterImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils._843_Guess_the_Word.Master;
-import utils._843_Guess_the_Word.MasterImpl;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

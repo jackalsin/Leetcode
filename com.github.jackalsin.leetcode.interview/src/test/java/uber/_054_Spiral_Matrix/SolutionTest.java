@@ -1,8 +1,8 @@
 package uber._054_Spiral_Matrix;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TwoDimensionArray;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,6 +1,6 @@
 package _0351_0400._366_Find_Leaves_of_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

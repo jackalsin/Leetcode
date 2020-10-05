@@ -2,7 +2,7 @@ package _0551_0600._559_Maximum_Depth_of_N_ary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._559_Maximum_Depth_of_N_ary_Tree.Node;
+import definition._559_Maximum_Depth_of_N_ary_Tree.Node;
 
 import java.util.List;
 import java.util.stream.Stream;

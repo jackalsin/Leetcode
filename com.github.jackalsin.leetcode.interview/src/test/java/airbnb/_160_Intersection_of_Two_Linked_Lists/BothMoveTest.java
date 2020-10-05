@@ -1,9 +1,9 @@
 package airbnb._160_Intersection_of_Two_Linked_Lists;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;

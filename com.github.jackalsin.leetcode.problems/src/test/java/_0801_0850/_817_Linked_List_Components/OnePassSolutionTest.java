@@ -2,8 +2,8 @@ package _0801_0850._817_Linked_List_Components;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.ListNode;
-import utils.ListNodes;
+import definition.ListNode;
+import definition.ListNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

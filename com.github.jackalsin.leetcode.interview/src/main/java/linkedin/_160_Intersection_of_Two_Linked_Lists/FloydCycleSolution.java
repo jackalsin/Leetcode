@@ -1,6 +1,6 @@
 package linkedin._160_Intersection_of_Two_Linked_Lists;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

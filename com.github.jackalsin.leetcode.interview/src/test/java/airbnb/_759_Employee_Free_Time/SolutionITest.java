@@ -1,9 +1,9 @@
 package airbnb._759_Employee_Free_Time;
 
+import definition.Interval;
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
-import utils.TwoDimensionArray;
 
 import java.util.List;
 

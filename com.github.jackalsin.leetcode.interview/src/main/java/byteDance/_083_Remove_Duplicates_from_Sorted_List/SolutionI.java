@@ -1,6 +1,6 @@
 package byteDance._083_Remove_Duplicates_from_Sorted_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author zhixi

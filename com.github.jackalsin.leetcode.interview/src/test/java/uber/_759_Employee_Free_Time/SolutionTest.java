@@ -1,8 +1,8 @@
 package uber._759_Employee_Free_Time;
 
+import definition.Interval;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
 
 import java.util.List;
 

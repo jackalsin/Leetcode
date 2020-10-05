@@ -1,6 +1,6 @@
 package microsoft._021_Merge_Two_Sorted_Lists;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

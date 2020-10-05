@@ -1,6 +1,6 @@
 package _0501_0550._545_Boundary_of_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

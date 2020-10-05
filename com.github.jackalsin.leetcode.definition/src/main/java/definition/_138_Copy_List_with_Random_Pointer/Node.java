@@ -1,4 +1,4 @@
-package utils._138_Copy_List_with_Random_Pointer;
+package definition._138_Copy_List_with_Random_Pointer;
 
 /**
  * @author jacka

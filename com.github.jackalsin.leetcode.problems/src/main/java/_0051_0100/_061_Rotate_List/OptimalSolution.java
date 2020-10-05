@@ -1,6 +1,6 @@
 package _0051_0100._061_Rotate_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public final class OptimalSolution implements Solution {
   public ListNode rotateRight(ListNode head, int k) {

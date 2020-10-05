@@ -1,6 +1,6 @@
 package byteDance._958_Check_Completeness_of_a_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

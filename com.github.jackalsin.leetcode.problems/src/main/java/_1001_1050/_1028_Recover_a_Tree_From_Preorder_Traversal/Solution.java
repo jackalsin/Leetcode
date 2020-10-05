@@ -1,6 +1,6 @@
 package _1001_1050._1028_Recover_a_Tree_From_Preorder_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

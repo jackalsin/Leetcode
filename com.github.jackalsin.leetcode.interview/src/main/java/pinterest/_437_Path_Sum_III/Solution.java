@@ -1,6 +1,6 @@
 package pinterest._437_Path_Sum_III;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

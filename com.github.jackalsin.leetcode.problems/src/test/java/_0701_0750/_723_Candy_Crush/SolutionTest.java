@@ -2,7 +2,7 @@ package _0701_0750._723_Candy_Crush;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 import java.util.Arrays;
 

@@ -1,8 +1,8 @@
 package _0101_0150._130_Surrounded_Regions;
 
+import definition.TwoDimensionArray;
 import org.junit.Before;
 import org.junit.Test;
-import utils.TwoDimensionArray;
 
 import static org.junit.Assert.assertTrue;
 

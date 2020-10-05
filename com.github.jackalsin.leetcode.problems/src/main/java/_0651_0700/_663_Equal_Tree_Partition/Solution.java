@@ -1,6 +1,6 @@
 package _0651_0700._663_Equal_Tree_Partition;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

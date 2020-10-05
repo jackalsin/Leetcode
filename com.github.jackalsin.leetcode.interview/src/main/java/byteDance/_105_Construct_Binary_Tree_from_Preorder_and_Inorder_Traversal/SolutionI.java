@@ -1,6 +1,6 @@
 package byteDance._105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,8 @@
 package microsoft._117_Populating_Next_Right_Pointers_in_Each_Node_II;
 
+import definition.TreeLinkNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TreeLinkNode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

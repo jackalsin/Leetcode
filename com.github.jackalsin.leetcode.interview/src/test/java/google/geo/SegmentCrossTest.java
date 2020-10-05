@@ -1,9 +1,8 @@
 package google.geo;
 
+import definition.Point;
 import org.junit.Before;
 import org.junit.Test;
-
-import utils.Point;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

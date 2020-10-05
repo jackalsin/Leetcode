@@ -1,4 +1,4 @@
-package utils.cycle_detection.undirectGraph;
+package definition.cycle_detection.undirectGraph;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package _0401_0450._445_Add_Two_Numbers_II;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * 1563 / 1563 test cases passed. Status: Accepted Runtime: 47 ms

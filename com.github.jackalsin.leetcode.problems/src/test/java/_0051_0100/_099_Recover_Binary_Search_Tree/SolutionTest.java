@@ -1,10 +1,10 @@
 package _0051_0100._099_Recover_Binary_Search_Tree;
 
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

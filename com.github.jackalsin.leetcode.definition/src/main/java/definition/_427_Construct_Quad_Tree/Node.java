@@ -1,4 +1,4 @@
-package utils._427_Construct_Quad_Tree;
+package definition._427_Construct_Quad_Tree;
 
 import java.util.Objects;
 

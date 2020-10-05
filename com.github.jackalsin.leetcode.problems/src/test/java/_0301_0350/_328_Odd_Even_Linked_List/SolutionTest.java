@@ -2,8 +2,8 @@ package _0301_0350._328_Odd_Even_Linked_List;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
-import utils.ListNodes;
+import definition.ListNode;
+import definition.ListNodes;
 
 import java.util.stream.Stream;
 

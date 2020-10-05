@@ -1,6 +1,6 @@
 package _0451_0500._489_Robot_Room_Cleaner;
 
-import utils._489_Robot_Room_Cleaner.Robot;
+import definition._489_Robot_Room_Cleaner.Robot;
 
 import java.util.HashMap;
 import java.util.HashSet;

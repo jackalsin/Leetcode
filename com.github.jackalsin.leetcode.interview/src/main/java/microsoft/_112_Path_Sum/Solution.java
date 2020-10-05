@@ -1,6 +1,6 @@
 package microsoft._112_Path_Sum;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
 

@@ -1,6 +1,6 @@
 package _0101_0150._133_Clone_Graph;
 
-import utils._133_Clone_Graph.Node;
+import definition._133_Clone_Graph.Node;
 
 import java.util.ArrayList;
 import java.util.HashMap;

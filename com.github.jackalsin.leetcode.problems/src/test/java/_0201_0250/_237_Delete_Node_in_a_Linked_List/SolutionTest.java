@@ -2,8 +2,8 @@ package _0201_0250._237_Delete_Node_in_a_Linked_List;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.ListNode;
-import utils.ListNodes;
+import definition.ListNode;
+import definition.ListNodes;
 
 import static org.junit.Assert.assertEquals;
 

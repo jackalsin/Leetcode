@@ -1,8 +1,8 @@
 package oracle._110_Balanced_Binary_Tree;
 
+import definition.binaryTree.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
 
 import java.util.stream.Stream;
 

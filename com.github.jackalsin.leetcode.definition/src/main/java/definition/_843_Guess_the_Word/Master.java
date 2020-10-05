@@ -1,4 +1,4 @@
-package utils._843_Guess_the_Word;
+package definition._843_Guess_the_Word;
 
 public interface Master {
   /**

@@ -1,8 +1,8 @@
 package linkedin._023_Merge_k_Sorted_Lists;
 
+import definition.ListNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
 
 import java.util.stream.Stream;
 

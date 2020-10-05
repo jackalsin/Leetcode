@@ -1,6 +1,6 @@
 package _0251_0300._270_Closest_Binary_Search_Tree_Value;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

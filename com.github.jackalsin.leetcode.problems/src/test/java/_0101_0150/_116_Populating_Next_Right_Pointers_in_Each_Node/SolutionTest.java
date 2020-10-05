@@ -1,8 +1,8 @@
 package _0101_0150._116_Populating_Next_Right_Pointers_in_Each_Node;
 
+import definition.TreeLinkNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TreeLinkNode;
 
 import java.util.stream.Stream;
 

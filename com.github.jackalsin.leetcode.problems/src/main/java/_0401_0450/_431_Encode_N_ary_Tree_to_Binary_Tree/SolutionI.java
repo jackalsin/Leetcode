@@ -1,8 +1,8 @@
 package _0401_0450._431_Encode_N_ary_Tree_to_Binary_Tree;
 
 
-import utils.binaryTree.TreeNode;
-import utils.nAryTree.Node;
+import definition.binaryTree.TreeNode;
+import definition.nAryTree.Node;
 
 import java.util.ArrayList;
 

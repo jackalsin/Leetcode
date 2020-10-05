@@ -1,8 +1,8 @@
 package _0051_0100._059_Spiral_Matrix_II;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.TwoDimensionArray;
 
 import java.util.stream.Stream;
 

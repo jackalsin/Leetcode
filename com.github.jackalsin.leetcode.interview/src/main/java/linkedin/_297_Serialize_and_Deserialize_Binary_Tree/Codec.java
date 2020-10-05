@@ -1,6 +1,6 @@
 package linkedin._297_Serialize_and_Deserialize_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

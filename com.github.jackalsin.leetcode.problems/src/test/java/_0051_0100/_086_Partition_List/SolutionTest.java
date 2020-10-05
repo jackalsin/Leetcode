@@ -1,9 +1,9 @@
 package _0051_0100._086_Partition_List;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.Assert.assertEquals;
 

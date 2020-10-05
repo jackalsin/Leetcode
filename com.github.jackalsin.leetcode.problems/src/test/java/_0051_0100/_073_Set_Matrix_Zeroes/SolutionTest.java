@@ -1,8 +1,8 @@
 package _0051_0100._073_Set_Matrix_Zeroes;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TwoDimensionArray;
 
 import static org.junit.Assert.assertTrue;
 

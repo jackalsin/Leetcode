@@ -2,7 +2,7 @@ package _0251_0300._253_Meeting_Rooms_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.Interval;
+import definition.Interval;
 
 import java.util.stream.Stream;
 

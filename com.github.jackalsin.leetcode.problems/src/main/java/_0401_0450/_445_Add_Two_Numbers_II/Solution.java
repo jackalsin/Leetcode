@@ -1,6 +1,6 @@
 package _0401_0450._445_Add_Two_Numbers_II;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

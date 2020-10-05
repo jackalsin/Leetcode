@@ -1,13 +1,13 @@
 package uber._056_Merge_Intervals;
 
+import definition.Interval;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
 
 import java.util.List;
 
+import static definition.Util.getIntervals;
 import static org.junit.Assert.assertEquals;
-import static utils.Util.getIntervals;
 
 class SolutionTest {
 

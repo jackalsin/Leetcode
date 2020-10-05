@@ -1,6 +1,6 @@
 package uber._023_Merge_k_Sorted_Lists;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * Time complexity: O(n * log(k))

@@ -2,7 +2,7 @@ package _0551_0600._589_N_ary_Tree_Preorder_Traversal;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.nAryTree.Node;
+import definition.nAryTree.Node;
 
 import java.util.List;
 import java.util.stream.Stream;

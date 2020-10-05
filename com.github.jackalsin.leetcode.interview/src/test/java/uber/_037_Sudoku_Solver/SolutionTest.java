@@ -1,12 +1,12 @@
 package uber._037_Sudoku_Solver;
 
+import definition.SudokuUtils;
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.SudokuUtils;
-import utils.TwoDimensionArray;
 
+import static definition.TwoDimensionArray.TwoDimensionArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.TwoDimensionArray.TwoDimensionArrayEquals;
 
 /**
  * @author jacka
@@ -46,7 +46,7 @@ class SolutionTest {
   // test package-private method
 //  @Test
 //  void testWithIsValidInColWithDup() {
-//    final char[][] board = SudokuUtils.create2dSudokuArray(new String[] {
+//    final char[][] board = Sudokudefinition.create2dSudokuArray(new String[] {
 //        "..9748...", "7........", ".2.1.9...", "..7...24.", ".64.1.59.", ".98...3..",
 //        "...8.3.2.", "........6", "...2759.."
 //    });
@@ -56,7 +56,7 @@ class SolutionTest {
 //
 //  @Test
 //  public void testWithIsValidInSquareWithDup() {
-//    final char[][] board = SudokuUtils.create2dSudokuArray(new String[] {
+//    final char[][] board = Sudokudefinition.create2dSudokuArray(new String[] {
 //        "..9748...", "7........", ".2.1.9...", "..7...24.", ".64.1.59.", ".98...3..",
 //        "...8.3.2.", "........6", "...2759.."
 //    });

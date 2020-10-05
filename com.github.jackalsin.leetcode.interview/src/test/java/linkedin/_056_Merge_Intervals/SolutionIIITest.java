@@ -1,13 +1,13 @@
 package linkedin._056_Merge_Intervals;
 
+import definition.Interval;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
 
 import java.util.List;
 
+import static definition.Util.getIntervals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils.Util.getIntervals;
 
 class SolutionIIITest {
   private Solution solution;

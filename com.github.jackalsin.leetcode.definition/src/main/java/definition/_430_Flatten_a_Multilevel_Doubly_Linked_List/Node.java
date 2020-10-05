@@ -1,4 +1,4 @@
-package utils._430_Flatten_a_Multilevel_Doubly_Linked_List;
+package definition._430_Flatten_a_Multilevel_Doubly_Linked_List;
 
 import java.util.Objects;
 

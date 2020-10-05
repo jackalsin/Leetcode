@@ -1,6 +1,6 @@
 package google._951_Flip_Equivalent_Binary_Trees;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

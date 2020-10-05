@@ -1,9 +1,9 @@
 package linkedin._339_Nested_List_Weight_Sum;
 
+import definition.nestedInteger.NestedInteger;
+import definition.nestedInteger.NestedIntegerImpl;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.nestedInteger.NestedInteger;
-import utils.nestedInteger.NestedIntegerImpl;
 
 import java.util.List;
 import java.util.stream.Stream;

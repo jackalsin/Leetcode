@@ -1,7 +1,7 @@
 package _1351_1400._1367_Linked_List_in_Binary_Tree;
 
-import utils.ListNode;
-import utils.binaryTree.TreeNode;
+import definition.ListNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

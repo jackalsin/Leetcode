@@ -1,8 +1,8 @@
 package _0101_0150._111_Minimum_Depth_of_Binary_Tree;
 
+import definition.binaryTree.TreeNode;
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
 
 import static org.junit.Assert.assertEquals;
 

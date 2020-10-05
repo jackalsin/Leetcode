@@ -1,8 +1,8 @@
 package facebook._253_Meeting_Rooms_I;
 
+import definition.Interval;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.Interval;
 
 import java.util.stream.Stream;
 

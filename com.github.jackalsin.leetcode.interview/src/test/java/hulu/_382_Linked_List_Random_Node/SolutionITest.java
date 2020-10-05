@@ -1,9 +1,9 @@
 package hulu._382_Linked_List_Random_Node;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
-import utils.ListNodes;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;

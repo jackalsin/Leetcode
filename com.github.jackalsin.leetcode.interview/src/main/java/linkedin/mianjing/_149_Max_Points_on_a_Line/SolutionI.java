@@ -1,6 +1,6 @@
 package linkedin.mianjing._149_Max_Points_on_a_Line;
 
-import utils.Point;
+import definition.Point;
 
 import java.util.HashMap;
 import java.util.Map;

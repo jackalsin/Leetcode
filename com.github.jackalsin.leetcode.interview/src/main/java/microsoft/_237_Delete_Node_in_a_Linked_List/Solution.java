@@ -1,6 +1,6 @@
 package microsoft._237_Delete_Node_in_a_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public void deleteNode(ListNode node) {

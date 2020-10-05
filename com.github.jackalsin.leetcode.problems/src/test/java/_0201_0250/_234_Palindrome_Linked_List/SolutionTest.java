@@ -2,8 +2,8 @@ package _0201_0250._234_Palindrome_Linked_List;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.ListNode;
-import utils.ListNodes;
+import definition.ListNode;
+import definition.ListNodes;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

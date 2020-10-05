@@ -1,6 +1,6 @@
 package hulu._510_Inorder_Successor_in_BST_II;
 
-import utils._510_Inorder_Successor_in_BST_II.Node;
+import definition._510_Inorder_Successor_in_BST_II.Node;
 
 /**
  * @author jacka

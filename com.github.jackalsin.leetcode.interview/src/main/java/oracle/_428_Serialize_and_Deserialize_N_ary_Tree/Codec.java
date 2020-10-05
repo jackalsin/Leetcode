@@ -1,6 +1,6 @@
 package oracle._428_Serialize_and_Deserialize_N_ary_Tree;
 
-import utils.nAryTree.Node;
+import definition.nAryTree.Node;
 
 /**
  * @author jacka

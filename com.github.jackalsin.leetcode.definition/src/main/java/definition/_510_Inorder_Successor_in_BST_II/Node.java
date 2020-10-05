@@ -1,4 +1,4 @@
-package utils._510_Inorder_Successor_in_BST_II;
+package definition._510_Inorder_Successor_in_BST_II;
 
 import java.util.Objects;
 

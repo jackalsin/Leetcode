@@ -1,6 +1,6 @@
 package _0401_0450._450_Delete_Node_in_a_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

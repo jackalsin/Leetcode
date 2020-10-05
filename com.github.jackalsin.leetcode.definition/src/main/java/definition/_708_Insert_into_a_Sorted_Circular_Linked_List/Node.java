@@ -1,4 +1,4 @@
-package utils._708_Insert_into_a_Sorted_Circular_Linked_List;
+package definition._708_Insert_into_a_Sorted_Circular_Linked_List;
 
 /**
  * @author jacka

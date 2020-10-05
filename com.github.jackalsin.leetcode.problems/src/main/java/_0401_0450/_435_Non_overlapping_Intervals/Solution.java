@@ -1,6 +1,6 @@
 package _0401_0450._435_Non_overlapping_Intervals;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.Arrays;
 import java.util.Comparator;

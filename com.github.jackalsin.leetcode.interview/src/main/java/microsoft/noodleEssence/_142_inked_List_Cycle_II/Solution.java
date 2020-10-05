@@ -1,6 +1,6 @@
 package microsoft.noodleEssence._142_inked_List_Cycle_II;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public ListNode detectCycle(ListNode head) {

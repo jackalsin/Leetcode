@@ -1,9 +1,9 @@
 package facebook._257_Binary_Tree_Paths;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.HashSet;

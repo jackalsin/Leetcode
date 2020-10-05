@@ -1,6 +1,6 @@
 package google._843_Guess_the_Word;
 
-import utils._843_Guess_the_Word.Master;
+import definition._843_Guess_the_Word.Master;
 
 /**
  * @author jacka

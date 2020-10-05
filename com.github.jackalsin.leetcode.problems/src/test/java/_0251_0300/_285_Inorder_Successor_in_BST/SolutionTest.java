@@ -2,8 +2,8 @@ package _0251_0300._285_Inorder_Successor_in_BST;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

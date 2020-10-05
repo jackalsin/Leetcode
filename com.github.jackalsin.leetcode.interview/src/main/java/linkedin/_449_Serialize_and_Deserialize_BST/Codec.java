@@ -1,6 +1,6 @@
 package linkedin._449_Serialize_and_Deserialize_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * todo: 重新搞过，貌似有save space 的方法

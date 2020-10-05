@@ -1,6 +1,6 @@
 package oracle._617_Merge_Two_Binary_Trees;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

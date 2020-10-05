@@ -1,4 +1,4 @@
-package utils._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees;
+package definition._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees;
 
 import org.junit.jupiter.api.Test;
 

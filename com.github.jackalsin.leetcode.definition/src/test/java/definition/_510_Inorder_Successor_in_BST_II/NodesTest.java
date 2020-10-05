@@ -1,12 +1,12 @@
-package utils._510_Inorder_Successor_in_BST_II;
+package definition._510_Inorder_Successor_in_BST_II;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static definition._510_Inorder_Successor_in_BST_II.Nodes.link;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils._510_Inorder_Successor_in_BST_II.Nodes.link;
 
 /**
  * @author jacka

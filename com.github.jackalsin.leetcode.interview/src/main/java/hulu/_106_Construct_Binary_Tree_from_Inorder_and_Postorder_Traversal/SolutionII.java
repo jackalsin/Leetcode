@@ -1,6 +1,6 @@
 package hulu._106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

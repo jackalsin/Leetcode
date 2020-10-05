@@ -1,4 +1,4 @@
-package utils._280_Wiggle_Sort;
+package definition._280_Wiggle_Sort;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

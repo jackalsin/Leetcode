@@ -1,8 +1,8 @@
 package google.reservoir_sampling._382_Linked_List_Random_Node;
 
-import java.util.Random;
+import definition.ListNode;
 
-import utils.ListNode;
+import java.util.Random;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package hulu._863_All_Nodes_Distance_K_in_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package hulu._117_Populating_Next_Right_Pointers_in_Each_Node_II;
 
+import definition.treeLinkNode._117_Populating_Next_Right_Pointers_in_Each_Node_II.Node;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.treeLinkNode._117_Populating_Next_Right_Pointers_in_Each_Node_II.Node;
 
 import java.util.stream.Stream;
 
@@ -13,7 +13,6 @@ import static org.junit.Assert.assertEquals;
  * @version 1.0 on 2/11/2020
  */
 class SolutionITest {
-
 
   @ParameterizedTest
   @MethodSource("solutionStream")

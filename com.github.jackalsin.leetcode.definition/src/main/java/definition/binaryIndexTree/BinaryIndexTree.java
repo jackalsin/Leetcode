@@ -1,4 +1,4 @@
-package utils.binaryIndexTree;
+package definition.binaryIndexTree;
 
 /**
  * @author jacka

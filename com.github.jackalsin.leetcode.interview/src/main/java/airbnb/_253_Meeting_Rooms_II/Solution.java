@@ -1,6 +1,6 @@
 package airbnb._253_Meeting_Rooms_II;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.Arrays;
 

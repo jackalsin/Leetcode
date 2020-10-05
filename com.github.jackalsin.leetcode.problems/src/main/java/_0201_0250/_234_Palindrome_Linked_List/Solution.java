@@ -1,6 +1,6 @@
 package _0201_0250._234_Palindrome_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public boolean isPalindrome(ListNode head) {

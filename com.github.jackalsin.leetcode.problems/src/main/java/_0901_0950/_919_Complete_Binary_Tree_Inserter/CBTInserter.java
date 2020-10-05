@@ -1,6 +1,6 @@
 package _0901_0950._919_Complete_Binary_Tree_Inserter;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

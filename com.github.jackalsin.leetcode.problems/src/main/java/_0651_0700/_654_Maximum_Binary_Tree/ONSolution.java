@@ -1,6 +1,6 @@
 package _0651_0700._654_Maximum_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

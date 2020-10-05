@@ -1,6 +1,6 @@
 package _1401_1450._1428_Leftmost_Column_with_at_Least_a_One;
 
-import utils.Leftmost_Column_with_at_Least_a_One.BinaryMatrix;
+import definition.Leftmost_Column_with_at_Least_a_One.BinaryMatrix;
 
 import java.util.List;
 

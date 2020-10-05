@@ -1,6 +1,6 @@
 package oracle._116_Populating_Next_Right_Pointers_in_Each_Node;
 
-import utils.treeLinkNode._116_Populating_Next_Right_Pointers_in_Each_Node.Node;
+import definition.treeLinkNode._116_Populating_Next_Right_Pointers_in_Each_Node.Node;
 
 /**
  * @author jacka

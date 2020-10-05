@@ -1,9 +1,9 @@
-package utils;
+package definition;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,14 +34,14 @@ public class TreeNodesTest {
 
   @Test
   public void testGenerateTreePreorder() throws Exception {
-    final int[] input = new int[] {4, 2, 1, 3, 6, 5 ,7};
+    final int[] input = new int[]{4, 2, 1, 3, 6, 5, 7};
     TreeNode expected = new TreeNode(4);
-      expected.left = new TreeNode(2);
-      expected.right = new TreeNode(6);
-        expected.left.left = new TreeNode(1);
-        expected.left.right = new TreeNode(3);
-        expected.right.left = new TreeNode(5);
-        expected.right.right = new TreeNode(7);
+    expected.left = new TreeNode(2);
+    expected.right = new TreeNode(6);
+    expected.left.left = new TreeNode(1);
+    expected.left.right = new TreeNode(3);
+    expected.right.left = new TreeNode(5);
+    expected.right.right = new TreeNode(7);
     assertEquals(expected, TreeNodes.getTreePreorder(input));
   }
 
@@ -54,7 +54,7 @@ public class TreeNodesTest {
     expected.left.right = new TreeNode(3);
     expected.right.left = new TreeNode(5);
     expected.right.right = new TreeNode(7);
-    assertEquals(expected, TreeNodes.getTreePreorder(4, 2, 1, 3, 6, 5 ,7));
+    assertEquals(expected, TreeNodes.getTreePreorder(4, 2, 1, 3, 6, 5, 7));
   }
 
   @Test
@@ -64,20 +64,20 @@ public class TreeNodesTest {
     expected.right = new TreeNode(6);
     expected.right.left = new TreeNode(5);
     expected.right.right = new TreeNode(7);
-    assertEquals(expected, TreeNodes.getTreePreorder(4, 2, null, null, 6, 5 ,7));
+    assertEquals(expected, TreeNodes.getTreePreorder(4, 2, null, null, 6, 5, 7));
   }
 
   @Test
   public void testGenerateTreeLevelOrder() throws Exception {
-    final int[] input = new int[] {4, 2, 6, 1, 3, 5, 7};
+    final int[] input = new int[]{4, 2, 6, 1, 3, 5, 7};
     TreeNode root = TreeNodes.getTreeLevelOrder(input);
     TreeNode expected = new TreeNode(4);
-      expected.left = new TreeNode(2);
-        expected.left.left = new TreeNode(1);
-        expected.left.right = new TreeNode(3);
-      expected.right = new TreeNode(6);
-        expected.right.left = new TreeNode(5);
-        expected.right.right = new TreeNode(7);
+    expected.left = new TreeNode(2);
+    expected.left.left = new TreeNode(1);
+    expected.left.right = new TreeNode(3);
+    expected.right = new TreeNode(6);
+    expected.right.left = new TreeNode(5);
+    expected.right.right = new TreeNode(7);
     assertEquals(expected, root);
   }
 

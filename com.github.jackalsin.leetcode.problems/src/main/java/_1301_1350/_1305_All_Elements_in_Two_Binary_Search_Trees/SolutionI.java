@@ -1,6 +1,6 @@
 package _1301_1350._1305_All_Elements_in_Two_Binary_Search_Trees;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

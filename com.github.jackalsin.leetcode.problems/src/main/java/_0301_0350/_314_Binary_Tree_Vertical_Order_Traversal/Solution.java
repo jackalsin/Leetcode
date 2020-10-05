@@ -1,6 +1,6 @@
 package _0301_0350._314_Binary_Tree_Vertical_Order_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

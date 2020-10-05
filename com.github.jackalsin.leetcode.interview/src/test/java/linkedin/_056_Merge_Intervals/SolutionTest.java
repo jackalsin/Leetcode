@@ -1,8 +1,8 @@
 package linkedin._056_Merge_Intervals;
 
+import definition.Interval;
 import org.junit.Before;
 import org.junit.Test;
-import utils.Interval;
 
 import java.util.Arrays;
 import java.util.List;

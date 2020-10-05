@@ -1,6 +1,6 @@
 package _0001_0050._002_Add_Two_Numbers;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * This solution is aimed to inplace calculation to avoid create an additional {@code ListNode}.

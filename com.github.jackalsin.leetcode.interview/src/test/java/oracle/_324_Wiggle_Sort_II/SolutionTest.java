@@ -5,8 +5,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static definition._324_Wiggle_Sort_II.Validator.assertIsWiggle;
 import static org.junit.Assert.assertTrue;
-import static utils._324_Wiggle_Sort_II.Validator.assertIsWiggle;
 
 /**
  * @author jacka

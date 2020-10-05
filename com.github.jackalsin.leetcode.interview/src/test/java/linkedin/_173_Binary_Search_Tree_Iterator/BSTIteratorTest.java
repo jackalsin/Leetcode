@@ -1,9 +1,9 @@
 package linkedin._173_Binary_Search_Tree_Iterator;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.stream.Stream;

@@ -1,6 +1,6 @@
 package airbnb.lowestCommonAncestors;
 
-import utils.nAryTree.Node;
+import definition.nAryTree.Node;
 
 import java.util.ArrayList;
 import java.util.List;

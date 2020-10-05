@@ -1,6 +1,6 @@
 package microsoft._285_Inorder_Successor_in_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
 

@@ -2,8 +2,8 @@ package _0301_0350._333_Largest_BST_Subtree;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

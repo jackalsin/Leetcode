@@ -1,9 +1,9 @@
 package google._270_Closest_Binary_Search_Tree_Value;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

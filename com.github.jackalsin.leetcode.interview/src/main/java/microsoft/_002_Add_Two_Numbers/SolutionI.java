@@ -1,6 +1,6 @@
 package microsoft._002_Add_Two_Numbers;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public final class SolutionI implements Solution {
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

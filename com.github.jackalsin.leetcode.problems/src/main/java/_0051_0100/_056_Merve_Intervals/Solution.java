@@ -1,6 +1,6 @@
 package _0051_0100._056_Merve_Intervals;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package microsoft._101_Symmetric_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
   public boolean isSymmetric(TreeNode root) {

@@ -1,10 +1,10 @@
-package utils;
+package definition;
 
 import org.junit.Test;
 
+import static definition.TwoDimensionArray.TwoDimensionArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static utils.TwoDimensionArray.TwoDimensionArrayEquals;
 
 /**
  * @author jacka

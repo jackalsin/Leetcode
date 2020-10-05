@@ -1,6 +1,6 @@
 package microsoft._024_Swap_Nodes_in_Pairs;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public ListNode swapPairs(ListNode head) {

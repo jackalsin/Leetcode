@@ -1,6 +1,6 @@
 package airbnb.maxProfitGivingABunchOfSchedules;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.Arrays;
 

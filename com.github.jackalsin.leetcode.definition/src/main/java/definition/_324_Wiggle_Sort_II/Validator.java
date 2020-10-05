@@ -1,4 +1,4 @@
-package utils._324_Wiggle_Sort_II;
+package definition._324_Wiggle_Sort_II;
 
 /**
  * @author jacka

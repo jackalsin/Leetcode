@@ -1,6 +1,6 @@
 package linkedin._101_Symmetric_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

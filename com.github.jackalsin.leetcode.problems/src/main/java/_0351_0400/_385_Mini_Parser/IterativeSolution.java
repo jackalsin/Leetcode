@@ -1,6 +1,6 @@
 package _0351_0400._385_Mini_Parser;
 
-import utils.nestedInteger._385_Mini_Parser.NestedInteger;
+import definition.nestedInteger._385_Mini_Parser.NestedInteger;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

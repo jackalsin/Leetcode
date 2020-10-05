@@ -2,7 +2,7 @@ package _0401_0450._436_Find_Right_Interval;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
+import definition.Interval;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

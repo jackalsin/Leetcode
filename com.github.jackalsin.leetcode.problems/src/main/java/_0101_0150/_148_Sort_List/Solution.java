@@ -1,6 +1,6 @@
 package _0101_0150._148_Sort_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

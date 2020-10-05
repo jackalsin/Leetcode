@@ -1,6 +1,6 @@
 package microsoft._654_Maximum_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public final class SolutionII implements Solution { // TODO:
 

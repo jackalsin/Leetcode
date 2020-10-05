@@ -1,6 +1,6 @@
 package _0101_0150._116_Populating_Next_Right_Pointers_in_Each_Node;
 
-import utils.TreeLinkNode;
+import definition.TreeLinkNode;
 
 /**
  * @author jacka

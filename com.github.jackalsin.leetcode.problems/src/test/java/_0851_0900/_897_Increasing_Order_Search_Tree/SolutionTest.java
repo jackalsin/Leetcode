@@ -2,8 +2,8 @@ package _0851_0900._897_Increasing_Order_Search_Tree;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 class SolutionTest {
   private Solution solution;

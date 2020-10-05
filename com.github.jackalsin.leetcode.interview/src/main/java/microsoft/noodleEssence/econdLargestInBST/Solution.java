@@ -1,6 +1,6 @@
 package microsoft.noodleEssence.econdLargestInBST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
 

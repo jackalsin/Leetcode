@@ -1,6 +1,6 @@
 package uber._138_Copy_List_with_Random_Pointer;
 
-import utils._138_Copy_List_with_Random_Pointer.Node;
+import definition._138_Copy_List_with_Random_Pointer.Node;
 
 import java.util.HashMap;
 import java.util.Map;

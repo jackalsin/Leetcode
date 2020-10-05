@@ -1,6 +1,6 @@
 package _0301_0350._333_Largest_BST_Subtree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author Zhiwei.Xin

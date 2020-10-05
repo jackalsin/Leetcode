@@ -1,6 +1,6 @@
 package _1351_1400._1382_Balance_a_Binary_Search_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

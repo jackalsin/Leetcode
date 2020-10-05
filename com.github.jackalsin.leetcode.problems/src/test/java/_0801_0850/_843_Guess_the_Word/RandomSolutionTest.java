@@ -3,8 +3,8 @@ package _0801_0850._843_Guess_the_Word;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import utils._843_Guess_the_Word.Master;
-import utils._843_Guess_the_Word.MasterImpl;
+import definition._843_Guess_the_Word.Master;
+import definition._843_Guess_the_Word.MasterImpl;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

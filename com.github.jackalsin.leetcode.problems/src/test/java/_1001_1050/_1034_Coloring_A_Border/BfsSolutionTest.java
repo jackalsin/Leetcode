@@ -2,7 +2,7 @@ package _1001_1050._1034_Coloring_A_Border;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

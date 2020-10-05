@@ -1,8 +1,8 @@
 package linkedin._341_Flatten_Nested_List_Iterator;
 
+import definition.nestedInteger.NestedInteger;
+import definition.nestedInteger.NestedIntegerImpl;
 import org.junit.jupiter.api.Test;
-import utils.nestedInteger.NestedInteger;
-import utils.nestedInteger.NestedIntegerImpl;
 
 import java.util.List;
 

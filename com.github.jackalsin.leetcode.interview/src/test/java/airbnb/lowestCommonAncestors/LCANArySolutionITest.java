@@ -1,8 +1,8 @@
 package airbnb.lowestCommonAncestors;
 
+import definition.nAryTree.Node;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.nAryTree.Node;
 
 import java.util.ArrayList;
 import java.util.List;

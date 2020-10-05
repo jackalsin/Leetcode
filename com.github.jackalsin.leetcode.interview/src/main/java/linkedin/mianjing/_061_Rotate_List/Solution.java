@@ -1,6 +1,6 @@
 package linkedin.mianjing._061_Rotate_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  */

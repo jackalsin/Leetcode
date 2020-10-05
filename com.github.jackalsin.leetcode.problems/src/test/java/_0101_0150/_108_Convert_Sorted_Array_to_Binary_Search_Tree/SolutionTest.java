@@ -1,9 +1,9 @@
 package _0101_0150._108_Convert_Sorted_Array_to_Binary_Search_Tree;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import static org.junit.Assert.assertEquals;
 

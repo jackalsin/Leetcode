@@ -1,6 +1,6 @@
 package linkedin._113_Path_Sum_II;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

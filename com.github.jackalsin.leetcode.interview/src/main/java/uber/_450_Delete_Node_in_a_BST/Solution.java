@@ -1,6 +1,6 @@
 package uber._450_Delete_Node_in_a_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
   public TreeNode deleteNode(TreeNode root, int key) {

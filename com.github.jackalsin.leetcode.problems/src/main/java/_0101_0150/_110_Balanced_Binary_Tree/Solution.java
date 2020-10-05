@@ -1,6 +1,6 @@
 package _0101_0150._110_Balanced_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

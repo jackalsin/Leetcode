@@ -1,6 +1,6 @@
 package _0051_0100._100_Same_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author Zhiwei.Xin

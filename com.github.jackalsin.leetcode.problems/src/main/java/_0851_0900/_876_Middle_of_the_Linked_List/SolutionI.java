@@ -1,6 +1,6 @@
 package _0851_0900._876_Middle_of_the_Linked_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

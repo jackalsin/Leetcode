@@ -1,9 +1,9 @@
 package linkedin._671_Second_Minimum_Node_In_a_Binary_Tree;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

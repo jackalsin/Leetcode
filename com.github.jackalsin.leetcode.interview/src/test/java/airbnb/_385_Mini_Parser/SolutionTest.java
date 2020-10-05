@@ -1,8 +1,8 @@
 package airbnb._385_Mini_Parser;
 
+import definition.nestedInteger._385_Mini_Parser.NestedInteger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.nestedInteger._385_Mini_Parser.NestedInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,6 +1,6 @@
 package facebook._253_Meeting_Rooms_I;
 
-import utils.Interval;
+import definition.Interval;
 
 public interface Solution {
 

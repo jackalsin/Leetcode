@@ -1,6 +1,6 @@
 package byteDance._199_Binary_Tree_Right_Side_View;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.List;
 

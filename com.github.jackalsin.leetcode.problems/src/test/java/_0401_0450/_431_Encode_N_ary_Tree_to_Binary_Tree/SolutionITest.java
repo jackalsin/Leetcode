@@ -2,7 +2,7 @@ package _0401_0450._431_Encode_N_ary_Tree_to_Binary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.nAryTree.Node;
+import definition.nAryTree.Node;
 
 import java.util.List;
 import java.util.stream.Stream;

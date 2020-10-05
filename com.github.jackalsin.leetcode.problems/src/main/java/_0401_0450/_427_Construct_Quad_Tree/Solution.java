@@ -1,6 +1,6 @@
 package _0401_0450._427_Construct_Quad_Tree;
 
-import utils._427_Construct_Quad_Tree.Node;
+import definition._427_Construct_Quad_Tree.Node;
 
 public final class Solution {
 

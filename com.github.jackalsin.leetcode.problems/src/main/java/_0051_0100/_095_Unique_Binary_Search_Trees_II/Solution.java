@@ -1,6 +1,6 @@
 package _0051_0100._095_Unique_Binary_Search_Trees_II;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

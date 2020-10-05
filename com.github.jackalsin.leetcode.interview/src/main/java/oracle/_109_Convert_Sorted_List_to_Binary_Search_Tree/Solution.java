@@ -1,7 +1,7 @@
 package oracle._109_Convert_Sorted_List_to_Binary_Search_Tree;
 
-import utils.ListNode;
-import utils.binaryTree.TreeNode;
+import definition.ListNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

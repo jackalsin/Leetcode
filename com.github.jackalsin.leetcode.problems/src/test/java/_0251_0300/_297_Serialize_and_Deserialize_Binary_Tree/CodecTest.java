@@ -3,7 +3,7 @@ package _0251_0300._297_Serialize_and_Deserialize_Binary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.stream.Stream;
 

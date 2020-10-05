@@ -1,6 +1,6 @@
 package uber._655_Print_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

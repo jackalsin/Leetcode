@@ -1,4 +1,4 @@
-package utils.treeLinkNode._117_Populating_Next_Right_Pointers_in_Each_Node_II;
+package definition.treeLinkNode._117_Populating_Next_Right_Pointers_in_Each_Node_II;
 
 import java.util.Objects;
 

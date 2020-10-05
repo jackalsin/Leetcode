@@ -1,9 +1,9 @@
 package airbnb._002_Add_Two_Numbers;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

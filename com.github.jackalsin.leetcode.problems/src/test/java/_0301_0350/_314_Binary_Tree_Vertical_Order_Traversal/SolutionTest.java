@@ -2,8 +2,8 @@ package _0301_0350._314_Binary_Tree_Vertical_Order_Traversal;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

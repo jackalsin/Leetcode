@@ -1,11 +1,11 @@
 package uber._021_Merge_Two_Sorted_Lists;
 
+import definition.ListNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.ListNode;
 
+import static definition.ListNodes.getListOfNodes;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils.ListNodes.getListOfNodes;
 
 class SolutionTest {
 

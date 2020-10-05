@@ -2,8 +2,8 @@ package _0551_0600._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees.Node;
-import utils._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees.Nodes;
+import definition._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees.Node;
+import definition._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees.Nodes;
 
 import java.util.stream.Stream;
 

@@ -1,6 +1,6 @@
 package facebook._257_Binary_Tree_Paths;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

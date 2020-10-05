@@ -1,9 +1,8 @@
 package amazon._694_Number_of_Distinct_Islands;
 
+import definition.TwoDimensionArray;
 import org.junit.Before;
 import org.junit.Test;
-
-import utils.TwoDimensionArray;
 
 import static org.junit.Assert.assertEquals;
 

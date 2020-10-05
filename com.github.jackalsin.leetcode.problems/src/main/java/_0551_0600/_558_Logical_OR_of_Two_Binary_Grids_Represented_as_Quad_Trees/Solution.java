@@ -1,6 +1,6 @@
 package _0551_0600._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees;
 
-import utils._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees.Node;
+import definition._558_Logical_OR_of_Two_Binary_Grids_Represented_as_Quad_Trees.Node;
 
 /**
  * @author jacka

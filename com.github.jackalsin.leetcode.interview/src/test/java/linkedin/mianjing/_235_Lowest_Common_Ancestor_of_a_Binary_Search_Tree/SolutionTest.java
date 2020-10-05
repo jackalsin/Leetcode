@@ -1,8 +1,8 @@
 package linkedin.mianjing._235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree;
 
+import definition.binaryTree.TreeNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

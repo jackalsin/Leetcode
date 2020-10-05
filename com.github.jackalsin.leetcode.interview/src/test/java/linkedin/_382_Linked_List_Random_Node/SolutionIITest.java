@@ -1,8 +1,8 @@
 package linkedin._382_Linked_List_Random_Node;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.jupiter.api.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import java.util.HashMap;
 import java.util.Map;

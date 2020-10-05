@@ -1,8 +1,8 @@
 package microsoft._419_Battleships_in_a_Board;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.TwoDimensionArray;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

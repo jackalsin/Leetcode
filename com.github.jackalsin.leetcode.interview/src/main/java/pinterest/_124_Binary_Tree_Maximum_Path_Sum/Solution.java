@@ -1,6 +1,6 @@
 package pinterest._124_Binary_Tree_Maximum_Path_Sum;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
   private int maxSum = Integer.MIN_VALUE;

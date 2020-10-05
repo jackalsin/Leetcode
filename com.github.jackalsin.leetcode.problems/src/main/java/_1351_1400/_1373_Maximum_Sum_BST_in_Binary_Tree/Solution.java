@@ -1,6 +1,6 @@
 package _1351_1400._1373_Maximum_Sum_BST_in_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

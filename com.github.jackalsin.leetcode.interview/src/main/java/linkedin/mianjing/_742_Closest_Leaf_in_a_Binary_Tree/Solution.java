@@ -1,6 +1,6 @@
 package linkedin.mianjing._742_Closest_Leaf_in_a_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;

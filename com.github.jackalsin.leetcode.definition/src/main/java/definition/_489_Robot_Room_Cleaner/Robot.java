@@ -1,4 +1,4 @@
-package utils._489_Robot_Room_Cleaner;
+package definition._489_Robot_Room_Cleaner;
 
 public interface Robot {
   // Returns true if the cell in front is open and robot moves into the cell.

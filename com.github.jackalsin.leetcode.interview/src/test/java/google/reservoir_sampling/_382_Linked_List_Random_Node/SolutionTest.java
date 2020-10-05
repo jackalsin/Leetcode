@@ -1,13 +1,12 @@
 package google.reservoir_sampling._382_Linked_List_Random_Node;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
-import utils.ListNode;
-import utils.ListNodes;
 
 /**
  * @author jacka

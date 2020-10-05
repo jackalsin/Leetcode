@@ -1,6 +1,6 @@
 package _0801_0850._817_Linked_List_Components;
 
-import utils.ListNode;
+import definition.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

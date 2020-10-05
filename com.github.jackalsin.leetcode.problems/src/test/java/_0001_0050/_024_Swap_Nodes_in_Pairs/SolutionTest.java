@@ -1,9 +1,9 @@
 package _0001_0050._024_Swap_Nodes_in_Pairs;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.Assert.assertEquals;
 

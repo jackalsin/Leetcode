@@ -1,11 +1,10 @@
 package google.rectangleRandomDistribute;
 
+import definition.Point;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import utils.Point;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

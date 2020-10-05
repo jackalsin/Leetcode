@@ -1,8 +1,8 @@
 package uber._138_Copy_List_with_Random_Pointer;
 
+import definition._138_Copy_List_with_Random_Pointer.Node;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils._138_Copy_List_with_Random_Pointer.Node;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

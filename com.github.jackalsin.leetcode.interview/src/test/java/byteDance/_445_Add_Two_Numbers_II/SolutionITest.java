@@ -1,10 +1,10 @@
 package byteDance._445_Add_Two_Numbers_II;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
-import utils.ListNodes;
 
 import java.util.stream.Stream;
 

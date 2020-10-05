@@ -1,6 +1,6 @@
 package byteDance._025_Reverse_Nodes_in_k_Group;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

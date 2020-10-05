@@ -1,6 +1,6 @@
 package _0851_0900._894_All_Possible_Full_Binary_Trees;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;

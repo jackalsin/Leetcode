@@ -1,6 +1,6 @@
 package microsoft._333_Largest_BST_Subtree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
   private int maxSize = 0;

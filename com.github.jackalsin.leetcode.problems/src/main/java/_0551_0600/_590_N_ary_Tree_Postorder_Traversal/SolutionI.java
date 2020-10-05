@@ -1,6 +1,6 @@
 package _0551_0600._590_N_ary_Tree_Postorder_Traversal;
 
-import utils.nAryTree.Node;
+import definition.nAryTree.Node;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

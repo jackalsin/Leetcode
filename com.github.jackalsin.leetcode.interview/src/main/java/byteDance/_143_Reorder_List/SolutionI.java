@@ -1,6 +1,6 @@
 package byteDance._143_Reorder_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author zhixi

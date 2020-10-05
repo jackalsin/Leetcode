@@ -1,7 +1,7 @@
 package linkedin._173_Binary_Search_Tree_Iterator;
 
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

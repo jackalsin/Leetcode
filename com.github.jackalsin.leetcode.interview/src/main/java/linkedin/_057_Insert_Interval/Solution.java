@@ -1,6 +1,6 @@
 package linkedin._057_Insert_Interval;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.List;
 

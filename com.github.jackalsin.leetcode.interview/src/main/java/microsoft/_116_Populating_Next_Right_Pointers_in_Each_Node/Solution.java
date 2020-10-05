@@ -1,6 +1,6 @@
 package microsoft._116_Populating_Next_Right_Pointers_in_Each_Node;
 
-import utils.TreeLinkNode;
+import definition.TreeLinkNode;
 
 public class Solution { // TODO:
 

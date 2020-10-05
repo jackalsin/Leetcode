@@ -1,6 +1,6 @@
 package _0551_0600._563_Binary_Tree_Tilt;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

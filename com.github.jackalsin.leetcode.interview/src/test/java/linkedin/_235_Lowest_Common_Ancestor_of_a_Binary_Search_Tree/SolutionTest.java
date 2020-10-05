@@ -1,8 +1,8 @@
 package linkedin._235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree;
 
+import definition.binaryTree.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.stream.Stream;

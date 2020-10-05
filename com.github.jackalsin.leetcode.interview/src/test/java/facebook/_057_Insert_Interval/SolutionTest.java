@@ -1,9 +1,9 @@
 package facebook._057_Insert_Interval;
 
+import definition.Interval;
+import definition.Util;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
-import utils.Util;
 
 import java.util.List;
 

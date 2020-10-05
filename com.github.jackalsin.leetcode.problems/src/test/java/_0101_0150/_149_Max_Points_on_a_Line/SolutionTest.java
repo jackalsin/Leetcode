@@ -3,7 +3,7 @@ package _0101_0150._149_Max_Points_on_a_Line;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Point;
+import definition.Point;
 
 import static org.junit.Assert.assertEquals;
 

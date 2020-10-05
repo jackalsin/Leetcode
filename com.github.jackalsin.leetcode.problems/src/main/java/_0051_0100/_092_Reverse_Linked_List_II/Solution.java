@@ -1,6 +1,6 @@
 package _0051_0100._092_Reverse_Linked_List_II;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author Zhiwei.Xin

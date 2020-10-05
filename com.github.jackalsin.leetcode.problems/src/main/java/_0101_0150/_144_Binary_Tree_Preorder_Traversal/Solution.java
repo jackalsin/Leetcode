@@ -1,6 +1,6 @@
 package _0101_0150._144_Binary_Tree_Preorder_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

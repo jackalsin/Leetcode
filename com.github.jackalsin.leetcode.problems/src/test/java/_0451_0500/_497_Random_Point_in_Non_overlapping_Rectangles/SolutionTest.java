@@ -1,7 +1,7 @@
 package _0451_0500._497_Random_Point_in_Non_overlapping_Rectangles;
 
 import org.junit.jupiter.api.Test;
-import utils.TwoDimensionArray;
+import definition.TwoDimensionArray;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

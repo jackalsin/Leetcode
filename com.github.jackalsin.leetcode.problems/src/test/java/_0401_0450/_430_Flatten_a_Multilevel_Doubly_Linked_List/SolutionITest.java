@@ -2,8 +2,8 @@ package _0401_0450._430_Flatten_a_Multilevel_Doubly_Linked_List;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._430_Flatten_a_Multilevel_Doubly_Linked_List.Node;
-import utils._430_Flatten_a_Multilevel_Doubly_Linked_List.Nodes;
+import definition._430_Flatten_a_Multilevel_Doubly_Linked_List.Node;
+import definition._430_Flatten_a_Multilevel_Doubly_Linked_List.Nodes;
 
 import java.util.stream.Stream;
 

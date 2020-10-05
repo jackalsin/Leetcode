@@ -1,6 +1,6 @@
 package _1001_1050._1008_Construct_Binary_Search_Tree_from_Preorder_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

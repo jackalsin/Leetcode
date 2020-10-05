@@ -1,9 +1,9 @@
 package _0051_0100._092_Reverse_Linked_List_II;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.Assert.assertEquals;
 

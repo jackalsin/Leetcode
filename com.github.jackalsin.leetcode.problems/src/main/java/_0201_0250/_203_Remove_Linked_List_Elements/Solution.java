@@ -1,6 +1,6 @@
 package _0201_0250._203_Remove_Linked_List_Elements;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

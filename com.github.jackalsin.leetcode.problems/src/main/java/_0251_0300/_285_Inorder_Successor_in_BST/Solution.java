@@ -1,6 +1,6 @@
 package _0251_0300._285_Inorder_Successor_in_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

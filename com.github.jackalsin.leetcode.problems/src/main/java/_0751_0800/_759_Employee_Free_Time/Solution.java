@@ -1,6 +1,6 @@
 package _0751_0800._759_Employee_Free_Time;
 
-import utils.Interval;
+import definition.Interval;
 
 import java.util.List;
 

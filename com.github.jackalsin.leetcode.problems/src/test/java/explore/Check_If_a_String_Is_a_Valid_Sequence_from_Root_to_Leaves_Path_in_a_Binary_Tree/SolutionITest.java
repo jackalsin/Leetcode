@@ -2,8 +2,8 @@ package explore.Check_If_a_String_Is_a_Valid_Sequence_from_Root_to_Leaves_Path_i
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

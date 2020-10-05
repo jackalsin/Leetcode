@@ -1,4 +1,4 @@
-package utils._358_Rearrange_String_k_Distance_Apart;
+package definition._358_Rearrange_String_k_Distance_Apart;
 
 import java.util.HashMap;
 import java.util.LinkedHashSet;

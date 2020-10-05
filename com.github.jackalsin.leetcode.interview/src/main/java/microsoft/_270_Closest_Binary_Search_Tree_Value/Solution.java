@@ -1,6 +1,6 @@
 package microsoft._270_Closest_Binary_Search_Tree_Value;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
 

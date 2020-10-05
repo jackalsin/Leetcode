@@ -1,6 +1,6 @@
 package _0051_0100._086_Partition_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author jacka

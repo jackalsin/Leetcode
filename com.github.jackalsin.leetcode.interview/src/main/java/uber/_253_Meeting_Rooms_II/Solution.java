@@ -1,6 +1,6 @@
 package uber._253_Meeting_Rooms_II;
 
-import utils.Interval;
+import definition.Interval;
 
 public interface Solution {
   int minMeetingRooms(Interval[] intervals);

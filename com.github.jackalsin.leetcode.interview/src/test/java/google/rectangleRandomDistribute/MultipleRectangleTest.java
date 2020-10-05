@@ -1,7 +1,7 @@
 package google.rectangleRandomDistribute;
 
+import definition.Point;
 import org.junit.jupiter.api.Test;
-import utils.Point;
 
 import java.util.HashMap;
 import java.util.Map;

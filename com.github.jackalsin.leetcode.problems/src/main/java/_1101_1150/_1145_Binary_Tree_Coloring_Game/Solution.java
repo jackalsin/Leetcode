@@ -1,6 +1,6 @@
 package _1101_1150._1145_Binary_Tree_Coloring_Game;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

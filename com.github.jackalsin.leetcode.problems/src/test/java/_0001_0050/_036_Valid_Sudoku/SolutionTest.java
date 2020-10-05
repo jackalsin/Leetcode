@@ -3,8 +3,8 @@ package _0001_0050._036_Valid_Sudoku;
 import org.junit.Before;
 import org.junit.Test;
 
+import static definition.SudokuUtils.create2dSudokuArray;
 import static org.junit.Assert.assertTrue;
-import static utils.SudokuUtils.create2dSudokuArray;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package microsoft.noodleEssence._671_Second_Minimum_Node_In_a_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

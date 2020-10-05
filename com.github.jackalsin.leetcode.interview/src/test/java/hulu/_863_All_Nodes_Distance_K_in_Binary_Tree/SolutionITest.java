@@ -1,9 +1,9 @@
 package hulu._863_All_Nodes_Distance_K_in_Binary_Tree;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.util.HashSet;
 import java.util.List;

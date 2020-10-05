@@ -1,4 +1,4 @@
-package utils.nAryTree;
+package definition.nAryTree;
 
 import org.junit.jupiter.api.Test;
 

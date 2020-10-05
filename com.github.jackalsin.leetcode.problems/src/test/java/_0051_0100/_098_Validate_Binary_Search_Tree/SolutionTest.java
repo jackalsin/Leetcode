@@ -1,8 +1,8 @@
 package _0051_0100._098_Validate_Binary_Search_Tree;
 
+import definition.binaryTree.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
 
 import java.util.stream.Stream;
 
@@ -43,6 +43,9 @@ public class SolutionTest {
   }
 
   static Stream<Solution> solutionStream() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new MorrisTraversalSolution(),
+        new StackSolution()
+    );
   }
 }

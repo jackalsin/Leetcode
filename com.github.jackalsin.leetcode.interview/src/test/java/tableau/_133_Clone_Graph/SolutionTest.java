@@ -1,8 +1,8 @@
 package tableau._133_Clone_Graph;
 
+import definition._133_Clone_Graph.Node;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._133_Clone_Graph.Node;
 
 import java.util.ArrayList;
 import java.util.stream.Stream;

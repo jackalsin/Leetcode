@@ -1,6 +1,6 @@
 package microsoft.noodleEssence._141_Linked_List_Cycle;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public boolean hasCycle(ListNode head) {

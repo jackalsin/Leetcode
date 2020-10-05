@@ -1,9 +1,9 @@
 package _0101_0150._148_Sort_List;
 
+import definition.ListNode;
+import definition.ListNodes;
 import org.junit.Before;
 import org.junit.Test;
-import utils.ListNode;
-import utils.ListNodes;
 
 import static org.junit.Assert.assertEquals;
 

@@ -1,6 +1,6 @@
 package uber._104_Maximum_Depth_of_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public class Solution {
   public int maxDepth(TreeNode root) {

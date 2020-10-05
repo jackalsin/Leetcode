@@ -1,6 +1,6 @@
 package microsoft.noodleEssence._023_Merge_k_Sorted_Lists;
 
-import utils.ListNode;
+import definition.ListNode;
 
 public class Solution {
   public ListNode mergeKLists(ListNode[] lists) {

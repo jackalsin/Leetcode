@@ -1,6 +1,6 @@
 package _0651_0700._652_Find_Duplicate_Subtrees;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;

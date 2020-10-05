@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
-import static utils.TwoDimensionArray.getCharBoard;
+import static definition.TwoDimensionArray.getCharBoard;
 
 /**
  * @author jacka

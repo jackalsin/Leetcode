@@ -1,6 +1,6 @@
 package _0501_0550._515_Find_Largest_Value_in_Each_Tree_Row;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

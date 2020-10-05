@@ -2,7 +2,7 @@ package _0751_0800._759_Employee_Free_Time;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
+import definition.Interval;
 
 import java.util.List;
 

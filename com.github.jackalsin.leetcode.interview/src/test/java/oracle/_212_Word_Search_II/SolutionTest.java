@@ -9,8 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static definition.TwoDimensionArray.getCharBoard;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils.TwoDimensionArray.getCharBoard;
 
 /**
  * @author jacka

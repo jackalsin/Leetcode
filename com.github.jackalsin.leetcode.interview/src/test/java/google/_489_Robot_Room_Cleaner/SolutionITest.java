@@ -1,8 +1,8 @@
 package google._489_Robot_Room_Cleaner;
 
+import definition._489_Robot_Room_Cleaner.RobotImpl;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._489_Robot_Room_Cleaner.RobotImpl;
 
 import java.util.stream.Stream;
 

@@ -1,6 +1,6 @@
 package _0901_0950._938_Range_Sum_of_BST;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package _0051_0100._083_Remove_Duplicates_from_Sorted_List;
 
-import utils.ListNode;
+import definition.ListNode;
 
 /**
  * @author Zhiwei.Xin

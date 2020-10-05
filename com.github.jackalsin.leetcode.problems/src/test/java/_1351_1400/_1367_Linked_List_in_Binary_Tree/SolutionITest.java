@@ -2,10 +2,10 @@ package _1351_1400._1367_Linked_List_in_Binary_Tree;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.ListNode;
-import utils.ListNodes;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.ListNode;
+import definition.ListNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.util.stream.Stream;
 

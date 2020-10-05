@@ -1,6 +1,6 @@
 package _0501_0550._538_Convert_BST_to_Greater_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

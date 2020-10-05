@@ -1,6 +1,6 @@
 package hulu._337_House_Robber_III;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

@@ -1,6 +1,6 @@
 package google.similar_tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

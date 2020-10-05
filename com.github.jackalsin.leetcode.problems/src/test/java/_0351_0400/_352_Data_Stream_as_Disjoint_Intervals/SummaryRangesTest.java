@@ -3,7 +3,7 @@ package _0351_0400._352_Data_Stream_as_Disjoint_Intervals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.Interval;
+import definition.Interval;
 
 import java.util.List;
 

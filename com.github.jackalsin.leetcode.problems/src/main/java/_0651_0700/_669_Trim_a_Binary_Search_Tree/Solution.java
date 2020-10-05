@@ -1,6 +1,6 @@
 package _0651_0700._669_Trim_a_Binary_Search_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author jacka

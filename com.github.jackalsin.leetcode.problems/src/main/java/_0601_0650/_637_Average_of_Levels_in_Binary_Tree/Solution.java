@@ -1,6 +1,6 @@
 package _0601_0650._637_Average_of_Levels_in_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

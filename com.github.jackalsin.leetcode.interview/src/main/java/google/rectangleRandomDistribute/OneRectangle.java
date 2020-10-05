@@ -1,8 +1,8 @@
 package google.rectangleRandomDistribute;
 
-import java.util.Random;
+import definition.Point;
 
-import utils.Point;
+import java.util.Random;
 
 /**
  * @author jacka

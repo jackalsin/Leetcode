@@ -1,6 +1,6 @@
 package _0551_0600._587_Erect_the_Fence;
 
-import utils.Point;
+import definition.Point;
 
 import java.util.List;
 

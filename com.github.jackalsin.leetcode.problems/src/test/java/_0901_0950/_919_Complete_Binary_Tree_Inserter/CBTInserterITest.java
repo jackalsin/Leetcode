@@ -2,8 +2,8 @@ package _0901_0950._919_Complete_Binary_Tree_Inserter;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.stream.Stream;

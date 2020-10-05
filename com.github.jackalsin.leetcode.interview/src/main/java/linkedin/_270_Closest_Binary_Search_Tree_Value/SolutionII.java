@@ -1,6 +1,6 @@
 package linkedin._270_Closest_Binary_Search_Tree_Value;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public final class SolutionII implements Solution {
   private int minRootVal = Integer.MAX_VALUE;

@@ -1,6 +1,6 @@
 package oracle._094_Binary_Tree_Inorder_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

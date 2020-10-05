@@ -2,8 +2,8 @@ package _0651_0700._652_Find_Duplicate_Subtrees;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 
 import java.util.HashSet;
 import java.util.List;

@@ -1,7 +1,7 @@
 package _0501_0550._519_Random_Flip_Matrix;
 
 import org.junit.jupiter.api.Test;
-import utils.Point;
+import definition.Point;
 
 import java.util.HashSet;
 import java.util.Set;

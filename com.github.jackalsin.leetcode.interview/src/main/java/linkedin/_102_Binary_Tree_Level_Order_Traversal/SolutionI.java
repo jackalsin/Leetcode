@@ -1,6 +1,6 @@
 package linkedin._102_Binary_Tree_Level_Order_Traversal;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

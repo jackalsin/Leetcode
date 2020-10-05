@@ -1,6 +1,6 @@
 package _0701_0750._723_Candy_Crush;
 
-//import static utils.TwoDimensionArray.display;
+//import static definition.TwoDimensionArray.display;
 
 public class Solution {
 

@@ -1,6 +1,6 @@
 package _0501_0550._543_Diameter_of_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 public final class SolutionI implements Solution {
   private int max = 0;

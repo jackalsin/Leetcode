@@ -2,7 +2,7 @@ package _0701_0750._702_Search_in_a_Sorted_Array_of_Unknown_Size;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils._702_Search_in_a_Sorted_Array_of_Unknown_Size.ArrayReader;
+import definition._702_Search_in_a_Sorted_Array_of_Unknown_Size.ArrayReader;
 
 import java.util.stream.Stream;
 
