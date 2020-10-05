@@ -12,36 +12,33 @@ public final class SolutionI implements Solution {
       return 0;
     }
     final int n = A.length;
-    final int[] oddIsPeak = new int[n],
-        evenIsPeak = new int[n];
-    oddIsPeak[0] = evenIsPeak[0] = 1;
-    int max = 1;
+    int oddIsPeak = 1,
+        evenIsPeak = 1,
+        max = 1;
     for (int i = 1; i < n; ++i) {
       if (i % 2 == 0) {
         if (A[i] < A[i - 1]) {
-          oddIsPeak[i] = oddIsPeak[i - 1] + 1;
-          evenIsPeak[i] = 1;
+          oddIsPeak++;
+          evenIsPeak = 1;
         } else if (A[i] > A[i - 1]) {
-          evenIsPeak[i] = evenIsPeak[i - 1] + 1;
-          oddIsPeak[i] = 1;
+          evenIsPeak++;
+          oddIsPeak = 1;
         } else {
-          oddIsPeak[i] = 1;
-          evenIsPeak[i] = 1;
+          oddIsPeak = evenIsPeak = 1;
         }
       } else { // odd
         if (A[i] > A[i - 1]) {
-          oddIsPeak[i] = oddIsPeak[i - 1] + 1;
-          evenIsPeak[i] = 1;
+          oddIsPeak++;
+          evenIsPeak = 1;
         } else if (A[i] < A[i - 1]) {
-          evenIsPeak[i] = evenIsPeak[i - 1] + 1;
-          oddIsPeak[i] = 1;
+          evenIsPeak++;
+          oddIsPeak = 1;
         } else {
-          evenIsPeak[i] = 1;
-          oddIsPeak[i] = 1;
+          evenIsPeak = oddIsPeak = 1;
         }
       }
-      max = Math.max(max, oddIsPeak[i]);
-      max = Math.max(max, evenIsPeak[i]);
+      max = Math.max(max, oddIsPeak);
+      max = Math.max(max, evenIsPeak);
     }
     return max;
   }
