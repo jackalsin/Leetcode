@@ -1,0 +1,11 @@
+package _0051_0100._061_Rotate_List;
+
+import definition.ListNode;
+
+/**
+ * @author jacka
+ * @version 1.0 on 4/23/2017.
+ */
+public interface Solution {
+  ListNode rotateRight(ListNode head, int k);
+}
