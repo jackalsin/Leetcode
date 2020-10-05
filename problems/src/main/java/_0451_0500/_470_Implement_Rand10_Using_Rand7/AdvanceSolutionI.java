@@ -1,0 +1,14 @@
+package _0451_0500._470_Implement_Rand10_Using_Rand7;
+
+import definition._470_Implement_Rand10_Using_Rand7.Solution;
+
+public final class AdvanceSolutionI extends Solution {
+
+  public int rand10() {
+    int res = 10;
+    while (res >= 10) {
+      res = 7 * (rand7() - 1) + (rand7() - 1);
+    }
+    return res + 1;
+  }
+}
