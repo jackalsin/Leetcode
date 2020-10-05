@@ -1,6 +1,6 @@
 package google._158_Read_N_Characters_Given_Read4_II_Call_multiple_times;
 
-import _0151_0200._157_Read_N_Characters_Given_Read4.Reader4;
+import definition._157_Read_N_Characters_Given_Read4.Reader4;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

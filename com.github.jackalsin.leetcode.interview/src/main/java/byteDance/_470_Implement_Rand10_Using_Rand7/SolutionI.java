@@ -1,6 +1,6 @@
 package byteDance._470_Implement_Rand10_Using_Rand7;
 
-import _0451_0500._470_Implement_Rand10_Using_Rand7.SolBase;
+import definition._470_Implement_Rand10_Using_Rand7.SolBase;
 
 /**
  * @author jacka

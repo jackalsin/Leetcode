@@ -1,4 +1,4 @@
-package _0251_0300._277_Find_the_Celebrity;
+package definition._277_Find_the_Celebrity;
 
 /**
  * @author jacka

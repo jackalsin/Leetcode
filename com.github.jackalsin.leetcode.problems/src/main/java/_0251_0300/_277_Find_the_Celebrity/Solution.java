@@ -1,5 +1,7 @@
 package _0251_0300._277_Find_the_Celebrity;
 
+import definition._277_Find_the_Celebrity.Relation;
+
 /**
  * @author jacka
  * @version 1.0 on 9/2/2017.

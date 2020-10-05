@@ -1,6 +1,6 @@
 package facebook._157_Read_N_Characters_Given_Read;
 
-import _0151_0200._157_Read_N_Characters_Given_Read4.Reader4;
+import definition._157_Read_N_Characters_Given_Read4.Reader4;
 
 public class Solution extends Reader4 {
   public Solution(String s) {

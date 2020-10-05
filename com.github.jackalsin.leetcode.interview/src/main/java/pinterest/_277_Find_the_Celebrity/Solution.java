@@ -1,6 +1,6 @@
 package pinterest._277_Find_the_Celebrity;
 
-import _0251_0300._277_Find_the_Celebrity.Relation;
+import definition._277_Find_the_Celebrity.Relation;
 
 public class Solution extends Relation {
   /**

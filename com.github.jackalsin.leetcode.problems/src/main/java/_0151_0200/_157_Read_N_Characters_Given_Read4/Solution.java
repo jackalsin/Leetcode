@@ -1,5 +1,7 @@
 package _0151_0200._157_Read_N_Characters_Given_Read4;
 
+import definition._157_Read_N_Characters_Given_Read4.Reader4;
+
 /**
  * @author Zhiwei.Xin
  * @version 1.0 on 7/19/2017.

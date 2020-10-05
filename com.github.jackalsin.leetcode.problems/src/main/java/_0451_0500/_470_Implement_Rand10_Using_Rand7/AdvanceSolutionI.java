@@ -1,5 +1,7 @@
 package _0451_0500._470_Implement_Rand10_Using_Rand7;
 
+import definition._470_Implement_Rand10_Using_Rand7.Solution;
+
 public final class AdvanceSolutionI extends Solution {
 
   public int rand10() {

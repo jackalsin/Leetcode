@@ -1,4 +1,4 @@
-package _0151_0200._157_Read_N_Characters_Given_Read4;
+package definition._157_Read_N_Characters_Given_Read4;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

@@ -1,5 +1,6 @@
 package _0451_0500._470_Implement_Rand10_Using_Rand7;
 
+import definition._470_Implement_Rand10_Using_Rand7.Solution;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,5 +1,6 @@
 package _0151_0200._157_Read_N_Characters_Given_Read4;
 
+import definition._157_Read_N_Characters_Given_Read4.Reader4;
 import org.junit.Before;
 import org.junit.Test;
 
