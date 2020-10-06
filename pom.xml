@@ -22,6 +22,7 @@
         <module>definition</module>
         <module>problems</module>
         <module>interview</module>
+        <module>contest</module>
     </modules>
     <build>
         <!--<sourceDirectory>src</sourceDirectory>-->
