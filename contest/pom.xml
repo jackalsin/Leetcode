@@ -11,4 +11,11 @@
     </parent>
     <artifactId>contest</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.jackalsin.leetcode</groupId>
+            <artifactId>definition</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
