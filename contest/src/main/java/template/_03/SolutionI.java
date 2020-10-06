@@ -1,4 +1,4 @@
-package contest.template._02;
+package template._03;
 
 /**
  * @author jacka
