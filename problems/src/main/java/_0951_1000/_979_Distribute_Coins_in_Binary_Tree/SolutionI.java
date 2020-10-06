@@ -1,6 +1,6 @@
 package _0951_1000._979_Distribute_Coins_in_Binary_Tree;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author zhixi

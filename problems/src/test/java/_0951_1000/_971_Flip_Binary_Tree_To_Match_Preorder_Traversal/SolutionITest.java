@@ -1,9 +1,9 @@
 package _0951_1000._971_Flip_Binary_Tree_To_Match_Preorder_Traversal;
 
+import definition.binaryTree.TreeNode;
+import definition.binaryTree.TreeNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import utils.binaryTree.TreeNode;
-import utils.binaryTree.TreeNodes;
 
 import java.util.List;
 import java.util.stream.Stream;

@@ -1,6 +1,6 @@
 package _0951_1000._968_Binary_Tree_Cameras;
 
-import utils.binaryTree.TreeNode;
+import definition.binaryTree.TreeNode;
 
 /**
  * @author zhixi
