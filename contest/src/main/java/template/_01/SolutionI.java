@@ -1,4 +1,4 @@
-package contest.template._01;
+package template._01;
 
 import java.util.List;
 import java.util.PriorityQueue;
