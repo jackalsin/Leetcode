@@ -5,6 +5,7 @@ import definition.ListNodes;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -20,7 +21,8 @@ class SolutionITest {
   void testOnlineCase1(Solution solution) {
     final ListNode head = ListNodes.getListOfNodes(2, 1, 5);
     final int expected[] = {5, 5, 0}, actual[] = solution.nextLargerNodes(head);
-    assertArrayEquals(expected, actual);
+    assertArrayEquals(expected, actual,
+        "expected = " + Arrays.toString(expected) + ", actual = " + Arrays.toString(actual));
   }
 
   @ParameterizedTest
@@ -28,7 +30,8 @@ class SolutionITest {
   void testOnlineCase2(Solution solution) {
     final ListNode head = ListNodes.getListOfNodes(2, 7, 4, 3, 5);
     final int expected[] = {7, 0, 5, 5, 0}, actual[] = solution.nextLargerNodes(head);
-    assertArrayEquals(expected, actual);
+    assertArrayEquals(expected, actual,
+        "expected = " + Arrays.toString(expected) + ", actual = " + Arrays.toString(actual));
   }
 
   @ParameterizedTest
@@ -36,7 +39,8 @@ class SolutionITest {
   void testOnlineCase3(Solution solution) {
     final ListNode head = ListNodes.getListOfNodes(1, 7, 5, 1, 9, 2, 5, 1);
     final int expected[] = {7, 9, 9, 9, 0, 5, 0, 0}, actual[] = solution.nextLargerNodes(head);
-    assertArrayEquals(expected, actual);
+    assertArrayEquals(expected, actual,
+        "expected = " + Arrays.toString(expected) + ", actual = " + Arrays.toString(actual));
   }
 
   static Stream<Solution> solutionProvider() {
