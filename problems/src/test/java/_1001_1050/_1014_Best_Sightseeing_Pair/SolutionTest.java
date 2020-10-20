@@ -1,4 +1,4 @@
-package _1001_1050._1021_Best_Sightseeing_Pair;
+package _1001_1050._1014_Best_Sightseeing_Pair;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

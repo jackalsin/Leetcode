@@ -1,4 +1,4 @@
-package _1001_1050._1015_Numbers_With_1_Repeated_Digit;
+package _1001_1050._1009_Complement_of_Base_10_Integer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,16 +15,11 @@ class SolutionTest {
 
   @Test
   void testOnlineCase1() {
-    assertEquals(1, solution.numDupDigitsAtMostN(20));
+    assertEquals(2, solution.bitwiseComplement(5));
   }
 
   @Test
-  void testOnlineCase2() {
-    assertEquals(10, solution.numDupDigitsAtMostN(100));
-  }
-
-  @Test
-  void testOnlineCase3() {
-    assertEquals(262, solution.numDupDigitsAtMostN(1000));
+  void test0() {
+    assertEquals(1, solution.bitwiseComplement(0));
   }
 }

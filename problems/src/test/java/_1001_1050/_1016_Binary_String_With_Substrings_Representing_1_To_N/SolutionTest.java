@@ -1,4 +1,4 @@
-package _1001_1050._1023_Binary_String_With_Substrings_Representing_1_To_N;
+package _1001_1050._1016_Binary_String_With_Substrings_Representing_1_To_N;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package _1001_1050._1022_Smallest_Integer_Divisible_by_K;
+package _1001_1050._1015_Smallest_Integer_Divisible_by_K;
 
 public class Solution {
   public int smallestRepunitDivByK(final int K) {

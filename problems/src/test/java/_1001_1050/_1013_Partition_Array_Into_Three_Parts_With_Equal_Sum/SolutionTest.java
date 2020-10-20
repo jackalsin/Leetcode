@@ -1,4 +1,4 @@
-package _1001_1050._1020_Partition_Array_Into_Three_Parts_With_Equal_Sum;
+package _1001_1050._1013_Partition_Array_Into_Three_Parts_With_Equal_Sum;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

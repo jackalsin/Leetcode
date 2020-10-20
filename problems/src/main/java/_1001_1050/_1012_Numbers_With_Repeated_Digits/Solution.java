@@ -1,4 +1,4 @@
-package _1001_1050._1015_Numbers_With_1_Repeated_Digit;
+package _1001_1050._1012_Numbers_With_Repeated_Digits;
 
 import java.util.HashSet;
 import java.util.LinkedList;

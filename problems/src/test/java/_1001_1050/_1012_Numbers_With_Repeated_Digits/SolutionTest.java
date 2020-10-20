@@ -1,4 +1,4 @@
-package _1001_1050._1022_Smallest_Integer_Divisible_by_K;
+package _1001_1050._1012_Numbers_With_Repeated_Digits;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,27 +9,22 @@ class SolutionTest {
   private Solution solution;
 
   @BeforeEach
-  void setUp() {
+  void setup() {
     solution = new Solution();
   }
 
   @Test
   void testOnlineCase1() {
-    assertEquals(1, solution.smallestRepunitDivByK(1));
+    assertEquals(1, solution.numDupDigitsAtMostN(20));
   }
 
   @Test
   void testOnlineCase2() {
-    assertEquals(-1, solution.smallestRepunitDivByK(2));
+    assertEquals(10, solution.numDupDigitsAtMostN(100));
   }
 
   @Test
   void testOnlineCase3() {
-    assertEquals(3, solution.smallestRepunitDivByK(3));
-  }
-
-  @Test
-  void testOnlineCase4() {
-    assertEquals(16, solution.smallestRepunitDivByK(17));
+    assertEquals(262, solution.numDupDigitsAtMostN(1000));
   }
 }

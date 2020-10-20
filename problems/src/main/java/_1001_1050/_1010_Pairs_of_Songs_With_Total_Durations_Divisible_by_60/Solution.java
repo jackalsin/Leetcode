@@ -1,4 +1,4 @@
-package _1001_1050._1013_Pairs_of_Songs_With_Total_Durations_Divisible_by_60;
+package _1001_1050._1010_Pairs_of_Songs_With_Total_Durations_Divisible_by_60;
 
 public class Solution {
   public int numPairsDivisibleBy60(int[] time) {
