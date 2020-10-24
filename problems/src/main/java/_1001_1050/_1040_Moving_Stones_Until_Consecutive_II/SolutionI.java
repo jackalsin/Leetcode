@@ -7,6 +7,10 @@ import java.util.Arrays;
  * @version 1.0 on 10/24/2020
  */
 public final class SolutionI implements Solution {
+  /**
+   * <a href='https://leetcode.com/problems/moving-stones-until-consecutive-ii/discuss/286707/JavaC%2B%2BPython-Sliding-Window'>reference</a>
+   * <a href='https://leetcode.com/problems/moving-stones-until-consecutive-ii/discuss/289357/c%2B%2B-with-picture'>graph </a>
+   */
   @Override
   public int[] numMovesStonesII(int[] stones) {
     Arrays.sort(stones);
