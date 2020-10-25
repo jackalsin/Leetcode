@@ -7,7 +7,7 @@ import java.util.Deque;
  * @author jacka
  * @version 1.0 on 10/24/2020
  */
-public final class SolutionI implements Solution {
+public final class StackSolution implements Solution {
   @Override
   public String removeDuplicates(String S) {
     final Deque<Character> stack = new ArrayDeque<>();
