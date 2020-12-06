@@ -5,6 +5,9 @@ package _0201_0250._233_Number_of_Digit_One;
  * @version 1.0 on 12/5/2020
  */
 public final class SolutionII implements Solution {
+  /**
+   * <a href='https://leetcode.com/problems/number-of-digit-one/solution/'>solution</a>
+   */
   @Override
   public int countDigitOne(int n) {
     if (n <= 0) return 0;
