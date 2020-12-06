@@ -1,9 +1,12 @@
 package _0201_0250._233_Number_of_Digit_One;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.Assert.assertEquals;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * @author jacka
@@ -11,45 +14,64 @@ import static org.junit.Assert.assertEquals;
  */
 public class SolutionTest {
 
-  private Solution solution;
-
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
-  }
-
-  @Test
-  public void test0() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test0(Solution solution) {
     assertEquals(0, solution.countDigitOne(0));
   }
 
-  @Test
-  public void test1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test1(Solution solution) {
     assertEquals(1, solution.countDigitOne(1));
   }
 
-  @Test
-  public void test13() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test13(Solution solution) {
     assertEquals(6, solution.countDigitOne(13));
   }
 
-  @Test
-  public void testNegative1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testNegative1(Solution solution) {
     assertEquals(0, solution.countDigitOne(-1));
   }
 
-  @Test
-  public void test23() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test23(Solution solution) {
     assertEquals(13, solution.countDigitOne(23));
   }
 
-  @Test
-  public void test20() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test20(Solution solution) {
     assertEquals(12, solution.countDigitOne(20));
   }
 
-  @Test
-  public void test12316() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test12316(Solution solution) {
     assertEquals(8086, solution.countDigitOne(12316));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test1615(Solution solution) {
+    assertEquals(1144, solution.countDigitOne(1615));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test1410065408(Solution solution) {
+    assertEquals(1737167499, solution.countDigitOne(1410065408));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 }
