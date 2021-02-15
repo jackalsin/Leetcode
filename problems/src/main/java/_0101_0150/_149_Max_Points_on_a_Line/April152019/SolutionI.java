@@ -51,4 +51,10 @@ public final class SolutionI implements Solution {
     }
     return a;
   }
+
+  public static void main(final String[] args) {
+    System.out.println("3 % -2 = " + (3 % -2));
+    System.out.println("-3 % 2 = " + (-3 % 2));
+    System.out.println("-3 % -2 = " + (-3 % -2));
+  }
 }

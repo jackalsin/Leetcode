@@ -34,6 +34,8 @@ public class Solution {
           int deltaY = startPoint.y - endPoint.y;
           int deltaX = startPoint.x - endPoint.x;
           int gcd = gcd(deltaY, deltaX);
+          System.out.println("dy = " + deltaY + ", dx = " + deltaX + ", " + gcd);
+//          assert (deltaX / gcd >= 0);
           long slope = ((long) (deltaY / gcd) << 32) | (deltaX / gcd);
           int curCount = ratioToCounts.getOrDefault(slope, 0) + 1;
           max = Math.max(curCount + self, max);
