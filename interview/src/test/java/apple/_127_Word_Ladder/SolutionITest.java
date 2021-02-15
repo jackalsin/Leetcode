@@ -1,4 +1,4 @@
-package _0101_0150._127_Word_Ladder;
+package apple._127_Word_Ladder;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,12 +9,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 6/29/2017.
+ * @author jacka
+ * @version 1.0 on 2/14/2021
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -36,8 +35,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new BfsSolution(),
-        new BidirectionBfsSolution()
+        new BfsSolution()
     );
   }
 }
