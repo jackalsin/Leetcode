@@ -1,8 +1,8 @@
-package _0101_0150._149_Max_Points_on_a_Line.April152019;
+package apple._149_Max_Points_on_a_Line;
 
 /**
  * @author jacka
- * @version 1.0 on 7/4/2019
+ * @version 1.0 on 2/13/2021
  */
 public interface Solution {
   int maxPoints(int[][] points);
