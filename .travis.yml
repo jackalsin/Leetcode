@@ -11,7 +11,7 @@ before_install:
 install: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V;
 script: mvn test;
 jdk:
-  - oraclejdk11
+  - oraclejdk14
 after_success:
   - mvn clean cobertura:cobertura coveralls:report
 notification:
