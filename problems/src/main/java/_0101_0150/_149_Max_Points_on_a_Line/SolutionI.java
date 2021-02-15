@@ -1,14 +1,13 @@
-package apple._149_Max_Points_on_a_Line;
+package _0101_0150._149_Max_Points_on_a_Line;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author jacka
- * @version 1.0 on 2/13/2021
+ * @version 1.0 on 7/1/2017.
  */
 public final class SolutionI implements Solution {
-  @Override
   public int maxPoints(int[][] points) {
     if (points == null || points.length == 0) {
       return 0;
