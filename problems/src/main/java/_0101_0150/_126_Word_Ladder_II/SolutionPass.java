@@ -106,6 +106,8 @@ public class SolutionPass implements Solution {
   }
 
   /**
+   * 上下不同是，上面这个用char 换着
+   *
    * This method is too slow under such a situation where there are many words but short word
    * length, which like test case testTLE3
    *
