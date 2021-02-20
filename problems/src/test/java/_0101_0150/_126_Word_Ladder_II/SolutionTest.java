@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -28,8 +28,8 @@ class SolutionTest {
     expected.add(Arrays.asList("hit", "hot", "dot", "dog", "cog"));
     expected.add(Arrays.asList("hit", "hot", "lot", "log", "cog"));
     List<List<String>> actual = solution.findLadders(beginWord, endWord, candidates);
-    assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
   }
 
   @ParameterizedTest
@@ -527,6 +527,7 @@ class SolutionTest {
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionPass(),
+        new BiDirectionSolution(),
         new SampleSolution()
     );
   }
