@@ -12,6 +12,10 @@ import java.util.Set;
  * @version 1.0 on 2/18/2021
  */
 public final class BiDirectionSolution implements Solution {
+
+  /**
+   * The possible next word in a forward path.
+   */
   private final Map<String, List<String>> neighbors = new HashMap<>();
   private final Set<String> wordSet = new HashSet<>();
   private final List<List<String>> result = new ArrayList<>();
