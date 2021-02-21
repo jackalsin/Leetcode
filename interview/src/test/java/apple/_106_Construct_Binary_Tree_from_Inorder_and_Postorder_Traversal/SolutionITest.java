@@ -1,4 +1,4 @@
-package hulu._106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal;
+package apple._106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal;
 
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
@@ -9,10 +9,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 2/10/2020
+ * @version 1.0 on 2/20/2021
  */
 class SolutionITest {
 
@@ -37,8 +36,7 @@ class SolutionITest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI(),
-        new SolutionII()
+        new SolutionI()
     );
   }
 }
