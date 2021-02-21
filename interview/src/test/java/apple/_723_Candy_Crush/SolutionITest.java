@@ -1,14 +1,19 @@
-package _0701_0750._723_Candy_Crush;
+package apple._723_Candy_Crush;
 
+import definition.TwoDimensionArray;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 2/20/2021
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -38,14 +43,13 @@ class SolutionTest {
     };
 
     final int[][] actual = solution.candyCrush(board);
+    TwoDimensionArray.println(actual);
     assertTrue(Arrays.deepEquals(expected, actual));
   }
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
-
-
 }
