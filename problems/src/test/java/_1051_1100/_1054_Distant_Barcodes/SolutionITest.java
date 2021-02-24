@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static definition._1054_Distant_Barcodes.Assertions.assertEquals;
+import static assertions._1054_Distant_Barcodes.Assertions.assertEquals;
 
 /**
  * @author jacka

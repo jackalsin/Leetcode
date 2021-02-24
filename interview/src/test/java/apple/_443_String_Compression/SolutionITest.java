@@ -1,15 +1,17 @@
-package _0401_0450._443_String_Compression;
+package apple._443_String_Compression;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static assertions._443_String_Compression.Assertions.assertArrayEquals;
+
 /**
  * @author jacka
- * @version 1.0 on 10/29/2017.
+ * @version 1.0 on 2/23/2021
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -50,17 +52,9 @@ public class SolutionTest {
     assertArrayEquals(expected, input, range);
   }
 
-  private static void assertArrayEquals(final char[] expected, final char[] actual, final int
-      range) {
-    assert expected.length == range;
-    for (int i = 0; i < range; i++) {
-      assert expected[i] == actual[i];
-    }
-  }
-
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }

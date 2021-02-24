@@ -1,4 +1,4 @@
-package definition._1054_Distant_Barcodes;
+package assertions._1054_Distant_Barcodes;
 
 import java.util.Arrays;
 import java.util.HashMap;
