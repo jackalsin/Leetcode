@@ -49,8 +49,8 @@ class SolutionITest {
     final String[] words = new String[]{"oath", "pea", "eat", "rain"};
     List<String> expected = Arrays.asList("eat", "oath");
     List<String> actual = solution.findWords(BOARD, words);
-    assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
   }
 
   @ParameterizedTest

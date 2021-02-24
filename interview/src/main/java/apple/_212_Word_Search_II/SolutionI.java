@@ -47,16 +47,14 @@ public final class SolutionI implements Solution {
     }
     final char chr = board[row][col];
     sb.append(chr);
-    board[row][col] = VISITED;
-    final int len = sb.length();
     final Node next = root.next.get(chr);
     if (next == null) {
-      board[row][col] = chr;
       return;
     }
+    board[row][col] = VISITED;
+    final int len = sb.length();
     for (final int[] d : DIRS) {
-      dfs(board, next, row + d[0],
-          col + d[1], sb);
+      dfs(board, next, row + d[0], col + d[1], sb);
       sb.setLength(len);
     }
     if (next.next.isEmpty()) {
