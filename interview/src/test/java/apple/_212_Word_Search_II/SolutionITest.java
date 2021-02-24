@@ -55,6 +55,18 @@ class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
+  void testOnlineCase2(Solution solution) {
+    final String[] words = new String[]{"oath", "pea", "eat", "rain", "oathi",
+        "oathk", "oathf", "oate", "oathii", "oathfi", "oathfii"};
+    final List<String> expected = List.of("oath", "oathk", "oathf", "oathfi",
+        "oathfii", "oathi", "oathii", "oate", "eat");
+    final List<String> actual = solution.findWords(BOARD, words);
+    assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
   void testTLE(Solution solution) {
     String[] boardString = new String[]{"aaaa", "aaaa", "aaaa", "aaaa", "bcde", "fghi", "jklm", "nopq",
         "rstu", "vwxy", "zzzz"};

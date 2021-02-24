@@ -1,74 +1,82 @@
 package _0201_0250._212_Word_Search_II;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author jacka
  * @version 1.0 on 8/8/2017.
  */
 public class Solution {
-  private static final int N = 26;
+  private final Node root = new Node();
+  private final List<String> result = new ArrayList<>();
   private static final char VISITED = '#';
-  private int rows;
-  private int cols;
+  private static final int[][] DIRS = {
+      {0, 1}, {0, -1}, {1, 0}, {-1, 0}
+  };
 
   public List<String> findWords(char[][] board, String[] words) {
-    List<String> result = new ArrayList<>();
-    TrieNode root = buildTrie(words);
-    rows = board.length;
-    if (rows == 0) {
+    if (board == null || board.length == 0) {
       return result;
     }
-    cols = board[0].length;
+    for (final String word : words) {
+      add(root, word, 0);
+    }
+    final int rows = board.length, cols = board[0].length;
     for (int row = 0; row < rows; ++row) {
       for (int col = 0; col < cols; ++col) {
-        search(result, board, row, col, root);
+        dfs(board, root, row, col, new StringBuilder());
       }
     }
     return result;
   }
 
-  private void search(final List<String> result,
-                      final char[][] board, int startRow, int startCol, final TrieNode parentNode) {
-    if (startRow >= 0 && startCol >= 0 && startCol < cols && startRow < rows) {
-      char chr = board[startRow][startCol];
-      if (chr != VISITED && parentNode.next[chr - 'a'] != null) {
-        TrieNode curNode = parentNode.next[chr - 'a'];
-        if (curNode.word != null) {
-          result.add(curNode.word);
-          curNode.word = null;
-        }
-        board[startRow][startCol] = VISITED;
-        search(result, board, startRow + 1, startCol, curNode);
-        search(result, board, startRow, startCol + 1, curNode);
-        search(result, board, startRow - 1, startCol, curNode);
-        search(result, board, startRow, startCol - 1, curNode);
-        board[startRow][startCol] = chr;
-      }
+  private void dfs(final char[][] board, final Node root, final int row, final int col,
+                   final StringBuilder sb) {
+    if (root == null) {
+      return;
     }
+    if (root.isWord) {
+      result.add(sb.toString());
+      root.isWord = false;
+    }
+    if (row < 0 || col < 0 || row >= board.length || col >= board[0].length || board[row][col] == VISITED) {
+      return;
+    }
+    final char chr = board[row][col];
+    sb.append(chr);
+    board[row][col] = VISITED;
+    final int len = sb.length();
+    final Node next = root.next.get(chr);
+    if (next == null) {
+      board[row][col] = chr;
+      return;
+    }
+    for (final int[] d : DIRS) {
+      dfs(board, next, row + d[0],
+          col + d[1], sb);
+      sb.setLength(len);
+    }
+    if (next.next.isEmpty()) {
+      root.next.remove(chr);
+    }
+    board[row][col] = chr;
   }
 
-  private TrieNode buildTrie(String[] words) {
-    TrieNode root = new TrieNode();
-    for (String word : words) {
-      TrieNode parent = root;
-      for (char chr : word.toCharArray()) {
-        int index = chr - 'a';
-        if (parent.next[index] == null) {
-          parent.next[index] = new TrieNode();
-        }
-        parent = parent.next[index];
-      }
-      parent.word = word;
+  private void add(final Node root, final String word, final int i) {
+    if (i == word.length()) {
+      root.isWord = true;
+      return;
     }
-
-    return root;
+    final char chr = word.charAt(i);
+    final Node next = root.next.computeIfAbsent(chr, k -> new Node());
+    add(next, word, i + 1);
   }
 
-  private static final class TrieNode {
-    String word;
-    TrieNode[] next = new TrieNode[N];
-    TrieNode() {}
+  private static final class Node {
+    private final Map<Character, Node> next = new HashMap<>();
+    private boolean isWord;
   }
 }
