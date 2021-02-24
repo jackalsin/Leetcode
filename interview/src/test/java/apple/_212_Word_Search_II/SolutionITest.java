@@ -1,5 +1,4 @@
-package _0201_0250._212_Word_Search_II;
-
+package apple._212_Word_Search_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -15,9 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 8/8/2017.
+ * @version 1.0 on 2/23/2021
  */
-class SolutionTest {
+class SolutionITest {
+
   private static final char[][] BOARD = new char[][]{
       {'o', 'a', 'a', 'n'},
       {'e', 't', 'a', 'e'},
@@ -29,6 +29,12 @@ class SolutionTest {
   @MethodSource("solutionStream")
   void testEmptyBoard(Solution solution) {
     assertEquals(new ArrayList<>(), solution.findWords(new char[][]{}, new String[]{"a"}));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testABoard(Solution solution) {
+    assertEquals(List.of("a"), solution.findWords(new char[][]{{'a'}}, new String[]{"a"}));
   }
 
   @ParameterizedTest
@@ -169,7 +175,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
