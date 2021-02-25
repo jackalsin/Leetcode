@@ -1,4 +1,4 @@
-package _0051_0100._093_Restore_IP_Addresses;
+package apple._093_Restore_IP_Addresses;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,14 +8,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 5/31/2017.
+ * @author jacka
+ * @version 1.0 on 2/24/2021
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -44,6 +43,8 @@ public class SolutionTest {
   }
 
   static Stream<Solution> solutionStream() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
