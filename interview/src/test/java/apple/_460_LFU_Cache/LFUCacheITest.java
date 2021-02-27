@@ -1,5 +1,4 @@
-package _0451_0500._460_LFU_Cache;
-
+package apple._460_LFU_Cache;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,12 +8,12 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
- * @author jacka
- * @version 1.0 on 7/7/2017.
+ * @author zhixi
+ * @version 1.0 on 2/27/2021
  */
-class LFUCacheTest {
+class LFUCacheITest {
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase(Class<LFUCache> cacheClass) throws NoSuchMethodException, IllegalAccessException,
@@ -57,12 +56,24 @@ class LFUCacheTest {
     assertEquals(-1, cache.get(1));
     assertEquals(3, cache.get(3));
     assertEquals(4, cache.get(4));
+  }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFailedCase2(Class<LFUCache> cacheClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
+    LFUCache cache = cacheClass.getConstructor(Integer.TYPE).newInstance(2);
+    cache.put(2, 1);
+    cache.put(2, 2); // (2, 2)
+    assertEquals(2, cache.get(2));
+    cache.put(1, 1); // add 1
+    cache.put(4, 1); // evict 1
+    assertEquals(2, cache.get(2));
   }
 
   static Stream<Class> solutionStream() {
     return Stream.of(
-        LFUCache.class
+        LFUCacheI.class
     );
   }
 }
