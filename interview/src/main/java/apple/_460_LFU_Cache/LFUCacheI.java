@@ -28,19 +28,22 @@ public final class LFUCacheI implements LFUCache {
     if (!keyToNode.containsKey(key)) {
       return -1;
     }
+    increaseCount(key);
+    return keyToValue.get(key);
+  }
+
+  private void increaseCount(final int key) {
     final Node cur = keyToNode.get(key);
     if (cur.next.count != cur.count + 1) {
       final Node next = new Node(cur.count + 1);
       append(cur, next);
     }
+    keyToNode.put(key, cur.next);
     cur.keys.remove(key);
     cur.next.keys.add(key);
-    keyToNode.put(key, cur.next);
     if (cur.keys.isEmpty()) {
-      remove(cur);
+      removeFromDoubleLinkedList(cur);
     }
-
-    return keyToValue.get(key);
   }
 
   private static void append(final Node prev, final Node cur) {
@@ -57,30 +60,10 @@ public final class LFUCacheI implements LFUCache {
       return;
     }
     if (keyToNode.containsKey(key)) {
-      final Node cur = keyToNode.get(key);
-      if (cur.next.count != cur.count + 1) {
-        final Node next = new Node(cur.count + 1);
-        append(cur, next);
-      }
-      final Node next = cur.next;
-      next.keys.add(key);
-      cur.keys.remove(key);
-      if (cur.keys.isEmpty()) {
-        keyToNode.remove(key);
-        remove(cur);
-      }
-      keyToNode.put(key, next);
+      increaseCount(key);
     } else {
       if (keyToNode.size() == capacity) {
-        final Node node = head.next;
-        final LinkedHashSet<Integer> keys = node.keys;
-        final int toRemoveKey = keys.iterator().next();
-        keys.remove(toRemoveKey);
-        keyToNode.remove(toRemoveKey);
-        keyToValue.remove(toRemoveKey);
-        if (keys.isEmpty()) {
-          remove(node);
-        }
+        removeOldest();
       }
       final Node next = head.next;
       if (next.count != 1) {
@@ -94,7 +77,19 @@ public final class LFUCacheI implements LFUCache {
     keyToValue.put(key, value);
   }
 
-  private static void remove(final Node cur) {
+  private void removeOldest() {
+    final Node node = head.next;
+    final LinkedHashSet<Integer> keys = node.keys;
+    final int toRemoveKey = keys.iterator().next();
+    keys.remove(toRemoveKey);
+    keyToNode.remove(toRemoveKey);
+    keyToValue.remove(toRemoveKey);
+    if (keys.isEmpty()) {
+      removeFromDoubleLinkedList(node);
+    }
+  }
+
+  private static void removeFromDoubleLinkedList(final Node cur) {
     final Node prev = cur.prev, next = cur.next;
     cur.prev = null;
     cur.next = null;
