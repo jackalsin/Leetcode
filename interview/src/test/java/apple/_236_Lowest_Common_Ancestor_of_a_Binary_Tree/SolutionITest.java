@@ -1,20 +1,18 @@
-package _0201_0250._236_Lowest_Common_Ancestor_of_a_Binary_Tree;
+package apple._236_Lowest_Common_Ancestor_of_a_Binary_Tree;
 
-
+import definition.binaryTree.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import definition.binaryTree.TreeNode;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/19/2017.
+ * @author jacka
+ * @version 1.0 on 2/28/2021
  */
-class SolutionTest {
+class SolutionITest {
 
   private final TreeNode root = new TreeNode(3);
 
@@ -42,7 +40,6 @@ class SolutionTest {
     assertEquals(root.left, solution.lowestCommonAncestor(root, root.left, root.left));
   }
 
-
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testParent(Solution solution) {
@@ -59,7 +56,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
