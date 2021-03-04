@@ -16,7 +16,8 @@ class NumArrayTest {
 
   static Stream<Class> solutionStream() {
     return Stream.of(
-        NumArrayI.class
+        NumArrayI.class,
+        SegmentTreeArraySolution.class
     );
   }
 
