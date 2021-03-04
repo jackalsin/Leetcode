@@ -1,19 +1,24 @@
 package _0301_0350._307_Range_Sum_Query_Mutable;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.Assert.assertEquals;
+import java.lang.reflect.InvocationTargetException;
+import java.util.stream.Stream;
 
 /**
  * @author jacka
  * @version 1.0 on 9/14/2017.
  */
 public class NumArrayTest {
-  private NumArray numArray;
 
-  @Before
-  public void setUp() throws Exception {
+  static Stream<Class> solutionStream() {
+    return Stream.of(
+        NumArrayI.class,
+        SegmentTreeArraySolution.class,
+        SegmentTreeNodeSolution.class
+    );
   }
 
   /**
@@ -25,20 +30,21 @@ public class NumArrayTest {
    *
    * @throws Exception
    */
-  @Test
-  public void testOnline() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testOnline(Class<NumArray> solution) throws Exception {
     final int[] nums = {1, 3, 5};
-    numArray = new NumArray(nums);
-    assertEquals(9, numArray.sumRange(0, 2));
+    NumArray numArray = solution.getConstructor(int[].class).newInstance(nums);
+    Assertions.assertEquals(9, numArray.sumRange(0, 2));
     numArray.update(1, 2);
-    assertEquals(8, numArray.sumRange(0, 2));
+    Assertions.assertEquals(8, numArray.sumRange(0, 2));
   }
 
-  @Test
-  public void testEmpty() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testEmpty(Class<NumArray> solution) throws Exception {
     final int[] nums = {};
-    numArray = new NumArray(nums);
-
+    NumArray numArray = solution.getConstructor(int[].class).newInstance(nums);
   }
 
   /**
@@ -48,37 +54,43 @@ public class NumArrayTest {
    *
    * @throws Exception
    */
-  @Test
-  public void testFailed1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testFailed1(Class<NumArray> solution) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
     final int[] input = {7, 2, 7, 2, 0};
-    numArray = new NumArray(input);
+    NumArray numArray = solution.getConstructor(int[].class).newInstance(input);
     numArray.update(4, 6);
     numArray.update(0, 2);
     numArray.update(0, 9);
-    assertEquals(6, numArray.sumRange(4, 4));
+    Assertions.assertEquals(6, numArray.sumRange(4, 4));
     numArray.update(3, 8);
-    assertEquals(32, numArray.sumRange(0, 4));
+    Assertions.assertEquals(32, numArray.sumRange(0, 4));
     numArray.update(4, 1);
-    assertEquals(26, numArray.sumRange(0, 3));
-    assertEquals(27, numArray.sumRange(0, 4));
+    Assertions.assertEquals(26, numArray.sumRange(0, 3));
+    Assertions.assertEquals(27, numArray.sumRange(0, 4));
     numArray.update(0, 4);
   }
 
 
   /**
-   * ["NumArray",                             "sumRange","update","sumRange","sumRange","update","update","sumRange","sumRange","update","update"]
+   * ["NumArray",                             "sumRange","update","sumRange","sumRange","update","update","sumRange",
+   * "sumRange","update","update"]
    * [[[-28,-39,53,65,11,-56,-65,-39,-43,97]],[5,6],[9,27],[2,3],[6,7],[1,-82],[3,-72],[3,7],[1,8],[5,13],[4,-67]]
    * expectation                        [null,-121,null,118,-104,null,null,-221,-293,null,null]
    *
    * @throws Exception
    */
-  @Test
-  public void testFailed2() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testFailed2(Class<NumArray> solution) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
     final int[] input = {-28, -39, 53, 65, 11, -56, -65, -39, -43, 97};
-    numArray = new NumArray(input);
-    assertEquals(-121, numArray.sumRange(5, 6));
+    NumArray numArray = solution.getConstructor(int[].class).newInstance(input);
+    Assertions.assertEquals(-121, numArray.sumRange(5, 6));
     numArray.update(9, 27);
-    assertEquals(118, numArray.sumRange(2, 3));
-    assertEquals(-104, numArray.sumRange(6, 7));
+    Assertions.assertEquals(118, numArray.sumRange(2, 3));
+    Assertions.assertEquals(-104, numArray.sumRange(6, 7));
   }
+
 }

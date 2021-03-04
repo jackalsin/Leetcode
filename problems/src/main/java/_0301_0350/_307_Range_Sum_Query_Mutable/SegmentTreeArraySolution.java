@@ -1,8 +1,6 @@
 package _0301_0350._307_Range_Sum_Query_Mutable;
 
-import java.util.Arrays;
-
-public class SegmentTreeArraySolution {
+public final class SegmentTreeArraySolution implements NumArray {
   private final int[] nums;
   private final int[] st;
 
@@ -14,8 +12,7 @@ public class SegmentTreeArraySolution {
     for (int i = 0; i < nums.length; i++) {
       updateHelper(0, nums.length - 1, i, 0, nums[i]);
     }
-
-    System.out.println(Arrays.toString(st));
+//    System.out.println(Arrays.toString(st));
   }
 
   public void update(int i, int val) {

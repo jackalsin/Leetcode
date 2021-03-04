@@ -1,6 +1,6 @@
 package _0301_0350._307_Range_Sum_Query_Mutable;
 
-public final class SegmentTreeNodeSolution {
+public final class SegmentTreeNodeSolution implements NumArray {
   private final int[] nums;
   private final SegmentTreeNode root;
 
