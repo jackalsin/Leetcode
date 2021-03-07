@@ -1,5 +1,4 @@
-package _0301_0350._308_Range_Sum_Query_2D_Mutable;
-
+package apple._308_Range_Sum_Query_2D_Mutable;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,17 +8,16 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 9/16/2017.
+ * @version 1.0 on 3/4/2021
  */
 class NumMatrixTest {
 
+
   static Stream<Class> solutionStream() {
     return Stream.of(
-        BinaryIndexTreeSolution.class,
-        SegmentTreeNodeSolution.class
+        NumMatrixI.class
     );
   }
 
@@ -46,7 +44,6 @@ class NumMatrixTest {
     NumMatrix numMatrix = solution.getConstructor(int[][].class).newInstance((Object) new int[][]{});
   }
 
-
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase1(Class<NumMatrix> solution) throws Exception {
@@ -61,4 +58,5 @@ class NumMatrixTest {
     numMatrix.update(0, 1, 5);
     assertEquals(8, numMatrix.sumRegion(0, 0, 0, 1));
   }
+
 }
