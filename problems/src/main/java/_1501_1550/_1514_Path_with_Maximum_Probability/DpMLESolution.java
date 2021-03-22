@@ -7,12 +7,11 @@ import java.util.Map;
  * @author jacka
  * @version 1.0 on 3/20/2021
  */
-public final class SolutionI implements Solution {
+public final class DpMLESolution implements Solution {
   @Override
   public double maxProbability(int n, int[][] edges, double[] succProb,
                                int start, int end) {
     final Map<Integer, Map<Integer, Double>> srcToDst = getEdges(edges, succProb);
-    System.out.println(srcToDst);
     final double[][] dp = new double[n][n];
     dp[0][start] = 1;
     for (int i = 0; i < n - 1; ++i) {

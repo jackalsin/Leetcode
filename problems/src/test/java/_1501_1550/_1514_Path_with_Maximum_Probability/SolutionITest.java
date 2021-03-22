@@ -51,9 +51,25 @@ class SolutionITest {
     assertEquals(0.16000, solution.maxProbability(n, edges, succProb, start, end), BIAS);
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase5(Solution solution) {
+    final int n = 10, edges[][] = {
+        {3, 5}, {3, 4}, {6, 8}, {1, 5}, {2, 8}, {6, 9}, {0, 2}, {7, 8}, {0, 4}, {3, 7}, {8, 9}, {5, 8}, {3, 6}, {0,
+        6}, {1, 6}, {0, 1}, {0, 3}, {5, 6}, {1, 9}
+    }, start = 1, end = 6;
+    final double succProb[] = {0.72, 0.81, 0.18, 0.62, 0.96, 0.45, 0.19, 0.77, 0.1, 0.99, 0.49, 0.25, 0.45, 0.68,
+        0.95, 0.61, 0.11, 0.72, 0.2};
+    assertEquals(0.95, solution.maxProbability(n, edges, succProb, start, end), BIAS);
+  }
+
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new DpMLESolution(),
+        new DfsSolution(),
+        new DpTLESolution(),
+        new BellmanFordPassSolution(),
+        new NoPreCalculateMapSolution()
     );
   }
 }
