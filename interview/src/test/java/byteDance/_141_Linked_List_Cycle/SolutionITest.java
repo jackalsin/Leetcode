@@ -1,4 +1,4 @@
-package _0101_0150._141_Linked_List_Cycle;
+package byteDance._141_Linked_List_Cycle;
 
 import definition.ListNode;
 import definition.ListNodes;
@@ -10,12 +10,12 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 /**
  * @author jacka
- * @version 1.0 on 7/1/2017.
+ * @version 1.0 on 3/21/2021
  */
-class SolutionTest {
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testNoCycle0(Solution solution) {
@@ -55,7 +55,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
