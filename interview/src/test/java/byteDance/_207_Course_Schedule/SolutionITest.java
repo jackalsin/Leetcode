@@ -1,4 +1,4 @@
-package _0201_0250._207_Course_Schedule;
+package byteDance._207_Course_Schedule;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,12 +8,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 /**
  * @author jacka
- * @version 1.0 on 8/6/2017.
+ * @version 1.0 on 3/21/2021
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -29,7 +28,7 @@ public class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
