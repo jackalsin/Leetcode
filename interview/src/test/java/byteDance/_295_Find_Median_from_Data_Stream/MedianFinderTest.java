@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author jacka
  * @version 1.0 on 5/8/2020
  */
-class MedianFinderITest {
+class MedianFinderTest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -41,7 +41,8 @@ class MedianFinderITest {
 
   static Stream<MedianFinder> solutionStream() {
     return Stream.of(
-        new MedianFinderI()
+        new MedianFinderI(),
+        new MedianFinderII()
     );
   }
 }
