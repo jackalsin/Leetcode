@@ -1,4 +1,4 @@
-package _0151_0200._165_Compare_Version_Numbers;
+package byteDance._165_Compare_Version_Numbers;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,12 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 7/27/2017.
+ * @version 1.0 on 3/22/2021
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
