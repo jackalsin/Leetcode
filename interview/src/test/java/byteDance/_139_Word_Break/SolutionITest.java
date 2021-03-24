@@ -1,5 +1,4 @@
-package _0101_0150._139_Word_Break;
-
+package byteDance._139_Word_Break;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,12 +10,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 /**
  * @author jacka
- * @version 1.0 on 7/5/2017.
+ * @version 1.0 on 3/23/2021
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -35,6 +33,8 @@ class SolutionTest {
   }
 
   static Stream<Solution> solutionStream() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
