@@ -34,8 +34,10 @@ public final class SolutionI implements Solution {
       for (int i = 0; i < size; ++i) {
         final int toRemove = q.remove();
         final List<Integer> nexts = valToIndex.get(nums[toRemove]);
+        nexts.add(toRemove + 1);
+        nexts.add(toRemove - 1);
         for (int next : nexts) {
-          if (visited[next]) continue;
+          if (next < 0 || next >= n || visited[next]) continue;
           visited[next] = true;
           if (next == n - 1) {
             return steps;
@@ -43,17 +45,6 @@ public final class SolutionI implements Solution {
           q.add(next);
         } // for loop next
         nexts.clear();
-        if (toRemove + 1 == n - 1 || n - 1 == toRemove - 1) {
-          return steps;
-        }
-        if (toRemove + 1 < n) {
-          visited[toRemove + 1] = true;
-          q.add(toRemove + 1);
-        }
-        if (toRemove - 1 >= 0) {
-          visited[toRemove - 1] = true;
-          q.add(toRemove - 1);
-        }
       }
     }
 

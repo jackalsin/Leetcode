@@ -3,6 +3,7 @@ package byteDance._1345_Jump_Game_IV;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -61,6 +62,14 @@ class SolutionITest {
         actual = solution.minJumps(arr);
     // 0 -> 1 -> 2 -> 3
     // 0 -> 6 -> 7 -> 8 -> 9
+    assertEquals(expected, actual);
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase8(Solution solution) {
+    final int arr[] = {0, 4, 3, 9}, expected = 3,
+        actual = solution.minJumps(arr);
     assertEquals(expected, actual);
   }
 
@@ -286,10 +295,21 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase9(Solution solution) {
+    final int n = 50_000;
+    final int arr[] = new int[n];
+    Arrays.fill(arr, 7);
+    arr[n - 1] = 11;
+    final int expected = 2, actual = solution.minJumps(arr);
+    assertEquals(expected, actual);
+  }
+
   static Stream<Solution> solutionStream() {
     return Stream.of(
-//        new SolutionI(),
-        new SampleSolutionI()
+        new SolutionI()
+//        new SampleSolution()
     );
   }
 }
