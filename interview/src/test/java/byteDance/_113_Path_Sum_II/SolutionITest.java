@@ -1,4 +1,4 @@
-package _0101_0150._113_Path_Sum_II;
+package byteDance._113_Path_Sum_II;
 
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
@@ -12,13 +12,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 6/22/2017.
+ * @version 1.0 on 3/29/2021
  */
-class SolutionTest {
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
@@ -35,7 +33,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
