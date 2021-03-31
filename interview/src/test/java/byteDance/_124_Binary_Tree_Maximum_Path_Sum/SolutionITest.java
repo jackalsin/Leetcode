@@ -22,9 +22,24 @@ class SolutionITest {
     assertEquals(6, solution.maxPathSum(root));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test2(Solution solution) {
+    TreeNode root = TreeNodes.getTreeLevelOrder(2, -1);
+    assertEquals(2, solution.maxPathSum(root));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void test1(Solution solution) {
+    TreeNode root = TreeNodes.getTreeLevelOrder(1, -2, 3);
+    assertEquals(4, solution.maxPathSum(root));
+  }
+
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
