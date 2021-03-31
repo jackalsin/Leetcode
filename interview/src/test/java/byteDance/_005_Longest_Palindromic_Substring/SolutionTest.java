@@ -1,5 +1,4 @@
-package _0001_0050._005_Longest_Palindromic_Substring;
-
+package byteDance._005_Longest_Palindromic_Substring;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,17 +11,16 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 /**
  * @author jacka
- * @version 1.0 on 2017/1/11.
+ * @version 1.0 on 3/30/2021
  */
 class SolutionTest {
 
-  private static final String ABCD = "abcd";
-  private static final String ABBA = "abba";
-  private static final String ACA = "aca";
-  private static final String ABCDAD = "abcdad";
+  private static final String ABCD = "abcd",
+      ABBA = "abba",
+      ACA = "aca",
+      ABCDAD = "abcdad";
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -52,7 +50,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new RecursionSolution(),
+        new BruteForceSolution(),
         new DpSolution()
     );
   }
