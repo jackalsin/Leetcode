@@ -10,13 +10,15 @@ public final class SolutionII implements Solution {
   };
   private static final int PREV = -1;
   private int rows = 0, cols = 0;
+  private int[][] cache;
 
   public int longestIncreasingPath(int[][] matrix) {
     if (matrix == null || matrix.length == 0) {
       return 0;
     }
     rows = matrix.length;
-    cols = matrix.length;
+    cols = matrix[0].length;
+    cache = new int[rows][cols];
     int max = 0;
     for (int i = 0; i < rows; ++i) {
       for (int j = 0; j < cols; ++j) {
@@ -31,6 +33,9 @@ public final class SolutionII implements Solution {
     if (row < 0 || col < 0 || row >= rows || col >= cols || matrix[row][col] <= prev) {
       return 0;
     }
+    if (cache[row][col] != 0) {
+      return cache[row][col];
+    }
     final int curVal = matrix[row][col];
     matrix[row][col] = PREV;
     int res = 1;
@@ -39,6 +44,7 @@ public final class SolutionII implements Solution {
       res = Math.max(res, 1 + cur);
     }
     matrix[row][col] = curVal;
+    cache[row][col] = res;
     return res;
   }
 }
