@@ -1,18 +1,18 @@
-package _0351_0400._394_Decode_String;
+package byteDance._394_Decode_String;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author jacka
- * @version 1.0 on 11/11/2017.
+ * @version 1.0 on 4/1/2021
  */
 class SolutionTest {
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnline1(Solution solution) {
@@ -33,7 +33,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
