@@ -1,5 +1,4 @@
-package _0251_0300._297_Serialize_and_Deserialize_Binary_Tree;
-
+package lime._297_Serialize_and_Deserialize_Binary_Tree;
 
 import definition.binaryTree.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,18 +8,12 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 9/10/2017.
+ * @version 1.0 on 4/2/2021
  */
-class CodecTest {
+class CodecITest {
 
-  static Stream<Codec> solutionStream() {
-    return Stream.of(
-        new Codec()
-    );
-  }
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -31,5 +24,11 @@ class CodecTest {
     root.left.right = new TreeNode(4);
     TreeNode actual = solution.deserialize(solution.serialize(root));
     assertEquals(root, actual);
+  }
+
+  static Stream<Codec> solutionStream() {
+    return Stream.of(
+        new CodecI()
+    );
   }
 }
