@@ -1,4 +1,4 @@
-package _0751_0800._772_Basic_Calculator_III;
+package lime._772_Basic_Calculator_III;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,7 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GenericSolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 4/4/2021
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -51,17 +55,9 @@ class GenericSolutionTest {
     assertEquals(0, solution.calculate(input)); // = 2
   }
 
-  @ParameterizedTest
-  @MethodSource("solutionStream")
-  void testOnlineCase7(Solution solution) {
-    final String input = "-1+4*-3/3/3";
-    assertEquals(-2, solution.calculate(input)); // = 2
-  }
-
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new GenericStackSolution()
-//        new GenericRecursionSolution()
+        new SolutionI()
     );
   }
 }
