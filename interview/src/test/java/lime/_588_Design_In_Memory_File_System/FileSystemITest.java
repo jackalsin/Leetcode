@@ -1,4 +1,4 @@
-package _0551_0600._588_Design_In_Memory_File_System;
+package lime._588_Design_In_Memory_File_System;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,15 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 2/10/2019.
+ * @version 1.0 on 4/3/2021
  */
-class MapSolutionTest {
-
-  static Stream<FileSystem> solutionStream() {
-    return Stream.of(
-        new MapSolution()
-    );
-  }
+class FileSystemITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -94,4 +88,9 @@ class MapSolutionTest {
     assertEquals(List.of("c"), solution.ls("/goowmfn"));
   }
 
+  static Stream<FileSystem> solutionStream() {
+    return Stream.of(
+        new FileSystemI()
+    );
+  }
 }
