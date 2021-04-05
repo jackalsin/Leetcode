@@ -1,4 +1,4 @@
-package _0001_0050._046_Permutations;
+package lime._046_Permutations;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,12 +12,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 2/25/2017.
+ * @version 1.0 on 4/4/2021
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -52,8 +51,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new DfsSolution(),
-        new SwapSolution()
+        new SolutionI()
     );
   }
 }

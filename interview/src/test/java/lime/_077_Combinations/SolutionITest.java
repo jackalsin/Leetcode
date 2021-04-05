@@ -1,4 +1,4 @@
-package _0051_0100._077_Combinations;
+package lime._077_Combinations;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,18 +11,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 5/12/2017.
+ * @version 1.0 on 4/4/2021
  */
-public class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new SolutionI(),
-        new SolutionII()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -44,11 +37,19 @@ public class SolutionTest {
     for (int i = 0; i < times; i++) {
       testWith4And2(solution);
     }
+//    System.out.println("Finish warming up");
     long startTime = System.nanoTime();
     for (int i = 0; i < times; i++) {
       testWith4And2(solution);
+//      System.out.println("i = " + i);
     }
     long endTime = System.nanoTime();
     System.out.println("Copy: " + (endTime - startTime) / times / 1e3);
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
