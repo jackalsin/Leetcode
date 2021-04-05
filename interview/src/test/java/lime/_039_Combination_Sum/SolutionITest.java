@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -29,7 +29,6 @@ class SolutionITest {
     List<List<Integer>> actual = solution.combinationSum(new int[]{2, 3, 6, 7}, 7);
     assertEquals(expect.size(), actual.size());
     assertEquals(new HashSet<>(expect), new HashSet<>(actual));
-
   }
 
   static Stream<Solution> solutionStream() {
