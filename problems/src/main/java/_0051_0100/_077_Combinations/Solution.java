@@ -1,9 +1,7 @@
 package _0051_0100._077_Combinations;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author jacka
@@ -12,11 +10,6 @@ import java.util.Set;
 public class Solution {
 
   public List<List<Integer>> combine(int n, int k) {
-    Set<Integer> candidates = new HashSet<>();
-    for (int i = 1; i < n + 1; i++) {
-      candidates.add(i);
-    }
-
     List<List<Integer>> result = new ArrayList<>();
     combine(result, 1, n, k, new ArrayList<>());
     return result;
