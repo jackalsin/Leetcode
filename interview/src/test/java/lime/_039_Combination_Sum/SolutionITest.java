@@ -1,4 +1,4 @@
-package _0001_0050._039_Combination_Sum;
+package lime._039_Combination_Sum;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,20 +10,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author jacka
- * @version 1.0 on 2/18/2017.
+ * @version 1.0 on 4/4/2021
  */
-public class SolutionTest {
+class SolutionITest {
 
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new Solution()
-    );
-  }
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -38,4 +32,9 @@ public class SolutionTest {
 
   }
 
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
