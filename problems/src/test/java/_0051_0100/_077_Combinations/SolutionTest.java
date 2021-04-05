@@ -19,7 +19,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SolutionTest {
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 
