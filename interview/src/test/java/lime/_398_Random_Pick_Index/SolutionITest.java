@@ -1,6 +1,5 @@
-package _0351_0400._398_Random_Pick_Index;
+package lime._398_Random_Pick_Index;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -8,12 +7,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /**
  * @author jacka
- * @version 1.0 on 1/11/2018.
+ * @version 1.0 on 4/7/2021
  */
-public class SolutionTest {
-
+class SolutionITest {
   private static final double BIAS = 1E-3;
 
   @ParameterizedTest
@@ -22,8 +23,8 @@ public class SolutionTest {
       InvocationTargetException, InstantiationException {
     final int[] nums = {1, 2, 3, 3, 3};
     Solution solution = cacheClass.getConstructor(int[].class).newInstance(nums);
-    Assertions.assertEquals(0, solution.pick(1));
-    Assertions.assertEquals(1, solution.pick(2));
+    assertEquals(0, solution.pick(1));
+    assertEquals(1, solution.pick(2));
     final int[] counts = new int[5];
     final int COUNT = 1_000_000;
     final double[] chances = new double[5];
@@ -33,7 +34,7 @@ public class SolutionTest {
     }
 
     for (int i = 2; i < chances.length; i++) {
-      Assertions.assertEquals(1d / 3, (double) counts[i] / COUNT, BIAS);
+      assertEquals(1d / 3, (double) counts[i] / COUNT, BIAS);
     }
   }
 
@@ -43,15 +44,14 @@ public class SolutionTest {
       InvocationTargetException, InstantiationException {
     final int[] nums = {1, 2, 3, 3, 3};
     Solution solution = cacheClass.getConstructor(int[].class).newInstance(nums);
-    Assertions.assertEquals(0, solution.pick(1));
-    Assertions.assertEquals(1, solution.pick(2));
-    Assertions.assertTrue(Set.of(2, 3, 4).contains(solution.pick(3)));
+    assertEquals(0, solution.pick(1));
+    assertEquals(1, solution.pick(2));
+    assertTrue(Set.of(2, 3, 4).contains(solution.pick(3)));
   }
 
   static Stream<Class> solutionStream() {
     return Stream.of(
-        NaiveSolution.class,
-        ReservoirSampleSolution.class
+        SolutionI.class
     );
   }
 }
