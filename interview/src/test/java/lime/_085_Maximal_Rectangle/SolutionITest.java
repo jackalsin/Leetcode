@@ -1,5 +1,4 @@
-package _0051_0100._085_Maximal_Rectangle;
-
+package lime._085_Maximal_Rectangle;
 
 import definition.TwoDimensionArray;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,9 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 5/21/2017.
+ * @version 1.0 on 4/8/2021
  */
-class SolutionTest {
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase(Solution solution) {
@@ -88,4 +88,3 @@ class SolutionTest {
     );
   }
 }
-

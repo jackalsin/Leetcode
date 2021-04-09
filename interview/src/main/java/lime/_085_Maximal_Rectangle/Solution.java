@@ -1,9 +1,10 @@
-package _0051_0100._085_Maximal_Rectangle;
+package lime._085_Maximal_Rectangle;
 
 /**
  * @author jacka
- * @version 1.0 on 5/21/2017.
+ * @version 1.0 on 4/8/2021
  */
 public interface Solution {
   int maximalRectangle(char[][] matrix);
+
 }
