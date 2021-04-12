@@ -1,4 +1,4 @@
-package _0251_0300._252_Meeting_Rooms;
+package lime._252_Meeting_Rooms;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,13 +8,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/25/2017.
+ * @author jacka
+ * @version 1.0 on 4/11/2021
  */
-class SolutionTest {
-
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
@@ -45,7 +43,7 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
