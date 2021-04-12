@@ -28,7 +28,8 @@ class CodecITest {
 
   static Stream<Codec> solutionStream() {
     return Stream.of(
-        new CodecI()
+        new CodecI(),
+        new CodeII()
     );
   }
 }
