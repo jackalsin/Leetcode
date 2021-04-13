@@ -1,9 +1,6 @@
 package _0251_0300._253_Meeting_Rooms_II;
 
-import definition.Interval;
-
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -13,30 +10,21 @@ import java.util.Queue;
  */
 public final class PriorityQueueSolution implements Solution {
 
-  public int minMeetingRooms(Interval[] intervals) {
-    Arrays.sort(intervals, new Comparator<Interval>() {
-
-      @Override
-      public int compare(Interval o1, Interval o2) {
-        final int cmp = Integer.compare(o1.start, o2.start);
-        if (cmp == 0) {
-          return Integer.compare(o1.end, o2.end);
-        }
+  public int minMeetingRooms(int[][] intervals) {
+    Arrays.sort(intervals, (a, b) -> {
+      final int cmp = Integer.compare(a[0], b[0]);
+      if (cmp != 0) {
         return cmp;
       }
+      return Integer.compare(a[1], b[1]);
     });
     int maxRoom = 0;
-    final Queue<Interval> pq = new PriorityQueue<>(new Comparator<Interval>() {
-      @Override
-      public int compare(Interval o1, Interval o2) {
-        return Integer.compare(o1.end, o2.end);
-      }
-    });
-    for (Interval i : intervals) {
-      while (!pq.isEmpty() && pq.peek().end <= i.start) {
+    final Queue<int[]> pq = new PriorityQueue<>((x, y) -> Integer.compare(x[1], y[1]));
+    for (final int[] interval : intervals) {
+      while (!pq.isEmpty() && pq.peek()[1] <= interval[0]) {
         pq.remove();
       }
-      pq.add(i);
+      pq.add(interval);
       maxRoom = Math.max(maxRoom, pq.size());
     }
     return maxRoom;

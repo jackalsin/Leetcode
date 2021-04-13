@@ -1,7 +1,5 @@
 package _0251_0300._253_Meeting_Rooms_II;
 
-import definition.Interval;
-
 import java.util.Arrays;
 
 /**
@@ -9,15 +7,15 @@ import java.util.Arrays;
  * @version 1.0 on 8/25/2017.
  */
 public final class TwoArraySolution implements Solution {
-  public int minMeetingRooms(Interval[] intervals) {
+  public int minMeetingRooms(final int[][] intervals) {
     if (intervals == null || intervals.length == 0) {
       return 0;
     }
 
     final int[] starts = new int[intervals.length], ends = new int[intervals.length];
     for (int i = 0; i < intervals.length; i++) {
-      starts[i] = intervals[i].start;
-      ends[i] = intervals[i].end;
+      starts[i] = intervals[i][0];
+      ends[i] = intervals[i][1];
     }
     Arrays.sort(starts);
     Arrays.sort(ends);

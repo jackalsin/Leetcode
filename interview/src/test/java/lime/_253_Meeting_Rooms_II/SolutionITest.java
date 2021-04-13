@@ -1,4 +1,4 @@
-package _0251_0300._253_Meeting_Rooms_II;
+package lime._253_Meeting_Rooms_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,10 +8,10 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 8/25/2017.
+ * @author jacka
+ * @version 1.0 on 4/12/2021
  */
-class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -50,15 +50,14 @@ class SolutionTest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
-  void testOnline3(Solution solution) {
-    int[][] intervals = {{6, 17}, {8, 9}, {11, 12}, {6, 9}};
-    assertEquals(3, solution.minMeetingRooms(intervals));
+  void testOnline2(Solution solution) {
+    int[][] intervals = {{7, 10}, {2, 4}};
+    assertEquals(1, solution.minMeetingRooms(intervals));
   }
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new TwoArraySolution(),
-        new PriorityQueueSolution()
+        new SolutionI()
     );
   }
 }
