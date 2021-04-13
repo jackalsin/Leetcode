@@ -1,4 +1,4 @@
-package _0001_0050._017_Letter_Combinations_of_a_Phone_Number;
+package lime._017_Letter_Combinations_of_a_Phone_Number;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,12 +9,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 2017/1/21.
+ * @version 1.0 on 4/12/2021
  */
-public class SolutionTest {
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -31,7 +30,7 @@ public class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI()
     );
   }
 }
