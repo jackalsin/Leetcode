@@ -1,4 +1,4 @@
-package _0701_0750._732_My_Calendar_III;
+package lime._732_My_Calendar_III;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,12 +7,12 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 1/4/2018.
+ * @version 1.0 on 4/13/2021
  */
-public class MyCalendarThreeTest {
+class MyCalendarThreeITest {
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   public void testOnlineCase1(MyCalendarThree myCalendarThree) {
@@ -26,7 +26,7 @@ public class MyCalendarThreeTest {
 
   static Stream<MyCalendarThree> solutionStream() {
     return Stream.of(
-        new MyCalendarThree()
+        new MyCalendarThreeI()
     );
   }
 }
