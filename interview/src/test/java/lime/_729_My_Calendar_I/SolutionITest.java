@@ -1,4 +1,4 @@
-package _0701_0750._729_My_Calendar_I;
+package lime._729_My_Calendar_I;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,7 +8,19 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MyCalendarTest {
+/**
+ * @author jacka
+ * @version 1.0 on 4/13/2021
+ */
+class SolutionITest {
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(MyCalendar solution) {
+    assertTrue(solution.book(1, 3));
+    assertTrue(solution.book(3, 4));
+    assertFalse(solution.book(2, 4));
+  }
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -34,7 +46,7 @@ public class MyCalendarTest {
 
   static Stream<MyCalendar> solutionStream() {
     return Stream.of(
-        new MyCalendar()
+        new MyCalendarI()
     );
   }
 }
