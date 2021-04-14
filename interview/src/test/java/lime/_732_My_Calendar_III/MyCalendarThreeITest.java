@@ -26,7 +26,7 @@ class MyCalendarThreeITest {
 
   static Stream<MyCalendarThree> solutionStream() {
     return Stream.of(
-        new MyCalendarThreeI()
+        new SegmentTreeNodeSolution()
     );
   }
 }
