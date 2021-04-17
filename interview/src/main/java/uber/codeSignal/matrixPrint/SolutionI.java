@@ -33,7 +33,7 @@ public final class SolutionI implements Solution {
       }
     }
     beforePadding.addAll(topRight);
-    System.out.println(beforePadding);
+//    System.out.println(beforePadding);
     final List<Node> sorted = new ArrayList<>();
     for (int i = 0; i < beforePadding.size(); ++i) {
       final StringBuilder cur = beforePadding.get(i);
@@ -44,7 +44,7 @@ public final class SolutionI implements Solution {
       sorted.add(new Node(cur.toString(), i));
     }
     sorted.sort(Comparator.comparing(a -> a.word));
-    System.out.println(sorted);
+//    System.out.println(sorted);
     return sorted.stream().map(e -> e.index).collect(Collectors.toList());
   }
 

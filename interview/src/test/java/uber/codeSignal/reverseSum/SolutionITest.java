@@ -1,29 +1,23 @@
-package uber.codeSignal.matrixPrint;
+package uber.codeSignal.reverseSum;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 4/16/2021
+ * @version 1.0 on 4/17/2021
  */
 class SolutionITest {
 
-  @Disabled
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
-    final char[][] matrix = {
-        {'a', 'b'},
-        {'c', 'd'}
-    };
-    assertEquals(List.of(3, 1, 2), solution.print(matrix));
+    final int[] nums = {123, 210, 106};
+    assertEquals(1042, solution.getReverseSum(nums));
   }
 
   static Stream<Solution> solutionStream() {
