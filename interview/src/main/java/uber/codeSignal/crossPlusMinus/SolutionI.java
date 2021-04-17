@@ -1,4 +1,4 @@
-package uber.crossPlusMinus;
+package uber.codeSignal.crossPlusMinus;
 
 /**
  * @author jacka

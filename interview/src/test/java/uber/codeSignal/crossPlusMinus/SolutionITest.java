@@ -1,4 +1,4 @@
-package uber.divideIntInK;
+package uber.codeSignal.crossPlusMinus;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -16,13 +16,15 @@ class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
-    assertEquals(132, solution.divideIntToK(1111122222, 3));
+    final int num = 12345;
+    assertEquals(1 - 2 + 3 - 4 + 5, solution.calculate(num));
   }
 
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
-    assertEquals(356, solution.divideIntToK(111_122_222, 3));
+    final int num = 5243;
+    assertEquals(5 - 2 + 4 - 3, solution.calculate(num));
   }
 
   static Stream<Solution> solutionStream() {

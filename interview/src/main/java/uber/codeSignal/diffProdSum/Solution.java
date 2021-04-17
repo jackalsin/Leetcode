@@ -1,4 +1,4 @@
-package uber.diffProdSum;
+package uber.codeSignal.diffProdSum;
 
 /**
  * @author jacka

@@ -1,4 +1,4 @@
-package uber.fangziLianPai;
+package uber.codeSignal.fangziLianPai;
 
 import java.util.ArrayList;
 import java.util.Arrays;

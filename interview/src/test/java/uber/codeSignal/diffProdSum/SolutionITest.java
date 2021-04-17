@@ -1,4 +1,4 @@
-package uber.crossPlusMinus;
+package uber.codeSignal.diffProdSum;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,22 +9,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 4/15/2021
+ * @version 1.0 on 12/12/2019
  */
 class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase1(Solution solution) {
-    final int num = 12345;
-    assertEquals(1 - 2 + 3 - 4 + 5, solution.calculate(num));
+    assertEquals(0, solution.diff(1));
   }
 
   @ParameterizedTest
   @MethodSource("solutionStream")
-  void testOnlineCase2(Solution solution) {
-    final int num = 5243;
-    assertEquals(5 - 2 + 4 - 3, solution.calculate(num));
+  void testOnlineCase123456(Solution solution) {
+    // 720 - 7 * 3
+    assertEquals(699, solution.diff(123456));
   }
 
   static Stream<Solution> solutionStream() {

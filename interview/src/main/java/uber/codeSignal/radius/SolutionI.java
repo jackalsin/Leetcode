@@ -1,4 +1,4 @@
-package uber.radius;
+package uber.codeSignal.radius;
 
 /**
  * @author jacka

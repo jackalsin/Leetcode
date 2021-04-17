@@ -1,4 +1,4 @@
-package uber.divideIntInK;
+package uber.codeSignal.divideIntInK;
 
 /**
  * @author jacka
