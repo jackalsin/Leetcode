@@ -1,4 +1,4 @@
-package uber.addChar;
+package uber.codeSignal.addChar;
 
 import java.util.LinkedList;
 

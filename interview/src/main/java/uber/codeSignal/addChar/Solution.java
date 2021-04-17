@@ -1,4 +1,4 @@
-package uber.addChar;
+package uber.codeSignal.addChar;
 
 /**
  * @author jacka
