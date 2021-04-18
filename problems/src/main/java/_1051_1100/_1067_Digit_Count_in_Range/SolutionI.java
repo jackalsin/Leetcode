@@ -26,7 +26,7 @@ public final class SolutionI implements Solution {
           }
         }
       } else {
-        //    1625, d = 2 -> [00~16]2[0-9]
+        //    1625, d = 2 -> [00~15]2[0-9]
         count += num / times / 10 * times
             // 162[0-5]
             + Math.min(times, Math.max(num % (10 * times) - d * times + 1, 0));
