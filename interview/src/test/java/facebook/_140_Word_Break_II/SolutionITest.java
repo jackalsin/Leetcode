@@ -1,4 +1,4 @@
-package _0101_0150._140_Word_Break_II;
+package facebook._140_Word_Break_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,12 +10,12 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 7/8/2017.
+ * @author jacka
+ * @version 1.0 on 4/20/2021
  */
-public class SolutionTest {
+class SolutionITest {
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   public void testLeetCode(Solution solution) {
@@ -36,7 +36,7 @@ public class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-//        new DpSolution(), // failed on MLE
-        new MemorizedSolution());
+        new SolutionI()
+    );
   }
 }
