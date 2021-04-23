@@ -1,4 +1,4 @@
-package _1551_1600._1570_Dot_Product_of_Two_Sparse_Vectors____New;
+package _1551_1600._1570_Dot_Product_of_Two_Sparse_Vectors;
 
 import java.util.HashMap;
 import java.util.Map;
