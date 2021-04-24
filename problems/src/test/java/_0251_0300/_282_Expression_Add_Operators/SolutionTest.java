@@ -1,29 +1,31 @@
 package _0251_0300._282_Expression_Add_Operators;
 
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * @author jacka
  * @version 1.0 on 9/4/2017.
  */
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new Solution()
+    );
   }
 
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(Solution solution) {
     final String input = "123";
     List<String> actual = solution.addOperators(input, 6);
     Set<String> expect = new HashSet<String>() {{
@@ -34,8 +36,9 @@ class SolutionTest {
     assertEquals(expect.size(), actual.size());
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase2(Solution solution) {
     final String input = "232";
     List<String> actual = solution.addOperators(input, 8);
     Set<String> expect = new HashSet<String>() {{
@@ -46,8 +49,9 @@ class SolutionTest {
     assertEquals(expect.size(), actual.size());
   }
 
-  @Test
-  void testOnlineCase3() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase3(Solution solution) {
     final String input = "105";
     List<String> actual = solution.addOperators(input, 5);
     Set<String> expect = new HashSet<String>() {{
@@ -58,8 +62,9 @@ class SolutionTest {
     assertEquals(expect.size(), actual.size());
   }
 
-  @Test
-  void testOnlineCase4() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase4(Solution solution) {
     final String input = "00";
     List<String> actual = solution.addOperators(input, 0);
     Set<String> expect = new HashSet<String>() {{
@@ -71,8 +76,9 @@ class SolutionTest {
     assertEquals(expect.size(), actual.size());
   }
 
-  @Test
-  void testOnlineCase5() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase5(Solution solution) {
     final String input = "3456237490";
     List<String> actual = solution.addOperators(input, 9191);
     Set<String> expect = new HashSet<String>();
