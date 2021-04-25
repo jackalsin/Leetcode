@@ -1,4 +1,4 @@
-package _0601_0650._616_Add_Bold_Tag_in_String;
+package google._616_Add_Bold_Tag_in_String;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,8 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-public class SolutionTest {
+/**
+ * @author jacka
+ * @version 1.0 on 4/24/2021
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -37,10 +40,7 @@ public class SolutionTest {
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new BooleanArraySolution(),
-        new KmpSolution(),
-        new TrieSolution(),
-        new MergeIntervalSolution(),
-        new OnePassSolution()
+        new TrieSolution()
     );
   }
 }
