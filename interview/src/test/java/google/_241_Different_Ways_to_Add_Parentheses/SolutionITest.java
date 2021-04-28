@@ -1,4 +1,4 @@
-package _0201_0250._241_Different_Ways_to_Add_Parentheses;
+package google._241_Different_Ways_to_Add_Parentheses;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,16 +10,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 8/20/2017.
+ * @version 1.0 on 4/27/2021
  */
-public class SolutionTest {
-
-  static Stream<Solution> solutionStream() {
-    return Stream.of(new Solution());
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -41,4 +36,9 @@ public class SolutionTest {
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
   }
 
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
