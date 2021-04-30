@@ -1,8 +1,7 @@
 package google._833_Find_And_Replace_in_String;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author jacka
@@ -11,21 +10,18 @@ import java.util.List;
 public final class SolutionII implements Solution {
   public String findReplaceString(String s, int[] indexes, String[] sources, String[] targets) {
     if (s == null || s.isEmpty() || indexes == null || indexes.length == 0) return s;
-    final List<Pair> pairs = new ArrayList<>();
+    final Map<Integer, Integer> iToIndex = new HashMap<>();
     for (int i = 0; i < indexes.length; ++i) {
-      pairs.add(new Pair(indexes[i], sources[i], targets[i]));
+      iToIndex.put(indexes[i], i);
     }
-    Collections.sort(pairs, (x, y) -> Integer.compare(x.index, y.index));
     final StringBuilder sb = new StringBuilder();
-    for (int i = 0, j = 0; i < s.length(); ) {
-      while (j < indexes.length && i > pairs.get(j).index) {
-        ++j;
-      }
-      if (j < indexes.length && i == pairs.get(j).index && s.startsWith(pairs.get(j).source, i)) {
-        final Pair pair = pairs.get(j);
-        sb.append(pair.target);
-        ++j;
-        i += pair.source.length();
+    for (int i = 0; i < s.length(); ) {
+      if (iToIndex.containsKey(i) && s.startsWith(sources[iToIndex.get(i)], i)) {
+        final int indexI = iToIndex.get(i);
+        final String target = targets[indexI],
+            source = sources[indexI];
+        sb.append(target);
+        i += source.length();
       } else {
         sb.append(s.charAt(i));
         ++i;
@@ -34,23 +30,4 @@ public final class SolutionII implements Solution {
     return sb.toString();
   }
 
-  private static final class Pair {
-    private final int index;
-    private final String source, target;
-
-    private Pair(int index, String source, String target) {
-      this.index = index;
-      this.source = source;
-      this.target = target;
-    }
-
-    @Override
-    public String toString() {
-      return "Pair{" +
-          "index=" + index +
-          ", source='" + source + '\'' +
-          ", target='" + target + '\'' +
-          '}';
-    }
-  }
 }
