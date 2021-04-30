@@ -31,9 +31,22 @@ class SolutionITest {
     assertEquals("eeecd", actual);
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase3(Solution solution) {
+    final String S = "mhnbzxkwzxtaanmhtoirxheyanoplbvjrovzudznmetkkxrdmr";
+    final int[] indexes = {46, 29, 2, 44, 31, 26, 42, 9, 38, 23, 36, 12, 16, 7, 33, 18};
+    final String[] sources = {"rym", "kv", "nbzxu", "vx", "js", "tp", "tc", "jta", "zqm", "ya", "uz", "avm", "tz",
+        "wn", "yv", "ird"}, targets = {"gfhc", "uq", "dntkw", "wql", "s", "dmp", "jqi", "fp", "hs", "aqz", "ix", "jag"
+        , "n", "l", "y", "zww"};
+    final String actual = solution.findReplaceString(S, indexes, sources, targets);
+    assertEquals("mhnbzxkwzxtaanmhtoirxheaqznoplbvjrovzudznmetkkxrdmr", actual);
+  }
+
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
