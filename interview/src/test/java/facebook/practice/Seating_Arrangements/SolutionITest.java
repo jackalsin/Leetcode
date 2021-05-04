@@ -1,4 +1,4 @@
-package facebook.Seating_Arrangements;
+package facebook.practice.Seating_Arrangements;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

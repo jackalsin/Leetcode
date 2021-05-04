@@ -1,4 +1,4 @@
-package facebook.Seating_Arrangements;
+package facebook.practice.Seating_Arrangements;
 
 /**
  * @author jacka

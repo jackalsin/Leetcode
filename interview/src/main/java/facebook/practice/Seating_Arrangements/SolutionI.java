@@ -1,4 +1,4 @@
-package facebook.Seating_Arrangements;
+package facebook.practice.Seating_Arrangements;
 
 import java.util.PriorityQueue;
 import java.util.Queue;

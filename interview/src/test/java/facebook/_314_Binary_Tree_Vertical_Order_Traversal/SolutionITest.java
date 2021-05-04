@@ -1,4 +1,4 @@
-package _0301_0350._314_Binary_Tree_Vertical_Order_Traversal;
+package facebook._314_Binary_Tree_Vertical_Order_Traversal;
 
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
@@ -12,15 +12,10 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/18/2017.
+ * @author jacka
+ * @version 1.0 on 5/3/2021
  */
-public class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -67,5 +62,11 @@ public class SolutionTest {
   @MethodSource("solutionStream")
   public void testNull(Solution solution) {
     assertEquals(new ArrayList<>(), solution.verticalOrder(null));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
