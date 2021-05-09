@@ -21,7 +21,6 @@ public final class SegmentTreeLazyPropagationTreeNode implements SegmentTree {
     }
   }
 
-
   @Override
   public void update(int i, int val) {
     update(root, i, val - values[i]);
@@ -53,8 +52,6 @@ public final class SegmentTreeLazyPropagationTreeNode implements SegmentTree {
   }
 
   private int get(final Node root, int rangeStart, int rangeEnd) {
-
-
     if (root.end < rangeStart || root.start > rangeEnd) {
       return 0;
     }

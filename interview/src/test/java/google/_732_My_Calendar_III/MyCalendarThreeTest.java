@@ -33,7 +33,8 @@ class MyCalendarThreeTest {
   static Stream<MyCalendarThree> solutionStream() {
     return Stream.of(
         new MyCalendarThreeI(),
-        new MyCalendarThreeII()
+        new MyCalendarThreeII(),
+        new MyCalendarThreeIII()
     );
   }
 }
