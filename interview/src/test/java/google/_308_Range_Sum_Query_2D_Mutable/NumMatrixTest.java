@@ -55,7 +55,8 @@ public class NumMatrixTest {
   static Stream<Class> solutionStream() {
     return Stream.of(
         NumMatrixI.class,
-        NumMatrixII.class
+        NumMatrixII.class,
+        NumMatrixIII.class
     );
   }
 }
