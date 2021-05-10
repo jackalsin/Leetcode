@@ -46,7 +46,6 @@ class NumMatrixTest {
     NumMatrix numMatrix = solution.getConstructor(int[][].class).newInstance((Object) new int[][]{});
   }
 
-
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase1(Class<NumMatrix> solution) throws Exception {
