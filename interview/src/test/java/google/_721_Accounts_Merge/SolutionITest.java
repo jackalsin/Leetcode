@@ -1,4 +1,4 @@
-package _0701_0750._721_Accounts_Merge;
+package google._721_Accounts_Merge;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,13 +10,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionTest {
-
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+/**
+ * @author jacka
+ * @version 1.0 on 5/10/2021
+ */
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -96,5 +94,11 @@ class SolutionTest {
     );
     final List<List<String>> actual = solution.accountsMerge(account);
     assertEquals(expected, new HashSet<>(actual));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new UnionFindSolution()
+    );
   }
 }
