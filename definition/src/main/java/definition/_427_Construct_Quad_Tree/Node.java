@@ -43,12 +43,12 @@ public final class Node {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Node node = (Node) o;
-    return val == node.val &&
-        isLeaf == node.isLeaf &&
+    return isLeaf == node.isLeaf &&
         Objects.equals(topLeft, node.topLeft) &&
         Objects.equals(topRight, node.topRight) &&
         Objects.equals(bottomLeft, node.bottomLeft) &&
-        Objects.equals(bottomRight, node.bottomRight);
+        Objects.equals(bottomRight, node.bottomRight) &&
+        (!isLeaf || val == node.val);
   }
 
   @Override
