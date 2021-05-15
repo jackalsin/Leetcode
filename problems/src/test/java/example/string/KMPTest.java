@@ -13,7 +13,8 @@ class KMPTest {
   static Stream<KMP> solutionStream() {
     return Stream.of(
         new KMPI(),
-        new KMPII()
+        new KMPII(),
+        new KMPIII()
     );
   }
 
