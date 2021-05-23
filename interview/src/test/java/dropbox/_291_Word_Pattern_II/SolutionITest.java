@@ -1,5 +1,4 @@
-package _0251_0300._291_Word_Pattern_II;
-
+package dropbox._291_Word_Pattern_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,16 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author Zhiwei.Xin
- * @version 1.0 on 9/6/2017.
+ * @author jacka
+ * @version 1.0 on 5/22/2021
  */
-class SolutionTest {
-
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -28,14 +21,12 @@ class SolutionTest {
     assertTrue(solution.wordPatternMatch(pattern, str));
   }
 
-
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testOnlineCase2(Solution solution) {
     final String str = "asdasdasdasd", pattern = "aaaa";
     assertTrue(solution.wordPatternMatch(pattern, str));
   }
-
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -44,14 +35,12 @@ class SolutionTest {
     assertFalse(solution.wordPatternMatch(pattern, str));
   }
 
-
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testFailed(Solution solution) {
     final String str = "aa", pattern = "ab";
     assertFalse(solution.wordPatternMatch(pattern, str));
   }
-
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -60,7 +49,6 @@ class SolutionTest {
     assertTrue(solution.wordPatternMatch(pattern, str));
   }
 
-
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testFailed3(Solution solution) {
@@ -68,4 +56,16 @@ class SolutionTest {
     assertTrue(solution.wordPatternMatch(pattern, str));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFailed4(Solution solution) {
+    final String str = "ab", pattern = "aa";
+    assertFalse(solution.wordPatternMatch(pattern, str));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
