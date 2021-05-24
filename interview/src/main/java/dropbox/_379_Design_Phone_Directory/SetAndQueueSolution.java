@@ -9,7 +9,7 @@ import java.util.Set;
  * @author jacka
  * @version 1.0 on 5/23/2021
  */
-public final class PhoneDirectory implements Solution {
+public final class SetAndQueueSolution implements Solution {
   private final int maxNumber;
   private int next = 0;
   private final Set<Integer> releasedSet = new HashSet<>();
@@ -20,7 +20,7 @@ public final class PhoneDirectory implements Solution {
    *
    * @param maxNumbers - The maximum numbers that can be stored in the phone directory.
    */
-  public PhoneDirectory(int maxNumbers) {
+  public SetAndQueueSolution(int maxNumbers) {
     this.maxNumber = maxNumbers;
   }
 

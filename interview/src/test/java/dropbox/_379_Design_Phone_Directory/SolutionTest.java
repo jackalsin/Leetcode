@@ -28,13 +28,11 @@ class SolutionTest {
 
     for (int i = 0; i < NUM; i++) {
       final int get = phoneDirectory.get();
-      System.out.println(get);
       assertFalse(phoneDirectory.check(get));
     }
 
     for (int i = 0; i < NUM; i++) {
       phoneDirectory.release(i);
-      System.out.println("Release " + i);
       assertTrue(phoneDirectory.check(i));
     }
   }
@@ -56,7 +54,7 @@ class SolutionTest {
 
   static Stream<Class> solutionStream() {
     return Stream.of(
-        PhoneDirectory.class
+        SetAndQueueSolution.class
     );
   }
 }
