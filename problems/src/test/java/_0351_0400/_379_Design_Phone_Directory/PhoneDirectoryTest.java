@@ -48,10 +48,25 @@ public class PhoneDirectoryTest {
     assertEquals(-1, solution.get());
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase3(Class<PhoneDirectory> solutionClass) throws NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
+    final PhoneDirectory solution = solutionClass.getConstructor(Integer.TYPE).newInstance(3);
+    solution.get();
+    solution.get();
+    solution.get();
+    assertFalse(solution.check(2));
+    assertEquals(-1, solution.get());
+    solution.release(2);
+    assertTrue(solution.check(2));
+  }
+
   static Stream<Class> solutionStream() {
     return Stream.of(
         SetAndQueueSolution.class,
-        LinkedHashSetSolution.class
+        LinkedHashSetSolution.class,
+        BitSetSolution.class
     );
   }
 }
