@@ -20,7 +20,7 @@ class SolutionTest {
   @MethodSource("solutionStream")
   void testOnlineCase(Class<Solution> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
-    final int NUM = 3;
+    final int NUM = 4;
     final Solution phoneDirectory = solutionClass.getConstructor(Integer.TYPE).newInstance(NUM);
     for (int i = 0; i < NUM; i++) {
       assertTrue(phoneDirectory.check(i));
@@ -30,7 +30,7 @@ class SolutionTest {
       final int get = phoneDirectory.get();
       assertFalse(phoneDirectory.check(get));
     }
-
+    assertEquals(-1, phoneDirectory.get());
     for (int i = 0; i < NUM; i++) {
       phoneDirectory.release(i);
       assertTrue(phoneDirectory.check(i));
@@ -54,7 +54,8 @@ class SolutionTest {
 
   static Stream<Class> solutionStream() {
     return Stream.of(
-        SetAndQueueSolution.class
+        SetAndQueueSolution.class,
+        SegmentTreeSolution.class
     );
   }
 }
