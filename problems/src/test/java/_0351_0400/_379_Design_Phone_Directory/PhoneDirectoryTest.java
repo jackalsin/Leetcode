@@ -52,10 +52,11 @@ public class PhoneDirectoryTest {
   @MethodSource("solutionStream")
   void testOnlineCase3(Class<PhoneDirectory> solutionClass) throws NoSuchMethodException, IllegalAccessException,
       InvocationTargetException, InstantiationException {
-    final PhoneDirectory solution = solutionClass.getConstructor(Integer.TYPE).newInstance(3);
-    solution.get();
-    solution.get();
-    solution.get();
+    final int n = 3;
+    final PhoneDirectory solution = solutionClass.getConstructor(Integer.TYPE).newInstance(n);
+    assertEquals(0, solution.get());
+    assertEquals(1, solution.get());
+    assertEquals(2, solution.get());
     assertFalse(solution.check(2));
     assertEquals(-1, solution.get());
     solution.release(2);
@@ -66,7 +67,8 @@ public class PhoneDirectoryTest {
     return Stream.of(
         SetAndQueueSolution.class,
         LinkedHashSetSolution.class,
-        BitSetSolution.class
+        BitSetSolution.class,
+        SegmentTreeRandomLengthSolution.class
     );
   }
 }
