@@ -47,6 +47,4 @@ class CrawlerTest {
         MultiThreadCrawler.class
     );
   }
-
-
 }
