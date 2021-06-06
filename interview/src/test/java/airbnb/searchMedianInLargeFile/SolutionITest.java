@@ -34,4 +34,10 @@ class SolutionITest {
     final int[] nums = {1, 2};
     assertEquals(1.5, solution.findMedian(nums));
   }
+
+  @Test
+  void testOnlineCaseIntMin() {
+    final int[] nums = {Integer.MIN_VALUE};
+    assertEquals(Integer.MIN_VALUE, solution.findMedian(nums));
+  }
 }

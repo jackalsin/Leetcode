@@ -25,7 +25,8 @@ public final class SolutionI implements Solution {
    */
   private static int findKthSmallest(final int[] nums, final int k, long left, long right) {
     while (left < right) {
-      final long mid = (left + right) / 2;
+      // 如果两个是负数，则会偏向右边，然后会bug
+      final long mid = (long) Math.floor((left + right) / 2.0);
       int count = getLessThanOrEquals(nums, mid);
       if (count < k) {
         left = mid + 1;
