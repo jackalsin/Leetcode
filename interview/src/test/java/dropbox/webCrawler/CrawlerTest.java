@@ -1,6 +1,7 @@
 package dropbox.webCrawler;
 
 import dropbox.webCrawler.multiThread.MultiThreadCrawler;
+import dropbox.webCrawler.multiThread.MultiThreadSolutionI;
 import dropbox.webCrawler.singleThread.WebCrawler;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -44,7 +45,8 @@ class CrawlerTest {
   static Stream<Class> solutionStream() {
     return Stream.of(
         WebCrawler.class,
-        MultiThreadCrawler.class
+        MultiThreadCrawler.class,
+        MultiThreadSolutionI.class
     );
   }
 }
