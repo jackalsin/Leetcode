@@ -56,7 +56,8 @@ class SolutionTest {
     return Stream.of(
         SetAndQueueSolution.class,
         SegmentTreeSolution.class,
-        SetAndQueueSolutionI.class
+        SetAndQueueSolutionI.class,
+        SegmentTreeSolutionI.class
     );
   }
 }

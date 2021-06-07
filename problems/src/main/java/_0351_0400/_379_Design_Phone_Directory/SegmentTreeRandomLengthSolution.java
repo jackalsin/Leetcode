@@ -46,6 +46,7 @@ public final class SegmentTreeRandomLengthSolution implements PhoneDirectory {
 
   private int next() {
     int p = 0, left = 0, right = maxId - 1;
+    // 如果maxId是1，而0被占据，则应该
     if (bitSet.get(p)) return -1;
     while (left < right) {
       final int mid = left + (right - left) / 2;
