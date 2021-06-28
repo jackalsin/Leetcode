@@ -25,7 +25,7 @@ public class SolutionTest {
     Assertions.assertEquals(0, solution.pick(1));
     Assertions.assertEquals(1, solution.pick(2));
     final int[] counts = new int[5];
-    final int COUNT = 1_000_000;
+    final int COUNT = 10_000_000;
     final double[] chances = new double[5];
     for (int i = 0; i < COUNT; i++) {
       int res = solution.pick(3);
