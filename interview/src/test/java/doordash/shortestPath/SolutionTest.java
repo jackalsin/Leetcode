@@ -57,7 +57,8 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new BruteForceSolution()
+        new BruteForceSolution(),
+        new BfsDfsSolution()
     );
   }
 }

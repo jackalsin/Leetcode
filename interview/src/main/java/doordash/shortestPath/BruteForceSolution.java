@@ -25,10 +25,10 @@ public final class BruteForceSolution implements Solution {
     return result;
   }
 
-  private void dfs(final int end, final int cur, final Set<Integer> visited,
+  private void dfs(final int end, final int cur, final Set<Integer> visitedInPath,
                    final List<Edge> curPath) {
-    if (!visited.add(cur)) return;
     if (curPath.size() > minEdges) return;
+    if (visitedInPath.contains(cur)) return;
     if (cur == end) {
       if (curPath.size() < minEdges) {
         result.clear();
@@ -37,13 +37,13 @@ public final class BruteForceSolution implements Solution {
       minEdges = curPath.size();
       return;
     }
-
+    visitedInPath.add(cur);
     for (final Edge e : adjacentList.getOrDefault(cur, Collections.emptyList())) {
       curPath.add(e);
-      dfs(end, e.other(cur), visited, curPath);
+      dfs(end, e.other(cur), visitedInPath, curPath);
       curPath.remove(curPath.size() - 1);
     }
-    visited.remove(cur);
+    visitedInPath.remove(cur);
   }
 
   private void generateAdjacentList(final List<Edge> edges) {
