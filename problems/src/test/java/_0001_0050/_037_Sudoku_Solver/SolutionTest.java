@@ -2,29 +2,32 @@ package _0001_0050._037_Sudoku_Solver;
 
 import definition.SudokuUtils;
 import definition.TwoDimensionArray;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static _0001_0050._037_Sudoku_Solver.Solution.isValidInCol;
 import static _0001_0050._037_Sudoku_Solver.Solution.isValidInSquare;
 import static definition.TwoDimensionArray.TwoDimensionArrayEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * @author jacka
  * @version 1.0 on 2/16/2017.
  */
 public class SolutionTest {
-  private Solution solution;
-
-  @Before
-  public void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new Solution()
+    );
   }
 
-  @Test
-  public void testWithCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testWithCase1(Solution solution) {
     final char[][] board = SudokuUtils.create2dSudokuArray(new String[]{
         "..9748...", "7........", ".2.1.9...", "..7...24.", ".64.1.59.", ".98...3..",
         "...8.3.2.", "........6", "...2759.."
@@ -41,8 +44,9 @@ public class SolutionTest {
 
 
   // test package-private method
-  @Test
-  public void testWithIsValidInColWithDup() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testWithIsValidInColWithDup(Solution solution) {
     final char[][] board = SudokuUtils.create2dSudokuArray(new String[]{
         "..9748...", "7........", ".2.1.9...", "..7...24.", ".64.1.59.", ".98...3..",
         "...8.3.2.", "........6", "...2759.."
@@ -51,8 +55,9 @@ public class SolutionTest {
     assertFalse(isValidInCol(board, 0));
   }
 
-  @Test
-  public void testWithIsValidInSquareWithDup() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testWithIsValidInSquareWithDup(Solution solution) {
     final char[][] board = SudokuUtils.create2dSudokuArray(new String[]{
         "..9748...", "7........", ".2.1.9...", "..7...24.", ".64.1.59.", ".98...3..",
         "...8.3.2.", "........6", "...2759.."
