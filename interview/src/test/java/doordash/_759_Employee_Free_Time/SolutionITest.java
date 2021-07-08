@@ -1,24 +1,22 @@
-package _0751_0800._759_Employee_Free_Time;
+package doordash._759_Employee_Free_Time;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import definition.Interval;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SeparateSortingSolutionTest {
-
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new SeparateSortingSolution();
-  }
-
-  @Test
-  void testOnlineCase1() {
+/**
+ * @author jacka
+ * @version 1.0 on 7/7/2021
+ */
+class SolutionITest {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(Solution solution) {
     final List<List<Interval>> input = List.of(
         List.of(new Interval(1, 2), new Interval(5, 6)),
         List.of(new Interval(1, 3)),
@@ -30,8 +28,9 @@ class SeparateSortingSolutionTest {
     assertEquals(expected, actual);
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase2(Solution solution) {
     final List<List<Interval>> input = List.of(
         List.of(new Interval(1, 3), new Interval(6, 7)),
         List.of(new Interval(2, 4)),
@@ -45,8 +44,10 @@ class SeparateSortingSolutionTest {
     assertEquals(expected, actual);
   }
 
-  @Test
-  void testFailedCase1() {
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFailedCase1(Solution solution) {
     final List<List<Interval>> input = List.of(
         List.of(new Interval(7, 24), new Interval(29, 33), new Interval(45, 57), new Interval(66, 69), new Interval(94,
             99)),
@@ -64,5 +65,11 @@ class SeparateSortingSolutionTest {
         new Interval(26, 27), new Interval(36, 39), new Interval(87, 91)
     ), actual = solution.employeeFreeTime(input);
     assertEquals(expected, actual);
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
