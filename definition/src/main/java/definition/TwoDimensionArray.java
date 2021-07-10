@@ -156,25 +156,37 @@ public final class TwoDimensionArray {
   }
 
   public static void println(int[][] array) {
-    if (array == null) {
-      throw new NullPointerException("array cannot be null");
-    }
-    System.out.println("[");
-    for (int[] child : array) {
-      System.out.println("\t" + Arrays.toString(child));
-    }
-    System.out.println("]");
+    System.out.println(toString(array));
   }
 
   public static void println(boolean[][] array) {
+    System.out.println(toString(array));
+  }
+
+  public static String toString(int[][] array) {
     if (array == null) {
       throw new NullPointerException("array cannot be null");
     }
-    System.out.println("[");
-    for (boolean[] child : array) {
-      System.out.println("\t" + Arrays.toString(child));
+    final StringBuilder sb = new StringBuilder();
+    sb.append("[\n");
+    for (int[] child : array) {
+      sb.append("\t").append(Arrays.toString(child)).append("\n");
     }
-    System.out.println("]");
+    sb.append("]");
+    return sb.toString();
+  }
+
+  public static String toString(boolean[][] array) {
+    if (array == null) {
+      throw new NullPointerException("array cannot be null");
+    }
+    final StringBuilder sb = new StringBuilder();
+    sb.append("[\n");
+    for (boolean[] child : array) {
+      sb.append("\t").append(Arrays.toString(child)).append("\n");
+    }
+    sb.append("]");
+    return sb.toString();
   }
 
   /**

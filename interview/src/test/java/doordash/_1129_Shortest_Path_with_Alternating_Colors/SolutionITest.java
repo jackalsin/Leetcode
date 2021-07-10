@@ -61,7 +61,8 @@ class SolutionITest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new DpSolution()
+        new DpSolution(),
+        new BfsSolution()
     );
   }
 }
