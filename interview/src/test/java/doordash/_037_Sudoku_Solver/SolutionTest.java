@@ -1,7 +1,6 @@
 package doordash._037_Sudoku_Solver;
 
 import definition.SudokuUtils;
-import definition.TwoDimensionArray;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -29,13 +28,14 @@ class SolutionTest {
         "198524367", "975863124", "832491756", "641275983"
     });
     solution.solveSudoku(board);
-    TwoDimensionArray.println(board);
+//    TwoDimensionArray.println(board);
     assertTrue(TwoDimensionArrayEquals(expected, board));
   }
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }

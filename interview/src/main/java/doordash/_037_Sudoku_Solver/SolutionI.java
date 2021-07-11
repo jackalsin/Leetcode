@@ -59,7 +59,6 @@ public final class SolutionI implements Solution {
 
   private boolean solveRow(final char[][] board, final int row) {
     if (row == N) return true;
-    final Set<Character> candidates = new HashSet<>(FULL);
     final boolean[] used = new boolean[N];
     for (final char c : board[row]) {
       if (DOT != c) used[c - ONE] = true;
