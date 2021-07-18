@@ -8,25 +8,23 @@ public final class SolutionII implements Solution {
   private static final int LAND = 1, EMPTY = 0;
 
   public int maxAreaOfIsland(int[][] grid) {
-    if (grid == null || grid.length == 0) return 0;
     final int rows = grid.length, cols = grid[0].length;
     int max = 0;
-    for (int row = 0; row < rows; ++row) {
-      for (int col = 0; col < cols; ++col) {
-        final int cur = dfs(grid, rows, cols, row, col);
-        max = Math.max(max, cur);
+    for (int i = 0; i < rows; ++i) {
+      for (int j = 0; j < cols; ++j) {
+        final int curArea = dfs(grid, rows, cols, i, j);
+        max = Math.max(curArea, max);
       }
     }
     return max;
   }
 
-  private static int dfs(final int[][] grid, final int rows, final int cols, final int row, final int col) {
-    if (row < 0 || col < 0 || row >= rows || col >= cols || grid[row][col] == EMPTY) return 0;
-    grid[row][col] = EMPTY;
-    return 1
-        + dfs(grid, rows, cols, row - 1, col)
-        + dfs(grid, rows, cols, row + 1, col)
-        + dfs(grid, rows, cols, row, col + 1)
-        + dfs(grid, rows, cols, row, col - 1);
+  private static int dfs(final int[][] grid, final int rows, final int cols, final int i, final int j) {
+    if (i < 0 || j < 0 || i >= rows || j >= cols || grid[i][j] == EMPTY) return 0;
+    grid[i][j] = EMPTY;
+    return 1 + dfs(grid, rows, cols, i + 1, j)
+        + dfs(grid, rows, cols, i - 1, j)
+        + dfs(grid, rows, cols, i, j + 1)
+        + dfs(grid, rows, cols, i, j - 1);
   }
 }
