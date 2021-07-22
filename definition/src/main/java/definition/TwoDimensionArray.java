@@ -189,6 +189,19 @@ public final class TwoDimensionArray {
     return sb.toString();
   }
 
+  public static String toString(char[][] array) {
+    if (array == null) {
+      throw new NullPointerException("array cannot be null");
+    }
+    final StringBuilder sb = new StringBuilder();
+    sb.append("[\n");
+    for (char[] child : array) {
+      sb.append("\t").append(Arrays.toString(child)).append("\n");
+    }
+    sb.append("]");
+    return sb.toString();
+  }
+
   /**
    * Get a char board from <tt>strs</tt>.
    *
