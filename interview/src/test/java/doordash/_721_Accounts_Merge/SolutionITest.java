@@ -92,9 +92,58 @@ class SolutionITest {
     assertEquals(expected, new HashSet<>(actual));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase5(Solution solution) {
+
+
+    final List<List<String>> account = List.of(
+        List.of("David", "David0@m.co", "David0@m.co", "David1@m.co", "David2@m.co", "David3@m.co", "David4@m.co",
+            "David5@m.co", "David6@m.co", "David7@m.co"),
+        List.of("David", "David1@m.co", "David9@m.co", "David10@m.co", "David11@m.co", "David12@m.co", "David13@m.co"
+            , "David14@m.co", "David15@m.co", "David16@m.co"),
+        List.of("David", "David3@m.co", "David27@m.co", "David28@m.co", "David29@m.co", "David30@m.co", "David31@m" +
+            ".co", "David32@m.co", "David33@m.co", "David34@m.co"),
+        List.of("David", "David2@m.co", "David18@m.co", "David19@m.co", "David20@m.co", "David21@m.co", "David22@m" +
+            ".co", "David23@m.co", "David24@m.co", "David25@m.co"),
+        List.of("David", "David0@m.co", "David0@m.co", "David1@m.co", "David2@m.co", "David3@m.co", "David4@m.co",
+            "David5@m.co", "David6@m.co", "David7@m.co"),
+        List.of("David", "David0@m.co", "David0@m.co", "David1@m.co", "David2@m.co", "David3@m.co", "David4@m.co",
+            "David5@m.co", "David6@m.co", "David7@m.co"),
+        List.of("David", "David2@m.co", "David18@m.co", "David19@m.co", "David20@m.co", "David21@m.co", "David22@m" +
+            ".co", "David23@m.co", "David24@m.co", "David25@m.co"),
+        List.of("David", "David7@m.co", "David63@m.co", "David64@m.co", "David65@m.co", "David66@m.co", "David67@m" +
+            ".co", "David68@m.co", "David69@m.co", "David70@m.co"),
+        List.of("David", "David5@m.co", "David45@m.co", "David46@m.co", "David47@m.co", "David48@m.co", "David49@m" +
+            ".co", "David50@m.co", "David51@m.co", "David52@m.co"),
+        List.of("David", "David6@m.co", "David54@m.co", "David55@m.co", "David56@m.co", "David57@m.co", "David58@m" +
+            ".co", "David59@m.co", "David60@m.co", "David61@m.co"),
+        List.of("David", "David1@m.co", "David9@m.co", "David10@m.co", "David11@m.co", "David12@m.co", "David13@m.co"
+            , "David14@m.co", "David15@m.co", "David16@m.co"),
+        List.of("David", "David4@m.co", "David36@m.co", "David37@m.co", "David38@m.co", "David39@m.co", "David40@m" +
+            ".co", "David41@m.co", "David42@m.co", "David43@m.co")
+    );
+
+    final Set<List<String>> expected = Set.of(
+        List.of("David", "David0@m.co", "David10@m.co", "David11@m.co", "David12@m.co", "David13@m.co", "David14@m" +
+                ".co", "David15@m.co", "David16@m.co", "David18@m.co", "David19@m.co", "David1@m.co", "David20@m.co",
+            "David21@m.co", "David22@m.co", "David23@m.co", "David24@m.co", "David25@m.co", "David27@m.co", "David28" +
+             "@m" +
+                ".co", "David29@m.co", "David2@m.co", "David30@m.co", "David31@m.co", "David32@m.co", "David33@m.co",
+            "David34@m.co", "David36@m.co", "David37@m.co", "David38@m.co", "David39@m.co", "David3@m.co", "David40@m" +
+                ".co", "David41@m.co", "David42@m.co", "David43@m.co", "David45@m.co", "David46@m.co", "David47@m.co",
+            "David48@m.co", "David49@m.co", "David4@m.co", "David50@m.co", "David51@m.co", "David52@m.co", "David54@m" +
+                ".co", "David55@m.co", "David56@m.co", "David57@m.co", "David58@m.co", "David59@m.co", "David5@m.co",
+            "David60@m.co", "David61@m.co", "David63@m.co", "David64@m.co", "David65@m.co", "David66@m.co", "David67" +
+                "@m.co", "David68@m.co", "David69@m.co", "David6@m.co", "David70@m.co", "David7@m.co", "David9@m.co"));
+    final List<List<String>> actual = solution.accountsMerge(account);
+    assertEquals(expected, new HashSet<>(actual));
+  }
+
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 }
