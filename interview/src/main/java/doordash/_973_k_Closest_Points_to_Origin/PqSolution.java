@@ -3,7 +3,7 @@ package doordash._973_k_Closest_Points_to_Origin;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public final class SolutionI implements Solution {
+public final class PqSolution implements Solution {
   @Override
   public int[][] kClosest(int[][] points, int k) {
     k = Math.min(k, points.length);

@@ -38,6 +38,17 @@ class SolutionITest {
     assertEquals(getUnordered(expected), getUnordered(actual));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase5(Solution solution) {
+    final int K = 7;
+    final int[][] input = {
+        {-2, 5}, {7, -2}, {-8, 0}, {2, 9}, {-1, 3}, {-3, 9}, {-6, 8}, {-5, -5}},
+        expected = {{-1, 3}, {-2, 5}, {-5, -5}, {7, -2}, {-8, 0}, {2, 9}, {-3, 9}},
+        actual = solution.kClosest(input, K);
+    assertEquals(getUnordered(expected), getUnordered(actual));
+  }
+
   private static Set<List<Integer>> getUnordered(final int[][] input) {
     final Set<List<Integer>> result = new HashSet<>();
     for (final int[] e : input) {
@@ -48,7 +59,8 @@ class SolutionITest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI()
+        new PqSolution(),
+        new QuickSelectSolution()
     );
   }
 }
