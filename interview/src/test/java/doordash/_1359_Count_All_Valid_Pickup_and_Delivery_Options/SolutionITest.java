@@ -41,7 +41,8 @@ class SolutionITest {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
-        new SolutionIII()
+        new SolutionIII(),
+        new SolutionIV()
     );
   }
 }
