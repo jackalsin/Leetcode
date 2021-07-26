@@ -1,11 +1,14 @@
 package airbnb.travelBuddy;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,16 +18,28 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @version 1.0 on 3/1/2019.
  */
 class SolutionITest {
-  private Solution solution;
 
-  @Test
-  void testOnlineCase1() {
+  static Stream<Class> solutionStream() {
+    return Stream.of(
+        SolutionI.class,
+        SolutionII.class,
+        SolutionIII.class
+    );
+  }
+
+  //   public SolutionII(final List<String> myCities, final Map<String, List<String>> friendsCities)
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(Class<Solution> solutionClass) throws NoSuchMethodException, InvocationTargetException,
+      InstantiationException, IllegalAccessException {
     final List<String> myCities = List.of("a", "b", "c", "d");
     final Map<String, List<String>> friendsCities = Map.of(
         "buddy1", List.of("a", "b", "e", "f"),
         "buddy2", List.of("a", "c", "d", "g")
     );
-    solution = new SolutionI(myCities, friendsCities);
+    final Solution solution =
+        solutionClass.getConstructor(List.class, Map.class).
+            newInstance(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = List.of(
             "buddy2", "buddy1"
@@ -33,36 +48,48 @@ class SolutionITest {
     assertEquals(expected, actual);
   }
 
-  @Test
-  void testEmptyMyList() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testEmptyMyList(Class<Solution> solutionClass) throws NoSuchMethodException, InvocationTargetException,
+      InstantiationException, IllegalAccessException {
     final List<String> myCities = List.of();
     final Map<String, List<String>> friendsCities = Map.of(
         "buddy1", List.of("a", "b", "e", "f"),
         "buddy2", List.of("a", "c", "d", "g"),
         "buddy3", List.of()
     );
-    solution = new SolutionI(myCities, friendsCities);
+    final Solution solution =
+        solutionClass.getConstructor(List.class, Map.class).
+            newInstance(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = List.of("buddy3");
     assertEquals(expected, actual);
   }
 
-  @Test
-  void testEmptyFriendsCities() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testEmptyFriendsCities(Class<Solution> solutionClass) throws NoSuchMethodException, InvocationTargetException,
+      InstantiationException, IllegalAccessException {
     final List<String> myCities = List.of("a", "b", "c", "d");
     final Map<String, List<String>> friendsCities = Map.of();
-    solution = new SolutionI(myCities, friendsCities);
+    final Solution solution =
+        solutionClass.getConstructor(List.class, Map.class).
+            newInstance(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = Collections.emptyList();
 
     assertEquals(expected, actual);
   }
 
-  @Test
-  void testBothEmpty() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testBothEmpty(Class<Solution> solutionClass) throws NoSuchMethodException, InvocationTargetException,
+      InstantiationException, IllegalAccessException {
     final List<String> myCities = List.of();
     final Map<String, List<String>> friendsCities = Map.of();
-    solution = new SolutionI(myCities, friendsCities);
+    final Solution solution =
+        solutionClass.getConstructor(List.class, Map.class).
+            newInstance(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = List.of();
     assertEquals(expected, actual);
@@ -70,14 +97,18 @@ class SolutionITest {
 
   // test for the get recommend city
 
-  @Test
-  void testGetRecommendedCities() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testGetRecommendedCities(Class<Solution> solutionClass) throws NoSuchMethodException,
+      InvocationTargetException, InstantiationException, IllegalAccessException {
     final List<String> myCities = List.of("a", "b", "c", "d");
     final Map<String, List<String>> friendsCities = Map.of(
         "buddy1", List.of("a", "b", "e", "f"),
         "buddy2", List.of("a", "c", "d", "g")
     );
-    solution = new SolutionI(myCities, friendsCities);
+    final Solution solution =
+        solutionClass.getConstructor(List.class, Map.class).
+            newInstance(myCities, friendsCities);
     final List<String> actual = solution.getTravelBuddies(),
         expected = List.of(
             "buddy2", "buddy1"
@@ -94,10 +125,10 @@ class SolutionITest {
     assertEquals(expectedRec0, actualRec0);
     assertEquals(expectedRec1, actualRec1);
     assertEquals(expectedRec3, actualRec3);
-    final Set<List<String>> execpted2Set = Set.of(
+    final Set<List<String>> expected2Set = Set.of(
         List.of("g", "e"),
         List.of("g", "f")
     );
-    assertTrue(execpted2Set.contains(actualRec2));
+    assertTrue(expected2Set.contains(actualRec2));
   }
 }
