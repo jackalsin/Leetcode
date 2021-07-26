@@ -1,38 +1,41 @@
 package airbnb.queueWithFixedSizeArray;
 
+import java.util.LinkedList;
+
 public final class LinkedListSolutionIII implements MyQueue {
   private static final int N = 5;
-  private Node head = new Node(), tail = head;
+  private final LinkedList<int[]> lists = new LinkedList<>();
   private int start = 0, end = 0;
 
+  @Override
   public void push(int x) {
-    tail.vals[end++] = x;
-    if (end == N) {
-      tail.next = new Node();
-      tail = tail.next;
+    if (lists.isEmpty() || end == N) {
+      lists.add(new int[N]);
       end = 0;
     }
+    lists.peekLast()[end++] = x;
   }
 
+  @Override
   public int pop() {
-    final int res = head.vals[start++];
+    if (empty()) return -1;
+    final int res = lists.peekFirst()[start++];
     if (start == N) {
+      lists.removeFirst();
       start = 0;
-      head = head.next;
     }
     return res;
   }
 
+  @Override
   public int peek() {
-    return head.vals[start];
+    if (empty()) return -1;
+    return lists.peekFirst()[start];
   }
 
+  @Override
   public boolean empty() {
-    return head == tail && start == end;
+    return lists.isEmpty() || (lists.size() == 1 && start == end);
   }
 
-  private static final class Node {
-    private final int[] vals = new int[N];
-    private Node next;
-  }
 }

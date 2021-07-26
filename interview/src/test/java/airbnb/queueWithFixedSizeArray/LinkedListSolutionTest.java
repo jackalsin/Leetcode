@@ -1,27 +1,26 @@
 package airbnb.queueWithFixedSizeArray;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jacka
- * @version 1.0 on 2/26/2019.
- */
 class LinkedListSolutionTest {
-
-  private MyQueue solution;
-
-  @BeforeEach
-  void setup() {
-    solution = new LinkedListSolution();
+  static Stream<MyQueue> solutionStream() {
+    return Stream.of(
+        new LinkedListSolution(),
+        new LinkedListSolutionII(),
+        new LinkedListSolutionIII()
+    );
   }
 
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(MyQueue solution) {
     solution.push(1);
     solution.push(2);
     assertEquals(1, solution.peek());  // returns 1
@@ -29,8 +28,9 @@ class LinkedListSolutionTest {
     assertFalse(solution.empty());  // returns 1
   }
 
-  @Test
-  void testOnlineCase10() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase10(MyQueue solution) {
     final int N = 10;
     for (int i = 0; i < N; i++) {
       solution.push(i);
@@ -44,25 +44,6 @@ class LinkedListSolutionTest {
     assertEquals(1, solution.pop());  // returns 1
     assertTrue(solution.empty());  // returns 1
   }
-
-  @Test
-  void testOnlineCase20() {
-    final int N = 10;
-    for (int i = 0; i < 2 * N; i++) {
-      solution.push(i);
-    }
-    for (int i = 0; i < N; i++) {
-      assertEquals(i, solution.pop());  // returns 1
-    }
-    assertFalse(solution.empty());  // returns 1
-    for (int i = 10; i < 2 * N; i++) {
-      assertEquals(i, solution.pop());  // returns 1
-    }
-    assertTrue(solution.empty());  // returns 0
-    solution.push(1);
-    assertFalse(solution.empty());  // returns 1
-    assertEquals(1, solution.pop());  // returns 1
-    assertTrue(solution.empty());  // returns 1
-  }
-
 }
+
+
