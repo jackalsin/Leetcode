@@ -34,14 +34,15 @@ class SolutionITest {
     int[] actual = solution.findOrder(numCourses, courses);
     if (!Arrays.equals(new int[]{0, 1, 2, 3}, actual) && !Arrays.equals(new int[]{0, 2, 1, 3},
         actual)) {
-      Assertions.fail();
+      Assertions.fail("Not found = " + Arrays.toString(actual));
     }
   }
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII()
+        new SolutionII(),
+        new SolutionIII()
     );
   }
 }
