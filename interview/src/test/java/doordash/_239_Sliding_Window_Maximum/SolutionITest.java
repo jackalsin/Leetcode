@@ -23,30 +23,34 @@ class SolutionITest {
   @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
     final int[] input = new int[]{};
-    final int[] expected = new int[]{};
-    assertArrayEquals(expected, solution.maxSlidingWindow(input, 0));
+    final int[] expected = new int[]{},
+        actual = solution.maxSlidingWindow(input, 0);
+    assertArrayEquals(expected, actual, Arrays.toString(actual));
   }
 
   @ParameterizedTest
   @MethodSource("solutionStream")
   public void testFailedCase(Solution solution) {
     final int[] input = new int[]{-7, -8, 7, 5, 7, 1, 6, 0};
-    final int[] expected = new int[]{7, 7, 7, 7, 7};
-    assertArrayEquals(expected, solution.maxSlidingWindow(input, 4));
+    final int[] expected = new int[]{7, 7, 7, 7, 7},
+        actual = solution.maxSlidingWindow(input, 4);
+    assertArrayEquals(expected, actual, Arrays.toString(actual));
   }
 
   @ParameterizedTest
   @MethodSource("solutionStream")
   public void testFailedCase2(Solution solution) {
     final int[] input = new int[]{1, 3, 1, 2, 0, 5};
-    final int[] expected = new int[]{3, 3, 2, 5};
-    assertArrayEquals(expected, solution.maxSlidingWindow(input, 3));
+    final int[] expected = new int[]{3, 3, 2, 5},
+        actual = solution.maxSlidingWindow(input, 3);
+    assertArrayEquals(expected, actual, Arrays.toString(actual));
   }
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII()
+        new SolutionII(),
+        new SolutionIII()
     );
   }
 }
