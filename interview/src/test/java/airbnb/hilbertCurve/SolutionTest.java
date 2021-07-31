@@ -1,30 +1,37 @@
 package airbnb.hilbertCurve;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SolutionIITest {
-  private Solution solution;
+class SolutionTest {
 
-  @BeforeEach
-  void setUp() {
-    solution = new SolutionII();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII()
+    );
   }
 
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(Solution solution) {
     assertEquals(3, solution.hilbertCurve(1, 1, 2));
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase2(Solution solution) {
     assertEquals(2, solution.hilbertCurve(0, 1, 1));
   }
 
-  @Test
-  void testOnlineCase3() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase3(Solution solution) {
     assertEquals(1, solution.hilbertCurve(0, 0, 2));
     assertEquals(2, solution.hilbertCurve(1, 0, 2));
     assertEquals(3, solution.hilbertCurve(1, 1, 2));
