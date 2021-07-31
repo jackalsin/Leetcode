@@ -32,7 +32,8 @@ class SolutionITest {
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new DfsSolutionHasCycle(),
-        new VisitSolution()
+        new VisitSolution(),
+        new SolutionII()
     );
   }
 
