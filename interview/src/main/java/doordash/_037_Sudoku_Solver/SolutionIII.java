@@ -7,7 +7,7 @@ import java.util.Set;
 public final class SolutionIII implements Solution {
   private static final int N = 9;
   private static final char DOT = '.';
-  private final List<Set<Integer>> rows = List.of(
+  private final List<Set<Character>> rows = List.of(
       new HashSet<>(),
       new HashSet<>(),
       new HashSet<>(),
@@ -32,21 +32,32 @@ public final class SolutionIII implements Solution {
       new HashSet<>(),
       new HashSet<>()
   );
-  private final List<List<Set<Integer>>> squares = List.of(
-      List.of(new HashSet<>(), new HashSet<>(), new HashSet<>()),
-      List.of(new HashSet<>(), new HashSet<>(), new HashSet<>()),
-      List.of(new HashSet<>(), new HashSet<>(), new HashSet<>())
+  private final List<List<Set<Character>>> squares = List.of(
+      List.of(
+          new HashSet<>(),
+          new HashSet<>(),
+          new HashSet<>()
+      ),
+      List.of(
+          new HashSet<>(),
+          new HashSet<>(),
+          new HashSet<>()
+      ),
+      List.of(
+          new HashSet<>(),
+          new HashSet<>(),
+          new HashSet<>()
+      )
   );
 
   public void solveSudoku(char[][] board) {
-    if (board == null || board.length == 0) return;
     for (int i = 0; i < N; ++i) {
       for (int j = 0; j < N; ++j) {
-        if (board[i][j] == DOT) continue;
-        final int val = board[i][j] - '0';
-        rows.get(i).add(val);
-        cols.get(j).add(val);
-        squares.get(i / 3).get(j / 3).add(val);
+        final char chr = board[i][j];
+        if (chr == DOT) continue;
+        rows.get(i).add(chr);
+        cols.get(j).add(chr);
+        squares.get(i / 3).get(j / 3).add(chr);
       }
     }
     solveRow(board, 0);
@@ -58,25 +69,28 @@ public final class SolutionIII implements Solution {
   }
 
   private boolean solveCol(final char[][] board, final int row, final int col) {
-    if (col == N) {
-      return solveRow(board, row + 1);
-    }
-    if (board[row][col] != DOT) return solveCol(board, row, col + 1);
-    final Set<Integer> rowSet = rows.get(row),
-        colSet = cols.get(col),
-        squareSet = squares.get(row / 3).get(col / 3);
-    for (int i = 1; i <= N; ++i) {
-      if (rowSet.contains(i) || colSet.contains(i) || squareSet.contains(i)) continue;
-      rowSet.add(i);
-      colSet.add(i);
-      squareSet.add(i);
-      board[row][col] = (char) ('0' + i);
+    if (col == N) return solveRow(board, row + 1);
+    final char chr = board[row][col];
+    if (chr != DOT) return solveCol(board, row, col + 1);
+    final Set<Character> rows = this.rows.get(row), cols = this.cols.get(col),
+        squares = this.squares.get(row / 3).get(col / 3);
+    for (int i = 0; i < N; ++i) {
+      final char val = (char) ('1' + i);
+      if (rows.contains(val) || cols.contains(val) || squares.contains(val)) {
+        continue;
+      }
+      rows.add(val);
+      cols.add(val);
+      squares.add(val);
+      board[row][col] = val;
       if (solveCol(board, row, col + 1)) return true;
       board[row][col] = DOT;
-      squareSet.remove(i);
-      colSet.remove(i);
-      rowSet.remove(i);
+      rows.remove(val);
+      cols.remove(val);
+      squares.remove(val);
     }
     return false;
   }
 }
+
+
