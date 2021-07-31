@@ -6,9 +6,7 @@ import java.util.Set;
 
 public final class SolutionIII implements Solution {
   private static final int N = 9;
-  private static final char DOT = '.';
-
-  private final List<Set<Integer>> rows = List.of(
+  private final List<Set<Character>> rows = List.of(
       new HashSet<>(),
       new HashSet<>(),
       new HashSet<>(),
@@ -33,21 +31,31 @@ public final class SolutionIII implements Solution {
       new HashSet<>(),
       new HashSet<>()
   );
-  private final List<List<Set<Integer>>> squares = List.of(
-      List.of(new HashSet<>(), new HashSet<>(), new HashSet<>()),
-      List.of(new HashSet<>(), new HashSet<>(), new HashSet<>()),
-      List.of(new HashSet<>(), new HashSet<>(), new HashSet<>())
-  );
+  private final List<List<Set<Character>>> squares = List.of(
+      List.of(
+          new HashSet<>(),
+          new HashSet<>(),
+          new HashSet<>()
+      ), List.of(
+          new HashSet<>(),
+          new HashSet<>(),
+          new HashSet<>()
+      ), List.of(
+          new HashSet<>(),
+          new HashSet<>(),
+          new HashSet<>()
+      ));
+  private static final char DOT = '.';
 
   public boolean isValidSudoku(char[][] board) {
-    assert board != null && board.length == N && board[0].length == N;
     for (int i = 0; i < N; ++i) {
       for (int j = 0; j < N; ++j) {
-        if (board[i][j] == DOT) continue;
-        final int val = board[i][j] - '0';
-        if (!rows.get(i).add(val)) return false;
-        if (!cols.get(j).add(val)) return false;
-        if (!squares.get(i / 3).get(j / 3).add(val)) return false;
+        final char chr = board[i][j];
+        if (chr == DOT) continue;
+        final Set<Character> rows = this.rows.get(i),
+            cols = this.cols.get(j),
+            squares = this.squares.get(i / 3).get(j / 3);
+        if (!rows.add(chr) || !cols.add(chr) || !squares.add(chr)) return false;
       }
     }
     return true;
