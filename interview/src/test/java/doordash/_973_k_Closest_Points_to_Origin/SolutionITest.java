@@ -60,6 +60,7 @@ class SolutionITest {
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new PqSolution(),
+        new PqSolutionI(),
         new QuickSelectSolution()
     );
   }
