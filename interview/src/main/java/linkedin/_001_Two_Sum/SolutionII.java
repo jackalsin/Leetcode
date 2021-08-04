@@ -1,6 +1,5 @@
 package linkedin._001_Two_Sum;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,15 +9,15 @@ import java.util.Map;
  */
 public final class SolutionII implements Solution {
   public int[] twoSum(int[] nums, int target) {
-    final Map<Integer, Integer> valueToIndex = new HashMap<>();
-    for (int i = 0; i < nums.length; i++) {
-      if (valueToIndex.containsKey(target - nums[i])) {
-        final int j = valueToIndex.get(target - nums[i]);
+    final Map<Integer, Integer> valToIndex = new HashMap<>();
+    for (int i = 0; i < nums.length; ++i) {
+      final int remain = target - nums[i];
+      if (valToIndex.containsKey(remain)) {
+        final int j = valToIndex.get(remain);
         return new int[]{j, i};
       }
-      valueToIndex.put(nums[i], i);
+      valToIndex.put(nums[i], i);
     }
-
-    throw new IllegalArgumentException("No such pair in " + Arrays.toString(nums));
+    throw new IllegalStateException("Unable to find");
   }
 }
