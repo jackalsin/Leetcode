@@ -1,6 +1,6 @@
 package linkedin._003_Longest_Substring_Without_Repeating_Characters;
 
-public final class BruteForceSolution implements Solution {
+public final class SolutionI implements Solution {
 
   public int lengthOfLongestSubstring(String s) {
     final char[] chars = s.toCharArray();
