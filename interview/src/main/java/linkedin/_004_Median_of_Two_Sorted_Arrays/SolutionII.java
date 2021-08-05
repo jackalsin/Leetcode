@@ -12,7 +12,7 @@ public final class SolutionII implements Solution {
           left2 = halfLen - left1, right2 = len2 - left2;
       if (left1 > 0 && nums1[left1 - 1] > nums2[left2]) { // too big
         assert left2 < len2;
-        right = mid;
+        right = mid - 1;
       } else if (left1 < len1 && left2 - 1 >= 0 && nums2[left2 - 1] > nums1[left1]) { // too small
         left = mid + 1;
       } else {
