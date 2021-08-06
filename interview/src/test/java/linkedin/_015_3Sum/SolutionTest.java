@@ -55,10 +55,23 @@ class SolutionTest {
     );
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void threeSumWithAllZeros(Solution solution) {
+    final List<List<Integer>> sampleAnswer = List.of(
+        List.of(0, 0, 0)
+    );
+    assertEquals(
+        new HashSet<>(sampleAnswer),
+        new HashSet<>(solution.threeSum(new int[]{0, 0, 0}))
+    );
+  }
+
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII()
+        new SolutionII(),
+        new SolutionIII()
     );
   }
 }
