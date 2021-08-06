@@ -1,56 +1,66 @@
 package linkedin._010_Regular_Expression_Matching;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
+  static @NotNull Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void isMatchWithEmptyString() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void isMatchWithEmptyString(Solution solution) {
     assertTrue(solution.isMatch("", ""));
   }
 
-  @Test
-  void isMatchWithSameString() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void isMatchWithSameString(Solution solution) {
     assertTrue(solution.isMatch("abc", "abc"));
   }
 
-  @Test
-  void isMatchWithAsteriskZeroLength() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void isMatchWithAsteriskZeroLength(Solution solution) {
     assertTrue(solution.isMatch("abc", "a*bc"));
   }
 
-  @Test
-  void isMatchWithAsteriskMoreThanOneLength() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void isMatchWithAsteriskMoreThanOneLength(Solution solution) {
     assertTrue(solution.isMatch("aaabc", "a*bc"));
   }
 
-  @Test
-  void isMatchWithDot() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void isMatchWithDot(Solution solution) {
     assertTrue(solution.isMatch("aabc", ".*bc"));
   }
 
-  @Test
-  void isMatchWithSingleDot() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void isMatchWithSingleDot(Solution solution) {
     assertTrue(solution.isMatch("aebc", "a.bc"));
   }
 
-  @Test
-  void isMatchCaseOne() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void isMatchCaseOne(Solution solution) {
     assertTrue(solution.isMatch("aaa", "ab*ac*a"));
-
   }
 
-  @Test
-  void isMatchCaseTwo() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void isMatchCaseTwo(Solution solution) {
     assertTrue(solution.isMatch("aaa", "ab*a*c*a"));
   }
 }
