@@ -1,25 +1,30 @@
 package linkedin._013_Roman_to_Integer;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionIITest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new SolutionII();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII(),
+        new SolutionIII()
+    );
   }
 
-  @Test
-  void testOneDigit() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOneDigit(Solution solution) {
     assertEquals(9, solution.romanToInt("IX"));
   }
 
-  @Test
-  void testMCMXCIV() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testMCMXCIV(Solution solution) {
     assertEquals(1994, solution.romanToInt("MCMXCIV"));
   }
 }
