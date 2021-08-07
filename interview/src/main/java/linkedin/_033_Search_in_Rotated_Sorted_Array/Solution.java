@@ -6,7 +6,7 @@ package linkedin._033_Search_in_Rotated_Sorted_Array;
  */
 public interface Solution {
   /**
-   * TODO: Revisit
+   * TODO:
    *
    * @param nums
    * @param target
