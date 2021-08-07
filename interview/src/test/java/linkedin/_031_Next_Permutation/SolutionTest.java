@@ -3,6 +3,7 @@ package linkedin._031_Next_Permutation;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -14,7 +15,7 @@ class SolutionTest {
     final int[] input = new int[]{1, 4, 6, 5, 3, 2};
     solution.nextPermutation(input);
     final int[] result = new int[]{1, 5, 2, 3, 4, 6};
-    assertArrayEquals(result, input);
+    assertArrayEquals(result, input, Arrays.toString(input));
   }
 
   @ParameterizedTest
@@ -23,13 +24,14 @@ class SolutionTest {
     final int[] input = new int[]{1, 5, 1};
     solution.nextPermutation(input);
     final int[] result = new int[]{5, 1, 1};
-    assertArrayEquals(result, input);
+    assertArrayEquals(result, input, Arrays.toString(input));
   }
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
-        new SolutionII()
+        new SolutionII(),
+        new SolutionIII()
     );
   }
 

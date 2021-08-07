@@ -3,9 +3,7 @@ package linkedin._031_Next_Permutation;
 public interface Solution {
 
   /**
-   * TO: Revisit
-   *
-   * @param nums
+   * TODO:
    */
   void nextPermutation(int[] nums);
 }
