@@ -1,7 +1,6 @@
 package linkedin._039_Combination_Sum;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,25 +11,22 @@ public final class SolutionIII implements Solution {
   @Override
   public List<List<Integer>> combinationSum(int[] candidates, int target) {
     final List<List<Integer>> result = new ArrayList<>();
-    Arrays.sort(candidates);
-    combinationSum(result, candidates, target, new ArrayList<>(), 0);
+    combinationSum(candidates, target, result, new ArrayList<>(), 0, 0);
     return result;
   }
 
-  private static void combinationSum(final List<List<Integer>> result,
-                                     final int[] nums, final int target,
-                                     final List<Integer> curPath, final int start) {
-    if (target < 0) {
-      return;
-    }
-    if (target == 0) {
+  private static void combinationSum(final int[] candidates, final int target,
+                                     final List<List<Integer>> result, final List<Integer> curPath,
+                                     final int sum, final int start) {
+    if (sum > target) return;
+    if (sum == target) {
       result.add(new ArrayList<>(curPath));
       return;
     }
-    for (int i = start; i < nums.length; ++i) {
-      if (target < nums[i]) return;
-      curPath.add(nums[i]);
-      combinationSum(result, nums, target - nums[i], curPath, i);
+    for (int i = start; i < candidates.length; ++i) {
+      curPath.add(candidates[i]);
+      combinationSum(candidates, target, result, curPath,
+          sum + candidates[i], i);
       curPath.remove(curPath.size() - 1);
     }
   }
