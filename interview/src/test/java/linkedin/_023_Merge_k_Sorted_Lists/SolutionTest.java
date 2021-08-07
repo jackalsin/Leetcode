@@ -34,12 +34,13 @@ class SolutionTest {
 
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new SolutionI(),
+        new PqSolution(),
+        new PqSolutionI(),
         new SolutionII(),
         new SolutionIII(),
         new SolutionIV(),
-        new PriorityQueueSolution(),
-        new ConstantSpaceSolution()
+        new ConstantSpaceSolution(),
+        new ConstantSpaceSolutionI()
     );
   }
 }
