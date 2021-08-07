@@ -9,7 +9,7 @@ import java.util.List;
 public interface Solution {
 
   /**
-   * TODO: Revisit
+   * TODO:
    * All candidates are positive;
    */
   List<List<Integer>> combinationSum2(int[] candidates, int target);
