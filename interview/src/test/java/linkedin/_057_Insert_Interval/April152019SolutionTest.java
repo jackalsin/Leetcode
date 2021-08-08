@@ -36,7 +36,8 @@ class April152019SolutionTest {
   static Stream<April152019Solution> solutionStream() {
     return Stream.of(
         new SolutionIV(),
-        new SolutionV()
+        new SolutionV(),
+        new SolutionVI()
     );
   }
 }
