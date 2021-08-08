@@ -7,14 +7,12 @@ package linkedin._053_Maximum_Subarray;
 public final class SolutionIV implements Solution {
   @Override
   public int maxSubArray(int[] nums) {
-    if (nums == null || nums.length == 0) {
-      return 0;
-    }
-    int maxSoFar = nums[0], maxEndHere = nums[0];
+    if (nums == null || nums.length == 0) return 0;
+    int maxSum = nums[0], maxSumEndHere = nums[0];
     for (int i = 1; i < nums.length; ++i) {
-      maxEndHere = Math.max(maxEndHere + nums[i], nums[i]);
-      maxSoFar = Math.max(maxSoFar, maxEndHere);
+      maxSumEndHere = Math.max(maxSumEndHere + nums[i], nums[i]);
+      maxSum = Math.max(maxSum, maxSumEndHere);
     }
-    return maxSoFar;
+    return maxSum;
   }
 }
