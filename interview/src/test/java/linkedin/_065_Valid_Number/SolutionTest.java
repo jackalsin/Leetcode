@@ -5,8 +5,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * @author jacka
@@ -84,6 +85,12 @@ class SolutionTest {
   @MethodSource("solutionStream")
   void testEmpty(Solution solution) {
     assertFalse(solution.isNumber(""));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testPositiveE(Solution solution) {
+    assertTrue(solution.isNumber("005047e+6"));
   }
 
   static Stream<Solution> solutionStream() {

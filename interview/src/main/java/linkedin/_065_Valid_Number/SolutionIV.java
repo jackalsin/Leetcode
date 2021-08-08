@@ -7,15 +7,10 @@ package linkedin._065_Valid_Number;
 public final class SolutionIV implements Solution {
 
   public boolean isNumber(String s) {
-    if (s == null) {
-      return false;
-    }
+    if (s == null) return false;
     s = s.trim();
-    return s.matches("[+\\-]?" +
-        "(" +
-        "([\\d]+\\.?[\\d]*)" + "|" +
-        "([\\d]*\\.?[\\d]+)" +
-        ")([Ee][+\\-]?[\\d]+)?"
+    return s.matches(
+        "[+-]?(([\\d]+(\\.[\\d]*)?)|([\\d]*(\\.[\\d]+)))([Ee]([+-]?[\\d]+))?"
     );
   }
 
