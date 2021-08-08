@@ -48,7 +48,8 @@ class SolutionTest {
     return Stream.of(
         new BinarySearchSolution(),
         new BinarySearchSolutionI(),
-        new NewtonSolution()
+        new NewtonSolution(),
+        new NewtonSolutionI()
     );
   }
 }
