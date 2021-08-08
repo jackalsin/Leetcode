@@ -4,7 +4,7 @@ package _1501_1550._1588_Sum_of_All_Odd_Length_Subarrays;
  * @author jacka
  * @version 1.0 on 8/7/2021
  */
-public final class SolutionI implements Solution {
+public final class ON2Solution implements Solution {
   /**
    * Time Complexity: O(N^2)
    * Space Complexity: O(N)
