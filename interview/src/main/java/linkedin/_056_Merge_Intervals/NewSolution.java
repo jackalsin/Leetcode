@@ -5,5 +5,8 @@ package linkedin._056_Merge_Intervals;
  * @version 1.0 on 6/27/2019
  */
 public interface NewSolution {
+  /**
+   * TODO:
+   */
   int[][] merge(int[][] intervals);
 }
