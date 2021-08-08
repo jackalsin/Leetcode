@@ -11,82 +11,51 @@ public final class SolutionV implements Solution {
   @Override
   public List<String> fullJustify(String[] words, int maxWidth) {
     final List<String> result = new ArrayList<>();
-    if (words == null || words.length == 0 || maxWidth < 0) {
-      return result;
-    }
+    final List<String> curLine = new ArrayList<>() {{
+      add(words[0]);
+    }};
+    int len = words[0].length();
+    for (int i = 1; i < words.length; i++) {
+      final String word = words[i];
+      if (len + word.length() + 1 > maxWidth) {
+        result.add(padding(curLine, maxWidth));
 
-    final List<String> curLine = new ArrayList<>();
-    curLine.add(words[0]);
-    int curLineLen = words[0].length();
-    for (int i = 1; i < words.length; ++i) {
-      final String curWord = words[i];
-      if (curLineLen + 1 + curWord.length() <= maxWidth) {
-        curLine.add(curWord);
-        curLineLen += (1 + curWord.length());
-      } else {
-        result.add(getLine(curLine, maxWidth));
+        len = word.length();
         curLine.clear();
-        curLineLen = curWord.length();
-        curLine.add(curWord);
+        curLine.add(word);
+      } else {
+        len += word.length() + 1;
+        curLine.add(word);
       }
     }
     if (!curLine.isEmpty()) {
-      result.add(getLastLine(curLine, maxWidth));
+      result.add(pendingToEnd(curLine, maxWidth));
     }
     return result;
   }
 
-  private static String getLastLine(final List<String> curLine, final int len) {
-    final StringBuilder sb = new StringBuilder();
-    for (String str : curLine) {
-      sb.append(' ').append(str);
-    }
-    fillTo(sb, len + 1);
-    return sb.substring(1);
-  }
-
-  private static String getLine(final List<String> curLine, final int maxWidth) {
-    final StringBuilder sb = new StringBuilder();
-    if (curLine.size() == 1) {
-      sb.append(curLine.get(0));
-      fillTo(sb, maxWidth);
-      return sb.toString();
-    }
-    final int totalLen = getLen(curLine), intervalCount = curLine.size() - 1,
-        smallSpaceLen = (maxWidth - totalLen) / intervalCount,
-        bigSpaceLen = smallSpaceLen + 1,
-        bigSpaceCount = (maxWidth - totalLen) % intervalCount;
-    sb.append(curLine.get(0));
+  private static String padding(final List<String> curLine, final int maxWidth) {
+    int len = curLine.stream().mapToInt(String::length).sum(), spaces = maxWidth - len,
+        size = curLine.size();
+    if (size == 1) return pendingToEnd(curLine, maxWidth);
+    final int smallSpace = spaces / (size - 1), bigSpace = smallSpace + 1,
+        bigSpaceCount = spaces % (size - 1), smallSpaceCount = size - 1 - bigSpaceCount;
+    final StringBuilder sb = new StringBuilder().append(curLine.get(0));
     for (int i = 0; i < bigSpaceCount; ++i) {
-      append(sb, bigSpaceLen);
-      sb.append(curLine.get(i + 1));
+      sb.append(" ".repeat(bigSpace)).append(curLine.get(i + 1));
     }
-    for (int i = bigSpaceCount + 1; i < curLine.size(); ++i) {
-      append(sb, smallSpaceLen);
-      sb.append(curLine.get(i));
+    for (int j = 0; j < smallSpaceCount; ++j) {
+      sb.append(" ".repeat(smallSpace)).append(curLine.get(j + 1 + bigSpaceCount));
     }
     return sb.toString();
   }
 
-  private static void fillTo(final StringBuilder sb, int maxWidth) {
-    while (sb.length() < maxWidth) {
-      sb.append(" ");
+  private static String pendingToEnd(final List<String> line, final int maxWidth) {
+    final StringBuilder sb = new StringBuilder().append(line.get(0));
+    for (int i = 1; i < line.size(); ++i) {
+      sb.append(" ").append(line.get(i));
     }
+    while (sb.length() < maxWidth) sb.append(" ");
+    return sb.toString();
   }
-
-  private static void append(final StringBuilder sb, final int count) {
-    for (int i = 0; i < count; ++i) {
-      sb.append(" ");
-    }
-  }
-
-  private static int getLen(final List<String> curLine) {
-    int c = 0;
-    for (String cur : curLine) {
-      c += cur.length();
-    }
-    return c;
-  }
-
-
 }
