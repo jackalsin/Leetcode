@@ -7,20 +7,17 @@ package linkedin._069_Sqrt_x;
 public class BinarySearchSolutionI implements Solution {
   @Override
   public int mySqrt(int x) {
-    if (x < 0) {
-      return -1;
-    }
-    long left = 0, right = x;
-    while (left <= right) {
-      final long mid = left + (right - left) / 2;
-      if (mid * mid <= x && x < (mid + 1) * (mid + 1)) {
+    long left = 0, right = x + 1L;
+    while (true) {
+      final long mid = (left + right) / 2,
+          prod = mid * mid;
+      if (prod <= x && x < (mid + 1L) * (mid + 1L)) {
         return (int) mid;
-      } else if (mid * mid > x) {
+      } else if (prod > x) {
         right = mid - 1;
       } else {
         left = mid + 1;
       }
     }
-    return -1; // not found
   }
 }
