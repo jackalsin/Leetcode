@@ -33,7 +33,7 @@ class SolutionTest {
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new BooleanVisitedSolutionI(),
-        new SolutionII(),
+        new SwapSolutionII(),
         new SolutionIII(),
         new SolutionIV(),
         new SwapSolution(),
