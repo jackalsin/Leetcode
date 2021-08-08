@@ -9,35 +9,32 @@ import definition.ListNode;
 public final class SolutionIV implements Solution {
   @Override
   public ListNode rotateRight(ListNode head, int k) {
-    if (head == null) {
-      return head;
-    }
-    final int size = getSize(head);
-    k %= size;
-    final ListNode dummy = new ListNode(1);
+    if (head == null) return head;
+    final int n = getSize(head), actualK = k % n;
+    if (actualK == 0) return head;
+    final ListNode dummy = new ListNode(0);
     dummy.next = head;
-    ListNode fast = dummy, slow = dummy;
-    for (int i = 0; i < k; ++i) {
+    ListNode slow = dummy, fast = dummy;
+    for (int i = 0; i < actualK; ++i) {
       fast = fast.next;
     }
     while (fast.next != null) {
       fast = fast.next;
       slow = slow.next;
     }
-
-    fast.next = dummy.next;
-    dummy.next = slow.next;
+    final ListNode newHead = slow.next;
     slow.next = null;
-    return dummy.next;
+    fast.next = head;
+    return newHead;
   }
 
   private static int getSize(final ListNode head) {
-    int count = 0;
+    int size = 0;
     ListNode cur = head;
     while (cur != null) {
       cur = cur.next;
-      ++count;
+      size++;
     }
-    return count;
+    return size;
   }
 }
