@@ -532,11 +532,11 @@ class SolutionTest {
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
   }
 
-
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
+        new SolutionIII(),
         new SingleBfsSolutionI(),
         new SingleBfsSolution()
     );
