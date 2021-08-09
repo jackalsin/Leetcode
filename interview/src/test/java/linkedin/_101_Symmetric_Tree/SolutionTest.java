@@ -7,8 +7,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * @author jacka
@@ -37,11 +38,20 @@ class SolutionTest {
     assertFalse(solution.isSymmetric(root));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFailed2(Solution solution) {
+    TreeNode root = TreeNodes.getTreeLevelOrder(2, 3, 3, 4, 5, 5);
+    assertFalse(solution.isSymmetric(root));
+  }
+
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
-        new SolutionIII()
+        new SolutionIII(),
+        new SolutionIV(),
+        new SolutionV()
     );
   }
 }

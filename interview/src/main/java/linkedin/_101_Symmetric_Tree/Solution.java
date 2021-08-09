@@ -7,5 +7,8 @@ import definition.binaryTree.TreeNode;
  * @version 1.0 on 10/19/2017.
  */
 public interface Solution {
+  /**
+   * TODO:
+   */
   boolean isSymmetric(TreeNode root);
 }
