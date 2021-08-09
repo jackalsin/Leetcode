@@ -22,7 +22,6 @@ public final class SolutionII implements Solution {
         final char startChar = s.charAt(left);
 
         if (minEnd - minStart + 1 >= right - left) {
-          System.out.println("Start = " + left + ", end " + right);
           minEnd = right - 1;
           minStart = left;
         }
