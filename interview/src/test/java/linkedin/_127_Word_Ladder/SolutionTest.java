@@ -6,13 +6,15 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * @author Zhiwei.Xin
  * @version 1.0 on 10/20/2017.
  */
 class SolutionTest {
+
   @ParameterizedTest
   @MethodSource("solutionStream")
   void testFailedOnNonExistence(Solution solution) {
@@ -45,6 +47,7 @@ class SolutionTest {
     return Stream.of(
         new SolutionI(),
         new SolutionII(),
+        new SolutionIII(),
         new SingleBfsSolution(),
         new BiDirectionBfsSolution()
     );
