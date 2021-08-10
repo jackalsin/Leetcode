@@ -9,9 +9,9 @@ import java.util.Map;
  */
 public final class LRUCacheV implements LRUCache {
   private final int capacity;
-  private final Map<Integer, Node> keyToNode = new HashMap<>();
+  private final Node head = new Node(0), tail = new Node(0);
   private final Map<Integer, Integer> keyToValue = new HashMap<>();
-  private final Node head = new Node(-1), tail = new Node(-1);
+  private final Map<Integer, Node> keyToNode = new HashMap<>();
 
   {
     head.next = tail;
@@ -36,37 +36,35 @@ public final class LRUCacheV implements LRUCache {
     prev.next = toRemove;
     toRemove.prev = prev;
 
-    toRemove.next = next;
     next.prev = toRemove;
+    toRemove.next = next;
   }
 
-  private static void removeFromDoubleLinkedList(final Node toRemove) {
-    final Node prev = toRemove.prev, next = toRemove.next;
+  private static void removeFromDoubleLinkedList(final Node cur) {
+    final Node prev = cur.prev, next = cur.next;
     prev.next = next;
     next.prev = prev;
   }
 
   public void put(int key, int value) {
-    if (capacity == 0) {
-      return;
-    }
-    if (keyToNode.containsKey(key)) {
-      keyToValue.put(key, value);
+    if (capacity == 0) return;
+    if (keyToValue.containsKey(key)) {
       final Node toRemove = keyToNode.get(key);
       removeFromDoubleLinkedList(toRemove);
       append(head, toRemove);
-    } else {
-      if (keyToNode.size() == capacity) {
-        final Node toRemoveNode = tail.prev;
-        final int toRemoveKey = toRemoveNode.key;
-        keyToNode.remove(toRemoveKey);
-        keyToValue.remove(toRemoveKey);
-        removeFromDoubleLinkedList(toRemoveNode);
-      }
-      final Node toInsertNode = new Node(key);
-      append(head, toInsertNode);
-      keyToNode.put(key, toInsertNode);
       keyToValue.put(key, value);
+    } else {
+      if (keyToValue.size() == capacity) {
+        final Node toRemove = tail.prev;
+        keyToNode.remove(toRemove.key);
+        keyToValue.remove(toRemove.key);
+        removeFromDoubleLinkedList(toRemove);
+      }
+
+      final Node toAdd = new Node(key);
+      keyToValue.put(key, value);
+      keyToNode.put(key, toAdd);
+      append(head, toAdd);
     }
   }
 
