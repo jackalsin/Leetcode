@@ -9,15 +9,13 @@ import definition.binaryTree.TreeNode;
 public final class SolutionVI implements Solution {
   @Override
   public TreeNode upsideDownBinaryTree(TreeNode root) {
-    if (root == null) {
-      return null;
-    }
-    if (root.left == null) {
-      return root;
-    }
-    final TreeNode left = root.left, right = root.right, newRoot = upsideDownBinaryTree(left);
+    if (root == null || root.left == null) return root;
+    final TreeNode left = root.left,
+        right = root.right;
     root.left = null;
     root.right = null;
+
+    final TreeNode newRoot = upsideDownBinaryTree(left);
     left.left = right;
     left.right = root;
     return newRoot;
