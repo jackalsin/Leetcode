@@ -6,7 +6,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * @author Zhiwei.Xin
@@ -34,7 +35,6 @@ class SolutionTest {
     final int[] input = new int[]{1, 2};
     assertEquals(2, solution.rob(input));
   }
-
 
   @ParameterizedTest
   @MethodSource("solutionStream")
