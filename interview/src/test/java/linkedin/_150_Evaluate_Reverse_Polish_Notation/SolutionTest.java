@@ -35,6 +35,9 @@ class SolutionTest {
   }
 
   static Stream<Solution> solutionStream() {
-    return Stream.of(new SolutionI(), new SolutionII());
+    return Stream.of(new SolutionI(),
+        new SolutionII(),
+        new SolutionIII(),
+        new SolutionIV());
   }
 }
