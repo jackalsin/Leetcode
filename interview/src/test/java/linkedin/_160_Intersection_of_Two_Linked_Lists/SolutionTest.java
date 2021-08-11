@@ -22,7 +22,8 @@ class SolutionTest {
   static Stream<Solution> solutionStream() {
     return Stream.of(
         new SwapSolution(),
-        new FloydCycleSolution()
+        new FloydCycleSolution(),
+        new FloydCycleSolutionI()
     );
   }
 }
