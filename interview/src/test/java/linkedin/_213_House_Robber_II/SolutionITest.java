@@ -1,4 +1,4 @@
-package _0201_0250._213_House_Robber_II;
+package linkedin._213_House_Robber_II;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,12 +7,11 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 /**
  * @author jacka
- * @version 1.0 on 8/9/2017.
+ * @version 1.0 on 8/11/2021
  */
-public class SolutionTest {
+class SolutionITest {
   @ParameterizedTest
   @MethodSource("solutionStream")
   public void testEmpty(Solution solution) {
@@ -75,6 +74,8 @@ public class SolutionTest {
   }
 
   static Stream<Solution> solutionStream() {
-    return Stream.of(new Solution());
+    return Stream.of(
+        new SolutionI()
+    );
   }
 }
