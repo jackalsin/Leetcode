@@ -33,7 +33,7 @@ public final class SolutionI implements Solution {
           //y << 32 | x
           int gcd = gcd(deltaX, deltaY);
           int gcdY = deltaY / gcd, gcdX = deltaX / gcd;
-          long slope = ((long) (gcdY)) << 32 | gcdX;
+          long slope = ((long) (gcdY)) << 32 ^ gcdX;
           int curCount = ratioToCounts.getOrDefault(slope, 0) + 1;
           max = Math.max(max, curCount + self);
           ratioToCounts.put(slope, curCount);

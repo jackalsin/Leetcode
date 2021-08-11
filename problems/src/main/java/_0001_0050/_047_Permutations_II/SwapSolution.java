@@ -23,7 +23,7 @@ public final class SwapSolution implements Solution {
 
   private static void dfs(final List<List<Integer>> result, final List<Integer> curPath, final int start) {
     if (start == curPath.size()) {
-      result.add(new ArrayList<>(curPath));
+      result.add(curPath);
       return;
     }
     for (int i = start; i < curPath.size(); ++i) {

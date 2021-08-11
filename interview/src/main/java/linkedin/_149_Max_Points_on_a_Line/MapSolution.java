@@ -33,7 +33,7 @@ public final class MapSolution implements Solution {
         } else {
           final int gcd = gcd(deltaX, deltaY);
           int gcdY = deltaY / gcd, gcdX = deltaX / gcd;
-          long slope = ((long) (gcdY)) << 32 | gcdX;
+          long slope = ((long) (gcdY)) << 32 ^ gcdX;
           final int nextCount = slopeToCount.getOrDefault(slope, 0) + 1;
           slopeToCount.put(slope, nextCount);
           nonSelfMax = Math.max(nonSelfMax, nextCount);
