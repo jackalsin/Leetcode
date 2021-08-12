@@ -1,11 +1,11 @@
 package _0551_0600._572_Subtree_of_Another_Tree;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SolutionTest {

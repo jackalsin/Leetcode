@@ -1,17 +1,17 @@
 package _0201_0250._234_Palindrome_Linked_List;
 
-import org.junit.Before;
-import org.junit.Test;
 import definition.ListNode;
 import definition.ListNodes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

@@ -1,16 +1,16 @@
 package _0251_0300._257_Binary_Tree_Paths;
 
-import org.junit.Before;
-import org.junit.Test;
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -18,7 +18,8 @@ import static org.junit.Assert.assertEquals;
  */
 public class SolutionTest {
   private Solution solution;
-  @Before
+
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

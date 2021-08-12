@@ -1,8 +1,8 @@
 package _0301_0350._348_Design_Tic_Tac_Toe;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka

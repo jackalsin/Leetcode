@@ -1,10 +1,10 @@
 package amazon._694_Number_of_Distinct_Islands;
 
 import definition.TwoDimensionArray;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

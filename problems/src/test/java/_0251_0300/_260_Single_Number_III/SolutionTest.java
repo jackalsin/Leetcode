@@ -1,11 +1,12 @@
 package _0251_0300._260_Single_Number_III;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 /**
  * @author jacka
@@ -14,7 +15,7 @@ import static org.junit.Assert.assertArrayEquals;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

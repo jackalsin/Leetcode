@@ -1,20 +1,20 @@
 package _0251_0300._281_Zigzag_Iterator;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
  * @version 1.0 on 9/3/2017.
  */
 public class ZigzagIteratorTest {
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
   }
 

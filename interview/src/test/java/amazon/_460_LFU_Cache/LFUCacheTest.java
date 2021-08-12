@@ -1,9 +1,9 @@
 package amazon._460_LFU_Cache;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class LFUCacheTest {
   private LFUCache cache;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     cache = new LFUCache(2);
   }

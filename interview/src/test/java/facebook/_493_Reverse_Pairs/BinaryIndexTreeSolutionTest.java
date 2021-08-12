@@ -3,7 +3,7 @@ package facebook._493_Reverse_Pairs;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BinaryIndexTreeSolutionTest {
   private Solution solution;

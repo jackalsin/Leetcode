@@ -1,9 +1,9 @@
 package _0301_0350._303_Range_Sum_Query_Immutable;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -11,7 +11,8 @@ import static org.junit.Assert.assertEquals;
  */
 public class NumArrayTest {
   private NumArray numArray;
-  @Before
+
+  @BeforeEach
   public void setUp() throws Exception {
 
   }

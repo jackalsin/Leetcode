@@ -1,11 +1,11 @@
 package amazon._451_Sort_Characters_By_Frequency;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
@@ -15,7 +15,7 @@ public class SolutionTest {
 
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

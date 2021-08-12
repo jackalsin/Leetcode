@@ -1,11 +1,11 @@
 package google._215_Kth_Largest_Element_in_an_Array;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -15,7 +15,7 @@ public class SolutionTest {
 
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

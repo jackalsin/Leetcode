@@ -1,6 +1,6 @@
 package _0201_0250._232_Implement_Queue_using_Stacks;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * @author Zhiwei.Xin
@@ -9,7 +9,7 @@ import org.junit.Before;
 public class MyQueueTest {
   private MyQueue queue;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     queue = new MyQueue();
   }

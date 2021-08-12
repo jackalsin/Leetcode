@@ -1,10 +1,10 @@
 package _0251_0300._298_Binary_Tree_Longest_Consecutive_Sequence;
 
-import org.junit.Before;
-import org.junit.Test;
 import definition.binaryTree.TreeNode;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

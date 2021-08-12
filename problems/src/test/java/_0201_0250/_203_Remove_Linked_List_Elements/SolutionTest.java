@@ -1,11 +1,11 @@
 package _0201_0250._203_Remove_Linked_List_Elements;
 
-import org.junit.Before;
-import org.junit.Test;
 import definition.ListNode;
 import definition.ListNodes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

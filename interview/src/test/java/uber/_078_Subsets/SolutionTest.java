@@ -25,7 +25,7 @@ class SolutionTest {
   void testEmpty() {
     final List<List<Integer>> expected = new ArrayList<>();
     expected.add(new ArrayList<>());
-    org.junit.Assert.assertEquals(expected, solution.subsets(new int[0]));
+    assertEquals(expected, solution.subsets(new int[0]));
   }
 
   @Test

@@ -1,9 +1,9 @@
 package uber._001_Two_Sum;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 class SolutionTest {
   private static final int[] TWO_ELEMS = new int[]{1, 2};
@@ -12,7 +12,7 @@ class SolutionTest {
 
   @Test
   void twoSumWithTwoElems() {
-    Assert.assertArrayEquals(new int[]{0, 1}, new Solution().twoSum(TWO_ELEMS, 3));
+    assertArrayEquals(new int[]{0, 1}, new Solution().twoSum(TWO_ELEMS, 3));
   }
 
   @Test

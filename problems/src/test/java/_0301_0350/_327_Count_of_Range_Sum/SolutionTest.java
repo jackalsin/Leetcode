@@ -1,9 +1,9 @@
 package _0301_0350._327_Count_of_Range_Sum;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
 //    solution = new MergeSortSolution();
     solution = new SegmentTreeSolution();

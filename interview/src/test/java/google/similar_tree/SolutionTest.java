@@ -2,10 +2,10 @@ package google.similar_tree;
 
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
 //    solution = new ONSquareSolution();
     solution = new ONSolution();

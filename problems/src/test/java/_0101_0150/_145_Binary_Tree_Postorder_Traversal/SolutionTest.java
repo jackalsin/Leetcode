@@ -2,13 +2,13 @@ package _0101_0150._145_Binary_Tree_Postorder_Traversal;
 
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

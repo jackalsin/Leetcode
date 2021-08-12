@@ -3,7 +3,7 @@ package _0351_0400._378_Kth_Smallest_Element_in_a_Sorted_Matrix;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
   private Solution solution;

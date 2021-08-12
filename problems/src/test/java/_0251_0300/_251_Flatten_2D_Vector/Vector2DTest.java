@@ -1,13 +1,13 @@
 package _0251_0300._251_Flatten_2D_Vector;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class Vector2DTest {
   private Vector2D vector2D;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
   }
 

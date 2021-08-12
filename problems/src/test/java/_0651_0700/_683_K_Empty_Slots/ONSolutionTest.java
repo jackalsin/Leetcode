@@ -1,9 +1,9 @@
 package _0651_0700._683_K_Empty_Slots;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -13,7 +13,7 @@ public class ONSolutionTest {
 
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
 //    solution = new ONSolution();
     solution = new MyONSolution();

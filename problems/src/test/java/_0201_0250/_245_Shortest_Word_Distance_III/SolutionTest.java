@@ -4,7 +4,7 @@ package _0201_0250._245_Shortest_Word_Distance_III;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin

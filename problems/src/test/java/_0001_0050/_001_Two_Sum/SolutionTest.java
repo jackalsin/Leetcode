@@ -1,8 +1,9 @@
 package _0001_0050._001_Two_Sum;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 /**
  * @author jacka

@@ -1,12 +1,13 @@
 package _0251_0300._284_Peeking_Iterator;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 
 /**
  * @author jacka
@@ -14,7 +15,8 @@ import static org.junit.Assert.assertFalse;
  */
 public class PeekingIteratorTest {
   private PeekingIterator peekingIterator;
-  @Before
+
+  @BeforeEach
   public void setUp() throws Exception {
   }
 

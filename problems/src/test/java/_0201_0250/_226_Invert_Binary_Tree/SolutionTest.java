@@ -1,12 +1,12 @@
 package _0201_0250._226_Invert_Binary_Tree;
 
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka

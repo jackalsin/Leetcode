@@ -1,9 +1,9 @@
 package _0601_0650._644_Maximum_Average_Subarray_II;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -13,7 +13,7 @@ public class BinarySearchSolutionTest {
   private static final double DELTA = 1E-5;
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new BinarySearchSolution();
   }

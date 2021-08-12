@@ -1,11 +1,11 @@
 package _0751_0800._753_Cracking_the_Safe;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new DfsSolutionII();
   }

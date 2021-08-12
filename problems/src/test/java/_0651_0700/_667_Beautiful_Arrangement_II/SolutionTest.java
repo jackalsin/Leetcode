@@ -1,20 +1,20 @@
 package _0651_0700._667_Beautiful_Arrangement_II;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SolutionTest {
 
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }
@@ -23,7 +23,7 @@ public class SolutionTest {
   public void testOnlineCase1() throws Exception {
     final int n = 3, k = 1;
     final int[] actual = solution.constructArray(n, k);
-    assertTrue("Array not in range " + Arrays.toString(actual), isInRange(actual, n));
+    assertTrue(isInRange(actual, n), "Array not in range " + Arrays.toString(actual));
     assertEquals(k, count(actual));
   }
 
@@ -31,7 +31,7 @@ public class SolutionTest {
   public void testOnlineCase2() throws Exception {
     final int n = 3, k = 2;
     final int[] actual = solution.constructArray(n, k);
-    assertTrue("Array not in range " + Arrays.toString(actual), isInRange(actual, n));
+    assertTrue(isInRange(actual, n), "Array not in range " + Arrays.toString(actual));
     assertEquals(k, count(actual));
   }
 
@@ -39,7 +39,7 @@ public class SolutionTest {
   public void testOnlineCase3() throws Exception {
     final int n = 9, k = 7;
     final int[] actual = solution.constructArray(n, k);
-    assertTrue("Array not in range " + Arrays.toString(actual), isInRange(actual, n));
+    assertTrue(isInRange(actual, n), "Array not in range " + Arrays.toString(actual));
     assertEquals(k, count(actual));
   }
 
@@ -47,7 +47,7 @@ public class SolutionTest {
   public void testCase4And2() {
     final int n = 4, k = 2;
     final int[] actual = solution.constructArray(n, k);
-    assertTrue("Array not in range " + Arrays.toString(actual), isInRange(actual, n));
+    assertTrue(isInRange(actual, n), "Array not in range " + Arrays.toString(actual));
     assertEquals(k, count(actual));
   }
 

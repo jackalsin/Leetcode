@@ -1,13 +1,13 @@
 package _0251_0300._271_Encode_and_Decode_Strings;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class CodecTest {
   private Codec codec;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     codec = new Codec();
   }

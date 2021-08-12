@@ -1,11 +1,11 @@
 package _0301_0350._333_Largest_BST_Subtree;
 
-import org.junit.Before;
-import org.junit.Test;
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

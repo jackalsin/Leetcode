@@ -3,7 +3,8 @@ package uber._034_Find_First_and_Last_Position_of_Element_in_Sorted_Array;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 class SolutionTest {
 

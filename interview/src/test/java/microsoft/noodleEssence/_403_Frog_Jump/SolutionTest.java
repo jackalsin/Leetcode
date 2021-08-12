@@ -3,8 +3,8 @@ package microsoft.noodleEssence._403_Frog_Jump;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SolutionTest {
   private Solution solution;

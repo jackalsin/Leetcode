@@ -1,7 +1,7 @@
 package _0751_0800._753_Cracking_the_Safe;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author jacka
@@ -10,7 +10,7 @@ import org.junit.Test;
 public class InvertingBurrowsWheelerTransformTest {
   private InvertingBurrowsWheelerTransform solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new InvertingBurrowsWheelerTransform();
   }

@@ -1,13 +1,13 @@
 package _0151_0200._160_Intersection_of_Two_Linked_Lists;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
 import definition.ListNode;
 import definition.ListNodes;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
   @ParameterizedTest

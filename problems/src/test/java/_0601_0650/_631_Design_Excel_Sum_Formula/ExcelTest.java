@@ -1,8 +1,8 @@
 package _0601_0650._631_Design_Excel_Sum_Formula;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka

@@ -1,13 +1,13 @@
 package _0351_0400._352_Data_Stream_as_Disjoint_Intervals;
 
 
+import definition.Interval;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import definition.Interval;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka

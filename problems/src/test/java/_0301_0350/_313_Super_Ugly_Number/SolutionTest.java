@@ -1,9 +1,9 @@
 package _0301_0350._313_Super_Ugly_Number;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -11,7 +11,8 @@ import static org.junit.Assert.assertEquals;
  */
 public class SolutionTest {
   private Solution solution;
-  @Before
+
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

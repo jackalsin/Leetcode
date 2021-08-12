@@ -1,11 +1,10 @@
 package microsoft._005_Longest_Palindromic_Substring;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -14,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class NaiveSolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new NaiveSolution();
   }
@@ -36,10 +35,10 @@ public class NaiveSolutionTest {
   @Test
   public void testLongestPalindromeOdd() throws Exception {
     final String input = "babad";
-    Assert.assertArrayEquals(new int[] {0, 0},
+    assertArrayEquals(new int[]{0, 0},
         NaiveSolution.longestPalindrome(input.toCharArray(), 0, 0));
 
-    Assert.assertArrayEquals(new int[] {0, 2},
+    assertArrayEquals(new int[]{0, 2},
         NaiveSolution.longestPalindrome(input.toCharArray(), 1, 1));
 
   }
@@ -47,7 +46,7 @@ public class NaiveSolutionTest {
   @Test
   public void testLongestPalindromeEven() throws Exception {
     final String input = "babad";
-    Assert.assertArrayEquals(new int[] {0, 0},
+    assertArrayEquals(new int[]{0, 0},
         NaiveSolution.longestPalindrome(input.toCharArray(), 0, 1));
 
   }
@@ -56,7 +55,7 @@ public class NaiveSolutionTest {
   public void testLongestPalindromeEven2() throws Exception {
     final String input = "babad";
 
-    Assert.assertArrayEquals(new int[] {1, 3},
+    assertArrayEquals(new int[]{1, 3},
         NaiveSolution.longestPalindrome(input.toCharArray(), 2, 2));
   }
 

@@ -1,10 +1,10 @@
 package _0351_0400._361_Bomb_Enemy;
 
-import org.junit.Before;
-import org.junit.Test;
 import definition.TwoDimensionArray;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionITest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new SolutionI();
   }

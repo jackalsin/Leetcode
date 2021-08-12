@@ -1,9 +1,10 @@
 package _0401_0450._406_Queue_Reconstruction_by_Height;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 /**
  * @author jacka
@@ -11,7 +12,8 @@ import static org.junit.Assert.assertArrayEquals;
  */
 public class SolutionTest {
   private Solution solution;
-  @Before
+
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

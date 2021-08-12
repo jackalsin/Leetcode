@@ -1,8 +1,8 @@
 package _0701_0750._745_Prefix_and_Suffix_Search;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka

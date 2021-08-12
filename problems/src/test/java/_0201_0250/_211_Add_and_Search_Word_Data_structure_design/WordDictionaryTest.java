@@ -1,10 +1,10 @@
 package _0201_0250._211_Add_and_Search_Word_Data_structure_design;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class WordDictionaryTest {
   private WordDictionary wordDictionary;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     wordDictionary = new WordDictionary();
   }

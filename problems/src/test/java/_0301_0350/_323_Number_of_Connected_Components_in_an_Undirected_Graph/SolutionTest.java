@@ -4,7 +4,7 @@ package _0301_0350._323_Number_of_Connected_Components_in_an_Undirected_Graph;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka

@@ -1,11 +1,10 @@
 package google.kth_node;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import google.kth_node.Solution.TreeNode;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -25,7 +24,7 @@ public class SolutionTest {
     ROOT.right.right.right = new TreeNode(7, 0);
   }
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new Solution();
   }

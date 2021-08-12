@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static junit.framework.TestCase.fail;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class SolutionTest {
   private Solution solution;

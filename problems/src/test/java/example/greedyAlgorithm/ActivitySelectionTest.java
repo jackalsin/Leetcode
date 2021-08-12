@@ -1,11 +1,11 @@
 package example.greedyAlgorithm;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class ActivitySelectionTest {
   private ActivitySelection activitySelection;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     activitySelection = new ActivitySelection();
   }

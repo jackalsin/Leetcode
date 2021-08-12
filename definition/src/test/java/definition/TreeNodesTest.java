@@ -2,23 +2,18 @@ package definition;
 
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
  * @version 1.0 on 5/31/2017.
  */
 public class TreeNodesTest {
-  @Before
-  public void setUp() throws Exception {
-  }
-
   @Test
   public void testMorrisTraversalInorder() throws Exception {
     TreeNode root = new TreeNode(4);

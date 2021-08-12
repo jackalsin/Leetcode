@@ -1,8 +1,9 @@
 package _0651_0700._685_Redundant_Connection_II;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 public class SolutionTest {
   @Test

@@ -1,9 +1,9 @@
 package example.unionFind;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class WeightedQuickUnionTest {
   private UnionFind uf;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     uf = new WeightedQuickUnion(10);
   }

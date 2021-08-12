@@ -4,7 +4,7 @@ package _0701_0750._748_Shortest_Completing_Word;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class NormalSolutionTest {
   private Solution solution;

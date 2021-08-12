@@ -3,7 +3,7 @@ package _0151_0200._154_Find_Minimum_in_Rotated_Sorted_Array_II;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka

@@ -1,19 +1,19 @@
 package example.tree;
 
-import org.junit.Before;
-import org.junit.Test;
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InOrderTraversalTest {
   private Traversal traversal;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     traversal = new InOrderTraversal();
   }

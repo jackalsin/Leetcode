@@ -1,7 +1,7 @@
 package _0601_0650._644_Maximum_Average_Subarray_II;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author jacka
@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ONSolutionTest {
   private Solution solution;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     solution = new ONSolution();
   }

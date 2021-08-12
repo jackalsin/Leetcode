@@ -1,14 +1,14 @@
 package _0201_0250._230_Kth_Smallest_Element_in_a_BST;
 
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
 import definition.binaryTree.TreeNode;
 import definition.binaryTree.TreeNodes;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -28,7 +28,7 @@ class SolutionTest {
   void test4Level(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(4, 2, 6, 1, 3, 5, 7);
     for (int i = 1; i <= 7; i++) {
-      assertEquals("k = " + i + " pass", i, solution.kthSmallest(root, i));
+      assertEquals(i, solution.kthSmallest(root, i), "k = " + i + " pass");
     }
   }
 

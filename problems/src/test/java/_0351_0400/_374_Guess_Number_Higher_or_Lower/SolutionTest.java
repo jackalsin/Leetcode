@@ -1,16 +1,16 @@
 package _0351_0400._374_Guess_Number_Higher_or_Lower;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
  * @version 1.0 on 11/7/2017.
  */
 public class SolutionTest {
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
   }
 

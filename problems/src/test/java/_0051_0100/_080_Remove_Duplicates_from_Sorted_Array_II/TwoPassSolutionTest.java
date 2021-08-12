@@ -1,9 +1,9 @@
 package _0051_0100._080_Remove_Duplicates_from_Sorted_Array_II;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -16,7 +16,7 @@ public class TwoPassSolutionTest {
   private Solution solution;
 
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     array1 = new int[]{1, 1, 1, 2, 2, 3, 4};
     solution = new TwoPassSolution();

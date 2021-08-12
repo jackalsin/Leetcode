@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
@@ -27,7 +27,7 @@ class SolutionITest {
   void test4Level(Solution solution) {
     TreeNode root = TreeNodes.getTreeLevelOrder(4, 2, 6, 1, 3, 5, 7);
     for (int i = 1; i <= 7; i++) {
-      assertEquals("k = " + i + " pass", i, solution.kthSmallest(root, i));
+      assertEquals(i, solution.kthSmallest(root, i), "k = " + i + " pass");
     }
   }
 

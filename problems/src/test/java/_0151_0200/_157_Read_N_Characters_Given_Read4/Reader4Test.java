@@ -1,10 +1,10 @@
 package _0151_0200._157_Read_N_Characters_Given_Read4;
 
 import definition._157_Read_N_Characters_Given_Read4.Reader4;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Zhiwei.Xin
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class Reader4Test {
   private Reader4 reader4;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     reader4 = new Reader4Impl("ss");
   }

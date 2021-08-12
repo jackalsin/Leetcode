@@ -1,14 +1,14 @@
 package _0351_0400._364_Nested_List_Weight_Sum_II;
 
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import definition.nestedInteger.NestedInteger;
 import definition.nestedInteger.NestedIntegerImpl;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
