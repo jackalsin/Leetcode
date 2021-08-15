@@ -1,41 +1,52 @@
 package airbnb._006_ZigZag_Conversion;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTest {
-  private Solution solution;
   private static final String STR1 = "PAYPALISHIRING";
 
-  @BeforeEach
-  void setup() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testConvertWithEmptyString() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testConvertWithEmptyString(Solution solution) {
     assertEquals("", solution.convert("", 1));
   }
 
-  @Test
-  void convert1() {
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void convert1(Solution solution) {
     assertEquals(STR1, solution.convert(STR1, 1));
   }
 
-  @Test
-  void convert2() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void convert2(Solution solution) {
     assertEquals("PYAIHRNAPLSIIG", solution.convert(STR1, 2));
   }
 
-  @Test
-  void convert3() {
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void convert3(Solution solution) {
     assertEquals("PAHNAPLSIIGYIR", solution.convert(STR1, 3));
   }
 
-  @Test
-  void convert4() {
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void convert4(Solution solution) {
     assertEquals("PINALSIGYAHRPI", solution.convert(STR1, 4));
   }
 }
