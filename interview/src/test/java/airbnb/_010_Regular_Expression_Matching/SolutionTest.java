@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SolutionTest {
   static Stream<Solution> solutionStream() {
     return Stream.of(
-        new Solution()
+        new SolutionI(),
+        new SolutionII()
     );
   }
 
