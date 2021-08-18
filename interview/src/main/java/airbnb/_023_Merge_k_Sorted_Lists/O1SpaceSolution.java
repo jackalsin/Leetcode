@@ -8,30 +8,33 @@ import definition.ListNode;
  */
 public final class O1SpaceSolution implements Solution {
   public ListNode mergeKLists(ListNode[] lists) {
-    if (lists == null) {
-      return null;
-    }
+    if (lists == null || lists.length == 0) return null;
     int size = lists.length;
     while (size != 1) {
-      for (int i = 0, j = 0; i < size; i += 2, j++) {
-        ListNode l1 = lists[i], l2 = i + 1 < size ? lists[i + 1] : null;
-        final ListNode dummy = new ListNode(0);
-        ListNode cur = dummy;
-        while (l1 != null || l2 != null) {
-          final int l1Val = l1 == null ? Integer.MAX_VALUE : l1.val,
-              l2Val = l2 == null ? Integer.MAX_VALUE : l2.val;
-          if (l1Val < l2Val) {
-            cur.next = new ListNode(l1Val);
-            l1 = l1.next;
-          } else {
-            cur.next = new ListNode(l2Val);
-            l2 = l2.next;
-          }
-          cur = cur.next;
-        } // while loop
-        lists[j] = dummy.next;
+      for (int i = 0, j = 0; i < size; i += 2, ++j) {
+        lists[j] = merge2(lists[i], i + 1 == size ? null : lists[i + 1]);
       }
+      size = (1 + size) / 2;
     }
     return lists[0];
+  }
+
+  private static ListNode merge2(final ListNode list1, final ListNode list2) {
+    if (list1 == null) return list2;
+    if (list2 == null) return list1;
+    final ListNode dummy = new ListNode(0);
+    ListNode cur1 = list1, cur2 = list2, cur = dummy;
+    while (cur1 != null || cur2 != null) {
+      if (cur1 == null || cur2 != null && cur1.val >= cur2.val) {
+        cur.next = cur2;
+        cur = cur.next;
+        cur2 = cur2.next;
+      } else {
+        cur.next = cur1;
+        cur = cur.next;
+        cur1 = cur1.next;
+      }
+    }
+    return dummy.next;
   }
 }
