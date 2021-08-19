@@ -1,12 +1,13 @@
 package airbnb._068_Text_Justification;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,24 +16,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 1/24/2019.
  */
 class SolutionTest {
-
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionProvider() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testOnlineCase2() {
-    final List<String> expected = List.of("Science  is  what we", "understand      well", "enough to explain to", "a  computer.  Art is", "everything  else  we", "do                  ");
-    final String[] input = {"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"};
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testOnlineCase2(Solution solution) {
+    final List<String> expected = List.of("Science  is  what we", "understand      well", "enough to explain to", "a " +
+        " computer.  Art is", "everything  else  we", "do                  ");
+    final String[] input = {"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a"
+        , "computer.", "Art", "is", "everything", "else", "we", "do"};
     final List<String> actual = solution.fullJustify(input, 20);
-    Assertions.assertEquals(expected, actual);
+    assertEquals(expected, actual);
   }
 
-  @Test
-  void testWithMissed() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithMissed(Solution solution) {
     String[] words = new String[]{"a", "b", "c", "d", "e"};
     List<String> output = new ArrayList<>();
     output.add("a b");
@@ -41,8 +45,9 @@ class SolutionTest {
     assertEquals(output, solution.fullJustify(words, 3));
   }
 
-  @Test
-  void testWithMissed2() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithMissed2(Solution solution) {
     String[] words = new String[]{"What", "must", "be", "shall", "be."};
     List<String> output = new ArrayList<>();
     output.add("What must be");
@@ -50,16 +55,18 @@ class SolutionTest {
     assertEquals(output, solution.fullJustify(words, 12));
   }
 
-  @Test
-  void testWithMissed4() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithMissed4(Solution solution) {
     String[] words = new String[]{""};
     List<String> output = new ArrayList<>();
     output.add("  ");
     assertEquals(output, solution.fullJustify(words, 2));
   }
 
-  @Test
-  void testWithMissed3() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithMissed3(Solution solution) {
     String[] words = new String[]{"a", "b", "c", "d", "e"};
     List<String> output = new ArrayList<>();
     output.add("a");
@@ -69,24 +76,27 @@ class SolutionTest {
     output.add("e");
   }
 
-  @Test
-  void testWithEmptyStringAndZeroLength() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithEmptyStringAndZeroLength(Solution solution) {
     String[] words = new String[]{""};
     List<String> output = new ArrayList<>();
     output.add("");
     assertEquals(output, solution.fullJustify(words, 0));
   }
 
-  @Test
-  void testWithWordEqualMax() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithWordEqualMax(Solution solution) {
     String[] words = new String[]{"a"};
     List<String> expected = new ArrayList<>();
     expected.add("a");
     assertEquals(expected, solution.fullJustify(words, 1));
   }
 
-  @Test
-  void testWithOnlineCase() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionProvider")
+  void testWithOnlineCase(Solution solution) {
     String[] words = new String[]{"This", "is", "an", "example", "of", "text", "justification."};
     List<String> output = Arrays.asList("This    is    an", "example  of text", "justification.  ");
     assertEquals(output, solution.fullJustify(words, 16));
@@ -98,7 +108,7 @@ class SolutionTest {
     final List<String> curLine = new ArrayList<>();
     curLine.add("justification.");
     assertEquals("justification.  ",
-        Solution.paddingToWidth(curLine, 16));
+        SolutionI.paddingToWidth(curLine, 16));
   }
 
   @Test
@@ -110,7 +120,7 @@ class SolutionTest {
     curLine.add("of");
     curLine.add("text");
     assertEquals(expected,
-        Solution.paddingToWidth(curLine, 16));
+        SolutionI.paddingToWidth(curLine, 16));
   }
 
   @Test
@@ -122,6 +132,6 @@ class SolutionTest {
     curLine.add("is");
     curLine.add("an");
     assertEquals(expected,
-        Solution.paddingToWidth(curLine, 16));
+        SolutionI.paddingToWidth(curLine, 16));
   }
 }
