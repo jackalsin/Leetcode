@@ -1,7 +1,9 @@
 package airbnb._190_Reverse_Bits;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,25 +13,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class SolutionTest {
 
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void test1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test1(Solution solution) {
     assertEquals(1 << 31, solution.reverseBits(1));
   }
 
-  @Test
-  void test() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test(Solution solution) {
     assertEquals(1 << 30, solution.reverseBits(2));
   }
 
-  @Test
-  void test2147483648() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test2147483648(Solution solution) {
     assertEquals(1, solution.reverseBits(0x80000000));
   }
 }
