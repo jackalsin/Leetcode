@@ -1,7 +1,9 @@
 package airbnb._198_House_Robber;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,40 +12,46 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 1/27/2019.
  */
 class SolutionTest {
-  private Solution solution;
 
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testEmpty() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testEmpty(Solution solution) {
     final int[] input = new int[]{};
     assertEquals(0, solution.rob(input));
   }
 
-  @Test
-  void testOne() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOne(Solution solution) {
     final int[] input = new int[]{1};
     assertEquals(1, solution.rob(input));
   }
 
-  @Test
-  void testTwo() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testTwo(Solution solution) {
     final int[] input = new int[]{1, 2};
     assertEquals(2, solution.rob(input));
   }
 
 
-  @Test
-  void testThree() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testThree(Solution solution) {
     final int[] input = new int[]{1, 2, 3};
     assertEquals(4, solution.rob(input));
   }
 
-  @Test
-  void test131() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test131(Solution solution) {
     final int[] input = new int[]{1, 3, 1};
     assertEquals(3, solution.rob(input));
   }
