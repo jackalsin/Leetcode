@@ -1,13 +1,14 @@
 package airbnb._212_Word_Search_II;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 1/27/2019.
  */
 class SolutionTest {
-  private Solution solution;
 
   private static final char[][] BOARD = new char[][]{
       {'o', 'a', 'a', 'n'},
@@ -30,32 +30,38 @@ class SolutionTest {
       {'a', 'a'}
   };
 
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testEmptyBoard() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testEmptyBoard(Solution solution) {
     assertEquals(new ArrayList<>(), solution.findWords(new char[][]{}, new String[]{"a"}));
   }
 
-  @Test
-  void testEmptyWords() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testEmptyWords(Solution solution) {
     assertEquals(new ArrayList<>(), solution.findWords(BOARD, new String[]{}));
   }
 
-  @Test
-  void testOnlineCase() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase(Solution solution) {
     final String[] words = new String[]{"oath", "pea", "eat", "rain"};
     List<String> expected = Arrays.asList("eat", "oath");
     List<String> actual = solution.findWords(BOARD, words);
-    assertEquals(expected.size(), actual.size());
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
   }
 
-  @Test
-  void testSingleCase() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testSingleCase(Solution solution) {
     final String[] words = new String[]{"a"};
     List<String> expected = Collections.singletonList("a");
     List<String> actual = solution.findWords(getBoard(words), words);
@@ -63,8 +69,26 @@ class SolutionTest {
     assertEquals(new HashSet<>(expected), new HashSet<>(actual));
   }
 
-  @Test
-  void testTLE() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFailedCase(Solution solution) {
+    final char[][] input = {
+        {'o', 'a', 'a', 'n'},
+        {'e', 't', 'a', 'e'},
+        {'i', 'h', 'k', 'r'},
+        {'i', 'f', 'l', 'v'}
+    };
+    final String[] words = {"oath", "pea", "eat", "rain", "oathi", "oathk", "oathf", "oate", "oathii", "oathfi",
+        "oathfii"};
+    List<String> expected = List.of("oath", "oathk", "oathf", "oathfi", "oathfii", "oathi", "oathii", "oate", "eat");
+    List<String> actual = solution.findWords(input, words);
+    assertEquals(new HashSet<>(expected), new HashSet<>(actual));
+    assertEquals(expected.size(), actual.size());
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testTLE(Solution solution) {
     String[] boardString = new String[]{"aaaa", "aaaa", "aaaa", "aaaa", "bcde", "fghi", "jklm", "nopq",
         "rstu", "vwxy", "zzzz"};
     String[] words = new String[]{"aaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaab", "aaaaaaaaaaaaaaac",
