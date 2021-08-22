@@ -1,7 +1,9 @@
 package airbnb._202_Happy_Number;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,20 +13,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @version 1.0 on 1/27/2019.
  */
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testIsHappy() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testIsHappy(Solution solution) {
     assertTrue(solution.isHappy(19));
   }
 
-  @Test
-  void test887() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test887(Solution solution) {
     assertFalse(solution.isHappy(887));
   }
 }
