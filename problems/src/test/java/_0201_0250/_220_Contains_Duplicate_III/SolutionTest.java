@@ -2,8 +2,10 @@ package _0201_0250._220_Contains_Duplicate_III;
 
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,71 +15,81 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @version 1.0 on 8/14/2017.
  */
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new BucketSolution(),
+        new TreeSetSolution()
+    );
   }
 
-  @Test
-  void testPositive() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testPositive(Solution solution) {
     final int[] input = new int[]{1, 5, 66, 5, 3};
     assertTrue(solution.containsNearbyAlmostDuplicate(input, 2, 2));
   }
 
 
-  @Test
-  void testNegativeT() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testNegativeT(Solution solution) {
     final int[] input = new int[]{1, 5, 1, 66, 5, 3};
     assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, 65));
   }
 
-  @Test
-  void testNegativeK() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testNegativeK(Solution solution) {
     final int[] input = new int[]{1, 10000, 66};
     assertFalse(solution.containsNearbyAlmostDuplicate(input, 1, 65));
   }
 
-  @Test
-  void test1And1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test1And1(Solution solution) {
     final int[] input = new int[]{1};
     assertFalse(solution.containsNearbyAlmostDuplicate(input, 1, 1));
   }
 
-  @Test
-  void test1And3And1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test1And3And1(Solution solution) {
     final int[] input = new int[]{1, 3, 1};
     assertTrue(solution.containsNearbyAlmostDuplicate(input, 2, 1));
   }
 
-  @Test
-  void testK0() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testK0(Solution solution) {
     final int[] input = new int[]{1, 2};
     assertFalse(solution.containsNearbyAlmostDuplicate(input, 0, 1));
   }
 
-  @Test
-  void testOverflow() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOverflow(Solution solution) {
     final int a = 2147483647;
     final int[] input = new int[]{0, a};
     assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, a));
   }
 
-  @Test
-  void testT0() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testT0(Solution solution) {
     final int[] input = new int[]{-1, -1};
     assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, 0));
   }
 
-  @Test
-  void testFailed() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFailed(Solution solution) {
     final int[] input = new int[]{2, 1};
     assertTrue(solution.containsNearbyAlmostDuplicate(input, 1, 1));
   }
 
-  @Test
-  void testFailed2() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFailed2(Solution solution) {
     final int[] input = new int[]{-1, 2147483647};
     Assertions.assertFalse(solution.containsNearbyAlmostDuplicate(input, 1, 2147483647));
   }
