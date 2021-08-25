@@ -1,8 +1,9 @@
 package airbnb._253_Meeting_Rooms_II;
 
-import definition.Interval;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,50 +12,52 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 3/14/2019.
  */
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testEmpty() {
-    Interval[] intervals = new Interval[]{};
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testEmpty(Solution solution) {
+    int[][] intervals = new int[][]{};
     assertEquals(0, solution.minMeetingRooms(intervals));
   }
 
-  @Test
-  void testOne() {
-    Interval[] intervals = new Interval[]{new Interval(2, 3)};
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOne(Solution solution) {
+    int[][] intervals = {{2, 3}};
     assertEquals(1, solution.minMeetingRooms(intervals));
   }
 
-  @Test
-  void testOnlineCase() {
-    Interval[] intervals = new Interval[]{new Interval(0, 30), new Interval(5, 10), new
-        Interval(15, 20)};
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase(Solution solution) {
+    int[][] intervals = {{0, 30}, {5, 10}, {15, 20}};
     assertEquals(2, solution.minMeetingRooms(intervals));
   }
 
-  @Test
-  void testOverlapEqual() {
-    Interval[] intervals = new Interval[]{new Interval(13, 15), new Interval(1, 13)};
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOverlapEqual(Solution solution) {
+    int[][] intervals = {{13, 15}, {1, 13}};
     assertEquals(1, solution.minMeetingRooms(intervals));
   }
 
-  @Test
-  void testOnline() {
-    Interval[] intervals = new Interval[]{new Interval(7, 10), new Interval(2, 4)};
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnline(Solution solution) {
+    int[][] intervals = {{7, 10}, {2, 4}};
     assertEquals(1, solution.minMeetingRooms(intervals));
   }
 
-  @Test
-  void testOnline5() {
-    Interval[] intervals = new Interval[]{
-        new Interval(13, 15), new Interval(1, 13),
-        new Interval(6, 9)
-    };
-    assertEquals(2, solution.minMeetingRooms(intervals));
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnline3(Solution solution) {
+    int[][] intervals = {{6, 17}, {8, 9}, {11, 12}, {6, 9}};
+    assertEquals(3, solution.minMeetingRooms(intervals));
   }
 }
