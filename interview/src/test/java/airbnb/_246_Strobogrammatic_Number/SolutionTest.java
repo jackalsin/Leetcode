@@ -1,7 +1,9 @@
 package airbnb._246_Strobogrammatic_Number;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,21 +13,23 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @version 1.0 on 1/30/2019.
  */
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void test6() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test6(Solution solution) {
     assertFalse(solution.isStrobogrammatic("6"));
     assertFalse(solution.isStrobogrammatic("2"));
   }
 
-  @Test
-  void test69() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void test69(Solution solution) {
     assertTrue(solution.isStrobogrammatic("69"));
     assertTrue(solution.isStrobogrammatic("88"));
     assertTrue(solution.isStrobogrammatic("818"));
