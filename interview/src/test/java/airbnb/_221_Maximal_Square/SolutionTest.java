@@ -1,8 +1,10 @@
 package airbnb._221_Maximal_Square;
 
 import definition.TwoDimensionArray;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,31 +13,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 1/31/2019.
  */
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testOnlineCase() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase(Solution solution) {
     final char[][] board = TwoDimensionArray.getCharBoard(new String[]{
         "10100", "10111", "11111", "10010"
     });
     assertEquals(4, solution.maximalSquare(board));
   }
 
-  @Test
-  void testOnlineCaseOFailed() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCaseOFailed(Solution solution) {
     final char[][] board = TwoDimensionArray.getCharBoard(new String[]{
         "1010", "1011", "1011", "1111"
     });
     assertEquals(4, solution.maximalSquare(board));
   }
 
-  @Test
-  void testFailed() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFailed(Solution solution) {
     final char[][] board = TwoDimensionArray.getCharBoard(new String[]{
         "10", "01", "01", "01", "11", "00", "01"
     });

@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class SolutionITest {
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test3Nodes(Solution solution) {
     final int[] input = {1, 2, 3};
     final TreeNode root = TreeNodes.getTreeLevelOrder(2, 1, 3);
@@ -26,7 +26,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void test2Nodes(Solution solution) {
     final int[] input = {1, 2};
     final Set<TreeNode> expectedSet = Set.of(
@@ -38,7 +38,7 @@ class SolutionITest {
   }
 
   @ParameterizedTest
-  @MethodSource("solutionProvider")
+  @MethodSource("solutionStream")
   public void testOnlineCase3(Solution solution) {
     final int[] input = {-10, -3, 0, 5, 9};
     final Set<TreeNode> expectedSet = Set.of(
@@ -49,7 +49,7 @@ class SolutionITest {
     assertTrue(expectedSet.contains(actual));
   }
 
-  static Stream<Solution> solutionProvider() {
+  static Stream<Solution> solutionStream() {
     return Stream.of(
         new SolutionI(),
         new SolutionII()
