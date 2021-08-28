@@ -7,5 +7,5 @@ import definition.binaryTree.TreeNode;
  * @version 1.0 on 8/25/2021
  */
 public interface Solution {
-  public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q);
+   TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q);
 }
