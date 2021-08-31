@@ -1,7 +1,9 @@
 package airbnb._415_Add_Strings;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,31 +12,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 2/9/2019.
  */
 class SolutionTest {
-
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(Solution solution) {
     assertEquals("0", solution.addStrings("0", "0"));
   }
 
-  @Test
-  void testOnlineCase2() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase2(Solution solution) {
     assertEquals("10", solution.addStrings("1", "9"));
   }
 
-  @Test
-  void testOnlineCase3() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase3(Solution solution) {
     assertEquals("77", solution.addStrings("33", "44"));
   }
 
-  @Test
-  void testOnlineCase4() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase4(Solution solution) {
     assertEquals("114", solution.addStrings("76", "38"));
   }
 
