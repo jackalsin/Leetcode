@@ -1,4 +1,4 @@
-package _0551_0600._591_Tag_Validator;
+package airbnb._591_Tag_Validator;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,14 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author jacka
- * @version 1.0 on 11/5/2017.
+ * @version 1.0 on 9/1/2021
  */
-public class SolutionTest {
-  static Stream<Solution> solutionStream() {
-    return Stream.of(
-        new Solution()
-    );
-  }
+class SolutionITest {
 
   @ParameterizedTest
   @MethodSource("solutionStream")
@@ -96,4 +91,23 @@ public class SolutionTest {
     assertFalse(solution.isValid(input));
   }
 
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testFailedCase3(Solution solution) {
+    final String input = "<A><A>456</A>  <A> 123  !!  <![CDATA[]]>  123 </A>   <A>123</A></A>";
+    assertTrue(solution.isValid(input));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  public void testFailedCase4(Solution solution) {
+    final String input = "<AAAAAAAAAA></AAAAAAAAAA>";
+    assertFalse(solution.isValid(input));
+  }
+
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI()
+    );
+  }
 }
