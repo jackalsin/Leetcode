@@ -1,10 +1,11 @@
 package airbnb._588_Design_In_Memory_File_System;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,15 +14,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0 on 3/2/2019.
  */
 class FileSystemTest {
-  private FileSystem solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new FileSystem();
+  static Stream<FileSystem> solutionStream() {
+    return Stream.of(
+        new FileSystemI(),
+        new FileSystemII()
+    );
   }
 
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(FileSystem solution) {
 //  ["FileSystem","ls","mkdir","addContentToFile","ls","readContentFromFile"]
 //  [[],          ["/"],["/a/b/c"],["/a/b/c/d","hello"],["/"],["/a/b/c/d"]]
 //[null,[],null,null,["a"],"hello"]
@@ -32,8 +34,9 @@ class FileSystemTest {
     assertEquals("hello", solution.readContentFromFile("/a/b/c/d"));
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase2(FileSystem solution) {
 //    ["FileSystem","ls","mkdir","ls"]
 //    [[],["/"],["/a/b/c"],["/a/b"]]
     assertEquals(new ArrayList<>(), solution.ls("/"));
@@ -41,8 +44,9 @@ class FileSystemTest {
     assertEquals(List.of("c"), solution.ls("/a/b"));
   }
 
-  @Test
-  void testOnlineCase3() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase3(FileSystem solution) {
 //["mkdir",       "ls",       "ls", "mkdir","ls","ls","addContentToFile",         "ls","ls",        "ls"]
 //[["/goowmfn"],["/goowmfn"],["/"],["/z"],["/"],["/"],["/goowmfn/c","shetopcy"],["/z"],["/goowmfn/c"],["/goowmfn"]]
     solution.mkdir("/goowmfn");
@@ -56,8 +60,9 @@ class FileSystemTest {
     assertEquals(List.of("c"), solution.ls("/goowmfn"));
   }
 
-  @Test
-  void testOnlineCase4() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase4(FileSystem solution) {
     //["FileSystem","ls","mkdir",     "ls",     "mkdir",   "ls"]
     //[[],          ["/"],["/a/b/c"], ["/a/b"], ["/a/b/a"],["/a/b"]]
     //[null,        [],   null,       ["c"],    null,      ["a","c"]]
@@ -68,11 +73,15 @@ class FileSystemTest {
     assertEquals(List.of("a", "c"), solution.ls("/a/b"));
   }
 
-  @Test
-  void testOnlineCase5() {
-    //["mkdir",     "ls",         "ls",      "mkdir", "ls",           "ls",           "addContentToFile",        "ls",  "ls",           "ls"]
-    //[["/goowmfn"],["/goowmfn"], ["/"],     ["/z"],  ["/"],          ["/"],          ["/goowmfn/c","shetopcy"],["/z"], ["/goowmfn/c"], ["/goowmfn"]]
-    //[null,        [],           ["goowmfn"],null,   ["goowmfn","z"],["goowmfn","z"],null,                     [],     ["c"],          ["c"]]
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase5(FileSystem solution) {
+    //["mkdir",     "ls",         "ls",      "mkdir", "ls",           "ls",           "addContentToFile",
+    // "ls",  "ls",           "ls"]
+    //[["/goowmfn"],["/goowmfn"], ["/"],     ["/z"],  ["/"],          ["/"],          ["/goowmfn/c","shetopcy"],
+    // ["/z"], ["/goowmfn/c"], ["/goowmfn"]]
+    //[null,        [],           ["goowmfn"],null,   ["goowmfn","z"],["goowmfn","z"],null,                     [],
+    // ["c"],          ["c"]]
     solution.mkdir("/goowmfn");
     assertEquals(List.of(), solution.ls("/goowmfn"));
     assertEquals(List.of("goowmfn"), solution.ls("/"));
