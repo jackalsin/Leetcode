@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public final class MNSolution {
+public final class MNSolution implements Solution {
   private int rows, cols;
   private String target;
   private static final int[][] DIRS = {

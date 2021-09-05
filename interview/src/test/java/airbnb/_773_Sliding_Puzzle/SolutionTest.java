@@ -1,7 +1,9 @@
 package airbnb._773_Sliding_Puzzle;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,15 +13,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class SolutionTest {
 
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() {
-    solution = new Solution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new SolutionI(),
+        new MNSolution(),
+        new SolutionII()
+    );
   }
 
-  @Test
-  void testOnlineCase1() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(Solution solution) {
     final int[][] board = {
         {1, 2, 3},
         {4, 0, 5}
@@ -27,8 +31,9 @@ class SolutionTest {
     assertEquals(1, solution.slidingPuzzle(board));
   }
 
-  @Test
-  void testOnlineCase2() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase2(Solution solution) {
     final int[][] board = {
         {1, 2, 3},
         {5, 4, 0}
@@ -36,8 +41,9 @@ class SolutionTest {
     assertEquals(-1, solution.slidingPuzzle(board));
   }
 
-  @Test
-  void testOnlineCase3() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase3(Solution solution) {
     final int[][] board = {
         {4, 1, 2},
         {5, 0, 3}
@@ -45,8 +51,9 @@ class SolutionTest {
     assertEquals(5, solution.slidingPuzzle(board));
   }
 
-  @Test
-  void testOnlineCase4() {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase4(Solution solution) {
     final int[][] board = {
         {3, 2, 4},
         {1, 5, 0}
