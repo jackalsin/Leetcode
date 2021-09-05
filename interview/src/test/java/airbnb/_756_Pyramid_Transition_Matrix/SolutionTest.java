@@ -1,9 +1,10 @@
 package airbnb._756_Pyramid_Transition_Matrix;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,15 +14,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @version 1.0 on 2/11/2019.
  */
 class SolutionTest {
-  private Solution solution;
-
-  @BeforeEach
-  void setUp() throws Exception {
-    solution = new NaiveSolution();
+  static Stream<Solution> solutionStream() {
+    return Stream.of(
+        new DpSolution(),
+        new NaiveSolution(),
+        new SolutionI()
+    );
   }
 
-  @Test
-  void testOnlineCase1() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase1(Solution solution) {
     final String bottom = "ABC";
     final List<String> allowed = List.of("ABD", "BCE", "DEF", "FFF");
     assertTrue(solution.pyramidTransition(bottom, allowed));
@@ -30,8 +33,9 @@ class SolutionTest {
   /**
    * This one check the G;
    */
-  @Test
-  void testOnlineCase2() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase2(Solution solution) {
     final String bottom = "CBEFGAD";
     final List<String> allowed = List.of("AAE", "GBG", "AAF", "AAA", "ACF", "AAC", "BGA", "BCD",
         "BCE",
@@ -49,8 +53,9 @@ class SolutionTest {
     assertFalse(solution.pyramidTransition(bottom, allowed));
   }
 
-  @Test
-  void testOnlineCase3() throws Exception {
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testOnlineCase3(Solution solution) {
     final String bottom = "BGGDGEFC";
     final List<String> allowed = List.of(
         "BGE", "AGE", "AGD", "CCD", "CCG", "EGF", "EGE", "CCB", "DCF", "GBF", "DCE", "DCB",
@@ -74,5 +79,17 @@ class SolutionTest {
         "DAD", "DAF", "DAC", "EAA", "EEA", "EAD", "EAF", "FAB", "FAC", "GAE", "FAA", "GAC", "GAA", "FAE",
         "ABA", "ABB", "ABE", "ABF", "EFE", "EBA", "CFG", "CFA", "GFC", "GFA", "GFF");
     assertFalse(solution.pyramidTransition(bottom, allowed));
+  }
+
+  @ParameterizedTest
+  @MethodSource("solutionStream")
+  void testFail(Solution solution) {
+    final String bottom = "CBDDA";
+    final List<String> allowed = List.of("ACC", "ACA", "AAB", "BCA",
+        "BCB", "BAC", "BAA", "CAC", "BDA", "CAA", "CCA",
+        "CCC", "CCB", "DAD", "CCD", "DAB", "ACD", "DCA",
+        "CAD", "CBB", "ABB", "ABC", "ABD", "BDB", "BBC", "BBA", "DDA",
+        "CDD", "CBC", "CBA", "CDA", "DBA", "ABA");
+    assertTrue(solution.pyramidTransition(bottom, allowed));
   }
 }
