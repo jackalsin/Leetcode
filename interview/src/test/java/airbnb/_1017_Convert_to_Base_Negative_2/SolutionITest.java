@@ -1,4 +1,4 @@
-package _1001_1050._1017_Convert_to_Base_2;
+package airbnb._1017_Convert_to_Base_Negative_2;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jacka
- * @version 1.0 on 10/18/2020
+ * @version 1.0 on 9/7/2021
  */
 class SolutionITest {
 
